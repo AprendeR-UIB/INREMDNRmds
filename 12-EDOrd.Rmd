@@ -1,0 +1,177 @@
+# Descripción de datos ordinales 
+
+Los **datos ordinales** son parecidos a los cualitativos, en el sentido de que son cualidades de objetos o individuos. Su diferencia con los datos cualitativos está en que las características que expresan los datos ordinales tienen un orden natural que permite **acumular**  observaciones, es decir, contar cuántas hay por debajo de cada nivel. Un caso frecuente son las escalas tipo *Likert*, que se usan para expresar el nivel de acuerdo o desacuerdo con una afirmación mediante respuestas cerradas.
+
+```{example, likert}
+En una encuesta sobre la actitud de personal sanitario frente al dolor (M. E. Zanolin *et al*, "A questionnaire to evaluate the knowledge and attitudes of health care providers on pain" *Journal of pain and symptom management* 33  (2007), pp. 727-736), se pidió el grado de conformidad con afirmaciones como
+
+9. Como los narcóticos pueden causar depresión respiratoria, no se han de usar en pacientes pediátricos
+
+12.  Es útil dar de entrada un placebo al paciente que se queja de dolor para saber si realmente siente dolor
+
+según la escala Likert siguiente:
+
+```
+
+```{r,echo=FALSE,label=tablalikert}
+DF=data.frame(Nivel=1:5,
+              Significado=c("Muy en desacuerdo","En desacuerdo","Neutral","De acuerdo","Muy de acuerdo"))
+knitr::kable(DF)
+```
+
+Las respuestas a este tipo de cuestionarios son números, pero no son datos cuantitativos, sino ordinales: meras abreviaturas de los diferentes grados de conformidad.
+
+
+Ppara más información sobre escalas Likert, podéis consultar  [la entrada de la Wikipedia sobre escalas Likert](http://es.wikipedia.org/wiki/Escalas_Likert).
+
+## Frecuencias y diagramas de barras
+
+Cuando trabajamos con datos ordinales, el orden de los niveles de los datos permite calcular no sólo las frecuencias absolutas y relativas que veíamos en la lección anterior, y que para variables ordinales se definen del mismo modo, sino también frecuencias **acumuladas**. Es decir, no sólo podemos contar cuántas veces hemos observado un cierto nivel, sino también cuántas veces hemos observado un nivel menor o igual que él. Por lo tanto, su descripción estadística es la misma que para datos cualitativos, más:
+
+* **Frecuencias absolutas acumuladas**: El número de veces  que aparece en la muestra un nivel menor o igual que el considerado 
+
+* **Frecuencias relativas acumuladas**: La fracción del total de la muestra que representan los niveles menores o iguales que el considerado
+
+De nuevo, estas frecuencias acumuladas se pueden recoger en una **tabla** y representar en forma de **diagrama de barras** (con los niveles ordenados en orden creciente).
+
+
+```{example ex1701bis}
+Tenemos una muestra de 20 estudiantes de quienes sabemos la calificación que han sacado en un examen. Clasificamos estas calificaciones en Suspenso (*S*), Aprobado (*A*), Notable (*N*) y Sobresaliente (*E*) y consideramos su orden natural *S* < *A* < *N* < *E*. Las calificaciones que han obtenido son las siguientes:
+  
+```
+
+<p style="text-align:center">*A*, *A*, *N*, *S*, *S*, *A*, *N*, *E*, *A*, *A*, *S*, *S*, *S*, *A*, *E*, *N*, *N*, *E*, *S*, *A*.</p> 
+  
+En esta lista hay 6 *S*, 7 *A*, 4 *N* y 3 *E*: éstas serían las frecuencias absolutas de las calificaciones en esta muestra de estudiantes. Por lo que se refiere a sus **frecuencias absolutas acumuladas**:
+
+* Hay 6 estudiantes que han obtenido *S* o menos: la frecuencia absoluta acumulada de *S* es 6.
+* Hay 13 estudiantes que han obtenido *A* o menos (6 *S* y 7 *A*): la frecuencia absoluta acumulada de *A* es 13.
+* Hay 17 estudiantes que han obtenido *N* o menos (6 *S*, 7 *A* y 4 *N*): la frecuencia absoluta acumulada de *N* es 17.
+* Hay 20 estudiantes que han obtenido *E* o menos (todos): la frecuencia absoluta acumulada de *E* es 20.
+
+La **frecuencia relativa acumulada**  de cada calificación es la fracción del total de estudiantes que representa su frecuencia absoluta acumulada: por ejemplo, la frecuencia relativa acumulada de notables es la proporción de estudiantes que han sacado  un notable o menos, y, por lo tanto, es igual a la frecuencia absoluta acumulada de *N* dividida por el número total de estudiantes. Así pues, para calcular las frecuencias relativas acumuladas de las calificaciones en esta muestra, tenemos que dividir sus frecuencias absolutas acumuladas entre 20:
+
+* *S*: 6/20=0.3
+* *A*: 13/20=0.65
+* *N*: 17/20=0.85
+* *E*:  20/20=1
+
+Resumimos estos valores en la tabla siguiente:
+
+```{r,echo=FALSE,label=tablanotas}
+DF=data.frame(FrecAbs=c(6,7,4,3),
+              FrecRel=c(0.3,0.35,0.2,0.15),
+              Percent=c("30%","35%","20%","15%"),
+              FrecAbsAcum=c(6,13,17,20),
+              FrecRelAcum=c(0.3,0.65,0.85,1),
+              Percentacum=c("30%","65%","85%","100%")
+)
+rownames(DF)=c("Suspenso","Aprobado","Notable","Sobresaliente")
+knitr::kable(DF,
+              caption='Tabla de frecuencias',
+             row.names=TRUE,
+             col.names=c("Frecuencia absoluta","Frecuencia relativa","Porcentaje","Frecuencia absoluta acumulada","Frecuencia relativa acumulada","Porcentaje acumulado"))
+```
+
+```{example,sexoger3}
+Todos los ancianos recogidos en la tabla de datos del Ejemplo \@ref(exm:sexoger2) fueron diagnosticados con COVID-19 entre marzo y mayo de 2020.  Vamos a ampliar dicha tabla de datos con información sobre la gravedad de su enfermedad, clasificada en cuatro niveles: Asintomática, Leve, Hospitalización (si requirió hospitalización pero no en UCI) y UCI.
+
+```
+
+La tabla de datos ampliada es la siguiente:
+
+```{r,echo=FALSE, tablager3,echo=FALSE}
+Sexo_Ger=c("Mujer","Mujer","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Hombre","Mujer","Hombre","Hombre","Mujer","Mujer","Hombre","Mujer","Mujer","Mujer","Mujer","Hombre")
+Demencia=c("No","Alzheimer","Alzheimer","Otros", "Alzheimer","Otros","No","Alzheimer","Otros","Otros","Alzheimer","Alzheimer","No","No","Alzheimer","No","No","No","Alzheimer","No")
+Cancer=c("No","Sí","No","No","No","Sí","No","No","No","Sí","No","No","No","No","No","Sí","No","No","No","No")
+Demencia=factor(Demencia,levels=c("Alzheimer","Otros","No"))
+COVID=c("Leve","UCI","Leve","Asintomática","Leve","Hospitalización","UCI","Leve","Leve","Leve","Leve","Hospitalización","Leve","Asintomática","Leve","Asintomática","Leve","Hospitalización","Hospitalización","Leve")
+COVID=ordered(COVID,levels=c("Asintomática", "Leve", "Hospitalización","UCI"))
+DFGer=data.frame(Sexo_Ger,Demencia,Cancer,COVID)
+names(DFGer)=c("Sexo","Demencia Senil","Cáncer de mama","COVID-19")
+kableExtra::kable(DFGer,
+              cap='Muestra de enfermos de COVID-19 una residencia geriátrica',
+             row.names=TRUE,booktabs=TRUE)
+```
+
+Entonces:
+
+* La tabla de frecuencias absolutas de la variable *COVID-19* es:
+```{r}
+kable(table(COVID))
+```
+
+* Su tabla de frecuencias relativas:
+```{r}
+kable(prop.table(table(COVID)))
+```
+
+* Su tabla de frecuencias absolutas acumuladas:
+```{r}
+kable(cumsum(table(COVID)))
+```
+
+* Su tabla de frecuencias relativas acumuladas:
+```{r}
+kable(cumsum(prop.table(table(COVID))))
+```
+
+* Un diagrama de barras de sus frecuencias absolutas acumuladas:
+
+```{r}
+barplot(cumsum(table(COVID)), ylim=c(0, 1), cex.names=0.75)
+```
+
+* Un diagrama de barras de sus frecuencias relativas acumuladas:
+
+```{r}
+barplot(cumsum(prop.table(table(COVID))), ylim=c(0, 1), cex.names=0.75)
+```
+
+* Su tabla de frecuencias relativas acumuladas dentro de cada nivel de demencia senil:
+
+```{r}
+kable(t(apply(prop.table(table(DFGer[,c(2,4)])), MARGIN=1, FUN=cumsum)))
+```
+
+* El diagrama de barras yuxtapuestas de esta  última tabla:
+
+```{r}
+Tabla=apply(prop.table(table(DFGer[,c(2,4)])), MARGIN=1, FUN=cumsum)
+barplot(Tabla, beside=TRUE, legend=TRUE,args.legend=list(x="topleft",cex=0.5))
+```
+
+
+## Ejercicios
+
+### Problemas {-}
+
+**(1)** Calculad la tabla bidimensional de frecuencias relativas acumuladas de los niveles de gravedad de la COVID-19 en cada sexo, y representad esta tabla por medio de un diagrama de barras yuxtapuestas adecuado.
+
+**(2)** En el estudio del Ejercicio 1 del Tema \@ref(chap:edqual), entre los 60 enfermos hubo 12  de 40 años o menos, 3  entre 41 y 50 años, 15  entre 51 y 60 años y 30 de más de 60 años, mientras que los que no presentaron la enfermedad fueron, en estas franjas de edad, 29, 21, 17 y 18, respectivamente. Dad:
+
+1. Un diagrama de barras bidimensional que muestre las frecuencias relativas de las diferentes franjas de edad en enfermos y en sanos
+
+2. Un diagrama de barras bidimensional que muestre las frecuencias relativas acumuladas de las diferentes franjas de edad en enfermos y en sanos}
+
+
+### Test {-}
+
+
+**(1)** ¿Cuál es el valor con mayor frecuencia relativa acumulada en un conjunto de datos ordinales?
+
+1. La moda del conjunto de datos.
+1. El relativamente más frecuente.
+1. El primer dato obtenido.  
+1. El último dato obtenido.  
+1. El mayor dato obtenido. 
+1. Ninguna de las respuestas anteriores es correcta.
+
+**(2)** A lo largo de un año se atendieron lesiones en la enfermería de un centro de secundaria con la siguiente distribución de gravedad: 26 muy leves, 28 leves, 15 moderadas, 8 graves y 3 muy graves. ¿Cuál es la frecuencia relativa acumulada del nivel de gravedad "Moderada"?
+
+1. 0.1875
+2. 0.8625 
+3. 0.325
+4. 0.2174
+5. 0.69
+

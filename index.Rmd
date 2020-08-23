@@ -1,0 +1,90 @@
+--- 
+title: "Bioestadística (Medicina UIB)"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: 
+   bookdown::html_book:
+    includes:
+      in_header: style.css
+documentclass: book
+#bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: AprendeR-UIB/INREMDN
+description: "Apunts Bioestadística per a Medicina bookdown::gitbook."
+---
+
+```{r global_options,  include=FALSE}
+library(knitr)
+library(kableExtra)
+library(pander)
+#library(xtable)
+knitr::opts_chunk$set(
+  fig.width=5, 
+ # out.width="50%",
+  fig.asp = 1,
+  fig.align="center", 
+  fig.show = "hold",
+  echo=TRUE, 
+  warning=FALSE, 
+  message=FALSE
+#  cache=TRUE
+#  tidy.opts=list(width.cutoff=60),
+#  tidy=TRUE
+)
+knitr::opts_knit$set(global.par=TRUE)
+options(knitr.graphics.auto_pdf=TRUE)
+```
+
+```{r,  include=FALSE}
+par(cex.main=0.9,cex.axis=0.8,cex.lab=0.8)
+```
+
+
+
+
+\renewcommand\chaptername{Tema}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+# Presentación {-}
+
+Esto es una edición en línea de los apuntes de *Introducción a la Investigación y Bioestadística* del grado de Medicina de la UIB. 
+
+El libro está escrito en *R Markdown*, usando *RStudio* como editor de textos y el paquete **bookdown** para convertir los ficheros *markdown* en un libro.
+
+Este trabajo se publica bajo licencia [Atribución-No Comercial-SinDerivados 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+Estos apuntes están en construcción. En la lista siguiente iremos anunciando las actualizaciones.
+
+
+
+
+**Significado de algunas cajas**:
+
+```{block2,type="rmdimportant"}
+Material muy importante.
+```
+
+```{block2,type="rmdcaution"}
+¡Cuidado!
+```
+```{block2,type="rmdexercici"}
+Ejercicio.
+```
+```{block2,type="rmdcorbes"}
+Detalles matemáticos que os pueden interesar, pero que podéis obviar sin ningún problema.
+```
+```{block2,type="rmdnote"}
+Comentario que queremos enfatizar.
+```
+```{block2,type="rmdrecordau"}
+Comentario que queremos que recordéis
+```
+```{block2,type="rmdromans"}
+Cuestión en la que queremos que caigáis en la cuenta.
+```
+```{block2,type="rmderrorpetit"}
+Acabamos de matar un gatito
+```
+

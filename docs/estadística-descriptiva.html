@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Tema 2 Estadística descriptiva | Bioestadística (Medicina UIB)</title>
+  <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Tema 2 Estadística descriptiva | Bioestadística (Medicina UIB)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tema 2 Estadística descriptiva | Bioestadística (Medicina UIB)" />
+  
+  <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2020-08-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estudios.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">INREMDN</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="estudios.html"><a href="estudios.html"><i class="fa fa-check"></i><b>1</b> Estudios</a><ul>
+<li class="chapter" data-level="1.1" data-path="estudios.html"><a href="estudios.html#tipos-de-estadística"><i class="fa fa-check"></i><b>1.1</b> Tipos de estadística</a></li>
+<li class="chapter" data-level="1.2" data-path="estudios.html"><a href="estudios.html#unidad-de-estudio"><i class="fa fa-check"></i><b>1.2</b> Unidad de estudio</a></li>
+<li class="chapter" data-level="1.3" data-path="estudios.html"><a href="estudios.html#población"><i class="fa fa-check"></i><b>1.3</b> Población</a></li>
+<li class="chapter" data-level="1.4" data-path="estudios.html"><a href="estudios.html#sesgos-básicos"><i class="fa fa-check"></i><b>1.4</b> Sesgos básicos</a></li>
+<li class="chapter" data-level="1.5" data-path="estudios.html"><a href="estudios.html#sec:muestreo"><i class="fa fa-check"></i><b>1.5</b> Tipos básicos de muestreo</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html"><i class="fa fa-check"></i><b>2</b> Estadística descriptiva</a><ul>
+<li class="chapter" data-level="2.1" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html#tipos-de-datos"><i class="fa fa-check"></i><b>2.1</b> Tipos de datos</a></li>
+<li class="chapter" data-level="2.2" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html#sec:edqual"><i class="fa fa-check"></i><b>2.2</b> Descripción de datos cualitativos</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html#sec:frecs"><i class="fa fa-check"></i><b>2.2.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html#gráficos"><i class="fa fa-check"></i><b>2.2.2</b> Gráficos</a></li>
+<li class="chapter" data-level="2.2.3" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html#tablas-de-frecuencias-multidimensionales"><i class="fa fa-check"></i><b>2.2.3</b> Tablas de frecuencias multidimensionales</a></li>
+<li class="chapter" data-level="2.2.4" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html#diagramas-de-barras-bidimensionales"><i class="fa fa-check"></i><b>2.2.4</b> Diagramas de barras bidimensionales</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html#otros-gráficos-para-datos-cualitativos"><i class="fa fa-check"></i><b>2.3</b> Otros gráficos para datos cualitativos</a></li>
+<li class="chapter" data-level="2.4" data-path="estadística-descriptiva.html"><a href="estadística-descriptiva.html#sec:exqual"><i class="fa fa-check"></i><b>2.4</b> Un ejemplo completo</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioestadística (Medicina UIB)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estadística-descriptiva" class="section level1">
+<h1><span class="header-section-number">Tema 2</span> Estadística descriptiva</h1>
+<p>En esta lección explicamos algunas técnicas básicas de estadística descriptiva. Estas técnicas consistirán en una serie de valores y gráficos que nos permitirán resumir y explorar un conjunto de datos, con el objetivo final de entenderlos lo mejor posible.</p>
+<div id="tipos-de-datos" class="section level2">
+<h2><span class="header-section-number">2.1</span> Tipos de datos</h2>
+<p>Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (<strong>variables</strong>) de una serie de individuos.
+Almacenamos estos datos en <strong>tablas de datos</strong> como la Tabla <a href="estadística-descriptiva.html#tab:tabla1">2.1</a>, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna las características que hemos anotado de estos niños: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, y el número semanal de refrescos que suele tomar.</p>
+<table>
+<caption>
+<span id="tab:tabla1">Tabla 2.1: </span>Una pequeña tabla de datos sobre niños
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Nombre
+</th>
+<th style="text-align:right;">
+Altura
+</th>
+<th style="text-align:right;">
+Hermanos
+</th>
+<th style="text-align:left;">
+Cabello
+</th>
+<th style="text-align:left;">
+Refrescos.Semana
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Marta
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+rubio
+</td>
+<td style="text-align:left;">
+2-3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Laura
+</td>
+<td style="text-align:right;">
+132
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+negro
+</td>
+<td style="text-align:left;">
+2-3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Xavier
+</td>
+<td style="text-align:right;">
+138
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+negro
+</td>
+<td style="text-align:left;">
+0-1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Joan
+</td>
+<td style="text-align:right;">
+141
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+castaño
+</td>
+<td style="text-align:left;">
+4-5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maria
+</td>
+<td style="text-align:right;">
+134
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+rojo
+</td>
+<td style="text-align:left;">
+0-1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maria
+</td>
+<td style="text-align:right;">
+136
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+castaño
+</td>
+<td style="text-align:left;">
+5 o más
+</td>
+</tr>
+</tbody>
+</table>
+<p>A su vez, estas tablas de datos se guardan en el ordenador en un archivo con un formato preestablecido: texto simple, hojas de cálculo en formato <em>Open Office</em> o <em>Excel</em>, etc.</p>
+<p>Los tipos básicos de datos que consideramos en este curso son los siguientes:</p>
+<ul>
+<li><p>Datos <strong>cualitativos</strong>. Son los que expresan una cualidad del individuo, tales como el sexo, el nombre, la especie… Si solo pueden tomar dos valores (por ejemplo “Sí” y “No”, o “Hombre” y “Mujer”) los llamamos <strong>dicotómicos</strong> y si pueden tomar más de dos valores, <strong>multicotómicos</strong>.</p>
+<p>Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación.</p></li>
+<li><p>Datos <strong>ordinales</strong>. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, …) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos.</p></li>
+<li><p>Datos <strong>cuantitativos</strong>. Son datos que se refieren a medidas que sean números genuinos, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos:</p>
+<ul>
+<li><p><strong>Discretos</strong>: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital…</p></li>
+<li><p><strong>Continuos</strong>: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo…</p></li>
+</ul></li>
+</ul>
+<p>El análisis, tanto descriptivo como inferencial, de un conjunto de datos es
+diferente según su tipo. Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas que evalúen numéricamente sus propiedades.</p>
+</div>
+<div id="sec:edqual" class="section level2">
+<h2><span class="header-section-number">2.2</span> Descripción de datos cualitativos</h2>
+<p>Los <strong>datos cualitativos</strong> corresponden a observaciones sobre cualidades de un objeto o individuo, tales como su especie o su sexo, que pueden ser iguales o diferentes, pero que no admiten ningún otro tipo de comparación significativa: por ejemplo, datos para los que no tenga ningún sentido preguntarse si uno es más grande que otro, ni efectuar operaciones aritméticas con ellos, aunque estén representados por números. Llamaremos <strong>niveles</strong> a los diferentes valores que puede tomar una variable cualitativa; por ejemplo, los dos niveles de una variable <em>Sexo</em> serían “Macho” y “Hembra”, o sinónimos.</p>
+<div id="sec:frecs" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Frecuencias</h3>
+<p>Lo único que podemos hacer con una variable cualitativa es contar cuántas veces aparece cada nivel y presentar estos resultados por medio de una tabla o un gráfico:</p>
+<ul>
+<li><p><strong>Frecuencia absoluta</strong> de un nivel: el número de veces que aparece en la variable</p></li>
+<li><p><strong>Frecuencia relativa</strong> de un nivel: la fracción del total de la variable que representa este nivel</p></li>
+</ul>
+<p>Además, llamaremos la <strong>moda</strong> al nivel (o a los niveles, en caso de empate) más frecuente. A veces usaremo adjetivos como <strong>unimodal</strong>, <strong>bimodal</strong>, <strong>multimodal</strong> etc. para referirnos, respectivamente, a una variable con una sola moda, con dos modas, con “varias” modas, etc.</p>
+<p style="text-align:center">
+Mujer, Mujer, Hombre, Mujer, Mujer, Mujer, Mujer, Mujer, Hombre, Mujer
+Hombre, Hombre, Mujer, Mujer, Hombre, Mujer, Mujer, Mujer, Mujer, Hombre.
+</p>
+<p>Sus dos niveles son <em>Hombre</em> y <em>Mujer</em>. En esta variable hay 14 mujeres y 6 hombres. Por lo tanto, éstas son las frecuencias absolutas de estos niveles. Puesto que en total hay 20 individuos, sus frecuencias relativas son:</p>
+<ul>
+<li><p><em>Hombre</em>: 6/20=0.3</p></li>
+<li><p><em>Mujer</em>: 14/20=0.7</p></li>
+</ul>
+<p>Resumimos estos valores en la <strong>tabla de frecuencias</strong> siguiente:</p>
+<table>
+<caption>
+<span id="tab:tabla2">Tabla 2.2: </span>Tabla de frecuencias
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Frecuencia absoluta
+</th>
+<th style="text-align:right;">
+Frecuencia relativa
+</th>
+<th style="text-align:left;">
+Porcentaje
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:left;">
+30%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+0.7
+</td>
+<td style="text-align:left;">
+70%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:left;">
+100%
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="gráficos" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Gráficos</h3>
+<p>Podemos representar una tabla como la anterior mediante un <strong>diagrama de barras</strong>, en el que para cada nivel dibujemos una barra cuya altura represente su frecuencia (absoluta o relativa):</p>
+<p><img src="INREMDN_files/figure-html/barplot1abs-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/barplot1rel-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Un tipo muy popular de representación gráfica de variables cualitativas son los <strong>diagramas circulares</strong> (o <strong>diagramas de quesitos</strong>), donde se representan los niveles de una variable cualitativa como sectores circulares de un círculo, de manera que el ángulo (o equivalentemente, el área) de cada sector sea proporcional a la frecuencia del nivel al que corresponde. El diagrama circular de la variable dicotómica Sexo sería el siguiente:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Pese a su popularidad, es poco recomendable usar diagramas circulares cuando manejamos más de dos niveles, porque a veces es difícil, a simple vista, comprender las relaciones entre las frecuencias que representan. Para convencerse, basta comparar los diagramas de barras y los diagramas circulares de la Figura <a href="estadística-descriptiva.html#fig:wiki">2.1</a> (extraída de la
+<a href="http://en.wikipedia.org/wiki/Pie_chart">entrada sobre diagramas circulares de la <em>Wikipedia</em></a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:wiki"></span>
+<img src="INREMDN_files/figure-html/wikipc.png" alt="Diagramas de barras *versus* diagramas circulares." width="344" />
+<p class="caption">
+Figura 2.1: Diagramas de barras <em>versus</em> diagramas circulares.
+</p>
+</div>
+<p>Algunos programas ofrecen la posibilidad de dibujar diagramas circulares tridimensionales como el siguiente:</p>
+<div class="figure" style="text-align: center"><span id="fig:wiki3d"></span>
+<img src="INREMDN_files/figure-html/3dpiechart.png" alt="Diagramas de barras *versus* diagramas circulares." width="75%" />
+<p class="caption">
+Figura 2.2: Diagramas de barras <em>versus</em> diagramas circulares.
+</p>
+</div>
+<p>Estos diagramas quedan muy bonitos, pero son aún peores que los diagramas circulares planos, puesto que la perspectiva deforma las áreas. A simple vista, ¿qué frecuencia es mayor: la del nivel representado por el color azul oscuro, o por el correspondiente al verde claro?</p>
+<p>Un gráfico ha de servir más que mil palabras, y tiene que explicar de un vistazo las características más relevantes de los datos que representa. Luego ya se pueden añadir detalles que complementen esta primera comprensión básica. En el caso de un diagrama de barras, su objetivo ha de ser poder comprender la relación entre las magnitudes de las frecuencias de los diferentes niveles; si nos interesan sus valores concretos, es mejor dar la tabla. Por ejemplo, en los diagramas de barras de la variable <em>Sexo</em> dados más arriba se ve a simple vista que hay aproximadamente el doble de mujeres que de hombres.</p>
+<p>Por ese motivo es un pecado modificar un gráfico para que el primer vistazo sea engañoso. En un diagrama de barras, la adulteración más usual, y ante la que hay que estar atentos, es <strong>truncarlo</strong> de manera que el eje de ordenadas no arranque en el 0. Mirad, por ejemplo, el diagrama de barras siguiente:</p>
+<p><img src="INREMDN_files/figure-html/barplot1trunc-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Sigue indicando que en la muestra hay un 30% de hombres y un 70% de mujeres, pero si le dáis un vistazo superficial, sin mirar las marcas del eje de ordenadas, parece que la proporción de mujeres es cinco veces la de los hombres.
+Trade
+Es muy frecuente encontrar diagramas de barras (u otros tipos de gráficos) truncados en medios de comunicación. Por ejemplo mirad el gráfico siguiente representando las medias estatales de horas de trabajo de los empleados a tiempo completo en los países de la Unión Europea en 2013 según <em>Eurostat</em> (y extraído en su momento del sitio web de <a href="https://www.gtai.de/GTAI/Navigation/EN/invest,t=motivated-and-dependable-employees,did=214428.html">German Trade &amp; Invest</a>):</p>
+<p><img src="INREMDN_files/figure-html/german1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>A simple vista, si mirar los números, parece que en Alemania (barra amarilla) se trabajan bastante más horas que la media europea (barra gris oscura), justamente el mensaje que quiere hacernos llegar una organización cuyo objetivo es el fomento de la inversión en Alemania. Pero si luego miráis los números, la diferencia es de 40.4 horas contra 39.5, menos de 1 hora sobre unas 40. El diagrama de barras sin truncar sería el siguiente:</p>
+<p><img src="INREMDN_files/figure-html/german2.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Per claro, este ya no incita tanto a la inversión en la trabajadora Alemania.</p>
+<p>No podemos dejar este asunto sin la siguiente obra maestra de los diagramas de barra truncados:</p>
+<p><img src="INREMDN_files/figure-html/vene1.png" width="75%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tablas-de-frecuencias-multidimensionales" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Tablas de frecuencias multidimensionales</h3>
+<p>Cuando medimos más de una variable cualitativa sobre un mismo grupo de individuos, usamos <strong>tablas de contingencia</strong> con sus frecuencias absolutas o relativas.</p>
+La tabla de datos es la siguiente:
+<table>
+<caption>
+<span id="tab:unnamed-chunk-22">Tabla 2.3: </span>Muestra de una residencia geriátrica
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Sexo
+</th>
+<th style="text-align:left;">
+Demencia Senil
+</th>
+<th style="text-align:left;">
+Cáncer de mama
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+Sí
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:left;">
+Sí
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:left;">
+Sí
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Sí
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+</tr>
+</tbody>
+</table>
+<p>La tabla bidimensional de frecuencias absolutas de las variables <em>Sexo</em> y <em>Demencia senil</em> es:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Alzheimer
+</th>
+<th style="text-align:right;">
+No
+</th>
+<th style="text-align:right;">
+Otros
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
+<!--
+$$
+\begin{array}{lrrr}
+& \text{Alzheimer} & \text{Otros} & \text{No} \\
+\text{Hombre} & 4 & 1 & 1\\
+\text{Mujer} & 4 & 3 & 7
+\end{array}
+$$
+-->
+<p>y la tabla tridimensional de frecuencias absolutas de las tres variables es:</p>
+<table style="width:74%;">
+<colgroup>
+<col width="12%" />
+<col width="23%" />
+<col width="23%" />
+<col width="6%" />
+<col width="6%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td align="center">Cáncer de mama</td>
+<td align="center">No</td>
+<td align="center">Sí</td>
+</tr>
+<tr class="even">
+<td>Sexo</td>
+<td>Demencia Senil</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td>Hombre</td>
+<td>Alzheimer</td>
+<td align="center"></td>
+<td align="center">4</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>No</td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Otros</td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td>Mujer</td>
+<td>Alzheimer</td>
+<td align="center"></td>
+<td align="center">3</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>No</td>
+<td align="center"></td>
+<td align="center">6</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Otros</td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+</tbody>
+</table>
+<!--
+\blue{3 variables}  (\blue{tridimensionales}):
+$$
+\begin{array}{l}
+\hphantom{DemenciaAAAAAAA1.} \text{Sexo:} \hphantom{A1} \textbf{Hombre} \hphantom{AA.}  \textbf{Mujer}\\
+\begin{array}{lrcccc}
+& \text{Cáncer de mama:} &\ \textbf{Sí}\ &\ \textbf{No}\ &\ \textbf{Sí}\ &\ \textbf{No}\\
+\text{Demencia} & \textbf{Alzheimer} & 0 & 4 & 1 & 3\\ 
+\text{senil:} & \textbf{Otros} & 0 & 1 & 2 &  1\\ 
+& \textbf{No} & 0 & 1 & 1 & 6
+\end{array}
+\end{array}
+$$
+
+-->
+<p>A menudo es conveniente añadir a una tabla de contingencia de frecuencias absolutas, filas y columnas <strong>marginales</strong> (en los márgenes) con las frecuencias totales de cada nivel dentro de cada variable:</p>
+<table style="width:64%;">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="6%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Alzheimer</th>
+<th align="center">No</th>
+<th align="center">Otros</th>
+<th align="center">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Hombre</strong></td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">6</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Mujer</strong></td>
+<td align="center">4</td>
+<td align="center">7</td>
+<td align="center">3</td>
+<td align="center">14</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Total</strong></td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="center">4</td>
+<td align="center">20</td>
+</tr>
+</tbody>
+</table>
+<p>Las tablas multidimensionales de frecuencias relativas son algo más complicadas porque dichas frecuencias relativas se pueden calcular en el total de la muestra (las llamamos frecuencias relativas <strong>globales</strong>) o dentro de los niveles de una variable (por filas o por columnas, en el caso bidimensional; las llamamos frecuencias relativas <strong>marginales</strong>). Por ejemplo:</p>
+<ul>
+<li>Tabla de frecuencias relativas globales de las variables <em>Sexo</em> y <em>Demencia senil</em>:</li>
+</ul>
+<table style="width:56%;">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="9%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Alzheimer</th>
+<th align="center">No</th>
+<th align="center">Otros</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Hombre</strong></td>
+<td align="center">0.2</td>
+<td align="center">0.05</td>
+<td align="center">0.05</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Mujer</strong></td>
+<td align="center">0.2</td>
+<td align="center">0.35</td>
+<td align="center">0.15</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Tabla de frecuencias relativas marginales de la variable <em>Demencia senil</em> dentro de la variable <em>Sexo</em>:</li>
+</ul>
+<table style="width:60%;">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Alzheimer</th>
+<th align="center">No</th>
+<th align="center">Otros</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Hombre</strong></td>
+<td align="center">0.6667</td>
+<td align="center">0.1667</td>
+<td align="center">0.1667</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Mujer</strong></td>
+<td align="center">0.2857</td>
+<td align="center">0.5</td>
+<td align="center">0.2143</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Tabla de frecuencias relativas marginales de la variable <em>Sexo</em> dentro de la variable <em>Demencia senil</em>:</li>
+</ul>
+<table style="width:57%;">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Alzheimer</th>
+<th align="center">No</th>
+<th align="center">Otros</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Hombre</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.125</td>
+<td align="center">0.25</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Mujer</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.875</td>
+<td align="center">0.75</td>
+</tr>
+</tbody>
+</table>
+<p>De esta manera, por ejemplo:</p>
+<ul>
+<li><p>La entrada superior izquierda de la primera tabla nos dice que los hombres con Alzheimer reprentan el 20% del total de la muestra</p></li>
+<li><p>La entrada superior izquierda de la segunda tabla nos dice que los hombres con Alzheimer reprentan el 66.67% de los hombres de la muestra</p></li>
+<li><p>La entrada superior izquierda de la tercera tabla nos dice que los hombres con Alzheimer reprentan el 50% de los enfermos de Alzheimer de la muestra.</p>
+<p>Cell Contents
+|————————-|
+| N |
+| N / Row Total |
+| N / Col Total |
+| N / Table Total |
+|————————-|</p></li>
+</ul>
+<p>Total Observations in Table: 20</p>
+<pre><code>      | DFGer[, 2] </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>DFGer[, 1]</th>
+<th>Alzheimer</th>
+<th>No</th>
+<th>Otros</th>
+<th>Row Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hombre</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>0.667</td>
+<td>0.167</td>
+<td>0.167</td>
+<td>0.300</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.500</td>
+<td>0.125</td>
+<td>0.250</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0.200</td>
+<td>0.050</td>
+<td>0.050</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>————-</td>
+<td>———–</td>
+<td>———–</td>
+<td>———–</td>
+<td>———–</td>
+</tr>
+<tr class="even">
+<td>Mujer</td>
+<td>4</td>
+<td>7</td>
+<td>3</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>0.286</td>
+<td>0.500</td>
+<td>0.214</td>
+<td>0.700</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0.500</td>
+<td>0.875</td>
+<td>0.750</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.200</td>
+<td>0.350</td>
+<td>0.150</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>————-</td>
+<td>———–</td>
+<td>———–</td>
+<td>———–</td>
+<td>———–</td>
+</tr>
+<tr class="odd">
+<td>Column Total</td>
+<td>8</td>
+<td>8</td>
+<td>4</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>0.400</td>
+<td>0.400</td>
+<td>0.200</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>————-</td>
+<td>———–</td>
+<td>———–</td>
+<td>———–</td>
+<td>———–</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>t</strong>:</p>
+<table style="width:53%;">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="6%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Alzheimer</th>
+<th align="center">No</th>
+<th align="center">Otros</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Hombre</strong></td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Mujer</strong></td>
+<td align="center">4</td>
+<td align="center">7</td>
+<td align="center">3</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>prop.row</strong>:</p>
+<table style="width:60%;">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Alzheimer</th>
+<th align="center">No</th>
+<th align="center">Otros</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Hombre</strong></td>
+<td align="center">0.6667</td>
+<td align="center">0.1667</td>
+<td align="center">0.1667</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Mujer</strong></td>
+<td align="center">0.2857</td>
+<td align="center">0.5</td>
+<td align="center">0.2143</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>prop.col</strong>:</p>
+<table style="width:57%;">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Alzheimer</th>
+<th align="center">No</th>
+<th align="center">Otros</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Hombre</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.125</td>
+<td align="center">0.25</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Mujer</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.875</td>
+<td align="center">0.75</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>prop.tbl</strong>:</p>
+<table style="width:56%;">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="9%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Alzheimer</th>
+<th align="center">No</th>
+<th align="center">Otros</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Hombre</strong></td>
+<td align="center">0.2</td>
+<td align="center">0.05</td>
+<td align="center">0.05</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Mujer</strong></td>
+<td align="center">0.2</td>
+<td align="center">0.35</td>
+<td align="center">0.15</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul>
+<!-- end of list -->
+</div>
+<div id="diagramas-de-barras-bidimensionales" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> Diagramas de barras bidimensionales</h3>
+<!--
+
+\begin{frame}
+\frametitle{Varias variables cualitativas}
+Una tabla bidimensional se suele representar mediante un diagrama de barras bidimensional:
+$$
+\hspace*{-0.8cm}\begin{array}{cc}
+\includegraphics[width=0.54\linewidth]{barplotalc1}&
+\includegraphics[width=0.54\linewidth]{barplotalc2}
+\end{array}
+$$
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Varias variables cualitativas}\vspace*{-2ex}
+
+Una tabla tridimensional se suele representar mediante un \red{diagrama de mosaico}:
+
+
+$$
+{\footnotesize \begin{array}{|l|c|c|c|c|c|}
+\hline
+ & Sexo: & \multicolumn{2}{|c|}{\bf Mujeres} &
+\multicolumn{2}{|c|}{\bf Hombres}\\ \cline{2-6}
+& Alzheimer: & Sí & No & Sí & No\\ \hline
+Cáncer de & Sí & 2 & 6 & 3 & 7\\ \cline{2-6}
+colon & No & 8 & 84 & 17 & 73\\ \hline
+\end{array}
+
+}
+
+\includegraphics[width=0.6\linewidth]{mosaic}
+$$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicio}\vspace*{-2ex}
+
+\blue{En un estudio transversal sobre 145 sujetos, 75 hombres y  70 mujeres, 
+40 hombres y 20 mujeres presentaron una determinada enfermedad. Representad estos datos en un diagrama de barras bidimensional de frecuencias relativas que muestre las proporciones de enfermos y sanos en cada sexo.}
+
+$$
+\only<2>{
+\begin{array}{|l|c|c|c|}\cline{2-4}
+ \multicolumn{1}{c|}{ }& Hombre & Mujer & {Total}\\ \hline
+Enf. & 40 & 20 & 60 \\\hline
+No enf. & 35 &  50 & 85\\ \hline
+{Total} & 75 & 70 & 145\\ \hline
+\end{array}}
+\only<3>{
+\begin{array}{|l|c|c|}\cline{2-3}
+ \multicolumn{1}{c|}{ }& Hombre & Mujer \\ \hline
+Enf. & 0.53 & 0.29  \\\hline
+No enf. & 0.47 & 0.71\\ \hline
+{Total} & 1 & 1 \\ \hline
+\end{array}}
+\only<4>{
+\includegraphics[width=0.6\linewidth]{apnea1}
+}
+
+$$
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicio}
+
+Para comparar el alcance del alcoholismo en Barcelona y en Palma, ¿qué es más adecuado usar?
+\begin{enumerate}[(a)]
+\item Las frecuencias absolutas de alcohólicos en Palma y en Barcelona
+\item Las frecuencias relativas de alcohólicos en Palma y en Barcelona \only<2>{{\Large\red \checkmark}}
+\item Las frecuencias relativas de palmesanos y de barceloneses entre los alcohólicos españoles
+\item Las frecuencias relativas de palmesanos alcohólicos y de barceloneses alcohólicos en el total de los españoles
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicio}
+ ¿De qué tipo es la siguiente tabla de contingencia?
+$$
+\begin{array}{ll|cc}
+ & & \multicolumn{2}{c}{\bf Propiedad X} \\
+& & Sí & No  \\ \hline
+\bf Propiedad & Sí & 0.23 & 0.36\\
+\bf Y & No & 0.17 & 0.24\\ \hline
+\end{array}
+$$
+\begin{enumerate}[(a)]\setlength\itemsep{0 ex}
+\item De frecuencias absolutas.
+\item  De frecuencias relativas por columnas.  
+\item De frecuencias relativas por filas.
+\item  De frecuencias relativas globales.\only<2>{{\Large\red \checkmark}}
+\item  No podemos saberlo sin conocer la fila y la columna marginales.
+\end{enumerate}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicio} 
+
+Considerad la tabla siguiente de frecuencias absolutas:
+$$
+\begin{array}{ll|cc}
+ & & \multicolumn{2}{c}{\bf Propiedad X} \\
+& & Sí & No  \\ \hline
+\bf Propiedad & Sí & 56 & 35\\
+\bf Y & No & 28 & 90\\ \hline
+\end{array}
+$$
+¿Cuál es la frecuencia relativa de los individuos con Propiedad X entre los que NO  tienen la propiedad Y?
+\begin{enumerate}[(a)]\setlength\itemsep{0 ex}
+\item 28\%
+\item  23.7\% \only<2>{{\Large\red \checkmark}}
+\item 33.3\%
+\item  13.4\%
+\item  31.1\%
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicio} 
+
+Se realiza un estudio sobre lesiones en extremidades en infantes. Una de las variables estudiadas es la extremidad lesionada. ¿De qué tipo de datos es esta variable?  (marcad una sola respuesta):
+\begin{enumerate}[(a)]\setlength\itemsep{0 ex}
+\item Cuantitativos continuos.
+\item  Ordinales.
+\item  Cuantitativos discretos.
+\item Cualitativos dicotómicos. 
+\item Cualitativos multicotómicos. \only<2>{{\Large\red \checkmark}}
+\item  Anatómicos.
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+## Tablas unidimensionales de frecuencias
+
+Supongamos que tenemos una variable cualitativa guardada en un vector o un factor (para simplificar, en lo que queda de sección, diremos  **vector**  para referirnos genéricamente tanto a un vector como a un factor). Por ejemplo:
+
+
+```
+##  [1] 3 2 5 1 3 1 5 6 2 2 2 1 3 5 2
+```
+
+```
+## [1] No No Sí No Sí No No Sí
+## Levels: No Sí
+```
+
+
+Con R, la **tabla de frecuencias absolutas**  de un vector que representa una variable cualitativa se calcula con la función `table`. En nuestros ejemplos:
+
+
+```
+## x
+## 1 2 3 5 6 
+## 3 5 3 3 1
+```
+
+```
+## Respuestas
+## No Sí 
+##  5  3
+```
+
+
+El resultado de una función `table` es un objeto de datos  de un tipo nuevo: una **tabla de contingencia**, una *table* en el argot de R. Como vemos, al aplicar `table` a un vector obtenemos una tabla unidimensional formada por una fila con los niveles  de la variable y una segunda fila donde, debajo de cada nivel, aparece su frecuencia absoluta en el vector. 
+
+Los nombres de las columnas de una tabla unidimensional se obtienen con la función `names`.
+
+
+```
+## [1] "1" "2" "3" "5" "6"
+```
+
+```
+## [1] "No" "Sí"
+```
+
+
+Habréis observado que en la  `table`  de un vector sólo aparecen los nombres de los niveles presentes en el vector.  Si el tipo de datos cualitativos usado tenía más niveles y queremos que aparezcan explícitamente en la tabla (con frecuencia 0), hay que transformar el vector en un factor con los niveles deseados.
+
+
+
+```
+##  [1] 3 2 5 1 3 1 5 6 2 2 2 1 3 5 2
+## Levels: 1 2 3 4 5 6 7
+```
+
+```
+## z
+## 1 2 3 4 5 6 7 
+## 3 5 3 0 3 1 0
+```
+
+
+A efectos prácticos, podemos pensar que una tabla unidimensional es como un vector de números donde cada entrada está identificada por un nombre: el de su columna. Para referirnos a una entrada de una tabla unidimensional, podemos usar tanto su posición como su nombre (entre comillas, aunque sea un número). Veamos algunos ejemplos.
+
+* La cuarta columna de `table(x)`:
+
+```
+## 5 
+## 3
+```
+* La columna de `table(x)` correspondiente al nivel 5:
+
+```
+## 5 
+## 3
+```
+* El triple de la segunda columna de `table(x)`:
+
+```
+##  2 
+## 15
+```
+
+
+Las tablas de contingencia aceptan la mayoría de las funciones explicadas para vectores. Por ejemplo:
+
+* Suma de las entradas de `table(x)`:
+
+```
+## [1] 15
+```
+* Raíces cuadradas de las entradas de `table(Respuestas)`:
+
+```
+## Respuestas
+##       No       Sí 
+## 2.236068 1.732051
+```
+
+
+La **tabla de frecuencias relativas**  de un vector se puede calcular aplicando la función `prop.table` a su `table`. El resultado vuelve a ser una tabla de contingencia unidimensional.
+
+
+```
+## x
+##          1          2          3          5          6 
+## 0.20000000 0.33333333 0.20000000 0.20000000 0.06666667
+```
+
+```
+## Respuestas
+##    No    Sí 
+## 0.625 0.375
+```
+
+
+**¡Atención!** La función `prop.table`  se tiene que aplicar al resultado de `table`, no al vector original. Si aplicamos  `prop.table`  a un vector de palabras o a un factor, dará un error, pero si la aplicamos a un vector de números, nos dará una tabla. Esta tabla *no es la tabla de frecuencias relativas*  de la variable cualitativa representada por el vector, sino la de una variable que tuviera como tabla de frecuencias absolutas este vector de números, entendiendo que cada entrada del vector representa  la frecuencia de un nivel diferente. Por ejemplo, aplicando `prop.table` a nuestro vector `x` obtenemos:
+
+```
+##  [1] 0.06976744 0.04651163 0.11627907 0.02325581 0.06976744 0.02325581
+##  [7] 0.11627907 0.13953488 0.04651163 0.04651163 0.04651163 0.02325581
+## [13] 0.06976744 0.11627907 0.04651163
+```
+que no es la tabla de frecuencias relativas de `x`. Veamos otro ejemplo aun más evidente:
+
+```
+## X
+## 1 
+## 1
+```
+
+```
+## [1] 0.3333333 0.3333333 0.3333333
+```
+
+
+También podemos calcular la tabla de frecuencias relativas de un vector dividiendo el resultado de `table` por el número de observaciones.
+
+
+```
+## x
+##          1          2          3          5          6 
+## 0.20000000 0.33333333 0.20000000 0.20000000 0.06666667
+```
+
+```
+## x
+##          1          2          3          5          6 
+## 0.20000000 0.33333333 0.20000000 0.20000000 0.06666667
+```
+
+Dados un vector `x`  y un número natural *n*, la instrucción
+
+
+
+nos da los niveles de `x` que tienen frecuencia absoluta *n*.
+
+
+```
+## x
+## 1 2 3 5 6 
+## 3 5 3 3 1
+```
+
+```
+## [1] "1" "3" "5"
+```
+
+```
+## character(0)
+```
+
+
+En particular, por lo tanto,
+
+
+
+nos da los niveles de frecuencia máxima en `x`: su **moda**.
+
+
+```
+## [1] "2"
+```
+
+```
+## [1] "No"
+```
+
+
+
+
+
+
+```
+## Sexo_Ger
+## Hombre  Mujer 
+##      6     14
+```
+
+```
+## Sexo_Ger
+## Hombre  Mujer 
+##    0.3    0.7
+```
+
+```
+## [1] "Mujer"
+```
+
+
+
+## Tablas bidimensionales de frecuencias
+
+ La función `table` también permite construir tablas de frecuencias conjuntas de dos o más variables. A modo de ejemplo, supongamos que el vector `Respuestas`, de la sección anterior, contiene las respuestas a una pregunta dadas por unos individuos cuyos sexos tenemos almacenados en un vector  `Sexo`,  en el mismo orden que sus respuestas. En este caso, podemos construir una tabla que nos diga cuántos individuos de cada sexo han dado cada respuesta.
+
+
+```
+##           Sexo
+## Respuestas H M
+##         No 3 2
+##         Sí 2 1
+```
+
+```
+##     Respuestas
+## Sexo No Sí
+##    H  3  2
+##    M  2  1
+```
+El resultado es, en ambos casos, una tabla de contingencia como antes, pero ahora **bidimensional**, puesto que cada entrada tiene dos dimensiones, una por cada variable, como en una matriz.
+
+Como podemos ver, en una tabla bidimensional producida aplicando `table` a dos vectores, los niveles del primer vector  en el argumento definen las filas, y los del segundo, las columnas.  Así, en `table(Respuestas,Sexo)`, las filas corresponden a las respuestas y las columnas a los sexos.
+Para intercambiar filas por columnas, es decir, para "trasponer" la tabla sin tener que recalcularla, podemos usar la misma función `t` que usamos para trasponer matrices:
+
+
+```
+##     Respuestas
+## Sexo No Sí
+##    H  3  2
+##    M  2  1
+```
+
+
+En la práctica, tenéis que decidir si alguna de las asignaciones de variables a dimensiones es más conveniente que la otra. Por ejemplo, y teniendo en cuenta que nuestra manera natural de leer una tabla es por filas, si lo que nos interesa son las frecuencias de las respuestas entre las personas de cada sexo, seguramente lo más adecuado será elegir el sexo como variable para las filas.
+
+
+
+
+Para referirnos a una entrada de una tabla bidimensional podemos usar corchetes como si estuviéramos en una matriz o un *data frame*.  Dentro de los corchetes,  tanto podemos usar los índices como los nombres (entre comillas) de los niveles.
+
+
+```
+## [1] 2
+```
+
+```
+## [1] 2
+```
+
+```
+## [1] 2
+```
+
+```
+## [1] 2
+```
+
+
+Como en el caso unidimensional, la función `prop.table` sirve para calcular tablas bidimensionales de frecuencias relativas conjuntas de pares de variables. Pero en el caso bidimensional tenemos dos tipos de frecuencias relativas, que definen,  para cada par de variables, tres tablas diferentes:
+
+* Las frecuencias relativas **globales**: para cada par de niveles, uno de cada variable, la fracción de individuos que pertenecen a ambos niveles respecto del total de la muestra; por ejemplo, la fracción de mujeres que han contestado que sí respecto del total de la muestra sería la frecuencia relativa global del par (mujer, sí).
+
+* Las frecuencias relativas **marginales**: dentro de cada nivel de una variable, y para cada nivel de la otra, 
+la fracción de individuos que pertenecen al segundo nivel respecto del total de la subpoblación  definida por el primer nivel; por ejemplo, la fracción de mujeres que han contestado que sí  *respecto del total de mujeres*  sería una frecuencia relativa marginal.
+
+Dadas dos variables, se pueden calcular dos familias de frecuencias relativas marginales, según cuál sea la variable que defina las subpoblaciones en las que calculemos las frecuencias relativas de los niveles de la otra variable; no es lo mismo la fracción de mujeres que han contestado que sí respecto del total de mujeres, que la fracción de mujeres que han contestado que sí respecto del total de personas que han dado esta misma respuesta.
+
+
+La tabla de frecuencias relativas globales se calcula aplicando sin más la función `prop.table` a la `table`.
+Por lo que se refiere a las frecuencias relativas marginales, la variable que define las subpoblaciones en las que las calculamos se indica con el parámetro `margin`. Es decir, con `margin=1` especificamos que la  variable que define las subpoblaciones es la primera, y que, por lo tanto, las frecuencias relativas se calculan dentro de las filas; en cambio,  con `margin=2` especificamos que la  variable que define las subpoblaciones es la segunda, por lo que las frecuencias relativas se calculan por columnas; `margin=NULL` es su valor por defecto y, por lo tanto, equivalente a no especificar este parámetro.
+
+Así:
+
+* La tabla `prop.table(table(Sexo,Respuestas))` nos da la fracción del total que representa cada pareja (sexo, respuesta). 
+
+```
+##     Respuestas
+## Sexo    No    Sí
+##    H 0.375 0.250
+##    M 0.250 0.125
+```
+    
+
+* La tabla `prop.table(table(Sexo,Respuestas), margin=1)` nos da la fracción que representa cada respuesta dentro de cada sexo.  
+
+```
+##     Respuestas
+## Sexo        No        Sí
+##    H 0.6000000 0.4000000
+##    M 0.6666667 0.3333333
+```
+    
+    
+    
+* La tabla `prop.table(table(Sexo,Respuestas), margin=2)` nos da la fracción que representa cada sexo dentro de cada respuesta
+
+```
+##     Respuestas
+## Sexo        No        Sí
+##    H 0.6000000 0.6666667
+##    M 0.4000000 0.3333333
+```
+    
+
+De esta manera, por ejemplo, en la primera tabla  podemos leer   que  un 25% del total de la muestra son mujeres que han contestado que no; en la segunda tabla, que un 66.67% de las mujeres  han contestado que no; y en la tercera tabla, que las mujeres representan el 40% del total de las personas que han contestado que no.
+
+
+La función `CrossTable` del paquete `gmodels` permite producir  (especificando el parámetro `prop.chisq=FALSE`) un resumen de la tabla de frecuencias absolutas y las tres tablas de frecuencias relativas de dos variables en un formato adecuado para su visualización:
+
+
+```
+## 
+##  
+##    Cell Contents
+## |-------------------------|
+## |                       N |
+## |           N / Row Total |
+## |           N / Col Total |
+## |         N / Table Total |
+## |-------------------------|
+## 
+##  
+## Total Observations in Table:  8 
+## 
+##  
+##              | Respuestas 
+##         Sexo |        No |        Sí | Row Total | 
+## -------------|-----------|-----------|-----------|
+##            H |         3 |         2 |         5 | 
+##              |     0.600 |     0.400 |     0.625 | 
+##              |     0.600 |     0.667 |           | 
+##              |     0.375 |     0.250 |           | 
+## -------------|-----------|-----------|-----------|
+##            M |         2 |         1 |         3 | 
+##              |     0.667 |     0.333 |     0.375 | 
+##              |     0.400 |     0.333 |           | 
+##              |     0.250 |     0.125 |           | 
+## -------------|-----------|-----------|-----------|
+## Column Total |         5 |         3 |         8 | 
+##              |     0.625 |     0.375 |           | 
+## -------------|-----------|-----------|-----------|
+## 
+## 
+```
+La leyenda `Cell Contents` explica los contenidos de cada celda de la tabla: en este caso, y en orden descendente, la frecuencia absoluta `N`, la frecuencia relativa por filas, la frecuencia relativa por columnas, y la frecuencia relativa global.   Asimismo, se muestran las celdas de los márgenes, con las frecuencias absolutas y relativas de cada fila (en la columna *Row Total*) y cada columna (en la fila  *Column Total*). Esta función dispone de muchos parámetros que permiten modificar el contenido de las celdas y que podéis consultar en su Ayuda.
+
+Una tabla de contingencia bidimensional es, a efectos prácticos, una matriz con algunos atributos extra. En particular, podemos usar sobre estas tablas la mayoría de las funciones para matrices que tengan sentido para tablas; por ejemplo, `rowSums` y `colSums` se pueden aplicar a una tabla y suman sus filas y sus columnas, respectivamente:
+
+
+```
+##     Respuestas
+## Sexo No Sí
+##    H  3  2
+##    M  2  1
+```
+
+```
+## No Sí 
+##  5  3
+```
+
+```
+## H M 
+## 5 3
+```
+
+```
+##    No    Sí 
+## 0.625 0.375
+```
+
+```
+##     H     M 
+## 0.625 0.375
+```
+
+
+También podemos usar sobre una tabla bidimensional (o, en general, multidimensional) la función `apply`
+con la misma sintaxis que para matrices; véase la próxima sección.
+
+## Tablas multidimensionales de frecuencias
+
+ En general, podemos calcular tablas de frecuencias de cualquier número de variables, no sólo de una o  dos.  El manejo de estas tablas multidimensionales es similar al caso bidimensional, simplemente recordando que ahora hay más variables que tener en cuenta en el momento, por ejemplo, de especificar entradas o de calcular frecuencias relativas marginales. 
+
+Veamos un ejemplo tridimensional. Supongamos que, además  de los vectores
+
+
+tenemos  un tercer vector con las nacionalidades de los individuos representados en estos dos vectores:
+
+
+Podemos calcular entonces una tabla de frecuencias absolutas para las ternas (sexo, respuesta, país).
+
+```
+## , , Pais = Alemania
+## 
+##     Respuestas
+## Sexo No Sí
+##    H  1  0
+##    M  1  0
+## 
+## , , Pais = Francia
+## 
+##     Respuestas
+## Sexo No Sí
+##    H  0  1
+##    M  1  0
+## 
+## , , Pais = Italia
+## 
+##     Respuestas
+## Sexo No Sí
+##    H  2  1
+##    M  0  1
+```
+R muestra la *tabla tridimensional*  que obtenemos como una lista de tablas bidimensionales `table(Sexo,Respuestas)`, separando la población según los niveles de la tercera variable. Si no os gusta esta manera de visualizar una tabla tridimensional, una alternativa es usar la función `ftable`, que la mostrará en lo que se llama **formato plano**:
+
+
+```
+##                 Pais Alemania Francia Italia
+## Sexo Respuestas                             
+## H    No                     1       0      2
+##      Sí                     0       1      1
+## M    No                     1       1      0
+##      Sí                     0       0      1
+```
+
+
+Los parámetros `row.vars` y `col.vars` de `ftable` permiten especificar qué variables queremos que aparezcan  como filas o como columnas, respectivamente.
+
+
+```
+##          Sexo        H     M   
+##          Respuestas No Sí No Sí
+## Pais                           
+## Alemania             1  0  1  0
+## Francia              0  1  1  0
+## Italia               2  1  0  1
+```
+
+
+Para referirnos a una entrada, o a una subtabla, de una tabla podemos usar corchetes.
+
+
+```
+## [1] 1
+```
+
+```
+##     Respuestas
+## Sexo No Sí
+##    H  2  1
+##    M  0  1
+```
+
+```
+## H M 
+## 1 1
+```
+
+```
+## No Sí 
+##  0  1
+```
+
+
+En una tabla multidimensional, podemos calcular frecuencias relativas marginales respecto de los niveles de una variable o respecto de combinaciones de niveles de varias variables: por ejemplo, las frecuencias relativas marginales de las respuestas en cada combinación (sexo, país). Como en el caso bidimensional, las tablas correspondientes se calculan aplicando `prop.table` a la tabla de frecuencias absolutas, y especificando  con el parámetro `margin` las dimensiones, o combinaciones de dimensiones, respecto de las que calculamos las frecuencias relativas. Si no se especifica el parámetro `margin`, se obtiene la tabla de frecuencias relativas globales.
+
+Así, por ejemplo:
+
+* La  tabla `prop.table(table(Sexo,Respuestas,Pais))` nos da la fracción que representa cada terna (sexo, respuesta, país) dentro del total de la muestra: 
+
+```
+## , , Pais = Alemania
+## 
+##     Respuestas
+## Sexo    No    Sí
+##    H 0.125 0.000
+##    M 0.125 0.000
+## 
+## , , Pais = Francia
+## 
+##     Respuestas
+## Sexo    No    Sí
+##    H 0.000 0.125
+##    M 0.125 0.000
+## 
+## , , Pais = Italia
+## 
+##     Respuestas
+## Sexo    No    Sí
+##    H 0.250 0.125
+##    M 0.000 0.125
+```
+
+* La  tabla `prop.table(table(Sexo,Respuestas,Pais), margin=3)` nos da la fracción que representa cada pareja (sexo, respuesta) dentro de cada país:
+
+```
+## , , Pais = Alemania
+## 
+##     Respuestas
+## Sexo   No   Sí
+##    H 0.50 0.00
+##    M 0.50 0.00
+## 
+## , , Pais = Francia
+## 
+##     Respuestas
+## Sexo   No   Sí
+##    H 0.00 0.50
+##    M 0.50 0.00
+## 
+## , , Pais = Italia
+## 
+##     Respuestas
+## Sexo   No   Sí
+##    H 0.50 0.25
+##    M 0.00 0.25
+```
+
+* La  tabla `prop.table(table(Sexo,Respuestas,Pais), margin=c(1,3))` nos da la fracción que representa cada respuesta dentro de cada combinación de (sexo, país):
+
+```
+## , , Pais = Alemania
+## 
+##     Respuestas
+## Sexo        No        Sí
+##    H 1.0000000 0.0000000
+##    M 1.0000000 0.0000000
+## 
+## , , Pais = Francia
+## 
+##     Respuestas
+## Sexo        No        Sí
+##    H 0.0000000 1.0000000
+##    M 1.0000000 0.0000000
+## 
+## , , Pais = Italia
+## 
+##     Respuestas
+## Sexo        No        Sí
+##    H 0.6666667 0.3333333
+##    M 0.0000000 1.0000000
+```
+
+De esta manera, por ejemplo, en la primera tabla  podemos leer  que los hombres españoles que han contestado afirmativamente forman un 
+12.5% del total de individuos; en la segunda, que los hombres que han contestado  que sí representan un 25% del total de individuos españoles; y en la tercera, que un 33.33% del total  de hombres españoles ha contestado  que sí.
+
+Al aplicar `prop.table` al resultado de una `ftable`, la tabla resultante sigue en formato plano:
+
+
+```
+##                 Pais Alemania Francia Italia
+## Sexo Respuestas                             
+## H    No                 0.125   0.000  0.250
+##      Sí                 0.000   0.125  0.125
+## M    No                 0.125   0.125  0.000
+##      Sí                 0.000   0.000  0.125
+```
+
+Podemos  aplicar funciones a filas o columnas de una tabla multidimensional con la función `apply`, especificando en el parámetro `FUN` la función y en el parámetro `MARGIN` la variable o combinación de variables a la que aplicamos la función (son las variables que aparecerán en la tabla resultante). Observad las dos instrucciones siguientes y sus resultados:
+
+
+* Sumamos los números de respuestas agrupando por combinaciones (sexo,país):
+
+```
+##     Pais
+## Sexo Alemania Francia Italia
+##    H        1       1      3
+##    M        1       1      1
+```
+* Sumamos los números de respuestas agrupando por sexos:
+
+```
+## No Sí 
+##  5  3
+```
+
+
+Hasta ahora hemos manipulado tablas de frecuencias que hemos construido nosotros mismos a partir de variables cualitativas. Todo lo que hemos hecho con estas tablas se puede también hacer con las tablas de frecuencias que lleva R predefinidas o que obtengamos de otra manera. Veamos un ejemplo.
+
+
+
+
+```
+##  'table' num [1:4, 1:4, 1:2] 32 53 10 3 11 50 10 30 10 25 ...
+##  - attr(*, "dimnames")=List of 3
+##   ..$ Hair: chr [1:4] "Black" "Brown" "Red" "Blond"
+##   ..$ Eye : chr [1:4] "Brown" "Blue" "Hazel" "Green"
+##   ..$ Sex : chr [1:2] "Male" "Female"
+```
+
+```
+##             Sex Male Female
+## Hair  Eye                  
+## Black Brown       32     36
+##       Blue        11      9
+##       Hazel       10      5
+##       Green        3      2
+## Brown Brown       53     66
+##       Blue        50     34
+##       Hazel       25     29
+##       Green       15     14
+## Red   Brown       10     16
+##       Blue        10      7
+##       Hazel        7      7
+##       Green        7      7
+## Blond Brown        3      4
+##       Blue        30     64
+##       Hazel        5      5
+##       Green        8      8
+```
+
+
+Efectuemos algunas operaciones sobre esta tabla, para ilustrar como podemos trabajar con ella:
+
+* Número total de individuos en la muestra:
+
+```
+## [1] 592
+```
+* Subtabla de hombres:
+
+```
+##        Eye
+## Hair    Brown Blue Hazel Green
+##   Black    32   11    10     3
+##   Brown    53   50    25    15
+##   Red      10   10     7     7
+##   Blond     3   30     5     8
+```
+* Frecuencias relativas de las combinaciones (color de cabello, color de ojos) en cada sexo:
+
+```
+## , , Sex = Male
+## 
+##        Eye
+## Hair    Brown  Blue Hazel Green
+##   Black 0.115 0.039 0.036 0.011
+##   Brown 0.190 0.179 0.090 0.054
+##   Red   0.036 0.036 0.025 0.025
+##   Blond 0.011 0.108 0.018 0.029
+## 
+## , , Sex = Female
+## 
+##        Eye
+## Hair    Brown  Blue Hazel Green
+##   Black 0.115 0.029 0.016 0.006
+##   Brown 0.211 0.109 0.093 0.045
+##   Red   0.051 0.022 0.022 0.022
+##   Blond 0.013 0.204 0.016 0.026
+```
+* Frecuencias relativas de los sexos en cada combinación (color de cabello, color de ojos)
+
+```
+## , , Sex = Male
+## 
+##        Eye
+## Hair    Brown  Blue Hazel Green
+##   Black 0.471 0.550 0.667 0.600
+##   Brown 0.445 0.595 0.463 0.517
+##   Red   0.385 0.588 0.500 0.500
+##   Blond 0.429 0.319 0.500 0.500
+## 
+## , , Sex = Female
+## 
+##        Eye
+## Hair    Brown  Blue Hazel Green
+##   Black 0.529 0.450 0.333 0.400
+##   Brown 0.555 0.405 0.537 0.483
+##   Red   0.615 0.412 0.500 0.500
+##   Blond 0.571 0.681 0.500 0.500
+```
+
+
+Para cambiar el orden de las variables en una `tabla`  multidimensional, se puede usar la instrucción 
+
+igualando el parámetro `perm` a la lista de las variables en el orden deseado. Por ejemplo, si queremos una tabla equivalente a `HairEyeColor`, pero con primera variable `Sex`, segunda variable `Hair` y tercera variable `Eye`, podemos hacer:
+
+
+```
+## , , Eye = Brown
+## 
+##         Hair
+## Sex      Black Brown Red Blond
+##   Male      32    53  10     3
+##   Female    36    66  16     4
+## 
+## , , Eye = Blue
+## 
+##         Hair
+## Sex      Black Brown Red Blond
+##   Male      11    50  10    30
+##   Female     9    34   7    64
+## 
+## , , Eye = Hazel
+## 
+##         Hair
+## Sex      Black Brown Red Blond
+##   Male      10    25   7     5
+##   Female     5    29   7     5
+## 
+## , , Eye = Green
+## 
+##         Hair
+## Sex      Black Brown Red Blond
+##   Male       3    15   7     8
+##   Female     2    14   7     8
+```
+
+
+## Tablas a partir de *data frames* de variables cualitativas 
+
+
+ Como ya hemos comentado en varias ocasiones, la manera natural de organizar datos multidimensionales en R es en forma de *data frame*. En esta sección explicaremos algunas instrucciones para calcular tablas de frecuencias absolutas a partir de un *data frame* de variables cualitativas. Para ilustrarla, usaremos el fichero que se encuentra en el `url` [http://aprender.uib.es/Rdir/bebenerg.txt](http://aprender.uib.es/Rdir/bebenerg.txt).
+
+Este fichero consiste en una tabla de datos con la siguiente información sobre 122 estudiantes de la Escuela Politécnica Superior de la UIB: su sexo (variable `sexo`), el grado en el que están matriculados
+ (variable `estudio`) y si consumen habitualmente bebidas energéticas (variable `bebe`). Como contiene letras acentuadas, al llerla con `read.table` vamos a usar el parámetro `encoding`.
+
+
+```
+## 'data.frame':    122 obs. of  3 variables:
+##  $ estudio: chr  "Informática" "Matemáticas" "Ing.Industrial" "Informática" ...
+##  $ bebe   : chr  "No" "No" "Sí" "Sí" ...
+##  $ sexo   : chr  "Mujer" "Hombre" "Mujer" "Hombre" ...
+```
+
+```
+##          estudio bebe   sexo
+## 1    Informática   No  Mujer
+## 2    Matemáticas   No Hombre
+## 3 Ing.Industrial   Sí  Mujer
+## 4    Informática   Sí Hombre
+## 5 Ing.Industrial   No  Mujer
+## 6    Matemáticas   No  Mujer
+```
+
+
+Aplicando la función `summary` a un *data frame* de variables cualitativas, obtenemos, a modo de resumen, una tabla con las  frecuencias absolutas de cada variable.
+
+
+```
+##    estudio              bebe               sexo          
+##  Length:122         Length:122         Length:122        
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character
+```
+Esta tabla sólo sirve para ver la información, porque sus entradas son palabras. 
+
+
+```
+##                                                                
+## "Length:122        " "Class :character  " "Mode  :character  "
+```
+
+
+Para calcular en un solo paso la `table` de cada variable, podemos usar la función `sapply` de la manera siguiente:
+
+
+```
+## $estudio
+## 
+##    Informática Ing.Industrial    Matemáticas     Telemática 
+##             53             37             16             16 
+## 
+## $bebe
+## 
+## No Sí 
+## 97 25 
+## 
+## $sexo
+## 
+## Hombre  Mujer 
+##     83     39
+```
+De esta manera, hemos obtenido una `list` cuyas componentes son las tablas que queríamos. 
+
+
+```
+## 
+## Hombre  Mujer 
+##     83     39
+```
+
+```
+## 
+## Hombre  Mujer 
+##     83     39
+```
+
+
+Si aplicamos la función `table` a un *data frame* de variables cualitativas, obtenemos su tabla de frecuencias absolutas, con las variables ordenadas tal y como aparecen en el *data frame*
+
+
+```
+## , , sexo = Hombre
+## 
+##                 bebe
+## estudio          No Sí
+##   Informática    30  7
+##   Ing.Industrial 19  6
+##   Matemáticas     8  1
+##   Telemática     10  2
+## 
+## , , sexo = Mujer
+## 
+##                 bebe
+## estudio          No Sí
+##   Informática    11  5
+##   Ing.Industrial 10  2
+##   Matemáticas     6  1
+##   Telemática      3  1
+```
+
+```
+##                 sexo
+## estudio          Hombre Mujer
+##   Informática        37    16
+##   Ing.Industrial     25    12
+##   Matemáticas         9     7
+##   Telemática         12     4
+```
+
+Otra opción es usar la función `ftable`, que produce la misma tabla de frecuencias pero en formato plano.
+
+
+```
+##                     sexo Hombre Mujer
+## estudio        bebe                  
+## Informática    No            30    11
+##                Sí             7     5
+## Ing.Industrial No            19    10
+##                Sí             6     2
+## Matemáticas    No             8     6
+##                Sí             1     1
+## Telemática     No            10     3
+##                Sí             2     1
+```
+
+Las frecuencias relativas globales y marginales se obtienen aplicando `prop.table` como hasta ahora. Por ejemplo, las frecuencias relativas de bebedores y no bebedores para cada combinación (sexo, estudio) se obtienen con la función siguiente. Observad cómo cambiamos el orden de las variables para facilitar la comprensión: la primera tabla son las frecuencias relativas de no bebedores, la segunda de sí bebedores.
+
+
+```
+## , , bebe = No
+## 
+##         estudio
+## sexo     Informática Ing.Industrial Matemáticas Telemática
+##   Hombre       0.811          0.760       0.889      0.833
+##   Mujer        0.688          0.833       0.857      0.750
+## 
+## , , bebe = Sí
+## 
+##         estudio
+## sexo     Informática Ing.Industrial Matemáticas Telemática
+##   Hombre       0.189          0.240       0.111      0.167
+##   Mujer        0.312          0.167       0.143      0.250
+```
+
+
+
+
+Si se aplica `barplot` a una tabla bidimensional, por defecto dibuja las barras de la segunda variable cortadas por la frecuencia de la primera variable: se le llama un **diagrama de barras apiladas**. Por ejemplo, la función `barplot` del bloque de código siguiente produce la Figura \@ref(fig:F1607). 
+
+
+```
+##     Respuestas
+## Sexo No Sí
+##    H  3  2
+##    M  2  1
+```
+
+<div class="figure" style="text-align: center">
+<img src="INREMDN_files/figure-html/F1607-1.png" alt="Un diagrama de barras apiladas." width="480" />
+<p class="caption">(\#fig:F1607)Un diagrama de barras apiladas.</p>
+</div>
+
+
+En un  diagrama de barras apiladas, las barras globales corresponden a los niveles de la variable que definen  las columnas de la tabla, es decir, la segunda variable especificada dentro de `table`: en el de la Figura \@ref(fig:F1607), se trata de la variable `Respuestas`, de niveles `No` y `Si`. Cada una de estas barras se divide verticalmente en sectores que representan los niveles de la otra variable, en orden ascendente: en el ejemplo que nos ocupa,  la zona inferior de cada barra representa el nivel `H` de la variable `Sexo` y la zona superior su nivel `M`. 
+
+<!--
+\begin{figure}[htb]
+$$
+\includegraphics[width=0.45\textwidth]{barplotSy.pdf}
+$$
+\caption{Diagrama de barras apiladas.}\label{fig:16.7}
+\end{figure}
+-->
+<p>En vez de organizar las barras de la primera variable en una sola barra vertical, se pueden dibujar una junto a la otra añadiendo el parámetro <code>beside=TRUE</code>, obteniéndose de esta manera un <strong>diagrama de barras por bloques</strong>. Así,</p>
+<p>produce el diagrama de barras de la Figura <a href="estadística-descriptiva.html#fig:F1608a">2.3</a>.
+En este diagrama, cada bloque de barras representa un nivel de la variable de las columnas (<code>No</code> y <code>Si</code>), y en cada uno de estos bloques las barras representan los niveles de las filas en su orden (en cada bloque, la barra de la izquierda corresponde a <code>H</code> y la de la derecha a <code>M</code>).</p>
+<div class="figure" style="text-align: center"><span id="fig:F1608a"></span>
+<img src="INREMDN_files/figure-html/F1608a-1.png" alt="Un diagrama de barras por bloques." width="480" />
+<p class="caption">
+Figura 2.3: Un diagrama de barras por bloques.
+</p>
+</div>
+<p>Los diagramas de barras tienen que mostrar la información de la manera más adecuada. Por ejemplo, si lo que nos interesa es la distribución de las respuestas por sexo, los bloques de barras tienen que corresponder a los sexos y las barras dentro de cada bloque a las respuestas. En este caso, convendría cambiar el orden de los vectores dentro de la <code>table</code> a la que aplicamos <code>barplot</code>, o trasponer la tabla antes de aplicarle <code>barplot</code>.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-84-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Suele ser conveniente añadir a un diagrama de barras de dos variables una leyenda que indique qué nivel representa cada sector (en los diagramas de barras apiladas) o cada barra (en los diagramas de barras por bloques). Esto se puede realizar entrando el parámetro <code>legend.text</code> igualado a <code>TRUE</code>, si no queremos modificar los nombres de los niveles de las filas, o igualado a un vector con los nombres que les queremos asignar (en el orden que toque).
+Por ejemplo,</p>
+<p>produce el diagrama de la Figura <a href="estadística-descriptiva.html#fig:F1608b">2.4</a>, con el formato de leyenda por defecto.</p>
+<div class="figure" style="text-align: center"><span id="fig:F1608b"></span>
+<img src="INREMDN_files/figure-html/F1608b-1.png" alt="Un diagrama de barras por bloques con una leyenda." width="480" />
+<p class="caption">
+Figura 2.4: Un diagrama de barras por bloques con una leyenda.
+</p>
+</div>
+<!--
+\begin{figure}[ht]
+$$
+\includegraphics[width=0.45\textwidth]{barplotSybeside.pdf}\
+\includegraphics[width=0.45\textwidth]{barplotSYbesidelegend.pdf}
+$$
+\caption{Diagramas de barras por bloques.}\label{fig:16.8}
+\end{figure}
+-->
+<p>La leyenda que genera R se puede modificar usando el parámetro <code>args.legend</code> igualado a una <code>list</code> con los parámetros que usaríamos en la función <code>legend</code> que explicamos en la Lección <a href="#chap:plot"><strong>??</strong></a>: <code>x</code>, para indicar la posición de la leyenda, <code>cex</code> para indicar el factor por el cual se quiere multiplicar su tamaño, etc.
+Podéis consultar los parámetros disponibles en la Ayuda de <code>legend</code>.</p>
+<p>Se pueden cambiar los colores de las barras usando el parámetro <code>col</code> como en los diagramas de barras de tablas unidimensionales. La función <code>legend.text</code> importa estos colores, no hace falta especificarlos en el <code>args.legend</code>.</p>
+<p>También puede ser conveniente poner nombres más informativos a los niveles de las variables. El parámetro <code>names</code> dentro de <code>barplot</code> permite cambiar los nombres de los niveles que muestra debajo del eje horizontal: en un diagrama de barras de una variable, los de sus niveles, y en un diagrama bidimensional, los de los niveles de la variable de las columnas.</p>
+<p>Veamos un ejemplo usando <code>col</code> y con los nombres que se muestran de los niveles de ambas variables traducidos al inglés; el resultado es la Figura <a href="estadística-descriptiva.html#fig:F16011">2.5</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:F16011"></span>
+<img src="INREMDN_files/figure-html/F16011-1.png" alt="Diagrama de barras para visualizar la distribución de las respuestas por sexo." width="480" />
+<p class="caption">
+Figura 2.5: Diagrama de barras para visualizar la distribución de las respuestas por sexo.
+</p>
+</div>
+<!--
+\begin{figure}[ht]
+$$
+\includegraphics[width=0.45\textwidth]{barplotyScorrecte.pdf}
+$$
+\caption{Diagrama de barras para visualizar la distribución de las respuestas por sexo.}\label{fig:16.11}
+\end{figure}
+-->
+</div>
+</div>
+<div id="otros-gráficos-para-datos-cualitativos" class="section level2">
+<h2><span class="header-section-number">2.3</span> Otros gráficos para datos cualitativos</h2>
+<p>Otra representación de las tablas multidimensionales de frecuencias son los <strong>diagramas de mosaico</strong>. Estos gráficos se obtienen sustituyendo cada entrada de la tabla de frecuencias por una región rectangular de área proporcional a su valor. En concreto, para obtener el diagrama de mosaico de una tabla bidimensional, se parte de un cuadrado de lado 1,
+primero se divide en barras verticales de amplitudes iguales a las frecuencias relativas de una variable, y luego cada barra se divide, a lo alto, en regiones de alturas proporcionales a las frecuencias relativas marginales de cada nivel de la otra variable dentro del nivel correspondiente de la primera variable.</p>
+<p>Un diagrama de mosaico de una tabla se obtiene con R aplicando la función <code>plot</code> a la tabla, o también la función <code>mosaicplot</code>; esta última también se puede aplicar a matrices. Por ejemplo,</p>
+<p>produce el diagrama de mosaico de la Figura <a href="estadística-descriptiva.html#fig:mosaic1a">2.6</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:mosaic1a"></span>
+<img src="INREMDN_files/figure-html/mosaic1a-1.png" alt="Un diagrama de mosaico bidimendiol." width="480" />
+<p class="caption">
+Figura 2.6: Un diagrama de mosaico bidimendiol.
+</p>
+</div>
+<p>En el diagrama de mosaico de una tabla tridimensional, primero se divide el cuadrado en barras verticales de amplitudes iguales a las frecuencias relativas de una variable; luego, cada barra se divide, a lo alto, en regiones de alturas proporcionales a las frecuencias relativas marginales de cada nivel de una segunda variable dentro del nivel correspondiente de la primera variable; y, finalmente, cada sector rectangular se vuelve a dividir a lo ancho en regiones de amplitudes proporcionales a las frecuencias relativas marginales de cada nivel de la tercera variable dentro de la combinación correspondiente de niveles de las otras dos. Por ejemplo,</p>
+<p>produce el gráfico de la Figura <a href="estadística-descriptiva.html#fig:mosaic1b">2.7</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:mosaic1b"></span>
+<img src="INREMDN_files/figure-html/mosaic1b-1.png" alt="Un diagrama de mosaico tridimendiol." width="480" />
+<p class="caption">
+Figura 2.7: Un diagrama de mosaico tridimendiol.
+</p>
+</div>
+<!--
+\begin{figure}[ht]
+$$
+\includegraphics[width=0.45\linewidth]{mosaic1.pdf}\ 
+\includegraphics[width=0.45\linewidth]{mosaic2.pdf}
+$$
+\caption{Diagramas de mosaico bidimensional y tridimensional.}\label{fig:mosaic1}
+\end{figure}
+-->
+<p>Además de sus parámetros usuales, la función <code>plot</code> admite algunos parámetros específicos
+cuando se usa para producir el diagrama de mosaico de una tabla. Los más interesantes son:</p>
+<ul>
+<li><code>col</code>, que ya hemos usado en el diagrama de mosaico tridimensional anterior, asigna colores a los niveles de la última variable (en ese ejemplo, los sexos).</li>
+<li><code>dir</code>, igualado a un vector de direcciones <code>"v"</code> (vertical) y <code>"h"</code> (horizontal), sirve para especificar la dirección de las barras de cada variable (por defecto, como hemos comentado, alternan vertical y horizontal, empezando por vertical).</li>
+</ul>
+<p>Estos y otros parámetros se pueden consultar en la Ayuda de <code>mosaicplot</code>.</p>
+<p>El paquete <strong>vcd</strong> incorpora la función <code>mosaic</code> que sirve para producir diagramas de mosaico en los que se pueden controlar muchos más aspectos gráficos que con <code>plot</code>. Si la necesitáis, consultad su Ayuda.</p>
+<p>Este paquete <strong>vcd</strong> también incluye la función <code>cotabplot</code> que produce un diagrama de mosaico para cada nivel de la tercera variable. Por ejemplo,</p>
+produce el gráfico de la Figura <a href="estadística-descriptiva.html#fig:extresquala">2.8</a>.
+<div class="figure" style="text-align: center"><span id="fig:extresquala"></span>
+<img src="INREMDN_files/figure-html/extresquala-1.png" alt="Diagrama de mosaico producido con `cotabplot`." width="480" />
+<p class="caption">
+Figura 2.8: Diagrama de mosaico producido con <code>cotabplot</code>.
+</p>
+</div>
+<p>Finalmente, el paquete <strong>vcdExtra</strong> incluye la función <code>mosaic3d</code> que produce un diagrama de mosaico tridimensional en una ventana de una aplicación para gráficos 3D interactivos. Por ejemplo, el bloque de código</p>
+<p>produce el gráfico 3D de la Figura <a href="#fig:extresqualb"><strong>??</strong></a> en una ventana de gráficos interactivos donde lo podréis rotar, ampliar, etc.</p>
+<!--
+\begin{figure}[ht]
+$$
+\includegraphics[width=0.45\linewidth]{cotabplot.pdf}\quad
+\includegraphics[width=0.42\linewidth]{exmosaic3d.pdf}
+$$
+\caption{Ejemplos de gráficos obtenido con `cotabplot` (izquierda) y `mosaic3d` (derecha).}\label{fig:extresqual} 
+\end{figure}
+-->
+</div>
+<div id="sec:exqual" class="section level2">
+<h2><span class="header-section-number">2.4</span> Un ejemplo completo</h2>
+<p>Vamos a llevar a cabo un análisis completo de un ejemplo con lo que hemos aprendido en esta lección. Como ya hemos comentado, el objeto de datos <code>HairEyeColor</code> que lleva predefinido R es una tabla de frecuencias absolutas de tres variables cualitativas: <code>Hair</code>, <code>Eye</code> y <code>Sex</code>. Vamos a extraer de esta tabla una tabla bidimensional de frecuencias absolutas de las variables <code>Eye</code> y <code>Hair</code>, sin distinguir según el sexo. La manera más sencilla de obtener esta tabla es combinando la función <code>apply</code> con <code>as.table</code>, para que el resultado final sea una tabla de contingencia (sin esta instrucción, el resultado sería una matriz), de la manera siguiente:</p>
+<pre><code>##        Eye
+## Hair    Brown Blue Hazel Green
+##   Black    68   20    15     5
+##   Brown   119   84    54    29
+##   Red      26   17    14    14
+##   Blond     7   94    10    16</code></pre>
+<p>Vamos a traducir al castellano los nombres de las variables de esta tabla y de sus niveles. Esto lo podemos llevar a cabo en un solo paso con la función <code>dimnames</code> que ya usamos sobre <em>data frames</em>.
+El resultado de aplicar esta función a una <code>table</code> es una <code>list</code> cuyas componentes son los niveles de cada variable.</p>
+<pre><code>## $Hair
+## [1] &quot;Black&quot; &quot;Brown&quot; &quot;Red&quot;   &quot;Blond&quot;
+## 
+## $Eye
+## [1] &quot;Brown&quot; &quot;Blue&quot;  &quot;Hazel&quot; &quot;Green&quot;</code></pre>
+<p>Por lo tanto, para reescribir los nombres de las variables y sus niveles, basta redefinir esta <code>list</code> de la manera siguiente:</p>
+<pre><code>##          Ojos
+## Cabello   Marrones Azules Pardos Verdes
+##   Negro         68     20     15      5
+##   Castaño      119     84     54     29
+##   Rojo          26     17     14     14
+##   Rubio          7     94     10     16</code></pre>
+<p>Vamos a dibujar un diagrama de mosaico de esta tabla.</p>
+<p><img src="INREMDN_files/figure-html/HECmosaic-1.png" width="480" style="display: block; margin: auto;" />
+A simple vista, vemos que las combinaciones de colores de cabellos y ojos más frecuentes son
+los cabellos castaños con los ojos marrones, y los cabellos rubios con los ojos azules.</p>
+<!--
+\begin{figure}[ht]
+$$
+\includegraphics[width=0.45\textwidth]{HECmosaic}\
+$$
+\caption{Diagrama de mosaico de las frecuencias conjuntas de colores de ojos y de cabellos en `HairEyeColor`.}\label{fig:HECmosaic}
+\end{figure}
+-->
+<p>A continuación, vamos a calcular el número total de individuos representados en esta tabla, así como las tablas de frecuencias absolutas y relativas de cada variable, y representaremos estas últimas en sendos diagramas de barras.</p>
+<ul>
+<li>Número total de individuos:</li>
+</ul>
+<pre><code>## [1] 592</code></pre>
+<ul>
+<li>Tabla de frecuencias absolutas de colores de ojos:</li>
+</ul>
+<pre><code>## Marrones   Azules   Pardos   Verdes 
+##      220      215       93       64</code></pre>
+<ul>
+<li>Tabla de frecuencias absolutas de colores de cabello:</li>
+</ul>
+<pre><code>##   Negro Castaño    Rojo   Rubio 
+##     108     286      71     127</code></pre>
+<ul>
+<li>Tabla de frecuencias relativas de colores de ojos:</li>
+</ul>
+<pre><code>## Marrones   Azules   Pardos   Verdes 
+##    0.372    0.363    0.157    0.108</code></pre>
+<ul>
+<li>Tabla de frecuencias absolutas de colores de cabello:</li>
+</ul>
+<pre><code>##   Negro Castaño    Rojo   Rubio 
+##   0.182   0.483   0.120   0.215</code></pre>
+<ul>
+<li><p>Diagrama de barras de frecuencias relativas de colores de ojos:
+<img src="INREMDN_files/figure-html/unnamed-chunk-98-1.png" width="480" style="display: block; margin: auto;" /></p></li>
+<li><p>Diagrama de barras de frecuencias relativas de colores de cabello:
+<img src="INREMDN_files/figure-html/unnamed-chunk-99-1.png" width="480" style="display: block; margin: auto;" /></p></li>
+</ul>
+<p>Vemos que el color dominante de cabellos es el castaño, mientras que en el color de ojos el marrón y el azul están prácticamente empatados.</p>
+<!--
+\begin{figure}[ht]
+$$
+\includegraphics[width=0.45\textwidth]{HECEye}\
+\includegraphics[width=0.45\textwidth]{HECHair}\
+$$
+\caption{Diagrama de barras de frecuencias relativas de colores de ojos y de cabellos en `HairEyeColor`.}\label{fig:HECuni}
+\end{figure}
+-->
+<p>Pasamos ahora a calcular las tablas de frecuencias relativas y dibujar los dos diagramas de barras de las frecuencias relativas marginales.</p>
+<ul>
+<li>Tabla de frecuencias relativas globales:</li>
+</ul>
+<pre><code>##          Ojos
+## Cabello   Marrones Azules Pardos Verdes
+##   Negro      0.115  0.034  0.025  0.008
+##   Castaño    0.201  0.142  0.091  0.049
+##   Rojo       0.044  0.029  0.024  0.024
+##   Rubio      0.012  0.159  0.017  0.027</code></pre>
+<ul>
+<li>Tabla de frecuencias relativas de los colores de cabello dentro de cada color de ojos:</li>
+</ul>
+<pre><code>##          Ojos
+## Cabello   Marrones Azules Pardos Verdes
+##   Negro      0.630  0.185  0.139  0.046
+##   Castaño    0.416  0.294  0.189  0.101
+##   Rojo       0.366  0.239  0.197  0.197
+##   Rubio      0.055  0.740  0.079  0.126</code></pre>
+<ul>
+<li>Tabla de frecuencias relativas de los colores de ojos dentro de cada color de cabellos:</li>
+</ul>
+<pre><code>##          Ojos
+## Cabello   Marrones Azules Pardos Verdes
+##   Negro      0.309  0.093  0.161  0.078
+##   Castaño    0.541  0.391  0.581  0.453
+##   Rojo       0.118  0.079  0.151  0.219
+##   Rubio      0.032  0.437  0.108  0.250</code></pre>
+<ul>
+<li><p>Diagrama de barras de frecuencias relativas de los colores de cabello dentro de cada color de ojos:
+<img src="INREMDN_files/figure-html/unnamed-chunk-103-1.png" width="480" style="display: block; margin: auto;" /></p></li>
+<li><p>Diagrama de barras de frecuencias relativas de los colores de ojos dentro de cada color de cabello:
+<img src="INREMDN_files/figure-html/unnamed-chunk-104-1.png" width="480" style="display: block; margin: auto;" /></p></li>
+</ul>
+<p>Vemos, por ejemplo, que entre las personas de ojos azules, los cabellos rubios son los más frecuentes, y que entre las personas castañas el color de ojos más frecuente es el pardo.</p>
+<p>–&gt;</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estudios.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

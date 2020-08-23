@@ -1,0 +1,139 @@
+# (PART\*) Tema II: Estadística descriptiva  {-}
+
+En esta lección explicamos algunas técnicas básicas de estadística descriptiva. Estas técnicas consistirán en una serie de valores y gráficos que nos permitirán resumir y explorar un conjunto de datos, con el objetivo final de entenderlos lo mejor posible. 
+
+
+# Tipos de datos
+
+Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (**variables**) de una serie de individuos.
+Almacenamos estos datos en **tablas de datos** como la Tabla \@ref(tab:tabla1), donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge las características que hemos anotado de estos niños: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, y el número semanal de refrescos que suele tomar.  
+
+```{r,echo=FALSE,label=tabla1}
+DF=data.frame(Nombre=c("Marta","Laura","Xavier","Joan","Maria","Maria"),
+              Altura=c(135,132,138,141,134,136),
+              Hermanos=c(2,1,0,3,2,1),
+              Cabello=c("rubio","negro","negro","castaño","rojo","castaño"),
+              Refrescos=c("2-3","2-3","0-1","4-5","0-1","5 o más"))
+kable(DF,
+              caption='Una pequeña tabla de datos sobre niños',
+             row.names=TRUE,
+             col.names=c("Nombre","Altura","Hermanos","Cabello","Refrescos semanales"))%>%
+  kable_styling(bootstrap_options=c("condensed"), full_width = FALSE)
+```
+
+
+```{block2,type="rmdcaution"}
+En este curso vamos a "sobrecargar" el término **variable**, en el sentido de que tendrá dos significados diferentes que esperamos que distingáis según el contexto:
+  
+* Por un lado, llamaremos **variable**  a una característica que puede tomar diferentes valores sobre diferentes individuos; cuando tenga este sentido, a veces le añadiremos el adjetivo **poblacional**. Por ejemplo, la altura de las personas (de todo el mundo, de un país, de una ciudad...) es una variable poblacional. 
+
+* Por otro lado, también llamaremos una **variable** a un vector formado por los valores de una variable poblacional sobre una muestra de individuos. Por ejemplo, las alturas de los niños recogidas en la Tabla \@ref(tab:tabla1) forman una variable en este sentido.
+
+```
+
+
+Los tipos básicos de datos que consideramos en este curso son los siguientes:
+
+* Datos **cualitativos**. Son los que expresan una cualidad del individuo, tales como el sexo anatómico, el género de una persona (hombre, mujer,lesbiana, gay, transexual, intersexual, asexual...),  tipos de cáncer (de mama, de colon, de próstata...)... Si solo pueden tomar dos valores (por ejemplo "Sí" y "No", o "Hombre" y "Mujer") los llamamos **dicotómicos** y si pueden tomar más de dos valores, **politómicos** o **multicotómicos**, dependiendo de lo que queramos complicar el adjetivo.
+
+    Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación.
+
+* Datos **ordinales**. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, ...) o las calificaciones en un examen (suspenso, aprobado,   notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: son datos cualitativos, no ordinales. 
+
+* Datos **cuantitativos**. Son datos que se refieren a medidas que sean números genuinos, con los que tenga sentido operar, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos:
+
+    * **Discretos**: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital...
+
+    * **Continuos**: Podrían tomar cualquier valor real dentro de un intervalo  si se pudieran medir con precisión infinita: altura, temperatura, tiempo...
+
+
+El análisis, tanto descriptivo como inferencial, de un conjunto de  datos es 
+diferente según su tipo. Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades. 
+
+Dos puntos relevantes a tener en cuenta:
+
+* **No todo número es un dato cuantitativo.** Solo los consideramos cuantitativos cuando son números genuinos, "de verdad". Por ejemplo, si pedimos a un paciente que califique su dolor con un número natural de 0 a 10, no es un dato cuantitativo, sino ordinal:
+
+    * No es una medida precisa del dolor; no son números, son abreviaturas de "Nada", "Un poquito",..., "Matadme"
+
+    * Tener dolor 6 no significa "tener el doble de dolor" que tener dolor 3. En cambio, una persona con 6 hermanos sí que tiene el doble de hermanos que una de 3.
+
+    * No tiene sentido sumarlos u operarlos en general.  Por ejemplo, si yo tengo dolor de nivel 6 y tú tienes dolor de nivel 5, entre los dos no tenemos dolor de nivel 11. En cambio, si yo tengo 6 hermanos y tú 5, entre los dos sí que tenemos 11 hermanos.
+  
+* **La distinción discreto-continuo es puramente teórica**. En realidad, todo dato es discreto porque no podemos medir nada con precisión infinita, pero las herramientas matemáticas "continuas" (derivadas, integrales, etc.) son mucho más potentes que las discretas, por lo que siempre que tenga sentido, es conveniente considerar una variable como contínua.
+
+    En concreto, **es conveniente considerar en la práctica como datos continuos aquellos que dan lugar números naturales muy grandes**, como por ejemplo el número de glóbulos rojos en un litro de sangre, de bases nucléicas en un genoma, o de personas de un país: la diferencia entre diez millones, diez millones uno, diez millones dos... puede considerarse como continua: de hecho, si tomamos el millón como unidad, la diferencia está en la séptima cifra decimal.
+
+
+
+```{example}
+En la Tabla \@ref(tab:tabla1):
+  
+* La variable "Nombre" es cualitativa
+* La variable "Altura" es cuantitativa, y es conveniente considerarla continua
+* La variable "Hermanos" es cuantitativa y claramente discreta
+* La variable "Cabello" es cualitativa
+* La variable "Refrescos" es ordinal
+
+```
+
+```{block2,type="rmdnote"}
+Hemos dicho que la variable "Cabello" es cualitativa. En principio, el color de los cabellos no tiene ningún orden "natural", sobre todo si incluimos los tintes. Pero si en un estudio definimos un orden claro para esta variable (por ejemplo, por la longitud de onda correspondiente) y este orden es relevante en nuestro estudio, habrá que considerarla una variable ordinal.
+```
+
+## Ejercicios
+
+### Problemas
+
+**(1)** ¿De qué tipo de datos son?:
+
+* La presión arterial sistólica
+
+* El estatus marital
+
+* El nivel de gravedad de una enfermedad
+
+* El número de ingresos hospitalarios a través de urgencias a lo largo de un día
+
+* El nivel de incomodidad de los pacientes sometidos a un tratamiento (debido a sus efectos secundarios)
+
+* El número de mujeres entre los alumnos de una clase
+
+* La proporción de mujeres entre los alumnos de una clase
+
+* El grupo sanguíneo (A, B, AB, 0)
+
+* El número de pulsaciones por minuto
+
+* El ser alcoholico (sí o no)
+
+* El nivel de alcoholismo (crónico, agudo, esporádico, neutro)
+
+* La concentración de alcohol en sangre (en g/ml)
+
+### Test {-}
+
+**(1)** Se realiza un estudio sobre lesiones en extremidades en infantes. Una de las variables estudiadas es la extremidad lesionada. ¿De qué tipo de datos es esta variable?
+
+1. Cuantitativos continuos.
+2. Ordinales.
+3. Cuantitativos discretos.
+4. Cualitativos dicotómicos. 
+5. Cualitativos multicotómicos. 
+6. Anatómicos.
+
+**(2)** Los diferentes estadios de un cáncer se indican con un valor del 0 al 4. Este valor, ¿de qué tipo de dato se trata?
+
+1. Cualitativo dicotómico
+2. Cualitativo politómico
+3. Ordinal 
+4. Cuantitativo discreto
+5. Cuantitativo continuo
+
+
+
+
+
+
+
+
