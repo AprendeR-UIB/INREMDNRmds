@@ -1,15 +1,15 @@
 # (PART\*) Tema I: Introducción a los estudios médicos  {-}
 
-# Estudios médicos
+# Estudios médicos 
 
 
-Un **estudio** es un proceso cuyo objetivo es obtener evidencia empírica sobre alguna cuestión. En el caso de los estudios **médicos** que nos ocupan en este curso, esta cuestión puede tratar sobre la efectividad de un tratamiento de una determinada enfermedad, la precisión de un test diagnóstico, las causas de una enfermedad, alguna cuestión de salud pública... 
+Un **estudio** es un proceso cuyo objetivo es obtener evidencia empírica sobre alguna cuestión. En el caso de los estudios **médicos** que nos ocupan en este curso, esta cuestión trata, naturalmente, sobre algún aspecto de la salud de las personas:  la efectividad de un tratamiento de una determinada enfermedad, la precisión de un test diagnóstico, las causas de una enfermedad, alguna cuestión de salud pública... 
 
-## Pasos de un estudio médico
+## Pasos de un estudio médico {#sec:pasos}
 
-Para ir calentando motores, vamos a describir brevemente la estructura habitual de un estudio médico, y lo ilustraremos con el artículo "Marcha nórdica para prevención cardiovascular en pacientes con cardiopatía isquémica crónica o síndrome metabólico" de C. Vehí y colaboradores (*Medicina Clínica* 147 (2016), pp. 537-539) que tendríais que ir consultando en paralelo con esta sección: lo encontraréis [aquí](https://www.sciencedirect.com/science/article/pii/S0025775316305024) o [aquí](https://walkim.es/wp-content/uploads/2018/03/MN-EN-PREVENCIO_.MED_.CLIN_.2016.pdf)).
+Para ir calentando motores, vamos a describir brevemente la estructura habitual de un estudio médico, y lo ilustraremos con el artículo ["Marcha nórdica para prevención cardiovascular en pacientes con cardiopatía isquémica crónica o síndrome metabólico"](https://www.sciencedirect.com/science/article/pii/S0025775316305024) (*Medicina Clínica* 147 (2016), pp. 537-539) que tendríais que ir consultando en paralelo con esta sección.
 
-
+En un estudio médico por norma general consta se llevan a cabo los siguientes pasos:
 
 1. Definir los **objetivos** de la investigación. En este primer paso,
 
@@ -508,46 +508,87 @@ En el estudio ["Dietary patterns and breast cancer in Colombia: an ecological st
 ```
 
 
-¿Para qué sirve entonces un estudio ecológico? Los estudios ecológicos son muy fáciles de llevar a cabo, ya que en general los datos en los que se basan son públicos en bases de datos al alcance de todos, y sirven entonces para generar hipótesis que luego se pueden estudiar más a fondo con otros estudios.
+¿Para qué sirve entonces un estudio ecológico? Los estudios ecológicos son muy fáciles de llevar a cabo, ya que en general los datos en los que se basan son públicos en bases de datos al alcance de todos, y sirven entonces para aportar evidencia, aunque sea indirecta, sobre una asociación y sobre todo para generar hipótesis que luego se pueden estudiar más a fondo con otros estudios.
+
+
+## Ensayos clínicos
+
+En todos los tipos de estudios explicados hasta ahora, el investigador se limitaba a **observar** algunas características de un grupo de personas que ha elegido previamente, sin influir para nada en dichas características. En los estudios **intervencionistas**, el investigador **influye** en las características de los sujetos analizados, por ejemplo decidiendo quién va a tomar un medicamento y quién no, y en principio controla todos los aspectos relevantes del experimento (o al menos lo intenta).
+
+En este curso vamos a distinguir entre dos tipos de estudios intervencionistas:
+
+* Estudio **experimental** (o **intervencionista aleatorizado y controlado**): En él, los individuos se distribuyen **al azar** en (al menos dos) grupos que son sometidos a tratamientos **diferentes**. Usualmente, uno de los grupos sirve como grupo **de control**, por ejemplo porque no se les administra ningún tratamiento, o se les administra un **placebo** o el tratamiento usual con el que se quiere comparar un nuevo tratamiento.
+
+* Estudio **casi-experimental**: Todos los otros. Por ejemplo, el estudio sobre marcha nórdica que usábamos en la Sección \@ref(sec:pasos)  es casi-experimental, puesto que no hay un grupo de control, solo el grupo a los que se "administró" marcha nórdica durante un año.
+
+Llamaremos **ensayo** (**clínico**) a un estudio médico intervencionista con humanos. Un estudio médico en el que se pruebe un tratamiento sobre animales de laboratorio no lo consideraremos un ensayo clínico.
+
+En la ejecución de un ensayo clínico, vamos distinguir tres tipos de personas involucradas, o **partes**:
+
+* Los sujetos a los que se administran (o no) diferentes tratamientos
+* Las personas encargadas de recoger los datos sobre estos sujetos
+* Las personas encargadas de analizar los datos recogidos
+
+Vamos a clasificar los ensayos clínicos según el nivel de **enmascaramiento** de sus partes (es decir, según "quién sabe qué"):
+
+* **Abierto**: Todos los participantes en el ensayo (desde los sujetos a los encargados de recolectar los datos o de analizarlos) conocen toda la información sobre qué tratamiento recibe cada sujeto. 
+
+* **Simple ciego**: Una de las partes del ensayo, normalmente los sujetos o los encargados de recolectar los datos, no conocen el tratamiento que recibe cada sujeto
+
+* **Doble ciego**: Dos partes del ensayo, usualmente los sujetos y los encargados de recolectar los datos, conocen el tratamiento que recibe cada  sujeto. 
+
+
+* **Triple ciego**: Ni los sujetos, ni los encargados de recolectar los datos, ni los encargados de analizar los datos,   conocen el tratamiento que recibe cada  sujeto.
 
 
 
 
-\frametitle{Ensayos}\vspace*{-2ex}
 
-\red{Ensayo}: Estudio médico experimental con humanos
+\frametitle{Placebo}
 
-\red{Ensayos  aleatorizados controlados:}
-Los individuos se distribuyen \red{al azar} en grupos que son sometidos a tratamientos diferentes (al menos: grupo tratado y grupo de \red{control}), el investigador \blue{controla} todos los aspectos relevantes del experimento, y posteriormente se comparan los resultados
+\red{\bf Placebo}: sustancia similar en todo al tratamiento
+activo excepto que es farmacológicamente inactiva
 
+Puede usarse para enmascarar el ensayo: el grupo de control recibe algo que no sirve para nada, en vez de no recibir nada
 
-\textit{En teoría}, permiten establecer asociación causal entre las variables, porque el investigador controla la intervención
-
-Solo en teoría, porque es imposible controlarlo todo
-
-\red{\bf Cuidado:} \red{Controlado} significa que hay {grupo de control} y \red{experimental} que el investigador controla la intervención
+También permite tener en cuenta el \red{\bf efecto placebo}: Alteración en la respuesta del paciente por el simple hecho de recibir tratamiento
 
 
 
 
 
+\frametitle{Placebo}
+\vspace*{-3ex}\footnotesize
 
-\frametitle{Ensayos}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{acupuntura}\\
+\scriptsize\ \hspace*{\fill} \textit{Chinese Journal of Integrative Medicine} 21 (2015), 307--311
+\end{center}
+
+\blue{\bf Objetivo:}
+Examinar el efecto de la acupuntura en el punto Zhubin (KI9) para reducir el ansia de ingesta de alcohol en  alcohólicos
 
 
-Tipos según \red{enmascaramiento}:
-\begin{itemize}
-* \red{Abierto}: Sujetos y clínicos conocen los tratamientos
+\blue{\bf Metodología:}
+Se repartieron de manera aleatoria (usando un programa de generación de números aleatorios) en dos grupos a 20 pacientes adictos al alcohol, 10 a un grupo de tratamiento y 10 a un grupo de placebo. El grupo de tratamiento recibió acupuntura con agujas reales en el punto Zhubin dos veces por semana durante 4 semanas, y el grupo de control recibió acupuntura con agujas de placebo (de punta roma, no perforan la piel). Ambos grupos recibieron acupuntura con un dispositivo simulado de Park. 
 
-* \red{Simple Ciego}: Los sujetos o el clínico que los valora no conocen el tratamiento que recibe cada sujeto
-
-\item\red{\bf Doble ciego}: Ni los sujetos ni el clínico  conocen el tratamiento que recibe cada  sujeto
+El doctor oriental que practicó la acupuntura conocía el tratamiento, el resto de miembros del equipo y los pacientes, no 
 
 
-\item\red{Triple ciego}: Ni los sujetos ni el clínico ni el que realiza el análisis de los datos   conocen los tratamientos de los diferentes grupos
 
-\end{itemize}
 
+
+\frametitle{Placebo}
+\vspace*{-3ex}\footnotesize
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{acupuntura}\\
+\scriptsize\ \hspace*{\fill} \textit{Chinese Journal of Integrative Medicine} 21 (2015), 307--311
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{acupuntura2}\\
+\end{center}
 
 
 
@@ -569,6 +610,12 @@ control
 *  \red{Ensayo (no aleatorizado) con control externo}: Se compara un único grupo de sujetos tratados con un grupo de control que no forma parte del estudio (por ejemplo, un \red{control histórico}: un grupo analizado en un estudio previo)
 
 \end{itemize}
+
+
+*En teoría*, lo estudios experimentales permiten establecer una asociación causal entre las variables, porque *en teoría* el investigador controla completamente los sujetos del estudio, de manera que las diferencias que se den entre los diferentes grupos solo puedan deberse a los diferentes tratamientos. Pero esto es solo *en teoría*. porque en la práctica es imposible controlarlo todo. 
+
+
+
 
 
 
@@ -645,57 +692,6 @@ residual del azúcar consumido en la primera prueba,
 los análisis se programaron con una diferencia
 de 72 horas, en las cuales el sujeto consumió una
 dieta habitual.>>
-
-
-
-
-
-
-\frametitle{Placebo}
-
-\red{\bf Placebo}: sustancia similar en todo al tratamiento
-activo excepto que es farmacológicamente inactiva
-
-Puede usarse para enmascarar el ensayo: el grupo de control recibe algo que no sirve para nada, en vez de no recibir nada
-
-También permite tener en cuenta el \red{\bf efecto placebo}: Alteración en la respuesta del paciente por el simple hecho de recibir tratamiento
-
-
-
-
-
-\frametitle{Placebo}
-\vspace*{-3ex}\footnotesize
-
-\begin{center}
-\includegraphics[width=0.7\linewidth]{acupuntura}\\
-\scriptsize\ \hspace*{\fill} \textit{Chinese Journal of Integrative Medicine} 21 (2015), 307--311
-\end{center}
-
-\blue{\bf Objetivo:}
-Examinar el efecto de la acupuntura en el punto Zhubin (KI9) para reducir el ansia de ingesta de alcohol en  alcohólicos
-
-
-\blue{\bf Metodología:}
-Se repartieron de manera aleatoria (usando un programa de generación de números aleatorios) en dos grupos a 20 pacientes adictos al alcohol, 10 a un grupo de tratamiento y 10 a un grupo de placebo. El grupo de tratamiento recibió acupuntura con agujas reales en el punto Zhubin dos veces por semana durante 4 semanas, y el grupo de control recibió acupuntura con agujas de placebo (de punta roma, no perforan la piel). Ambos grupos recibieron acupuntura con un dispositivo simulado de Park. 
-
-El doctor oriental que practicó la acupuntura conocía el tratamiento, el resto de miembros del equipo y los pacientes, no 
-
-
-
-
-
-\frametitle{Placebo}
-\vspace*{-3ex}\footnotesize
-
-\begin{center}
-\includegraphics[width=0.7\linewidth]{acupuntura}\\
-\scriptsize\ \hspace*{\fill} \textit{Chinese Journal of Integrative Medicine} 21 (2015), 307--311
-\end{center}
-
-\begin{center}
-\includegraphics[width=0.7\linewidth]{acupuntura2}\\
-\end{center}
 
 
 

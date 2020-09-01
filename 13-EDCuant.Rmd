@@ -6,25 +6,25 @@ Los **datos cuantitativos**  son los que expresan cantidades que se representan 
 
 ## Frecuencias
 
-Como los números reales están ordenados de manera natural, para estudiar un vector de datos cuantitativos (una **variable cuantitativa**) podemos usar las frecuencias y las frecuencias acumuladas de sus diferentes valores,  como en las variables ordinales. Esto realmente solo es útil cuando en la muestra tenemos pocos valores diferentes. 
+Como los números reales están ordenados de manera natural, para estudiar una muestra de datos cuantitativos (una **variable cuantitativa**) podemos usar las frecuencias y las frecuencias acumuladas de sus diferentes valores,  como en las variables ordinales. Esto realmente solo es útil cuando en la muestra tenemos pocos valores diferentes. 
 
 ```{example,sexoger4}
 Vamos a ampliar la tabla de datos del Ejemplo \@ref(exm:sexoger3) con los números de hijos vivos en el momento del ingreso de los pacientes en sus residencias. 
 ```
 
 
-```{r,echo=FALSE, tablager4,echo=FALSE}
+```{r,tablager4,echo=FALSE, echo=FALSE}
 Sexo_Ger=c("Mujer","Mujer","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Hombre","Mujer","Hombre","Hombre","Mujer","Mujer","Hombre","Mujer","Mujer","Mujer","Mujer","Hombre")
 Demencia=c("No","Alzheimer","Alzheimer","Otros", "Alzheimer","Otros","No","Alzheimer","Otros","Otros","Alzheimer","Alzheimer","No","No","Alzheimer","No","No","No","Alzheimer","No")
 Cancer=c("No","Sí","No","No","No","Sí","No","No","No","Sí","No","No","No","No","No","Sí","No","No","No","No")
 Demencia=factor(Demencia,levels=c("Alzheimer","Otros","No"))
 Covid=c("Leve","Leve","UCI","Asintomática","Leve","Hospitalización","UCI","Leve","Leve","Leve","Leve","Hospitalización","Leve","Asintomática","Leve","Asintomática","Leve","Hospitalización","Hospitalización","Leve")
 Covid=ordered(Covid,levels=c("Asintomática", "Leve", "Hospitalización","UCI"))
-Hijos=c(4, 1, 8,0,3, 4, 2, 1, 1,2, 6, 0,0, 1, 4, 2, 2, 3,6, 3)
+Hijos=c(4, 1, 8,0,3, 4, 2, 1, 1,2, 6, 0,0, 1, 4, 2, 0, 3,6, 3)
 DFGer=data.frame(Sexo_Ger,Demencia,Cancer,Covid,Hijos)
 names(DFGer)=c("Sexo","Demencia Senil","Cáncer de mama","COVID-19","Número de hijos")
 kableExtra::kable(DFGer,
-              cap='Muestra de enfermos de COVID-19 una residencia geriátrica',
+              cap='Tabla de datos de pacientes de residencias geriátricas',
              row.names=TRUE,booktabs=TRUE)
 ```
 
@@ -36,18 +36,18 @@ tabla_df=data.frame(Resultado=sort(unique(Hijos)),
   Frec_Rel=as.vector(round(prop.table(table(Hijos)), 2)), 
   Frec_Abs_Acum=as.vector(cumsum(table(Hijos))), 
   Frec_Rel_Acum=as.vector(round(cumsum(prop.table(table(Hijos))), 2)))
-names(tabla_df)=c("Número de hijos","Frec. absoluta","Frec. relativa", "Frec. abs. acumulada","Frec.rel. acumulada")
+names(tabla_df)=c("Número de hijos","Frec. absoluta","Frec. relativa", "Frec. abs. acumulada","Frec. rel. acumulada")
 kable(tabla_df)
 ```
 
 Y a modo de ejemplo, los diagramas de barras de frecuencias relativas y frecuencias relativas acumuladas de estos números de hijos son:
 
-```{r,echo=FALSE,fig.cap="Frecuencias relativas de los números de hijos en la muestra de pacientes de Covid-19 de una residencia geriátrica"}
-barplot(prop.table(table(Hijos)))
+```{r,echo=FALSE}
+barplot(prop.table(table(Hijos)),main="Frecuencias relativas")
 ```
 
-```{r,echo=FALSE,fig.cap="Frecuencias relativas acumuladas de los números de hijos en la muestra de pacientes de Covid-19 de una residencia geriátrica"}
-barplot(cumsum(prop.table(table(Hijos))))
+```{r,echo=FALSE}
+barplot(cumsum(prop.table(table(Hijos))),main="Frecuencias relativas acumuladas")
 ```
 
 ```{block2,type="rmdnote"}
@@ -65,7 +65,7 @@ En primer lugar tenemos los **estadísticos de tendencia central**, que dan un v
 
 * La **moda**, que es el valor, o los valores, de máxima frecuencia (absoluta o relativa, tanto da). Normalmente, solo se usa para variables discretas.
 
-* La **media aritmética**, o **valor medio**: 
+* La **media aritmética**: 
 $$
  \overline{x}=\frac{x_1+\cdots+x_n}{n}
 $$
@@ -80,22 +80,22 @@ los datos de la variable cuantitativa ordenados de menor a mayor:
 $$
 \frac{x_{(n/2)}+x_{(n/2+1)}}{2}.
 $$
-    *  Si $n$ es impar, su mediana es el dato central: $x_{(n+1)/2}$.
+    *  Si $n$ es impar, su mediana es directamente el dato central: $x_{(n+1)/2}$.
 
 En este curso, cuando hablemos de la *media*  de unos datos nos referiremos siempre a su media aritmética. Hay otros tipos de media, como por ejemplo la media geométrica o la armónica, que no estudiaremos.
 
 ```{example,sexoger5}
-Tomemos la variable "Hijos" de la Tabla \@ref(tab:tablager5), formada por los números
+Tomemos la variable "Hijos" de la Tabla \@ref(tab:tablager4), formada por los números
 
 ```
 
-<p style="text-align:center">4, 1, 8, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 2, 3, 6, 3</p>
+<p style="text-align:center">4, 1, 8, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 0, 3, 6, 3</p>
 
-* En su tabla de frecuencias vemos que la *moda* son los valores 1 y 2, que empatan en la frecuencia máxima.
+* En su tabla de frecuencias vemos que la *moda* son los valores 0 y 1, que empatan en la frecuencia máxima.
 
 * Su *media* es
 $$
-\frac{4+1+8+0+3+4+2+1+1+2+6+0+0+1+4+2+2+3+6+3}{20}=2.65
+\frac{4+1+8+0+3+\cdots+0+3+6+3}{20}=2.55
 $$
 
 * Para calcular su *mediana*, lo primero que hacemos es ordenar de menor a mayor las observaciones, y marcamos su posición dentro del conjunto ordenado:
@@ -104,7 +104,8 @@ $$
 Posición=1:20
 Valor=sort(Hijos)
 M=rbind(Posición,Valor)
-kable(M)
+kable(M)%>%
+  kable_styling(bootstrap_options = c("responsive"))
 ```
 
 Como tenemos 20 datos, la mediana será la media aritmética de sus dos valores centrales, los de las posiciones 10 y 11: $Q_{0.5}=(2+2)/2=2$.
@@ -114,22 +115,23 @@ Como tenemos 20 datos, la mediana será la media aritmética de sus dos valores 
 
 ```
 
-<p style="text-align:center">4, 1, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 2, 3, 6, 3</p>
+<p style="text-align:center">4, 1, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 0, 3, 6, 3</p>
 
-* La *moda* siguen siendo los valores 1 y 2, ya que no hemos modificado sus frecuencias y hemos eliminado observaciones
+* La *moda* siguen siendo los valores 0 y 1, ya que no hemos modificado sus frecuencias y hemos eliminado observaciones
 
 * Su *media* ahora es
 $$
-\frac{4+1+0+3+4+2+1+1+2+6+0+0+1+4+2+2+3+6+3}{19}=2.37
+\frac{4+1+0+3+\cdots+0+3+6+3}{19}=2.263
 $$
 
 * Como ahora tenemos 19 observaciones, su mediana será la observación central, es decir, la décima tras ordenarlas de menor a mayor:
 
 ```{r,echo=FALSE}
 Posición=1:19
-Valor=sort(c(4, 1, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 2, 3, 6, 3))
+Valor=sort(c(4, 1, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 0, 3, 6, 3))
 M=rbind(Posición,Valor)
-kable(M)
+kable(M)%>%
+  kable_styling(bootstrap_options = c("responsive"))
 ```
 
 Por lo tanto, $Q_{0.5}=2$.
@@ -139,21 +141,22 @@ Por lo tanto, $Q_{0.5}=2$.
 
 ```
 
-<p style="text-align:center">4, 1, 8, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 2, 3, 6, 300</p>
+<p style="text-align:center">4, 1, 8, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 0, 3, 6, 300</p>
 
 * La *moda* no cambia
 
 * La *media* ahora sería
 $$
-\frac{4+1+8+0+3+4+2+1+1+2+6+0+0+1+4+2+2+3+6+300}{20}=17.5
+\frac{4+1+8+0+3+\cdots+0+3+6+300}{20}=17.4
 $$
 
 * Como volvemos a tener 20 números, la *mediana* sería otra vez la media de las observaciones décima y undécima  tras ordenarlas de menor a mayor:
 ```{r,echo=FALSE}
 Posición=1:20
-Valor=sort(c(4, 1, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 2, 3, 6, 30,8))
+Valor=sort(c(4, 1, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 0, 3, 6, 300,8))
 M=rbind(Posición,Valor)
-kable(M)
+kable(M)%>%
+  kable_styling(bootstrap_options = c("responsive"))
 ```
 De nuevo, $Q_{0.5}=(2+2)/2=2$.
 
@@ -163,7 +166,7 @@ knitr::include_graphics("INREMDN_files/figure-html/median.png")
 ```
 
 ```{block2,type="rmdimportant"}
-Es importante observar que, como ilustran los ejemplos y el chiste anterior,
+Es importante observar que, como ilustran los ejemplos y el chiste anteriores:
 
 * La moda es el valor más repetido, pero puede ser poco representativa 
 
@@ -182,17 +185,19 @@ Revisad los cálculos de la moda, la media y la mediana efectuados por los agent
 Por este motivo, por ejemplo, a la hora de resumir los salarios españoles, se publican los tres valores:
 
 
-```{r salaris,echo=FALSE, out.width="75%",fig.cap="Gráfico publicado por INE  (https://www.ine.es/prensa/eces_2018_a.pdf)"}
+```{r salaris,echo=FALSE, out.width="75%",fig.cap="Gráfico publicado por el INE  (https://www.ine.es/prensa/eces_2018_a.pdf)"}
 knitr::include_graphics("INREMDN_files/figure-html/salaris.png")
 ```
 
-Es interesante copiar un trozo de la nota de prensa de la que hemos extraído este gráfico:
+Es interesante copiar un trozo de la nota de prensa de la que hemos extraído el gráfico de la Figura \@ref(fig:salaris), donde se comenta la relación entre la moda, la media y la mediana:
 
 > "El salario bruto medio anual en España fue de 24.009,12 euros por trabajador en el año en el año 2018, un 1,5% mayor al año anterior. La diferencia entre este salario medio y el salario más frecuente o modal (de 18.468,93 euros) fue de más de 5.500 euros. Esto significa que había pocos trabajadores con salarios muy altos pero que influyeron notablemente en el salario medio.
 
 > "Por otra parte, el salario mediano (que divide al número de trabajadores en dos partes iguales, los que tienen un salario superior y los que tienen un salario inferior) presentó un valor de 20.078,44 euros en 2018."
 
-
+```{block2,type="rmdromans"}
+¿En serio que el salario más frecuente fue  18468.93 euros, y no de 18468.94? Bueno, en realidad este valor es una estimación y ciertamente se podrían haber ahorrado los céntimos... Ya volveremos más adelante sobre este punto.
+```
 
 ## Medidas de posición
 
@@ -210,7 +215,7 @@ La excepción a esta regla es el cuantil  $Q_{0.5}$, que es la mediana y se calc
 ```
 
 ```{example}
-Volvamos a la variable "Hijos" de la Tabla \@ref(tab:tablager5). Sus 20 valores, ordenados de menor a mayor son:
+Volvamos a la variable "Hijos" de la Tabla \@ref(tab:tablager4). Sus 20 valores, ordenados de menor a mayor son:
   
 ```
 
@@ -223,14 +228,18 @@ kable(M)
 
 Entonces:
 
-* El cuantil de orden 0.2, $Q_{0.2}$, es el primer elemento en esta lista ordenada que es mayor o igual que, como mínimo, el 20% de los datos. Como el 20% de 20 es 4, $Q_{0.2}$ es el cuarto elemento de la lista ordenada: `r Valor[4]`
+* El cuantil de orden 0.2, $Q_{0.2}$, es el primer elemento en esta lista ordenada que es mayor o igual que, como mínimo, el 20% de los datos. Como el 20% de 20 es 4, $Q_{0.2}$ es el cuarto elemento de la lista ordenada: `r Valor[4]`.
 
-* El cuantil de orden 0.75, $Q_{0.75}$, es el primer elemento en esta lista ordenada que es  mayor o igual que, como mínimo, el 75% de los datos. Como el 75% de 20 es 15, $Q_{0.75}$ es el décimoquinto elemento de la lista ordenada: `r Valor[15]`
+* El cuantil de orden 0.75, $Q_{0.75}$, es el primer elemento en esta lista ordenada que es  mayor o igual que, como mínimo, el 75% de los datos. Como el 75% de 20 es 15, $Q_{0.75}$ es el décimoquinto elemento de la lista ordenada: `r Valor[15]`.
 
-* El cuantil de orden 1/3, $Q_{1/3}$, es el primer elemento en esta lista ordenada que es  mayor o igual que, como mínimo, un tercio de los datos. Como un tercio de 20 es 6.66 y pico, $Q_{1/3}$ es el séptimo elemento de la lista ordenada: `r Valor[7]`
+* El cuantil de orden 1/3, $Q_{1/3}$, es el primer elemento en esta lista ordenada que es  mayor o igual que, como mínimo, un tercio de los datos. Como un tercio de 20 es 6.66 y pico, $Q_{1/3}$ es el *séptimo* elemento de la lista ordenada: `r Valor[7]`. Fijaos en que 6/20=0.3, y por lo tanto el sexto elemento de la lista deja a su izquierda solo el 30% de la muestra, no el 33.33...%. Necesitamos el séptimo elemento para llegar al tercio, aunque entonces nos pasemos. 
+
+```{block2,type="rmdcuidado"}
+Los cuantiles se calculan a partir de los valores ordenados de la muestra, teniendo en cuenta los valores repetidos. Es decir, si se han observado un 1, un 2, un 3, un 4 y cinco 5, la mediana no es el valor central de 1, 2, 3, 4, 5, sino el de 1, 2, 3, 4, 5, 5, 5, 5, 5, que es 5.
+```
 
 ```{block2,type="rmdnote"}
-De hecho, la definición que hemos dado  de cuantil es "orientativa": no hay una regla única para calcular cuantiles de una muestra (*salvo la mediana*), de manera que se han propuesto varios métodos que pueden dar  resultados diferentes; podéis consultar nueve de estos métodos en la  [entrada sobre cuantiles de la  Wikipedia en inglés](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample). La razón de esta diversidad es que el objetivo final del cálculo de cuantiles puede no ser solo encontrar el primer valor cuya frecuencia relativa acumulada en la variable sea mayor o igual que $p$, sino también estimar qué vale este valor para el total de la población.
+En realidad, la definición que hemos dado  de cuantil es "orientativa": no hay una regla única para calcular cuantiles de una muestra (*salvo la mediana*), de manera que se han propuesto varios métodos que pueden dar  resultados diferentes; podéis consultar nueve de estos métodos en la  [entrada sobre cuantiles de la  Wikipedia en inglés](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample). La razón de esta diversidad es que el objetivo final del cálculo de cuantiles puede no ser solo encontrar el primer valor cuya frecuencia relativa acumulada en el conjunto de datos sea mayor o igual que $p$, sino también estimar qué vale este valor para el total de la población.
 
 ¿Qué haremos nosotros?
 
@@ -250,11 +259,11 @@ Algunos cuantiles con nombre propio:
 
 * Los **percentiles** son los cuantiles $Q_{p}$ con $p$ un múltiplo entero de 0.01: $Q_{0.01}$ es el  **primer percentil**, $Q_{0.02}$ es el  **segundo percentil**, etc.
 
-Se llama **intervalo intercuartílico**, $\mathit{IQI}$, al intervalo cerrado $[Q_{0.25},Q_{0.75}]$. Fijaos que como un 75% de los datos de la muestra es menor o igual que $Q_{0.75}$ y, de estos, un 25%  es menor o igual que $Q_{0.25}$, dentro del $\mathit{IQI}$ caerán el 50% de los datos de la muestra (aproximadamente, porque puede haber repeticiones de los extremos).
+Se llama **intervalo intercuartílico**, $\mathit{IQI}$, al intervalo cerrado $[Q_{0.25},Q_{0.75}]$. Fijaos que como un 75% de los datos de la muestra es menor o igual que $Q_{0.75}$ y, de estos, un 25%  es menor o igual que $Q_{0.25}$, dentro del $\mathit{IQI}$ caerán aproximadamente el 50% de los datos de la muestra: aproximadamente, porque puede haber repeticiones de los extremos y también por mor de los "menor o igual" en la descripción de  $Q_{0.75}$ y  $Q_{0.25}$.
 
 
 ```{example}
-Seguimos con la variable "Hijos" de la Tabla \@ref(tab:tablager5). Su primer cuartil será su quinto dato tras ordenarlos de menor a mayor; como hay 3 ceros y 4 unos, será 1. Su tercer cuartil ya lo hemos calculado antes, es 4. Por lo tanto su intervalo intercuartílico es [1,4].  Este intervalo contiene 14 elementos de la muestra, bastante más de la mitad, porque la muestra contiene muchas repeticiones del 1 y el 4.
+Seguimos con la variable "Hijos" de la Tabla \@ref(tab:tablager4). Su primer cuartil será su quinto dato tras ordenarlos de menor a mayor; como hay cuatro ceros y cuatro unos, será 1. Su tercer cuartil ya lo hemos calculado antes, es 4. Por lo tanto su intervalo intercuartílico es [1,4].  Este intervalo contiene 14 elementos de la muestra, bastante más de la mitad, porque la muestra contiene muchas repeticiones del 1 y el 4.
 ```
 
 
@@ -269,6 +278,7 @@ Calculad su:
 * Media: 
 * Mediana:
 * Primer y tercer cuartiles: 
+* Porcentaje de elementos de la muestra que caen dentro del intervalo intercuartílico:
   
 ```
 
@@ -291,10 +301,8 @@ $$
 $$
 \tilde{s}_x^2 =\frac{\sum_{i=1}^n (x_i-\overline{x})^2}{n-1}
 $$
-    Por lo tanto,
-$$
-\tilde{s}_x^2=\frac{n}{n-1} \cdot s_x^2
-$$
+ 
+ 
 
 * La  **desviación típica muestral**: la raíz cuadrada positiva  de la varianza muestral: $\tilde{s}_x=+\sqrt{\tilde{s}_x^2}$.
 
@@ -306,7 +314,7 @@ Cuando queramos recalcar que estamos hablando de las versiones no muestrales de 
 
 * La **desviación media respecto de la mediana**: la media aritmética de los valores absolutos de las diferencias entre los datos $x_i$ y su mediana $Q_{0.5}$:
 $$
-MDM(x)}=\dfrac{\sum_{i=1}^n \big|x_i-Q_{0.5}\big|}{n}
+MDM(x)=\frac{\sum_{i=1}^n |x_i-Q_{0.5}|}{n}
 $$
 
 
@@ -315,44 +323,56 @@ Calculemos todos estos valores para nuestra variable "Hijos"
 
 ```
 
-<p style="text-align:center">4, 1, 8, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 2, 3, 6, 3</p>
+<p style="text-align:center">4, 1, 8, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 0, 3, 6, 3</p>
 
 
 * Su máximo es 8 y su mínimo 0, por lo tanto su **recorrido** es 8
 * Ya hemos calculado en la sección anterior su intervalo intercuartílico, que es [1,4], por lo que su **rango intercuartílico** es 3.
-* Como su media es 2.65, su **varianza verdadera** es
+* Como su media es 2.55, su **varianza verdadera** es
 $$
-s^2_x=\frac{(4-2.65)^2+(1-2.65)^2+(8-2.65)^2+\cdots+(3-2.65)^2}{20}=4.5275
+s^2_x=\frac{(4-2.55)^2+(1-2.55)^2+(8-2.55)^2+\cdots+(3-2.55)^2}{20}=4.8475
 $$
 *  Su **desviación típica verdadera** es
 $$
-s_x=\sqrt{4.5275}=2.128
+s_x=\sqrt{4.5275}=2.202
 $$
 
 * Su **varianza muestral** es
 $$
-\widetilde{s}^2_x=\frac{(4-2.65)^2+(1-2.65)^2+(8-2.65)^2+\cdots+(3-2.65)^2}{19}=4.766
+\widetilde{s}^2_x=\frac{(4-2.65)^2+(1-2.65)^2+(8-2.65)^2+\cdots+(3-2.65)^2}{19}=5.1026
 $$
 
 *  Su **desviación típica muestral** es
 $$
-\widetilde{s}_x=\sqrt{4.766}=2.183
+\widetilde{s}_x=\sqrt{4.766}=2.259
 $$
 
 * Su **coeficiente de variación** es
 $$
-CV_x=\frac{2.128}{2.65}=0.803
+CV_x=\frac{2.202}{2.55}=0.8634
 $$
 
 * Como su mediana es 2, su **desviación media respecto de la mediana** es
 $$
-MDM_x=\frac{|4-2|+|1-2|+|8-2|+\cdots+|3-2|}{20}=1.65
+MDM_x=\frac{|4-2|+|1-2|+|8-2|+\cdots+|3-2|}{20}=1.75
 $$
 
-
+```{block2,type="rmdnote"}
+La diferencia entre la varianza verdadera y la muestral, aparte de la tilde $\widetilde{\ }$ en el símbolo de la muestral, está simplemente en el denominador, que es $n$ para la verdadera y $n-1$ para la muestral. Por lo tanto, se puede pasar de una a otra simplemente cambiando el denominador:
+$$
+\widetilde{s}^2_x=\frac{n}{n-1}\cdot s^2_x.
+$$
+Y tomando raíces cuadradas:
+$$
+\widetilde{s}_x=\sqrt{\frac{n}{n-1}}\cdot s_x.
+$$
+```
 
 ```{block2,type="rmdromans"}
-¿Por qué definimos la varianza verdadera y la varianza muestral? ¿No bastaría con una? El motivo es su posible aplicación en la estimación de la varianza de la variable poblacional:
+¿Por qué definimos la varianza verdadera y la varianza muestral? ¿No bastaría con una, si además se pasa de una a otra con una simple transformación lineal? ¿No es ya la vida suficientemente complicada como para añadir definiciones innecesarias?
+```
+  
+El motivo de distinguir entre la varianza verdadera y la muestral es su posible aplicación en la estimación de la varianza de la variable poblacional:
   
 * Por un lado, es natural medir la variabilidad de un conjunto de datos cuantitativos mediante su varianza *verdadera*, definida como la media de las distancias (al cuadrado) de los datos a su valor promedio. 
 
@@ -363,15 +383,18 @@ $$
     Pues bien, como veremos más adelante, resulta que la varianza verdadera de una muestra tiende a dar valores más pequeños que la varianza real de la población, mientras que  la varianza muestral  tiende a dar valores alrededor de la varianza real  de la población. Por lo tanto, si nuestro objetivo es estimar la varianza de la variable poblacional, lo correcto es  usar la varianza muestral.
 
 
-Para muestras grandes, la diferencia no es importante: si $n$ es grande, dividir por $n$ o por $n-1$ no significa una gran diferencia, y  sobre todo si tenemos en cuenta que se trata de estimar la varianza de la población, no de calcularla exactamente.
-```
+Por otro lado, para muestras grandes, la diferencia no es importante: si $n$ es grande, dividir por $n$ o por $n-1$ no significa una gran diferencia, y  sobre todo si tenemos en cuenta que se trata de estimar la varianza de la población, no de calcularla exactamente.
 
 ```{block2,type="rmdromans"}
- ¿Por qué definimos la varianza y desviación típica, si ambas medidas dan una información equivalente, siendo la segunda la raíz cuadrada de la primera? El motivo es que si los elementos de una variable cuantitativa tienen unidades (metros, años, individuos por metro cuadrado...),  su varianza (sea "verdadera" o muestral) tiene estas unidades al cuadrado; por ejemplo, si los $x_i$ son años, los valores de  $s_x^2$ y $\tilde{s}_x^2$ representan años al cuadrado. En cambio, las desviaciones típicas tienen las mismas unidades que los datos, por lo que se pueden comparar con ellos, y de ahí su utilidad. 
+ ¿Y por qué definimos la varianza y desviación típica, si ambas medidas dan una información equivalente, siendo la segunda la raíz cuadrada de la primera? 
+  
+El motivo es que si los elementos de una variable cuantitativa tienen unidades (metros, años, individuos por metro cuadrado...),  su varianza (sea "verdadera" o muestral) tiene estas unidades al cuadrado; por ejemplo, si los $x_i$ son años, los valores de  $s_x^2$ y $\tilde{s}_x^2$ representan años al cuadrado. En cambio, las desviaciones típicas tienen las mismas unidades que los datos, por lo que se pueden comparar con ellos, y de ahí su utilidad. 
 ```
 
 ```{block2,type="rmdnote"}
-Si queremos comparar la dispersión de dos variables con datos de la misma naturaleza, por ejemplo alturas, pero medidos en unidades diferentes, por ejemplo en metros y en centímetros, no es correcto usar medidas como la varianza o la desviación típica que dependan de las unidades. En este caso es más recomendable usar el coeficiente de variación $CV_x$.
+¿Y el coeficiente de variación? ¿Cuándo conviene usarlo?
+
+Si queremos comparar la dispersión de dos variables con datos de la misma naturaleza, por ejemplo alturas, pero medidos en unidades diferentes, por ejemplo en metros y en centímetros, no es correcto usar medidas como la varianza o la desviación típica que dependan de las unidades. En este caso es más recomendable usar el coeficiente de variación $CV_x$. Mirad el ejemplo siguiente.
 ```
 
 ```{example}
@@ -403,9 +426,9 @@ $$
 s_x=\sqrt{\frac{(1.35-1.36)^2+(1.32-1.36)^2+(1.38-1.36)^2+(1.41-1.36)^2+(1.34-1.36)^2}{6}}=0.02887\ \text{m}
 $$
 
-La desviación típica de las alturas en centímetros es 100 veces mayor que la de las alturas en metros, pero sería incorrecto decir que las primeras son más dispersas que las segundas, ya que en realidad se trata de los mismos datos. La diferencia se debe simplemente a las unidades en que las hemos medido.
+La desviación típica de las alturas en centímetros es 100 veces mayor que la de las alturas en metros, pero sería incorrecto decir que las primeras son más dispersas que las segundas, ya que en realidad se trata de los mismos datos. La diferencia se debe simplemente a las unidades en las que las hemos medido.
 
-En ambos casos, el coeficiente de variación sería el mismo:
+En cambio, en ambos casos el coeficiente de variación sería el mismo:
 $$
 \frac{2.887}{136}=\frac{0.02887\times 100}{1.36\times 100}=\frac{0.02887}{1.36}=0.0212
 $$
@@ -415,14 +438,15 @@ La varianza tiene las propiedades matemáticas siguientes:
 
 * $s_x^2\geq 0$, porque es una suma de cuadrados de numeros reales.
 
-* Si $s_x^2=0$, todos los sumandos $(x_i-\overline{x})^2$ son 0 y, por lo tanto, todos los datos son iguales  a su media. En particular, $s_x^2=0$ significa que todos los datos son iguales.
+* Si $s_x^2=0$, todos los sumandos $(x_i-\overline{x})^2$ son 0 y, por lo tanto, todos los datos son iguales  a su media. En particular, $s_x^2=0$ significa que todos los datos son iguales. La implicación al revés también es cierta:
+si todos los datos son iguales, su media es igual a este mismo valor común, y por lo tanto todos los sumandos $(x_i-\overline{x})^2$ son 0.
 
 
 * A partir de la fórmula dada para $s_x^2$ y operando astutamente se obtiene la fórmula siguiente, que puede ser útil:
 $$
 s_x^2= \frac{\sum_{i=1}^n x_i^2}{n}-\overline{x}^2,
 $$
-Es decir, *la varianza es la media de los cuadrados de los datos, menos el cuadrado de la media de los datos.* 
+Es decir, *la varianza* (*verdadera*) *es la media de los cuadrados de los datos, menos el cuadrado de la media de los datos.* 
 
 
 
