@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>1.4</b> Medidas de dispersión</a></li>
 <li class="chapter" data-level="1.5" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#diagramas-de-puntos-y-de-caja"><i class="fa fa-check"></i><b>1.5</b> Diagramas de puntos y de caja</a></li>
 <li class="chapter" data-level="1.6" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#histogramas"><i class="fa fa-check"></i><b>1.6</b> Histogramas</a></li>
-<li class="chapter" data-level="1.7" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#diagramas-poligonales"><i class="fa fa-check"></i><b>1.7</b> Diagramas poligonales</a></li>
+<li class="chapter" data-level="1.7" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#polígonos-de-frecuencias"><i class="fa fa-check"></i><b>1.7</b> Polígonos de frecuencias</a></li>
 <li class="chapter" data-level="1.8" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#asimetría-y-curtosis"><i class="fa fa-check"></i><b>1.8</b> Asimetría y curtosis</a></li>
 <li class="chapter" data-level="1.9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#estadísticos-sobre-daatos-agrupados"><i class="fa fa-check"></i><b>1.9</b> Estadísticos sobre daatos agrupados</a></li>
 <li class="chapter" data-level="1.10" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#datos-cuantitativos-bivariantes"><i class="fa fa-check"></i><b>1.10</b> Datos cuantitativos bivariantes</a></li>
@@ -1701,7 +1701,7 @@ Dibujad el diagrama de puntos de la variable “Hijos” y superponedle su diagr
 </div>
 <div id="histogramas" class="section level2">
 <h2><span class="header-section-number">1.6</span> Histogramas</h2>
-<p>Un <strong>histograma</strong> es una representación gráfica de un conjunto de datos cuantitativos continuos, consistente en dividir el intervalo de valores entre el mínimo y el máximo en intervalos contiguos y disjuntos, llamado <strong>clases</strong>, y dibujar entonces una especie de diagrama de barras de estas clases con las dos características siguientes:</p>
+<p>Un <strong>histograma</strong> es una representación gráfica de un conjunto de datos cuantitativos continuos, consistente en dividir el intervalo de valores entre el mínimo y el máximo en intervalos contiguos y disjuntos, llamado <strong>clases</strong>, y dibujar entonces una especie de diagrama de barras de estas clases con las particularidades siguientes:</p>
 <ul>
 <li><p>Las barras se dibujan sin espacios entre ellas (para representar la continuidad de los datos)</p></li>
 <li><p>Si se trata de un <strong>histograma de frecuencias absolutas</strong> (en el que las barras representan las frecuencias absolutas de las clases) y todas las clases tienen la misma amplitud, las alturas de las barras son las frecuencias de las clases</p></li>
@@ -1709,7 +1709,7 @@ Dibujad el diagrama de puntos de la variable “Hijos” y superponedle su diagr
 </ul>
 
 <div class="rmdromans">
-En realidad, en un histograma de frecuencias absolutas lo que representa la frecuencia de la clase es simepre el <strong>área</strong> de su barra. Pero si todas las clases tienen la misma amplitud, las áreas de las barras serán sus alturas por la amplitud común de las bases, y por lo tanto proporcionales a las alturas. En este caso, y <strong>y solo en este caso</strong>, podemos interpretar que las alturas representan las frecuencias.
+En realidad, en un histograma lo que representa la frecuencia de la clase es siempre el <strong>área</strong> de su barra. Pero si todas las clases tienen la misma amplitud, las áreas de las barras serán sus alturas por la amplitud común de las bases, y por lo tanto proporcionales a las alturas. En este caso, y <strong>solo en este caso</strong>, podemos interpretar que las alturas representan las frecuencias. Pero en la práctica, y por motivos que se entenderán al hablar de variables aleatorias en el próximo tema, esta representación de las frecuencias por medio de las alturas solo se lleva a cabo para frecuencias absolutas.
 </div>
 
 
@@ -1720,7 +1720,7 @@ En realidad, en un histograma de frecuencias absolutas lo que representa la frec
 <p style="text-align:center">
 1.71,1.62,1.72,1.76,1.78,1.73,1.67,1.64,1.63,1.68,1.68,1.70,1.67, 1.56,1.66,1.57,1.69,1.68,1.67,1.75,1.61,1.60,1.74,1.70,1.65,1.55,1.82,1.70,1.69,1.81
 </p>
-<p>El gráfico siguiente muestra el diagrama de barras de sus frecuencias, tomando como posibles niveles todas las alturas entre su mínimo y su máximo, redondeadas a cm. Todas la barras tienen alturas entre 0 y 3, y salvo una mayor presencia de los valores centrales (entre 1.67 y 1.70), no hay mucho más que salte a la vista en este gráfico.</p>
+<p>El gráfico siguiente muestra el diagrama de barras de sus frecuencias absolutas, tomando como posibles niveles todas las alturas entre su mínimo y su máximo redondeadas a cm. Todas la barras tienen alturas entre 0 y 3, y salvo una mayor presencia de los valores centrales (entre 1.67 y 1.70), no hay mucho más que salte a la vista en este gráfico.</p>
 <p><img src="INREMDN_files/figure-html/unnamed-chunk-42-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Ahora vamos a agrupar estas alturas en intervalos de 5cm. Como el valor mínimo de la muestra es 1.55 y el máximo es 1.82, vamos a tomar las clases 1.55-1.59, 1.60-1.64, 1.65-1.69,1.70-1.74,1.75-1.79, 1.80-1.84. Dibujemos el diagrama de barras de las frecuencias absolutas de estas clases sin dejar espacios entre las barras, obtenemos el <strong>histograma</strong> siguiente:</p>
 <p><img src="INREMDN_files/figure-html/unnamed-chunk-43-1.png" width="60%" style="display: block; margin: auto;" /></p>
@@ -1731,21 +1731,11 @@ En realidad, en un histograma de frecuencias absolutas lo que representa la frec
 <span id="exm:histnotas" class="example"><strong>Ejemplo 1.12  </strong></span>El gráfico siguiente es un histograma de un conjunto de 188 notas finales de una asignatura:
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:histnotas1"></span>
-<img src="INREMDN_files/figure-html/histnotas1.png" alt="Histograma de 188 notas" width="426" />
-<p class="caption">
-Figura 1.3: Histograma de 188 notas
-</p>
-</div>
-<p>En este histograma, hemos tomado las clases [0,1), [1,2),…,[9,10]. Si en cambio hubiéramos tomado las clases [0,5) (suspenso), [5,7) (aprobado), [7,9) (notable) y [9,10] (sobresaliente), el histograma tendría que ser como el siguiente, donde ya no marcamos las alturas en el eje de ordenadas para no crear confusiones:</p>
-<div class="figure" style="text-align: center"><span id="fig:histnotas2"></span>
-<img src="INREMDN_files/figure-html/histnotas2.png" alt="Histograma de las mismas 188 notas" width="422" />
-<p class="caption">
-Figura 1.4: Histograma de las mismas 188 notas
-</p>
-</div>
-<p>Suponemos que estaréis de acuerdo en que es más fácil entender la distribución de las notas con el primer histograma que con el segundo. Como el objetivo de un gráfico ha de ser ayudar a comprender un conjunto de datos, casi siempre es más conveniente usar clases de la misma amplitud a la hora de dibujar histogramas.</p>
-<p>Ahora bien, el número de clases ya depende de los intereses del investigador; números de clases diferentes muestran efectos diferentes. Una posible regla general que normalmente funciona: tomad alrededor de <span class="math inline">\(\sqrt{n}\)</span> clases (donde <span class="math inline">\(n\)</span> indica el tamaño de la muestra) pero no menos de 5 clases ni más de 15.</p>
+<p><img src="INREMDN_files/figure-html/histnotas1.png" width="426" style="display: block; margin: auto;" /></p>
+<p>En este histograma, hemos tomado las clases [0,1), [1,2),…,[9,10]. Si en cambio hubiéramos tomado las clases [0,5) (suspenso), [5,7) (aprobado), [7,9) (notable) y [9,10] (sobresaliente), el histograma tendría que ser como el siguiente, donde ya no podemos marcar las alturas en el eje de ordenadas (la altura de la barra de notables es mayor que la de los suspensos, pero su frecuencia es menor):</p>
+<p><img src="INREMDN_files/figure-html/histnotas2.png" width="422" style="display: block; margin: auto;" /></p>
+<p>Suponemos que estaréis de acuerdo en que es más fácil entender la distribución de las notas con el primer histograma que con el segundo. Como el objetivo de un gráfico ha de ser ayudar a comprender un conjunto de datos, casi siempre es más conveniente usar clases de la misma amplitud a la hora de dibujar histogramas, y solo las usaremos de diferentes amplitudes cuando no haya más remedio.</p>
+<p>Ahora bien, el número de clases ya depende de los intereses del investigador; números de clases diferentes muestran efectos diferentes. Una posible regla general para decidir el número de clases que normalmente da buenos resultados es tomar alrededor de <span class="math inline">\(\sqrt{n}\)</span> clases (donde <span class="math inline">\(n\)</span> indica el tamaño de la muestra) pero no menos de 5 clases ni más de 15.</p>
 
 <div class="example">
 <p><span id="exm:tensioagrup" class="example"><strong>Ejemplo 1.13  </strong></span>Tenemos una muestra de tensiones arteriales medias de 120 adultos.</p>
@@ -1807,12 +1797,7 @@ Frecuencia
 </tbody>
 </table>
 <p>obtenemos el histograma</p>
-<div class="figure" style="text-align: center"><span id="fig:histtensio2"></span>
-<img src="INREMDN_files/figure-html/tensio2.png" alt="Histograma de 120 tensiones usando 5 clases" width="522" />
-<p class="caption">
-Figura 1.5: Histograma de 120 tensiones usando 5 clases
-</p>
-</div>
+<p><img src="INREMDN_files/figure-html/tensio2.png" width="522" style="display: block; margin: auto;" /></p>
 Si tomamos 9 clases, con las frecuencias
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1901,12 +1886,7 @@ Frecuencia
 </tbody>
 </table>
 <p>obtenemos el histograma</p>
-<div class="figure" style="text-align: center"><span id="fig:histtensio3"></span>
-<img src="INREMDN_files/figure-html/tensio3.png" alt="Histograma de 120 tensiones usando 9 clases" width="522" />
-<p class="caption">
-Figura 1.6: Histograma de 120 tensiones usando 9 clases
-</p>
-</div>
+<p><img src="INREMDN_files/figure-html/tensio3.png" width="522" style="display: block; margin: auto;" /></p>
 Y si tomamos 15 clases, con las frecuencias
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -2059,19 +2039,9 @@ Frecuencia
 </tbody>
 </table>
 <p>obtenemos el histograma</p>
-<div class="figure" style="text-align: center"><span id="fig:histtensio4"></span>
-<img src="INREMDN_files/figure-html/tensio4.png" alt="Histograma de 120 tensiones usando 15 clases" width="522" />
-<p class="caption">
-Figura 1.7: Histograma de 120 tensiones usando 15 clases
-</p>
-</div>
-<p>Los histogramas también pueden ser de frecuencias relativas: en este caso, tanto si todas las clases tienen la misma amplitud o no <strong>las alturas de las cajas han de ser los valores tales que el área de la barra sea la frecuencia relativa de la clase</strong>. A estas alturas se les llama las <strong>densidades</strong> de las clases. Es decir, la frecuencia relativa de cada clase es la amplitud de la clase por su densidad.
-De esta manera, la suma de las áreas de las barras será 1.</p>
-
-<div class="rmdromans">
-Veremos la justificación de esta convención en la lección de Variables Aleatorias.
-</div>
-
+<p><img src="INREMDN_files/figure-html/tensio4.png" width="522" style="display: block; margin: auto;" /></p>
+<p>En este último histograma, con más resolución, podemos observar dos picos que en los otros no aparecen.</p>
+<p>Como hemos comentado, los histogramas también pueden ser de frecuencias relativas: en este caso, tanto si todas las clases tienen la misma amplitud como si no <strong>las alturas de las cajas han de ser los valores tales que el área de la barra sea la frecuencia relativa de la clase</strong>. A estas alturas se les llama las <strong>densidades</strong> de las clases. Es decir, la frecuencia relativa de cada clase es la amplitud de la clase por su densidad. De esta manera, la suma de las áreas de las barras será 1. Como también ya hemos comentado, veremos la justificación de esta convención en el próximo tema, sobre Variables Aleatorias.</p>
 Así, en el ejemplo anterior para 9 clases, las frecuencias relativas y las densidades serían
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -2220,67 +2190,65 @@ Densidad
 </tbody>
 </table>
 <p>y el histograma de frecuencias relativas a que dan lugar es</p>
-<div class="figure" style="text-align: center"><span id="fig:histtensio5"></span>
-<img src="INREMDN_files/figure-html/tensio5.png" alt="Histograma de frecuencias relativas de 120 tensiones usando 9 clases" width="521" />
-<p class="caption">
-Figura 1.8: Histograma de frecuencias relativas de 120 tensiones usando 9 clases
-</p>
-</div>
+<p><img src="INREMDN_files/figure-html/tensio5.png" width="521" style="display: block; margin: auto;" /></p>
 <p>Recordad que, en un histograma correcto, si las clases tienen amplitud diferente, las alturas de las barras han de ser las que den como áreas de las barras las frecuencias (absolutas o relativas) de las clases.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-49" class="example"><strong>Ejemplo 1.14  </strong></span>El gráfico siguiente (extraído de M. Vanderpump et al, “Iodine status of UK schoolgirls: a cross-sectional survey.” <em>Lancet</em> 377 (2011), pp. 2007–2012) representa las proporciones de colegialas británicas en una muestra que tuvieron diferentes concentraciones de yodo en la orina. Es un diagrama de barras, no un histograma.</p>
+<p><span id="exm:unnamed-chunk-48" class="example"><strong>Ejemplo 1.14  </strong></span>El gráfico siguiente, extraído <a href="https://www.sciencedirect.com/science/article/abs/pii/S0140673611606934">“Iodine status of UK schoolgirls: a cross-sectional survey”</a> (M. Vanderpump <em>et al</em>, <em>The Lancet</em> 377 (2011), pp. 2007–2012), representa las proporciones de colegialas británicas en una muestra que tuvieron diferentes concentraciones de yodo en la orina. Es un diagrama de barras, no un histograma.</p>
 </div>
 
 <p><img src="INREMDN_files/figure-html/urine3.png" width="556" style="display: block; margin: auto;" /></p>
-<p>A primera vista, parecería que la distribución de estas concentraciones de yodo es bastante simétrica. Pero observad que las clases no tienen la misma amplitud. El histograma de frecuencias relativas correcto con estas clases es el siguiente:</p>
+<p>A primera vista, parecería que la distribución de estas concentraciones de yodo es bastante simétrica. Pero observad que las clases no tienen la misma amplitud. El histograma de frecuencias relativas correcto con estas clases es el siguiente, donde observamos lo que llamaremos una <strong>cola a la derecha</strong>:</p>
 <p><img src="INREMDN_files/figure-html/urine4.png" width="525" style="display: block; margin: auto;" /></p>
-<p>Pero el histograma sería más fácil de interpretar si las clases tuvieran todas la misma amplitud:</p>
+<p>El histograma sería más fácil de interpretar si las clases tuvieran todas la misma amplitud:</p>
 <p><img src="INREMDN_files/figure-html/urine5.png" width="525" style="display: block; margin: auto;" /></p>
-<p>En este último histograma vemos claramente que el conjunto de datos no es de ninguna manera simétrico, sino que tiene lo que llamaremos una <strong>cola a la derecha</strong>.</p>
+<p>En este último histograma vemos claramente que el conjunto de datos no es de ninguna manera simétrico.</p>
 </div>
-<div id="diagramas-poligonales" class="section level2">
-<h2><span class="header-section-number">1.7</span> Diagramas poligonales</h2>
+<div id="polígonos-de-frecuencias" class="section level2">
+<h2><span class="header-section-number">1.7</span> Polígonos de frecuencias</h2>
 <p>A menudo se substituye un histograma con clases de la misma amplitud por un <strong>polígono de frecuencias</strong>, en el que</p>
 <ul>
 <li><p>Para cada clase, marcamos los puntos de abscisa el punto medio de la clase y ordenada la altura de su barra</p></li>
 <li><p>Unimos puntos consecutivos mediante segmentos</p></li>
 </ul>
-<p>A modo de ejemplo, recordemos el histograma de un conjunto de notas del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:histnotas">1.12</a>. A su lado damos el polígono de frecuencias correspondiente:</p>
-<p><img src="INREMDN_files/figure-html/histnotas11.png" width="90%" style="display: block; margin: auto;" /><img src="INREMDN_files/figure-html/polfrec1.png" width="90%" style="display: block; margin: auto;" /></p>
-<p>Los diagramas poligonales son útiles para representar simultáneamente varios histogramas:</p>
+<p>A modo de ejemplo, recordemos el histograma de un conjunto de notas del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:histnotas">1.12</a>, agrupadas en 10 clases:</p>
+<p><img src="INREMDN_files/figure-html/histnotas11.png" width="450" style="display: block; margin: auto;" /></p>
+<p>Su polígono de frecuencias es:
+<img src="INREMDN_files/figure-html/polfrec1.png" width="450" style="display: block; margin: auto;" /></p>
+<p>Los polígonos de frecuencias son útiles para representar simultáneamente varios histogramas:</p>
 <p><img src="INREMDN_files/figure-html/polfrec2.png" width="450" style="display: block; margin: auto;" /></p>
 
 <div class="rmdexercici">
-<p>Aquí tenéis los tiempos (en horas) de los ganadores de la maratón de Nueva York (categorías masculina y femenina) de 1970 a 2015:</p>
+<p>Aquí tenéis los tiempos (en horas) de los ganadores de la maratón de Nueva York (categorías masculina y femenina) de 1970 a 2015, ordenados de menor a mayor:</p>
 <p style="text-align:center">
 2.08, 2.12, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.18, 2.18, 2.18, 2.18, 2.18, 2.18, 2.18, 2.20, 2.20, 2.23, 2.32, 2.35, 2.37, 2.37, 2.38, 2.38, 2.38, 2.38, 2.40, 2.40, 2.40, 2.40, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42, 2.43, 2.43, 2.45, 2.45, 2.45, 2.45, 2.45, 2.45, 2.47, 2.47, 2.47, 2.47, 2.47, 2.47, 2.47, 2.47, 2.48, 2.50, 2.50, 2.52, 2.53, 2.65, 2.72, 2.77, 2.92, 2.95, 3.12, 3.13
 </p>
-Dibujad su histograma (usando 6 clases de amplitud 0.2, empezando en 2 horas) y su diagrama de caja. ¿Qué observáis en cada uno de ellos que no podéis observar en el otro?
+Dibujad su histograma usando 6 clases de amplitud 0.2, empezando en 2 horas, y su diagrama de caja. ¿Qué observáis en cada uno de ellos que no podéis observar en el otro?
 </div>
 
 </div>
 <div id="asimetría-y-curtosis" class="section level2">
 <h2><span class="header-section-number">1.8</span> Asimetría y curtosis</h2>
-<p>Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma, y no sirven para estimar la correspondiente propiedad de la variable poblacional. Se trata de:</p>
+<p>Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, y por tanto conviene que conozcáis, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma, y no sirven para estimar la correspondiente propiedad de la variable poblacional.</p>
+<p>Dada una muestra de datos numéricos <span class="math inline">\(x_1,\ldots,x_n\)</span>, de media <span class="math inline">\(\overline{x}\)</span> y desviación típica <span class="math inline">\(s_x\)</span>:</p>
 <ul>
-<li><p>El <strong>coeficiente de asimetría</strong> (<em>skewness</em>):
+<li><p>El <strong>coeficiente de asimetría</strong> (<em>skewness</em>) es
 <span class="math display">\[
 \gamma_1=\frac{1}{s_x^3}\cdot \frac{\sum_{i=1}^n (x_i-\overline{x})^3}{n}
 \]</span></p></li>
-<li><p>El <strong>coeficiente de curtosis</strong>, o <strong>apuntamiento</strong>:
+<li><p>El <strong>coeficiente de curtosis</strong>, o <strong>apuntamiento</strong> es
 <span class="math display">\[
 \beta_2=\frac{1}{s_x^4}\cdot \frac{\sum_{i=1}^n (x_i-\overline{x})^4}{n}-3
 \]</span></p></li>
 </ul>
-<p>Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la <strong>asimetría</strong> de la variable. Para definir esta característica, lo más práctico es dibujar un histograma de la variable y considerar el eje de simetría pasando por la media. Llamaremos <strong>colas</strong> a los trozos del histograma a ambos lados de este eje de simetría. Entonces</p>
+<p>Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la <strong>asimetría</strong> de la variable. Para definir esta característica, lo más práctico es dibujar un histograma de la variable y considerar el eje de simetría pasando por la media. Llamaremos <strong>colas</strong> a los trozos del histograma a ambos lados de este eje de simetría. Entonces:</p>
 <ul>
 <li>La variable es <strong>simétrica</strong> si ambas colas son similares</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:histssim"></span>
-<img src="INREMDN_files/figure-html/asimcentr.png" alt="Dos variables simétricas; la de la derecha tiene **forma de U**" width="90%" /><img src="INREMDN_files/figure-html/asimcentrU.png" alt="Dos variables simétricas; la de la derecha tiene **forma de U**" width="90%" />
+<img src="INREMDN_files/figure-html/asimcentr.png" alt="Dos variables simétricas; la de la derecha tiene **forma de U**" width="428" /><img src="INREMDN_files/figure-html/asimcentrU.png" alt="Dos variables simétricas; la de la derecha tiene **forma de U**" width="413" /><img src="INREMDN_files/figure-html/asimcentr.png" alt="Dos variables simétricas; la de la derecha tiene **forma de U**" width="428" /><img src="INREMDN_files/figure-html/asimcentrU.png" alt="Dos variables simétricas; la de la derecha tiene **forma de U**" width="413" />
 <p class="caption">
-Figura 1.9: Dos variables simétricas; la de la derecha tiene <strong>forma de U</strong>
+Figura 1.3: Dos variables simétricas; la de la derecha tiene <strong>forma de U</strong>
 </p>
 </div>
 <ul>
@@ -2289,7 +2257,7 @@ Figura 1.9: Dos variables simétricas; la de la derecha tiene <strong>forma de U
 <div class="figure" style="text-align: center"><span id="fig:histasimesq"></span>
 <img src="INREMDN_files/figure-html/asimesquerra.png" alt="Variable asimétrica a la izquierda" width="413" />
 <p class="caption">
-Figura 1.10: Variable asimétrica a la izquierda
+Figura 1.4: Variable asimétrica a la izquierda
 </p>
 </div>
 <ul>
@@ -2298,7 +2266,7 @@ Figura 1.10: Variable asimétrica a la izquierda
 <div class="figure" style="text-align: center"><span id="fig:histasimdreta"></span>
 <img src="INREMDN_files/figure-html/asimdreta.png" alt="Variable asimétrica a la derecha" width="413" />
 <p class="caption">
-Figura 1.11: Variable asimétrica a la derecha
+Figura 1.5: Variable asimétrica a la derecha
 </p>
 </div>
 <p>En los histogramas anteriores hemos dibujado las líneas verticales sobre la media y la mediana.</p>
@@ -2324,36 +2292,36 @@ el vector es asimétrico a la derecha, pero solo los “suele ser”: con un poc
 <div class="figure" style="text-align: center"><span id="fig:histvsbpsim"></span>
 <img src="INREMDN_files/figure-html/histvsbpsim.png" alt="Histograma y diagrama de caja de una variable simétrica" width="494" />
 <p class="caption">
-Figura 1.12: Histograma y diagrama de caja de una variable simétrica
+Figura 1.6: Histograma y diagrama de caja de una variable simétrica
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:histvsbpesq"></span>
 <img src="INREMDN_files/figure-html/histvsbpesq.png" alt="Histograma y diagrama de caja de una variable asimétrica a la izquierda" width="494" />
 <p class="caption">
-Figura 1.13: Histograma y diagrama de caja de una variable asimétrica a la izquierda
+Figura 1.7: Histograma y diagrama de caja de una variable asimétrica a la izquierda
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:histvsbpdreta"></span>
 <img src="INREMDN_files/figure-html/histvsbpdreta.png" alt="Histograma y diagrama de caja de una variable asimétrica a la izquierda" width="494" />
 <p class="caption">
-Figura 1.14: Histograma y diagrama de caja de una variable asimétrica a la izquierda
+Figura 1.8: Histograma y diagrama de caja de una variable asimétrica a la izquierda
 </p>
 </div>
 
 <div class="rmdimportant">
-<p>Usar la media y la desviación típica (o la varianza) para describir el “valor central” de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma tiene la forma de la izquierda de la Figura <a href="descripción-de-datos-cuantitativos.html#fig:histssim">1.9</a>, del estilo de una campana de Gauss (Figura <a href="descripción-de-datos-cuantitativos.html#fig:Gauss">1.15</a>). En este caso, el intervalo <span class="math inline">\(\overline{x}\pm s_x\)</span> suele contener aproximadamente unos 2/3 de los datos de la muestra.</p>
-Para variables muy asimétricas o simétricas en forma de U como la de la derecha de la Figura <a href="descripción-de-datos-cuantitativos.html#fig:histssim">1.9</a>, es mejor usar la mediana y el intervalo intercuartílico. Recordad que este último contiene aproximadamente el 50% de la muestra.
+<p>Usar la media y la desviación típica (o la varianza) para describir el “valor central” de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma tiene la forma de la izquierda de la Figura <a href="descripción-de-datos-cuantitativos.html#fig:histssim">1.3</a>, del estilo de una campana de Gauss (Figura <a href="descripción-de-datos-cuantitativos.html#fig:Gauss">1.9</a>). En este caso, el intervalo <span class="math inline">\(\overline{x}\pm s_x\)</span> suele contener aproximadamente unos 2/3 de los datos de la muestra.</p>
+Para variables muy asimétricas o simétricas en forma de U como la de la derecha de la Figura <a href="descripción-de-datos-cuantitativos.html#fig:histssim">1.3</a>, es mejor usar la mediana y el intervalo intercuartílico. Recordad que este último contiene aproximadamente el 50% de la muestra.
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:Gauss"></span>
 <img src="INREMDN_files/figure-html/Gauss-1.png" alt="Una campana de Gauss" width="480" />
 <p class="caption">
-Figura 1.15: Una campana de Gauss
+Figura 1.9: Una campana de Gauss
 </p>
 </div>
 
 <div class="example">
-<span id="exm:unnamed-chunk-53" class="example"><strong>Ejemplo 1.15  </strong></span>Considerad la variable que tiene el histograma siguiente:
+<span id="exm:unnamed-chunk-54" class="example"><strong>Ejemplo 1.15  </strong></span>Considerad la variable que tiene el histograma siguiente:
 </div>
 
 <p><img src="INREMDN_files/figure-html/asim.png" width="525" style="display: block; margin: auto;" /></p>
@@ -2377,7 +2345,7 @@ Por ejemplo, si recordáis el gráfico de la distribución de los salarios anual
 <div class="figure" style="text-align: center"><span id="fig:Meso"></span>
 <img src="INREMDN_files/figure-html/Meso.png" alt="Una variable mesocúrtica" width="418" />
 <p class="caption">
-Figura 1.16: Una variable mesocúrtica
+Figura 1.10: Una variable mesocúrtica
 </p>
 </div>
 <ul>
@@ -2386,7 +2354,7 @@ Figura 1.16: Una variable mesocúrtica
 <div class="figure" style="text-align: center"><span id="fig:Lepto"></span>
 <img src="INREMDN_files/figure-html/Lepto.png" alt="Una variable leptocúrtica" width="412" />
 <p class="caption">
-Figura 1.17: Una variable leptocúrtica
+Figura 1.11: Una variable leptocúrtica
 </p>
 </div>
 <ul>
@@ -2395,7 +2363,7 @@ Figura 1.17: Una variable leptocúrtica
 <div class="figure" style="text-align: center"><span id="fig:Plati"></span>
 <img src="INREMDN_files/figure-html/Plati.png" alt="Una variable platicúrtica" width="428" />
 <p class="caption">
-Figura 1.18: Una variable platicúrtica
+Figura 1.12: Una variable platicúrtica
 </p>
 </div>
 </div>
@@ -2628,14 +2596,14 @@ Frecuencia acumulada
 </tbody>
 </table>
 <p>En primer lugar buscamos en qué clase ha de caer (qué clase contendría el valor que separa las dos mitades de la muestra): lo llamaremos el <strong>intervalo crítico para la mediana</strong>. En nuestro ejemplo, será la primera clase cuya frecuencia acumulada sea mayor oigual que 120/2=60. Se trata del intervalo [120,130).</p>
-<p>Sean <span class="math inline">\([L_c, L_{c+1})\)</span> este intervalo crítico, <span class="math inline">\(N_{c-1}\)</span>, la frecuencia absoluta acumulada del intervalo anterior al crítico (si el intervalo crítico es el primero, tomamos <span class="math inline">\(N_{c-1}=0\)</span>), y <span class="math inline">\(N_c\)</span>, la frecuencia absoluta acumulada del intervalo crítico. Entonces, lo que hacemos es unir con una recta los puntos <span class="math inline">\((L_c,N_{c-1})\)</span> y <span class="math inline">\((L_{c+1},N_c)\)</span> y aproximar la mediana por medio de la abscisa <span class="math inline">\(M\)</span> del punto sobre esta recta cuya ordenada es <span class="math inline">\(n/2\)</span> (véase la Figura <a href="descripción-de-datos-cuantitativos.html#fig:medianagrup">1.19</a>). La fórmula concreta, por si no os acordáis, es
+<p>Sean <span class="math inline">\([L_c, L_{c+1})\)</span> este intervalo crítico, <span class="math inline">\(N_{c-1}\)</span>, la frecuencia absoluta acumulada del intervalo anterior al crítico (si el intervalo crítico es el primero, tomamos <span class="math inline">\(N_{c-1}=0\)</span>), y <span class="math inline">\(N_c\)</span>, la frecuencia absoluta acumulada del intervalo crítico. Entonces, lo que hacemos es unir con una recta los puntos <span class="math inline">\((L_c,N_{c-1})\)</span> y <span class="math inline">\((L_{c+1},N_c)\)</span> y aproximar la mediana por medio de la abscisa <span class="math inline">\(M\)</span> del punto sobre esta recta cuya ordenada es <span class="math inline">\(n/2\)</span> (véase la Figura <a href="descripción-de-datos-cuantitativos.html#fig:medianagrup">1.13</a>). La fórmula concreta, por si no os acordáis, es
 <span class="math display">\[
 M=L_{c}+\frac{L_{c+1}-L_{c}}{N_c-N_{c-1}}\cdot \Big(\frac{n}{2}- N_{c-1}\Big).
 \]</span></p>
 <div class="figure" style="text-align: center"><span id="fig:medianagrup"></span>
 <img src="INREMDN_files/figure-html/medianagrup.png" alt="Aproximación lineal de la mediana a partir de las frecuencias de los datos agrupados." width="60%" />
 <p class="caption">
-Figura 1.19: Aproximación lineal de la mediana a partir de las frecuencias de los datos agrupados.
+Figura 1.13: Aproximación lineal de la mediana a partir de las frecuencias de los datos agrupados.
 </p>
 </div>
 <p>En nuestro ejemplo, <span class="math inline">\(L_c=120\)</span>, <span class="math inline">\(L_{c+1}=130\)</span>, <span class="math inline">\(N_{c-1}=55\)</span>, <span class="math inline">\(N_c=78\)</span> y por lo tanto estimamos que
@@ -2795,11 +2763,11 @@ Colesterol
 </tbody>
 </table>
 <p>Su diagrama de dispersión es
-<img src="INREMDN_files/figure-html/unnamed-chunk-58-1.png" width="480" style="display: block; margin: auto;" /></p>
+<img src="INREMDN_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Una <strong>serie temporal</strong> es un caso particular de tabla de datos cuantitativos bivariante en la que la primer variable representa el decurso del tiempo. En este caso, es conveniente unir con segmentos los puntos consecutivos en el tiempo para ayudar en la visualización de la evolución de los datos.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-59" class="example"><strong>Ejemplo 1.18  </strong></span>Consideremos la siguiente tabla de los números diarios de defunciones por COVID-19 en la Baleares entre día 16 y día 31 de marzo de 2019:</p>
+<p><span id="exm:unnamed-chunk-60" class="example"><strong>Ejemplo 1.18  </strong></span>Consideremos la siguiente tabla de los números diarios de defunciones por COVID-19 en la Baleares entre día 16 y día 31 de marzo de 2019:</p>
 </div>
 
 <table>
@@ -2946,7 +2914,7 @@ Defunciones
 </table>
 <p>Se trata de una serie temporal. Su gráfico de dispersión es</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="descripción-de-datos-cuantitativos.html#cb1-1"></a><span class="kw">plot</span>(Día,Defunciones,<span class="dt">type=</span><span class="st">&quot;o&quot;</span>,<span class="dt">pch=</span><span class="dv">20</span>)</span></code></pre></div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-62-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>A menudo nos interesará describir por medio de un valor la <strong>asociación</strong> (propensión a variar conjuntamente) de dos variables cuantitativas medidas sobre una misma muestra de individuos: por ejemplo, medir la tendencia del nivel de colesterol a crecer con la tensión arterial media en la tabla del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:tensionscatter">1.17</a>.</p>
 <p>El estadístico que más se usa con este fin es la <strong>covarianza</strong>. Su definición, para los vectores <span class="math inline">\(x=(x_1,\ldots,x_n)\)</span> e <span class="math inline">\(y=(y_1,\ldots,y_n)\)</span>, es
 <span class="math display">\[
@@ -2966,28 +2934,28 @@ Observad que la covarianza de un vector consigo mismo es su varianza: <span clas
 <ul>
 <li>La covarianza es <strong>positiva</strong> cuando <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> satisfacen la condición siguiente: si una de las dos variables crece, la otra también tiende a crecer; es decir, si <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline">\(y_j\)</span> tiende a ser mayor que <span class="math inline">\(y_i\)</span>, y recíprocamente.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-64"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
 <img src="INREMDN_files/figure-html/covpos.png" alt="Covarianza positiva" width="316" />
 <p class="caption">
-Figura 1.20: Covarianza positiva
+Figura 1.14: Covarianza positiva
 </p>
 </div>
 <ul>
 <li>La covarianza es <strong>negativa</strong> cuando <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> satisfacen la condición siguiente: si una de las dos variables crece, la otra tiende a decrecer; es decir, si <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline">\(y_j\)</span> tiende a ser menor que <span class="math inline">\(y_i\)</span>, y viceversa.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-66"></span>
 <img src="INREMDN_files/figure-html/covneq.png" alt="Covarianza negativa" width="316" />
 <p class="caption">
-Figura 1.21: Covarianza negativa
+Figura 1.15: Covarianza negativa
 </p>
 </div>
 <ul>
 <li>Si la covarianza es muy cercana a 0, es porque no hay una tendencia clara al crecimiento o decrecimiento de <span class="math inline">\(y_i\)</span> en función del de <span class="math inline">\(x_i\)</span></li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-66"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
 <img src="INREMDN_files/figure-html/cov0.png" alt="Covarianza 0" width="318" />
 <p class="caption">
-Figura 1.22: Covarianza 0
+Figura 1.16: Covarianza 0
 </p>
 </div>
 
@@ -2997,7 +2965,7 @@ En particular, si las variables <span class="math inline">\(x\)</span> e <span c
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-68" class="example"><strong>Ejemplo 1.19  </strong></span>Volvamos a la tabla de tensiones arteriales medias y niveles de colesterol del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:tensionscatter">1.17</a>. Las medias de las variables son</p>
+<p><span id="exm:unnamed-chunk-69" class="example"><strong>Ejemplo 1.19  </strong></span>Volvamos a la tabla de tensiones arteriales medias y niveles de colesterol del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:tensionscatter">1.17</a>. Las medias de las variables son</p>
 </div>
 
 <p><span class="math display">\[
@@ -3031,7 +2999,7 @@ correlación de Pearson tiene el mismo significado que el de la covarianza:</p>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-69" class="example"><strong>Ejemplo 1.20  </strong></span>Seguimos con la tabla de tensiones arteriales medias y niveles de colesterol del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:tensionscatter">1.17</a>. Ya hemos obtenido su covarianza, <span class="math inline">\(s_{\text{Tensión},\text{Colesterol}}=110.9164\)</span>. Sus desviaciones típicas son
+<p><span id="exm:unnamed-chunk-70" class="example"><strong>Ejemplo 1.20  </strong></span>Seguimos con la tabla de tensiones arteriales medias y niveles de colesterol del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:tensionscatter">1.17</a>. Ya hemos obtenido su covarianza, <span class="math inline">\(s_{\text{Tensión},\text{Colesterol}}=110.9164\)</span>. Sus desviaciones típicas son
 <span class="math display">\[
 \begin{array}{l}
 s_{\text{Tensión}}=\sqrt{\dfrac{(105.7-119.32)^2+(117.4-119.32)^2+(131.9-119.32)^2+\cdots+(113.4-119.32)^2}{10}}=8.616\\
@@ -3057,7 +3025,7 @@ a=\frac{s_{x,y}}{s_x^2},\quad b = \overline{y}-a\cdot \overline{x}.
 \]</span>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-70" class="example"><strong>Ejemplo 1.21  </strong></span>Siguiendo con nuestro ejemplo de tensiones y niveles de colesterol, la recta de regresión del nivel de colesterol en función de la tensión media tiene pendiente
+<p><span id="exm:unnamed-chunk-71" class="example"><strong>Ejemplo 1.21  </strong></span>Siguiendo con nuestro ejemplo de tensiones y niveles de colesterol, la recta de regresión del nivel de colesterol en función de la tensión media tiene pendiente
 <span class="math display">\[
   a=\frac{s_{\text{Tensión},\text{Colesterol}}}{s_{\text{Colesterol}}^2}=\frac{110.9164}{8.616^2}=1.494
 \]</span>
@@ -3068,22 +3036,22 @@ b=  \overline{\text{Colesterol}}-a\cdot \overline{\text{Tensión}}=201.48-1.494\
 <p>El gráfico de dispersión de los puntos junto a esta recta de regresión es</p>
 </div>
 
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-71-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-72-1.png" width="480" style="display: block; margin: auto;" /></p>
 
 <div class="rmdimportant">
 El valor de la correlación de Pearson no siempre es suficiente para valorar el ajuste de los puntos a una recta. Es siempre conveniente dibujar los puntos y la recta de regresión lineal y darles un vistazo.
 </div>
 
-<p>Por ejemplo, F. Anscombe produjo los cuatro conjuntos de puntos descritos en la Figura <a href="descripción-de-datos-cuantitativos.html#fig:anscombe">1.23</a>. Como podéis, ver, tienen ajustes muy diferentes a una recta, y en cambio resulta que tienen el mismo valor de <span class="math inline">\(r\)</span>: 0.816. Para más detalles, consultad la <a href="https://es.wikipedia.org/wiki/Cuarteto_de_Anscombe">correspondiente entrada de la Wikipedia</a></p>
+<p>Por ejemplo, F. Anscombe produjo los cuatro conjuntos de puntos descritos en la Figura <a href="descripción-de-datos-cuantitativos.html#fig:anscombe">1.17</a>. Como podéis, ver, tienen ajustes muy diferentes a una recta, y en cambio resulta que tienen el mismo valor de <span class="math inline">\(r\)</span>: 0.816. Para más detalles, consultad la <a href="https://es.wikipedia.org/wiki/Cuarteto_de_Anscombe">correspondiente entrada de la Wikipedia</a></p>
 <div class="figure" style="text-align: center"><span id="fig:anscombe"></span>
 <img src="INREMDN_files/figure-html/anscombe-1.png" alt="El cuarteto de Anscombe" width="90%" />
 <p class="caption">
-Figura 1.23: El cuarteto de Anscombe
+Figura 1.17: El cuarteto de Anscombe
 </p>
 </div>
 
 <div class="rmdnote">
-Ser incorrelados no es sinónimo de que no haya ninguna dependencia entre las dos variables. Por ejemplo, los conjuntos de puntos de la Figura <a href="descripción-de-datos-cuantitativos.html#fig:datasaurus">1.24</a> tienen correlación casi 0 (en concreto 0.004), y es claro que en cada cas hay una fuerte dependencia entre los valores de <span class="math inline">\(x\)</span> y de <span class="math inline">\(y\)</span>.
+Ser incorrelados no es sinónimo de que no haya ninguna dependencia entre las dos variables. Por ejemplo, los conjuntos de puntos de la Figura <a href="descripción-de-datos-cuantitativos.html#fig:datasaurus">1.18</a> tienen correlación casi 0 (en concreto 0.004), y es claro que en cada cas hay una fuerte dependencia entre los valores de <span class="math inline">\(x\)</span> y de <span class="math inline">\(y\)</span>.
 </div>
 
 <pre><code>## &#39;data.frame&#39;:    1846 obs. of  3 variables:
@@ -3093,7 +3061,7 @@ Ser incorrelados no es sinónimo de que no haya ninguna dependencia entre las do
 <div class="figure" style="text-align: center"><span id="fig:datasaurus"></span>
 <img src="INREMDN_files/figure-html/datasaurus-1.png" alt="Dos conjuntos de datos incorrelados" width="90%" />
 <p class="caption">
-Figura 1.24: Dos conjuntos de datos incorrelados
+Figura 1.18: Dos conjuntos de datos incorrelados
 </p>
 </div>
 <p>Como hemos visto, la correlación de Pearson mide la dependencia lineal entre dos variables cuantitativas. Otras medidas de correlación miden otros tipos de dependencia. La alternativa más popular es la <strong>correlación de Pearson</strong>, <span class="math inline">\(r_S\)</span>, que mide la concordancia en el orden de los individuos según sus valores en las dos variables medidas. Se calcula, <em>grosso modo</em>, de la manera siguiente:</p>
@@ -3105,7 +3073,7 @@ Figura 1.24: Dos conjuntos de datos incorrelados
 <p>La correlación de Pearson también se puede usar para variables ordinales <strong>¡La de Pearson no!</strong></p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-74" class="example"><strong>Ejemplo 1.22  </strong></span>Volvemos a nuestro ejemplo de tensiones y niveles de colesterol. Ampliamos la tabla de datos con los rangos de los individuos recogidos en la misma para cada variable:
+<span id="exm:unnamed-chunk-75" class="example"><strong>Ejemplo 1.22  </strong></span>Volvemos a nuestro ejemplo de tensiones y niveles de colesterol. Ampliamos la tabla de datos con los rangos de los individuos recogidos en la misma para cada variable:
 </div>
 
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="descripción-de-datos-cuantitativos.html#cb3-1"></a>Tensión=<span class="kw">c</span>(<span class="fl">105.7</span>,<span class="fl">117.4</span>,<span class="fl">131.9</span>,<span class="fl">117.8</span>,<span class="fl">133.0</span>,<span class="fl">107.9</span>,<span class="fl">118.6</span>,<span class="fl">123.4</span>,<span class="fl">124.1</span>,<span class="fl">113.4</span>)</span>
@@ -3316,25 +3284,25 @@ Rango
 <p>A veces es conveniente dibujar un gráfico con un eje (o ambos) en <strong>escala logarítmica</strong>: pares de marcas a misma distancia tienen <strong>cocientes</strong> iguales
 (es decir, diferencias de sus logaritmos iguales, de ahí el nombre).</p>
 <p>Por ejemplo, el gráfico siguiente representa la serie temporal de números acumulados de muertos por COVID-19 en las Balears entre el 16 de marzo y el 25 de abril de 2020. Podéis comprobar que ambos ejes están en escala lineal.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
-<img src="INREMDN_files/figure-html/unnamed-chunk-76-1.png" alt="Gráfico en escala lineal" width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
+<img src="INREMDN_files/figure-html/unnamed-chunk-77-1.png" alt="Gráfico en escala lineal" width="480" />
 <p class="caption">
-Figura 1.25: Gráfico en escala lineal
+Figura 1.19: Gráfico en escala lineal
 </p>
 </div>
 <p>Vamos ahora a dibujar este gráfico con el eje de las ordenadas en escala logarítmica (le llamaremos un gráfico en <em>escala semilogarítmica</em>):</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
-<img src="INREMDN_files/figure-html/unnamed-chunk-77-1.png" alt="Gráfico en escala semilogarítmica" width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-78"></span>
+<img src="INREMDN_files/figure-html/unnamed-chunk-78-1.png" alt="Gráfico en escala semilogarítmica" width="480" />
 <p class="caption">
-Figura 1.26: Gráfico en escala semilogarítmica
+Figura 1.20: Gráfico en escala semilogarítmica
 </p>
 </div>
 <p>Observad las marcas en el eje de las ordenadas: por ejemplo, la distancia entre 1 y 2 es la misma que entre 10 y 20, y la distancia entre 1 y 5 es la misma que entre 10 y 50.</p>
 <p>Y ahora vamos a dibujarlo con ambos ejes en escala logarítmica (le llamaremos un gráfico en <em>escala doble logarítmica</em>):</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-78"></span>
-<img src="INREMDN_files/figure-html/unnamed-chunk-78-1.png" alt="Gráfico en escala doble logarítmica" width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-79"></span>
+<img src="INREMDN_files/figure-html/unnamed-chunk-79-1.png" alt="Gráfico en escala doble logarítmica" width="480" />
 <p class="caption">
-Figura 1.27: Gráfico en escala doble logarítmica
+Figura 1.21: Gráfico en escala doble logarítmica
 </p>
 </div>
 <p>Un buen motivo para dibujar un gráfico en escala semilogarítmica o doble logarítmica puede ser el necesitar representar simultáneamente varias variables de rangos muy dferentes. Por ejemplo, considerad la figura siguiente:</p>

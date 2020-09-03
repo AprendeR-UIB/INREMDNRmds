@@ -749,42 +749,43 @@ Dibujad su histograma usando 6 clases de amplitud 0.2, empezando en 2 horas, y s
 
 ## Asimetría y  curtosis
 
-Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma, y no sirven para estimar la correspondiente propiedad de la variable poblacional. Se trata de:
+Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, y por tanto conviene que conozcáis, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma, y no sirven para estimar la correspondiente propiedad de la variable poblacional. 
 
-* El **coeficiente de asimetría** (*skewness*): 
+Dada una muestra de datos numéricos $x_1,\ldots,x_n$, de media $\overline{x}$ y desviación típica $s_x$:
+
+* El **coeficiente de asimetría** (*skewness*) es 
 $$
 \gamma_1=\frac{1}{s_x^3}\cdot \frac{\sum_{i=1}^n (x_i-\overline{x})^3}{n}
 $$
 
-* El **coeficiente de curtosis**,  o **apuntamiento**: 
+* El **coeficiente de curtosis**,  o **apuntamiento** es 
 $$
 \beta_2=\frac{1}{s_x^4}\cdot \frac{\sum_{i=1}^n (x_i-\overline{x})^4}{n}-3
 $$
 
-Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la **asimetría** de la variable. Para definir esta característica, lo más práctico es dibujar un histograma de la variable y considerar el eje de simetría pasando por la media. Llamaremos **colas** a los trozos del histograma a ambos lados de este eje de simetría. Entonces
+Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la **asimetría** de la variable. Para definir esta característica, lo más práctico es dibujar un histograma de la variable y considerar el eje de simetría pasando por la media. Llamaremos **colas** a los trozos del histograma a ambos lados de este eje de simetría. Entonces:
 
-* La variable es **simétrica** si ambas colas son similares
-
-```{r histssim,echo=FALSE,fig.width=10,out.width="90%",fig.asp=0.5,fig.cap="Dos variables simétricas; la de la derecha tiene **forma de U**"}
-par(mfrow=c(1,2))
+* La variable es **simétrica** si ambas colas son similares, como en los dos gráficos siguientes:
+```{r histssim,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/asimcentr.png")
 knitr::include_graphics("INREMDN_files/figure-html/asimcentrU.png")
-par(mfrow=c(1,1))
 ```
 
-* La variable presenta una **asimetría negativa** o **a la izquierda** cuando la cola de la izquierda es más larga que la de la derecha, en el sentido de que hay más valores más alejados de la media por la izquierda que por la derecha. También decimos en este caso que la variable  **tiene cola a la izquierda**.
+    Esta última diremos que **tiene forma de U**, por motivos obvios.
 
-```{r histasimesq,echo=FALSE,fig.cap="Variable asimétrica a la izquierda"}
+* La variable presenta una **asimetría negativa** o **a la izquierda** cuando la cola de la izquierda es más larga que la de la derecha, en el sentido de que hay más valores más alejados de la media por la izquierda que por la derecha.  En este caso se suele decir que la variable  **tiene una cola a la izquierda**, aunque con la definición que hemos dado la variable siempre tiene una cola a cada lado.
+
+```{r histasimesq,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/asimesquerra.png")
 ```
 
-* La variable presenta una **asimetría positiva** o **a la derecha** cuando la cola de la derecha es más larga que la de la izquierda, en el sentido de que hay más valores más alejados de la media por la derecha que por la izquierda. **tiene cola a la derecha**.
+* La variable presenta una **asimetría positiva** o **a la derecha** cuando la cola de la derecha es más larga que la de la izquierda, en el sentido de que hay más valores más alejados de la media por la derecha que por la izquierda. En este caso también diremos que la variable **tiene una cola a la derecha**.
 
-```{r histasimdreta,echo=FALSE,fig.cap="Variable asimétrica a la derecha"}
+```{r histasimdreta,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/asimdreta.png")
 ```
 
-En los histogramas anteriores hemos dibujado las líneas verticales sobre la media y la mediana.
+Habréis observado que en los histogramas anteriores hemos dibujado las líneas verticales sobre la media y la mediana.
 
 * En una variable simétrica, la simetría hace que la media y la mediana sean aproximadamente iguales
 
