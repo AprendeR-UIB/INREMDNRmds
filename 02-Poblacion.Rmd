@@ -1,0 +1,84 @@
+
+# Algunos conceptos básicos en estadística
+
+La **estadística** es la ciencia que permite adquirir conocimiento generalizable a partir de datos.
+
+Por ejemplo: a partir de los datos recogidos en un ensayo clínico de un cierto tratamiento realizado sobre una muestra de pacientes, queremos adquirir conocimiento sobre el efecto de dicho tratamiento sobre toda la población de enfermos, incluidos nuestros futuros enfermos. La estadística es la que nos permitirá hacerlo.
+
+Así que la situación habitual es que disponemos de una serie de datos que describen algunos aspectos de un conjunto de individuos extraídos de una población. El análisis estadístico de estos datos puede ser entonces de dos tipos básicos:
+
+*  **Análisis descriptivo**, cuando nuestro objetivo sea resumir, representar y explicar los datos concretos de los que disponemos. La **estadística descriptiva**  es el conjunto de técnicas que se usan con este fin. 
+
+* **Análisis inferencial**, si nuestro objetivo es deducir  (**inferir**),  a partir de estos datos, información significativa sobre el total de la población de interés.  Las técnicas que se usan en este caso forman la **estadística inferencial**.
+
+Ambos tipos de análisis están relacionados. Por un lado, porque es conveniente (obligatorio, en nuestra opinión) empezar cualquier análisis inferencial dando un vistazo a los datos que se usarán. Por otro, porque muchas técnicas descriptivas permiten estimar propiedades de la población de la que se ha extraído la muestra. Por citar un ejemplo, la media aritmética de las alturas de una muestra de individuos nos da un valor  más o menos representativo de esta muestra, pero también se puede usar para *estimar*  la altura media de los individuos de la población total.
+
+La estadística inferencial entra en juego cuando se quiere obtener información sobre una población y no se tiene acceso a todos los individuos de la misma. Si por ejemplo quiero conocer la altura media  de los estudiantes matriculados en una asignatura concreta de la UIB en un curso concreto, en principio no necesito para nada la estadística inferencial. Son pocos, los mido a todos y calculo la media (en todo caso, este sería el dominio de la estadística descriptiva).  Si en cambio quiero conocer la altura media de los residentes en les Illes Balears de 18 años, seguramente me será muy difícil acceder a todos ellos. Entonces, tomaré una muestra de ellos, los mediré y a partir de estas medidas estimaré el valor que me interesa. Naturalmente, el resultado solo será aproximado, con un cierto margen de error y una cierta probabilidad de que la media real sea muy diferente de la que he estimado.
+
+En esta lección veremos algunos conceptos básicos que irán apareciendo a menudo en este curso.
+
+
+## Unidad de observación
+
+En un estudio, la **unidad de observación** es el tipo de sujetos que observamos. En los estudios médicos normalmente serán personas, pero no siempre:
+
+* Pueden ser sucesos que les pasen a personas, de manera que una misma persona pueda ser observada varias veces: por ejemplo, cuando administramos diferentes tratamientos a los participantes en un ensayo con grupos cruzados, o por ejemplo embarazos.
+
+* Pueden ser partes de personas: si por ejemplo queremos estudiar si el uso de teléfono móvil produce cáncer de piel en las orejas, en los participantes del estudio compararemos la oreja dominante en este sentido con la otra, de manera que la unidad de observación son las orejas.
+
+* Recordad que en los estudios ecológicos la unidad de información són las comunidades de las que se mide algún dato global.
+
+
+## Población
+
+En un estudio inferencial, queremos deducir (**inferir**) información sobre una **población** a partir de una **muestra** de la misma. 
+
+En general, una **población** es simplemente un conjunto de individuos u objetos sobre los que queremos conocer alguna información. Esta población puede estar perfectamente definida en un lugar y tiempo: por ejemplo, los habitantes de España a día de hoy. Pero normalmente su definición será difusa. Si, por ejemplo, queremos estimar algo sobre "los españoles mayores de 65 años", ¿de quién estamos hablando exactamente? ¿De los que están vivos justo ahora? ¿De todos los que han habitado España desde que esta se fundó? ¿Incluimos los que aún no han nacido pero que cuando nazcan llegarán a cumplir 65 años?
+
+Tranquilos, no nos vamos a romper mucho la cabeza con esto. Pero al menos tenéis que ser conscientes de que una población puede contener objetos que en realidad no existen ni hayan existido ni vayan a existir, sino simplemente que "podrían existir". Hablaremos entonces de una población **virtual**.
+
+Por ejemplo, cuando decimos que 
+
+> "La probabilidad de que salga Cara al lanzar una moneda equilibrada al aire  es 1/2", 
+
+lo que significa es que 
+
+> "Si tomamos la población formada por todos los posibles lanzamientos de todas las posibles monedas equilibradas, en la mitad de sus miembros el resultado es Cara."
+
+Los miembros de esta población son todos los "posibles" lanzamientos de monedas equilibradas, los que se han realizado a lo largo de la historia, los que se realizarán en el futuro, y los que se podrían haber realizado o se podrían realizar en el futuro pero en realidad no se han hecho ni se harán.
+
+
+Otro ejemplo. Imaginad que comparamos las notas que (vosotros) sacáis en dos cuestionarios diferentes sobre un mismo tema, digamos que uno sobre conceptos y el otro de cálculos, y que en el primero obtenéis una nota media mayor que en el segundo. Inferimos que sacáis mejor nota en tests de conceptos que en tests aritméticos. ¿A quién refiere este "sacáis"?  ¿Sobre qué población podemos "inferir" información a partir de este resultado? No sobre vosotros, ya que entonces no estamos infiriendo nada, simplemente observamos y describimos qué ha pasado. La población a la que podríamos generalizar los resultados sería en todo caso la de "todos los posibles estudiantes como vosotros que estuvieran cursando una asignatura como esta y se les pusieran tests similares a los de nuestro experimento", que como veis ni está del todo bien definida ni ciertamente está formada por "cosas" que existan, o hayan existido o necesariamente vayan a existir. Naturalmente, esta población virtual la resumiremos en "los estudiantes de pimer curso de medicina".
+
+Hasta ahora hemos hablado de la población, a menudo virtual, sobre la que queremos obtener información. Está será nuestra **población objetivo**, que hay que distinguir de la **muestra**:
+
+* **Población objetivo**: un conjunto de sujetos con una o varias características que podemos medir y deseamos estudiar.
+
+* **Muestra**:  el grupo de los sujetos concretos a los que medimos las características de interés.
+
+A la hora de determinar la validez de nuestro estudio, es muy importante comparar la población objetivo con la:
+
+* **Población muestreada**: el conjunto de sujetos del que se extrae toda la muestra. Usualmente, será un subconjunto de la población objetivo definido por una serie de restricciones, pero puede no serlo: pensad, por ejemplo, en los estudios ecológicos, donde la población objetivo son individuos y la población muestreada son comunidades.
+
+Si la población muestreada no es representativa de la población objetivo, los resultados del estudio no tienen por qué ser generalizables a esta última: hablaremos entonces de que se ha dado un **sesgo de representatividad**. Hablaremos de sesgos dentro de varias secciones.
+
+
+```{example, Hola}
+Para conocer la opinión de sus lectores sobre la monarquía española, una conocida revista del corazón propuso una encuesta en línea en su web y analizó las respuestas. En este **estudio transversal**:
+
+````
+
+* La **población objetivo** es la formada por "los lectores de esta revista".
+* La **población muestreada** es la formada por los lectores actuales de esta revista con acceso a Internet. 
+* La **muestra** son las personas concretas que voluntariamente respondieron la encuesta.
+
+Observad que la población muestreada en principio no es representativa de la población objetivo: puede que excluya, por ejemplo, lectores ancianos o lectores de zonas rurales. Por otro lado, la muestra es aún más restrictiva, ya que los participantes fueron voluntarios.
+
+```{block2, type="rmdexercici"}
+En el estudio ["Tuberculosis treatment survival of HIV positive TB patients on directly observed treatment short-course in Southern Ethiopia: A retrospective cohort study"](https://bmcresnotes.biomedcentral.com/articles/10.1186/1756-0500-5-682) (D. Shaweno, **BMC Research Notes** 5:682 (2012)) se quiso estudiar si  la infección por VIH afecta la supervivencia a corto plazo de pacientes con tuberculosis (TB). Para ello, se consideraron todos los pacientes que habían participado en un estudio previo: se trataba de pacientes diagnosticados de TB durante el periodo 2006-2010 a los que se prescribió un tratamiento concreto de quimioterapia de 8 meses de duración y que además pasaron un test de VIH en el momento del diagnóstico positivo de TB. De este grupo de pacientes,  se escogieron al azar un subgrupo de 370 VIH-positivos y uno de 370 VIH-negativos, y se anotó el número de pacientes de cada uno de estos dos subgrupos que murieron durante el curso del tratamiento de 8 meses. La conclusión fue que la tasa de mortalidad entre los paciente de TB VIH-positivos es mayor que entre los que son VIH-negativos.
+
+¿Cuáles son la población objetivo, la población muestreada y la muestra? ¿Creéis que la población muestreada es representativa de la población objetivo?
+```
+
+
+

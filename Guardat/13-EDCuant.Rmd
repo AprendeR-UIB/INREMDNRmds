@@ -773,7 +773,7 @@ knitr::include_graphics("INREMDN_files/figure-html/asimcentrU.png")
 
     Esta última diremos que **tiene forma de U**, por motivos obvios.
 
-* La variable presenta una **asimetría negativa** o **a la izquierda** cuando la cola de la izquierda es más larga que la de la derecha, en el sentido de que hay más valores más alejados de la media por la izquierda que por la derecha.  En este caso se suele decir que la variable  **tiene una cola a la izquierda**, aunque con la definición que hemos dado la variable siempre tiene una cola a cada lado.
+* La variable presenta una **asimetría negativa** o **a la izquierda** cuando la cola de la izquierda es más larga que la de la derecha, en el sentido de que hay más valores más alejados de la media por la izquierda que por la derecha.  En este caso se suele decir que la variable  **tiene una cola a la izquierda** (aunque con la definición que hemos dado la variable siempre tiene una cola a cada lado).
 
 ```{r histasimesq,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/asimesquerra.png")
@@ -789,20 +789,18 @@ Habréis observado que en los histogramas anteriores hemos dibujado las líneas 
 
 * En una variable simétrica, la simetría hace que la media y la mediana sean aproximadamente iguales
 
-* En una variable asimétrica a la izquierda, la existencia de valores relativamente muy pequeños en el extremo de la cola de la izquierda suele desplazar la media hacia la izquierda de la mediana, de manera que la media suele ser más pequeña que la mediana
+* En una variable asimétrica a la izquierda, la existencia de valores relativamente muy pequeños en el extremo de la cola de la izquierda suele desplazar la media hacia la izquierda de la mediana, de manera que la media suele ser más pequeña que la mediana.
 
-* Y al revés, en una variable asimétrica a la derecha, la existencia de valores relativamente muy grandes en el extremo de la cola de la derecha suele desplazar la media hacia la derecha de la mediana, de manera que la media suele ser más grande que la mediana
+* Y al revés, en una variable asimétrica a la derecha, la existencia de valores relativamente muy grandes en el extremo de la cola de la derecha suele desplazar la media hacia la derecha de la mediana, de manera que la media suele ser más grande que la mediana.
+
+
 
 ```{block2,type="rmdcaution"}
 En los puntos anteriores hemos descrito lo que "suele pasar" con la media y la mediana en variables asimétricas, pero no siempre pasa. Así, si la media de un vector de datos es bastante más grande que la mediana, suele ser señal de que la 
-el vector es asimétrico a la derecha, pero solo los "suele ser": con un poco de imaginación se puede construir un vector asimétrico a la izquierda con la media a la derecha de la mediana. Pensadlo un poco.
+muestra es asimétrica a la derecha, pero solo lo "suele ser": con un poco de imaginación se puede construir un vector asimétrico a la izquierda con la media a la derecha de la mediana. Pensadlo un poco.
 ```
 
 
-
-```{r salarisrep,echo=FALSE, out.width="75%"}
-knitr::include_graphics("INREMDN_files/figure-html/salaris.png")
-```
 
 Pues bien, el coeficiente de asimetría $\gamma_1$ indica el tipo de asimetría de la variable:
 
@@ -812,23 +810,25 @@ Pues bien, el coeficiente de asimetría $\gamma_1$ indica el tipo de asimetría 
 
 La mejor manera de decidir la asimetría de una variable es por medio de un histograma, aunque a menudo también se puede ver en un diagrama de caja, como muestran los gráficos siguientes:
 
-
-```{r histvsbpsim,echo=FALSE,fig.cap="Histograma y diagrama de caja de una variable simétrica"}
+* Un histograma y diagrama de caja de una variable simétrica:
+```{r histvsbpsim,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/histvsbpsim.png")
 ```
 
-```{r histvsbpesq,echo=FALSE,fig.cap="Histograma y diagrama de caja de una variable asimétrica a la izquierda"}
+* Un histograma y diagrama de caja de una variable asimétrica a la izquierda:
+```{r histvsbpesq,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/histvsbpesq.png")
 ```
 
-```{r histvsbpdreta,echo=FALSE,fig.cap="Histograma y diagrama de caja de una variable asimétrica a la izquierda"}
+* Un histograma y diagrama de caja de una variable asimétrica a la derecha:
+```{r histvsbpdreta,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/histvsbpdreta.png")
 ```
 
 ```{block2,type="rmdimportant"}
-Usar la media y la desviación típica (o la varianza) para describir el "valor central" de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma tiene la forma de la izquierda de la Figura \@ref(fig:histssim), del estilo de una campana de Gauss (Figura \@ref(fig:Gauss)). En este caso, el intervalo $\overline{x}\pm s_x$ suele contener aproximadamente unos 2/3 de los datos de la muestra.
+Usar la media y la desviación típica (o la varianza) para describir el "valor central" de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma recuerda la forma de una campana de Gauss (Figura \@ref(fig:Gauss)); es decir, por ejemplo, no cuando tiene forma de U. Cuando el histograma es simétrico y con una forma parecida a auna campana de Gauss, el intervalo $\overline{x}\pm s_x$ suele contener aproximadamente unos 2/3 de los datos de la muestra.
 
-Para variables muy asimétricas o simétricas en forma de U como la de la derecha de la Figura \@ref(fig:histssim), es mejor usar la mediana y el intervalo intercuartílico. Recordad que este último contiene aproximadamente el 50% de la muestra.
+Pero para variables muy asimétricas o simétricas en forma de U es mejor usar la mediana y el intervalo intercuartílico. Recordad que este último contiene aproximadamente el 50% de la muestra.
 ```
 
 ```{r Gauss,echo=FALSE,fig.cap="Una campana de Gauss"}
@@ -838,7 +838,7 @@ curve(dnorm(x,0,3),xlim=c(-10,10),xlab="",ylab="",xaxt="n",yaxt="n",bty="l")
 
 
 ```{example}
-Considerad la variable que tiene el histograma siguiente:
+Considerad la variable (asimétrica a la derecha) que tiene el histograma siguiente:
   
 ```
 
@@ -846,70 +846,69 @@ Considerad la variable que tiene el histograma siguiente:
 knitr::include_graphics("INREMDN_files/figure-html/asim.png")
 ```
 
-Resulta que su media es $\overline{x}=3.1$ y su desviación típica es $s_x=2.5$, y que el intervalo $[\overline{x}-s_x,\overline{x}+s_x]$ contiene un 84% de la muestra. Su mediana es $Q_{0.5}=2.3$, a la izquierda de la media, y su intervalo intercuartílico $IQI$ es (1.3,4.2) Por cierto, su coeficiente de asimetría es $\gamma_1=1.7$, lo que es consistente con su cola a la derecha. 
+Resulta que su media es $\overline{x}=3.1$ y su desviación típica es $s_x=2.5$, y que el intervalo $[\overline{x}-s_x,\overline{x}+s_x]$ contiene un 84% de la muestra. Su mediana es $Q_{0.5}=2.3$, a la izquierda de la media, y su intervalo intercuartílico $IQI$ es [1.3,4.2]. Por cierto, su coeficiente de asimetría es $\gamma_1=1.7$, lo que es consistente con su cola a la derecha. 
 
-Considerad la variable simétrica siguiente:
+Considerad ahora la variable simétrica siguiente:
 
 ```{r sim,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/sim.png")
 ```
 
-Resulta que su media es $\overline{x}=2.9$ y su desviación típica es $s_x=1.1$, y que el intervalo $[\overline{x}-s_x,\overline{x}+s_x]$ contiene un 64% de la muestra. Su mediana es $Q_{0.5}=3$, muy cercana a su media, y su $IQI$ es (2.2, 3.7). Su coeficiente de asimetría es $\gamma_1=-0.03$, lo que es consistente con su simetría. 
+Resulta que su media es $\overline{x}=2.9$ y su desviación típica es $s_x=1.1$, y que el intervalo $[\overline{x}-s_x,\overline{x}+s_x]$ contiene un 64% de la muestra. Su mediana es $Q_{0.5}=3$, muy cercana a su media, y su $IQI$ es [2.2, 3.7]. Su coeficiente de asimetría es $\gamma_1=-0.03$, lo que es consistente con su simetría. 
 
-Considerad finalmente la variable siguiente, simétrica pero en forma de U
+Considerad finalmente la variable siguiente, que es simétrica pero en forma de U:
 
 ```{r simu,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/usim.png")
 ```
 
-Resulta que su media es $\overline{x}=3.9$ y su desviación típica es $s_x=2.2$, pero el intervalo $[\overline{x}-s_x,\overline{x}+s_x]$ contiene solo el 52% de la muestra. Su mediana es también $Q_{0.5}=3.9$  y su $IQI$ es (1.8,5.9). Su coeficiente de asimetría es $\gamma_1=0.0007$.
+Resulta que su media es $\overline{x}=3.9$ y su desviación típica es $s_x=2.2$, pero el intervalo $[\overline{x}-s_x,\overline{x}+s_x]$ contiene solo el 52% de la muestra. Su mediana es también $Q_{0.5}=3.9$  y su $IQI$ es [1.8,5.9]. Su coeficiente de asimetría es $\gamma_1=0.0007$.
 
 
 ```{block2,type="rmdnote"}
 Los tres tipos de simetría/asimetría se generalizan de manera inmediata a variables poblacionales, a partir de alguna representación gráfica de su distribución.
 
-Por ejemplo, si recordáis el gráfico de la distribución de los salarios anuales españoles, y que por si no lo recordáis repetimos aquí debajo, presenta una clara asimetría a la derecha que hace que el salario medio sea mayor que el mediano.
+Por ejemplo, si recordáis el gráfico de la distribución de los salarios anuales españoles (Figura \@ref(fig:salaris)), presenta una clara asimetría a la derecha que arrastra el salario medio a la derecha del mediano.
 ```
 
 
 No nos hemos olvidado del **coeficiente de curtosis**, $\beta_2$. Este estadístico mide el grado de "apuntamiento" de la distribución de la variable.
 
-* Cuando el histograma se parece al de una campana de Gauss (diremos que la variable es **mesocúrtica**), $\beta_2\approx 0$
+* Cuando el histograma se parece al de una campana de Gauss (diremos que la variable es **mesocúrtica**), $\beta_2\approx 0$.
 
 
-```{r Meso,echo=FALSE,fig.cap="Una variable mesocúrtica"}
+```{r Meso,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/Meso.png")
 ```
 
-* Cuando el histograma es más puntiagudo que una campana de Gauss (diremos que la variable es **leptocúrtica**), $\beta_2> 0$
+* Cuando el histograma es más puntiagudo que una campana de Gauss (diremos que la variable es **leptocúrtica**), $\beta_2> 0$.
 
-```{r Lepto,echo=FALSE,fig.cap="Una variable leptocúrtica"}
+```{r Lepto,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/Lepto.png")
 ```
 
-* Cuando el histograma es más achatado que una campana de Gauss (diremos que la variable es **platicúrtica**), $\beta_2< 0$
+* Cuando el histograma es más achatado que una campana de Gauss (diremos que la variable es **platicúrtica**), $\beta_2< 0$.
 
-```{r Plati,echo=FALSE,fig.cap="Una variable platicúrtica"}
+```{r Plati,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/Plati.png")
 ```
 
+No vamos a insistir en este coeficiente ni en el apuntamiento de las variables.
 
-## Estadísticos sobre daatos agrupados 
+## Estadísticos sobre datos agrupados 
 
 En nuestro lenguaje cotidiano, solemos **agrupar** datos cuantitativos sin que seamos conscientes de ello. Cuando decimos, por ejemplo, que la edad de alguien es de 18 años, no queremos decir que nació justo hoy hace 18 años, sino que ya ha cumplido los 18 años, pero aún no ha cumplido los 19; es decir, que agrupamos todas las edades que caen dentro del intervalo [18,19) en una misma clase, que llamamos "18 años". Del mismo modo, que alguien mida 1.72 no significa que esta sea su altura exacta, con la precisión del grueso de un cabello, sino que su altura pertenece a un intervalo de valores en torno a 1.72 metros que identificamos con "1.72". Bajo  la calificación de "aprobado" agrupamos todas las notas mayores o iguales que 5 y menores que 7. Y estamos seguros de que se os ocurren otros ejemplos. 
 
 Muy a menudo, los datos cuantitativos se recogen directamente agrupados, como por ejemplo franjas salariales o el número de hermanos en la tabla de datos \@ref(tab:tabla1). Y aunque las clases definan una variable ordinal, es muy probable que nos interese interpretarlas como eso: clases resultado de agrupar datos cuantitativos. Su representación gráfica adecuada es claramente un histograma, pero ¿cómo podemos calcular los estadísticos? Está claro que de manera exacta es imposible si no conocemos los datos **brutos**,  sin agrupar. Pero podemos intentar aproximarlos.
 
-* La **clase modal** es la clase de mayor frecuencia
-* Para calcular la media, la varianza, etc., para cada clase tomamos un valor representativo de la misma, a la que llamaremos su **marca de clase** (normalmente, el punto medio de la clase), y entenderemos que nuestra muestra está formada, para cada clase, por tantas copias de su marca como la frecuencia de la clase.
+* Substituimos la moda por la **clase modal**: la clase de mayor frecuencia.
+* Para calcular la media, la varianza, etc., para cada clase tomamos su punto medio, al que en este contexto llamaremos su **marca de clase**, y entenderemos que nuestra muestra está formada, para cada clase, por tantas copias de su marca como la frecuencia de la clase.
 
 ```{example tensioagrup2}
 Volvamos a la muestra de tensiones arteriales medias de 120 adultos del Ejemplo \@ref(exm:tensioagrup) y supongamos que nos han dado directamente los datos agrupados en 9 clases de amplitud 10:
 
 ```
 
-
-Si tomamos 9 clases, con las frecuencias
 ```{r,echo=FALSE}
 Clase=c("[80,90)","[90,100)","[100,110)","[110,120)","[120,130)","[130,140)","[140,150)","[150,160)","[160,170)")
 Frecuencia=c(3,3,16,33,23,22,13,5,2)
@@ -918,7 +917,7 @@ kable(DF)%>%
   kable_styling(full_width = F)
 ```
 
-La clase modal es [110,120). Para aproximar la media y la varianza de la muestra original, tomaremos como marcas de clase los puntos medios de las clases (85,95,...,165) y supondremos que la muestra está formada por 3 copias del valor 85, 3 copias del valor 95, 16 copias del valor 105,...,2 copias del valor 165. Entonces
+La clase modal es [110,120). Para aproximar la media y la varianza de la muestra original, tomaremos como marcas de clase los puntos medios de las clases, 85,95,...,165, y supondremos que la muestra está formada por 3 copias del valor 85, 3 copias del valor 95, 16 copias del valor 105, ..., 2 copias del valor 165. Entonces:
 
 * Aproximamos la media de la muestra por
 $$
@@ -930,20 +929,21 @@ $$
 \frac{3\times (85-123.75)^2+3\times (95-123.75)^2+16\times (105-123.75)^2+\cdots+2\times (165-123.75)^2}{120}=267.6
 $$
 
-Se han propuesto muchos métodos para intentar adivinar la mediana y los otros cuantiles de una variable cuantitativa agrupada a partir de las tablas de frecuencias de sus clases. Aquí explicaremos el más sencillo y lo ilustraremos con el ejemplo anterior. Por comodidad, vamos a añadir las frecuencias acumuladas de las clases a la tabla de frecuencias:
+Por lo que refiere a la mediana y los otros cuantiles de una variable cuantitativa agrupada, se han propuesto varios métodos para intentar aproximarlos  a partir de las tablas de frecuencias de sus clases. Aquí explicaremos el más sencillo y lo ilustraremos con el ejemplo anterior. Por comodidad, vamos a añadir las frecuencias absolutas y relativas acumuladas de las clases a la tabla de frecuencias:
 
 ```{r,echo=FALSE}
 Clase=c("[80,90)","[90,100)","[100,110)","[110,120)","[120,130)","[130,140)","[140,150)","[150,160)","[160,170)")
 Frecuencia=c(3,3,16,33,23,22,13,5,2)
 Acum=cumsum(Frecuencia)
-DF=data.frame(Clase,Frecuencia,Acum)
-names(DF)=c("Clase","Frecuencia","Frecuencia acumulada")
+AcumP=round(cumsum(Frecuencia)/sum(Frecuencia),4)
+DF=data.frame(Clase,Frecuencia,Acum,AcumP)
+names(DF)=c("Clase","Frecuencia","Fre. acum.", "Frec. rel. acum.")
 kable(DF)%>%
   kable_styling(full_width = F)
 ```
 
 
-En primer lugar buscamos en qué clase ha de caer (qué clase contendría el valor que separa las dos mitades de la muestra): lo llamaremos el  **intervalo crítico para la mediana**. En nuestro ejemplo, será la primera clase cuya frecuencia acumulada sea mayor oigual que 120/2=60. Se trata del intervalo [120,130).
+En primer lugar buscamos en qué clase ha de caer (qué clase contendría el valor que separa las dos mitades de la muestra): lo llamaremos el  **intervalo crítico para la mediana**. En nuestro ejemplo, será la primera clase cuya frecuencia relativa acumulada sea mayor o igual que 0.5. Se trata del intervalo [120,130).
 
 Sean  $[L_c, L_{c+1})$ este intervalo crítico, $N_{c-1}$, la frecuencia absoluta acumulada del intervalo anterior al crítico (si el intervalo crítico es el primero, tomamos $N_{c-1}=0$), y $N_c$, la frecuencia absoluta acumulada del intervalo crítico. Entonces, lo que hacemos es unir con una recta los puntos $(L_c,N_{c-1})$ y $(L_{c+1},N_c)$ y aproximar  la mediana por medio de la abscisa $M$ del punto sobre esta recta cuya ordenada es $n/2$ (véase la Figura \@ref(fig:medianagrup)). La fórmula concreta, por si no os acordáis, es
 $$
@@ -983,7 +983,7 @@ n & x_{n} & y_{n}
 \end{array}
 $$
 
-Podemos representar esta tabla por medio de un **gráfico de dispersión** (*scatter plot*): el gráfico de los puntos $(x_k,y_k)$
+Podemos representar esta tabla por medio de un **gráfico de dispersión** (*scatter plot*): el gráfico de los puntos $(x_k,y_k)$.
 
 ```{example,tensionscatter}
 Hemos medido la tensión arterial media (en mmHg) y el nivel de colesterol (en mg/dl) de 10 individuos y recogido estos valores en la tabla siguiente:
@@ -1004,7 +1004,7 @@ plot(Tensión,Colesterol,pch=20)
 ```
 
 
-Una **serie temporal** es un caso particular de tabla de datos cuantitativos bivariante en la que la primer variable representa el decurso del tiempo. En este caso, es conveniente unir con segmentos los puntos consecutivos en el tiempo para ayudar en la visualización de la evolución de los datos.
+Una **serie temporal** es un caso particular de tabla de datos cuantitativos bivariante en la que la primera variable representa el paso del tiempo. En este caso, es conveniente unir con segmentos los puntos consecutivos en el tiempo para ayudar en la visualización de la evolución de los datos.
 
 ```{example}
 Consideremos la siguiente tabla de los números diarios de defunciones por COVID-19 en la Baleares entre día 16 y día 31 de marzo de 2019:
@@ -1016,18 +1016,19 @@ Consideremos la siguiente tabla de los números diarios de defunciones por COVID
 Día=16:31
 Defunciones=c(0,0,1,0,2,0,6,0,3,4,5,4,3,8,5,4)
 DF=data.frame(Día,Defunciones)
-kable(DF)
+kable(DF)%>%
+  kable_styling(full_width = F)
 ```
   
 Se trata de una serie temporal. Su gráfico de dispersión es
 
-```{r}
+```{r,echo=FALSE}
 plot(Día,Defunciones,type="o",pch=20)
 ```
 
 A menudo nos interesará describir por medio de un valor la **asociación**  (propensión a variar conjuntamente) de dos variables cuantitativas medidas sobre una misma muestra de individuos: por ejemplo, medir la tendencia del nivel de colesterol a crecer con la tensión arterial media en la tabla del Ejemplo \@ref(exm:tensionscatter). 
 
-El estadístico que más se usa con este fin es la **covarianza**. Su definición, para los vectores $x=(x_1,\ldots,x_n)$ e $y=(y_1,\ldots,y_n)$, es
+El estadístico que más se usa con este fin es la **covarianza**. Su definición, para los vectores $x=(x_1,\ldots,x_n)$ e $y=(y_1,\ldots,y_n)$, de medias $\overline{x}$ y $\overline{y}$, respectivamente, es
 $$
 s_{x,y}=\frac{1}{n}\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})
 $$
@@ -1035,7 +1036,7 @@ $$
 
 
 ```{block2,type="rmdcaution"}
-También hay una versión **muestral**, dividiendo por $n-1$ en lugar de $n$, que es la que calculan la mayoría de los paquetes estadísticos. El motivo es el mismo que ya explicamos con ocasión de la varianza.
+También hay una versión **muestral**, dividiendo por $n-1$ en lugar de $n$, que es la que calculan la mayoría de los paquetes estadísticos. El motivo es el mismo que ya explicamos con ocasión de la varianza: la covarianza muestral estima mejor la covarianza de las variables poblacionales que la "verdadera".
 ```
 
 ```{block2,type="rmdimportant"}
@@ -1044,26 +1045,26 @@ Observad que la covarianza de un vector consigo mismo es su varianza: $s_{x,x}=s
 
 El signo de la covarianza mide el signo de la  asociación  entre los dos vectores:
 
-* La covarianza es **positiva** cuando $x$ e $y$ satisfacen la condición siguiente: si una de las dos variables crece, la otra también tiende a crecer; es decir, si $x_i<x_j$, $y_j$ tiende a ser  mayor que $y_i$, y recíprocamente.
+* La covarianza es **positiva** cuando $x$ e $y$ satisfacen la condición siguiente: si una de las dos variables crece, la otra también tiende a crecer; es decir, si $x_i<x_j$, $y_j$ tiende a ser  mayor que $y_i$.
 
 ```{r,echo=FALSE,fig.cap="Covarianza positiva"}
 knitr::include_graphics("INREMDN_files/figure-html/covpos.png")
 ```
 
-* La covarianza es **negativa** cuando $x$ e $y$ satisfacen la condición siguiente: si una de las dos variables crece, la otra  tiende a decrecer; es decir, si $x_i<x_j$, $y_j$ tiende a ser  menor que $y_i$, y viceversa.
+* La covarianza es **negativa** cuando $x$ e $y$ satisfacen la condición siguiente: si una de las dos variables crece, la otra  tiende a decrecer; es decir, si $x_i<x_j$, $y_j$ tiende a ser  menor que $y_i$.
 
 ```{r,echo=FALSE,fig.cap="Covarianza negativa"}
 knitr::include_graphics("INREMDN_files/figure-html/covneq.png")
 ```
 
-* Si la covarianza es muy cercana a 0, es porque no hay una tendencia clara al crecimiento o decrecimiento de $y_i$ en función del de  $x_i$
+* Si la covarianza es muy cercana a 0, es porque no hay una tendencia clara al crecimiento o decrecimiento de $y_i$ en función del de  $x_i$.
 
 ```{r,echo=FALSE,fig.cap="Covarianza 0"}
 knitr::include_graphics("INREMDN_files/figure-html/cov0.png")
 ```
 
 ```{block2,type="rmdimportant"}
-En particular, si las variables $x$ e $y$ son **independientes**, por ahora, en el sentido intuitivo de que el valor de $x$ no influye para nada en el valor de $y$, la covarianza de $x$ e $y$ es 0.
+En particular, si las variables $x$ e $y$ son **independientes**, en el sentido  de que el valor de $x$ no influye para nada en el valor de $y$, la covarianza de $x$ e $y$ es 0.
 ```
 
 
@@ -1088,7 +1089,9 @@ Del hecho que esta covarianza sea positiva deducimos que, en esta muestra, la te
 
 
 
-Ahora bien, el valor de la covarianza es difícil de interpretar más allá de su signo. Por ejemplo, si la covarianza de las variables Tensión y Colesterol en otra muestra de individuos fuera mayor que la que hemos obtenido en la muestra anterior, eso no tendría por qué significar que la tendencia al crecimiento conjunto de estas dos variables en la nueva muestra fuera mayor que en la nuestra. Por ello, a menudo se usa una versión normalizada de la misma, la **correlación de Pearson**, definida como la covarianza dividida por el producto de las desviaciones típicas:
+Ahora bien, el valor de la covarianza es difícil de interpretar más allá de su signo. Por ejemplo, si la covarianza de las variables Tensión y Colesterol en otra muestra de individuos fuera mayor que la que hemos obtenido en la muestra anterior, eso no tendría por qué significar que la tendencia al crecimiento conjunto de estas dos variables en la nueva muestra fuera mayor que en la nuestra. Por ello, a menudo se usa una versión normalizada de la covarianza, la correlación de Pearson, cuyo valor tiene una interpretación sencilla.
+
+La **correlación de Pearson** de dos vectores de datos $x$ e $y$ de la misma longitud se define como su covarianza dividida por el producto de las desviaciones típicas:
 $$
 r_{x,y}=\frac{s_{x,y}}{s_xs_y}
 $$
@@ -1103,11 +1106,13 @@ correlación de Pearson tiene el mismo significado que el de la covarianza:
 Pero la correlación de Pearson lleva más información que la covarianza, porque 
 **mide la relación lineal entre los dos vectores**, en el sentido de las propiedades siguientes:
 
-* Se tiene que $-1\leq r_{x,y}\leq 1$
+* Se tiene que $-1\leq r_{x,y}\leq 1$.
 
-* Cuanto más cerca está $r_{x,y}$ de 1 o -1, más se aproximan los puntos $(x_i,y_i)$ a estar sobre una recta, creciente si $r_{x,y}>0$ y decreciente si $r_{x,y}<0$
+* Cuanto más cerca está $r_{x,y}$ de -1 o 1, más se aproximan los puntos $(x_i,y_i)$ a estar sobre una recta, que será creciente si $r_{x,y}>0$ y decreciente si $r_{x,y}<0$.
 
-* Y en concreto,los puntos $(x_i,y_i)$ están sobre una recta creciente exactamente cuando $r_{x,y}=1$, y están sobre una recta decreciente exactamente cuando $r_{x,y}=-1$
+* Y en concreto, 
+    * Los puntos $(x_i,y_i)$ están sobre una recta creciente exactamente si, y solo si, $r_{x,y}=1$. 
+    * Los puntos $(x_i,y_i)$ están sobre una recta decreciente si, y solo si,  $r_{x,y}=-1$.
 
 ```{example}
 Seguimos con la tabla de tensiones arteriales medias y niveles de colesterol del Ejemplo \@ref(exm:tensionscatter). Ya hemos obtenido su covarianza, $s_{\text{Tensión},\text{Colesterol}}=110.9164$. Sus desviaciones típicas son
@@ -1121,7 +1126,7 @@ por lo que su correlación de Pearson es
 $$
 r_{\text{Tensión},\text{Colesterol}}=\frac{110.9164}{8.616\cdot 18.84}=0.683
 $$
-Los pares de valores de tensión arterial media y el nivel de colesterol de los individuos de la muestra presentan bastante tendencia a estar sobre una recta.
+Los pares de valores de tensión arterial media y el nivel de colesterol de los individuos de la muestra presentan una tendencia acusada a estar sobre una recta.
 
 ```
 
@@ -1130,7 +1135,7 @@ Los pares de valores de tensión arterial media y el nivel de colesterol de los 
 Gráficamente podemos visualizar la tendencia de los puntos de una tabla bivariante a estar sobre una recta añadiendo a su gráfico de dispersión su **recta de regresión** (para ser precisos, **lineal por mínimos cuadrados**, pero por ahora omitiremos esta apostilla, hasta el tema de Regresión Lineal hacia el final de curso). Se trata de la recta que más se aproxima a los puntos $(x_i,y_i)$ en el sentido siguiente. 
 
 Dada una recta $y=ax+b$, el **error** que se comete al estimar con esta recta el valor $y_i$ sobre el sujeto correspondiente al par $(x_i,y_i)$ es $y_i-(ax_i+b)$.
-La **recta de regresión** es la que tiene coeficientes $a,b$ que hacen mínima la suma de los cuadrados de estos errores
+La **recta de regresión** es la que tiene coeficientes $a,b$ que hacen mínima la suma de los cuadrados de estos errores,
 $$
 \sum_{i=1}^n (y_i-(ax_i+b))^2
 $$
@@ -1139,6 +1144,7 @@ Resulta que los coeficientes de esta recta de regresión son
 $$
 a=\frac{s_{x,y}}{s_x^2},\quad b = \overline{y}-a\cdot \overline{x}.
 $$
+
 ```{example}
 Siguiendo con nuestro ejemplo de tensiones y niveles de colesterol, la recta de regresión del nivel de colesterol en función de la tensión media tiene pendiente
 $$
@@ -1149,7 +1155,7 @@ $$
 b=  \overline{\text{Colesterol}}-a\cdot \overline{\text{Tensión}}=201.48-1.494\times 119.32=23.216
 $$
 
-El gráfico de dispersión de los puntos junto a esta recta de regresión es
+El gráfico de dispersión de los puntos junto a esta recta de regresión es el siguiente:
 
 ```
 
@@ -1167,25 +1173,24 @@ Por ejemplo, F. Anscombe produjo los cuatro conjuntos de puntos descritos en la 
 
 ```{r anscombe,echo=FALSE,fig.cap="El cuarteto de Anscombe",fig.width=10,out.width="90%"}
 par(mfrow=c(2,2))
-plot(anscombe$x1,anscombe$y1,main="Conjunt de dades 1")
+plot(anscombe$x1,anscombe$y1,main="Conjunto de datos 1",pch=20)
 abline(lm(y1~x1,data=anscombe),col="red",lwd=1.5)
-plot(anscombe$x2,anscombe$y2,data=anscombe,main="Conjunt de dades 2")
+plot(anscombe$x2,anscombe$y2,data=anscombe,main="Conjunto de datos 2",pch=20)
 abline(lm(y2~x2,data=anscombe),col="red",lwd=1.5)
-plot(anscombe$x3,anscombe$y3,main="Conjunt de dades 3")
+plot(anscombe$x3,anscombe$y3,main="Conjunto de datos 3",pch=20)
 abline(lm(y3~x3,data=anscombe),col="red",lwd=1.5)
-plot(anscombe$x4,anscombe$y4,main="Conjunt de dades 4")
+plot(anscombe$x4,anscombe$y4,main="Conjunto de datos 4",pch=20)
 abline(lm(y4~x4,data=anscombe),col="red",lwd=1.5)
 ```
 
 
 ````{block2,type="rmdnote"}
-Ser incorrelados no es sinónimo de que no haya ninguna dependencia entre las dos variables. Por ejemplo, los conjuntos de puntos de la Figura \@ref(fig:datasaurus) tienen correlación casi 0 (en concreto 0.004), y es claro que en cada cas hay una fuerte dependencia entre los valores de $x$ y de $y$.
+Ser incorrelados no es sinónimo de que no haya ninguna dependencia entre las dos variables. Por ejemplo, los conjuntos de puntos de la Figura \@ref(fig:datasaurus) tienen correlación casi 0 (en concreto 0.004), y es claro que en cada caso hay una fuerte dependencia entre los valores de $x$ y de $y$.
 ```
 
 
-```{r datasaurus,fig.width=10,out.width="90%",fig.asp=0.5,echo=FALSE,fig.cap="Dos conjuntos de datos incorrelados"}
+```{r datasaurus, echo=FALSE, fig.width=10,out.width="90%",fig.asp=0.5, fig.cap="Dos conjuntos de datos incorrelados"}
 datasaure=read.table("https://raw.githubusercontent.com/AprendeR-UIB/MatesIIAD/master/dades/datasaure.txt",header=TRUE,sep="\t")
-str(datasaure)
 dino=datasaure[datasaure$dataset=="dino",2:3]
 star=datasaure[datasaure$dataset=="star",2:3]
 par(mfrow=c(1,2))
@@ -1198,22 +1203,25 @@ par(mfrow=c(1,1))
 
 
 
-Como hemos visto, la correlación de Pearson mide la dependencia lineal entre dos variables cuantitativas. Otras medidas de correlación miden otros tipos de dependencia. La alternativa más popular es la **correlación de Pearson**, $r_S$, que mide la concordancia en el orden de los individuos según sus valores en las dos variables medidas. Se calcula, *grosso modo*, de la manera siguiente:
+Como hemos visto, la correlación de Pearson mide la dependencia lineal entre dos variables cuantitativas. Otras medidas de correlación miden otros tipos de dependencia. La alternativa más popula a la correlación de Pearson es la **correlación de Spearman**, $r_S$, que mide la concordancia en el orden de los individuos según sus valores en las dos variables medidas. Se calcula, *grosso modo*, de la manera siguiente:
 
-* A cada individuo de la muestra le asignamos su posición (su **rango**) según el orden creciente de los valores $x_i$ 
+* A cada individuo de la muestra le asignamos su posición (su **rango**) según el orden creciente de los valores $x_i$.
 
-* A cada individuo de la muestra le asignamos su rango según el orden creciente de los valores $y_i$
+* A cada individuo de la muestra le asignamos su rango según el orden creciente de los valores $y_i$.
 
-* Calculamos la correlación de Pearson de los vectores de rangos
+* Calculamos la correlación de Pearson de los vectores de rangos.
 
-La correlación de Pearson también se puede usar para variables ordinales **¡La de Pearson no!**
+
+```{block2,type="rmdimportant"}
+La correlación de Spearman también se puede usar para variables ordinales. **¡La de Pearson no!**
+```
 
 ```{example}
 Volvemos a nuestro ejemplo de tensiones y niveles de colesterol. Ampliamos la tabla de datos con los rangos de los individuos recogidos en la misma para cada variable:
   
 ```
  
-```{r}
+```{r,echo=FALSE}
 Tensión=c(105.7,117.4,131.9,117.8,133.0,107.9,118.6,123.4,124.1,113.4)
 RT=rank(Tensión)
 Colesterol=c(169.3,191.7,202.6,218.2,223.2,180.0,230.4,211.8,202.3,185.3)
@@ -1226,14 +1234,61 @@ kable(DF,row.names=TRUE)%>%
  
 La correlación de Spearman de las dos variables será la correlación de Pearson de sus vectores de rangos. Si la calculáis, da ${r_S}=0.73333$.
 
+```{block2,type="rmdnote"}
+Una nota técnica, para los completistas. ¿Qué pasa, al calcular los rangos, si hay valores repetidos?  Pues que se les asigna el mismo rango calculado de la manera siguiente: 
+
+1. En primer lugar, a cada individuo de la muestra le asignamos su posición según el orden creciente de los valores $x_i$ y, en caso de igualdad de estos valores,  según su orden de aparición en la tabla de datos.
+1. Entonces, para cada valor del vector, se asigna a todos los individuos cuyo valor $x$ es ese valor la media de sus posiciones.
+
+```
+
+Veamos un ejemplo.
+
+```{example}
+Vamos a calcular los rangos de los individuos de la tabla de datos siguiente según su valor de la variable $x$. 
+
+```
+
+```{r,echo=FALSE}
+Individuo=1:8
+x=c(1,2,1,1,2,4,4,3)
+kable(data.frame(Individuo,x))%>%
+  kable_styling(full_width = F)
+```
+
+Empezamos asignando posiciones a los individuos según el orden de su $x$ y en caso de empate de arriba abajo:
+
+```{r,echo=FALSE}
+Individuo=1:8
+x=c(1,2,1,1,2,4,4,3)
+Posición=c(1,4,2,3,5,7,8,6)
+kable(data.frame(Individuo,x,Posición))%>%
+  kable_styling(full_width = F)
+```
+
+Pasamos a asignar rangos:
+
+* A los tres individuos cuya $x$ es 1 les asignamos como rango (1+2+3)/3=2.
+* A los dos individuos cuya $x$ es 2 les asignamos como rango (4+5)/2=4.5.
+* Al individuo cuya $x$ es 3 les asignamos como rango 6.
+* A los dos individuos cuya $x$ es 4 les asignamos como rango (7+8)/2=7.5.
+
+```{r,echo=FALSE}
+Individuo=1:8
+x=c(1,2,1,1,2,4,4,3)
+Posición=c(1,4,2,3,5,7,8,6)
+Rango=rank(x)
+kable(data.frame(Individuo,x,Posición,Rango))%>%
+  kable_styling(full_width = F)
+```
+
 
 
 ## Gráficos en escala logarítmica 
 
 Los ejes de todos los gráficos para variables cuantitativas producidos en las secciones anteriores estaban en **escala lineal**:  pares de marcas a misma distancia tienen diferencias iguales.
 
-A veces es  conveniente dibujar un gráfico con un eje (o ambos) en **escala logarítmica**:  pares de marcas a misma distancia tienen **cocientes** iguales
-(es decir, diferencias de sus logaritmos iguales, de ahí el nombre).
+A veces es  conveniente dibujar un gráfico con un eje (o ambos) en **escala logarítmica**: donde pares de marcas a misma distancia tengan **cocientes** iguales (es decir, diferencias de sus logaritmos iguales, de ahí el nombre).
 
 Por ejemplo, el gráfico siguiente representa la serie temporal de números acumulados de muertos por COVID-19 en las Balears entre el 16 de marzo y el 25 de abril de 2020. Podéis comprobar que ambos ejes están en escala lineal.
 
@@ -1243,7 +1298,7 @@ Morts=c(1,1,2,2,4,4,10,10,13,17,22,26,29,37,42,46,58,69,71,75,81,84,89,89,97,102
 plot(Día,Morts,xlab="Días desde 16/03/2020", ylab="Defunciones acumuladas",type="o",pch=20)
 ```
   
-Vamos ahora a dibujar este gráfico con el eje de las ordenadas en escala logarítmica (le llamaremos un gráfico en *escala semilogarítmica*):
+Vamos ahora a dibujar este gráfico con el eje de las ordenadas en escala logarítmica (lo llamaremos un gráfico en *escala semilogarítmica*):
 
 ```{r,echo=FALSE,fig.cap="Gráfico en escala semilogarítmica"}
 plot(Día,Morts,xlab="Días desde 16/03/2020",ylab="Defunciones acumuladas",type="o",pch=20,log="y")
@@ -1251,14 +1306,14 @@ plot(Día,Morts,xlab="Días desde 16/03/2020",ylab="Defunciones acumuladas",type
   
 Observad las marcas en el eje de las ordenadas: por ejemplo, la distancia entre 1 y 2 es la misma que entre 10 y 20, y la distancia entre 1 y 5 es la misma que entre 10 y 50.
 
-Y ahora vamos a dibujarlo con ambos ejes en escala logarítmica (le llamaremos un gráfico en *escala doble logarítmica*):
+Y ahora vamos a dibujarlo con ambos ejes en escala logarítmica (lo llamaremos un gráfico en *escala doble logarítmica*):
 
 
 ```{r,echo=FALSE,fig.cap="Gráfico en escala doble logarítmica"}
 plot(Día,Morts,xlab="Días desde 16/03/2020",ylab="Defunciones acumuladas",type="o",pch=20,log="xy")
 ```
 
-Un buen motivo para dibujar un gráfico en escala semilogarítmica o doble logarítmica puede ser el necesitar representar simultáneamente varias variables de rangos muy dferentes. Por ejemplo, considerad la figura siguiente:
+Un buen motivo para dibujar un gráfico en escala semilogarítmica o doble logarítmica puede ser la necesidad de representar simultáneamente varias variables de rangos muy dferentes. Por ejemplo, considerad la figura siguiente:
 
 ```{r,echo=FALSE,fig.width=10,out.width="75%"}
 knitr::include_graphics("INREMDN_files/figure-html/h1n1.png")
@@ -1266,9 +1321,9 @@ knitr::include_graphics("INREMDN_files/figure-html/h1n1.png")
  
 Dibujada en escala lineal, se perdería mucho detalle: la línea inferior casi se identificaría con el eje de abscisas, y las líneas centrales parecerían iguales.
 
-Otro motivo puede ser simplemente el hacer aparecer detalles que nos ayuden a entender mejor los datos. Por ejemplo, los dos gráficso siguientes muestran la mortalidad anual específica por tuberculosis en Inglaterra y Gales entre 1871 y 1971, a la izquierda en escala lineal y a la derecha en escala semilogarítmica:
+Otro motivo puede ser simplemente el hacer aparecer detalles que nos ayuden a entender mejor los datos. Por ejemplo, los dos gráficos siguientes muestran la mortalidad anual específica por tuberculosis en Inglaterra y Gales entre 1871 y 1971, a la izquierda en escala lineal y a la derecha en escala semilogarítmica:
 
-```{r,echo=FALSE,fig.width=10,out.width="75%"}
+```{r,echo=FALSE,out.width="90%"}
 knitr::include_graphics("INREMDN_files/figure-html/loglog3.png")
 ```
 
@@ -1280,7 +1335,7 @@ El gráfico semilogarítmico permite apreciar mejor el descenso en la mortalidad
 
 ### Problemas {-}
 
-**(1)** Considerad el diagrama siguiente, que muestra los perímetros braquiales derechas de 120 mujeres.
+**(1)** Considerad el diagrama siguiente, que muestra los perímetros braquiales derechos de 120 mujeres.
 
 ```{r braquial,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
@@ -1406,9 +1461,9 @@ knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
 *(2)* Un estudio describe los diagnósticos de ingresados en un servicio de urgencias durante una semana que requirieron hospitalización. Estos valores fueron:
 
 * 6 admisiones por apendicitis aguda 
-* 7 admisiones por colecistitis aguda %(infección de la vesícula biliar)
-* 12 admisiones por enfermedad de úlcera péptica% (úlceras de estómago)
-* 4 admisiones por gastritis% (inflamación del revestimiento del estómago)
+* 7 admisiones por colecistitis aguda (infección de la vesícula biliar)
+* 12 admisiones por enfermedad de úlcera péptica  (úlceras de estómago)
+* 4 admisiones por gastritis  (inflamación del revestimiento del estómago)
 
 ¿Cuál de los siguientes estadísticos es el más apropiado para resumir la tendencia central de estos diagnósticos?
 
@@ -1424,11 +1479,11 @@ knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
 
 *(3)* Si en un conjunto de datos cuantitativos la media aritmética es estrictamente menor que la mediana (marcad todas las respuestas correctas):
 
-1.  La muestra es asimétrica con cola a la izquierda. 
-1.  La muestra es asimétrica con cola a la derecha.
-1.  No podemos saber si la muestra es simétrica o asimétrica.
+1.  La muestra seguramente sea asimétrica con cola a la izquierda. 
+1.  La muestra seguramente sea asimétrica con cola a la derecha.
+1.  No tenemos ninguna información sobre el tipo de simetría o asimetría de la muestra
 1.  Más del 50% de los valores son menores que la media.
-1. Más del 50% de los valores son mayores que la media.*(4)* 
+1. Más del 50% de los valores son mayores que la media. 
 1. Ninguna de las respuestas anteriores es correcta.
 
 
