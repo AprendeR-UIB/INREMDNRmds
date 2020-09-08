@@ -1,0 +1,86 @@
+
+# Algunos conceptos básicos en estadística
+
+## Unidad de observación
+
+En un estudio estadístico, la **unidad de observación** es el tipo de sujetos que observamos. En los estudios médicos normalmente serán personas, pero no siempre:
+
+* Pueden ser sucesos que les pasen a personas, de manera que una misma persona pueda ser observada varias veces: por ejemplo, todos los embarazos de un grupo de mujeres; o el resultado de la administración, en momentos diferentes, de diferentes tratamientos para una misma enfermedad crónica a un grupo de enfermos.
+
+* Pueden ser partes de personas: si por ejemplo queremos estudiar si el uso de teléfono móvil produce cáncer de piel en las orejas, en los participantes del estudio compararemos la oreja dominante en este sentido con la otra, de manera que la unidad de observación son las orejas de las personas, no las personas.
+
+* Recordad que en los estudios ecológicos (Sección \@ref(sec:ecol)) la unidad de información són las comunidades de las que se mide algún dato global. Por ejemplo, podemos medir en diferentes centros de educación primaria de una ciudad el número medio de alumnos por aula y el número de alumnos infectados de COVID-19 durante el primer trimestre del curso escolar, para estimar si hay alguna relación entre estas dos cantidades. Aquí, la unidad de observación son los centros de educación primaria.
+
+
+## Población y muestra
+
+En un estudio inferencial, queremos deducir (**inferir**) información sobre una **población** a partir de una **muestra** de la misma. 
+
+En general, una **población** es simplemente un conjunto de individuos u objetos sobre los que queremos conocer alguna información. Esta población puede estar perfectamente definida en un lugar y tiempo: por ejemplo, los habitantes de España a día de hoy. Pero normalmente su definición será difusa. Si, por ejemplo, queremos estimar algo sobre "los españoles mayores de 65 años", ¿de quién estamos hablando exactamente? ¿De los que están vivos justo ahora? ¿De todos los que han habitado España desde que esta se fundó? ¿Incluimos los que aún no han nacido y que cuando nazcan lleguen a cumplir 65 años?
+
+Tranquilos, no nos vamos a romper mucho la cabeza con esto. Pero al menos tenéis que ser conscientes de que una población puede contener objetos que en realidad no existen ni hayan existido ni vayan a existir, sino simplemente que "podrían existir". Y en medicina especialmente, cuando queremos estimar si un tratamiento será efectivo para tratar una cierta enfermedad... incluyendo los casos que aún no han contraído la enfermedad. Hablaremos entonces de una población **virtual**.
+
+Por ejemplo, cuando decimos que 
+
+> "La probabilidad de que salga Cara al lanzar una moneda equilibrada al aire  es 1/2", 
+
+lo que significa es que 
+
+> "Si tomamos la población formada por todos los posibles lanzamientos de todas las posibles monedas equilibradas, en la mitad de sus miembros el resultado es Cara."
+
+Los miembros de esta población son todos los "posibles" lanzamientos de monedas equilibradas, los que se han realizado a lo largo de la historia, los que se realizarán en el futuro, y los que se podrían haber realizado o se podrían realizar en el futuro pero en realidad no se han hecho ni se harán nunca.
+
+
+Otro ejemplo. Imaginad que comparamos las notas que (vosotros, estudiantes de primer curso del grado de Medicina de la UIB) sacáis en dos cuestionarios diferentes sobre un mismo tema, digamos que uno sobre conceptos y el otro de cálculos, y que en el primero obtenéis una nota media mayor que en el segundo. Inferimos que sacáis mejor nota en tests de conceptos que en tests aritméticos. ¿A quién refiere este "sacáis"?  ¿Sobre qué población queríamos "inferir" información a partir de este resultado? No sobre solamente vosotros, ya que entonces no estamos infiriendo nada, simplemente observamos, describimos qué ha pasado y a otra cosa. La población a la que querríamos generalizar los resultados sería en todo caso la de "todos los posibles estudiantes como vosotros que estuvieran cursando una asignatura como esta y se les pusieran tests similares a los de nuestro experimento", que como veis ni está del todo bien definida ni ciertamente está formada por "individuos" que existan, o que hayan existido o que necesariamente vayan a existir. Naturalmente, esta población virtual la resumiremos en "los estudiantes de primer curso de Medicina".
+
+Hasta ahora hemos hablado de la población, a menudo virtual, sobre la que queremos obtener información. Está será nuestra **población objetivo**, que hay que distinguir de la **muestra**:
+
+* **Población objetivo**: un conjunto de sujetos con una o varias características que deseamos estudiar.
+
+* **Muestra**:  el grupo de los sujetos concretos de los que medimos las características de interés.
+
+```{example}
+Vosotros formáis una muestra de la población de "los estudiantes de primer curso de Medicina". Una serie de 10 lanzamientos de una moneda equilibrada concreta forman una muestra de la población de "los posibles lanzamientos de monedas equilibradas".
+
+
+```
+
+A la hora de determinar la validez de un estudio, es muy importante comparar la población objetivo con la:
+
+* **Población muestreada**: el conjunto de sujetos del que se extrae la muestra. 
+
+Usualmente, la población muestreada será un subconjunto de la población objetivo definido por una serie de restricciones, pero puede no serlo: pensad, por ejemplo, en los estudios ecológicos, donde la población objetivo son individuos y la población muestreada son grupos de individuos.
+
+
+Si la población muestreada, o más específicamente la muestra, no es representativa de la población objetivo, los resultados del estudio no tienen por qué ser generalizables a esta última: hablaremos entonces de que se ha dado un **sesgo de representatividad**. Hablaremos de sesgos en la Sección \@ref(sec:sesgos).
+
+```{example}
+Al escogeros a vosotros como una muestra de la población de estudiantes de primer curso de Medicina, podríamos pensar por ejemplo que la población muestreada son "los estudiantes que en el año académico 2020/21 cursan primer curso de Medicina en una universidad española". Seguramente esta población muestreada tiene características muy diferentes de las de los estudiantes que hace 40 años cursaron primer curso de Medicina en una universidad española, o de las de los estudiantes que este año académico cursan primer curso de Medicina en una universidad estadounidense.
+
+```
+
+```{block2,type="rmdexercici"}
+Si lanzo 10 veces una moneda equilibrada de 1 euro concreta, ya hemos quedado que la población objetivo está formada por todos "los posibles lanzamientos de monedas equilibradas". ¿Cuál sería la población muestreada? ¿Es representativa de la población objetivo?
+  
+```
+
+
+```{example, Hola}
+Para conocer la opinión de sus lectores sobre la monarquía española, una conocida revista del corazón propuso una encuesta en línea en su web y analizó las respuestas. En este **estudio transversal**:
+
+````
+
+* La **población objetivo** es la formada por "los lectores de esta revista".
+* La **población muestreada** es la formada por los lectores actuales de esta revista con acceso a Internet. 
+* La **muestra** son las personas concretas que voluntariamente respondieron la encuesta.
+
+Observad que la población muestreada en principio no es representativa de la población objetivo: puede que excluya, por ejemplo, lectores ancianos o lectores de zonas rurales que tengan acceso difícil a Internet. Por otro lado, la muestra es aún más restrictiva, ya que los participantes fueron voluntarios.
+
+```{block2, type="rmdexercici"}
+En el estudio ["Tuberculosis treatment survival of HIV positive TB patients on directly observed treatment short-course in Southern Ethiopia: A retrospective cohort study"](https://bmcresnotes.biomedcentral.com/articles/10.1186/1756-0500-5-682) (D. Shaweno, **BMC Research Notes** 5:682 (2012)) se quiso estudiar si  la infección por VIH afecta la supervivencia a corto plazo de pacientes con tuberculosis (TB). Para ello, se consideraron todos los pacientes que habían participado en un estudio previo: se trataba de pacientes diagnosticados de TB durante el periodo 2006-2010 a los que se prescribió un tratamiento concreto de quimioterapia de 8 meses de duración y que además pasaron un test de VIH en el momento del diagnóstico positivo de TB. De este grupo de pacientes,  se escogieron al azar un subgrupo de 370 VIH-positivos y otro de 370 VIH-negativos, y se anotó el número de pacientes de cada uno de estos dos subgrupos que murieron durante el curso del tratamiento de 8 meses. La conclusión fue que la tasa de mortalidad entre los paciente de TB VIH-positivos es mayor que entre los que son VIH-negativos.
+
+¿Cuáles son la población objetivo, la población muestreada y la muestra? ¿Creéis que la población muestreada es representativa de la población objetivo?
+```
+
+
+
