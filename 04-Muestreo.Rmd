@@ -38,16 +38,18 @@ knitr::include_graphics("INREMDN_files/figure-html/sinrepv.png")
 
 Cuando **el tamaño de la población es muy grande en relación al de la muestra**, como suele ser en caso en medicina, la probabilidad de que haya repeticiones en una muestra aleatoria simple es muy pequeña. Por ejemplo:
 
-* La probabilidad de que, si escogemos 100 individuos de las Baleares al azar permitiendo repeticiones, se escoja más de una vez algún individuo es de 0.005: solo en 1 de cada 200 muestras de 100 individuos de las Baleares elegidos al azar permitiendo repeticiones habría alguna repetición.
+* Si escogemos 100 individuos de las Baleares al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de `r round(pbirthday(100,1200000),3)`: solo en 1 de cada 250 muestras de 100 individuos de las Baleares elegidos al azar permitiendo repeticiones habría alguna repetición.
 
-* La probabilidad de que, si escogemos 100 estudiantes de la UIB (que tiene alrededor de 12000 estudiantes) al azar permitiendo repeticiones, se escoja más de una vez algún individuo es de más de 1/3: en 1 de cada 3 muestras de 100 estudiantes de la UIB elegidos al azar permitiendo repeticiones habría alguna repetición.
+* Si escogemos 100 estudiantes de la UIB (que tiene alrededor de 12000 estudiantes) al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de `r round(pbirthday(100,12000),3): en  algo más de 1 de cada 3 muestras de 100 estudiantes de la UIB elegidos al azar permitiendo repeticiones habría alguna repetición. 
+
+     En cambio, si escogemos **10** estudiantes de la UIB al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo ya es de `r round(pbirthday(10,12000),3).
 
 
-Esto nos permite entender en este caso que los muestreos aleatorios con y sin reposición son equivalentes en el sentido siguiente: puesto que si la población es muy, muy grande, un muestreo con reposición daría muy probablemente una muestra con todos sus elementos diferentes, ya podemos tomar directamente la muestra sin reposición y aceptar que permitíamos repeticiones, pero que no se han dado, y que por tanto la muestra es simple. 
+Esto nos permite entender que, cuando la población es muchísimo más grande que la muestra,  los muestreos aleatorios con y sin reposición son equivalentes en el sentido siguiente: puesto que si la población es muy, muy grande, un muestreo con reposición daría casi seguro una muestra con todos sus elementos diferentes, podemos tomar directamente la muestra sin reposición y aceptar que permitíamos repeticiones, pero que no se han dado, y que por tanto la muestra es simple. 
 
-* Una muestra aleatoria de 100 individuos  de las Baleares diferentes puede pasar perfectamente por una muestra tomada permitiendo repeticiones, porque aunque las permitiéramos, solo obtendríamos alguna repetición en una de cada 200 ocasiones.
+* Una muestra aleatoria de 100 individuos de las Baleares diferentes, o de 10 estudiantes diferentes de la UIB, puede pasar perfectamente por una muestra tomada permitiendo repeticiones, porque aunque las permitiéramos, solo obtendríamos alguna repetición en una de cada 250 ocasiones: podemos estar casi seguros de que la nuestra es una de las 249 restantes.
 
-* Es difícil de creer que una muestra aleatoria de 100 estudiantes diferentes de la UIB haya sido tomada permitiendo repeticiones, porque en una de cada tres muestras tomadas permitiendo repeticiones nos saldría alguna repetición.
+* Pero en cambio ya es difícil de creer que una muestra aleatoria de 100 estudiantes diferentes de la UIB haya sido tomada permitiendo repeticiones, porque en una de cada tres muestras tomadas permitiendo repeticiones nos saldría alguna repetición: hay que ser muy optimistas para estar "casi seguros" que la nuestra es una de las otras doas.
 
 El muestreo aleatorio simple es el *estándard de excelencia* entre los métodos de muestreo, y la mayoría de los resultados que explicaremos en este curso presuponen que la muestra ha sido tomada aleatoria con reposición. Pero casi nunca es factible tomarla así.
 
