@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-09-09" />
+<meta name="date" content="2020-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,7 +159,7 @@ Si lanzo 10 veces una moneda equilibrada de 1 euro concreta, ya hemos quedado qu
 
 
 <div class="example">
-<p><span id="exm:Hola" class="example"><strong>Ejemplo 2.3  </strong></span>Para conocer la opinión de sus lectores sobre la monarquía española, una conocida revista del corazón propuso una encuesta en línea en su web y analizó las respuestas. En este <strong>estudio transversal</strong>:</p>
+<p><span id="exm:Hola" class="example"><strong>Ejemplo 2.3  </strong></span>Para conocer la opinión de sus lectores sobre la familia real española, una conocida revista del corazón propuso una encuesta en línea en su web y analizó las respuestas. En este <strong>estudio transversal</strong>:</p>
 </div>
 
 <ul>
@@ -174,7 +174,8 @@ Si lanzo 10 veces una moneda equilibrada de 1 euro concreta, ya hemos quedado qu
 <p>No es el objetivo de este curso el que podáis tomar esta decisión, os falta experiencia médica. Pero sí que al menos seáis consicentes de que un resultado observado estimado para una población puede no ser extrapolable a otra población.</p>
 </div>
 
-<p>Por ejemplo, en el estudio <a href="https://link.springer.com/article/10.1186/1756-0500-5-682">“Tuberculosis treatment survival of HIV positive TB patients on directly observed treatment short-course in Southern Ethiopia: A retrospective cohort study”</a>(<em>BMC Research Notes</em> 5:682 (2012)) se compara la tasa de mortalidad (a los 8 meses del diagnóstico) entre los sujetos VIH positivos y los VIH negativos en una muestra de enfermos de tuberculosis (TB) bajo un tratamiento de quimioterapia concreto. Nos puede interesar saber si administrar esta misma terapia a un paciente nuestro con TB y VIH positivo aumenta su riesgo de defunción a corto plazo. Pero, ¿se pueden generalizar los resultados de ese estudio a nuestros pacientes con TB? Veamos, la población muestreada en ese estudio eran pacientes con TB de Etiopía del Sur. ¿Sus características son las mismas que las de nuestros pacientes en Mallorca? No lo creo, aunque solo sea porque la tasa de mortalidad entre los VIH positivos en Etiopía y en España son muy diferentes (en 2017, en Etiopía murieron un 1.7% de los infectados con VIH y España un 0.3%). Seguramente sería más seguro buscar un estudio con una población muestreada de una nación con unos datos económicos y sanitarios más parecidos a los nuestros.</p>
+<p>Por ejemplo, en el estudio <a href="https://link.springer.com/article/10.1186/1756-0500-5-682">“Tuberculosis treatment survival of HIV positive TB patients on directly observed treatment short-course in Southern Ethiopia: A retrospective cohort study”</a>(<em>BMC Research Notes</em> 5:682 (2012)) se compara la tasa de mortalidad (a los 8 meses del diagnóstico) entre los sujetos VIH positivos y los VIH negativos en una muestra de enfermos de tuberculosis (TB) bajo un tratamiento de quimioterapia concreto. Nos puede interesar saber si administrar esta misma terapia a un paciente nuestro con TB y VIH positivo aumenta su riesgo de defunción a corto plazo. Pero, ¿se pueden generalizar los resultados de ese estudio a nuestros pacientes con TB?</p>
+<p>Veamos, la población muestreada en ese estudio eran pacientes con TB de Etiopía del Sur. ¿Sus características son las mismas que las de nuestros pacientes en Mallorca? No lo creo, aunque solo sea porque la tasa de mortalidad entre los VIH positivos en Etiopía y en España son muy diferentes (en 2017, en Etiopía murieron un 1.7% de los infectados con VIH y España un 0.3%). Seguramente sería más seguro buscar un estudio con una población muestreada de una nación con unos datos económicos y sanitarios más parecidos a los nuestros.</p>
 
 </div>
 <div id="sec:muestreo" class="section level2">
@@ -212,13 +213,14 @@ Figura 2.3: Una muestra aleatoria sin reposición.
 </div>
 <p>Cuando <strong>el tamaño de la población es muy grande en relación al de la muestra</strong>, como suele ser en caso en medicina, la probabilidad de que haya repeticiones en una muestra aleatoria simple es muy pequeña. Por ejemplo:</p>
 <ul>
-<li><p>La probabilidad de que, si escogemos 100 individuos de las Baleares al azar permitiendo repeticiones, se escoja más de una vez algún individuo es de 0.005: solo en 1 de cada 200 muestras de 100 individuos de las Baleares elegidos al azar permitiendo repeticiones habría alguna repetición.</p></li>
-<li><p>La probabilidad de que, si escogemos 100 estudiantes de la UIB (que tiene alrededor de 12000 estudiantes) al azar permitiendo repeticiones, se escoja más de una vez algún individuo es de más de 1/3: en 1 de cada 3 muestras de 100 estudiantes de la UIB elegidos al azar permitiendo repeticiones habría alguna repetición.</p></li>
+<li><p>Si escogemos 100 individuos de las Baleares al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de 0.004: solo en 1 de cada 250 muestras de 100 individuos de las Baleares elegidos al azar permitiendo repeticiones habría alguna repetición.</p></li>
+<li><p>Si escogemos 100 estudiantes de la UIB (que tiene alrededor de 12000 estudiantes) al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de 0.339: en algo más de 1 de cada 3 muestras de 100 estudiantes de la UIB elegidos al azar permitiendo repeticiones habría alguna repetición.</p>
+<p>En cambio, si escogemos <strong>10</strong> estudiantes de la UIB al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo ya es de `r round(pbirthday(10,12000),3).</p></li>
 </ul>
-<p>Esto nos permite entender en este caso que los muestreos aleatorios con y sin reposición son equivalentes en el sentido siguiente: puesto que si la población es muy, muy grande, un muestreo con reposición daría muy probablemente una muestra con todos sus elementos diferentes, ya podemos tomar directamente la muestra sin reposición y aceptar que permitíamos repeticiones, pero que no se han dado, y que por tanto la muestra es simple.</p>
+<p>Esto nos permite entender que, cuando la población es muchísimo más grande que la muestra, los muestreos aleatorios con y sin reposición son equivalentes en el sentido siguiente: puesto que si la población es muy, muy grande, un muestreo con reposición daría casi seguro una muestra con todos sus elementos diferentes, podemos tomar directamente la muestra sin reposición y aceptar que permitíamos repeticiones, pero que no se han dado, y que por tanto la muestra es simple.</p>
 <ul>
-<li><p>Una muestra aleatoria de 100 individuos de las Baleares diferentes puede pasar perfectamente por una muestra tomada permitiendo repeticiones, porque aunque las permitiéramos, solo obtendríamos alguna repetición en una de cada 200 ocasiones.</p></li>
-<li><p>Es difícil de creer que una muestra aleatoria de 100 estudiantes diferentes de la UIB haya sido tomada permitiendo repeticiones, porque en una de cada tres muestras tomadas permitiendo repeticiones nos saldría alguna repetición.</p></li>
+<li><p>Una muestra aleatoria de 100 individuos de las Baleares diferentes, o de 10 estudiantes diferentes de la UIB, puede pasar perfectamente por una muestra tomada permitiendo repeticiones, porque aunque las permitiéramos, solo obtendríamos alguna repetición en una de cada 250 ocasiones: podemos estar casi seguros de que la nuestra es una de las 249 restantes.</p></li>
+<li><p>Pero en cambio ya es difícil de creer que una muestra aleatoria de 100 estudiantes diferentes de la UIB haya sido tomada permitiendo repeticiones, porque en una de cada tres muestras tomadas permitiendo repeticiones nos saldría alguna repetición: hay que ser muy optimistas para estar “casi seguros” que la nuestra es una de las otras doas.</p></li>
 </ul>
 <p>El muestreo aleatorio simple es el <em>estándard de excelencia</em> entre los métodos de muestreo, y la mayoría de los resultados que explicaremos en este curso presuponen que la muestra ha sido tomada aleatoria con reposición. Pero casi nunca es factible tomarla así.</p>
 <p>Para poder tomar una muestra aleatoria de una población en el sentido de este apartado, con o sin reposición, es necesario disponer de una lista completa de todos sus individuos para poder sortear a quién vamos a seleccionar. Esto no siempre es posible. ¿Alguien tiene la lista completa de, pongamos, todos los diabéticos de España? ¿Que incluya los que no saben que lo son? Por lo tanto, en la vida real no siempre podemos tomar muestras aleatorias en este sentido.</p>
@@ -234,7 +236,7 @@ Figura 2.3: Una muestra aleatoria sin reposición.
 Figura 2.4: Una muestra aleatoria sistemática.
 </p>
 </div>
-<p>Cuando no disponemos de una lista de toda la población pero sí que tenemos una manera de acceder de manera ordenada a sujetos de la misma (por ejemplo, enfermos que acuden a un hospital), podemos realizar un muestreo sistemático tomando los sujetos a intervalos constantes a medida que los encontramos y hasta completar el tamaño deseado de la muestra. Por ejemplo, para escoger una muestra de 10 pacientes que hayan acudido a Urgencias por traumatismos en la cabeza, podríamos escoger pacientes que acudieras a Urgencias por este motivo, uno sí, uno no, hasta llegar a los 10.</p>
+<p>Cuando no disponemos de una lista de toda la población pero sí que tenemos una manera de acceder de manera ordenada a sujetos de la misma (por ejemplo, enfermos que acuden a un hospital), podemos realizar un muestreo sistemático tomando los sujetos a intervalos constantes a medida que los encontramos y hasta completar el tamaño deseado de la muestra. Por ejemplo, para escoger una muestra de 10 pacientes que hayan acudido a Urgencias por traumatismos en la cabeza, podríamos escoger pacientes que acudieran a Urgencias por este motivo, uno sí, uno no, hasta llegar a los 10.</p>
 </div>
 <div id="sec:estr" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Muestreo aleatorio estratificado</h3>
@@ -260,17 +262,17 @@ Figura 2.5: Nuestra urna ahora tiene dos estratos.
 Figura 2.6: Una muestra aleatoria estratificada.
 </p>
 </div>
-<p>La ventaja del muestreo aleatorio estratificado respecto del “transversal” es que, al facultar al investigador obtener una muestra de cada estrato de la población del tamaño que desee:</p>
+<p>La ventaja del muestreo aleatorio estratificado respecto del “transversal” es que, como el investigador obtiene una muestra de cada estrato de la población del tamaño que desee:</p>
 <ul>
-<li><p>Permite estimar la información de interés para cada estrato por separado, como si se tratara de un estudio diferente para cada estrato.</p></li>
-<li><p>Permite estimar la información sobre subpoblaciones minoritarias que en una muestra aleatorio transversal aparecerían subrepresentadas.</p></li>
+<li><p>Permite estimar la información de interés para cada estrato por separado, como si se tratara de estudios independientes.</p></li>
+<li><p>Permite estimar la información sobre subpoblaciones minoritarias que en una muestra aleatoria transversal aparecerían subrepresentadas.</p></li>
 </ul>
 <p>En todo caso, el muestreo por estratos solo es necesario si esperamos que las características de la propiedad poblacional que queremos estudiar varíen según el estrato. Por ejemplo, si queremos tomar una muestra para estimar la altura media de los españoles adultos y no creemos que la altura de un español adulto dependa de su provincia de origen, no hay ninguna necesidad de esforzarse en tomar una muestra de cada provincia de manera que todas las provincias estén representadas adecuadamente en la muestra.</p>
 <p>Observad que el muestreo aleatorio por estratos tiene el mismo inconveniente que el muestreo aleatorio de la Sección <a href="algunos-conceptos-básicos-en-estadística.html#sec:mas">2.3.1</a>: es necesario disponer de una lista completa de los individuos de cada estrato para poder sortearlos.</p>
 </div>
 <div id="sec:mcluster" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> Muestreo por conglomerados</h3>
-<p>El proceso de obtener y estudiar una muestra aleatoria en algunos casos es caro o difícil, incluso aunque dispongamos de la lista completa de la población. Imaginemos que quisiéramos estudiar la prevalencia y gravedad de la miopía entre los estudiantes de Primaria de las Baleares. Para ello tendríamos que seleccionar una muestra representativa de los escolares de Baleares. Seguramente, con algo de esfuerzo, podríamos disponer de su lista completa y por lo tanto podríamos tomar una muestra aleatoria, pero entonces acceder a las niñas y niños que la formasen seguramente significaría contactar con unos pocos alumnos de muchos centros de primaria, lo que volvería el proceso lento y costoso. Y eso si la <em>Conselleria d’Educació</em> nos facilitase la lista completa de alumnos.</p>
+<p>El proceso de obtener y estudiar una muestra aleatoria en algunos casos es caro o difícil, incluso aunque dispongamos de la lista completa de la población. Imaginad que quisiéramos estudiar la prevalencia y gravedad de la miopía entre los estudiantes de Primaria de las Baleares. Para ello tendríamos que seleccionar una muestra representativa de esta población de escolares. Seguramente, con algo de esfuerzo, podríamos disponer de su lista completa para este curso y por lo tanto podríamos tomar una muestra aleatoria, pero entonces acceder a las niñas y niños que la formasen seguramente significaría contactar con unos pocos alumnos de muchos centros de primaria, lo que volvería el proceso lento y costoso. Y eso si la <em>Conselleria d’Educació</em> nos facilitase la lista completa de alumnos.</p>
 <p>Una alternativa posible sería, en vez de elegir una muestra aleatoria de todos los estudiantes de Primaria, escoger primero al azar unas pocas aulas de primaria de colegios de las Baleares, a las que llamamos en este contexto <strong>conglomerados</strong> o <strong>clusters</strong>, y formar entonces nuestra muestra con todos los alumnos de estas aulas. Estaréis de acuerdo en que es mucho más sencillo disponer de la lista completa de estudiantes de unas pocas aulas que conseguir la lista completa de todos los estudiantes de todos los colegios, y mucho más barato ir a unos pocos colegios concretos que ir a todos los colegios de las Islas a entrevistar a unos pocos estudiantes en cada centro.</p>
 <p>En un <strong>muestreo aleatorio por conglomerados</strong>, tenemos la población repartida en pequeños grupos, los <em>clusters</em>, y lo que hacemos es elegir al azar una muestra de <em>clusters</em> y tomar todos los individuos de los <em>clusters</em> elegidos.</p>
 <p>Volviendo de nuevo a nuestra urna, supongamos que sus 100 bolas se agrupan en 20 conglomerados de 5 bolas cada uno según las franjas verticales de la Figura <a href="algunos-conceptos-básicos-en-estadística.html#fig:clustprevi">2.7</a> (donde mantenemos la clasificación en dos colores para poder comparar el resultado del muestreo por conglomerados con el estratificado).</p>
@@ -293,11 +295,11 @@ Figura 2.8: Una muestra aleatoria por conglomerados.
 <li><p>En una muestra <strong>por conglomerados</strong> se escogen algunos <em>clusters</em> al azar y se incluyen en la muestra todos sus elementos.</p></li>
 </ul>
 <p>A menudo una vez elegidos los <em>clusters</em> no se toman todos los sujetos de los mismos, sino una muestra aleatoria de cada uno. Esto ya sería un ejemplo de muestreo <strong>polietápico</strong> (Sección <a href="algunos-conceptos-básicos-en-estadística.html#sec:poli">2.3.6</a>).</p>
-<p>El muestreo por conglomerados se suele elegir por ser rápido de realizar, pero puede tener un inconveniente: los sujetos de cada <em>cluster</em> suelen tender a parecerse los unos a los otros, por lo que la muestra puede resultar no ser representativa. Cuando este método de muestreo es más eficiente es cuando se espera que los <em>clusters</em> sean heterogéneos en este sentido. En nuestro ejemplo de los niños de primaria de las Baleares, es más creíble que las clases sean heterogéneas por lo que refiere a la miopía que en lo referido a comportamientos en los que influya la pertenencia a un grupo, por ejemplo la series de TV preferidas.</p>
+<p>El muestreo por conglomerados se suele elegir por ser rápido de realizar, pero puede tener un inconveniente: puede que los sujetos de cada <em>cluster</em> tiendan a parecerse los unos a los otros, lo que puede sesgar la muestra. Cuando este método de muestreo es más efectivo es cuando se espera que los <em>clusters</em> sean heterogéneos en este sentido. En nuestro ejemplo de los niños de primaria de las Baleares, es más creíble que las clases sean heterogéneas por lo que refiere a la miopía que en lo referido a comportamientos en los que influya la pertenencia a un grupo, por ejemplo la series de TV preferidas.</p>
 </div>
 <div id="sec:oport" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> Muestreos no aleatorios</h3>
-<p>Cuando la selección de la muestra no es aleatoria, se habla de <strong>muestreo no aleatorio</strong>. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles. Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, se consulta solo a los estudiantes que voluntariamente rellenan la encuesta de opinión, que de ninguna manera forman una muestra aleatoria: el perfil del estudiante que contesta voluntariamente una encuesta de este tipo está muy definido y no viene determinado por el azar. En este caso se trataría de una <strong>muestra auto-seleccionada</strong>.</p>
+<p>Cuando la selección de la muestra no es aleatoria, se habla de <strong>muestreo no aleatorio</strong>. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles. Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, solo se tiene en cuenta las respuestas de los estudiantes que voluntariamente rellenan la encuesta de opinión, que de ninguna manera forman una muestra aleatoria: el perfil del estudiante que contesta voluntariamente una encuesta de este tipo está muy definido y no viene determinado por el azar. En este caso se trataría de una <strong>muestra auto-seleccionada</strong>.</p>
 <p>Otro tipo de muestras no aleatorias son las <strong>oportunistas</strong>. Este es el caso, por ejemplo, si para estimar la opinión que de un profesor tienen los alumnos de una asignatura se visita un día la clase y se pasa la encuesta a los estudiantes que ese día asistieron a clase. De nuevo, puede que los alumnos presentes no sean representativos del alumnado de la asignatura (pueden ser los más aplicados, o los que no tienen la gripe, o a los que la asignatura no les coincide con otra).</p>
 <p>La Figura <a href="algunos-conceptos-básicos-en-estadística.html#fig:oport">2.9</a> describe una muestra oportunista de nuestra urna: sus 15 primeras bolas.</p>
 <div class="figure" style="text-align: center"><span id="fig:oport"></span>
@@ -322,13 +324,13 @@ Para conocer la opinión de los estudiantes de Medicina españoles sobre un tema
 Figura 2.10: Una muestra polietápica.
 </p>
 </div>
-<p>Veamos algunos ejemplos más. Recordad el estudio CORSAIB del Ejemplo <a href="#exm:corsaib"><strong>??</strong></a>. Vamos a copiar, con algo más de detalle, el proceso mediante el cual se eligieron los participantes:</p>
+<p>Veamos algunos ejemplos más. Recordad el estudio CORSAIB del Ejemplo <a href="#exm:corsaib"><strong>??</strong></a>. Vamos a detallar algo más el proceso mediante el cual se eligieron los participantes:</p>
 <ol style="list-style-type: decimal">
 <li><p>Se dividieron las Baleares en 14 sectores geográficos. Se ofreció la participación a los médicos de familia para conseguir que colaborasen 3-4 médicos por sector, hasta llegar a los 50 médicos.</p></li>
-<li><p>De la población adscrita a cada médico participante se obtuvo una muestra aleatoria simple de 40 individuos.</p></li>
+<li><p>De la población adscrita a cada médico participante se obtuvo una muestra aleatoria de 40 individuos.</p></li>
 </ol>
-<p>Como véis, el muestreo tuvo dos etapas. La primera fue un muestreo no aleatorio de <em>clusters</em> estratificado: los estratos fueron los 14 sectores geográficos, los <em>clusters</em> elegidos eran los grupos de pacientes adscritos a los médicos de familia que voluntariamente participaron en el estudio. La segunda fue un muestreo aleatorio simple dentro de cada <em>cluster</em>.</p>
-<p>Otro ejemplo ago más complicado. En el estudio <a href="https://www.scielo.br/pdf/jped/v82n2/en_v82n2a08.pdf">“Factors associated with risk of low folate intake among adolescents”</a> (M. Vitolo <em>et al</em>, <em>Jornal de Pediatria</em> 82 (2006), pp. 121–126)
+<p>Como véis, el muestreo tuvo dos etapas. En la primera se seleccionaron <em>clusters</em> mediante un muestreo no aleatorio estratificado: los estratos fueron los 14 sectores geográficos, los <em>clusters</em> elegidos estaban formados por los grupos de pacientes adscritos a los médicos de familia que voluntariamente participaron en el estudio. La segunda fue un muestreo aleatorio dentro de cada <em>cluster</em>.</p>
+<p>Veamos otro ejemplo más complicado. En el estudio <a href="https://www.scielo.br/pdf/jped/v82n2/en_v82n2a08.pdf">“Factors associated with risk of low folate intake among adolescents”</a> (M. Vitolo <em>et al</em>, <em>Jornal de Pediatria</em> 82 (2006), pp. 121–126)
 los investigadores tenían que tomar una muestra de adolescentes de São Lepolodo (Brasil). Para ello:</p>
 <ol style="list-style-type: decimal">
 <li>En primer lugar, escogieron mediante un muestreo aleatorio sistemático varias secciones censales de las 40 que tiene la ciudad.</li>
@@ -339,57 +341,69 @@ los investigadores tenían que tomar una muestra de adolescentes de São Lepolod
 <p>En este proceso, se realizaron: un muestreo sistemático (las secciones censales), dos muestreos aleatorios sin reposición (las manzanas y las esquinas), otro muestreo sistemático (las direcciones) y un muestreo no aleatorio (los voluntarios).</p>
 <p>Un último ejemplo. Recordad el estudio sobre enfermedades y mes de nacimiento del Ejemplo <a href="#exm:quesada"><strong>??</strong></a>, donde “se escogió al azar una muestra de 29478 españoles”. En realidad, <strong>no</strong> se tomó una lista de toda la población española a 1 de enero de 2017 y se escogió al azar de manera equiprobable una conjunto de 29478 personas, sino que se usó la muestra de la <em>Encuesta Nacional de Salud</em> de ese año, que se escoge de la manera polietápica siguiente (podéis consultar <a href="https://www.ine.es/metodologia/t15/t153041917.pdf">aquí</a> la metodología en detalle):</p>
 <ol style="list-style-type: decimal">
-<li><p>Se clasifican los municipios españoles en 7 estratos según su población.</p></li>
-<li><p>En cada comunidad autónoma y para cada estrato, se toma una muestra aleatoria de un número de secciones censales proporcional a su población.</p></li>
+<li><p>Se clasifican los municipios españoles en 7 tipos según su población.</p></li>
+<li><p>En cada comunidad autónoma y para cada tipo de municipios, se toma una muestra aleatoria de un número de secciones censales proporcional a su población.</p></li>
 <li><p>De cada sección censal elegida, se escogen un número fijo de viviendas principales (en 2017 fueron 15) por muestreo aleatorio sistemático (y previa una ordenación específica de las viviendas según su tamaño).</p></li>
 <li><p>En cada vivienda se escoge equiprobablemente un individuo adulto.</p></li>
 </ol>
+<p>Fijaos que, en (2), se toma una muestra aleatoria estratificada de secciones censales: los estratos son las combinaciones de comunidad autónoma y tipo de municipio.</p>
 <p>Existen otros tipos de muestreo, solo hemos explicado los más comunes. En cualquier caso, lo importante es recordar que el estudio estadístico que se realice dependerá del tipo de muestreo usado. Por ejemplo, no se pueden usar las mismas técnicas para analizar una muestra aleatoria simple que una muestra estratificada o una muestra por conglomerados. En este curso estudiaremos las propiedades de las diferentes técnicas de estimación casi exclusivamente para el caso de <strong>muestreo aleatorio simple</strong>, es decir, al azar y con reposición, o al azar sin reposición si la población es muy, muy grande en comparación con la muestra.</p>
 
 </div>
 </div>
 <div id="sec:sesgos" class="section level2">
 <h2><span class="header-section-number">2.4</span> Sesgos</h2>
-<p>Un <strong>sesgo</strong> es cualquier tipo de error sistemático en el diseño o la ejecución de un estudio que pueda afectar la corrección de las conclusiones obtenidas. Por ejemplo, si en un estudio transversal sobre hipertensión usamos un esfigmomanómetro que sistemáticamente mide una presión arterial más alta que la real, se produce un sesgo: se detectará una prevalencia mayor de hipertensos que la real.</p>
-<p>Los errores que pueden dar lugar a sesgos no se han de confundir con el error aleatorio inherente a las mediciones (por ejemplo, los debidos a la medición imprecisa del esfigmomanómetro, que solo mide la tensión hasta una cierta precisión, o a la variación natural de la presión arterial en un individuo a lo largo del día). La estadística nos proporciona herramientas para tratar el error aleatorio, pero las fuentes de sesgo se han de eliminar al diseñar el estudio.</p>
-<p>Muchos autores han producido listas larguísimas de tipos de sesgos que muestran la creatividad de los humanos a la hora de fastidiarla y de poner nombres a las diferentes maneras de fastidiarla. Aquí solo vamos a introducir algunos de los más comunes.</p>
+<p>Un <strong>sesgo</strong> es cualquier tipo de error sistemático en el diseño o la ejecución de un estudio que desplace en algún sentido los datos recogidos (en el total de la muestra o en un subgrupo de la misma), es decir, que los <strong>sesgue</strong>, y pueda afectar la corrección de las conclusiones obtenidas. Por ejemplo, si en un estudio transversal sobre hipertensión usamos un esfigmomanómetro que sistemáticamente mide una presión arterial más alta que la real, se produce un sesgo: se detectará una prevalencia mayor de hipertensos que la real.</p>
+<p>Los errores que pueden dar lugar a sesgos no se han de confundir con el error aleatorio inherente a las mediciones (por ejemplo, los debidos a la medición imprecisa del esfigmomanómetro, que solo mide la tensión hasta una cierta precisión, o a la variación natural de la presión arterial en un individuo a lo largo del día). La estadística nos proporciona herramientas para tratar el error aleatorio, pero las fuentes de sesgo se han de eliminar al diseñar el estudio o detectarlas al leer un estudio para valorar la validez de sus conclusiones.</p>
+<p>Muchos autores han producido <a href="https://catalogofbias.org/biases/">listas larguísimas de tipos de sesgos</a> que muestran la creatividad de los humanos a la hora de fastidiarla y de poner nombres a las diferentes maneras de fastidiarla. Aquí solo vamos a introducir algunos de los más comunes.</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Sesgo de selección</strong>: Se produce cuando la muestra no es representativa de la población objetivo. Por poner un ejemplo exagerado, sería el caso si quisiéramos saber la incidencia del cáncer de pecho en una comunidad y para ello tomáramos una muestra de solo hombres.</p>
 <p>Hay varios subtipos que vale la pena distinguir:</p>
 <ol style="list-style-type: lower-alpha">
-<li><strong>Sesgo de falta de representatividad</strong>: Cuando la muestra no es representativa debido a un defecto en su obtención.</li>
-</ol>
-<p>Por ejemplo, una muestra formada voluntarios que rellenan una encuesta o que se ofrecen para que les hagan una analítica de sangre.</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li><strong>Sesgo de selección diferencial</strong>: Cuando el sesgo de selección se da de manera diferente en los diferentes grupos de sujetos considerados.</li>
-</ol>
-<p>Por ejemplo: nos preguntamos sobre la influencia de algunos factores de riesgo en la diabetes, y tomamos como casos diabéticos hospitalizados y como controles personas sanas que no están hospitalizadas (a este tipo de sesgo en concreto, tomar como casos solo casos hospitalizados, se le llama <strong>sesgo de Berkson</strong>). Los diabéticos hospitalizados tendrán unas patologías más severas que la población de diabéticos en general, y puede que su exposición a factores de riesgo no sea representativa de la de los diabéticos en general.</p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li><strong>Sesgo de supervivencia</strong>: Cuando se toma una muestra de pacientes vivos de una enfermedad con una alta tasa de mortalidad. En este caso, es muy probable que la muestra incluya más enfermos que hayan sobrevivido más de lo esperado a la enfermedad, y estos no tienen por qué ser representativos de la población general de enfermos de esta enfermedad.</li>
+<li><p><strong>Sesgo de falta de representatividad</strong>: Cuando la muestra no es representativa debido a un defecto en su obtención.</p>
+<p>Por ejemplo, una muestra formada por voluntarios que rellenen una encuesta o que se ofrezcan para que les hagan unas pruebas dolorosas a cambio de una compensación económica.</p>
+<p>Por poner un ejemplo importante en medicina, si nos preguntamos sobre la influencia de algunos factores de riesgo en la diabetes, y tomamos tanto los casos como los controles entre pacientes hospitalizados (a este tipo de sesgo en concreto, tomar como casos y controles solo casos hospitalizados, se le llama <a href="https://academic.oup.com/ije/article/43/2/511/680126"><strong>sesgo de Berkson</strong></a>). Los pacientes hospitalizados tendrán unas patologías más severas que la población en general, y puede que su exposición a factores de riesgo no sea representativa de la de la población en general.</p></li>
+<li><p><strong>Sesgo de selección diferencial</strong>: Cuando el sesgo de selección se da de manera diferente en los diferentes grupos de sujetos considerados.</p>
+<p>Siguiendo con el ejemplo de la influencia de algunos factores de riesgo en la diabetes, se daría si tomáramos los casos entre pacientes hospitalizados y los controles entre pacientes sanos, no hospitalizados.</p></li>
+<li><p><strong>Sesgo de supervivencia</strong>: Cuando se toma una muestra de pacientes vivos de una enfermedad con una alta tasa de mortalidad. En este caso, es muy probable que la muestra incluya más enfermos que hayan sobrevivido más de lo esperado a la enfermedad, y estos no tienen por qué ser representativos de la población general de enfermos de esta enfermedad.</p></li>
 </ol></li>
-<li><p><strong>Sesgo de clasificación</strong> (o <strong>de medida</strong>): Se produce cuando el método de medición de características de los sujetos (o de su clasificación) es defectuoso. Incluye, por ejemplo:</p>
+<li><p><strong>Sesgo de de medida</strong>: Se produce cuando el método de medición de características de los sujetos es defectuoso en una dirección concreta. Incluye, por ejemplo:</p>
 <ol style="list-style-type: lower-alpha">
-<li><strong>Sesgo de memoria</strong>: En estudios de casos y controles en los que recojamos la información sobre exposición por medio de encuestas, los casos tienen mayor tendencia a recordar su exposición a circunstancias que ellos asocien a la enfermedad que los controles. En este caso sería un sesgo de memoria <strong>diferencial</strong>, porque afecta de manera diferente a los dos grupos de sujetos.</li>
-</ol>
-<p>Aquí también podríamos incluir la posibilidad de que un encuestado haya olvidado información, o simplemente de que mienta.</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li><strong>Sesgo de procedimiento</strong>: Cuando el clínico analiza de manera diferente un grupo que otro.</li>
-</ol>
-<p>Se daría, por ejemplo, en un ensayo clínico si se llevara a cabo un seguimiento más frecuente de los que toman un nuevo tratamiento que de los controles.</p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li><strong>Sesgo de detección</strong>: Cuando se usan varias metodologías con diferente sensibilidad para detectar una enfermedad o una exposición.</li>
-</ol>
-<p>Se daría, por ejemplo, si para saber si los sujetos de una muestra han tomado un medicamento, a algunos se les pasa una encuesta y a otros se les consulta su historial clínico.</p>
-<ol start="4" style="list-style-type: lower-alpha">
-<li><strong>Sesgo de atención</strong>: Cuando los participantes en un estudio alteran su comportamiento porque se saben observados.</li>
-</ol>
-<p>Se podría dar, por ejemplo, en un estudio sobre el efecto del ejercicio físico en la salud si los sujetos del grupo de intervención (a los que se ha asignado el hacer ejercicio físico) deciden tomar otros nuevos hábitos saludables porque saben que se les ha asignado al grupo “saludable”.</p>
-<p>ef. <strong>Sesgo de error instrumental</strong>: Cuando los instrumentos usados para medir alguna característica son defectuosos.</p>
+<li><p><strong>Sesgo de memoria</strong>: En estudios en los que recojamos la información sobre exposición por medio de entrevistas o encuestas, existe la posibilidad de que algunos encuestados hayan olvidado información, o simplemente de que mientan en temas delicados.</p></li>
+<li><p><strong>Sesgo de memoria diferencial</strong>: Es un caso particular del anterior. En estudios de casos y controles en los que recojamos la información sobre exposición por medio de encuestas, los casos tienen mayor tendencia a recordar su exposición a circunstancias que ellos asocien a la enfermedad que los controles.</p></li>
+<li><p><strong>Sesgo de procedimiento</strong>: Cuando el clínico analiza de manera diferente un grupo que otro.</p>
+<p>Se daría, por ejemplo, en un ensayo clínico si se llevara a cabo un seguimiento más frecuente a los que toman un nuevo tratamiento que a los controles.</p></li>
+<li><p><strong>Sesgo de detección</strong>: Cuando se usan varias metodologías con diferente sensibilidad para detectar una enfermedad o una exposición.</p>
+<p>Se daría, por ejemplo, si para saber si los sujetos de una muestra han tomado un medicamento, a algunos se les pasa una encuesta y a otros se les consulta su historial clínico.</p></li>
+<li><p><strong>Sesgo de atención</strong>: Cuando los participantes en un estudio alteran su comportamiento porque saben que participan en un estudio (a veces se le llama <strong>efecto Hawthorne</strong>).</p>
+<p>Se podría dar, por ejemplo, en un estudio sobre el efecto del ejercicio físico en la salud si los sujetos del grupo de intervención (a los que se ha asignado el hacer ejercicio físico) deciden tomar otros nuevos hábitos saludables porque saben que se les ha asignado al grupo “saludable”.</p></li>
+<li><p><strong>Sesgo de error instrumental</strong>: Cuando los instrumentos usados para medir alguna característica son defectuosos.</p>
 <p>Sería el caso, por ejemplo, del esfigmomanómetro del primer párrafo.</p></li>
-<li><p><strong>Sesgo de confusión</strong>. Se da cuando el efecto de la exposición a un riesgo A se confunde con el de la exposición a otro factor B (el <strong>confundidor</strong>) que está asociado a la exposición a A y que es el verdadero causante de la enfermedad X que estamos estudiando.</p>
-<p>Hemos explicado varios ejemplos de confundidores al hablar de los problemas dre los estudios de casos y controles (Sección <a href="#sec:cyc"><strong>??</strong></a>). Por ejemplo, la asociación entre que la madre sea fumadora y una disminución del riesgo que el hijo tenga síndrome de Down, debida en realidad al factor de confusión dado por la edad de las madres (Ejemplo <a href="#exm:fumarDownCC"><strong>??</strong></a>). Por poner otro ejemplo, si en un estudio de cohorte se observa una asociación entre la rubeola materna y las cataratas congénitas (recordad el problema 1 de la Lección <a href="#chap:estudios"><strong>??</strong></a>), podría ser que la causa de las cataratas no fuera la rubeola de las madres sino el tratamiento que se les hubiera admninistrado para paliar sus síntomas.</p></li>
+</ol></li>
+<li><p><strong>Sesgo de confusión</strong>. Se da cuando el efecto de la exposición a un riesgo A se confunde con el de la exposición a otro factor B (el <strong>confundidor</strong>) que está asociado a la exposición a A y que es el verdadero causante del desenlace X que estamos estudiando.</p>
+<p>Hemos explicado varios ejemplos de confundidores al hablar de los problemas dre los estudios de casos y controles (Sección <a href="#sec:cyc"><strong>??</strong></a>). Por ejemplo, la asociación entre que la madre sea fumadora y una disminución del riesgo que el hijo tenga síndrome de Down, debida en realidad al factor de confusión dado por la edad de las madres (Ejemplo <a href="#exm:fumarDownCC"><strong>??</strong></a>). Por poner otro ejemplo, si en un estudio se observa una asociación entre una patología durante el embarazo y un defecto en los recién nacidos, podría ser que la causa del defecto no fuera la enfermedad de las madres sino el tratamiento que se les hubiera admninistrado relacionado con la misma.</p></li>
 </ol>
-<p>Hay muchos otros tipos de sesgos. No es importante saber sus nombres, ni los de los que hemos dado. Lo importante es aplicar el sentido común al leer la Metodología de un estudio para entender qué elementos podrían haber añadido sesgos a los datos recogidos y cómo estos sesgos afectan las conclusiones del estudio.</p>
+<p>Hay muchos otros tipos de sesgos. No es importante saber sus nombres, de hecho ni tan solo de los que hemos dado aquí. Lo importante es aplicar el sentido común al leer la Metodología de un estudio para entender qué elementos podrían haber desviado los datos recogidos y cómo estos sesgos afectan las conclusiones del estudio.</p>
+
+<div class="example">
+<p><span id="exm:Hola2" class="example"><strong>Ejemplo 2.4  </strong></span>Volvamos al Ejemplo <a href="algunos-conceptos-básicos-en-estadística.html#exm:Hola">2.3</a>, en el que explicábamos el caso de una conocida revista del corazón que, para conocer la opinión de sus lectores sobre la familia real española, propuso una encuesta en línea en su web. ¿Qué sesgos se pudieron dar?</p>
+</div>
+
+<p><strong>(1.a)</strong> ¿Sesgo de falta de representatividad? Sí, claro. Los voluntarios que rellenan encuestas en Internet no tienen por qué ser representativos del total de lectores de la revista.</p>
+<p><strong>(1.b)</strong> ¿Sesgo de selección diferencial? No, porque no se eligieron dos grupos.</p>
+<p><strong>(1.c)</strong> ¿Sesgo de supervivencia? No, se supone que les interesaba conocer la opinión de sus lectores vivos en ese momento, ¿no?</p>
+<p><strong>(2.a)</strong> ¿Sesgo de memoria? Sí, claro, tenemos que tenerlo en cuenta siempre que se recoja información por medio de cuestionarios o entrevistas. Los participantes podrían haber querido dar una mejor opinión de la familia real española que la que realmente tienen para quedar bien, o hacer quedar bien a la revista.</p>
+<p><strong>(2.b)</strong> ¿Sesgo de memoria diferencial? De nuevo, no, porque no se eligieron dos grupos.</p>
+<p><strong>(2.c,d)</strong> ¿Sesgo de procedimiento o de selección? No, por el mismo motivo</p>
+<p><strong>(2.e)</strong> ¿Sesgo de atención? No, porque no se hizo un seguimiento a los participantes, por lo que si cambiaron su comportamiento, no afectó al resultado de la encuesta.</p>
+<p><strong>(2.f)</strong> ¿Sesgo de error instrumental? Podría ser, si el cuestionario estuviera amañado en algún sentido. A lo mejor recordáis el famoso caso de la encuesta de satisfacción de Ryanair en 2017 en la que en la pregunta sobre el grado de satisfacción con el vuelo las únicas respuestas que se ofrecían eran “Excelente”, “Muy buena”, “Buena”, “Aceptable” y “OK”.</p>
+
+<div class="rmdromans">
+No hace falta ser tan burdo a la hora de amañar un cuestionario. En una encuesta en el Reino Unido en el 2015, a la pregunta “¿Está usted de acuerdo en permitir a los jóvenes de 16 y 17 años votar en el referéndum del Bréxit?”, un 52% respondió que sí y un 41% que no. Hasta ahí bien. Pero en la misma encuesta, bastantes preguntas después, se les pedía “¿Está usted de acuerdo en reducir la edad de voto de los 18 años a los 16 en el referéndum del Bréxit?”, y a esa pregunta respondieron que sí el 37% y que no el 56%.
+</div>
+
+<p><strong>(3)</strong> ¿Sesgo de confusión? Dado que, por así decirlo, se trataba de un estudio transversal de prevalencia, sin intentar estimar relaciones de causa-efecto, no tiene sentido preguntarse por la existencia de confundidores.</p>
+<p>Otra cosa sería si se hubiera pretendido estudiar qué características hacen que se opine mejor o peor sobre la familia real española. Entonces sí que podrían entrar en juego factores de confusión. Para no meternos en berenjenales, ahí lo dejamos.</p>
 </div>
 <div id="ejercicios" class="section level2">
 <h2><span class="header-section-number">2.5</span> Ejercicios</h2>
@@ -401,6 +415,11 @@ los investigadores tenían que tomar una muestra de adolescentes de São Lepolod
 <p><strong>(2)</strong> Tenemos una población clasificada en dos estratos, A y B. La subpoblación A representa un 20% de la población y la B el 80% restante. Hemos tomado una muestra aleatoria estratificada formada por 100 sujetos de cada subpoblación. Hemos medido una cierta característica X de estos sujetos. La media de los valores de X de los sujetos A ha dado 5 y la media de los valores de X de los sujetos B ha dado 10.</p>
 <p><strong>(a)</strong> ¿Qué vale la media de los valores de X de toda la muestra de 200 sujetos?</p>
 <p><strong>(b)</strong> A partir de estos datos, ¿qué estimáis que vale la media de X en el total de la población?</p>
+<p><strong>(3)</strong> Deseamos llevar a cabo un estudio para determinar si la probabilidad que un diabético tipo 2 en las Baleares tiene una mayor probabilidad de infectarse de COVID-19 que una persona sin esa patología. Además, queremos poder comparar las probabilidades entre los diabéticos de Mallorca, de Menorca y de Ibiza. Como parte del estudio, tendremos que tomar una muestra de diabéticos tipo 2 y realizarles un análisis de anticuerpos. Hemos calculado que para que las conclusiones sean fiable, necesitamos analizar 50 diabéticos de cada isla.</p>
+<p>Explicad en detalle cómo obtendríais esta muestra de diabéticos; el procedimiento ha de ser fácil de llevar a cabo y ha de dar muestras razonablemente representativas de las poblaciones de diabéticos.</p>
+<p><strong>(4)</strong> En un <a href="https://ajph.aphapublications.org/doi/abs/10.2105/AJPH.83.12.1701">estudio llevado a cabo en Sidney en su verano de 1989-90</a> (<em>American Journal of Public Health</em> 83 (1993), pp. 1701-1706) se quiso determinar la asociación entre nadar en playas contaminadas y sufrir enfermedades infecciosas agudas. Para ello se visitaron durante varios días de verano doce playas de los alrededores de Sidney y se invitó a participar en el estudio a varios individuos en cada ocasión. Se excluyeron individuos que hubieran nadado o que hubieran sufrido alguna enfermedad infecciosa en algún momento durante los 7 días anteriores. A los que aceptaron participar en el estudio, se les llamó por teléfono al día siguiente para pedir si habían nadado o no el día anterior y se les volvió a llamar al cabo de una semana para pedirles si habían sufrido alguna enfermedad infecciosa desde el día de playa. Si no contestaron a la primera llamada ya no se realizó la segunda llamada. En total se enroló 3989 sujetos, pero solo atendieron las dos llamadas 2968 de ellos. Por otro lado, se midió el nivel de contaminación del agua de las playas los días que se reclutaron bañistas en el estudio. El resultado fue un incremento del 33% del riesgo de sufrir una enfermedad infecciosa entre los que nadaron en aguas contaminadas respecto de los que nadaron en aguas no contaminadas, y de un 116% respecto de los que no nadaron.</p>
+<p><em>(a)</em> ¿De qué tipo de estudio creéis que se trata? Justificad vuestra respuesta.</p>
+<p><em>(b)</em> ¿Qué sesgos se pudieron dar debido a la manera como se reclutaron los participantes o a la manera como se recogieron los datos? ¿Cómo se podrían haber evitado?</p>
 </div>
 <div id="test" class="section level3 unnumbered">
 <h3>Test</h3>

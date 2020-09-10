@@ -40,7 +40,7 @@ Cuando **el tamaño de la población es muy grande en relación al de la muestra
 
 * Si escogemos 100 individuos de las Baleares al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de `r round(pbirthday(100,1200000),3)`: solo en 1 de cada 250 muestras de 100 individuos de las Baleares elegidos al azar permitiendo repeticiones habría alguna repetición.
 
-* Si escogemos 100 estudiantes de la UIB (que tiene alrededor de 12000 estudiantes) al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de `r round(pbirthday(100,12000),3): en  algo más de 1 de cada 3 muestras de 100 estudiantes de la UIB elegidos al azar permitiendo repeticiones habría alguna repetición. 
+* Si escogemos 100 estudiantes de la UIB (que tiene alrededor de 12000 estudiantes) al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de `r round(pbirthday(100,12000),3)`: en  algo más de 1 de cada 3 muestras de 100 estudiantes de la UIB elegidos al azar permitiendo repeticiones habría alguna repetición. 
 
      En cambio, si escogemos **10** estudiantes de la UIB al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo ya es de `r round(pbirthday(10,12000),3).
 
@@ -69,7 +69,7 @@ knitr::include_graphics("INREMDN_files/figure-html/sistv.png")
 ```
 
 
-Cuando no disponemos de una lista de toda la población pero sí que tenemos una manera de acceder de manera ordenada a sujetos de la misma (por ejemplo, enfermos que acuden a un hospital), podemos realizar un muestreo sistemático tomando los sujetos a intervalos constantes a medida que los encontramos y hasta completar el tamaño deseado de la muestra. Por ejemplo, para escoger una muestra de 10 pacientes que hayan acudido a Urgencias por traumatismos en la cabeza, podríamos escoger pacientes que acudieras a Urgencias por este motivo, uno sí, uno no,   hasta llegar a los 10.
+Cuando no disponemos de una lista de toda la población pero sí que tenemos una manera de acceder de manera ordenada a sujetos de la misma (por ejemplo, enfermos que acuden a un hospital), podemos realizar un muestreo sistemático tomando los sujetos a intervalos constantes a medida que los encontramos y hasta completar el tamaño deseado de la muestra. Por ejemplo, para escoger una muestra de 10 pacientes que hayan acudido a Urgencias por traumatismos en la cabeza, podríamos escoger pacientes que acudieran a Urgencias por este motivo, uno sí, uno no,   hasta llegar a los 10.
    
 ### Muestreo aleatorio estratificado {#sec:estr}
 
@@ -97,11 +97,11 @@ Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como es
 knitr::include_graphics("INREMDN_files/figure-html/estrat.png")
 ```
  
-La ventaja del muestreo aleatorio estratificado respecto del "transversal" es que, al facultar al investigador obtener una muestra de cada estrato de la población del tamaño que  desee:
+La ventaja del muestreo aleatorio estratificado respecto del "transversal" es que, como el investigador obtiene una muestra de cada estrato de la población del tamaño que  desee:
 
-* Permite estimar la información de interés para cada estrato por separado, como si se tratara de un estudio diferente para cada estrato. 
+* Permite estimar la información de interés para cada estrato por separado, como si se tratara de  estudios independientes. 
 
-* Permite estimar la información sobre subpoblaciones minoritarias que en una muestra aleatorio transversal aparecerían  subrepresentadas.
+* Permite estimar la información sobre subpoblaciones minoritarias que en una muestra aleatoria transversal aparecerían  subrepresentadas.
 
 En todo caso, el muestreo por estratos solo es necesario si esperamos que las características de la propiedad poblacional que queremos estudiar varíen según el estrato. Por ejemplo, si queremos tomar una muestra para estimar la altura media de los españoles adultos y no creemos que la altura de un español adulto dependa de su provincia de origen, no hay ninguna necesidad de esforzarse en tomar una muestra de cada provincia de manera que todas las provincias estén representadas adecuadamente en la muestra.
 
@@ -110,7 +110,7 @@ Observad que el muestreo aleatorio por estratos tiene el mismo inconveniente que
 
 ### Muestreo por conglomerados {#sec:mcluster}
 
-El proceso de obtener y estudiar una muestra aleatoria en algunos casos es caro o difícil, incluso aunque dispongamos de la lista completa de la población. Imaginemos que quisiéramos estudiar la prevalencia y gravedad de la miopía entre los estudiantes de Primaria de las Baleares.  Para ello  tendríamos que seleccionar una muestra representativa de los escolares de Baleares. Seguramente, con algo de esfuerzo, podríamos disponer de su lista completa y por lo tanto podríamos tomar una muestra aleatoria, pero entonces acceder a las niñas y niños que la formasen seguramente significaría  contactar con unos pocos alumnos de muchos centros de primaria, lo que volvería el proceso lento y costoso. Y eso si la *Conselleria d'Educació* nos facilitase la lista completa de alumnos.
+El proceso de obtener y estudiar una muestra aleatoria en algunos casos es caro o difícil, incluso aunque dispongamos de la lista completa de la población. Imaginad que quisiéramos estudiar la prevalencia y gravedad de la miopía entre los estudiantes de Primaria de las Baleares.  Para ello  tendríamos que seleccionar una muestra representativa de esta población de escolares. Seguramente, con algo de esfuerzo, podríamos disponer de su lista completa para este curso y por lo tanto podríamos tomar una muestra aleatoria, pero entonces acceder a las niñas y niños que la formasen seguramente significaría  contactar con unos pocos alumnos de muchos centros de primaria, lo que volvería el proceso lento y costoso. Y eso si la *Conselleria d'Educació* nos facilitase la lista completa de alumnos.
 
 Una alternativa posible sería, en vez de elegir una muestra aleatoria de todos los estudiantes de Primaria, escoger primero al azar unas pocas aulas de primaria de colegios de las Baleares, a las que llamamos en este contexto **conglomerados** o **clusters**, y formar entonces nuestra muestra con todos los alumnos de estas aulas. Estaréis de acuerdo en que es mucho más sencillo disponer de la lista completa de estudiantes de unas pocas aulas que conseguir la lista completa de todos los estudiantes de todos los colegios, y mucho más barato ir a unos pocos colegios concretos que ir a todos los colegios de las Islas a entrevistar a unos pocos estudiantes en cada centro. 
 
@@ -139,12 +139,12 @@ Observad la diferencia entre el muestreo estratificado y el muestreo por conglom
 
 A menudo una vez elegidos los *clusters* no se toman todos los sujetos de los mismos, sino una muestra aleatoria de cada uno. Esto ya sería un ejemplo de muestreo **polietápico** (Sección \@ref(sec:poli)).
 
-El muestreo por conglomerados se suele elegir por ser rápido de realizar, pero puede tener un inconveniente: los sujetos de cada *cluster* suelen tender a parecerse los unos a los otros, por lo que la muestra puede resultar no ser representativa. Cuando este método de muestreo es más eficiente es cuando se espera que los *clusters* sean heterogéneos en este sentido. En nuestro ejemplo de los niños de primaria de las Baleares, es más creíble que las clases sean heterogéneas por lo que refiere a la miopía que en lo referido a comportamientos en los que influya la pertenencia a un grupo, por ejemplo la series de TV preferidas.
+El muestreo por conglomerados se suele elegir por ser rápido de realizar, pero puede tener un inconveniente: puede que los sujetos de cada *cluster*  tiendan a parecerse los unos a los otros,  lo que puede sesgar la muestra. Cuando este método de muestreo es más efectivo es cuando se espera que los *clusters* sean heterogéneos en este sentido. En nuestro ejemplo de los niños de primaria de las Baleares, es más creíble que las clases sean heterogéneas por lo que refiere a la miopía que en lo referido a comportamientos en los que influya la pertenencia a un grupo, por ejemplo la series de TV preferidas.
 
 
 ### Muestreos no aleatorios   {#sec:oport}
 
-Cuando la selección de la muestra no es aleatoria, se habla de  **muestreo no aleatorio**. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles.  Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, se consulta solo a los estudiantes que voluntariamente  rellenan la encuesta de opinión,  que de ninguna manera forman una  muestra aleatoria: el perfil del estudiante que contesta voluntariamente una encuesta de este tipo está muy definido y no viene determinado por el azar. En este caso se trataría de una **muestra auto-seleccionada**. 
+Cuando la selección de la muestra no es aleatoria, se habla de  **muestreo no aleatorio**. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles.  Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, solo se tiene en cuenta las respuestas de los estudiantes que voluntariamente  rellenan la encuesta de opinión,  que de ninguna manera forman una  muestra aleatoria: el perfil del estudiante que contesta voluntariamente una encuesta de este tipo está muy definido y no viene determinado por el azar. En este caso se trataría de una **muestra auto-seleccionada**. 
 
 Otro tipo de muestras no aleatorias son las **oportunistas**. Este es el caso, por ejemplo, si para estimar la opinión que de un profesor tienen los alumnos de una asignatura se visita un día la clase y se pasa la encuesta a los estudiantes que ese día asistieron a clase. De nuevo, puede que los alumnos presentes no sean representativos del alumnado de la asignatura (pueden ser los más aplicados, o los que no tienen la gripe, o a los que la asignatura no les coincide con otra). 
 
@@ -171,16 +171,16 @@ En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes es
 knitr::include_graphics("INREMDN_files/figure-html/poli.png")
 ```
 
-Veamos algunos ejemplos más. Recordad el estudio CORSAIB del Ejemplo \@ref(exm:corsaib). Vamos a copiar, con algo más de detalle, el proceso mediante el cual se eligieron los participantes:
+Veamos algunos ejemplos más. Recordad el estudio CORSAIB del Ejemplo \@ref(exm:corsaib). Vamos a detallar algo más  el proceso mediante el cual se eligieron los participantes:
 
 1. Se dividieron las Baleares en 14 sectores geográficos. Se ofreció la participación a los médicos de familia para conseguir que colaborasen 3-4 médicos por sector, hasta llegar a los 50 médicos.
 
-2. De la población adscrita a cada médico participante se obtuvo una muestra aleatoria simple de 40 individuos.
+2. De la población adscrita a cada médico participante se obtuvo una muestra aleatoria  de 40 individuos.
 
-Como véis, el muestreo tuvo dos etapas. La primera fue un muestreo no aleatorio de *clusters* estratificado: los estratos fueron los 14 sectores geográficos, los *clusters* elegidos eran los grupos de pacientes adscritos a los médicos de familia que voluntariamente participaron en el estudio. La segunda fue un muestreo aleatorio simple dentro de cada *cluster*.
+Como véis, el muestreo tuvo dos etapas. En la primera se seleccionaron *clusters* mediante un muestreo no aleatorio estratificado: los estratos fueron los 14 sectores geográficos, los *clusters* elegidos estaban formados por los grupos de pacientes adscritos a los médicos de familia que voluntariamente participaron en el estudio. La segunda fue un muestreo aleatorio dentro de cada *cluster*.
 
 
-Otro ejemplo ago más complicado. En el estudio ["Factors associated with risk of low folate intake among adolescents"](https://www.scielo.br/pdf/jped/v82n2/en_v82n2a08.pdf) (M. Vitolo *et al*, *Jornal de Pediatria* 82 (2006), pp. 121–126) 
+Veamos otro ejemplo  más complicado. En el estudio ["Factors associated with risk of low folate intake among adolescents"](https://www.scielo.br/pdf/jped/v82n2/en_v82n2a08.pdf) (M. Vitolo *et al*, *Jornal de Pediatria* 82 (2006), pp. 121–126) 
 los investigadores tenían que tomar una muestra de adolescentes de São Lepolodo (Brasil). Para ello:
 
 1. En primer lugar, escogieron mediante un muestreo aleatorio sistemático varias secciones censales de las 40 que tiene la ciudad.
@@ -192,13 +192,15 @@ En este proceso, se realizaron: un muestreo sistemático (las secciones censales
 
 Un último ejemplo. Recordad el estudio sobre enfermedades y mes de nacimiento del Ejemplo \@ref(exm:quesada), donde "se escogió al azar una muestra de 29478 españoles". En  realidad, **no** se tomó una lista de toda la población española a 1 de enero de 2017 y se escogió al azar de manera equiprobable una conjunto de  29478 personas, sino que se usó la muestra de la *Encuesta Nacional de Salud* de ese año, que se escoge de la manera polietápica siguiente (podéis consultar [aquí](https://www.ine.es/metodologia/t15/t153041917.pdf) la metodología en detalle):
 
-1. Se clasifican los municipios españoles en 7 estratos según su población.
+1. Se clasifican los municipios españoles en 7 tipos según su población.
 
-2. En cada comunidad autónoma y para cada estrato, se toma una muestra aleatoria de un número de secciones censales proporcional a su población.
+2. En cada comunidad autónoma y para cada tipo de municipios, se toma una muestra aleatoria de un número de secciones censales proporcional a su población.
 
 3. De cada sección censal elegida, se escogen un número fijo de  viviendas principales (en 2017 fueron 15) por muestreo aleatorio sistemático (y previa una ordenación específica de las viviendas según su tamaño).
 
 4. En cada vivienda se escoge equiprobablemente un individuo adulto.
+
+Fijaos que, en (2), se toma una muestra aleatoria estratificada de secciones censales: los estratos son las combinaciones de comunidad autónoma y tipo de municipio.
 
 Existen otros tipos de muestreo, solo hemos explicado los más comunes. En cualquier caso, lo importante es recordar que el estudio estadístico que se realice  dependerá del tipo de muestreo usado. Por ejemplo, no se pueden usar las mismas técnicas para analizar una muestra aleatoria simple que una muestra estratificada o una muestra por conglomerados.  En este curso estudiaremos las propiedades de las diferentes técnicas de estimación casi exclusivamente para el caso de  **muestreo aleatorio simple**, es decir, al azar y con reposición, o al azar sin reposición si la población es muy, muy  grande en comparación con la muestra.
 
