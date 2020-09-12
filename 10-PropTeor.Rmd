@@ -196,7 +196,7 @@ $$
 
 10. Fijaos que de esta propiedad se deduce la **Fórmula de Laplace** que hemos mencionado al principio de esta lección: Si $\Omega$ es finito y todos sus elementos  tienen la misma probabilidad, entonces 
 $$
-P(A)=\frac{|A|}{|\Omega|}=\Big(\frac{\mbox{casos favorables}}{\mbox{casos posibles}}\Big)
+P(A)=\frac{|A|}{|\Omega|}=\Big(\frac{\text{casos favorables}}{\text{casos posibles}}\Big)
 $$
 (donde $|A|$ denota el **cardinal** de $A$, es decir, su número de elementos).
 
@@ -311,6 +311,144 @@ Supongamos ahora que 0.1% de todos los donantes de sangre da positivo en el test
 
 ```
 
+
+
+## Odds
+
+En algunos contextos, las probabilidades se presentan en forma de **odds**  (la traducción más común en castellano es **momios**, pero se usan otras: posibilidades, oportunidades...). Las **odds** de un suceso $A$ son
+$$
+\text{Odds}(A)=\frac{P(A)}{P(A^c)}=\frac{P(A)}{1-P(A)}.
+$$
+
+Indican cuántas veces es más probable $A$ que "no $A$".
+
+
+```{r catmummies, echo=FALSE, out.width="50%", fig.cap="Momios de gatitos en el British Museum (fotografía de M. Sánchez)."}
+knitr::include_graphics("INREMDN_files/figure-html/catmummies.png")
+```
+
+
+Si $\text{Odds}(A)=q$, significa que **por cada vez que ocurre "no $A$", ocurre  $q$ veces $A$**. Por ejemplo, si las *odds* de suspender una asignatura son 2/3, significa que:
+
+* Por cada estudiante que aprueba, hay 2/3 de estudiante que suspenden.
+* Por cada 3 estudiantes que aprueban, hay 2 que suspenden.
+* De cada 5 estudiantes, 3 aprueban y 2  suspenden.
+
+```{example}
+* Si $P(A)=0.2$, $\text{Odds}(A)=0.2/0.8=0.25$.
+* Si $P(A)=0$, $\text{Odds}(A)=0$.
+* Si $P(A)=0.5$, $\text{Odds}(A)=1$.
+* Si $P(A)=1$, $\text{Odds}(A)=\infty$.
+```
+
+
+```{block2,type="rmdexercici"}
+Si lanzamos un dado equilibrado, de 6 caras, al aire:}
+
+1. ¿Qué valen  las *odds* de sacar un 3? 
+
+1. ¿Qué valen  las *odds* de sacar un múltiplo de 3?
+```
+
+Si sabemos las *odds* de $A$, podemos calcular la probabilidad $P(A)$. Por ejemplo, si $\text{Odds}(A)=2/3$ 
+$$
+\begin{array}{l}
+\dfrac{2}{3}=\dfrac{P(A)}{1-P(A)}\Rightarrow 2-2P(A)=3P(A)\\
+\qquad \Rightarrow 2=5P(A)\Rightarrow P(A)=\dfrac{2}{5}=0.4
+\end{array}
+$$
+
+En general
+$$
+P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}
+$$
+
+La función
+$$
+y=\frac{x}{1+x}
+$$
+es creciente en $x$:
+```{r,echo=FALSE,fig.cap="Gráfica de la curva y=x/(1+x)."}
+plot(function(x){x/(1+x)},xlim=c(0,10),lwd=1.5,ylab="y")
+```
+
+Por lo tanto 
+$$
+\begin{array}{c}
+\text{Odds}(A)<\text{Odds}(B)\Longleftrightarrow P(A)<P(B)\\ 
+\text{Odds}(A)>\text{Odds}(B)\Longleftrightarrow P(A)>P(B)\\ 
+\text{Odds}(A)=\text{Odds}(B)\Longleftrightarrow P(A)=P(B)
+\end{array}
+$$
+
+En estudios de casos y controles, la manera correcta de presentar cuánto más probable es un desenlace si se ha estado expuesto a un factor de riesgo que si no se ha estado es por medio de una *odds ratio*. La  **odds ratio** (**razón de momios**, de oportunidades...) de dos sucesos $A$ y $B$ es el cociente de sus *odds*:
+$$
+\text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}
+$$
+Es difícil de interpretar excepto su relación con 1:
+
+*  $\text{OR}(A,B)=1\Longleftrightarrow \text{Odds}(A)=\text{Odds}(B) \Longleftrightarrow P(A)=P(B)$
+
+* $\text{OR}(A,B)>1\Longleftrightarrow \text{Odds}(A)>\text{Odds}(B) \Longleftrightarrow P(A)>P(B)$
+
+* $\text{OR}(A,B)<1\Longleftrightarrow \text{Odds}(A)<\text{Odds}(B) \Longleftrightarrow P(A)<P(B)$
+
+
+Pero, por ejemplo
+$$
+\text{OR}(A,B)=2 \Longleftrightarrow \text{Odds}(A)= 2\cdot \text{Odds}(B) \hspace{1.2ex}
+\not\hspace{-1.2ex}\Longleftrightarrow P(A)=
+2\cdot P(B)
+$$
+
+```{block2,type="rmdcorbes"}
+Si $\text{OR}(A,B)=2$, significa que
+$$
+\begin{array}{l}
+P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}=\dfrac{2\cdot\text{Odds}(B)}{1+2\cdot\text{Odds}(B)}\\
+\qquad =\dfrac{\frac{P(B)}{1-P(B)}}{1+2\frac{P(B)}{1-P(B)}}=\dfrac{P(B)}{1-P(B)+2P(B)}=\dfrac{P(B)}{1+P(B)}
+\end{array}
+$$
+````
+
+```{example}
+En un [estudio de casos y controles reciente](https://www.gastrojournal.org/article/S0016-5085(20)30490-X/fulltext)
+ (Y. Nobel *et al*, *Gastroenterology* 159 (2020), pp. 373-375) se afirma que
+
+```
+
+> "la presencia de síntomas gastrointestinales se asoció a un incremento del 70% en el riesgo de dar positivo [en el test de COVID-19]:  odds ratio, 1.7."
+
+¿Qué significa esto? Que la *odds ratio* valga 1.7 significa que las *odds* de dar positivo en COVID-19 si se tienen síntomas gastrointestinales son 1.7 veces las de dar positivo si no se tienen síntomas gastrointestinales, es decir un 70% mayores. Pero las *odds*, no el **riesgo** entendido en sentido de **probabilidad**: no tiene por qué ser cierto que la proporción de sujetos con síntomas gastrointestinales  que dan positivo en COVID-19 sea un 70% mayor que la proporción de sujetos con síntomas gastrointestinales  que dan positivo en COVID-19.
+
+En este estudio concreto, se obtuvo la tabla de frecuencias siguiente (SG significa "síntomas gastrointestinales")
+$$
+\begin{array}{r|c|c|c}
+& \text{COVID-19 } + & \text{COVID-19 } + & \text{Total}\\ \hline
+\text{SG Sí} & 97&	63 & 160\\\hline
+\text{SG No}  & 181 &	175 & 356\hline
+\text{Total} & 278 & 238 &  316
+\end{array}
+$$
+por lo que la proporción de COVID-19 positivos entre los que tuvieron síntomas gastrointestinales fue 97/160=0.6 y   la proporción de COVID-19 positivos entre los que no tuvieron síntomas gastrointestinales fue 181/356=0.5: la primera es un 20% mayor que la segunda, no un 70% mayor.
+
+
+
+```{block2,type="rmdexercici"}
+1. ¿Qué valen las *odds* de sacar 3 caras en 3 lanzamientos de una moneda equilibrada?
+
+1. Si un suceso pasa 2 veces de cada 10 veces que puede pasar, ¿qué valen las *odds* que pase?
+
+1. Si las *odds* de $A$ son 1/2, ¿qué vale $P(A)$?
+
+1.  Si $\text{OR}(A,B)=0.5$ y $P(A)=1/2$, ¿qué vale $P(B)$?
+
+1. Sí $\text{OR}(A,B)=0.5$ y $P(A)=3/4$, ¿qué vale $P(B)$?
+```
+
+
+
+
 ## Probabilidad condicionada
 
 Dados dos sucesos $A$ y $B$, con $P(A)>0$, la **probabilidad $P(B|A)$ de $B$ condicionada a $A$** es 
@@ -367,7 +505,7 @@ $$
 
      Como hay 18 mujeres que lleven gafas de un total de 30 mujeres, esta probabilidad es  18/30=0.6. Fijaos que este valor es igual a
 $$
-\frac{P(\mbox{mujer y gafas})}{P(\mbox{mujer})}=\frac{18/50}{30/50}=\frac{18}{30}
+\frac{P(\text{mujer y gafas})}{P(\text{mujer})}=\frac{18/50}{30/50}=\frac{18}{30}
 $$
 
 1. Escogemos un estudiante al azar. ¿Cuál es la probabilidad de que si es mujer, entonces lleve gafas?
@@ -379,7 +517,7 @@ $$
 
     Como hay 18 mujeres que lleven gafas de un total de 33 estudiantes que lleven gafas, esta probabilidad es  18/33=0.545. Fijaos, de nuevo, que este valor es igual a
 $$
-\frac{P(\mbox{mujer y gafas})}{P(\mbox{gafas})}=\frac{18/50}{33/50}=\frac{18}{33}
+\frac{P(\text{mujer y gafas})}{P(\text{gafas})}=\frac{18/50}{33/50}=\frac{18}{33}
 $$
 1. Escogemos un estudiante al azar. ¿Cuál es la probabilidad de si lleva gafas, entonces sea mujer?}
 
@@ -693,364 +831,213 @@ Si a un individuo con la enfermedad se le realizan los dos tests de manera  inde
 ```
 
 
-
-
-\subsection{Probabilidad total}
-
-
-\frametitle{Cambiando de tema} 
-
-\begin{quote}
-"El 50% de los niños y el 15% de las niñas de entre 10 y 17 años usan habitualmente videojuegos destinados a mayores de 18 años".\\
-{\tiny España: menores y derechos humanos, responsabilidades en juego (AI, 2006)}
-\end{quote}
-
-Suponiendo 50% niños y 50% niñas, ¿cuál es el porcentaje de menores de entre 10 y 17 años que usan habitualmente\ldots?
-
-## Probabilidades totales
+## Probabilidad total
 
 Volvamos a un ejercicio de la Lección \@ref(chap:conceptos), aunque ligeramente modificado.
 
-```{example}
+```{example,TPT1}
 Tenemos una población clasificada en dos subpoblaciones, A y B. La subpoblación A representa un 20% de la población y la B el 80% restante. Un 50% de la subpoblación A y un 5% de la subpoblación B presentan una cierta característica X.
 
 ¿Qué proporción de la población presenta dicha característica X?
 ```
 
-Esta pregunta la podemos resolver
 
-**(b)** A partir de estos datos, ¿qué estimáis que vale la media de X en el total de la población?
+```{r , echo=FALSE, out.width="80%"}
+knitr::include_graphics("INREMDN_files/figure-html/TPT.png")
+```
 
+Esta pregunta la podemos resolver fácilmente mediante el método de las frecuencias naturales. Supongamos que nuestra población es de 1000 individuos. Entonces:
 
-\begin{quote}
-"El 50% de los niños y el 15% de las niñas de entre 10 y 17 años usan habitualmente videojuegos destinados a mayores de 18 años".\\
-{\tiny España: menores y derechos humanos, responsabilidades en juego (AI, 2006)}
-\end{quote}
+* 200 serán de la subpoblación A, de los cuales la mitad, 100 tendrán la característica X y los otros 100 no.
 
-Suponiendo 50% niños y 50% niñas, ¿cuál es el porcentaje de menores de entre 10 y 17 años que usan habitualmente\ldots?
+* 800 serán de la subpoblación B, de los cuales el 5%, 40 tendrán la característica X y los otros 760 no. 
 
-\begin{center}
-\begin{tabular}{l|c|c|c|}
-& VJ & No VJ & Total\\\hline
-Niñas &\only<4,5>{75} & &\only<3,4,5>{500}\\ \hline
-Niños &\only<4,5>{250} & &\only<3,4,5>{500}\\\hline
-Total &\only<2,3,4>{\hphantom{325}}\only<5>{325} &\only<2,3,4,5>{\hphantom{100}} &  \only<2,3,4,5>{1000}\\\hline
-\end{tabular}
-\end{center}
-\only<5>{$$
-325/1000=32.5%
-$$}
-
-
-
-
-
-
-
-\frametitle{Teorema de la probabilidad total} 
-
-\begin{teorema}
-Sean $A$ y $B$ dos sucesos. Entonces
-{\small $$
-\begin{array}{rl}
-P(A)&= P(A\cap B) +P(A\cap B^c)\\
-& =P(B)\cdot P(A|B)+ P(B^c)\cdot P(A|B^c)
+Obtenemos la tabla de frecuencias siguiente:
+$$
+\begin{array}{r|c|c|c}
+& A & B & \text{Total}\\\hline
+X &100 & 40 &140\\ \hline
+\text{No }X &100 & 760 &860\\\hline
+\text{Total} &200 & 800 & 1000
 \end{array}
 $$
-}\end{teorema}
+Entonces la fracción de los sujetos del total de la población con la característica X es 140/1000, un 14%.
 
-\begin{center}
-\includegraphics[width=0.6\linewidth]{A-B.jpg}
-\end{center}
-
-
-
-
-
-
-
-\frametitle{Ejemplo} 
-
-\begin{quote}
-"El 50% de los niños y el 15% de las niñas de entre 10 y 17 años usan habitualmente videojuegos destinados a mayores de 18 años".\\
-{\tiny España: menores y derechos humanos, responsabilidades en juego (AI, 2006)}
-\end{quote}
-
-Suponiendo 50% niños y 50% niñas, ¿cuál es el porcentaje de menores de entre 10 y 17 años que usan habitualmente\ldots?
-
-\only<1>{$$
-0.5\cdot 0.5+0.5\cdot 0.15=0.325\Rightarrow 32.5%
+¿Cómo podríamos poder usado las propiedades de las probabilidades para calcular este valor? Pues simplemente teniendo en cuenta que, como los sucesos $A$ y $B$, definidos por las correspondientes subpoblaciones, son disjuntos y recubren toda la población, tenemos que
 $$
+X=(X\cap A)\cup (X\cap B),\quad (X\cap A)\cap (X\cap B)=\emptyset
 $$
-P(\mbox{Niño})\cdot P(\mbox{Usar\ldots }|\mbox{Niño})+P(\mbox{Niña})\cdot P(\mbox{Usar\ldots }|\mbox{Niña})
-$$}
-\only<2>{
-\begin{center}
-\includegraphics[width=0.9\linewidth]{periodico1}\\
-\includegraphics[width=0.5\linewidth]{periodico2}
-\end{center}
-\hspace*{\fill}{\scriptsize El Periódico, 05/01/2006, pág. 27}}
+y por lo tanto
+$$
+P(X)=P(X\cap A)+P(X\cap B)=P(X|A)P(A)+P(X|B)P(B).
+$$
+
+Como $P(A)=0.2$, $P(B)=0.8$, $P(X|A)=0.5$ y $P(X|B)=0.05$, tenemos operando
+$$
+P(X)=0.5\cdot 0.2+0.05\cdot 0.8=0.14.
+$$
+
+El ejemplo anterior es una aplicación del **Teorema de la probabilidad total** siguiente:
+
+```{thm} 
+Si $A$ y $X$ son dos sucesos,
+$$
+P(X)= P(X\cap A) +P(X\cap A^c)=P(A)\cdot P(X|A)+ P(A^c)\cdot P(X|A^c)
+$$
+```
+
+Algunos de vosotros habréis usado un árbol como el siguiente para representar este teorema:
 
 
+```{r arbreTPT, echo=FALSE, out.width="80%",fig.cap="Teorema de la probabilidad total."}
+knitr::include_graphics("INREMDN_files/figure-html/arbreTPT.png")
+```
+
+Luego se calcula la probabilidad de cada "hoja" del árbol como el producto de las probabilidades del camino que llega a ella y se calcula como $P(X)$ la suma de las probabilidades de las hojas cuyo suceso contiene $\cap X$.
+
+En el ejemplo anterior, este diagrama es 
+
+```{r arbreTPTex, echo=FALSE, out.width="80%"}
+knitr::include_graphics("INREMDN_files/figure-html/arbreTPTex.png")
+```
+
+Más en general, llamaremos una **partición** (o **estratificación**, **clasificación**) de una población $\Omega$ a una familia de sucesos $A_1,\ldots,A_m$ tales que
+
+1. Recubren todo $\Omega$: $\Omega=A_1\cup\cdots\cup A_m$.
+2. Cada par de ellos son disjuntos: Para cada $i,j\in\{1,\ldots,m\}$ se tiene que $A_i\cap=\A_j=\emptyset$.
 
 
+```{r partición, echo=FALSE, out.width="80%",fig.cap="Partición."}
+knitr::include_graphics("INREMDN_files/figure-html/particio.png")
+```
 
 
+Por ejemplo, los sucesos $A$ y $B$ del Ejemplo \@ref(exm:TPT1) forman una partición de la población considerada.
 
-\frametitle{Teorema de la probabilidad total} 
+```{thm} 
+Si $A_1,\ldots,A_n$ forma una partición de la población y $X$ es un suceso,
+$$
+P(X)= P(X\cap A_1) +\cdots+P(X\cap A_n)=P(A_1)\cdot P(X|A_1)+\cdots+ P(A_n)\cdot P(X|A_n)
+$$
+```
 
-Los sucesos $A_1,A_2,\ldots,A_n$ forman una **partición} (o **clasificación}) del espacio muestral $\EM$  si se verifican las siguientes condiciones:
-\begin{itemize}
-* $A_1\cup A_2\cup\cdots\cup A_n=\EM$
-* $A_1,A_2,\ldots,A_n$ son incompatibles dos a dos ($A_i\cap A_j=\emptyset$)
+```{example}
+Un test para el VIH da positivo un 99% de los casos en los que el virus está presente y en un 5% de los casos en los que el virus no está presente. En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo escogido al azar dé positivo?
+```
 
-\end{itemize}
+En primer lugar vamos a usar el teorema de la probabilidad total. Sean los sucesos:
 
-\begin{teorema}
-Sea $A_1,A_2,\ldots,A_n$ una partición de $\EM$. Sea $B$ un suceso cualquiera. Entonces
-{\small $$
-\begin{array}{rl}
-P(B)&= P(B\cap A_1)+\cdots +P(B\cap A_n)\\
-& =P(A_1)\cdot P(B|A_1)+\cdots+P(A_n)\cdot P(B|A_n)
+* $A$: Individuo infectado; $P(A)=0.005$
+
+
+* $X$: Test dé positivo; $P(X|A)=0.99$, $P(X|A^c)= 0.05$
+
+Entonces
+$$
+P(X)  =P(A)\cdot P(X|A)+P(A^c)\cdot P(X|A^c) 
+=0.005\cdot 0.99+0.995\cdot 0.05=0.0547
+$$
+
+Usemos la técnica de las frecuencias naturales. Tomemos una población de referencia de 100,000 individuos. 
+
+* Un 0.05% están infectados: 500 infectados y 99500 no infectados.
+
+* En un 99% de los infectados el test da positivo, son 495. En los 5 restantes da negativo.
+
+* En un 5% de los no infectados da positivo, son 4975. En los 94525 restantes da negativo.
+
+La tabla de frecuencias resultante es
+
+$$
+\begin{array}{l|c|c|c}
+& \text{Test }+ & \text{Test }- & \text{Total}\\
+\hline
+\text{VIH }+ & 495 & 5 & 500\\ \hline
+\text{VIH }- & 4975& 94525 & 99500\\\hline
+\text{Total} &5470 & 94530&  100000
 \end{array}
 $$
-}\end{teorema}
 
+La proporción de personas en las que el test da positivo es 5470/100000=0.0547.
 
+Una aplicación del teorema de la probabilidad total es el cálculo de **tasas ajustadas**:
 
+* Se divide una población en estratos  (sexo, grupos étnicos,  franjas de edad...)
+* Se calcula la proporción de algo en cada estrato
+* Se calcula la proporción de ese algo en una población que tuviera una composición estándar de esos estratos.
 
+Por ejemplo:
 
-\frametitle{Ejemplos} 
+1. Se calcula la tasa de mortalidad por franjas de edad en España, u otro país de la Unión Europea.
+1. Se toma como composición estándar en franjas de edad la media de la Unión Europea.
 
-Un test para el VIH da positivo un 99% de los casos en los que el virus está presente y en un 5% de los casos en los que el virus no está presente. En una población con el $0.5%$ de infectados por VIH, \blue{¿cuál es la probabilidad de que un individuo escogido al azar dé positivo?}
-\pause
+1. Se calcula la tasa de mortalidad en una población cuya composición en franjas de edad fuera esa estándard, usando las tasas nacionales de mortalidad en cada franja calculadas en (1). 
 
-$A$: Individuo infectado; $P(A)=0.005$
+De esta manera se pueden comparar las tasas de mortalidad entre países de la UE sin tener en cuenta el factor de confusión que podría representar la edad.
 
+```{example}
+Una cierta enfermedad tiene en China una tasa de mortalidad del 0.1% entre los menores de 15 años, del 0.3% entre las personas entre 15 y 64  años  y de un 0.7% entre los mayores de 65 años.
 
-$B$: Test dé positivo
+En la Unión Europea, un 15.5% de la población es menor de 25 años, un 65.4% tiene entre 25 y 64 años, y un 19.1% tiene 65 años o más.  En China, estas proporciones son del 17.6%, 	71.2% y	11.2%, respectivamente
 
+*(a)* ¿Cuál es la tasa de mortalidad de esta enfermedad en China?
 
+*(b)* ¿Cuál sería la tasa de mortalidad de esta enfermedad ajustada a la distribución de edades de la Unión Europea?
+```
 
-$P(B|A)=0.99, P(B|A^c)= 0.05$
+Pongamos nombres a los sucesos de interés: 
 
+* $MC$: Morir de la enfermedad en China
 
-{\hspace{-1ex}$\begin{array}{rl}
-P(B) & =P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c)\\ &
-=0.005\cdot 0.99+0.995\cdot 0.05=0.0547\end{array}$}
+* $C_1$: Tener menos de 15 años en China; $P(C_1)=0.176$
 
+* $C_2$: Tener entre 15 y 64 años en China; $P(C_2)=0.712$
 
+* $C_3$: Tener 65 años o más en China; $P(C_3)=0.112$
 
+* $ME$: Morir de la enfermedad en Europa
 
-\frametitle{Ejemplos} 
+* $E_1$: Tener menos de 15 años en Europa; $P(E_1)=0.115$
 
-$A$: Individuo infectado; $P(A)=0.005$
+* $E_2$: Tener entre 15 y 65 años en Europa; $P(E_2)=0.654$
 
+* $E_3$: Tener 65 años o más en Europa; $P(E_3)=0.191$
 
-$B$: Test dé positivo
+Tenemos que $P(MC|C_1)=0.001$, $P(MC|C_2)=0.003$ y $P(MC|C_3)=0.007$.
 
+Por el teorema de la probabilidad total, la tasa de mortalida en China es
+$$
+\begin{array}{rl}
+P(MC)&=P(MC|C_1)\cdot P(C_1)+P(MC|C_2)\cdot P(C_2)+P(MC|C_3)\cdot P(C_3)\\
+& =0.001\cdot 0.176+0.003\cdot 0.712+0.007\cdot 0.112=`r round(0.001* 0.176+0.003* 0.712+0.007* 0.112,4)`\sim `r 100*round(0.001* 0.176+0.003* 0.712+0.007* 0.112,4)`%
+\end{array}
+$$
+La tasa de mortalidad de esta enfermedad ajustada a la distribución de edades de la Unión Europea se obtiene tomando $P(ME|E_1)=0.001$, $P(ME|E_2)=0.003$ y $P(ME|E_3)=0.007$:
+$$
+\begin{array}{rl}
+P(MC)&=P(ME|E_1)\cdot P(E_1)+P(ME|E_2)\cdot P(E_2)+P(ME|E_3)\cdot P(E_3)\\
+& =0.001\cdot 0.115+0.003\cdot 0.654+0.007\cdot 0.191=`r round(0.001* 0.115+0.003* 0.654+0.007* 0.191,4)`\sim `r 100*round(0.001* 0.115+0.003* 0.654+0.007* 0.191,3),4)`%
+\end{array}
+$$
 
-$P(B|A)=0.99, P(B|A^c)= 0.05$
+```{block2,type="rmdexercici"}
+En los Emiratos Árabes, donde hay 256 hombres por cada 100 mujeres ([CIA Woldfact](https://www.cia.gov/library/publications/the-world-factbook/geos/print_ae.html)), un 1% de los hombres y un 2% de las mujeres sufren de una determinada enfermedad.
 
+*(b)* ¿Cuál es la prevalencia de esta enfermedad en esta población?}
 
-Tomemos 100,000 individuos como referencia
+*(c)* ¿Cuál es la prevalencia  de esta enfermedad ajustada a una población con 50% de cada sexo?
+```
 
-\begin{center}
-\begin{tabular}{l|c|c|c|}
-& $B$ & $B^c$ & Total\\\hline
-$A$ &\only<3,4,5>{495} & &\only<2,3,4,5>{500}\\ \hline
-$A^c$ & \only<3,4,5>{4975}& &\only<2,3,4,5>{99500}\\\hline
-Total &\only<1,2>{\hphantom{4975}}\only<4,5>{5470} & &  100000\\\hline
-\end{tabular}
-\end{center}
 
-\only<3>{$0.99\cdot 500=495,\quad 0.05\cdot 99500=4975$}
+```{block2,type="rmdcaution"}
+Fijaos que la CIA da la composición por sexos de la población mediante *odds* (hombres por mujer) no mediante proporciones (hombres por habitante).
+```
 
-\only<5>{$P(B)=5470/100000=0.0547$}
+## Fórmula de Bayes
 
 
 
 
-
-\frametitle{Tasas ajustadas}
-
-
-\begin{quote}
-\small En hombres se espera un aumento de la tasa de incidencia de 11.92 (tasa ajustada [TA] = 8.66) casos por 100000 habitantes/año a 15.7 (TA = 9.55). La prevalencia aumentaría de 72.84 (TA = 51.62) a 94.47 (TA = 59.57) y la mortalidad de 5.77 (TA = \only<1>{7.29}\only<2>{\textst{7.29} \red{4.1}}) a 7.29 (TA = 4.56). 
-
-En mujeres la tasa de incidencia cambiaría de 5.56 (TA = 3.86) a 26.77 (TA = 16.4). La prevalencia de un 24.6 (TA = 17.28) a 133.69 (TA = 81.37) y para la mortalidad el aumento esperado sería de 2.46 (TA = 1.54) a 11.65 (TA = 6.56) casos por 100000 habitantes/año.
-\end{quote}
-
-
-{\tiny D.  Souza, M.  Bernal. Incidencia, prevalencia y mortalidad del cáncer renal en España: estimaciones y proyecciones para el período 1998--2022.
-\textit{Actas Urológicas Españolas} 36 (2012), 521--526
-
-
-}
-
-
-
-
-
-
-\frametitle{Tasas ajustadas}\vspace*{-2ex}
-
-\red{Ajuste de una tasa}: se calcula la tasa que se esperaría encontrar en la población bajo estudio si tuviera una composición estándar para una determinada variable (sexo, grupos étnicos,  franjas de edad, \ldots)
-
-\blue{Ejemplo}:
-\begin{itemize}
-
-* En la población bajo estudio, se calcula la tasa de mortalidad por una enfermedad por franjas de edad
-
-* Se toma como composición estándar en franjas de edad la media de la UE
-
-* A partir de estas, se calcula la tasa ajustada suponiendo que la población tiene la composición estándar (no la suya real) y las tasas de mortalidad por franja de edad encontradas
-\end{itemize}
-
-
-%
-%
-%
-%\frametitle{Ejemplos}
-%
-%En una población con un 20% de hombres y un 80% de mujeres, un 1% de los hombres y un 2% de las mujeres sufren de una determinada enfermedad.
-%
-%\blue{¿Cuál es la prevalencia de esta enfermedad en esta población?}
-%
-%\blue{¿Cuál es la prevalencia  de esta enfermedad ajustada a una población con 50% de cada sexo?}
-%
-%
-%
-%
-%
-%
-%\frametitle{Ejemplos}
-%
-%En una población con un 20% de hombres y un 80% de mujeres, un 1% de los hombres y un 2% de las mujeres sufren de una determinada enfermedad.
-%
-%\blue{¿Cuál es la prevalencia de esta enfermedad en esta población?}
-%
-%\only<2>{$P(E)=P(H)\cdot P( E|H)+P(M)\cdot P(E|M)=0.2\cdot 0.01+0.8\cdot 0.02=0.018$}
-%
-%
-%\only<3,4,5,6>{Supongamos que la población tiene 1000 individuos
-%\begin{center}
-%\textbf{Población real}
-%
-%\begin{tabular}{l|c|c|c|}
-%& Enfermo & No Enf. &  Total\\\hline
-%Hombres & \only<5,6>{2}& & \only<4,5,6>{200}\\ \hline
-%Mujeres &\only<5,6>{16} & & \only<4,5,6>{800}\\ \hline
-%Total &\only<6>{18} & & 1000 \\ \hline 
-%\end{tabular}
-%\end{center}
-%
-%\only<6>{\blue{18/1000 enfermos: una prevalencia del 1.8%}}}
-%
-%
-%
-%
-%
-%\frametitle{Ejemplos}
-%
-%En una población con un 20% de hombres y un 80% de mujeres, un 1% de los hombres y un 2% de las mujeres sufren de una determinada enfermedad.
-%
-%\blue{¿Cuál es la prevalencia  de esta enfermedad ajustada a una población con 50% de cada sexo?}
-%
-%\only<2>{$P(E)=P(H)\cdot P( E|H)+P(M)\cdot P(E|M)=0.5\cdot 0.01+0.5\cdot 0.02=0.015$}
-%
-%
-%\only<3,4,5,6>{Supongamos que la población tiene 1000 individuos
-%\begin{center}
-%\textbf{Población ajustada}
-%
-%\begin{tabular}{l|c|c|c|}
-%& Enfermo & No Enf. &  Total\\\hline
-%Hombres & \only<5,6>{5}& & \only<4,5,6>{500}\\ \hline
-%Mujeres &\only<5,6>{10} & & \only<4,5,6>{500}\\ \hline
-%Total &\only<6>{15} & & 1000 \\ \hline 
-%\end{tabular}
-%\end{center}
-%
-%\only<6>{\blue{15/1000 enfermos: una prevalencia ajustada del 1.5%}}}
-%
-%
-%
-%
-%
-
-\frametitle{Ejemplos} 
-
-Una cierta enfermedad tiene en España una tasa específica de mortalidad del 0.1% entre los menores de 25 años, del 0.2% entre los adultos entre 25 y 65  años  y de un 0.7% entre los mayores de 65 años.
-
-En la UE, un 26.6% de la población es menor de 25 años, un 54.8% tiene entre 25 y 65 años, y un 18.6% tiene más de 65 años.
-
-\blue{¿Cuál sería la tasa de mortalidad de esta enfermedad ajustada a esta distribución de edades?}
-
-Dad el valor en forma de porcentaje redondeado a 1 cifra decimal
-
-
-
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-$M$: Morir de la enfermedad
-
-$E_1$: Menos de 25 años; $P(E_1)=0.266$; $P(M|E_1)=0.001$
-
-$E_2$: Entre 25 y 65 años; $P(E_2)=0.548$; $P(M|E_2)=0.002$
-
-$E_3$: Más de 65 años; $P(E_3)=0.186$; $P(M|E_3)=0.007$
-
-{\small $P(M) =P(M|E_1)\cdot P(E_1)+P(M|E_2)\cdot P(E_2)+P(M|E_3)\cdot P(E_3)\allowbreak\hspace*{3ex} =\cdots=0.00266\sim 0.3%$
-
-}
-
-
-
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-$M$: Morir de la enfermedad
-
-$E_1$: $<25$ años; $P(E_1)=26.6%$; $P(M|E_1)=0.1%$
-
-$E_2$: 25--65 años; $P(E_2)=54.8%$; $P(M|E_2)=0.2%$
-
-$E_3$: $>65$ años; $P(E_3)=18.6%$; $P(M|E_3)=0.7%$
-
-Tomemos 100,000 individuos como referencia
-
-\begin{center}
-\begin{tabular}{l|c|c|c|}
-& $M$ & $M^c$ & Total\\\hline
-$<25$ &\only<3,4,5>{26.6} & &\only<2,3,4,5>{26600}\\ \hline
-25--65 &\only<3,4,5>{109.6} & &\only<2,3,4,5>{54800}\\\hline
-$>65$ & \only<3,4,5>{130.2}& &\only<2,3,4,5>{18600}\\\hline
-Total &\only<1,2>{\hphantom{130.2}}\only<4,5>{266.4} & &  100000\\\hline
-\end{tabular}
-\end{center}
-
-\only<5>{$P(M)=266.4/100000=0.002664$}
-
-
-
-
-
-%%%%%%
-\subsection{Bayes}
-
-
-
-\frametitle{Fórmula de Bayes}
 \begin{teorema}[de Bayes]
 Sean $A$ y $B$ dos sucesos. Si $P(B)>0$, entonces
 $$
@@ -1130,10 +1117,10 @@ $A$: Individuo infectado; $B$: Test dé positivo
 Tomamos 100,000 individuos como referencia
 $$
 \begin{array}{l|c|c|c|}
- & A & A^c & \mbox{Total}\\ \hline
+ & A & A^c & \text{Total}\\ \hline
  B & \only<3>{495}& \only<3>{4975} &   \\ \hline
  B^c & &   & \\ \hline
-\mbox{Total} &  \only<1>{\hphantom{500}}\only<2,3>{500} & \only<1>{\hphantom{99500}}\only<2,3>{99500} & 100000\\ \hline
+\text{Total} &  \only<1>{\hphantom{500}}\only<2,3>{500} & \only<1>{\hphantom{99500}}\only<2,3>{99500} & 100000\\ \hline
 \end{array}
 $$
 
@@ -1159,10 +1146,10 @@ Tomamos 100,000 individuos como referencia
 
 $$
 \begin{array}{l|c|c|c|}
- & A & A^c & \mbox{Total}\\ \hline
+ & A & A^c & \text{Total}\\ \hline
  B & 495 & 4975  & \only<2,3>{5470} \\ \hline
  B^c & 5 & 94525 & \only<2,3>{94530} \\ \hline
-\mbox{Total} & 500 & 99500 & 10000\\ \hline
+\text{Total} & 500 & 99500 & 10000\\ \hline
 \end{array}
 $$
 
@@ -1285,10 +1272,10 @@ Tomamos 100,000 individuos como referencia
 
 $$
 \begin{array}{l|c|c|c|}
- & E & E^c & \mbox{Total}\\ \hline
+ & E & E^c & \text{Total}\\ \hline
  T & \only<3,4,5>{{1950}}& \only<3,4,5>{{11760}} & \only<5>{13710}  \\ \hline
  T^c & \only<4,5>{50}&  \only<4,5>{86240} & \only<5>{86290}\\ \hline
- \mbox{Total} &  \only<1>{\hphantom{2000}}\only<2,3,4,5>{2000} & \only<1>{\hphantom{98000}}\only<2,3,4,5>{98000} & 100000\\ \hline
+ \text{Total} &  \only<1>{\hphantom{2000}}\only<2,3,4,5>{2000} & \only<1>{\hphantom{98000}}\only<2,3,4,5>{98000} & 100000\\ \hline
 \end{array}
 $$
 
@@ -1301,10 +1288,10 @@ $$
 \frametitle{Ejemplos} \vspace*{-2ex}
 $$
 \begin{array}{l|c|c|c|}
- & E & E^c & \mbox{Total}\\ \hline
+ & E & E^c & \text{Total}\\ \hline
  T &  1950& 11760 & 13710  \\ \hline
  T^c & 50&  86240 & 86290\\ \hline
-\mbox{Total} &  2000 & 98000 & 100000\\ \hline
+\text{Total} &  2000 & 98000 & 100000\\ \hline
 \end{array}
 $$
 \begin{enumerate}
@@ -1368,10 +1355,10 @@ $P(E)$?
 
 $$
 \begin{array}{l|c|c|c|}
- & E & E^c & \mbox{Total}\\ \hline
+ & E & E^c & \text{Total}\\ \hline
  T &  &   &   15000 \\ \hline
  T^c & &   & 85000 \\ \hline
-\mbox{Total} &  \mbox{?}  &  & 100000\\ \hline
+\text{Total} &  \text{?}  &  & 100000\\ \hline
 \end{array}
 $$
 
@@ -1386,10 +1373,10 @@ $P(E)$?
 
 $$
 \begin{array}{l|c|c|c|}
- & E & E^c & \mbox{Total}\\ \hline
+ & E & E^c & \text{Total}\\ \hline
  T & \only<1>{\hphantom{0.94x}}\only<2,3,4,5,6,7>{0.94x}  & \only<1>{\hphantom{0.04(100000-x)}}\only<2,3,4,5,6,7>{0.04(100000-x)}   &   15000 \\ \hline
  T^c & &   & 85000 \\ \hline
-\mbox{Total} &  \only<1,2,3,4,5,6,7>{x}  & \only<1,2,3,4,5,6,7>{100000-x} & 100000\\ \hline
+\text{Total} &  \only<1,2,3,4,5,6,7>{x}  & \only<1,2,3,4,5,6,7>{100000-x} & 100000\\ \hline
 \end{array}
 $$
 \pause\pause
@@ -1451,65 +1438,6 @@ Os pide cuáles son sus probabilidades de tener cáncer de mama. ¿Qué contest�
 \only<2,3,4>{¿Incidencia del cáncer de mama a esta edad?} \only<3,4>{$\sim 0.15%$ anual}
 
 
-
-
-
-\subsection{Odds}
-
-
-\frametitle{\textsl{Odds}}
-
-Las \red{\textsl{odds}} (posibilidades, oportunidades, momios\ldots) de un suceso $A$ son
-$$
-\red{\mbox{Odds}(A)}=\frac{P(A)}{P(A^c)}=\frac{P(A)}{1-P(A)}
-$$
-Indican cuántas veces es más probable $A$ que "no $A$"
-
-\blue{Ejemplos}: 
-\begin{itemize}
-* Si $P(A)=0.3$, $\mbox{Odds}(A)=0.3/0.7=0.43$
-* Si $P(A)=0$, $\mbox{Odds}(A)=0$
-* Si $P(A)=0.5$, $\mbox{Odds}(A)=1$
-* Si $P(A)=1$, $\mbox{Odds}(A)=\infty$
-\end{itemize}
-
-
-
-
-
-
-\frametitle{\textsl{Odds}}
-
-\blue{Ejemplo}: Si $\mbox{Odds}(A)=0.6$ (o \red{6 a 10})
-$$
-\begin{array}{l}
-0.6=\dfrac{P(A)}{1-P(A)}\Rightarrow 0.6-0.6P(A)=P(A)\\[2ex]
-\qquad \Rightarrow 0.6=1.6P(A)\Rightarrow P(A)=\dfrac{0.6}{1.6}=0.375
-\end{array}
-$$
-En general
-$$
-P(A)=\dfrac{\mbox{Odds}(A)}{1+\mbox{Odds}(A)}
-$$
-
-
-Que las oportunidades de $A$ sean de 6 a 10 significa que, de cada 16 ocasiones, $A$ pasa 6 veces\pause
-
-Que las apuestas a favor de $A$ estén 3 a 1 significa que (los apostadores creen que) las oportunidades de $A$ son  1 a 3
-
-
-
-
-
-
-\frametitle{Ejemplo}
-\blue{Si lanzamos un dado (no trucado, de 6 caras) al aire:}
-
-\begin{enumerate}
-* \blue{¿Cuáles son las oportunidades de sacar un 3?} \only<2,3>{$1/5$}
-
-* \blue{¿Cuáles son las oportunidades de sacar un múltiplo de 3?}  \only<3>{$1/2$}
-\end{enumerate}
 
 
 

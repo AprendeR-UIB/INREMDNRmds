@@ -6,12 +6,32 @@
 \tikz\node[thick, rounded corners,  align=left,#1] at #3 {#2};\hskip2pt}
 
 \begin{document}
+
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=4em,align=center, rounded corners, minimum height=1.7em}]%,xscale=0.75]
+\draw (0,0) node[block] (Omega) {$\Omega$};  
+\draw (8,3) node[block] (A)   {$A$}; 
+\draw (8,-3) node[block]  (Ac)  {$A^c$}; 
+\draw (16,6) node[block] (AX)   {$A\cap X$}; 
+\draw (16,1) node[block] (AXc)   {$A\cap X^c$}; 
+\draw (16,-1) node[block] (AcX)   {$A^c\cap X$}; 
+\draw (16,-6) node[block] (AcXc)   {$A^c\cap X^c$}; 
+\draw [thick, ->] (Omega) -- (A) node[midway,above] {\small 0.2};
+\draw [thick, ->] (Omega) -- (Ac) node[midway,below] {\small 0.8};
+\draw [thick, ->] (A) -- (AX) node[midway,above] {\small 0.5};
+\draw [thick, ->] (A) -- (AXc) node[midway,below] {\small 0.5};
+\draw [thick, ->] (Ac) -- (AcX) node[midway,above] {\small 0.05};
+\draw [thick, ->] (Ac) -- (AcXc) node[midway,below] {\small 0.95};
+
+\end{tikzpicture}
+\end{center}
+
+\end{document}
 \tikzstyle{vecArrow} = [thick, decoration={markings,mark=at position
    1 with {\arrow[semithick]{open triangle 60}}},
    double distance=1.4pt, shorten >= 5.5pt,
    preaction = {decorate},
    postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
-
 
 \begin{center}
 \begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=5em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
