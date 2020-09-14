@@ -2,57 +2,49 @@
 
 # Probabilidades elementales "en abstracto"
 
-La probabilidad de un suceso es, intuitivamente, un número entre 0 y 1 (si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso vamos a definir  la **probabilidad de un suceso** como la **proporción** (la **fracción**, el **porcentaje**) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. 
+La probabilidad de un suceso es un número entre 0 y 1 (un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso, vamos a interpretar intuitivamente la **probabilidad de un suceso** como la **proporción** (la **fracción**, el **porcentaje**) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. 
 
 ```{example}
 La probabilidad de que al lanzar una moneda al aire salga cara es la proporción de la población (virtual) de lanzamientos de esta moneda en los que sale cara.
 ```
 
-**En casos MUY sencillos**, esta proporción coincide con la fracción de veces en que se da este suceso en el conjunto de resultados posibles, es decir, 
-$$
-\text{Probabilidad}=\frac{\text{Casos favorables}}{\text{Casos posibles}}
-$$
-
-Pero esto solo es cierto cuando todos los resultados posibles tienen la misma probabilidad (y aquí entramos en un bucle: para poder aplicar esta fórmula hay que saber la probabilidad de cada uno de los resultados posibles, porque hay que garantizar que son iguales; pero no podemos calcularlas con esta fórmula sin saber que todas son iguales; pero para saberlo necesitamos calcularlas...)
+En casos MUY sencillos, esta proporción coincide con la fracción de veces en que se da este suceso en el conjunto de  resultados posibles, es decir, con el cociente **(casos favorables)/(casos posibles)**. Esto solo es cierto cuando todos los resultados posibles tienen la misma probabilidad (y aquí entramos en un bucle: para poder aplicar esta fórmula hay que saber la probabilidad de cada uno de los resultados posibles, para garantizar que son iguales, pero no podemos calcularlas con esta fórmula sin saber que todas son iguales, pero para saberlo necesitamos calcularlas...)
 
 
 Por ejemplo:
 
-* La probabilidad de que salga cara al lanzar una moneda equilibrada al aire es 1/2 (casos favorables 1, casos posibles 2).
+* La probabilidad de que salga cara al lanzar una moneda equilibrada al aire es 1/2
 
-* La probabilidad de escoger al azar un estudiante varón en una clase de 50 mujeres y 10 hombres, si todos los estudiantes tienen la misma probabilidad de ser elegidos, es 10/60=1/6  (casos favorables 10, casos posibles 60).
+* La probabilidad de escoger un estudiante varón en una clase de 50 mujeres y 10 hombres (y si todos los estudiantes tienen la misma probabilidad de ser elegidos) es 10/60=1/6
 
-* Pero la probabilidad de que un hijo sea varón no es 1/2, aunque solo haya dos sexos anatómicos. Es la proporción de hijos varones en el total de todos los hijos, que se estima en alrededor del 51.22%
+* Pero la probabilidad de que un joven de 18 años sea miope no es 1/2, aunque solo haya dos resultados posibles: ser miope y no serlo. la probabilidad de que un joven de 18 años sea miope es la proporción de miopes en la población formada por todas las personas que hoy tienen 18 años.  
 
-* O más exageradamente, la probabilidad de que una mujer de entre 17 y 27 años sea miope no es 1/2, aunque solo haya dos resultados posibles: ser miope y no serlo. Esta probabilidad es la proporción de miopes en la población formada por todas las mujeres de es franja de edad (que, en España en 2018, se estimaba en un 65.4% según un [informe de la Asociación Visión y Vida](http://visionyvida.org/informe-prevalencia-de-la-miopia-en-los-jovenes-en-espana-2018/)).
- 
+* La probabilidad de que un hijo sea varón no es 1/2, aunque solo haya dos sexos anatómicos. Es la proporción de hijos varones en el total de todos los hijos, que se estima en alrededor del 51.22%
 
 
 ```{block2,type="rmdromans"}
 Si lanzamos al aire dos veces seguidas una moneda equilibrada, ¿cuál es la probabilidad de que salga alguna cara?
   
-Según [J. d'Alembert](https://es.wikipedia.org/wiki/Jean_le_Rond_d%27Alembert) es 2/3. Su argumento era el siguiente. Si en el primer lanzamiento sale cara, ya tenemos una cara. Si sale cruz, volvemos a lanzar otra vez y miramos si sale cara o cruz. Por lo tanto, hay solo 3 resultados posibles: cara en el primer lanzamiento; cruz en el primer lanzamiento y cara en el segundo; cruz en ambos lanzamientos. De estos tres "casos posibles", solo en los 2 primeros sale alguna cara. asos favorables partido por casos posibles: 2/3.
+Según [J. d'Alembert](https://es.wikipedia.org/wiki/Jean_le_Rond_d%27Alembert) es 2/3. Si en el primer lanzamiento sale cara, ya tenemos una cara, y si sale cruz, volvemos a lanzar otra vez y miramos si sale cara o cruz. Por lo tanto, hay solo 3 resultados posibles, de los cuales en 2 sale alguna cara: casos favorables partido por casos posibles, 2/3.
 
 ¿Qué falla en este argumento?
 ```
 
 
-La teoría matemática de las probabilidades es la que nos permite estudiar lo exacta que es una estimación de un valor para una población a partir de una muestra. Por ejemplo, supongamos que elegimos al azar un grupo de 50 estudiantes de la UIB y observamos que 33 sufren de miopía. A partir de este dato, estimamos que un 66% de los estudiantes de la UIB son miopes. La técnicas de teoría de las probabilidades nos permitirán calcular la probabilidad de acertar con esta estimación con un margen de error fijado.
+La teoría matemática de las probabilidades es la que nos permite estudiar lo exacta que es una estimación de un valor para una población a partir de una muestra. Por ejemplo, supongamos que elegimos al azar un grupo de 50 estudiantes de la UIB y observamos que 11 sufren de miopía. A partir de este dato, estimamos que un 22% de los estudiantes de la UIB son miopes. La técnicas de teoría de las probabilidades nos permitirán calcular la probabilidad de acertar con esta estimación con un margen de error fijado.
 
 En medicina, las probabilidades (recordad, las proporciones de sujetos de una población con una determinada característica) aparecen bajo diferentes términos. Por ejemplo
 
-* **Riesgo** de algo: La probabilidad de que ese algo (usualmente negativo, por la connotación de la palabra "riesgo") pase
+* **Riesgo** de algo: La probabilidad de que ese algo (usualmente negativo) pase
 
 * **Prevalencia** de algo: La probabilidad de que un individuo de una población tenga ese algo en un momento determinado.
 
-* **Tasa** de algo: Es equivalente a la "proporción" o la "fracción" de ese algo en algún total. Por ejemplo:
+* **Tasa** de algo: Es equivalente a la "proporción" o la "fracción" de ese algo en algún total. 
 
-    * La **tasa de mortalidad** de una enfermedad es la proporción de individuos de una población que mueren a causa de esa enfermedad en un período determinado, y por tanto la probabilidad de que un individuo de esa población muera por esa enfermedad en ese período determinado de tiempo.
+     Por ejemplo, la **tasa de mortalidad** de una enfermedad es la proporción de individuos de una población que mueren por esa enfermedad en un período determinado, y por tanto la probabilidad de que un individuo de esa población muera por esa enfermedad en ese período determinado de tiempo. 
     
-    * La **tasa de letalidad** de una enfermedad es la proporción de enfermos (de esa enfermedad, se entiende) en una población que mueren a causa de esa enfermedad en un período determinado, y por tanto la probabilidad de que un enfermo muera por esa enfermedad en ese período determinado de tiempo.
-    
-    * Al hablar de incidencia, a veces se usa el término **tasa de incidencia** de una enfermedad para significar la proporción de casos nuevos de esa enfermedad en una población (sana) en un cierto periodo de tiempo, y por lo tanto es la probabilidad de que un individuo (sano) escogido al azar de una población coja esa enfermedad durante un cierto periodo de tiempo.
-    
+    O por ejemplo, al hablar de incidencia, a veces se usa el término **tasa de incidencia** de una enfermedad para significar la proporción de casos nuevos de esa enfermedad en una población (sana) en un cierto periodo de tiempo, y por lo tanto es la probabilidad de que un individuo (sano) escogido al azar de una población coja esa enfermedad durante un cierto periodo de tiempo.
+
 
 ```{example}
 En el artículo ["Incidencia, prevalencia y mortalidad del cáncer renal en España: estimaciones y proyecciones para el período 1998-2022"](https://www.sciencedirect.com/science/article/pii/S0210480611003767) (*Actas Urológicas Españolas* 36 (2012), pp. 521-526) se puede leer:
@@ -65,45 +57,40 @@ En el artículo ["Incidencia, prevalencia y mortalidad del cáncer renal en Espa
 
 En todos los casos se trata de estimaciones de  probabilidades. Se estima que:
 
-* La probabilidad de que un hombre sano cogiera cáncer de riñón en 1998 fue de 0.0001192 y en 2022 será de 0.000157.
+* La probabilidad de que un hombre sano cogiera cáncer de riñón en 1998 fue de 
+11.92/10^5^ y se estima que será de 15.7/10^5^ en 2022.
 
-* La probabilidad de que un hombre tuviera cáncer de riñón en 1998 fue de  0.00072842  y  en 2022 será  de 0.0009447.
+* La probabilidad de que un hombre tuviera cáncer de riñón en 1998 fue de  72.842/10^5^ y se estima que será de 94.47/10^5^ en 2022.
 
-* La probabilidad de que un hombre muriera de cáncer de riñón en 1998 fue de  0.0000577  y  en 2022 será  de 0.0000729.
-    
-```{block2,type="rmdexercici"}
-Leído en el [MallorcaDiario.com](https://www.mallorcadiario.com/mortalidad-coronavirus-baleares-tasa): "La tasa de mortalidad a causa del COVID-19 en Baleares fue del 1.06 por ciento frente al 2.17 por ciento a nivel nacional [...]. En el caso de personas mayores de 74, la tasa de mortalidad de Baleares (12.74 por ciento) está casi diez puntos porcentuales por debajo que la media nacional de personas de a misma edad, que llegó hasta el 22,34 por ciento."
-
-¿De qué están hablando realmente, de la tasa de mortalidad de la COVID-19 o de su tasa de letalidad?
-```
-
-
+* La probabilidad de que un hombre muriera de cáncer de riñón en 1998 fue de  5.77/10^5^ y se estima que será de 7.29/10^5^ en 2022.
 
 ## Álgebra de conjuntos
 
-Vamos a repasar muy rápidamente las notaciones y las propiedades de las operaciones de conjuntos.  Sean $A$ y $B$ subconjuntos (en el contexto de la teoría de probabilidades, se los llama **sucesos**) de un conjunto $\Omega$ (nuestra **población** o, en el lenguaje de la teoría de probabilidades, el **espacio muestral**).
+Vamos a repasar muy rápidamente las notaciones y las propiedades de las operaciones de conjuntos. Las tres operaciones básicas entre conjuntos son la unión, la intersección y el complementario.
 
-* $A\cup B$ es la **unión** de $A$ y $B$:  el conjunto formado por los elementos que pertenecen a $A$ o a $B$ o a ambos.
+Sean $A$ y $B$ subconjuntos (en el contexto de la teoría de probabilidades, se los llama **sucesos**) de un conjunto $\Omega$ (nuestra **población** o, en el lenguage de la teoría de probabilidades, el **espacio muestral**).
 
-     Corresponde a la **disjunción**  del lenguaje natural.
+* $A\cup B$ es la **unión** de $A$ y $B$:  el conjunto formado por los elementos que pertenecen a $A$ o a $B$ o a los dos.
+
+     Corresponde a la **disjunción**  del lenguage natural.
      
 * $A \cap B$ es la **intersección**  de $A$ y $B$:  el conjunto formado por los elementos que pertenecen simultáneamente a $A$ y a $B$.
 
-     Corresponde a la **conjunción**  del lenguaje natural.
+     Corresponde a la **conjunción**  del lenguage natural.
 
 
-* $A^c$ es el **complementario** de $A$:  el conjunto formado por los elementos de $\Omega$ que no pertenecen a $A$.
+* $A^c$es el **complementario** de $A$:  el conjunto formado por los elementos de $\Omega$ que no pertenecen a $A$.
 
-     Corresponde a la **negación**  del lenguaje natural.
+     Corresponde a la **negación**  del lenguage natural.
 
-* $A-B=A \cap B^c$ es  la  **diferencia** "$A$ menos $B$": es el conjunto formado por los elementos que pertenecen a $A$ pero no pertenecen a $B$.
+* $A-B=A \cap B^c$:  La **diferencia** "$A$ menos $B$: es el conjunto formado por los elementos que pertenecen a $A$ pero no pertenecen a $B$.
 
-* Diremos que $A$ y $B$ son **disjuntos**, o **incompatibles**, cuando $A\cap B=\emptyset$, donde $\emptyset$ denota el **conjunto vacío**, el conjunto que no tiene elementos.
+Diremos que $A$ y $B$ son **disjuntos**, o **incompatibles**, cuando $A\cap B=\emptyset$, donde $\emptyset$ denota el **conjunto vacío**, el conjunto que no tiene elementos.
 
-* Diremos que $A$ está **contenido**, o **incluido**, en $B$, y lo denotaremos por $A\subseteq B$, cuando todo elemento de $A$ pertenece a $B$. Para denotar que $A$ está **estrictamente contenido** en $B$ usaremos $A\subsetneq B$.
+Diremos que $A$ está **contenido**, o **incluido**, en $B$, y lo denotaremos por $A\subseteq B$, cuando todo elemento de $A$ pertenece a $B$.
 
 ```{example}
-Consideremos la población $\Omega$ formada por los estudiantes de una clase, y sean $A$ el subconjunto formado por la mujeres de esa clase y $B$ el subconjunto formado por los estudiantes de esa clase que llevan gafas.
+Consideremos la población $\Omega$ formada por los estudiantes de esta clase, y sean $A$ el subconjunto formado por la mujeres de esta clase y $B$ el subconjunto formado por los estudiantes de esta clase que llevan gafas.
 
 ````
 
@@ -111,43 +98,32 @@ Entonces:
 
 
 
-* $A\cup B$ indica el conjunto de los estudiantes de la clase que son mujeres **o** llevan gafas.
+* $A\cup B$ indica el conjunto de los estudiantes de esta clase que son mujeres **o** llevan gafas.
 
-* $A \cap B$ indica  el conjunto de los estudiantes de la clase que son mujeres **y** llevan gafas, es decir, las mujeres de la clase que llevan gafas.
+* $A \cap B$ indica  el conjunto de los estudiantes de esta clase que son mujeres **y** llevan gafas, es decir, las mujeres de esta clase que llevan gafas.
 
-* $B^c$  indica  el conjunto de los estudiantes de la clase que  **no** son mujeres, es decir el conjunto de los hombres  de la clase.
+* $B^c$  indica  el conjunto de los estudiantes de esta clase que  **no** son mujeres, es decir el conjunto de los hombres  de esta clase.
 
-* $B^c$  indica  el conjunto de los estudiantes de la clase que  **no** llevan gafas.
+* $B^c$  indica  el conjunto de los estudiantes de esta clase que  **no** llevan gafas.
 
-* $A-B$  indica  el conjunto de las mujeres de la clase que **no** llevan gafas.
+* $A-B$  indica  el conjunto de las mujeres de esta clase que **no** llevan gafas.
 
-* $B-A$  indica  el conjunto de las hombres de la clase que **sí** llevan gafas.
+* $B-A$  indica  el conjunto de las hombres de esta clase que **sí** llevan gafas
 
-* $A$ y $B$ serán incompatibles si no hay ninguna mujer en la clase que lleve gafas.
+* $A$ y $B$ serán incompatibles si no hay ninguna mujer en esta clase que lleve gafas.
 
-* $A\subseteq B$ será verdad si todas las mujeres de la clase llevan gafas. 
+* $A\subseteq B$ si todas las mujeres de esta clase llevan gafas. 
 
-* $B\subseteq A$ será  verdad si todos los estudiantes  de la clase que llevan gafas son mujeres. 
+* $B\subseteq A$  si todos los estudiantes  de esta clase que llevan gafas son mujeres. 
 
 Las propiedades de estas operaciones son las siguientes, y se corresponden a las
  propiedades (correctas) de las conjunciones, disjunciones y negaciones en el lenguaje natural.
 
 a. La unión y la intersección son **conmutativas**: $A\cup B=B\cup A$ y $A\cap B=B\cap A$
 
-b. La unión y la intersección son **asociativas**: $A\cup(B\cup C)=(A\cup B)\cup C$ y $A\cap(B\cap C)=(A\cap B) \cap C$
+a. La unión y la intersección son **asociativas**: $A\cup(B\cup C)=(A\cup B)\cup C$ y $A\cap(B\cap C)=(A\cap B) \cap C$
 
-
-```{r, echo=FALSE, out.width="80%", fig.cap="Propiedad asociativa de la unión."}
-knitr::include_graphics("INREMDN_files/figure-html/assocunio.png")
-```
-
-
-```{r, echo=FALSE, out.width="80%", fig.cap="Propiedad asociativa de la unión."}
-knitr::include_graphics("INREMDN_files/figure-html/assocint.png")
-```
-
-
-c. La unión y la intersección son **distributivas**: $A\cap(B\cup C)=(A\cap B)\cup (A\cap C)$ y $A\cup(B\cap C)=(A\cup B)\cap (A\cup C)$
+a. La unión y la intersección son **distributivas**: $A\cap(B\cup C)=(A\cap B)\cup (A\cap C)$ y $A\cup(B\cap C)=(A\cup B)\cap (A\cup C)$
 
 
 ```{r, echo=FALSE, out.width="80%", fig.cap="Propiedad distributiva de la unión respecto de la intersección."}
@@ -158,7 +134,7 @@ knitr::include_graphics("INREMDN_files/figure-html/distr1BD.png")
 knitr::include_graphics("INREMDN_files/figure-html/distr2BD.png")
 ```
 
-d. Propiedad del **doble complementario**: $(A^c)^c=A$. 
+a. Propiedad del **doble complementario**: $(A^c)^c=A$. 
 
     Corresponde al hecho de que, en el lenguaje natural, "No es verdad que no lleve gafas" significa lo mismo que "Lleva gafas".
 
@@ -166,7 +142,7 @@ d. Propiedad del **doble complementario**: $(A^c)^c=A$.
 knitr::include_graphics("INREMDN_files/figure-html/dcBD.png")
 ```
 
-e. **Leyes de De Morgan**: $(A\cup B)^c=A^c \cap B^c$  y $(A\cap B)^c=A^c\cup B^c$. 
+a. **Leyes de De Morgan**: $(A\cup B)^c=A^c \cap B^c$  y $(A\cap B)^c=A^c\cup B^c$. 
 
     La primera corresponde al hecho de que, en el lenguaje natural, lo contrario de "Ser mujer o llevar gafas" es "No ser mujer  y no llevar gafas". La segunda corresponde al hecho de que, en el lenguaje natural, lo contrario de "Ser mujer y llevar gafas" es "No ser mujer  o no llevar gafas".
 
@@ -187,7 +163,7 @@ A partir de esta definición se deducen de manera más o menos intuitiva las pro
 
 1.  $0\leq P(A)\leq 1$, para todo suceso $A$ (un subconjunto $A$ de $\Omega$ no puede representar ni una fracción negativa ni una fracción mayor que 1 de los sujetos de $\Omega$).
 
-2. $P(\Omega)=1$ y $P(\emptyset)=0$.
+2. $P(\EM)=1$ y $P(\emptyset)=0$.
 
 3. Si $A$ y $B$ son dos sucesos disjuntos, entonces $P(A\cup B)=P(A)+P(B)$ (si no hay ningún sujetos que pertenezca simultáneamente a $A$ y a $B$, entonces la fracción de los sujetos que pertenecen a $A$ o a $B$ se obtiene sumando las fracciones de los que pertenecen a $A$ y de los que pertenecen a $B$).
 
