@@ -132,9 +132,9 @@ Entonces:
 Las propiedades de estas operaciones son las siguientes, y se corresponden a las
  propiedades (correctas) de las conjunciones, disjunciones y negaciones en el lenguaje natural.
 
-a. La unión y la intersección son **conmutativas**: $A\cup B=B\cup A$ y $A\cap B=B\cap A$
+a. La unión y la intersección son **conmutativas**: $A\cup B=B\cup A$ y $A\cap B=B\cap A$.
 
-b. La unión y la intersección son **asociativas**: $A\cup(B\cup C)=(A\cup B)\cup C$ y $A\cap(B\cap C)=(A\cap B) \cap C$
+b. La unión y la intersección son **asociativas**: $A\cup(B\cup C)=(A\cup B)\cup C$ y $A\cap(B\cap C)=(A\cap B) \cap C$.
 
 
 ```{r, echo=FALSE, out.width="80%", fig.cap="Propiedad asociativa de la unión."}
@@ -147,7 +147,7 @@ knitr::include_graphics("INREMDN_files/figure-html/assocint.png")
 ```
 
 
-c. La unión y la intersección son **distributivas**: $A\cap(B\cup C)=(A\cap B)\cup (A\cap C)$ y $A\cup(B\cap C)=(A\cup B)\cap (A\cup C)$
+c. La unión y la intersección son **distributivas**: $A\cap(B\cup C)=(A\cap B)\cup (A\cap C)$ y $A\cup(B\cap C)=(A\cup B)\cap (A\cup C)$.
 
 
 ```{r, echo=FALSE, out.width="80%", fig.cap="Propiedad distributiva de la unión respecto de la intersección."}
@@ -179,53 +179,87 @@ knitr::include_graphics("INREMDN_files/figure-html/dM2BD.png")
 ```
 
 
-## Propiedades de las probabilidades
+El hecho de que la unión y la intersección sean asociativas y conmutativas nos premite escribir expresiones del estilo de
+$$
+A_1\cap A_2\cap \cdots \cap A_n
+$$
+para indicar la intersección de los sucesos $A_1,\ldots,A_n$ agrupándolos como queramos y en el orden que queramos. Y lo mismo para la unión.
 
-Hemos definido la probabilidad $P(A)$ de un subconjunto (o suceso) $A$ de una población (o espacio muestral) $\Omega$ como la fracción de los sujetos de $\Omega$ que pertenecen a $A$. 
+## Algunas fórmulas básicas
 
-A partir de esta definición se deducen de manera más o menos intuitiva las propiedades siguientes:
+Hemos definido la probabilidad $P(A)$ de un subconjunto (o suceso) $A$ de una población (o espacio muestral) $\Omega$ como la fracción de los sujetos de $\Omega$ que pertenecen a $A$.  A partir de esta definición se deducen, por puro conteo, las propiedades siguientes:
 
-1.  $0\leq P(A)\leq 1$, para todo suceso $A$ (un subconjunto $A$ de $\Omega$ no puede representar ni una fracción negativa ni una fracción mayor que 1 de los sujetos de $\Omega$).
+1. Para todo suceso $A$, $0\leq P(A)\leq 1$.
+
+    Un subconjunto $A$ de $\Omega$ no puede representar ni una fracción negativa ni una fracción mayor que 1 de los sujetos de $\Omega$.
 
 2. $P(\Omega)=1$ y $P(\emptyset)=0$.
 
-3. Si $A$ y $B$ son dos sucesos disjuntos, entonces $P(A\cup B)=P(A)+P(B)$ (si no hay ningún sujetos que pertenezca simultáneamente a $A$ y a $B$, entonces la fracción de los sujetos que pertenecen a $A$ o a $B$ se obtiene sumando las fracciones de los que pertenecen a $A$ y de los que pertenecen a $B$).
+3. Si $A$ y $B$ son dos sucesos disjuntos, entonces $P(A\cup B)=P(A)+P(B)$.
+
+   Si no hay ningún sujeto que pertenezca simultáneamente a $A$ y a $B$, entonces el número de sujetos que pertenecen a $A$ o a $B$ es la suma de los que pertenecen a $A$ y de los que pertenecen a $B$. Entonces, dividiendo por el número total de individuos de la población $\Omega$ (su **cardinal**), obtenemos que la fracción de los sujetos que pertenecen a $A$ o a $B$ se obtiene sumando las fracciones de los que pertenecen a $A$ y de los que pertenecen a $B$.
 
 4. Más en general, si $A_1,A_2,\ldots,A_n$ son sucesos disjuntos dos a dos, entonces
 $$
-P(A_1\cup A_2\cup \cdots \cup A_n)=P(A_1)+P(A_2)+\cdots +P(A_n)
+P(A_1\cup A_2\cup \cdots \cup A_n)=P(A_1)+P(A_2)+\cdots +P(A_n).
 $$
 
 5. $P(A-B)=P(A)-P(A\cap B)$. 
 
-    En efecto, como $A-B$ y $A\cap B$ son disjuntos (ningún elemento de $A-B$ pertenece a $B$ y todos los elementos de $A\cap B$ pertenecen a $B$) tenemos que $P((A-B)\cup (A\cap B))=P(A-B)+P(A\cap B)$; y por otro lado $(A-B)\cup (A\cap B)=A$, porque $A$ es la unión del conjunto de sus elementos que no pertenecen a $B$ y del conjunto de sus elementos que sí pertenecen a $B$, como podéis ver en la Figura \@ref(fig:AmenysB).
+    La fracción del total que representan los sujetos que pertenecen a $A$ pero no a $B$ se obtiene restando de la fracción del total que representan los sujetos de $A$, la fracción del total que representan los pertenecen simultáneamente a $A$ y a $B$.
+
+    En efecto, como $A-B$ y $A\cap B$ son disjuntos (ningún elemento de $A-B$ pertenece a $B$ y todos los elementos de $A\cap B$ pertenecen a $B$) tenemos que $P((A-B)\cup (A\cap B))=P(A-B)+P(A\cap B)$; y por otro lado $(A-B)\cup (A\cap B)=A$, porque $A$ es la unión del conjunto de sus elementos que no pertenecen a $B$ y del conjunto de sus elementos que sí pertenecen a $B$ (Figura \@ref(fig:AmenysB)).
 
 
 ```{r AmenysB, echo=FALSE, out.width="50%", fig.cap="Descomposición de la unión en tres conjuntos disjuntos."}
 knitr::include_graphics("INREMDN_files/figure-html/A-B.png")
 ```
 
-6. $P(A^c)=1-P(A)$ (la fracción de los sujetos que no pertenecen a $A$ es 1 menos la fracción de los que sí pertenecen a $A$).
+```{block2,type="rmdcaution"}
+¡Ojo! En general, es falso que $P(A-B)=P(A)-P(B)$. Si en una población hay un 50% de mujeres y un 60% de miopes, y un 35% del total son mujeres miopes, las mujeres no miopes son un 15% del total de la población, no un -10%, ¿no? 
+```
+
+
+6. $P(A^c)=1-P(A)$.
+
+    Es decir, la fracción de los sujetos que no pertenecen a $A$ es 1 menos la fracción de los que sí pertenecen a $A$.
 
 7. Si $A\subseteq B$, entonces $P(A)\leq P(B)$ (si $A$ está contenido en $B$, la la fracción de los sujetos que  pertenecen a $A$ es más pequeña que la  de los que  pertenecen a $B$).
 
 
-8. $P(A\cup B)=P(A)+P(B)-P(A \cap B)$, porque $A\cup B=(A-B)\cup (B-A)\cup (A\cap B)$,  como podéis ver en la Figura \@ref(fig:AmenysB), y estos tres conjuntos son disjuntos, por lo que podéis aplicar la propiedad 4.
+8. $P(A\cup B)=P(A)+P(B)-P(A \cap B)$.
+
+    En general, si queréis contar cuántos sujetos hay en $A\cup B$ y sumáis los de $A$ y los de $B$, los de la intersección los contáis dos veces, por lo que para dar el resultado correcto hay que restarlos una vez para compensarlo. Lo mismo pasa con las proporciones. 
+
+    Como podéis ver en la Figura \@ref(fig:AmenysB), $A\cup B=(A-B)\cup (B-A)\cup (A\cap B)$ y estos tres conjuntos son disjuntos, por lo que podéis aplicar las propiedades 4 y 5:
+$$
+\begin{array}{rl}
+P(A\cup B) & = P(A-B)+ P(B-A)+ P(A\cap B)\\
+& =P(A)-P(A\cap B)+P(B)-P(A\cap B)+ P(A\cap B)\\
+& =P(A)+P(B)-P(A \cap B)
+\end{array}
+$$
+    Por ejemplo, si en una población hay un 50% de mujeres y un 60% de miopes, y un 35% del total son mujeres miopes, las personas que son mujeres o miopes (o ambas cosas, nuestra "o" nunca va a ser exclusiva si no lo decimos explícitamente)  forman un 75% de la población: al 50% de mujeres le sumamos el 25% de miopes que no son mujeres.
+    
+    Otra manera de escribir la ecuación anterior es
+$$
+P(A\cap B)=P(A)+P(B)-P(A \cup B)
+$$
 
 9. Si $A=\{a_1,a_2,\ldots,a_k\}$, entonces
 $$
 P(A)=P(a_1)+P(a_2)+\cdots+P(a_k)
 $$
-(de ahora en adelante, para simplificar, si $a\in \Omega$, escribiremos $P(a)$ en vez de $P(\{a\})$). Esta propiedad también se deduce directamente de la propiedad 4
+(de ahora en adelante, para simplificar, si $a\in \Omega$, escribiremos $P(a)$ en vez de $P(\{a\})$). Esta propiedad también se deduce directamente de la propiedad 4.
 
 10. Fijaos que de esta propiedad se deduce la **Fórmula de Laplace** que hemos mencionado al principio de esta lección: Si $\Omega$ es finito y todos sus elementos  tienen la misma probabilidad, entonces 
 $$
 P(A)=\frac{|A|}{|\Omega|}=\Big(\frac{\text{casos favorables}}{\text{casos posibles}}\Big)
 $$
-(donde $|A|$ denota el **cardinal** de $A$, es decir, su número de elementos).
+(donde $|\ldots |$ denota el **cardinal** del conjunto entre las barras).
 
 ```{block2,type="rmdcorbes"}
-Suponed que $\Omega$ tiene $n$ elementos, $Omega=\{x_1,\ldots,x_n\}$, y que $P(x_1)=\cdots=P(x_n)$. Sea $p$ esta probabilidad común a todos los elementos de $\Omega$. Entonces, por las propiedades 2 y 9,
+Suponed que $\Omega$ tiene $n$ elementos, digamos $\Omega=\{x_1,\ldots,x_n\}$, y que $P(x_1)=\cdots=P(x_n)$. Sea $p$ esta probabilidad común a todos los elementos de $\Omega$. Entonces, por las propiedades 2 y 9,
 $$
 1=P(\Omega)=P(x_1)+\cdots+P(x_n)=n\cdot p
 $$
@@ -238,17 +272,20 @@ $$
 ```
 
 ```{block2,type="rmdcaution"}
-En general, es falso que $P(A\cap B)=P(A)\cdot P(B)$. Más adelante veremos cuándo esta igualdad se cumple.
+En general, es falso que $P(A\cap B)=P(A)\cdot P(B)$. Por ejemplo, en la problación con un 50% de mujeres, un 60% de miopes  y un 35% de mujeres miopes que hemos usado antes, 0.6·0.5 no es igual a 0.35.
+
+Más adelante veremos cuándo esta igualdad sí se cumple.
 ```
 
 
 
 ```{example,VIHherpes1}
-Supongamos el 0.1% de todos los donantes de sangre da positivo en el test de VIH, y el 1% da positivo en el test de herpes simple (VHS). El 0.05% da positivo en los dos tests. 
+Supongamos el 0.1% de todos los donantes de sangre da positivo en el test de VIH, y el 1% da positivo en el test de herpes simple (VHS). El 0.05% da positivo en ambos tests. 
 
-*(a)* ¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en algún test?
+*(a)* ¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en al menos uno de los dos tests?
 
 *(b)* ¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en VHS pero no en VIH?
+  
   
 ```
 
@@ -263,12 +300,14 @@ Vamos a poner nombres a los sucesos involucrados en estas preguntas:
 * $A\cap B$: Dar positivo en los dos. Sabemos que $P(A\cap B)=0.0005$.
 
 
-* $A\cup B$: Dar positivo en algún test. Es lo que queremos calcular en (a).
+* $A\cup B$: Dar positivo en al menos uno de los dos. Es lo que queremos calcular en (a).
 
     Por la propiedad (8):
 $$
 P(A \cup B) =P(A)+P(B)-P(A\cap B)=0.001+0.01-0.0005=0.0105
 $$
+    La probabilidad de que un donante escogido al azar dé positivo en al menos uno de los dos tests es del 1.05%.
+
 
 * $B-A$: Dar positivo en VHS pero no en VIH. Es lo que queremos calcular en (b).
 
@@ -276,22 +315,24 @@ $$
 $$
 P(B-A)=P(B)-P(A\cap B)=0.01-0.0005=0.0095
 $$
-
+    La probabilidad de que un donante escogido al azar dé positivo en VHS pero no en VIH es del 0.95%.
+    
 Otra manera de calcular estas probabilidades sin necesidad de recordar fórmulas sería:
 
 * Tomar como referencia una población de un tamaño fijado y bastante grande; 
+
 * Calcular en esta población cuántos individuos pertenecen a $A\cap B$ (dan positivo en ambos tests), cuántos a $A-B$ (positivos en VIH pero no en VHS), cuántos a $B-A$ (positivos en VHS pero no en VIH) y cuántos a $A^c\cap B^c$ (negativo en ambos tests) y a partir de aquí calcular todo lo que queramos.
 
-A este método se le suele llamar **método de frecuencias naturales**. Pongámoslo en práctica en nuestro caso:
+A este método se le suele llamar **método de frecuencias naturales**, y así nos referiremos nosotros a él. Pongámoslo en práctica en nuestro caso:
 
-1. Vamos a tomar una población de referencia de 10,000 donantes ¿Por qué este número? Veamos, fijaos en que la proporción de sujetos en $A\cap B$ es del 0.05%, es decir, 0.0005, y para facilitar los cálculos me gustaría que el número de sujetos en mi población fuera entero, para no liarme con decimales. Como 0.0005·10000=5, me vale.
+1. Vamos a tomar una población de referencia de 10,000 donantes ¿Por qué este número? Veamos, fijaos en que la proporción de sujetos en $A\cap B$ es del 0.05%, es decir, 0.0005, y para facilitar los cálculos me gustaría que todos los números de sujetos en mi población fueran enteros, para no liarme con decimales. Como 0.0005·10000=5, 10,000 me vale.
 
 1. Los sujetos de $A$ son el 0.1% de la población: 10
 1. Los sujetos de $B$ son el 1% de la población: 100
 1. Los sujetos de $A\cap B$ son el 0.05% de la población: 5
 1. Entonces, los sujetos de $A-B$ serán los de $A$ menos los de $A\cap B$: 5
 1. Y los sujetos de $B-A$ serán los de $B$ menos los de $A\cap B$: 95
-1. Por ahora ya tenemos 5 sujetos positivos en VIH y en VHS, 5 positivos en VIH y negativos en VHS, y 95 positivos en VHS y negativos en VIH, en total 105. El resto serán negativos tanto en VIH como en VHS.
+1. Por ahora ya tenemos: 5 sujetos positivos en VIH y en VHS; 5 positivos en VIH y negativos en VHS; y 95 positivos en VHS y negativos en VIH. En total, 105 sujetos. El resto serán negativos tanto en VIH como en VHS.
 1. Por lo tanto, los sujetos de $A^c\cap B^c$ serán 10000-105=9895.
 
 Obtenemos la tabla de frecuencias siguiente:
@@ -321,15 +362,13 @@ Hay 95 sujetos en la tabla que dan positivo en VHS y negativo en VIH, por lo que
 ```{block2,type="rmdexercici"}
 Seguimos en la situación anterior: el 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes, y el 0.05% da positivo en los dos tests.
 
-*(a)* ¿Cuál es la probabilidad de que un donante escogido al azar no dé positivo en ninguno de los dos tests?
-  
-*(b)* ¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en un solo test?
+¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en un solo test?
   
 ```
 
 
 ```{block2,type="rmdexercici"}
-Supongamos ahora que 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes y el *1.06%* da positivo en alguno de los dos tests. 
+Supongamos ahora que 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes y el *1.06%* da positivo en al menos uno de los dos tests. 
 
 ¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en ambos?
 
@@ -339,7 +378,7 @@ Supongamos ahora que 0.1% de todos los donantes de sangre da positivo en el test
 
 ## Odds
 
-En algunos contextos, las probabilidades se presentan en forma de **odds**  (la traducción más común en castellano es **momios**, pero se usan otras: posibilidades, oportunidades...). Las **odds** de un suceso $A$ son
+En algunos contextos, las probabilidades se presentan en forma de **odds**  (la traducción más común en castellano es **momios**, pero se usan otras: posibilidades, oportunidades, ocasiones...). Las **odds** de un suceso $A$ son
 $$
 \text{Odds}(A)=\frac{P(A)}{P(A^c)}=\frac{P(A)}{1-P(A)}.
 $$
@@ -358,16 +397,21 @@ Si $\text{Odds}(A)=q$, significa que **por cada vez que ocurre "no $A$", ocurre 
 * Por cada 3 estudiantes que aprueban, hay 2 que suspenden.
 * De cada 5 estudiantes, 3 aprueban y 2  suspenden.
 
-```{example}
+```{example} 
+Algunos ejemplos de *odds* a partir de probabilidades:
+
 * Si $P(A)=0.2$, $\text{Odds}(A)=0.2/0.8=0.25$.
 * Si $P(A)=0$, $\text{Odds}(A)=0$.
 * Si $P(A)=0.5$, $\text{Odds}(A)=1$.
 * Si $P(A)=1$, $\text{Odds}(A)=\infty$.
+
 ```
+
+Como son un cociente de dos probabilidades, las *odds* de un suceso son siempre mayor o iguales que 0, incluyendo la posibilidad de valer, $\infty$, y pueden tomar cualquier valor entre 0 e $\infty$.
 
 
 ```{block2,type="rmdexercici"}
-Si lanzamos un dado equilibrado, de 6 caras, al aire:}
+Si lanzamos un dado equilibrado de 10 caras al aire:
 
 1. ¿Qué valen  las *odds* de sacar un 3? 
 
@@ -387,7 +431,7 @@ $$
 P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}
 $$
 
-La función
+Observad que la función
 $$
 y=\frac{x}{1+x}
 $$
@@ -404,12 +448,13 @@ $$
 \text{Odds}(A)=\text{Odds}(B)\Longleftrightarrow P(A)=P(B)
 \end{array}
 $$
+Es decir, $A$ es más probable que $B$ si, y solo si, sus *odds* son mayores.
 
 En estudios de casos y controles, la manera correcta de presentar cuánto más probable es un desenlace si se ha estado expuesto a un factor de riesgo que si no se ha estado es por medio de una *odds ratio*. La  **odds ratio** (**razón de momios**, de oportunidades...) de dos sucesos $A$ y $B$ es el cociente de sus *odds*:
 $$
 \text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}
 $$
-Es difícil de interpretar excepto su relación con 1:
+Su valor es difícil de interpretar excepto su relación con 1:
 
 *  $\text{OR}(A,B)=1\Longleftrightarrow \text{Odds}(A)=\text{Odds}(B) \Longleftrightarrow P(A)=P(B)$
 
@@ -426,14 +471,15 @@ $$
 $$
 
 ```{block2,type="rmdcorbes"}
-Si $\text{OR}(A,B)=2$, significa que
+En general, si $\text{OR}(A,B)=q$, es decir,  $\text{Odds}(A)=q\cdot\text{Odds}(B)$, entonces
 $$
 \begin{array}{l}
-P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}=\dfrac{2\cdot\text{Odds}(B)}{1+2\cdot\text{Odds}(B)}\\
-\qquad =\dfrac{\frac{P(B)}{1-P(B)}}{1+2\frac{P(B)}{1-P(B)}}=\dfrac{P(B)}{1-P(B)+2P(B)}=\dfrac{P(B)}{1+P(B)}
+P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}=\dfrac{q\cdot\text{Odds}(B)}{1+q\cdot\text{Odds}(B)}\\
+\qquad =\dfrac{q\cdot\frac{ P(B)}{1-P(B)}}{1+q\cdot\frac{P(B)}{1-P(B)}}=\dfrac{q\cdot  P(B)}{1-P(B)+q\cdot P(B)}=\dfrac{q\cdot P(B)}{1+(q-1)P(B)}
 \end{array}
 $$
-````
+y por lo tanto la relación entre $P(A)$ y $P(B)$ no es lineal.
+```
 
 ```{example}
 En un [estudio de casos y controles reciente](https://www.gastrojournal.org/article/S0016-5085(20)30490-X/fulltext)
@@ -443,14 +489,14 @@ En un [estudio de casos y controles reciente](https://www.gastrojournal.org/arti
 
 > "la presencia de síntomas gastrointestinales se asoció a un incremento del 70% en el riesgo de dar positivo [en el test de COVID-19]:  odds ratio, 1.7."
 
-¿Qué significa esto? Que la *odds ratio* valga 1.7 significa que las *odds* de dar positivo en COVID-19 si se tienen síntomas gastrointestinales son 1.7 veces las de dar positivo si no se tienen síntomas gastrointestinales, es decir un 70% mayores. Pero las *odds*, no el **riesgo** entendido en sentido de **probabilidad**: no tiene por qué ser cierto que la proporción de sujetos con síntomas gastrointestinales  que dan positivo en COVID-19 sea un 70% mayor que la proporción de sujetos con síntomas gastrointestinales  que dan positivo en COVID-19.
+¿Qué significa esto? Que la *odds ratio* valga 1.7 significa que las *odds* de dar positivo en COVID-19 si se tienen síntomas gastrointestinales son 1.7 veces las de dar positivo si no se tienen síntomas gastrointestinales, es decir un 70% mayores. Pero fijaos que estamos hablando de las *odds*, no del **riesgo** entendido en sentido de **probabilidad**: no tiene por qué ser cierto que la probabilidad de dar positivo en COVID-19 si se tienen síntomas gastrointestinales  sea un 70% mayor que si no se tienen síntomas gastrointestinales.
 
 En este estudio concreto, se obtuvo la tabla de frecuencias siguiente (SG significa "síntomas gastrointestinales")
 $$
 \begin{array}{r|c|c|c}
 & \text{COVID-19 } + & \text{COVID-19 } + & \text{Total}\\ \hline
 \text{SG Sí} & 97&	63 & 160\\\hline
-\text{SG No}  & 181 &	175 & 356\hline
+\text{SG No}  & 181 &	175 & 356\\\hline
 \text{Total} & 278 & 238 &  316
 \end{array}
 $$
@@ -461,7 +507,7 @@ por lo que la proporción de COVID-19 positivos entre los que tuvieron síntomas
 ```{block2,type="rmdexercici"}
 1. ¿Qué valen las *odds* de sacar 3 caras en 3 lanzamientos de una moneda equilibrada?
 
-1. Si un suceso pasa 2 veces de cada 10 veces que puede pasar, ¿qué valen las *odds* que pase?
+1. Si un suceso pasa 2 veces de cada 10 veces que puede pasar, ¿qué valen sus *odds*?
 
 1. Si las *odds* de $A$ son 1/2, ¿qué vale $P(A)$?
 
@@ -482,22 +528,6 @@ $$
 
 Este valor representa la probabilidad de que si pasa $A$, entonces pase $B$; es decir, la proporción, entre los sujetos que satisfacen $A$, de los que también satisfacen  $B$.
 
-```{block2,type="rmdimportant"}
-No confundáis:
-
-* $P(B)$: La probabilidad de que un individuo de la población global $\Omega$ satisfaga $B$.
-
-    Probabilidad de que una persona escogida al azar lleve gafas
-
-* $P(B|A)$: Probabilidad de que un individuo de la subpoblación definida por los que satisfacen $A$, satisfaga $B$ 
-
-      Probabilidad de que una **mujer**  escogida al azar lleve gafas
-
-    * $P(B\cap A)$: Probabilidad de que un individuo de la población global satisfaga simultáneamente $A$ y $B$
-      
-    Probabilidad de que una persona   escogida al azar sea mujer y lleve gafas
-```
-
 
 ```{example}
 Supongamos que en una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. La tabla de frecuencias correspondiente es
@@ -517,42 +547,71 @@ $$
 
 1. ¿Cuál es la probabilidad de que un estudiante sea mujer?
 
-    Como hay 30 mujeres de un total de 50 estudiantes, esta probabilidad es  30/50=0.6
+Como hay 30 mujeres de un total de 50 estudiantes, esta probabilidad es  30/50=0.6
+    
+2. ¿Cuál es la probabilidad de que un estudiante lleve gafas?
 
-1. ¿Cuál es la probabilidad de que un estudiante sea mujer y lleve gafas? 
-
-    Como hay 18 mujeres que lleven gafas de un total de 50 estudiantes, esta probabilidad es  18/50=0.36
+Como hay 33 estudiantes con gafas de un total de 50 estudiantes, esta probabilidad es  33/50=0.65
 
 
+3. ¿Cuál es la probabilidad de que un estudiante sea mujer y lleve gafas? 
 
-1. ¿Cuál es la probabilidad de  que una mujer lleve gafas?
+Como la probabilidad de ser mujer es 0.6 y la probabilidad de llevar gafas es 0.65, la probabilidad de ser mujer y llevar gafas es el producto: 0.6·0.65=0.39.
+    
+```{block2,type="rmderror"}
+¿Qué os hemos dicho sobre que, en general, la probabilidad de la intersección NO es el producto de las probabilidades?
+```
 
-     Como hay 18 mujeres que lleven gafas de un total de 30 mujeres, esta probabilidad es  18/30=0.6. Fijaos que este valor es igual a
+Volvamos a intentarlo. Como hay 18 mujeres que lleven gafas de un total de 50 estudiantes, esta probabilidad es  18/50=0.36
+
+
+
+4. ¿Cuál es la probabilidad de  que una mujer lleve gafas?
+
+Como hay 18 mujeres que lleven gafas de un total de 30 mujeres, esta probabilidad es  18/30=0.6. Fijaos que este valor es igual a
 $$
-\frac{P(\text{mujer y gafas})}{P(\text{mujer})}=\frac{18/50}{30/50}=\frac{18}{30}
+P(\text{gafas}|\text{mujer})=\frac{P(\text{mujer y gafas})}{P(\text{mujer})}=\frac{18/50}{30/50}=\frac{18}{30}
 $$
 
-1. Escogemos un estudiante al azar. ¿Cuál es la probabilidad de que si es mujer, entonces lleve gafas?
+5. Escogemos un estudiante al azar. ¿Cuál es la probabilidad de que si es mujer, entonces lleve gafas?
 
-      Es la misma pregunta que la última, por lo que la respuesta es la misma: 18/30=0.6.
+Es la misma pregunta que la última, por lo que la respuesta es la misma: 18/30=0.6.
 
 
-1. ¿Cuál es la probabilidad de que un estudiante que lleve gafas sea mujer?}
+6. ¿Cuál es la probabilidad de que un estudiante que lleve gafas sea mujer?
 
-    Como hay 18 mujeres que lleven gafas de un total de 33 estudiantes que lleven gafas, esta probabilidad es  18/33=0.545. Fijaos, de nuevo, que este valor es igual a
+Como hay 18 mujeres que lleven gafas de un total de 33 estudiantes que lleven gafas, esta probabilidad es  18/33=0.545. Fijaos, de nuevo, que este valor es igual a
 $$
-\frac{P(\text{mujer y gafas})}{P(\text{gafas})}=\frac{18/50}{33/50}=\frac{18}{33}
+P(\text{mujer}|\text{gafas})=\frac{P(\text{mujer y gafas})}{P(\text{gafas})}=\frac{18/50}{33/50}=\frac{18}{33}
 $$
-1. Escogemos un estudiante al azar. ¿Cuál es la probabilidad de si lleva gafas, entonces sea mujer?}
+
+7. Escogemos un estudiante al azar. ¿Cuál es la probabilidad de si lleva gafas, entonces sea mujer?}
+
+Es la misma pregunta que la última, por lo que la respuesta es la misma: 18/33.
 
 
-     Es la misma pregunta que la última, por lo que la respuesta es la misma: 18/33.
+```{block2,type="rmdimportant"}
+No confundáis:
+
+* $P(B)$: La probabilidad de que un individuo de la población global $\Omega$ satisfaga $B$.
+
+     Por ejemplo, la probabilidad de que una persona escogida al azar lleve gafas
+
+* $P(B|A)$: Probabilidad de que un individuo de la subpoblación definida por los que satisfacen $A$, satisfaga $B$.
+
+     Por ejemplo, la probabilidad de que una **mujer**  escogida al azar lleve gafas
+
+* $P(B\cap A)$: Probabilidad de que un individuo de la población global satisfaga simultáneamente $A$ y $B$.
+      
+     Por ejemplo, la probabilidad de que una persona   escogida al azar sea mujer y lleve gafas
+```
+
 
 ```{block2,type="rmdexercici"}
 En una universidad, los alumnos se distribuyen de la manera siguiente por tipos de estudios y sexos:
 $$
 \begin{array}{r|c|c|c|c|c|c|c}
-\text{Estudio} & \text{Ciencias} & \text{Derecho} & \text{Economía} & \text{Educación} & \text{Ingeniería} & \text{Letras} &  \text{Total}\\ \hline
+\text{Estudio} & \text{Cien.} & \text{Der.} & \text{Econ.} & \text{Educ.} & \text{Ingen.} & \text{Letras} &  \text{Total}\\ \hline
 \text{Hombres} & 1200 & 1300 & 1000 & 300 & 600 & 400 & 4800\\ \hline
 \text{Mujeres} & 1400 & 600 & 800 & 1600 & 100 & 700 & 5200\\ \hline
 \text{Total} & 2600  &1900 &1800 &1900 &  700 & 1100 & 10000\\  
@@ -576,10 +635,7 @@ a. Si es hombre, esté matriculado en Educación?
 ```
 
 
-La probabilidad condicionada a $A$, $P(-|A)$, es una probabilidad "de verdad", simplemente hemos cambiado la población de $\Omega$ a $A$: en vez de trabajar con proporciones de la población total $\Omega$, trabajamos con proporciones de de la subpoblación definida por los sujetos que satisfacen $A$. Por lo tanto, $P(-|A)$ satisface todas las proiedades de las probabilidades.
-
-
-Por ejemplo, se cumple que:
+La probabilidad condicionada a $A$, $P(-|A)$, es una probabilidad "de verdad", simplemente hemos cambiado la población de $\Omega$ a $A$: en vez de trabajar con proporciones de la población total $\Omega$, trabajamos con proporciones de  la subpoblación definida por los sujetos que satisfacen $A$. Por lo tanto, $P(-|A)$ satisface todas las propiedades de las probabilidades. Por ejemplo, se cumple que:
 
 * $P(B^c|A)=1-P(B|A)$
 * $P(B_1\cup B_2|A)=P(B_1|A)+P(B_2|A)-P(B_1\cap B_2|A)$
@@ -597,6 +653,8 @@ Supongamos que un 15% de los adultos son hipertensos, un 25% de los adultos cree
 *(a)* Si un adulto cree que es hipertenso, ¿cuál es la probabilidad de que lo sea?
 
 *(b)* Si un adulto es hipertenso, ¿cuál es la probabilidad de que crea que lo es?
+  
+  
 ```
 
 Pongamos nombres a los sucesos involucrados en estas preguntas:
@@ -607,14 +665,20 @@ Pongamos nombres a los sucesos involucrados en estas preguntas:
 
 * $A\cap B$: Ser hipertenso y creerlo; $P(A \cap B)=0.09$
 
-En (a) nos piden la probabilidad de que, si se cree ser hipertenso, se sea hipertenso, es decir, la probabilidad de $A$ condicionada a $B$:
+En (a) nos piden la probabilidad de que, si un adulto cree ser hipertenso, sea hipertenso, es decir, la probabilidad de $A$ condicionada a $B$:
 $$
 P(A|B)=\frac{P(A\cap B)}{P(B)}=\dfrac{0.09}{0.25}=0.36
 $$
-En (b) nos piden la probabilidad de que, si se es hipertenso, se crea ser hipertenso, es decir, la probabilidad de $B$ condicionada a $A$:
+Si un adulto cree ser hipertenso, hay un 36% de probabilidad de que lo sea.
+
+
+En (b) nos piden la probabilidad de que, si un adulto  es hipertenso,  crea ser hipertenso, es decir, la probabilidad de $B$ condicionada a $A$:
 $$
 P(B|A) =\frac{P(A\cap B)}{P(A)}=\frac{0.09}{0.15}=0.6
 $$
+
+Si un adulto es hipertenso, hay un 60% de probabilidad de que crea serlo.
+
 ```{example}
 Un test para el VIH da positivo en un 99% de los casos en los que el virus está presente. En una población con el 0.5% de infectados por VIH:
   
@@ -622,11 +686,12 @@ Un test para el VIH da positivo en un 99% de los casos en los que el virus está
   
 *(b)* ¿Cuál es la probabilidad de que hagamos el test a un infectado y dé positivo?
   
+  
 ```
 
 La respuesta a (a) nos la dan en el enunciado: "el test da positivo en un 99% de los casos en los que el virus está presente", por lo que "la probabilidad de que si hacemos el test a un infectado, dé positivo" es 0.99.
 
-Pero (b) no se pide lo mismo que en (a), sino la probabilidad de que pasen dos cosas: que hagamos el test a un infectado **y** que dé positivo. Es la probabilidad de una intersección.
+Pero (b) no  pide lo mismo que  (a), sino la probabilidad de que pasen dos cosas: que hagamos el test a un infectado **Y** que dé positivo. Es la probabilidad de una intersección.
 
 Pongamos nombres:
 
@@ -641,6 +706,7 @@ $$
 P(A|B)=\frac{P(A \cap B)}{P(B)}\Longrightarrow  P(A \cap B)=P(A|B)\cdot P(B)=0.005\cdot 0.99=0.00495
 $$
 
+La probabilidad de que al hacer el test a un individuo al azar, dé positivo y esté infectado es del 0.0495%.
 
 ```{example}
 Un 50% de los enfermos que acuden al cardiólogo por supuestos problemas de corazón sufren de hecho estrés, y un 65% depresión. Sólo un 15% de estos enfermos no sufren ninguna de estas dos condiciones. 
@@ -651,14 +717,14 @@ Un 50% de los enfermos que acuden al cardiólogo por supuestos problemas de cora
 
 ```
 
-Esta vez vamos a usar primero el método de las frecuencias naturales. Vamos a suponer que tenemos una población der 100 enfermos que acuden al cardiólogo.
+Esta vez vamos a usar primero el método de las frecuencias naturales. Vamos a suponer que tenemos una población de referencia de 100 enfermos que acuden al cardiólogo.
 
 * De ellos, 50 sufren estrés y los otros 50 no.
 * 65 sufren depresión y 35 no.
 * Hay 15 que no sufren ninguna de las dos condiciones. Por lo tanto:
     * De los 50 que no sufren estrés, 15 tampoco sufren depresión y los otros 35 sí.
     * De los 35 que no sufren depresión, 15 tampoco sufren estrés y los otros 20 sí.
-* Ya tenemos 15 pacientes sin estrés ni depresión,  35 con depresión pero sin estrés y 20 con estrés pero sin depresión, en total 70 pacientes. Los otros 30, hasta llegar a 100, tendrán ambas enfermedades.
+* Ya tenemos 15 pacientes sin estrés ni depresión,  35 con depresión pero sin estrés y 20 con estrés pero sin depresión, en total 70 pacientes. Los otros 30, del total de 100, tendrán ambas enfermedades.
 
 Obtenemos la tabla de frecuencias siguiente:
 $$
@@ -708,14 +774,15 @@ y esta la podemos calcular directamente, porque sabemos que $P(E^c\cap D^c)=0.15
 
 Dos sucesos $A$ y $B$ (ambos de probabilidad no 0) son  **independientes** cuando $P(B|A)=P(B)$: es decir: 
 
-* Cuando el pertenecer a $A$ no modifica la probabilidad de pertenecer a $B$
+* Cuando el pertenecer a $A$ no modifica la probabilidad de pertenecer a $B$.
 * Cuando la proporción de sujetos de $B$ dentro de $A$ es la misma que dentro del total de la población.
-* El pertenecer a $A$ no modifica la probabilidad de pertenecer a $B$
+* El pertenecer a $A$ no modifica la probabilidad de pertenecer a $B$.
+
 
 En esta definición los papeles de $A$ y $B$ son intercambiables, como muestra el resultado siguiente que, además, da una caracterización alternativa muy importante.
 
 ```{proposition,indep}
-Dados dos sucesos $A,B$, ambos de probabilidad no 0, las tres condiciones siguientes son equivalentes:
+Dados dos sucesos $A,B$, ambos de probabilidad no 0, las cinco condiciones siguientes son equivalentes:
   
 a. $P(A \cap B)=P(A)\cdot P(B)$
 b. $P(B|A)=P(B)$
@@ -727,28 +794,28 @@ d. $P(A|B)=P(A|B^c)$
 ```{block2,type="rmdcorbes"}
 En efecto, fijaos en que, por la definición de probabilidad condicionada,
 $$
-\begin{array}{rl}
-\mathbf{P(B|A)=P(B)} &\Longleftrightarrow \dfrac{P(A\cap B)}{P(A)}=P(B)\\ & \Longleftrightarrow
+\begin{array}{l}
+\mathbf{P(B|A)=P(B)} \Longleftrightarrow \dfrac{P(A\cap B)}{P(A)}=P(B)\\ \qquad \Longleftrightarrow
 \mathbf{P(A\cap B)=P(A)\cdot P(B)}
-\\ & \Longleftrightarrow \dfrac{P(A\cap B)}{P(B)}=P(A)\\ & \Longleftrightarrow
+\\ \qquad \Longleftrightarrow \dfrac{P(A\cap B)}{P(B)}=P(A)\\ \qquad \Longleftrightarrow
 \mathbf{P(A|B)=P(A)}
 \end{array}
 $$
 Esto demuestra (a) $\Leftrightarrow$ (b) $\Leftrightarrow$ (c). 
 Por otro lado
 $$
-\begin{array}{rl}
-\mathbf{P(B|A)=P(B|A^c)}&\Longleftrightarrow \dfrac{P(A\cap B)}{P(A)}=\dfrac{P(A^c\cap B)}{P(A^c)}\\ & \Longleftrightarrow
-P(A\cap B)P(A^c)=P(A^c\cap B)P(A)=P(B-A)P(A)\\ & \Longleftrightarrow
-P(A\cap B)(1-P(A))=(P(B)-P(A\cap B))P(A)\\ & \Longleftrightarrow
-P(A\cap B)-P(A\cap B)P(A)=P(B)P(A)-P(A\cap B)P(A)\\ & \Longleftrightarrow
+\begin{array}{l}
+\mathbf{P(B|A)=P(B|A^c)}\Longleftrightarrow \dfrac{P(A\cap B)}{P(A)}=\dfrac{P(A^c\cap B)}{P(A^c)}\\ \qquad \Longleftrightarrow
+P(A\cap B)P(A^c)=P(A^c\cap B)P(A)=P(B-A)P(A)\\ \qquad \Longleftrightarrow
+P(A\cap B)(1-P(A))=(P(B)-P(A\cap B))P(A)\\ \qquad \Longleftrightarrow
+P(A\cap B)-P(A\cap B)P(A)=P(B)P(A)-P(A\cap B)P(A)\\ \qquad \Longleftrightarrow
 \mathbf{P(A\cap B)=P(B)P(A)}
 \end{array}
 $$
 lo que demuestra (a) $\Leftrightarrow$ (d). La  equivalencia (a) $\Leftrightarrow$ (e) se demuestra intercambiando los papeles de $A$ y $B$ en esta última demostración.
 ```
 
-Es decir,  las  afirmaciones siguientes son equivalentes:
+Es decir,  las  afirmaciones siguientes son equivalentes entre si, y corresponden a lo que definimos que $A$ y $B$ sean **independientes**:
 
 * La proporción de sujetos de $B$ dentro de $A$ es la misma que dentro del total de la población.
 
@@ -781,21 +848,23 @@ La fórmula $P(A\cap B)=P(A)P(B)$ que tanto os gusta solo es válida cuanda $A$ 
 En los EEUU, un 33% de la población es hipertensa. Supongamos que escogemos al azar un estadounidense y le hacemos lanzar una moneda equilibrada al aire. 
 
 ¿Cuál es la probabilidad de que sea hipertenso y saque cara?
-  
+
+
 ```
 
-Sean:
-* $A$: Que sea hipertenso; $P(A)=0.33$
+Consideremos los sucesos:
 
-* $B$: Sacar cara; $P(B)=0.5$
+* $A$: Que el estadounidense sea hipertenso; $P(A)=0.33$
 
-* $P(A\cap B)$: Probabilidad de que el sujeto sea hipertenso y saque cara. Es la probabilidad que queremos calcular.
+* $B$: Que saque cara; $P(B)=0.5$
 
-    Naturalmente, son independientes. La probabilidad de que salga cara no tiene nada que ver con que el que la lance sea hipertenso. Por lo tanto
+La probabilidad que queremos calcular es $P(A\cap B)$: Probabilidad de que el sujeto sea hipertenso y saque cara. 
+
+Naturalmente, ser hipertenso y sacar cara son sucesos independientes. La probabilidad de que salga cara no tiene nada que ver con que el que la lance sea hipertenso. Por lo tanto
 $$
 P(A\cap B)=P(A)\cdot P(B)=0.33\cdot 0.5=0.165
 $$
-
+La probabilidad de que el estadounidense escogido  al azar  sea hipertenso y saque cara es del 16.5%.
 
 ```{example}
 En los EEUU, el 36.5% de la población adulta es obesa, el 33% es hipertensa, y el 49.5% es obesa o hipertensa (datos del Centro de Control de Enfermedades, CDC, 2014). 
@@ -804,19 +873,20 @@ En los EEUU, el 36.5% de la población adulta es obesa, el 33% es hipertensa, y 
   
 ```
 
-Sean:
-* $A$: Ser obeso; $P(A)=0.365$
+Consideremos los sucesos:
 
-* $B$: Ser hipertenso; $P(B)=0.33$
+* $A$: Que un estadounidense adulto sea  obeso; $P(A)=0.365$
 
-* Queremos saber si $P(A\cap B)=P(A)P(B)$. Para ello tenemos que calcular $P(A\cap B)$ a partir de los datos que tenemos:
+* $B$: Que un estadounidense adulto sea hipertenso; $P(B)=0.33$
+
+Queremos saber si $P(A\cap B)=P(A)P(B)$. Para ello tenemos que calcular $P(A\cap B)$ a partir de los datos que tenemos:
 $$
 P(A \cap B)  =P(A)+P(B)-P(A\cup B)=0.365+0.33-0.495=0.2
 $$
 
-    Por otro lado, $P(A)\cdot P(B)= 0.365\cdot 0.33=0.12$
+Por otro lado, $P(A)\cdot P(B)= 0.365\cdot 0.33=0.12$
     
-Por lo tanto, son sucesos dependientes. De hecho, $P(B|A)=0.2/0.365=0.55\neq 0.33=P(B)$: la probabilidad de ser hipertenso entre los obesos es mayor que en global de  la población.
+Por lo tanto, son sucesos dependientes. De hecho, $P(B|A)=0.2/0.365=0.55> 0.33=P(B)$: la probabilidad de ser hipertenso entre los obesos es mayor que en global de  la población.
 
 ```{example}
 Un cierto test da positivo en un 10% de los individuos que no tienen una determinada enfermedad. Si a un individuo sano se le realizan dos tests independientes:
@@ -825,9 +895,10 @@ Un cierto test da positivo en un 10% de los individuos que no tienen una determi
   
 *(b)* ¿Cuál es la probabilidad de que **alguno** dé positivo?
   
+  
 ```
 
-Llamemos 
+Consideremos los sucesos:
 
 * $A_1$: El primer test da positivo sobre un individuo sano
 * $A_2$: El segundo test da positivo sobre un individuo sano
@@ -870,7 +941,7 @@ Tenemos una población clasificada en dos subpoblaciones, A y B. La subpoblació
 knitr::include_graphics("INREMDN_files/figure-html/TPT.png")
 ```
 
-Esta pregunta la podemos resolver fácilmente mediante el método de las frecuencias naturales. Supongamos que nuestra población es de 1000 individuos. Entonces:
+Esta pregunta la podemos resolver fácilmente mediante el método de las frecuencias naturales. Supongamos que nuestra población de referencia es de 1000 individuos. Entonces:
 
 * 200 serán de la subpoblación A, de los cuales la mitad, 100 tendrán la característica X y los otros 100 no.
 
@@ -917,7 +988,7 @@ Algunos de vosotros habréis usado un árbol como el siguiente para representar 
 knitr::include_graphics("INREMDN_files/figure-html/arbreTPT.png")
 ```
 
-Luego se calcula la probabilidad de cada "hoja" del árbol como el producto de las probabilidades del camino que llega a ella y se calcula como $P(X)$ la suma de las probabilidades de las hojas cuyo suceso contiene $\cap X$.
+Luego se calcula la probabilidad de cada "hoja" del árbol como el producto de las probabilidades del camino que llega a ella y se calcula como $P(X)$ la suma de las probabilidades de las hojas cuyo suceso contiene "$\cap X$".
 
 En el ejemplo anterior, este diagrama es 
 
@@ -941,20 +1012,24 @@ Por ejemplo, los sucesos $A$ y $B$ del Ejemplo \@ref(exm:TPT1) forman una partic
 ```{theorem} 
 Si $A_1,\ldots,A_n$ forma una partición de la población y $X$ es un suceso,
 $$
-P(X)= P(X\cap A_1) +\cdots+P(X\cap A_n)=P(A_1)\cdot P(X|A_1)+\cdots+ P(A_n)\cdot P(X|A_n)
+  \begin{array}{rl}
+P(X) & = P(X\cap A_1) +\cdots+P(X\cap A_n)\\ & =P(A_1)\cdot P(X|A_1)+\cdots+ P(A_n)\cdot P(X|A_n)
+\end{array}
 $$
 ```
 
 ```{example}
 Un test para el VIH da positivo un 99% de los casos en los que el virus está presente y en un 5% de los casos en los que el virus no está presente. En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo escogido al azar dé positivo?
+  
+
 ```
 
-En primer lugar vamos a usar el teorema de la probabilidad total. Sean los sucesos:
+En primer lugar vamos a usar el teorema de la probabilidad total para calcular esta probabilidad. Sean los sucesos:
 
-* $A$: Individuo infectado; $P(A)=0.005$
+* $A$: Que un individuo esté infectado de VIH; $P(A)=0.005$
 
 
-* $X$: Test dé positivo; $P(X|A)=0.99$, $P(X|A^c)= 0.05$
+* $X$: Que un individuo dé positivo en el test; $P(X|A)=0.99$, $P(X|A^c)= 0.05$
 
 Entonces
 $$
@@ -962,7 +1037,7 @@ P(X)  =P(A)\cdot P(X|A)+P(A^c)\cdot P(X|A^c)
 =0.005\cdot 0.99+0.995\cdot 0.05=0.0547
 $$
 
-Usemos la técnica de las frecuencias naturales. Tomemos una población de referencia de 100,000 individuos. 
+Usemos ahora la técnica de las frecuencias naturales. Tomemos una población de referencia de 100,000 individuos. 
 
 * Un 0.05% están infectados: 500 infectados y 99500 no infectados.
 
@@ -986,16 +1061,17 @@ La proporción de personas en las que el test da positivo es 5470/100000=0.0547.
 
 Una aplicación del teorema de la probabilidad total es el cálculo de **tasas ajustadas**:
 
-* Se divide una población en estratos  (sexo, grupos étnicos,  franjas de edad...)
-* Se calcula la proporción de algo en cada estrato
+* Se divide una población en estratos  (sexo, grupos étnicos,  franjas de edad...).
+* Se calcula la proporción de algo en cada estrato.
 * Se calcula la proporción de ese algo en una población que tuviera una composición estándar de esos estratos.
 
 Por ejemplo:
 
-1. Se calcula la tasa de mortalidad por franjas de edad en España, u otro país de la Unión Europea.
+1. Se calcula la tasa de mortalidad de una enfermedad por franjas de edad en España.
+
 1. Se toma como composición estándar en franjas de edad la media de la Unión Europea.
 
-1. Se calcula la tasa de mortalidad en una población cuya composición en franjas de edad fuera esa estándard, usando las tasas nacionales de mortalidad en cada franja calculadas en (1). 
+1. Se calcula la tasa de mortalidad de esa enfermedad en una población cuya composición en franjas de edad fuera esa estándard, usando las tasas nacionales de mortalidad en cada franja calculadas en (1). 
 
 De esta manera se pueden comparar las tasas de mortalidad entre países de la UE sin tener en cuenta el factor de confusión que podría representar la edad.
 
@@ -1007,11 +1083,14 @@ En la Unión Europea, un 15.5% de la población es menor de 25 años, un 65.4% t
 *(a)* ¿Cuál es la tasa de mortalidad de esta enfermedad en China?
 
 *(b)* ¿Cuál sería la tasa de mortalidad de esta enfermedad ajustada a la distribución de edades de la Unión Europea?
+
+
+
 ```
 
 Pongamos nombres a los sucesos de interés: 
 
-* $MC$: Morir de la enfermedad en China
+* $\mathit{MC}$: Morir de la enfermedad en China
 
 * $C_1$: Tener menos de 15 años en China; $P(C_1)=0.176$
 
@@ -1019,42 +1098,44 @@ Pongamos nombres a los sucesos de interés:
 
 * $C_3$: Tener 65 años o más en China; $P(C_3)=0.112$
 
-* $ME$: Morir de la enfermedad en Europa
-
 * $E_1$: Tener menos de 15 años en Europa; $P(E_1)=0.115$
 
 * $E_2$: Tener entre 15 y 65 años en Europa; $P(E_2)=0.654$
 
 * $E_3$: Tener 65 años o más en Europa; $P(E_3)=0.191$
 
-Tenemos que $P(MC|C_1)=0.001$, $P(MC|C_2)=0.003$ y $P(MC|C_3)=0.007$.
+Tenemos que $P(\mathit{MC}|C_1)=0.001$, $P(\mathit{MC}|C_2)=0.003$ y $P(\mathit{MC}|C_3)=0.007$.
 
 Por el teorema de la probabilidad total, la tasa de mortalida en China es
 $$
 \begin{array}{rl}
-P(MC)&=P(MC|C_1)\cdot P(C_1)+P(MC|C_2)\cdot P(C_2)+P(MC|C_3)\cdot P(C_3)\\
-& =0.001\cdot 0.176+0.003\cdot 0.712+0.007\cdot 0.112=`r round(0.001* 0.176+0.003* 0.712+0.007* 0.112,4)`\sim `r 100*round(0.001* 0.176+0.003* 0.712+0.007* 0.112,4)`%
+P(\mathit{MC})&=P(\mathit{MC}|C_1)\cdot P(C_1)+P(\mathit{MC}|C_2)\cdot P(C_2)+P(\mathit{MC}|C_3)\cdot P(C_3)\\
+& =0.001\cdot 0.176+0.003\cdot 0.712+0.007\cdot 0.112=`r round(0.001* 0.176+0.003* 0.712+0.007* 0.112,4)`
 \end{array}
 $$
-La tasa de mortalidad de esta enfermedad ajustada a la distribución de edades de la Unión Europea se obtiene tomando $P(ME|E_1)=0.001$, $P(ME|E_2)=0.003$ y $P(ME|E_3)=0.007$:
+O sea, del `r 100*round(0.001* 0.176+0.003* 0.712+0.007* 0.112,4)`%.
+
+
+La tasa de mortalidad de esta enfermedad ajustada a la distribución de edades de la Unión Europea, $\mathit{TA}$, es:
 $$
 \begin{array}{rl}
-P(MC)&=P(ME|E_1)\cdot P(E_1)+P(ME|E_2)\cdot P(E_2)+P(ME|E_3)\cdot P(E_3)\\
-& =0.001\cdot 0.115+0.003\cdot 0.654+0.007\cdot 0.191=`r round(0.001* 0.115+0.003* 0.654+0.007* 0.191,4)`\sim `r 100*round(0.001* 0.115+0.003* 0.654+0.007*0.191,4)`%
+\mathit{TA} & =P(\mathit{MA}|E_1)\cdot P(E_1)+P(\mathit{MA}|E_2)\cdot P(E_2)+P(\mathit{MA}|E_3)\cdot P(E_3)\\
+& =0.001\cdot 0.115+0.003\cdot 0.654+0.007\cdot 0.191=`r round(0.001* 0.115+0.003* 0.654+0.007* 0.191,4)`
 \end{array}
 $$
+Es decir, la tasa de mortalidad ajustada requerida es del `r 100*round(0.001* 0.115+0.003* 0.654+0.007* 0.191,4)`%, superior a la "real".
 
 ```{block2,type="rmdexercici"}
 En los Emiratos Árabes, donde hay 256 hombres por cada 100 mujeres ([CIA Woldfact](https://www.cia.gov/library/publications/the-world-factbook/geos/print_ae.html)), un 1% de los hombres y un 2% de las mujeres sufren de una determinada enfermedad.
 
-*(b)* ¿Cuál es la prevalencia de esta enfermedad en esta población?}
+*(b)* ¿Cuál es la prevalencia de esta enfermedad en esta población?
 
 *(c)* ¿Cuál es la prevalencia  de esta enfermedad ajustada a una población con 50% de cada sexo?
 ```
 
 
 ```{block2,type="rmdcaution"}
-Fijaos que la CIA da la composición por sexos de la población mediante *odds* (hombres por mujer) no mediante proporciones (hombres por habitante).
+¿Os habéis fijado en que la CIA da la composición por sexos de la población mediante *odds* (hombres por mujer), no mediante proporciones (hombres por habitante)?
 ```
 
 ## Fórmula de Bayes
@@ -1080,18 +1161,21 @@ a.  Del orden de un 0.1%
 
 a. ¡Señora, yo estudié medicina, no matemáticas!
 
+
 ```
 
-Este tipo de problemas no puede resolverse sin alguna información extra. Por ejemplo, la probabilidad global de haber estado expuestos al riesgo o la prevalencia de la enfermedad en el ejemplo de los estudios de casos y controles, o la prevalencia de la enfermedad en el ejemplo del test diagnóstico. 
+Los problemas de este tipo no pueden resolverse sin alguna información extra. Por ejemplo, la probabilidad global de haber estado expuestos al riesgo o la prevalencia de la enfermedad en el ejemplo de los estudios de casos y controles, o la prevalencia de la enfermedad en el ejemplo del test diagnóstico. 
 
 ```{example, cancerpitpres2}
 Volved a la pregunta del Ejemplo \@ref(exm:cancerpitpres). Y si os digo que la prevalencia anual entre las mujeres españolas del cáncer de mama es de alrededor del 0.5%? (En 2018, hubo una prevalencia de 130,000 casos de cáncer de mama entre los cerca de 24,000,000 de mujeres españolas.)
+
+
 ```
 
 Este tipo de problemas se resuelve fácilmente por el método de frecuencias naturales.
 
 ```{example, cancerpitpres3}
-Volvamos a la pregunta de los dos ejemplos anteriores, pero para no hacer *spoilers*, vamos a resolverlos con otro datos. Va, vamos a suponer que la probabilidad de dar positivo en la mamografía si se tiene cáncer es del 90%  y si no se tiene, del 10%, y que prevalencia del cáncer de mama es del 1%.
+Volvamos a la pregunta de los dos ejemplos anteriores, pero para no hacer *spoilers*, vamos a resolverla con otro datos. Va, vamos a suponer que la probabilidad de dar positivo en la mamografía si se tiene cáncer es del 90%  y si no se tiene, del 10%, y que prevalencia del cáncer de mama es del 1%.
 
 ```
 
@@ -1135,7 +1219,7 @@ donde
 $$
 P(A \cap B)=P(A)\cdot P(B|A)
 $$
-y, por el teorema de la probabiolidad total,
+y, por el teorema de la probabilidad total,
 $$
 P(B)=P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c).
 $$
@@ -1150,9 +1234,9 @@ P(C|M) & =\dfrac{P(C)\cdot P(M|C)}{P(C)\cdot P(M|C)+P(C^c)\cdot P(M|C^c)}\\
 $$
 ```
 
-Más en general, si  $A_1,A_2,\ldots,A_n$ es una partición de $\EM$ y $X$ un suceso tal que $P(B)>0$,
+Más en general, si  $A_1,A_2,\ldots,A_n$ es una partición de $\Omega$ y $X$ un suceso tal que $P(X)>0$,
 $$
-P(A_i|B) =\dfrac{P(A_i)\cdot P(B|A_i)}{P(A_1)\cdot P(B|A_1)+\cdots+P(A_n)\cdot P(B|A_n)}
+P(A_i|X) =\dfrac{P(A_i)\cdot P(X|A_i)}{P(A_1)\cdot P(X|A_1)+\cdots+P(A_n)\cdot P(X|A_n)}
 $$
 ```{example}
 Un test para el VIH da positivo un 99% de los casos donde el virus está presente y en un 5% de los casos donde el virus no está presente. En una población con el 0.5% de infectados por VIH:
@@ -1193,12 +1277,16 @@ Un test de detección precoz de una enfermedad da positivo el 97.5% de las veces
 
 ```
 
-Terminemos con un ejemplo donde aplicar la fórmula de Bayes no es la mejor opción.
+Terminemos con un ejemplo donde aplicar la fórmula de Bayes es inútil.
 
 ```{example}
 Un test diseñado para diagnosticar una determinada enfermedad da positivo el 94% de las veces en que existe la enfermedad, y un 4% de las veces en que no existe la enfermedad. En un estudio masivo se observa que un 15% de la población da positivo en el test. ¿Cuál es la prevalencia de la enfermedad? ¿Cuál es la probabilidad de tener la enfermedad si se da positivo en el test?
   
+
 ```
+
+Fijaos en que si llamamos $E$ al suceso "Tener la enfermedad" y $T$ al suceso "Dar positivo en el test", los datos que tenemos son $P(T)$, $P(T|E)$ y $P(T|E^c)$. Para arrancar con la fórmula de Bayes, necesitamos conocer $P(E)$, que es justamente la prevalencia de la enfermedad, que no sabemos.
+
 
 Vamos a usar la técnica de las frecuencias naturales. Tomamos una población de referencia de 100,000 individuos. De ellos, un 15%, 15,000, dan positivo en el test, y los 85,000 restantes negativo.
 
@@ -1206,13 +1294,13 @@ Llamemos $x$ al número de enfermos, de manera que $100000-x$ es el número de s
 $$
 15000=0.94x+0.04(100000-x)=0.9x+4000\Longrightarrow x=\frac{11000}{0.9}=12222.22
 $$
-Por lo tanto, la prevalencia de la enfermedad es 12222.22/100000=0.1222.
+Por lo tanto, la prevalencia de la enfermedad es 12222.22/100000=0.1222. 
 
 Y ahora, si llamamos $T$ a "Dar positivo en el test" y $E$ a "Tener la enfermedad"
 $$
 P(E|T)=\frac{P(E\cap T)}{P(T)}=\frac{P(T|E)\cdot P(E)}{P(T)}=\frac{0.94\cdot 0.1222}{0.15}=0.7658
 $$
-
+Un 76.6% de los positivos están enfermos.
 
 
 
