@@ -527,7 +527,7 @@ $$
 ```{block2,type="rmdexercici"}
 En una universidad, los alumnos se distribuyen de la manera siguiente por tipos de estudios y sexos:
 $$
-\begin{tabular}{r|c|c|c|c|c|c|c}
+\begin{array}{r|c|c|c|c|c|c|c}
 \text{Estudio} & \text{Ciencias} & \text{Derecho} & \text{Economía} & \text{Educación} & \text{Ingeniería} & \text{Letras} &  \text{Total}\\ \hline
 \text{Hombres} & 1200 & 1300 & 1000 & 300 & 600 & 400 & 4800\\ \hline
 \text{Mujeres} & 1400 & 600 & 800 & 1600 & 100 & 700 & 5200\\ \hline
@@ -690,7 +690,7 @@ Dos sucesos $A$ y $B$ (ambos de probabilidad no 0) son  **independientes** cuand
 
 En esta definición los papeles de $A$ y $B$ son intercambiables, como muestra el resultado siguiente que, además, da una caracterización alternativa muy importante.
 
-```{prop,indep}
+```{proposition,indep}
 Dados dos sucesos $A,B$, ambos de probabilidad no 0, las tres condiciones siguientes son equivalentes:
   
 a. $P(A \cap B)=P(A)\cdot P(B)$
@@ -879,7 +879,7 @@ $$
 
 El ejemplo anterior es una aplicación del **Teorema de la probabilidad total** siguiente:
 
-```{thm} 
+```{theorem} 
 Si $A$ y $X$ son dos sucesos,
 $$
 P(X)= P(X\cap A) +P(X\cap A^c)=P(A)\cdot P(X|A)+ P(A^c)\cdot P(X|A^c)
@@ -904,7 +904,7 @@ knitr::include_graphics("INREMDN_files/figure-html/arbreTPTex.png")
 Más en general, llamaremos una **partición** (o **estratificación**, **clasificación**) de una población $\Omega$ a una familia de sucesos $A_1,\ldots,A_m$ tales que
 
 1. Recubren todo $\Omega$: $\Omega=A_1\cup\cdots\cup A_m$.
-2. Cada par de ellos son disjuntos: Para cada $i,j\in\{1,\ldots,m\}$ se tiene que $A_i\cap=\A_j=\emptyset$.
+2. Cada par de ellos son disjuntos: Para cada $i,j\in\{1,\ldots,m\}$ se tiene que $A_i\cap A_j=\emptyset$.
 
 
 ```{r partición, echo=FALSE, out.width="80%",fig.cap="Partición."}
@@ -914,7 +914,7 @@ knitr::include_graphics("INREMDN_files/figure-html/particio.png")
 
 Por ejemplo, los sucesos $A$ y $B$ del Ejemplo \@ref(exm:TPT1) forman una partición de la población considerada.
 
-```{thm} 
+```{theorem} 
 Si $A_1,\ldots,A_n$ forma una partición de la población y $X$ es un suceso,
 $$
 P(X)= P(X\cap A_1) +\cdots+P(X\cap A_n)=P(A_1)\cdot P(X|A_1)+\cdots+ P(A_n)\cdot P(X|A_n)
@@ -1016,7 +1016,7 @@ La tasa de mortalidad de esta enfermedad ajustada a la distribución de edades d
 $$
 \begin{array}{rl}
 P(MC)&=P(ME|E_1)\cdot P(E_1)+P(ME|E_2)\cdot P(E_2)+P(ME|E_3)\cdot P(E_3)\\
-& =0.001\cdot 0.115+0.003\cdot 0.654+0.007\cdot 0.191=`r round(0.001* 0.115+0.003* 0.654+0.007* 0.191,4)`\sim `r 100*round(0.001* 0.115+0.003* 0.654+0.007* 0.191,3),4)`%
+& =0.001\cdot 0.115+0.003\cdot 0.654+0.007\cdot 0.191=`r round(0.001* 0.115+0.003* 0.654+0.007* 0.191,4)`\sim `r 100*round(0.001* 0.115+0.003* 0.654+0.007*0.191,4)`%
 \end{array}
 $$
 
@@ -1036,412 +1036,160 @@ Fijaos que la CIA da la composición por sexos de la población mediante *odds* 
 ## Fórmula de Bayes
 
 
+A menudo nos encontramos con que conocemos las probabilidades condicionadas en una dirección y nos interesa justamente saber sus valores en la dirección contraria. Por ejemplo
+
+* En un estudio de casos y controles hemos estimado las probabilidades de que individuos sanos y expuestos hayan estado expuestos al factor de resgo, pero lo que queremos es estimar las probabilidades de que individuos expuestos y no expuestos enfermen.
+
+* Podemos conocer las proporciones de individuos sanos y enfermos que dan positivo en un test diagnóstico, pero lo interesante es la probabilidad de estar enfermo si das positivo en el test (o de estar sano si das negativo).
 
 
-\begin{teorema}[de Bayes]
+```{example, cancerpitpres}
+Una mujer de 45 años da positivo en una  mamografía anual de cribado. Si una mujer tiene cáncer de mama, la probabilidad de dar positivo en dicha prueba es del 99%, y si no lo tiene, esta probabilidad es aún del 9%. Os pide cuáles son sus probabilidades de tener cáncer de mama. ¿Qué contestaríais?
+  
+a. Del orden de un 90%
+
+a.  Del orden de un 10%
+
+a.  Del orden de un 1%
+
+a.  Del orden de un 0.1%
+
+a. ¡Señora, yo estudié medicina, no matemáticas!
+
+```
+
+Este tipo de problemas no puede resolverse sin alguna información extra. Por ejemplo, la probabilidad global de haber estado expuestos al riesgo o la prevalencia de la enfermedad en el ejemplo de los estudios de casos y controles, o la prevalencia de la enfermedad en el ejemplo del test diagnóstico. 
+
+```{example, cancerpitpres2}
+Volved a la pregunta del Ejemplo \@ref(exm:cancerpitpres). Y si os digo que la prevalencia anual entre las mujeres españolas del cáncer de mama es de alrededor del 0.5%? (En 2018, hubo una prevalencia de 130,000 casos de cáncer de mama entre los cerca de 24,000,000 de mujeres españolas.)
+```
+
+Este tipo de problemas se resuelve fácilmente por el método de frecuencias naturales.
+
+```{example, cancerpitpres3}
+Volvamos a la pregunta de los dos ejemplos anteriores, pero para no hacer *spoilers*, vamos a resolverlos con otro datos. Va, vamos a suponer que la probabilidad de dar positivo en la mamografía si se tiene cáncer es del 90%  y si no se tiene, del 10%, y que prevalencia del cáncer de mama es del 1%.
+
+```
+
+Tomamos una población de referencia de 100,000 mujeres y calculamos la tabla de frecuencias en esta población correspondiente a la situación planteada. 
+
+* Un 1% de la población tiene cáncer de mama: 1,000 mujeres. Las 99,000 restantes, no.
+
+* De las 1,000 mujeres con cáncer de mama, un 90% dan positivo en la mamografía: 900. Las 100 restantes, dan negativo
+
+* De las 99,000 mujeres sin cáncer de mama, un 10% dan positivo en la mamografía: 9,900. Las  89,100 restantes dan negativo.
+
+La tabla de frecuencias resultante (donde "Test" indica la mamografía) es
+
+$$
+\begin{array}{l|c|c|c}
+& \text{Test }+ & \text{Test }- & \text{Total}\\
+\hline
+\text{Cáncer Sí} & 900 & 100 & 1000\\ \hline
+\text{Cáncer No} & 9900& 89100 & 99000\\\hline
+\text{Total} &10800 & 89200&  100000
+\end{array}
+$$
+
+Entonces, la proporción de mujeres con cáncer de mama entre las que dan positivo en la mamografía és de 900/10800= 0.0833: un 8.33%.
+
+
+La **fórmula de Bayes** siguiente permite resolver este tipo de problemas.
+
+```{theorem}
 Sean $A$ y $B$ dos sucesos. Si $P(B)>0$, entonces
 $$
-\begin{array}{rl}
-P(A|B) & \hspace{-1ex} =\dfrac{P(A)\cdot P(B|A)}{P(B)}\\[2ex]
-&\hspace{-1ex} =\dfrac{P(A)\cdot P(B|A)}{P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c)}
-\end{array}
+P(A|B) =\dfrac{P(A)\cdot P(B|A)}{P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c)}
 $$
-\end{teorema}
+```
 
-
-Motivo: $\blue{P(A|B) =\dfrac{P(A \cap B)}{P(B)}}=\cdots$
-
-
-
-
-
-
-\frametitle{Fórmula de Bayes}
-\begin{teorema}[de Bayes]
-Sea $A_1,A_2,\ldots,A_n$ una partición de $\EM$. Sea $B$ un suceso tal que $P(B)>0$. Entonces:
+Esta fórmula se obtiene de
 $$
-\begin{array}{rl}
-P(A_i|B) & \hspace{-1ex} =\dfrac{P(A_i)\cdot P(B|A_i)}{P(B)}\\[2ex]
-&\hspace{-1ex} =\dfrac{P(A_i)\cdot P(B|A_i)}{P(A_1)\cdot P(B|A_1)+\cdots+P(A_n)\cdot P(B|A_n)}
-\end{array}
-$$
-\end{teorema}
-
-
-Motivo: $\blue{P(A_i|B) =\dfrac{P(A_i \cap B)}{P(B)}}=\cdots$
-
-
-
-
-\frametitle{Ejemplos} 
-
-Un test para el VIH da positivo un 99% de los casos donde el virus está presente y en un 5% de los casos donde el virus no está presente. En una población con el $0.5%$ de infectados por VIH, \blue{¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado?}
-
-
-
-$A$: Individuo infectado
-
-
-$B$: Test dé positivo
-
-
-{\hspace{-1ex}$\begin{array}{rl}
-P(A|B) & =\dfrac{P(B|A)\cdot P(A)}{P(B|A)\cdot P(A)+P(B|A^c)\cdot P(A^c)}\\[2ex]
-&=\dfrac{0.99\cdot 0.005}{0.005\cdot 0.99+0.995\cdot 0.05}=0.09\end{array}$}
-
-
-
-\frametitle{Ejemplos} 
-
-Un test para el VIH da positivo un 99% de los casos donde el virus está presente y en un 5% de los casos donde el virus no está presente. En una población con el $0.5%$ de infectados por VIH, \blue{¿cuál es la probabilidad de que un individuo que haya dado **negativo} en el test **no} esté infectado?}
-
-
-
-$A$: Individuo infectado
-
-
-$B$: Test dé positivo
-
-
-\hspace{-1ex}{$\begin{array}{rl} P(A^c|B^c)& =\dfrac{P(B^c|A^c)\cdot P(A^c)}{P(B^c|A)\cdot P(A)+P(B^c|A^c)\cdot P(A^c)}\\[2ex] & =\dfrac{0.95\cdot 0.995}{0.01\cdot 0.005+0.95\cdot 0.995}=0.99995\end{array}$}
-
-
-
-\frametitle{Ejemplos} 
-
-Un test para el VIH da positivo un 99% de los casos donde el virus está presente y en un 5% de los casos donde el virus no está presente. En una población con el $0.5%$ de infectados por VIH\ldots 
-
-
-$A$: Individuo infectado; $B$: Test dé positivo
-
-Tomamos 100,000 individuos como referencia
-$$
-\begin{array}{l|c|c|c|}
- & A & A^c & \text{Total}\\ \hline
- B & \only<3>{495}& \only<3>{4975} &   \\ \hline
- B^c & &   & \\ \hline
-\text{Total} &  \only<1>{\hphantom{500}}\only<2,3>{500} & \only<1>{\hphantom{99500}}\only<2,3>{99500} & 100000\\ \hline
-\end{array}
-$$
-
-
-\only<3>{$99%\times 500=495$,\quad $5%\times 99500=4975$}
-
-
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-Un test para el VIH da positivo un 99% de los casos donde el virus está presente y en un 5% de los casos donde el virus no está presente. En una población con el $0.5%$ de infectados por VIH\ldots 
-
-
-$A$: Individuo infectado; $B$: Test dé positivo
-
-Tomamos 100,000 individuos como referencia
-
-
-
-$$
-\begin{array}{l|c|c|c|}
- & A & A^c & \text{Total}\\ \hline
- B & 495 & 4975  & \only<2,3>{5470} \\ \hline
- B^c & 5 & 94525 & \only<2,3>{94530} \\ \hline
-\text{Total} & 500 & 99500 & 10000\\ \hline
-\end{array}
-$$
-
-
-\only<3>{$P(A|B)=\dfrac{495}{5470}=0.09$
-
-$P(A^c|B^c) =\dfrac{94525}{94530}=0.99995$}
-
-
-
-
-
-
-
-
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-Un test de detección precoz de una enfermedad da positivo el 97.5% de las veces en que existe la enfermedad, y un 12% de las veces en que no existe la enfermedad. La probabilidad de que un individuo escogido al azar tenga esta enfermedad es de un 2%.
-
-\begin{enumerate}
-* \blue{¿Cuál es la probabilidad de que un individuo escogido al azar dé positivo en el test?}
-* \blue{¿Cuál es la probabilidad de que un individuo escogido al azar no tenga la enfermedad pero dé positivo en el test?}
-* \blue{¿Cuál es la probabilidad de que un individuo que dé positivo en el test, tenga esta enfermedad?}
-* \blue{El dar positivo en el test y el tener la enfermedad, ¿son sucesos independientes?}
-\end{enumerate}
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-Un test de detección precoz de una enfermedad da positivo el 97.5% de las veces en que existe la enfermedad, y un 12% de las veces en que no existe la enfermedad. La probabilidad de que un individuo escogido al azar tenga esta enfermedad es de un 2%.
-
-
-$E$: Estar enfermo; $P(E)=0.02$
-
-
-$T$: Dar positivo en el test; $P(T|E)=0.975$; $P(T|E^c)=0.12$
-
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-$P(E)=0.02$, $P(T|E)=0.975$, $P(T|E^c)=0.12$
-
-
-\blue{¿Cuál es la probabilidad de que un individuo escogido al azar dé positivo en el test?}
-$$
-\begin{array}{rl}
-P(T) =\pause & P(E)\cdot P(T|E)+P(E^c)\cdot P(T|E^c)\\[1ex]
-& =0.02\cdot 0.975+0.98\cdot 0.12=0.1371
-\end{array}
-$$
-
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-$P(E)=0.02$, $P(T)=0.1371$, $P(T|E)=0.975$, $P(T|E^c)=0.12$
-
-
-\blue{¿Cuál es la probabilidad de que un individuo escogido al azar no tenga la enfermedad pero dé positivo en el test?}
-
-
-$P(E^c\cap T)=\pause P(E^c)\cdot P(T|E^c)=0.98\cdot 0.12=0.1176$
-
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-$P(E)=0.02$, $P(T)=0.1371$, $P(T|E)=0.975$, $P(T|E^c)=0.12$
-
-
-\blue{¿Cuál es la probabilidad de que un individuo que dé positivo en el test, tenga esta enfermedad?}
-
-$$
-\begin{array}{rl}
-P(E|T)=\pause &\displaystyle \frac{P(E\cap T)}{P(T)}=
-\frac{P(E)\cdot P(T|E)}{P(T)}\\[2ex] & \displaystyle =
-\frac{0.02\cdot 0.975}{0.1371}= 0.1422
-\end{array}
-$$\pause
-
- \blue{El dar positivo en el test y el tener la enfermedad, ¿son sucesos independientes?}\pause
- 
- 
-No: $P(T|E)=0.975$ y $P(T|E^c)=0.12$
-
-
-
-
-
-
-\frametitle{Ejemplos} 
-
-Un test de detección precoz de una enfermedad da positivo el 97.5% de las veces en que existe la enfermedad, y un 12% de las veces en que no existe la enfermedad. La probabilidad de que un individuo escogido al azar tenga esta enfermedad es de un 2%.
-
-
-$E$: Estar enfermo; $P(E)=0.02$
-
-
-$T$: Dar positivo en el test; $P(T|E)=0.975$; $P(T|E^c)=0.12$
-
-Tomamos 100,000 individuos como referencia
-
-$$
-\begin{array}{l|c|c|c|}
- & E & E^c & \text{Total}\\ \hline
- T & \only<3,4,5>{{1950}}& \only<3,4,5>{{11760}} & \only<5>{13710}  \\ \hline
- T^c & \only<4,5>{50}&  \only<4,5>{86240} & \only<5>{86290}\\ \hline
- \text{Total} &  \only<1>{\hphantom{2000}}\only<2,3,4,5>{2000} & \only<1>{\hphantom{98000}}\only<2,3,4,5>{98000} & 100000\\ \hline
-\end{array}
-$$
-
-
-
-
-
-
-
-\frametitle{Ejemplos} \vspace*{-2ex}
-$$
-\begin{array}{l|c|c|c|}
- & E & E^c & \text{Total}\\ \hline
- T &  1950& 11760 & 13710  \\ \hline
- T^c & 50&  86240 & 86290\\ \hline
-\text{Total} &  2000 & 98000 & 100000\\ \hline
-\end{array}
-$$
-\begin{enumerate}
-* \blue{¿Cuál es la probabilidad de que un individuo escogido al azar dé positivo en el test?} \red{13710/100000=0.1371}
-* \blue{¿Cuál es la probabilidad de que un individuo escogido al azar no tenga la enfermedad pero dé positivo en el test?} \red{11760/100000=0.1176}
-* \blue{¿Cuál es la probabilidad de que un individuo que dé positivo en el test, tenga esta enfermedad?}
-\red{$P(E|T)=1950/13710=0.1422$}
-\end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-\frametitle{Ejemplos}
-Un test diseñado para diagnosticar una determinada enfermedad da positivo el 94% de las veces en que existe la enfermedad, y un 4% de las veces en que no existe la enfermedad. En un estudio masivo se observa que un 15% de la población da positivo en el test.
-
- \blue{¿Cuál es la prevalencia de la enfermedad?}\pause
-
-
-$T$: Dar positivo en el test; $P(T)=0.15$
-
-
-$E$: Tener la enfermedad
-
-$P(T)=0.15$, $P(T^c|E)=0.06$, $P(T|E^c)=0.04$
-
-$P(E)$?
-
-
-
-
-
-
-
-
-
-
-
-
-\frametitle{Ejemplos}
-Un test diseñado para diagnosticar una determinada enfermedad da positivo el 94% de las veces en que existe la enfermedad, y un 4% de las veces en que no existe la enfermedad. En un estudio masivo se observa que un 15% de la población da positivo en el test.
-
- \blue{¿Cuál es la prevalencia de la enfermedad?}
-
-
-$T$: Dar positivo en el test; $P(T)=0.15$
-
-
-$E$: Tener la enfermedad
-
-$P(T)=0.15$, $P(T^c|E)=0.94$, $P(T|E^c)=0.04$,
-$P(E)$?
-
-
-$$
-\begin{array}{l|c|c|c|}
- & E & E^c & \text{Total}\\ \hline
- T &  &   &   15000 \\ \hline
- T^c & &   & 85000 \\ \hline
-\text{Total} &  \text{?}  &  & 100000\\ \hline
-\end{array}
-$$
-
-
-
-
-\frametitle{Ejemplos}
-
-$P(T)=0.15$, $P(T|E)=0.94$, $P(T|E^c)=0.04$,
-$P(E)$?
-
-
-$$
-\begin{array}{l|c|c|c|}
- & E & E^c & \text{Total}\\ \hline
- T & \only<1>{\hphantom{0.94x}}\only<2,3,4,5,6,7>{0.94x}  & \only<1>{\hphantom{0.04(100000-x)}}\only<2,3,4,5,6,7>{0.04(100000-x)}   &   15000 \\ \hline
- T^c & &   & 85000 \\ \hline
-\text{Total} &  \only<1,2,3,4,5,6,7>{x}  & \only<1,2,3,4,5,6,7>{100000-x} & 100000\\ \hline
-\end{array}
-$$
-\pause\pause
-$$
-\begin{array}{l}
-0.94x+0.04(100000-x)=15000\\\pause
-0.94x+4000-0.04x=15000\\ \pause
-0.9x=11000\\ \pause
-x=11000/0.9=12222.2\\ \pause
-P(E)=x/100000=12222.2/100000=0.1222
-\end{array}
-$$
-
-
-
-
-
-
-\frametitle{Ejemplos}
-\vspace{-2ex}
-
-Usando el teorema de la probabilidad total:
-
-$P(T)=0.15$, $P(T|E)=0.94$, $P(T|E^c)=0.04$
-$$
-P(T) =P(E)\cdot P(T|E)+P(E^c)\cdot P(T|E^c)
+P(A|B) =\dfrac{P(A \cap B)}{P(B)}
 $$
 donde
 $$
-P(E^c)=1-P(E)
+P(A \cap B)=P(A)\cdot P(B|A)
 $$
-Por lo tanto
+y, por el teorema de la probabiolidad total,
+$$
+P(B)=P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c).
+$$
+
+```{example, cancerpitpres4}
+Con los número del Ejemplo \@ref(exm:cancerpitpres4), si llamamos $C$ al suceso "Tener cáncer de mama" y $M$ al suceso "Dar positivo en la mamografía", tenemos que $P(C)=0.01$, $P(M|C)=0.9$ y $P(M|C^c)=0.1$, y por lo tanto
 $$
 \begin{array}{rl}
-0.15 & = P(E)\cdot 0.94+(1-P(E))\cdot 0.04\\
-& =0.04+0.9P(E)\\[1ex]
-P(E) & =\dfrac{0.11}{0.9}= 0.1222
+P(C|M) & =\dfrac{P(C)\cdot P(M|C)}{P(C)\cdot P(M|C)+P(C^c)\cdot P(M|C^c)}\\
+& =\dfrac{0.01\cdot 0.9}{0.01\cdot 0.9+0.99\cdot 0.1}=0.0833
 \end{array}
+$$
+```
+
+Más en general, si  $A_1,A_2,\ldots,A_n$ es una partición de $\EM$ y $X$ un suceso tal que $P(B)>0$,
+$$
+P(A_i|B) =\dfrac{P(A_i)\cdot P(B|A_i)}{P(A_1)\cdot P(B|A_1)+\cdots+P(A_n)\cdot P(B|A_n)}
+$$
+```{example}
+Un test para el VIH da positivo un 99% de los casos donde el virus está presente y en un 5% de los casos donde el virus no está presente. En una población con el 0.5% de infectados por VIH:
+  
+*(a)* ¿Cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado?
+  
+*(b)* ¿Cuál es la probabilidad de que un individuo que haya dado negativo en el test no esté infectado?
+  
+```
+
+Si llamamos $A$ al suceso "Estar infectado por VIH"  y $B$ al suceso "Dar positivo en el test",
+$$
+\begin{array}{rl}
+P(A|B) & =\dfrac{P(B|A)\cdot P(A)}{P(B|A)\cdot P(A)+P(B|A^c)\cdot P(A^c)}\\
+&=\dfrac{0.99\cdot 0.005}{0.005\cdot 0.99+0.995\cdot 0.05}=0.09
+\end{array}
+$$
+Un individuo que dé positivo en el test tiene una probabilidad del 9% de estar infectado.
+
+$$
+\begin{array}{rl} 
+P(A^c|B^c)& =\dfrac{P(B^c|A^c)\cdot P(A^c)}{P(B^c|A)\cdot P(A)+P(B^c|A^c)\cdot P(A^c)}\\
+& =\dfrac{0.95\cdot 0.995}{0.01\cdot 0.005+0.95\cdot 0.995}=0.99995
+\end{array}
+$$
+Un individuo que dé negativo en el test tiene una probabilidad del 99.995% de no estar infectado.
+
+
+
+```{block2,type="rmdexercici"}
+Un test de detección precoz de una enfermedad da positivo el 97.5% de las veces en que existe la enfermedad, y un 12% de las veces en que no existe la enfermedad. La probabilidad de que un individuo escogido al azar tenga esta enfermedad es de un 2%.
+
+1. ¿Cuál es la probabilidad de que un individuo escogido al azar dé positivo en el test?
+1.¿Cuál es la probabilidad de que un individuo escogido al azar no tenga la enfermedad pero dé positivo en el test?
+1. ¿Cuál es la probabilidad de que un individuo que dé positivo en el test, tenga esta enfermedad?
+1. El dar positivo en el test y el tener la enfermedad, ¿son sucesos independientes?
+
+
+```
+
+Terminemos con un ejemplo donde aplicar la fórmula de Bayes no es la mejor opción.
+
+```{example}
+Un test diseñado para diagnosticar una determinada enfermedad da positivo el 94% de las veces en que existe la enfermedad, y un 4% de las veces en que no existe la enfermedad. En un estudio masivo se observa que un 15% de la población da positivo en el test. ¿Cuál es la prevalencia de la enfermedad? ¿Cuál es la probabilidad de tener la enfermedad si se da positivo en el test?
+  
+```
+
+Vamos a usar la técnica de las frecuencias naturales. Tomamos una población de referencia de 100,000 individuos. De ellos, un 15%, 15,000, dan positivo en el test, y los 85,000 restantes negativo.
+
+Llamemos $x$ al número de enfermos, de manera que $100000-x$ es el número de sanos. Sabemos que un 94% de  los enfermos y un 4% de los sanos dan positivo. Por lo tanto, el número de positivos será igual al 94% de $x$ más el 4% de  $100000-x$:
+$$
+15000=0.94x+0.04(100000-x)=0.9x+4000\Longrightarrow x=\frac{11000}{0.9}=12222.22
+$$
+Por lo tanto, la prevalencia de la enfermedad es 12222.22/100000=0.1222.
+
+Y ahora, si llamamos $T$ a "Dar positivo en el test" y $E$ a "Tener la enfermedad"
+$$
+P(E|T)=\frac{P(E\cap T)}{P(T)}=\frac{P(T|E)\cdot P(E)}{P(T)}=\frac{0.94\cdot 0.1222}{0.15}=0.7658
 $$
 
 
 
-\frametitle{Ejemplo}\vspace*{-2ex}
-
-Una mujer de 45 años da positivo en una  mamografía anual de cribado. Si una mujer tiene cáncer de mama, la probabilidad de dar positivo en dicha prueba es del 99%, y si no lo tiene, esta probabilidad es aún del 9%.
-Os pide cuáles son sus probabilidades de tener cáncer de mama. ¿Qué contestáis?
-
-\begin{enumerate}
-* Del orden de un 90%
-
-* Del orden de un 10%
-
-* Del orden de un 1% \only<4>{\red{{\large\checkmark} Un 1.6%}}
-
-* Del orden de un 0.1%
-\end{enumerate}
 
 
-\only<2,3,4>{¿Incidencia del cáncer de mama a esta edad?} \only<3,4>{$\sim 0.15%$ anual}
-
-
-
-
-
-\end{document}
-
-
--->

@@ -3,7 +3,7 @@
 
 ## Unidad de observación
 
-En un estudio estadístico, la **unidad de observación** es el tipo de sujetos que observamos. En los estudios médicos normalmente serán personas, pero no siempre:
+En un estudio estadístico, la **unidad de observación** es, para entendernos, el tipo de qué o de quiénes que van a ser objeto de medición durante la investigación. En los estudios médicos normalmente serán personas, pero no siempre:
 
 * Pueden ser sucesos que les pasen a personas, de manera que una misma persona pueda ser observada varias veces: por ejemplo, todos los embarazos de un grupo de mujeres; o operaciones quirúrgicas; o el resultado de la administración, en momentos diferentes, de diferentes tratamientos para una misma enfermedad crónica a un grupo de enfermos.
 
@@ -51,8 +51,38 @@ A la hora de determinar la validez de un estudio, es muy importante comparar la 
 
 Usualmente, la población muestreada será un subconjunto de la población objetivo definido por una serie de restricciones, pero puede no serlo: pensad, por ejemplo, en los estudios ecológicos, donde la población objetivo son individuos y la población muestreada son grupos de individuos.
 
+```{example,tuberculosisrusia}
+Dad un vistazo al artículo ["Risk factors for pulmonary tuberculosis in Russia: case-control study"](https://www.bmj.com/content/332/7533/85.short)
+(R. Coker *et al*, *British Medical Journal*  332 (2006), pp. 85-87). Su objetivo es "Determinar los factores de riesgo para la tuberculosis pulmonar en Rusia". Por lo tanto:
 
-Si la población muestreada, o más específicamente la muestra, no es representativa de la población objetivo, los resultados del estudio no tienen por qué ser generalizables a esta última: diremos entonces  que se ha dado un **sesgo de falta de  representatividad**. Hablaremos sobre sesgos en la Sección \@ref(sec:sesgos).
+```
+
+* La **población objetivo** es toda la población de Rusia.
+
+Ahora bien, la muestra se tomó solo entre los adultos de la ciudad de [Samara](https://es.wikipedia.org/wiki/Samara) y durante 2003. Por lo tanto:
+
+* La **población muestreada** fueron los adultos de la ciudad de Samara en 2003.
+
+Finalmente, leemos que los casos fueron todos los adultos diagnosticados de tuberculosis pulmonar de la población muestreada a los que se administró un  DOTS (Tratamiento Acortado Directamente Observado), en total 334. Como controles se tomó al azar el mismo número de personas entre la población adulta sin historial de tuberculosis  de la ciudad.
+
+* La **muestra** fueron estas 668 personas.
+
+
+```{example, Hola}
+Para conocer la opinión de sus lectores sobre la familia real española, una conocida revista del corazón propuso una encuesta en línea en su web y analizó las respuestas. En este **estudio transversal**:
+
+````
+
+* La **población objetivo** es la formada por "los lectores de esta revista".
+* La **población muestreada** es la formada por los lectores actuales de esta revista con acceso a Internet. 
+* La **muestra** son las personas concretas que voluntariamente respondieron la encuesta.
+
+En el Ejemplo \@ref(exm:tuberculosisrusia), puede que la población muestreada no fuera representativa de **toda** Rusia. Los habitantes de una de las ciudades más pobladas de Rusia, a unos 1500 km al sudeste de Moscú, ¿tienen las mismas características que los habitantes de una aldea en Siberia? 
+
+En el Ejemplo \@ref(exm:Hola) está más claro que la población muestreada no es representativa de la población objetivo: seguramente excluye, por ejemplo, los lectores ancianos o los de zonas rurales con acceso difícil a Internet. Por otro lado, la muestra es aún más restrictiva, ya que los participantes fueron voluntarios, y sus características pueden ser diferentes de las de los lectores que prefirieron no opinar sobre este tema (por si las moscas...)  o de las de los lectores que nunca responden encuestas.
+
+
+Si la población muestreada no es representativa de la población objetivo, los resultados del estudio no tienen por qué ser generalizables a esta última: diremos entonces  que se ha dado un **sesgo de falta de  representatividad**. Hablaremos sobre sesgos en la Sección \@ref(sec:sesgos).
 
 ```{example}
 Al escogeros a vosotros como una muestra de la población de estudiantes de primer curso de Medicina, podríamos entender como población muestreada, por ejemplo, la de  "los estudiantes que en el año académico 2020/21 cursan primer curso de Medicina en una universidad española". Seguramente esta población muestreada tiene características muy diferentes de las de los estudiantes que hace 40 años cursaron primer curso de Medicina en una universidad española, o de las de los estudiantes que este año académico cursan primer curso de Medicina en una universidad estadounidense.
@@ -65,21 +95,11 @@ Si lanzo 10 veces una moneda equilibrada de 1 euro concreta, ya hemos quedado qu
 ```
 
 
-```{example, Hola}
-Para conocer la opinión de sus lectores sobre la familia real española, una conocida revista del corazón propuso una encuesta en línea en su web y analizó las respuestas. En este **estudio transversal**:
-
-````
-
-* La **población objetivo** es la formada por "los lectores de esta revista".
-* La **población muestreada** es la formada por los lectores actuales de esta revista con acceso a Internet. 
-* La **muestra** son las personas concretas que voluntariamente respondieron la encuesta.
-
-Observad que la población muestreada en principio no es representativa de la población objetivo: puede que excluya, por ejemplo, lectores ancianos o lectores de zonas rurales que tengan acceso difícil a Internet. Por otro lado, la muestra es aún más restrictiva, ya que los participantes fueron voluntarios, y sus características pueden ser diferentes de las de los lectores que prefirieron no opinar sobre este tema (por si las moscas...)  o de las de los lectores que nunca responden encuestas.
 
 ```{block2,type="rmdimportant"}
 Un estudio médico toma información sobre una muestra de individuos y la generaliza a una población objetivo. Si nos ha interesado leerlo, seguramente será porque su población objetivo contiene, o al menos está relacionada con, la población que nos interesa a nosotros. Pero la muestra habrá sido tomada de una población muestreada que no tiene por qué coincidir con nuestra población de interés.  Es muy importante poder decidir entonces si las conclusiones a las que se llega en el estudio se pueden aplicar o no a nuestra población. 
 
-No es el objetivo de este curso el que podáis tomar esta decisión, os falta experiencia médica. Pero sí que al menos seáis consicentes de que un resultado observado estimado para una población puede no ser extrapolable a otra población.
+No es el objetivo de este curso el que podáis tomar esta decisión, os falta experiencia médica. Pero sí que al menos seáis conscientes de que un resultado observado estimado para una población puede no ser extrapolable a otra población.
 
 ```
 
