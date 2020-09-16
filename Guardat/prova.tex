@@ -8,6 +8,141 @@
 \begin{document}
 
 \begin{center}
+\begin{tikzpicture}[very thick,>=stealth,
+grup/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=6em,align=center, rounded corners, minimum height=2em},
+tract/.style ={rectangle, draw=red, thick, fill=red!20, text width=6em,align=center, rounded corners, minimum height=2em},
+origen/.style ={rectangle, draw=black, thick, align=center,minimum height=2em}
+]
+\draw (0,0) node[origen] (O) {\small \sf Muestra de pacientes};  
+\draw (-2,-1.5) node[grup] (I) {\small \sf Grupo I};  
+\draw (2,-1.5) node[grup] (II) {\small \sf Grupo II};  
+\draw (-2,-3) node[tract] (A) {\small \sf Tratamiento A};  
+\draw (2,-3) node[tract] (B) {\small \sf Tratamiento B};  
+\draw[->] (O)--(I);
+\draw[->] (O)--(II);
+\draw[->] (I)--(A);
+\draw[->] (II)--(B);
+\draw[->] (A)--(-2,-3.75);
+\draw[->] (B)--(2,-3.75);
+
+\end{tikzpicture}
+\end{center}
+\vspace*{2cm}
+
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,
+grup/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=6em,align=center, rounded corners, minimum height=2em},
+tract/.style ={rectangle, draw=red, thick, fill=red!20, text width=6em,align=center, rounded corners, minimum height=2em},
+origen/.style ={rectangle, draw=black, thick, align=center,minimum height=2em}
+]
+\draw (0,0) node[origen] (O) {\small \sf Muestra de pacientes};  
+\draw (-2,-1.5) node[grup] (I) {\small \sf Grupo I};  
+\draw (2,-1.5) node[grup] (II) {\small \sf Grupo II};  
+\draw (-2,-3) node[tract] (A1) {\small \sf Tratamiento A};  
+\draw (2,-3) node[tract] (B1) {\small \sf Tratamiento B};  
+\draw (-2,-4.5) node[tract] (B2) {\small \sf Tratamiento B};  
+\draw (2,-4.5) node[tract] (A2) {\small \sf Tratamiento A};  
+\draw[->] (O)--(I);
+\draw[->] (O)--(II);
+\draw[->] (I)--(A1);
+\draw[->] (II)--(B1);
+\draw[->] (A1)--(B2);
+\draw[->] (B1)--(A2);
+\draw[->] (A2)--(2,-5.25);
+\draw[->] (B2)--(-2,-5.25);
+\draw[thin,dashed] (-6,-3.75)--(4,-3.75);
+\draw (-5,-3) node {\sf Momento 1};  
+\draw (-5,-4.5) node {\sf Momento 2};  
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
+
+\tikzstyle{vecArrow} = [thick, decoration={markings,mark=at position
+   1 with {\arrow[semithick]{open triangle 60}}},
+   double distance=1.4pt, shorten >= 5.5pt,
+   preaction = {decorate},
+   postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
+
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=6em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (10,0) node[block] (A) {\small \sf Enfermedad};  
+\draw (0,1) node[block]   {\small\sf Expuestos\\[-0.5ex] \small\sf sanos}; 
+\draw (0,-1) node[block]   {\small \sf No expuestos\\[-0.5ex] \small\sf sanos}; 
+\draw[vecArrow] (2.3,0)--(A);
+\end{tikzpicture}
+\end{center}
+\vspace*{2cm}
+
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=5em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (0,0) node[block] (A) {\small\sf Madre fumadora};  
+\draw (10,0) node[block] (B) {\small\sf Hijo sin síndrome de Down}; 
+\draw (5,5) node {};
+\draw[dashed,->] (A)--(B);
+\draw(5,5) node[block] (C) {\small\sf Madre joven};
+\draw[->] (C)--(A);
+\draw[->] (C)--(B);
+\end{tikzpicture}
+\end{center}
+\vspace*{2cm}
+
+
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=5em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (0,0) node[block] (A) {\small\sf Madre fumadora};  
+\draw (10,0) node[block] (B) {\small\sf Hijo sin síndrome de Down}; 
+\draw (5,5) node {};
+\draw[->] (A)--(B);
+\end{tikzpicture}
+\end{center}
+
+
+
+\end{document}
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=5em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (0,0) node[block] (A) {\small\sf Madre fumadora};  
+\draw (10,0) node[block] (B) {\small Hijo sin síndrome de Down}; 
+\draw (5,5) node {};
+\draw[dashed,->] (A)--(B);
+\draw(5,5) node[block] (C) {\small\sf Madre joven};
+\draw[->] (C)--(A);
+\draw[->] (C)--(B);
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
+
+\begin{center}
+
+\tikz\node[thick, rounded corners,  align=left,draw=green, fill=green!20] at (0,1){\textsf{\textbf{Descriptivos}}\\[2ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,1){\small\sf Informe de caso};
+\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,0) {\small\sf Serie de casos};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,-1) {\small \textsf{\textsl{Survey}}};};
+\hspace*{0.5cm}
+\tikz\node[thick, rounded corners,  align=left,draw=green, fill=green!20] at (3,0){\textsf{\textbf{Analíticos}}\\[2ex]
+\tikz\node[thick, rounded corners,  align=left,draw=red, fill=red!20] at (3,0){\textsf{\textbf{Observacionales}}\\[2ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,0){\small\sf Casos y controles};
+\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-1) {\small\sf Cohorte};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-2) {\small\sf Transversal};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-3) {\small\sf Ecológico};};
+\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw=red, fill=red!20] at (3,-4){\textsf{\textbf{Intervencionistas}}\\[2ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-5) {\small\sf Experimental};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-5) {\small\sf Casi-experimental};};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw=yellow, fill= yellow!20] at (3,-6){\textsf{\textbf{Metaanálisis \hphantom{xxxi}}}};};
+
+
+\end{center}
+
+\end{document}
+
+\begin{center}
 \begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=4em,align=center, rounded corners, minimum height=1.7em}]%,xscale=0.75]
 \draw (0,0) node[block] (Omega) {$\Omega$};  
 \draw (8,3) node[block] (A)   {$A$}; 
@@ -53,29 +188,7 @@
 \end{center}
 \end{document}
 
-\begin{center}
 
-\tikz\node[thick, rounded corners,  align=left,draw=green, fill=green!20] at (0,1){\textsf{\textbf{Descriptivos}}\\[2ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,1){\small\sf Informe de caso};
-\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,0) {\small\sf Serie de casos};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,-1) {\small \textsf{\textsl{Survey}}};};
-\hspace*{0.5cm}
-\tikz\node[thick, rounded corners,  align=left,draw=green, fill=green!20] at (3,0){\textsf{\textbf{Analíticos}}\\[2ex]
-\tikz\node[thick, rounded corners,  align=left,draw=red, fill=red!20] at (3,0){\textsf{\textbf{Observacionales}}\\[2ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,0){\small\sf Casos y controles};
-\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-1) {\small\sf Cohorte};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-2) {\small\sf Transversal};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-3) {\small\sf Ecológico};};
-\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw=red, fill=red!20] at (3,-4){\textsf{\textbf{Intervencionistas}}\\[2ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-5) {\small\sf Experimental};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-5) {\small\sf Casi-experimental};};};
-\hspace*{0.5cm}
-\tikz\node[thick, rounded corners,  align=left,draw=yellow, fill= yellow!20] at (6,0){\textsf{\textbf{Metaanálisis}}};
-
-\end{center}
 \end{document}
 %\TBox[draw= blue,fill=blue!20]{\small \textsf{\textsl{Survey}}}{(0,3)}\\[2.5ex]}{(0,0)}
 %\hspace*{0.5cm}%

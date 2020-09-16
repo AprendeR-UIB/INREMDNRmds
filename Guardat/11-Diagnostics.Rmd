@@ -3,280 +3,126 @@
 
 ## Pruebas diagnósticas
 
+### Terminología
 
 Una **prueba diagnóstica** es cualquier tecnología que pueda servir para detectar un signo que se relacione con la patología de interés. Por ejemplo, un test de embarazo, un determinación de nivel de un marcador tumoral, una prueba PCR para el SARS-COV-2, etc.
 
+En la práctica, se suelen distinguir dos tipos de pruebas diagnósticas, de cada una de las cuales se esperan capacidades diagnósticas diferentes:
 
-En realidad:
-\begin{itemize}
-* \red{Test de cribado} (\red{despistaje}, \red{tamiz}, \ldots; \red{\sl screening}):  identifica individuos asintomáticos que puedan tener la enfermedad
+* **Test de cribado**: se realiza sobre individuos asintomáticos, con el objetivo principal de descartar que tengan la enfermedad.
 
-* \red{Test diagnóstico}: determina la presencia o no de la enfermedad en individuos que muestran síntomas  o que han dado positivo en el test de cribado
-\end{itemize}
+* **Test diagnóstico**: determina la presencia o no de la enfermedad en individuos que muestran síntomas  o que han dado positivo en el test de cribado.
 
-
-\blue{Ejemplo}: Mamografía de cribado (periódica a partir de una edad) \textsl{vs} mamografía diagnóstica (ante un bulto en el seno)
+Por ejemplo, distinguiríamos entre una *mamografía de cribado*, que se realiza periódicamente a las mujeres a partir de una cierta edad, y una 
+*mamografía diagnóstica* que se realizaría a una mujer que ha detectado un bulto en un seno. 
  
+Tanto en un caso como el otro, el objetivo de una prueba diagnóstica es diagnosticar una enfermedad, por lo que lo deseable sería que:
 
+* El resultado de la prueba sea positivo exactamente cuando el paciente tiene la enfermedad.
+* El resultado de la prueba sea negativo exactamente cuando el paciente no tiene la enfermedad.
 
+Por desgracia, casi nunca se tiene una prueba diagnóstica cien por cien segura. Ni tan solo para detectar si un individuo está muestro o no, por lo que parece:
 
-\frametitle{Pruebas diagnósticas}
 
-\red{Objetivo}: Diagnosticar el paciente:
-\begin{itemize}
-* Si resultado $=$ positivo $\rightsquigarrow$ Patología $=$ Sí
-* Si resultado $=$ negativo $\rightsquigarrow$ Patología $=$ No
-\end{itemize}
+```{r , echo=FALSE, out.width="80%", fig.cap="Noticia aparecida en  El Comercio el 8/01/2018: https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html."}
+knitr::include_graphics("INREMDN_files/figure-html/lazaro1.png")
+```
 
 
-No es tan sencillo
+Vamos a poner algunos nombres. En una prueba diagnóstica, tenemos dos tipos de sucesos:
 
-\only<2>{\begin{center}
-\includegraphics[width=0.9\linewidth]{lazaro1}
+* El **resultado del test**: $+$, positivo, o $-$, negativo
+($-$ es el complementario de $+$).
 
-{\tiny El Comercio, 8/1/2018 \url{https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html}
+* El  **estado del sujeto**:  $S$, sano, o  $E$}, enfermo ($S$ es el complementario de $E^$).
 
-}
-\end{center}}
+```{block2,type="rmdnote"}
+Es importante tener en cuenta que la clasificación de un sujeto en Enfermo o Sano usualmente se lleva a cabo mediante una prueba de referencia (*gold standard*), que no siempre existe, y cuando existe, puede dar (eso sí, muy raramente) diagnósticos erróneos.
+```
 
-\only<3>{
-\begin{center}
-\includegraphics[width=0.4\linewidth]{dracula}\
-\includegraphics[width=0.4\linewidth]{WW}
-\end{center}}
 
+Clasificamos los sujetos de la población según estos dos pares de sucesos:
 
-
-
-
-%: en muchas pruebas es difícil decidir el corte entre positivo y negativo.
-%\begin{center}
-%\includegraphics[width=0.6\linewidth]{probspsa}\smallskip
-%
-%{\scriptsize Probabilidad estimada de cáncer de próstata en hombres con tacto digital rectal normal, según nivel de PSA
-%
-%}
-%\end{center}
-%
-%
-%
-%{\tiny Barry, M. J. ``Prostate-specific-antigen testing for early diagnosis of prostate cancer.'' {\it New England Journal of Medicine} 344 (2001), pp. 1373--1377
-%
-%}
-
-
-
-
-
-\frametitle{Diagnóstico probabilístico}
-
-En una prueba diagnóstica, tenemos dos tipos de sucesos:
-\begin{itemize}
-* El \red{resultado del test}: \blue{$+$}, positivo, o \blue{$-$}, negativo
-($-=+^c$)
-
-* La \red{condición del sujeto}: \blue{$S$}, sano, o \blue{$E$}, enfermo ($S=E^c$)
-\end{itemize}
-
-\begin{center}
-\begin{tabular}{c|c|c|}
-\multirow{2}{*}{\bf Test} & \multicolumn{2}{|c|}{\bf Enfermedad}\\ \cline{2-3}	
- & $E$ & $S$ \\ \hline
-\multirow{2}{*}{$\mathbf +$} & Verdaderos & \red{Falsos} \\  	
- & positivos & \red{positivos} \\ \hline
-\multirow{2}{*}{$\mathbf -$} & \red{Falsos} & Verdaderos \\  	
- & \red{negativos} & negativos\\ \hline
- \end{tabular}
- \end{center}
-% 
-% 
-% \begin{center}
-%\begin{tabular}{c|c|c|}
-%\multirow{2}{*}{\bf Test} & \multicolumn{2}{|c|}{\bf Enfermedad}\\ \cline{2-3}	
-% & $E$ & $S$ \\ \hline
-%$+$ & VP & FP \\  	  \hline
-%$-$ & FN & VN \\  	 \hline
-% \end{tabular}
-% \end{center}
-%
-
-
-
-
-\frametitle{Diagnóstico probabilístico}\vspace*{-2.5ex}
-
-\begin{center}\footnotesize
-\begin{tabular}{c|c|c|}
-\multirow{2}{*}{\bf Test} & \multicolumn{2}{|c|}{\bf Enfermedad}\\ \cline{2-3}	
- & $E$ & $S$ \\ \hline
-\multirow{2}{*}{$\mathbf +$} & Verdaderos & \red{Falsos} \\  	
- & positivos & \red{positivos} \\ \hline
-\multirow{2}{*}{$\mathbf -$} & \red{Falsos} & Verdaderos \\  	
- & \red{negativos} & negativos\\ \hline
- \end{tabular}
- \end{center}
-
-\begin{itemize}
-* ¿Cómo se detecta $E$? Usualmente con una prueba \red{estándar de referencia} (\red{\sl gold standard}), pero no siempre existe
-
-* ¿Cómo se define $+$? Depende \ldots
-\begin{center}
-\includegraphics[width=0.5\linewidth]{probspsa}\smallskip
-
-{\scriptsize Probabilidad estimada de cáncer de próstata en hombres con tacto digital rectal normal, según nivel de PSA
-
-}
-\end{center}
-
-
-
-%{\tiny Barry, M. J. ``Prostate-specific-antigen testing for early diagnosis of prostate cancer.'' {\it New England Journal of Medicine} 344 (2001), pp. 1373--1377
-
-\end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-\frametitle{Diagnóstico probabilístico}
-
-La \emph{sensibilidad} de una prueba diagnóstica es la probabilidad de que dé positivo sobre un individuo enfermo
-
-La \emph{tasa de falsos negativos} de una prueba diagnóstica es la probabilidad de que dé negativo sobre un individuo enfermo
-
-\begin{itemize}
-* \red{Sensibilidad}: $P(+|E)$
-
-* \red{Tasa de falsos negativos}: $P(-|E)$
-\end{itemize}
-\blue{Tasa de falsos negativos $= 1- $Sensibilidad}
-
-
-
-
-\frametitle{Diagnóstico probabilístico}
-
-La \emph{especificidad} de una prueba diagnóstica es la probabilidad de que dé negativo sobre un individuo sano
-
-La \emph{tasa de falsos positivos} de una prueba diagnóstica es la probabilidad de que dé positivo sobre un individuo sano
-
-\begin{itemize}
-* \red{Especificidad}: $P(-|S)$
-
-* \red{Tasa de falsos positivos}: $P(+|S)$
-\end{itemize}
-\blue{Tasa de falsos positivos $= 1- $Especificidad}
-
-
-
-
-\frametitle{Diagnóstico probabilístico}
-
-\begin{itemize}
-* Se\red{N}sibilidad $= 1- $Tasa de falsos \red{N}egativos
-
-* Es\red{P}ecificidad $= 1- $Tasa de falsos \red{P}ositivos
-\end{itemize}\bigskip
-
-\blue{Un test para el VIH da positivo un 99\% de los casos donde el virus está presente y en un 5\% de los casos donde el virus no está presente.}
-
-\red{Sensibilidad?} \only<3,4,5>{99\%}
-
-\red{Especificidad?} \only<3,4,5>{95\%}
-
-\only<4,5>{\red{¿Qué es el 5\%?}} \only<5>{La tasa de falsos positivos}
- 
-
-
-
-
-
-
-\frametitle{Diagnóstico probabilístico}
-
-El \emph{valor predictivo positivo} (\red{VPP}) de una prueba diagnóstica es la probabilidad de que, si da positivo, el individuo esté enfermo
-
-El \emph{valor predictivo negativo} (\red{VPN}) de una prueba diagnóstica es la probabilidad de que, si da negativo, el individuo esté sano
-
-\begin{itemize}
-* \red{VPP}: $P(E|+)$
-
-* \red{VPN}: $P(S|-)$
-\end{itemize}
-Como hemos visto, conociendo la prevalencia $P(E)$, el teorema de Bayes permite traducir  especificidad y sensibilidad en VPP y VPN y viceversa
-
-
-
-
-
-
-
-\frametitle{Diagnóstico probabilístico}
-
-Usando el teorema de Bayes:
 $$
 \begin{array}{l}
-\red{\mbox{VPP}} = P(E|+) =\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\[3ex]
-\qquad =\red{\dfrac{\mbox{sensib.}\cdot \mbox{preval.}}{\mbox{sensib.}\cdot \mbox{preval.}+(1-\mbox{especif.})(1-\mbox{preval.})}}\\[6ex]
-\red{\mbox{VPN}} = P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\[3ex]
-\qquad =\red{\dfrac{\mbox{especif.}\cdot (1-\mbox{preval.})}{\mbox{especif.}\cdot (1-\mbox{preval.})+(1-\mbox{sensib.})\cdot\mbox{preval.}}}
+\hphantom{TestTestTest}\textbf{Enfermedad} \\
+\begin{array}{c|c|c}
+\textbf{Test}  & E & S \\ \hline
++ & \text{Verdaderos} & \text{Falsos} \\[-0.5ex]  	
+ & \text{positivos} & \text{positivos} \\ \hline
+- & \text{Falsos} & \text{Verdaderos} \\[-0.5ex]   	
+ & \text{negativos} & \text{negativos}
+\end{array}
 \end{array}
 $$
 
+Entonces, para una prueba diagnóstica:
+
+* Su **sensibilidad** es la probabilidad de que dé positivo sobre un individuo enfermo. Es decir, $P(+|E)$.
+
+* Su **tasa de falsos negativos** es la probabilidad de que dé negativo sobre un individuo enfermo. Es decir, $P(-|E)$.
+
+* Su **especificidad** es la probabilidad de que dé negativo sobre un individuo sano. Es decir, $P(-|S)$.
+
+* Su **tasa de falsos positivos** es la probabilidad de que dé positivo sobre un individuo sano. Es decir, $P(+|S)$.
+
+Observad que
+
+*  La Tasa de falsos negativos es  1 menos la Sensibilidad.
+
+*  La Tasa de falsos positivos es  1 menos la Especificidad.
+
+```{block2,type="rmdnote"}
+Igual os es útil la regla mnemotécnica siguiente, para recordar que es la sensibilidad y qué la especificidad:
+
+* La Se**N**sibilidad es  1 menos la Tasa de falsos **N**egativos.
+
+* La Es**P**ecificidad es  1 menos la Tasa de falsos **P**ositivos
+
+```
 
 
+```{example}
+Recordad el Ejemplo \@ref(exm:VIH995), en el que teníamos un test para el VIH que daba positivo en  un 99% de las personas en las que el virus estaba presente y en un 5% de las personas en las que el virus no está presente.
+
+* La **sensibilidad** de este test es la proporción de enfermos en los que da positivo: 99%.
+
+* La **especificidad**  de este test es la proporción de sanos en los que da negativo: 95%.
+
+* Y entonces, ¿qué es el 5%? La **tasa de falsos positivos**: la proporción de sanos en los que da positivo.
 
 
+```
+ 
+
+Algunas definiciones más. Para una prueba diagnóstica:
+
+* Su **valor predictivo positivo** (**VPP**)  es la probabilidad de que, si da positivo, el individuo esté enfermo. Es decir, $P(E|+)$.
+
+* Su **valor predictivo negativo** (**VPN**)  es la probabilidad de que, si da negativo, el individuo esté sano. Es decir, $P(S|-)$.
 
 
-\frametitle{Ejemplo} 
+Como hemos visto en la sección sobre la fórmula de Bayes de la lección anterior, conociendo la prevalencia $P(E)$ de la enfermedad, podemos calcular los valores predictivos a partir de la especificidad y sensibilidad. 
 
-Un test para el VIH da positivo un 99\% de los casos donde el virus está presente y en un 5\% de los casos donde el virus no está presente. En una población con el $0.5\%$ de infectados por VIH, \blue{¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado? Y ¿cuál es la probabilidad de que un individuo que haya dado \emph{negativo} en el test \emph{no} esté infectado?}
+Por ejemplo, recordad el enunciado del Ejemplo \@ref(exm:VIH995):
+
+> Un test para el VIH da positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente. En una población con el 0.5% de infectados por VIH:
+> *(a)* ¿Cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado?
+> *(b)* ¿Cuál es la probabilidad de que un individuo que haya dado negativo en el test no esté infectado?
+
+Su traducción en la terminología introducida al principio de esta sección es:
+
+> Un test para el VIH tiene una sensibilidad del 99% y una especificidad del 95%. En una población con una prevalencia del VIH del 0.5%, ¿cuáles son los VPP y VPN del test?
+
+Este tipo de cuestiones se pueden resolver usando el método de las frecuencias naturales o directamente la fórmula de Bayes:
 $$
-\Updownarrow
+\begin{array}{l}
+\text{VPP} = P(E|+) =\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\
+\qquad =\dfrac{\text{sensibilidad}\cdot \text{prevalencia}}{\text{sensibilidad}\cdot \text{prevalencia}+(1-\text{especificidad})(1-\text{prevalencia})}\\[2ex]
+\text{VPN} = P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\
+\qquad =\dfrac{\text{especificidad}\cdot (1-\text{prevalencia})}{\text{especificidad}\cdot (1-\text{prevalencia})+(1-\text{sensibilidad})\cdot\text{prevalencia}}
+\end{array}
 $$
-Un test para el VIH tiene una sensibilidad del 99\% y una especificidad del 95\%. En una población con una prevalencia del VIH del $0.5\%$, \blue{¿cuáles son los VPP y VPN del test?}
-
-
-
-
-%
-%
-%\frametitle{Diagnóstico probabilístico}
-%En un ensayo:
-%$$
-%\begin{array}{ccccl}
-%\multicolumn{2}{c}{ } & \multicolumn{2}{c}{\mbox{\bf Enfermedad}} & \\ \cline{3-4}	
-%& & E & S  & \mbox{Total}\\ \hline
-%\mbox{\bf Test} &+ & a & b & a+b  \\  	  
-%& - & c & d  & c+d \\  	  
-%& \mbox{Total} & a+c & b+d & n=a+b+c+d\\ \hline
-% \end{array}
-%$$
-%Estimaciones (en general):
-%
-%\begin{itemize}
-%* \red{Prevalencia}: $(a+c)/n$
-%
-%* \red{Sensibilidad}: $d/(b+d)$
-%
-%* \red{Especificidad}: $a/(a+c)$
-%
-%* \red{VPP}: $a/(a+b)$
-%
-%* \red{VPN}: $d/(c+d)$
-%\end{itemize}
-%
-%
-%
-
 
 
 
@@ -294,7 +140,7 @@ Un test para el VIH tiene una sensibilidad del 99\% y una especificidad del 95\%
 \begin{itemize}
 * \blue{Suponiendo que los resultados son representativos de la población, estimad la especificidad y la sensibilidad de ambas pruebas.}
 
-* \blue{La prevalencia en Uruguay de la enfermedad celíaca es del 1\%. Calculad los VPP y VPN de ambas pruebas.}
+* \blue{La prevalencia en Uruguay de la enfermedad celíaca es del 1%. Calculad los VPP y VPN de ambas pruebas.}
 
 
 * \blue{La prevalencia de la enfermedad celíaca entre los adultos españoles es de  1/390. Calculad los VPP y VPN de ambas pruebas en esta población.}
@@ -323,10 +169,10 @@ Total & 50  & 15 & 65 \\ \hline
 
 \blue{Suponiendo que los resultados son representativos de la población, estimad la especificidad y la sensibilidad.}
 
-$\mbox{Sensibilidad}=P(+|E)=\dfrac{47}{50}=0.94$
+$\text{Sensibilidad}=P(+|E)=\dfrac{47}{50}=0.94$
 
 
-$\mbox{Especificidad}=P(-|S)=\dfrac{14}{15}=0.9333$
+$\text{Especificidad}=P(-|S)=\dfrac{14}{15}=0.9333$
 
 
 
@@ -349,15 +195,15 @@ Total & 50  & 15 & 65 \\ \hline
 \end{center}
 \small\smallskip
 
-\blue{La prevalencia en Uruguay de la enfermedad celíaca es del 1\%. Calculad los VPP y VPN.}\smallskip
+\blue{La prevalencia en Uruguay de la enfermedad celíaca es del 1%. Calculad los VPP y VPN.}\smallskip
 
 
 $P(+|E)=0.94,\ P(-|S)=0.9333, P(E)=0.01$
 $$
 \begin{array}{rl}
-\mbox{VPP} & =P(E|+)=\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\[2ex]
+\text{VPP} & =P(E|+)=\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\[2ex]
 &= \dfrac{0.94\cdot 0.01}{0.94\cdot 0.01+0.0667\cdot 0.99}=0.1246\\[3ex]
-\mbox{VPN} & =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\[2ex]
+\text{VPN} & =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\[2ex]
 &= \dfrac{0.9333\cdot 0.99}{0.9333\cdot 0.99+0.06\cdot 0.01}=0.99935
 \end{array}
 $$
@@ -444,9 +290,9 @@ Total & 50  & 15 & 65 \\ \hline
 $P(+|E)=0.94,\ P(-|S)=0.9333, P(E)=1/390=0.00256$
 $$
 \begin{array}{rl}
-\mbox{VPP} & =P(E|+)=\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\[2ex]
+\text{VPP} & =P(E|+)=\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\[2ex]
 &= \dfrac{0.94\cdot 0.00256}{0.94\cdot 0.00256+0.0667\cdot 0.99744}=0.0349\\[3ex]
-\mbox{VPN} & =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\[2ex]
+\text{VPN} & =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\[2ex]
 &= \dfrac{0.9333\cdot 0.99744}{0.9333\cdot 0.99744+0.06\cdot 0.00256}=0.9998
 \end{array}
 $$
@@ -505,356 +351,6 @@ $$
 
 
 
-
-
-
-
-
-
-
-\frametitle{Influencia de la prevalencia}
-
-\red{La prevalencia no influye en sensibilidad y especificidad, pero sí en VPN y VPP}
-\begin{itemize}
-* Sensibilidad: porcentaje de enfermos en que da positivo (independiente de la proporción de enfermos)
-
-* Especificidad: porcentaje de sanos en que da negativo (independiente de la proporción de enfermos)
-
-* VPN y VPP: ya hemos visto que sí depende de la prevalencia: \red{a mayor prevalencia, mayor VPP y menor VPN}
-\end{itemize}
-
-\blue{A mayor prevalencia}
-\begin{itemize}  
-* \blue{más enfermos, más fácil encontrarlos, mayor VPP} 
-* \blue{menos sanos, más difícil encontrarlos, menor VPN}
-\end{itemize}
-
-
-
-
-
-
-\frametitle{Influencia de la prevalencia}
-\begin{center}
-\includegraphics[width=0.2\linewidth]{cp}
-\end{center}
-
-Si llamamos \red{$x$} a la prevalencia y fijamos los valores de $P(+|E),P(+|S),P(-|E),P(-|S)$,
-$$
-\mbox{VPP}(x)  =\dfrac{P(+|E)\cdot x}{P(+|E)\cdot x+P(+|S)\cdot (1-x)}
-$$
-es una función creciente en $x$ (derivada positiva) y
-$$
-\mbox{VPN}(x) =\dfrac{P(-|S)\cdot (1-x)}{P(-|S)\cdot (1-x)+P(-|E)\cdot x}
-$$
-es una función decreciente en $x$ (derivada negativa)
-
-
-
-
-\frametitle{Influencia de la prevalencia}
-
-\begin{center}
-\hspace*{-2.5ex}\includegraphics[width=1.1\linewidth]{PrevVPN}
-\end{center}
-
-
-
-
-
-
-
-
-\frametitle{Influencia de la prevalencia}
-
-Sensibilidad y especificidad no dependen de la prevalencia, pero sí de la población
-
-Examen físico clínico del pecho como prueba diagnóstica del cáncer de mama 
-\begin{center}
-\small\begin{tabular}{l|cc}
-Grupo & Sensib. (\%) & Espec. (\%) \\ \hline
-Global & 58.8 & 88.5\\  \hline \hline
-$<40$ años & 88.5 & 86.0\\
-40--49 años & 71.4 & 91.6\\
-50--59 años & 51.3 & 96.0\\
-60--69 años & 57.2 & 95.1\\
-$\geq 70$ años & 38.0 & 96.8\\ \hline \hline
-Asintomáticos & 36.1 & 96.2\\
-(Cribado) & & \\
-Sintomáticos & 85.2 & 72.9\\
-(Diagnóstico)
-\end{tabular}
-\end{center}
-
-
-{\tiny Bobo, J., Lee, N. Thames, S. ``Findings from 752,081 clinical breast examinations reported to a national screening program from 1995 through 1998.'' \textit{Journal of the National Cancer Institute} 92  (2000), pp. 971--976.
-
-}
-
-
-
-
-
-
-
-
-
-
-
-\frametitle{Curvas ROC}
-
-\red{Curva ROC} (de \textsl{Receiver Operating Characteristic}): en una prueba diagnóstica que toma valores continuos, para diferentes valores de corte negativo--positivo se dibujan los puntos
-$$
-\red{\large(P(+|S),P(+|E)\large)}=(1-\mbox{especificidad},\mbox{sensibilidad})
-$$
-y se unen en una curva
-
-
-
-
-\begin{center}
-\includegraphics[width=0.6\linewidth]{roc1}
-\end{center}
-
-
-
-
-
-
-
-\frametitle{Curvas ROC}
-
-\red{Valor de corte óptimo}: sensibilidad y especificidad \textit{conjuntas} más altas
-
-Por ejemplo, que maximice
-$$
-\mbox{\red{Índice de Youden}} = \mbox{sensibilidad}+ \mbox{especificidad}-1
-$$
-\begin{center}
-\includegraphics[width=0.6\linewidth]{roc2}
-\end{center}
-
-
-
-
-
-
-
-\frametitle{Curvas ROC}
-Especificidad y sensibilidad del nivel de PSA en la detección de cáncer de próstata en hombres negros de 70--79 años
-
-\begin{center}
-\begin{tabular}{cc}
-\includegraphics[width=0.4\linewidth]{psa1} &
-\includegraphics[width=0.5\linewidth]{psa2}
-\end{tabular}
-\end{center}
-
-Proponen 5.5 ng/ml como corte para esta población (Esp. $=95\%$, Sens.$=78\%$)
-
-
-
-{\tiny Morgan, T., Jacobsen, S. \textsl{et al}. ``Age-specific reference ranges for serum prostate-specific antigen in black men.'' \textit{New England Journal of Medicine}, 335 (1996), 304--310.
-
-}
-
-
-
-\frametitle{Curvas ROC}
-
-\red{Capacidad discriminativa de la prueba}: habilidad para distinguir Sanos de Enfermos
-
-La diagonal (\red{línea de no discriminación}) indica una prueba sin ninguna capacidad discriminativa ($P(+|E)=P(+|S)$: \blue{$+$ y $E$ son independientes})
-
-Mayor capacidad discriminativa cuanto más se aleje la curva de la diagonal por arriba ($P(+|E)>\!\!>P(+|S)$)
-\begin{center}
-\includegraphics[width=0.55\linewidth]{roc3}
-\end{center}
-
-
-
-
-
-
-
-
-\frametitle{Curvas ROC}
-
-La \red{capacidad discriminativa de la prueba} se mide con el \red{Área Bajo la Curva} (\red{$ABC$}; \red{$AUC$} en inglés): representa el \blue{valor promedio de la sensibilidad} para todos los valores de corte
-
-\begin{itemize}
-* $AUC=0.5$: la de la línea de no discriminación, inútil
-
-* $AUC=1$: línea (0,0)--(0,1)--(1,1): todos los valores de corte tienen sensibilidad 1
-\end{itemize}
-\begin{center}
-\includegraphics[width=0.5\linewidth]{roc1}
-\end{center}
-
-
-
-
-
-
-
-\frametitle{Ejemplo}
-
-\begin{center}
-\includegraphics[width=\linewidth]{rocnavarra}
-\end{center}
-
-{\scriptsize Rodríguez, R., Pérez, F.  \textsl{et al}. ``Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias.'' \textit{Anales del Sistema Sanitario de Navarra} 39 (2016), pp 115-122
-
-}
-
-
-
-
-
-
-
-\frametitle{IC \textsl{por ahora}}
-
-
-
-Un \red{Intervalo de confianza} del 95\% (\red{IC 95\%}) es un intervalo en el que estimamos con un 95\% de <<seguridad>> que contiene el valor <<real>>\bigskip
-
-De todos los parámetros (prevalencia, especificidad, sensibilidad, ABC,\ldots) es usual y conveniente dar un IC del 95\%, que se calcula de manera adecuada\bigskip
-
-\blue{Ejemplo}: Para la AUC de la curva ROC, si usásemos el test PCR sobre tooooda la población y dibujásemos la curva, estimamos (con un 95\% de <<seguridad>>) que su AUC estaría entre 0.68 y 0.92. Como no contiene el 0.5 estamos (un 95\%) seguros de que el test sirve para algo.
-
-
-
-
-
-\frametitle{Ejemplo}\vspace*{-3ex}
-
-\begin{center}
-\includegraphics[width=0.9\linewidth]{cbenap}
-\end{center}
-\small
-
-\textbf{Resultados}. Se estudiaron 890
-casos, 491 CB y 399 diagnósticos
-diferenciales. La sensibilidad
-fue del 27.5\% (IC del 95\%, 23.5--31.5\%), la
-especificidad del 90.5\% (IC del 95\%, 87.5--93.5\%), el valor global del 55.7\% (IC del
-95\%, 52.7--58.7\%), el valor predictivo
-positivo del 78.0\% (IC del 95\%, 72.0--84.0\%) y el valor predictivo negativo del
-50.3\% (IC del 95\%, 46.3--54.3\%).
-
-(\red{Exactitud} (o \red{valor global}): la probabilidad de acertar el diagnóstico: $P(E\cap +)+P(S\cap -)$)
-
-
-{\tiny \textit{Atención Primaria} 28 (2001),  391--395.}
-%\url{http://www.elsevier.es/es-revista-atencion-primaria-27-articulo-validez-del-diagnostico-clinico-carcinoma-13020196}
-
-
-
-
-\frametitle{IC \textsl{por ahora}: \red{Proporciones}}
-
-
-
-\begin{block}{Fórmula de Laplace (1812)}
-Para \red{proporciones}, cuando el tamaño $n$ de la \blue{muestra con la que se ha calculado la proporción} $p$ es grande ($\geq 100$), y $p$ no está cerca de 0 ni de 1, el IC 95\% para la proporción real en toda la población es (aproximadamente)
-$$
-p\pm 1.96\sqrt{\frac{p(1-p)}{n}}
-$$
-\end{block}
-
-Hay fórmulas (más complicadas) más exactas y aplicables en casos menos restringidos
-
-\red{\bf Para otros índices, otras fórmulas}
-
-
-
-
-
-
-\frametitle{IC \textsl{por ahora}}
-
-\blue{Ejemplo}: <<Se estudiaron 890
-casos, 491 CB y 399 diagnósticos
-diferenciales. La sensibilidad fue del 27.5\% (IC del 95\%, 23.5--31.5\%), la
-especificidad del 90.5\% (IC del 95\%, 87.5--93.5\%), el valor global del 55.7\% (IC del
-95\%, 52.7--58.7\%),>>\bigskip
-
-\only<1>{IC para la sensibilidad:
-$p=0.275$, $n=890$
-$$
-0.275\pm 1.96\sqrt{\frac{0.275(1-0.275)}{890}}=(0.246,0.304)\ \hphantom{\red{\bf ???}}
-$$
-}
-\only<2>{IC para la sensibilidad:
-$p=0.275$, $n=890$
-$$
-0.275\pm 1.96\sqrt{\frac{0.275(1-0.275)}{890}}=(0.246,0.304)\ \red{\bf ???}
-$$
-}
-
-\only<3>{IC para la sensibilidad:
-$p=0.275$, \red{$n=491$}
-$$
-0.275\pm 1.96\sqrt{\frac{0.275(1-0.275)}{491}}=(0.2354,0.3144)
-$$
-}
-\only<4>{IC para la especificidad:
-$p=0.905$, \red{$n=399$}
-$$
-0.905\pm 1.96\sqrt{\frac{0.905(1-0.905)}{399}}=(0.8762, 0.9337)\ \red{\bf ???}
-$$
-}
-
-
-
-%
-%[fragile]
-%\frametitle{IC \textsl{por ahora}}
-%
-%\blue{Ejemplo}: <<Se estudiaron 890
-%casos, 491 CB y 399 diagnósticos
-%diferenciales. La sensibilidad fue del 27.5\% (IC del 95\%, 23.5--31.5\%), la
-%especificidad del 90.5\% (IC del 95\%, 87.5--93.5\%), el valor global del 55.7\% (IC del
-%95\%, 52.7--58.7\%),>>\bigskip
-%
-%IC para la especificidad: $S=399$, $VN=361$
-%\small
-%
-%\begin{verbatim}
-%> library(epitools)
-%> binom.exact(361,399)
-%    x   n proportion     lower     upper conf.level
-%1 361 399  0.9047619 0.8716243 0.9317203       0.95
-%> binom.wilson(361,399)
-%    x   n proportion     lower     upper conf.level
-%1 361 399  0.9047619 0.8719783 0.9298259       0.95
-%\end{verbatim}
-%
-%
-
-
-
-\frametitle{IC \textsl{por ahora}}
-
-\blue{Ejemplo}: <<Se estudiaron 890
-casos, 491 CB y 399 diagnósticos
-diferenciales. La sensibilidad fue del 27.5\% (IC del 95\%, 23.5--31.5\%), la
-especificidad del 90.5\% (IC del 95\%, 87.5--93.5\%), el valor global del 55.7\% (IC del
-95\%, 52.7--58.7\%),>>\bigskip
-
-\red{Valor global}: probabilidad de acertar: $\dfrac{VP+VN}{\mbox{Total}}$\bigskip
-
-
-IC para el valor global:
-$p=0.557$, \red{$n=890$}
-$$
-0.557\pm 1.96\sqrt{\frac{0.557(1-0.557)}{890}}=(0.5237, 0.5903)\ \red{\bf ???}
-$$
-
-
-
-
 \frametitle{Más vocabulario} 
 
 Para una prueba diagnóstica:
@@ -863,9 +359,9 @@ Para una prueba diagnóstica:
 
 * \red{Cocientes de verosimilitud}: Cuánto más probable es un diagnóstico sobre enfermos que sobre sanos
 \begin{itemize}
-* \red{Positivo}: $\red{LR(+)}=\dfrac{P(+|E)}{P(+|S)}=\dfrac{\mbox{sensibilidad}}{1-\mbox{especificidad}}$
+* \red{Positivo}: $\red{LR(+)}=\dfrac{P(+|E)}{P(+|S)}=\dfrac{\text{sensibilidad}}{1-\text{especificidad}}$
 
-* \red{Negativo}: $\red{LR(-)}=\dfrac{P(-|E)}{P(-|S)}=\dfrac{1-\mbox{sensibilidad}}{\mbox{especificidad}}$
+* \red{Negativo}: $\red{LR(-)}=\dfrac{P(-|E)}{P(-|S)}=\dfrac{1-\text{sensibilidad}}{\text{especificidad}}$
 \end{itemize}
 
 $LR(+)$ por encima de 10 o por debajo de 0.1 se toma como indicador de buen potencial diagnóstico
@@ -937,7 +433,7 @@ LR(+)=\dfrac{P(+|E)}{P(+|S)}=\dfrac{42/148}{2/144}=20.43
 \end{array}
 $$\small
 
-La probabilidad de EOVA si eres fumador empedernido es del 95\%;  si tienes EOVA, la probabilidad de que seas fumador empedernido es 20 veces mayor que la probabilidad de que no lo seas}
+La probabilidad de EOVA si eres fumador empedernido es del 95%;  si tienes EOVA, la probabilidad de que seas fumador empedernido es 20 veces mayor que la probabilidad de que no lo seas}
 
 
 
@@ -968,7 +464,7 @@ LR(+)=\dfrac{P(+|E)}{P(+|S)}=\dfrac{25/148}{24/144}=1.0135
 \end{array}
 $$\small
 
-La probabilidad de EOVA si eres fumador moderado-alto es aproximadamente de un 50\%; tener EOVA y ser fumador moderado-alto son aproximadamente independientes}
+La probabilidad de EOVA si eres fumador moderado-alto es aproximadamente de un 50%; tener EOVA y ser fumador moderado-alto son aproximadamente independientes}
 
 
 
@@ -983,9 +479,9 @@ Para una prueba diagnóstica:
 
 * \red{Cocientes de verosimilitud}: Cuánto más probable es un diagnóstico sobre enfermos que sobre sanos
 \begin{itemize}
-* \red{Positivo}: $\red{LR(+)}=\dfrac{P(+|E)}{P(+|S)}=\dfrac{\mbox{sensibilidad}}{1-\mbox{especificidad}}$
+* \red{Positivo}: $\red{LR(+)}=\dfrac{P(+|E)}{P(+|S)}=\dfrac{\text{sensibilidad}}{1-\text{especificidad}}$
 
-* \red{Negativo}: $\red{LR(-)}=\dfrac{P(-|E)}{P(-|S)}=\dfrac{1-\mbox{sensibilidad}}{\mbox{especificidad}}$
+* \red{Negativo}: $\red{LR(-)}=\dfrac{P(-|E)}{P(-|S)}=\dfrac{1-\text{sensibilidad}}{\text{especificidad}}$
 \end{itemize}
 \end{itemize}
 
@@ -999,15 +495,15 @@ Para una prueba diagnóstica:
 \begin{teorema}
 $$
 \begin{array}{l}
-\mbox{Odds}(E|+)=\mbox{Odds}(E)\cdot LR(+)\\[2ex]
-\mbox{Odds}(E|-)=\mbox{Odds}(E)\cdot LR(-) 
+\text{Odds}(E|+)=\text{Odds}(E)\cdot LR(+)\\[2ex]
+\text{Odds}(E|-)=\text{Odds}(E)\cdot LR(-) 
 \end{array}
 $$
 \end{teorema}
 $$
 \begin{array}{l}
-\mbox{Odds}(E|+)=\dfrac{P(E|+)}{P(S|+)}=\dfrac{P(E|+)P(+)}{P(S|+)P(+)}=\dfrac{P(E\cap +)}{P(S\cap +)}\\[3ex]
-\mbox{Odds}(E)\cdot LR(+)=\dfrac{P(E)}{P(S)}\cdot \dfrac{P(+|E)}{P(+|S)}=\dfrac{P(E\cap +)}{P(S\cap +)}
+\text{Odds}(E|+)=\dfrac{P(E|+)}{P(S|+)}=\dfrac{P(E|+)P(+)}{P(S|+)P(+)}=\dfrac{P(E\cap +)}{P(S\cap +)}\\[3ex]
+\text{Odds}(E)\cdot LR(+)=\dfrac{P(E)}{P(S)}\cdot \dfrac{P(+|E)}{P(+|S)}=\dfrac{P(E\cap +)}{P(S\cap +)}
 \end{array}
 $$
 
@@ -1023,15 +519,354 @@ $$
 \frametitle{Ejemplo}
 
 \blue{Se sabe que una mujer con hermano hemofílico tiene oportunidades 1:1 de ser portadora de un gen hemofílico.
-Una prueba diagnóstica basada en rDNA tiene una sensibilidad del 90\% y una especificidad del 80\%. Una mujer con hermano hemofílico se hace la prueba y da negativo. ¿Cómo modifica sus oportunidades de ser portadora este resultado negativo?}
+Una prueba diagnóstica basada en rDNA tiene una sensibilidad del 90% y una especificidad del 80%. Una mujer con hermano hemofílico se hace la prueba y da negativo. ¿Cómo modifica sus oportunidades de ser portadora este resultado negativo?}
 
-$\mbox{Odds}(E)=1$
+$\text{Odds}(E)=1$
 
 $P(-|E)=0.1, P(-|S)=0.8\Rightarrow LR(-)=\dfrac{P(-|E)}{P(-|S)}=\dfrac{1}{8}$
 
-$\mbox{Odds}(E|-)=\mbox{Odds}(E)\cdot LR(-) =\dfrac{1}{8}$ 
+$\text{Odds}(E|-)=\text{Odds}(E)\cdot LR(-) =\dfrac{1}{8}$ 
 
 Pasa de 1:1 a 1:8
+
+
+
+
+
+\red{La prevalencia no influye en sensibilidad y especificidad, pero sí en VPN y VPP}
+\begin{itemize}
+* Sensibilidad: porcentaje de enfermos en que da positivo (independiente de la proporción de enfermos)
+
+* Especificidad: porcentaje de sanos en que da negativo (independiente de la proporción de enfermos)
+
+* VPN y VPP: ya hemos visto que sí depende de la prevalencia: \red{a mayor prevalencia, mayor VPP y menor VPN}
+\end{itemize}
+
+\blue{A mayor prevalencia}
+\begin{itemize}  
+* \blue{más enfermos, más fácil encontrarlos, mayor VPP} 
+* \blue{menos sanos, más difícil encontrarlos, menor VPN}
+\end{itemize}
+
+
+
+
+
+
+\frametitle{Influencia de la prevalencia}
+\begin{center}
+\includegraphics[width=0.2\linewidth]{cp}
+\end{center}
+
+Si llamamos \red{$x$} a la prevalencia y fijamos los valores de $P(+|E),P(+|S),P(-|E),P(-|S)$,
+$$
+\text{VPP}(x)  =\dfrac{P(+|E)\cdot x}{P(+|E)\cdot x+P(+|S)\cdot (1-x)}
+$$
+es una función creciente en $x$ (derivada positiva) y
+$$
+\text{VPN}(x) =\dfrac{P(-|S)\cdot (1-x)}{P(-|S)\cdot (1-x)+P(-|E)\cdot x}
+$$
+es una función decreciente en $x$ (derivada negativa)
+
+
+
+
+\frametitle{Influencia de la prevalencia}
+
+\begin{center}
+\hspace*{-2.5ex}\includegraphics[width=1.1\linewidth]{PrevVPN}
+\end{center}
+
+
+
+
+
+
+
+
+\frametitle{Influencia de la prevalencia}
+
+Sensibilidad y especificidad no dependen de la prevalencia, pero sí de la población
+
+Examen físico clínico del pecho como prueba diagnóstica del cáncer de mama 
+\begin{center}
+\small\begin{tabular}{l|cc}
+Grupo & Sensib. (%) & Espec. (%) \\ \hline
+Global & 58.8 & 88.5\\  \hline \hline
+$<40$ años & 88.5 & 86.0\\
+40--49 años & 71.4 & 91.6\\
+50--59 años & 51.3 & 96.0\\
+60--69 años & 57.2 & 95.1\\
+$\geq 70$ años & 38.0 & 96.8\\ \hline \hline
+Asintomáticos & 36.1 & 96.2\\
+(Cribado) & & \\
+Sintomáticos & 85.2 & 72.9\\
+(Diagnóstico)
+\end{tabular}
+\end{center}
+
+
+{\tiny Bobo, J., Lee, N. Thames, S. ``Findings from 752,081 clinical breast examinations reported to a national screening program from 1995 through 1998.'' \textit{Journal of the National Cancer Institute} 92  (2000), pp. 971--976.
+
+}
+
+
+
+
+
+
+
+
+### Curvas ROC
+
+\red{Curva ROC} (de \textsl{Receiver Operating Characteristic}): en una prueba diagnóstica que toma valores continuos, para diferentes valores de corte negativo--positivo se dibujan los puntos
+$$
+\red{\large(P(+|S),P(+|E)\large)}=(1-\text{especificidad},\text{sensibilidad})
+$$
+y se unen en una curva
+
+
+
+
+\begin{center}
+\includegraphics[width=0.6\linewidth]{roc1}
+\end{center}
+
+
+
+
+
+
+
+\frametitle{Curvas ROC}
+
+\red{Valor de corte óptimo}: sensibilidad y especificidad \textit{conjuntas} más altas
+
+Por ejemplo, que maximice
+$$
+\text{\red{Índice de Youden}} = \text{sensibilidad}+ \text{especificidad}-1
+$$
+\begin{center}
+\includegraphics[width=0.6\linewidth]{roc2}
+\end{center}
+
+
+
+
+
+
+
+\frametitle{Curvas ROC}
+Especificidad y sensibilidad del nivel de PSA en la detección de cáncer de próstata en hombres negros de 70--79 años
+
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=0.4\linewidth]{psa1} &
+\includegraphics[width=0.5\linewidth]{psa2}
+\end{tabular}
+\end{center}
+
+Proponen 5.5 ng/ml como corte para esta población (Esp. $=95%$, Sens.$=78%$)
+
+
+
+{\tiny Morgan, T., Jacobsen, S. \textsl{et al}. ``Age-specific reference ranges for serum prostate-specific antigen in black men.'' \textit{New England Journal of Medicine}, 335 (1996), 304--310.
+
+}
+
+
+
+\frametitle{Curvas ROC}
+
+\red{Capacidad discriminativa de la prueba}: habilidad para distinguir Sanos de Enfermos
+
+La diagonal (\red{línea de no discriminación}) indica una prueba sin ninguna capacidad discriminativa ($P(+|E)=P(+|S)$: \blue{$+$ y $E$ son independientes})
+
+Mayor capacidad discriminativa cuanto más se aleje la curva de la diagonal por arriba ($P(+|E)>\!\!>P(+|S)$)
+\begin{center}
+\includegraphics[width=0.55\linewidth]{roc3}
+\end{center}
+
+
+
+
+
+
+
+
+\frametitle{Curvas ROC}
+
+La \red{capacidad discriminativa de la prueba} se mide con el \red{Área Bajo la Curva} (\red{$ABC$}; \red{$AUC$} en inglés): representa el \blue{valor promedio de la sensibilidad} para todos los valores de corte
+
+\begin{itemize}
+* $AUC=0.5$: la de la línea de no discriminación, inútil
+
+* $AUC=1$: línea (0,0)--(0,1)--(1,1): todos los valores de corte tienen sensibilidad 1
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.5\linewidth]{roc1}
+\end{center}
+
+
+
+
+
+
+
+\frametitle{Ejemplo}
+
+\begin{center}
+\includegraphics[width=\linewidth]{rocnavarra}
+\end{center}
+
+{\scriptsize Rodríguez, R., Pérez, F.  \textsl{et al}. ``Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias.'' \textit{Anales del Sistema Sanitario de Navarra} 39 (2016), pp 115-122
+
+}
+
+
+
+
+
+
+
+\frametitle{IC \textsl{por ahora}}
+
+
+
+Un \red{Intervalo de confianza} del 95% (\red{IC 95%}) es un intervalo en el que estimamos con un 95% de <<seguridad>> que contiene el valor <<real>>\bigskip
+
+De todos los parámetros (prevalencia, especificidad, sensibilidad, ABC,\ldots) es usual y conveniente dar un IC del 95%, que se calcula de manera adecuada\bigskip
+
+\blue{Ejemplo}: Para la AUC de la curva ROC, si usásemos el test PCR sobre tooooda la población y dibujásemos la curva, estimamos (con un 95% de <<seguridad>>) que su AUC estaría entre 0.68 y 0.92. Como no contiene el 0.5 estamos (un 95%) seguros de que el test sirve para algo.
+
+
+
+
+
+\frametitle{Ejemplo}\vspace*{-3ex}
+
+\begin{center}
+\includegraphics[width=0.9\linewidth]{cbenap}
+\end{center}
+\small
+
+\textbf{Resultados}. Se estudiaron 890
+casos, 491 CB y 399 diagnósticos
+diferenciales. La sensibilidad
+fue del 27.5% (IC del 95%, 23.5--31.5%), la
+especificidad del 90.5% (IC del 95%, 87.5--93.5%), el valor global del 55.7% (IC del
+95%, 52.7--58.7%), el valor predictivo
+positivo del 78.0% (IC del 95%, 72.0--84.0%) y el valor predictivo negativo del
+50.3% (IC del 95%, 46.3--54.3%).
+
+(\red{Exactitud} (o \red{valor global}): la probabilidad de acertar el diagnóstico: $P(E\cap +)+P(S\cap -)$)
+
+
+{\tiny \textit{Atención Primaria} 28 (2001),  391--395.}
+%\url{http://www.elsevier.es/es-revista-atencion-primaria-27-articulo-validez-del-diagnostico-clinico-carcinoma-13020196}
+
+
+
+
+\frametitle{IC \textsl{por ahora}: \red{Proporciones}}
+
+
+
+\begin{block}{Fórmula de Laplace (1812)}
+Para \red{proporciones}, cuando el tamaño $n$ de la \blue{muestra con la que se ha calculado la proporción} $p$ es grande ($\geq 100$), y $p$ no está cerca de 0 ni de 1, el IC 95% para la proporción real en toda la población es (aproximadamente)
+$$
+p\pm 1.96\sqrt{\frac{p(1-p)}{n}}
+$$
+\end{block}
+
+Hay fórmulas (más complicadas) más exactas y aplicables en casos menos restringidos
+
+\red{\bf Para otros índices, otras fórmulas}
+
+
+
+
+
+
+\frametitle{IC \textsl{por ahora}}
+
+\blue{Ejemplo}: <<Se estudiaron 890
+casos, 491 CB y 399 diagnósticos
+diferenciales. La sensibilidad fue del 27.5% (IC del 95%, 23.5--31.5%), la
+especificidad del 90.5% (IC del 95%, 87.5--93.5%), el valor global del 55.7% (IC del
+95%, 52.7--58.7%),>>\bigskip
+
+\only<1>{IC para la sensibilidad:
+$p=0.275$, $n=890$
+$$
+0.275\pm 1.96\sqrt{\frac{0.275(1-0.275)}{890}}=(0.246,0.304)\ \hphantom{\red{\bf ???}}
+$$
+}
+\only<2>{IC para la sensibilidad:
+$p=0.275$, $n=890$
+$$
+0.275\pm 1.96\sqrt{\frac{0.275(1-0.275)}{890}}=(0.246,0.304)\ \red{\bf ???}
+$$
+}
+
+\only<3>{IC para la sensibilidad:
+$p=0.275$, \red{$n=491$}
+$$
+0.275\pm 1.96\sqrt{\frac{0.275(1-0.275)}{491}}=(0.2354,0.3144)
+$$
+}
+\only<4>{IC para la especificidad:
+$p=0.905$, \red{$n=399$}
+$$
+0.905\pm 1.96\sqrt{\frac{0.905(1-0.905)}{399}}=(0.8762, 0.9337)\ \red{\bf ???}
+$$
+}
+
+
+
+%
+%[fragile]
+%\frametitle{IC \textsl{por ahora}}
+%
+%\blue{Ejemplo}: <<Se estudiaron 890
+%casos, 491 CB y 399 diagnósticos
+%diferenciales. La sensibilidad fue del 27.5% (IC del 95%, 23.5--31.5%), la
+%especificidad del 90.5% (IC del 95%, 87.5--93.5%), el valor global del 55.7% (IC del
+%95%, 52.7--58.7%),>>\bigskip
+%
+%IC para la especificidad: $S=399$, $VN=361$
+%\small
+%
+%\begin{verbatim}
+%> library(epitools)
+%> binom.exact(361,399)
+%    x   n proportion     lower     upper conf.level
+%1 361 399  0.9047619 0.8716243 0.9317203       0.95
+%> binom.wilson(361,399)
+%    x   n proportion     lower     upper conf.level
+%1 361 399  0.9047619 0.8719783 0.9298259       0.95
+%\end{verbatim}
+%
+%
+
+
+
+\frametitle{IC \textsl{por ahora}}
+
+\blue{Ejemplo}: <<Se estudiaron 890
+casos, 491 CB y 399 diagnósticos
+diferenciales. La sensibilidad fue del 27.5% (IC del 95%, 23.5--31.5%), la
+especificidad del 90.5% (IC del 95%, 87.5--93.5%), el valor global del 55.7% (IC del
+95%, 52.7--58.7%),>>\bigskip
+
+\red{Valor global}: probabilidad de acertar: $\dfrac{VP+VN}{\text{Total}}$\bigskip
+
+
+IC para el valor global:
+$p=0.557$, \red{$n=890$}
+$$
+0.557\pm 1.96\sqrt{\frac{0.557(1-0.557)}{890}}=(0.5237, 0.5903)\ \red{\bf ???}
+$$
 
 
 
@@ -1112,9 +947,9 @@ Para expresar la <<exactitud>> de una prueba diagnóstica hay distintos índices
 Para expresar la <<exactitud>> de una prueba diagnóstica hay distintos índices, todos correctos y legítimos
 
 
-Al haber sido calculados a partir de una muestra (en principio, aleatoria), conviene además dar (e interpretar) su IC (usualmente al 95\%)
+Al haber sido calculados a partir de una muestra (en principio, aleatoria), conviene además dar (e interpretar) su IC (usualmente al 95%)
 
-% Por ejemplo, si el IC 95\% del $LR(+)$ contiene el 1, no podemos descartar (con un 95\% de seguridad) que el test no sirva para detectar enfermos
+% Por ejemplo, si el IC 95% del $LR(+)$ contiene el 1, no podemos descartar (con un 95% de seguridad) que el test no sirva para detectar enfermos
 
 
 
@@ -1161,10 +996,10 @@ De las siguientes cifras, ¿cuál es la más cercana a la
 sensibilidad estimada del diagnóstico clínico de la úlcera?:
 
 \begin{center}
-(a) 3\%\quad (b) 43\%\only<2>{{\Large\red \checkmark}}\only<1>{\quad} (c) 87\%\quad (d)  98\%\quad (e)  100\%
+(a) 3%\quad (b) 43%\only<2>{{\Large\red \checkmark}}\only<1>{\quad} (c) 87%\quad (d)  98%\quad (e)  100%
 \end{center}}
 
-%\coment{De 300 enfermos, 130 dieron positivo en el diagnóstico clínico, por lo que la sensibilidad fue de $130/300=0.4333$: un 43\%.}
+%\coment{De 300 enfermos, 130 dieron positivo en el diagnóstico clínico, por lo que la sensibilidad fue de $130/300=0.4333$: un 43%.}
 
 
 
@@ -1187,10 +1022,10 @@ Negativa & 20 &  800\\ \hline
 A partir de ella y redondeando decimales, señale
 cuál de las siguientes afirmaciones es verdadera:
 \begin{enumerate}[(a)]\setlength\itemsep{0 ex}
-* El VPP es del 56\% y el VPN del 13\%.
-* El VPP es del 44\% y el VPN del 98\%. \only<2>{{\Large\red \checkmark}}
-* El VPP es del 80\% y el VPN del 89\%.
-* El VPP es del 80\% y el VPN del 11\%. 
+* El VPP es del 56% y el VPN del 13%.
+* El VPP es del 44% y el VPN del 98%. \only<2>{{\Large\red \checkmark}}
+* El VPP es del 80% y el VPN del 89%.
+* El VPP es del 80% y el VPN del 11%. 
 * Ninguna de las anteriores.
 \end{enumerate}}
 
@@ -1287,7 +1122,7 @@ su resultado es positivo.   \only<2>{{\Large\red \checkmark}}
 \small
 
 \begin{quote}
-En 1987, se notificó a 22 donantes de sangre de Florida que habían dado positivo en un test de VIH con sensibilidad y  especificidad ambas del 99.99\%  (ELISA+Western Blot). De ellos, 7 se suicidaron.\\
+En 1987, se notificó a 22 donantes de sangre de Florida que habían dado positivo en un test de VIH con sensibilidad y  especificidad ambas del 99.99%  (ELISA+Western Blot). De ellos, 7 se suicidaron.\\
 \hspace*{\fill}{\footnotesize (G. Stine. AIDS Update 1999)}
 \end{quote}
 
@@ -1299,7 +1134,7 @@ P(E|+)&=\dfrac{P(+|E)P(E)}{P(+|E)P(E)+P(+|S)P(S)}\\[2ex] &=\dfrac{0.9999\cdot 0.
 $$
 
 
-\red{De un 50\%}
+\red{De un 50%}
 
 
 

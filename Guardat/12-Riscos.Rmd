@@ -1,0 +1,1197 @@
+
+
+## Riesgos {#sec:probaplic2}
+
+
+\begin{frame}
+\frametitle{Riesgos} 
+
+En estudios de casos y controles, cohortes o transversales, tenemos:
+\begin{itemize}
+
+\item La \red{condición del sujeto}: \blue{$S$}, sano, o \blue{$E$}, enfermo ($S=E^c$)
+
+\item Su \red{exposición} a la \red{$C$}ausa de la enfermedad: \blue{$C$}, expuesto, o \blue{$C^c$}, no expuesto
+\end{itemize}\medskip
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+\multirow{2}{*}{\bf Causa} & \multicolumn{2}{|c|}{\bf Enfermedad}\\ \cline{2-3}	
+ & $E$ & $S$ \\ \hline
+\multirow{2}{*}{$C$} & Expuestos & Expuestos \\  	
+ & enfermos & sanos \\ \hline
+\multirow{2}{*}{$C^c$} & No expuestos & No expuestos \\  	
+ & enfermos & sanos\\ \hline
+ \end{tabular}
+ \end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Riesgos}\vspace*{-3ex}
+
+\begin{center}\small 
+\begin{tabular}{c|c|c|}
+\multirow{2}{*}{\bf Causa} & \multicolumn{2}{|c|}{\bf Enfermedad}\\ \cline{2-3}	
+ & $E$ & $S$ \\ \hline
+\multirow{2}{*}{$C$} & Expuestos & Expuestos \\  	
+ & enfermos & sanos \\ \hline
+\multirow{2}{*}{$C^c$} & No expuestos & No expuestos \\  	
+ & enfermos & sanos\\ \hline
+ \end{tabular}
+ \end{center}\medskip
+ 
+\red{\bf Atención:}
+\begin{itemize}
+ \item En cohortes sabemos la exposición a la Causa y estudiamos la aparición de la Enfermedad: \red{solo tiene sentido estudiar $E$ y $E^c$ condicionadas a $C$ y $C^c$}
+ 
+ 
+ \item En casos y controles sabemos la Enfermedad y estudiamos la exposición previa a la Causa: \red{solo tiene sentido estudiar $C$ y $C^c$ cond. a $E$ y $E^c$}
+ 
+  \item En transversales tiene sentido estudiar ambos
+
+ \end{itemize}
+ 
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Riesgos en cohortes}\vspace*{-2ex}
+
+En un estudio de cohortes, escogemos cohortes, conocemos su exposición, y observamos más adelante si enferman.
+\medskip
+
+\red{Riesgos} de interés:\medskip
+
+\begin{itemize}
+\item \red{Tasa de riesgo en expuestos}: $P(E|C)$\medskip
+
+\item \red{Tasa de riesgo en no expuestos}: $P(E|C^c)$\medskip
+
+\item\red{Riesgo (absoluto) atribuible a la exposición}: $RA=P(E|C)-P(E|C^c)$
+
+\item \red{Riesgo relativo}: $\red{RR}=\dfrac{P(E|C)}{P(E|C^c)}$
+\end{itemize}
+
+$RR$ mide cuántas veces es más probable enfermar entre los expuestos que entre los no expuestos.\medskip
+
+Solo miden asociación, no causalidad.
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Ejemplo} 
+
+$C$: más de 5 días de exposición a antibióticos\medskip
+
+$E$: sepsis tardía\medskip
+
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$C$ & 32 & 17   \\ \hline
+$C^c$ & 4 & 45\\ \hline
+ \end{tabular}
+ \end{center}\medskip
+ 
+ $RR=$\bigskip
+ 
+ $RA=$ \vspace*{\fill}
+
+{\scriptsize Briones, E., Treviño, J., \textsl{et al}. ``Exposición prolongada a antibióticos y riesgo de sepsis tardía (ST) en neonatos de $1000$ a $<1500$ g: estudio de cohorte.'' Gac. Méd. Méx. 151 (2015), 306--12
+
+}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo} 
+
+$C$: más de 5 días de exposición a antibióticos\medskip
+
+$E$: sepsis tardía\medskip
+
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$C$ & 32 & 17   \\ \hline
+$C^c$ & 4 & 45\\ \hline
+ \end{tabular}
+ \end{center}\medskip
+ 
+ $RR= \dfrac{32/49}{4/49}=8$\medskip
+
+Entre los neonatos de bajo peso, la exposición de más de 5 días a antibióticos multiplica por 8 el riesgo de sepsis tardía\medskip
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo} 
+
+$C$: más de 5 días de exposición a antibióticos\medskip
+
+$E$: sepsis tardía\medskip
+
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$C$ & 32 & 17   \\ \hline
+$C^c$ & 4 & 45\\ \hline
+ \end{tabular}
+ \end{center}\medskip
+ 
+$\displaystyle RA=\frac{32}{49}-\frac{4}{49}=\frac{28}{49}=0.5714$\medskip
+
+Entre los neonatos de bajo peso, la exposición de más de 5 días a antibióticos aumenta en \red{57 puntos  porcentuales} el riesgo de sepsis tardía\medskip
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}\vspace*{-2ex}
+
+$C$: más de 5 días de exposición a antibióticos\medskip
+
+$E$: sepsis tardía
+
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$C$ & 32 & 17   \\ \hline
+$C^c$ & 4 & 45\\ \hline
+ \end{tabular}
+ \end{center}
+ 
+$\displaystyle RA=\frac{32}{49}-\frac{4}{49}=\frac{28}{49}=0.5714$\medskip
+
+Entre los neonatos de bajo peso que tomaron antibióticos más de 5 días, el riesgo de sepsis tardía es \red{57 puntos  porcentuales mayor} que entre los que no\medskip
+
+\textbf{\red{NO}}: Entre los neonatos de bajo peso  que tomaron antibióticos más de 5 días, el riesgo de sepsis tardía es \red{un 57\% mayor} que entre los que no 
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Ejemplo} 
+
+$C$: más de 5 días de exposición a antibióticos\medskip
+
+$E$: sepsis tardía\medskip
+
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$C$ & 32 & 17   \\ \hline
+$C^c$ & 4 & 45\\ \hline
+ \end{tabular}\medskip
+ 
+\includegraphics[width=\linewidth]{sepsis} 
+ \end{center}
+
+
+
+{\scriptsize Briones, E., Treviño, J., \textsl{et al}. ``Exposición prolongada a antibióticos y riesgo de sepsis tardía (ST) en neonatos de $1000$ a $<1500$ g: estudio de cohorte.'' Gac. Méd. Méx. 151 (2015), 306--12
+
+}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Ejemplo} 
+
+Supongamos que el riesgo de trombosis en mujeres que toman un nuevo anticonceptivo es de 30/100,000 al año, y que este riesgo es de 15/100,000 para la píldora anticonceptiva\medskip
+\begin{itemize}
+\item $RR=2$: el riesgo de trombosis se duplica con el nuevo anticonceptivo\medskip
+
+\item $RA=0.00015$: con el nuevo anticonceptivo solo se tiene 0.015 puntos porcentuales (15/100,000) más de riesgo de trombosis  \medskip 
+
+\item El riesgo de trombosis durante el embarazo se estima entre 25/100,000 y 100/100,000 anual, y a los 21 días de un  aborto de  500/100,000 \\
+{\tiny\blue{(\url{http://www.uptodate.com/contents/deep-vein-thrombosis-in-pregnancy-epidemiology-pathogenesis-and-diagnosis})}
+
+}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{<<El susto de la píldora del 95>>} 
+
+En octubre de 1995, se publicó en la prensa y en circulares a médicos que los anticonceptivos de 3a generación multiplicaban por 2 el riesgo de trombosis\medskip
+
+En 1996 hubo 13000 más abortos (un 8\%) y 13000 más nacimientos  en UK que en 1995\medskip
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{tableIV}
+\end{center}
+\vspace*{0.3cm}
+
+{\tiny A. Furedi. Social consequences. The public health implications of the 1995 `pill scare'. \textsl{Human Reproduction Update}, 5 (1999), pp. 621--626.
+
+}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Ejemplo}\vspace*{-2ex}
+
+\begin{quote}
+<<Las mujeres sometidas a terapia de reemplazo hormonal reducen su riesgo de cáncer colorectal a 10 años vista en un 50\%, y solo aumentan su riesgo de cáncer de mama en los próximos 10 años en 0.6 puntos porcentuales (6 de cada 1000)>>\pause
+\end{quote}\medskip
+
+La incidencia del cáncer colorectal en mujeres es de 4 por cada 10,000 anuales;${}^*$ por lo tanto 4 por cada 1000 cada 10 años: la reducción en un 50\% significa 2 de cada 1000.\vspace*{2.5cm}
+
+\tiny{${}^*$ \blue{\url{https://seer.cancer.gov/statfacts/html/colorect.html}}}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Razón de \textsl{odds}}
+
+La \red{razón de odds}, \red{$OR$}, (de oportunidades, de ventajas, de momios,\ldots; \red{\textsl{odds ratio}}) es  las \textsl{odds}  de  la enfermedad en caso de exposición divididas por las \textsl{odds} en caso de no-exposición
+$$
+\red{OR}=\frac{P(E|C)/P(E^c|C)}{P(E|C^c)/P(E^c|C^c)}
+$$
+
+La OR es cuántas veces son mayores las \textsl{odds} de enfermar de los expuestos respecto de las  de no expuestos\medskip
+
+\blue{Ejemplo}: Si $OR=2$,  las \textsl{odds} de enfermar de un expuesto son el doble de las  de un no expuesto
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Razón de \textsl{odds}}
+
+
+
+\blue{Propiedades:}
+\begin{itemize}
+\item Si $P(E)$ es pequeño, $OR\approx RR$, porque
+$$
+OR=\frac{RR(1-P(E))}{1-P(E)\cdot RR}
+$$
+
+\item \red{Se puede usar en casos y controles y en cohortes ($RR$ sólo en cohortes)}
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Razón de \textsl{odds}}\vspace*{-2ex}
+\begin{center}
+\includegraphics[width=0.15\linewidth]{cp}
+\end{center}\vspace*{-1ex}
+
+En casos y controles, no tiene sentido estimar  $P(E|C)$ o $P(E|C^c)$ pero sí $P(C|E)$ y $P(C|E^c)$, y
+$$
+\begin{array}{rl}
+\red{OR} & =\dfrac{P(E|C)/P(E^c|C)}{P(E|C^c)/P(E^c|C^c)}=\dfrac{P(E|C)\cdot P(E^c|C^c)}{P(E^c|C)\cdot P(E|C^c)}\\[2ex]
+& =\dfrac{P(E|C)\cdot P(E^c|C^c)\cdot P(C)\cdot P(C^c)}{P(E^c|C)\cdot P(E|C^c)\cdot P(C)\cdot P(C^c)}\\[2ex]
+& =\dfrac{P(E\cap C)\cdot P(E^c\cap C^c)}{P(E^c\cap C)\cdot P(E\cap C^c)}\\[2ex]
+& =\dfrac{P(C|E)\cdot P(C^c|E^c)\cdot P(E)\cdot P(E^c)}{P(C|E^c)\cdot P(C^c|E)\cdot P(E)\cdot P(E^c)}\\[2ex]
+& =\dfrac{P(C|E)\cdot P(C^c|E)}{P(C|E^c)\cdot P(C^c|E)}=\red{\dfrac{P(C|E)/P(C^c|E)}{P(C|E^c)/P(C^c|E^c)}}
+\end{array}
+$$
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Razón de \textsl{odds}}
+
+
+Por lo tanto, en un casos y controles:\medskip
+
+\begin{itemize}
+\item Podéis calcular $\dfrac{P(C|E)/P(C^c|E)}{P(C|E^c)/P(C^c|E^c)}$\medskip
+
+\item Esto es igual a la OR (y por lo tanto mide cuántas veces son mayores las \textsl{odds} de $E$ en expuestos respecto de no expuestos)\medskip
+
+\item Si además la $E$ es poco probable en general (poco prevalente), esta OR aproxima el RR de $E$\medskip
+
+\item Pero si $E$ no es muy rara, en un casos y controles solo tiene sentido dar la OR
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\subsection{Aquí}
+
+
+
+\begin{frame}
+\frametitle{Razón de \textsl{odds}}
+
+La \red{razón de odds}:\medskip
+
+\begin{itemize}
+\item ${OR}=\dfrac{P(E|C)/P(E^c|C)}{P(E|C^c)/P(E^c|C^c)}$\medskip
+
+\item Mide cuántas veces son mayores las \textit{odds} de enfermar de los expuestos que las de los no expuestos\medskip
+
+\item Coincide con $\dfrac{P(C|E)/P(C^c|E)}{P(C|E^c)/P(C^c|E^c)}$ y esto se puede calcular en un estudio de casos y controles\medskip
+
+\item Es aproximadamente igual a $RR$ cuando $P(E)$ es muy pequeña
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Razón de \textsl{odds}}
+
+Dada una tabla
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$C$ & $a$ & $b$   \\ \hline
+$C^c$ & $c$ & $d$\\ \hline
+ \end{tabular}
+ \end{center}
+ $$
+ \begin{array}{l}
+P(E|C)=\dfrac{a}{a+b},P(E^c|C)=\dfrac{b}{a+b}\\[2ex]
+P(E|C^c)=\dfrac{c}{c+d},P(E^c|C^c)=\dfrac{d}{c+d}
+\end{array}
+$$
+
+$$
+OR=\frac{\dfrac{a}{a+b}\Big/\dfrac{b}{a+b}}{\dfrac{c}{c+d}\Big/\dfrac{d}{c+d}}
+\Longrightarrow
+\red{OR=\frac{a\cdot d}{b\cdot c}}
+ $$
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo} \vspace*{-3ex}
+
+$C$: más de 5 días de exposición a antibióticos\medskip
+
+$E$: sepsis tardía\medskip
+
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$C$ & 32 & 17   \\ \hline
+$C^c$ & 4 & 45\\ \hline
+ \end{tabular}
+ \end{center}\medskip
+ 
+ $OR= \dfrac{32\cdot 45}{17\cdot 4}=21.176$\medskip
+ 
+Para los neonatos de bajo peso, estimamos que las \textsl{odds} de tener sepsis tardía entre los que han tomado más de 5 días antibióticos son 21 veces  las de los que no.\medskip
+
+
+{\scriptsize Briones, E., Treviño, J., \textsl{et al}. ``Exposición prolongada a antibióticos y riesgo de sepsis tardía (ST) en neonatos de $1000$ a $<1500$ g: estudio de cohorte.'' Gac. Méd. Méx. 151 (2015), 306--12
+
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo} \vspace*{-3ex}  
+
+
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$C$ & 32 & 17   \\ \hline
+$C^c$ & 4 & 45\\ \hline
+ \end{tabular}\\
+ 
+
+\includegraphics[width=\linewidth]{sepsis} 
+ \end{center}
+\medskip
+ 
+ $OR= \dfrac{32\cdot 45}{17\cdot 4}=21.176$\medskip
+ 
+Para los neonatos de bajo peso, estimamos que las \textsl{odds} de tener sepsis tardía entre los que han tomado más de 5 días antibióticos son 21 veces  las de los que no.\medskip
+
+
+{\scriptsize Briones, E., Treviño, J., \textsl{et al}. ``Exposición prolongada a antibióticos y riesgo de sepsis tardía (ST) en neonatos de $1000$ a $<1500$ g: estudio de cohorte.'' Gac. Méd. Méx. 151 (2015), 306--12
+
+}
+\end{frame}
+
+
+ 
+
+\begin{frame}
+\frametitle{Ejemplo} \vspace*{-3ex}
+
+
+$E$: eczema\medskip
+
+$F$: fiebre del heno\medskip
+
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$F$ & 141 & 928   \\ \hline
+$F^c$ & 420 & 13525\\ \hline
+ \end{tabular}
+ \end{center}\medskip
+
+¿OR de eczema relativa a la fiebre del heno?\vspace*{1.5cm}
+
+¿OR de fiebre del heno relativa a eczema?\vspace*{1.5cm}
+
+
+
+{\tiny D. Strachan, B. Butland, H. Anderson, ``Incidence and prognosis
+of asthma and wheezing from early childhood to age 33 in a national
+British cohort.'' BMJ 312 (1996) 1195--9.
+
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo} \vspace*{-3ex}
+
+
+$E$: eczema\medskip
+
+$F$: fiebre del heno\medskip
+
+
+\begin{center}
+\only<1>{\begin{tabular}{c|c|c|}
+        & $E$ & $E^c$ \\ \hline
+$F$ & 141 & 928   \\ \hline
+$F^c$ & 420 & 13525\\ \hline
+ \end{tabular}}
+ \only<2>{\begin{tabular}{c|c|c|}
+        & $F$ & $F^c$ \\ \hline
+$E$ & 141 &  \red{420}  \\ \hline
+$E^c$ & \red{928} & 13525\\ \hline
+ \end{tabular}}
+
+ \end{center}\medskip
+
+¿OR de eczema relativa a la fiebre del heno?
+$$
+OR=\frac{141\cdot 13525}{928\cdot 420}=4.89
+$$
+
+¿OR de fiebre del heno relativa a eczema?
+
+\only<2>{%
+$$
+OR=\frac{141\cdot 13525}{928\cdot 420}=4.89
+$$
+}
+
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Ejemplo} \vspace*{-2ex}
+
+\begin{center}
+\small \begin{tabular}{llcc}
+& &\bf Casos &\bf Controles \\
+& & ($n=42$) & ($n=126$) \\ \hline
+\bf Riesgo & Nutrición parenteral & 13 (31\%) & 9 (7.2\%) \\ \hline
+ & Uso de meropenem & 16 (38.1\%) & 14 (11.1\%)\\ \hline
+ \end{tabular}
+ \end{center}\medskip
+ 
+ ${OR}_{NP}=$\medskip
+ 
+ $OR_{Mer}=$
+\vspace*{\fill}
+
+
+
+{\tiny Valderrama, S., González, P., \textsl{et al}. ``Factores de riesgo para bacteriemia por \textsl{Pseudomonas aeruginosa} resistente a carbapenémicos adquirida en un hospital colombiano.''
+Biomédica 36 (2016), 69--77.
+
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo} \vspace*{-2ex}
+
+\begin{center}
+\small \begin{tabular}{llcc}
+& &\bf Casos &\bf Controles \\
+& & ($n=42$) & ($n=126$) \\ \hline
+\bf Riesgo & Nutrición parenteral & 13 (31\%) & 9 (7.2\%) \\ \hline
+ & Uso de meropenem & 16 (38.1\%) & 14 (11.1\%)\\ \hline
+ \end{tabular}
+ \end{center}
+ 
+\begin{center}
+\small \begin{tabular}{l|c|c}
+\textbf{NP} & $E$ & $E^c$ \\\hline
+$C$ & 13 (31\%) & 9 (7.2\%) \\ \hline
+$C^c$ & 29 (69\%) & 117 (92.8\%) \\ \hline
+ \end{tabular}
+ \end{center}\medskip
+ 
+ ${OR}_{NP}={\dfrac{P(C|E)/P(C^c|E)}{P(C|E^c)/P(C^c|E^c)}}=\dfrac{0.31/0.69}{0.072/0.928}=5.83$\medskip
+ 
+
+${OR}_{NP}=\dfrac{13\cdot 117}{9\cdot 29}=5.83$\medskip
+
+
+
+
+
+
+
+
+Las \textsl{odds} de tener bacteriemia de los han recibido nutrición parenteral son 5.8 veces mayores que las de los que no.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo} \vspace*{-2ex}
+
+\begin{center}
+\small \begin{tabular}{llcc}
+& &\bf Casos &\bf Controles \\
+& & ($n=42$) & ($n=126$) \\ \hline
+\bf Riesgo & Nutrición parenteral & 13 (31\%) & 9 (7.2\%) \\ \hline
+ & Uso de meropenem & 16 (38.1\%) & 14 (11.1\%)\\ \hline
+ \end{tabular}
+ \end{center}
+ 
+
+\begin{center}
+\small \begin{tabular}{l|c|c}
+\textbf{NP} & $E$ & $E^c$ \\\hline
+$C$ & 16 & 14 \\ \hline
+$C^c$ & 26  & 112   \\ \hline
+ \end{tabular}
+ \end{center}\medskip
+
+
+
+$OR_{Mer}=\dfrac{16\cdot 112}{14\cdot 26}=4.93$\bigskip
+ 
+
+
+Las \textsl{odds} de tener bacteriemia de los que han recibido meropenem son 4.93 veces mayores que las de los que no
+\end{frame}
+
+
+\subsection{Tratamientos}
+
+
+\begin{frame}
+\frametitle{Riesgos en tratamientos} 
+
+En estudios experimentales (u observacionales) de tratamientos:
+\begin{itemize}
+
+\item El \red{efecto negativo en el sujeto}:  \blue{$E$} (no se cura, se muere, recae, \ldots) y  \blue{$E^c$} (se cura, no se muere, no recae, \ldots)
+
+\item Su \red{tratamiento}: \blue{$T$}, tratado con el tratamiento estudiado, o \blue{$T^c$}, no (no tratado, tratado con tratamiento de control, \ldots)
+\end{itemize}\medskip
+
+\begin{center}
+\begin{tabular}{c|c|c|}
+\multirow{2}{*}{\bf Tratamiento} & \multicolumn{2}{|c|}{\bf Resultado}\\ \cline{2-3}	
+ & $E$ & $E^c$ \\ \hline
+\multirow{2}{*}{$T$} & Tratados & Tratados \\  	
+ & no curados & curados \\ \hline
+\multirow{2}{*}{$T^c$} & No tratados & No tratados \\  	
+ & no curados & curados \\ \hline
+ \end{tabular}
+ \end{center}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Riesgos en tratamientos} 
+
+Riesgos similares, y algunos más:
+\begin{itemize}
+\item \red{Tasa de riesgo en tratados}: $P(E|T)$\medskip
+
+\item \red{Tasa de riesgo en no tratados}: $P(E|T^c)$\medskip
+
+\item \red{Riesgo relativo}: $\red{RR}=\dfrac{P(E|T)}{P(E|T^c)}$
+
+\item \red{Reducción absoluta del riesgo}: $\red{RAR}=P(E|T^c)-P(E|T)$
+
+\item \red{Reducción relativa del riesgo}: $\red{RRR}=\dfrac{P(E|T^c)-P(E|T)}{P(E|T^c)}=1-RR$
+
+\item \red{Odds ratio}: $\red{OR}=\dfrac{P(E|T)/P(E^c|T)}{P(E|T^c)/P(E^c|T^c)}$
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Y más vocabulario}\vspace*{-2ex}
+
+\red{Número necesario para tratar} (\red{NNT}): número de pacientes que deberían recibir el tratamiento $T$ (en lugar de control) para que un paciente \blue{adicional} recibiera el beneficio ($E^c$).
+$$
+\red{NNT=\dfrac{1}{RAR}}
+$$\pause
+
+\blue{Motivo}: Supongamos que $P(E|T)=x\%$ y $P(E|T^c)=y\%$: $RAR=(y-x)\%$\medskip
+
+Por cada 100 pacientes que sigan $T$ en lugar de $T^c$, $y-x$ evitarán $E$\vspace*{-1ex}
+
+\begin{center}
+\hspace*{-3ex}\begin{tabular}{lcl}
+100 pacientes tratados $T$ &\hspace*{-1ex} $\longleftrightarrow$\hspace*{-1ex}  & $y-x$ pacientes evitan $E$\\
+NNT pacientes tratados $T$ &\hspace*{-1ex}  $\longleftrightarrow$\hspace*{-1ex}  & 1 paciente evita $E$
+\end{tabular}
+\end{center}
+$$
+NNT=\frac{100}{y-x}=\frac{1}{(y-x)/100}=\frac{1}{RAR}
+$$
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Y más vocabulario} 
+
+Cuidado con la interpretación de RAR y NNT:
+\begin{itemize}
+\item La enfermedad de Creutzfeldt-Jakob tiene una mortalidad a 5 años del 100\% con el tratamiento estándar. Un tratamiento que la redujera al 90\% tendría
+$$
+RAR=1-0.9=0.1\Longrightarrow NNT=\frac{1}{0.1}=10
+$$
+
+\item Si una enfermedad tuviera una mortalidad a 5 años del 15\% con el tratamiento estándar y un nuevo tratamiento la redujera al 5\%, tendría
+$$
+RAR=0.15-0.05=0.1\Longrightarrow NNT=\frac{1}{0.1}=10
+$$
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Ejemplo} 
+
+$T$: gemfibrozil contra placebo durante 5 años (en pacientes con hipercolesterolemia)\medskip
+
+$E$: enfermedad coronaria durante el periodo
+
+\begin{center}
+\begin{tabular}{c|cc|c}
+& $E$ & $E^c$ & Total\\ \hline
+$T$ & 56  & 1995 & 2051\\ \hline
+$T^c$ & 84 & 1946 & 2030\\ \hline
+Total & 140 & 3941 & 4081 
+\end{tabular}
+\end{center}
+
+Calculad $RR$, $RAR$, $RRR$, $OR$ y $NNT$\vspace*{\fill}
+
+
+{\tiny Frick M., Elo O., Haapa K., \textsl{et al}. ``Helsinki heart study: primary prevention trial with gemfibrozil in middle-aged men with dyslipidemia.'' \textit{N Engl J Med} 317 (1987), pp. 1237--45.
+
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo} 
+
+$T$: gemfibrozil contra placebo durante 5 años (en pacientes con hipercolesterolemia)\medskip
+
+$E$: enfermedad coronaria durante el periodo
+
+\begin{center}
+\begin{tabular}{c|ccc}
+& $E$ & $E^c$ & Total\\ \hline
+$T$ & 56  & 1995 & 2051\\ \hline
+$T^c$ & 84 & 1946 & 2030\\ \hline
+Total & 140 & 3941 & 4081 
+\end{tabular}
+\end{center}
+$$
+\begin{array}{l}
+RR=\only<1>{\hphantom{0.66}}\only<2>{0.66}\\
+RAR=\only<1>{\hphantom{0.014}}\only<2>{0.014}\\
+RRR=\only<1>{\hphantom{0.66}}\only<2>{0.34}\\
+OR=\only<1>{\hphantom{0.66}}\only<2>{0.65}\\ 
+NNT=\only<1>{\hphantom{0.66}}\only<2>{71}
+\end{array}
+$$
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{¡Cuidado!}\small
+
+En un estudio se pidió a 148 médicos (de edad media 47 años) que decidieran si recetarían  cada uno de 4 tratamientos para reducir el colesterol de los que se habían obtenido los resultados siguientes en ensayos clínicos similares (comparando con placebo):
+\begin{itemize}
+\item Con el tratamiento A se obtuvo una reducción relativa del 34\% en el riesgo de enfermedades coronarias
+\smallskip 
+
+\item Con el tratamiento B, la reducción absoluta del riesgo de enfermedades coronarias fue  1.4\%\smallskip
+
+\item Con el tratamiento C, la tasa de pacientes sin enfermedades coronarias subió del 95.9\% al 97.3\%\smallskip
+
+\item Con el tratamiento D, se necesita tratar 71 pacientes para evitar una enfermedad coronaria\smallskip
+\end{itemize}
+
+
+
+
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{¡Cuidado!}
+
+La probabilidad media de que un médico encuestado:
+\begin{itemize}
+\item  recetara el tratamiento A fue del 77\%
+\smallskip 
+
+\item recetara el tratamiento B fue del 24\%\smallskip
+
+\item recetara el tratamiento C fue del 37\%\smallskip
+
+\item recetara el tratamiento D fue del 33\%\smallskip
+\end{itemize}
+Ninguno contestó lo mismo a los cuatro tratamientos.\vspace*{\fill}
+
+{\tiny Bobbio, M., Demichelis, B., Giustetto, G. ``Completeness of reporting trial results: effect on physicians' willingness to prescribe.'' \textit{The Lancet} 343 (1994), 1209--1211.
+
+}
+
+
+
+
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{¡Cuidado!}\small\vspace*{-3ex}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{cardlatinRRR}
+\end{center}
+
+
+
+
+\textbf{Métodos:} 406 cardiólogos latinoamericanos respondieron a un cuestionario que contenía los resultados de ensayos clínicos como RRR, RRA y/o NNT [\ldots].\medskip
+
+\textbf{Resultados}: La toma de decisión de los cardiólogos fue diferente al comparar los beneficios terapéuticos presentados como RRR (62.2\%) vs. RRA (40.4\%) y como RRR vs. NNT (44.4\%); sin embargo, fue similar cuando la información se presentó como NNT o RRA.
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Recapitulación II}\vspace*{-2ex}
+
+Para expresar el efecto de un tratamiento o de una exposición hay distintos índices, todos correctos y legítimos:
+\begin{itemize}
+\item {Tasa de riesgo en tratados/expuestos}
+
+\item {Riesgo relativo}
+
+\item {Reducción absoluta del riesgo}
+
+\item {Reducción relativa del riesgo} 
+
+\item {Odds ratio}
+
+\item Número necesario para tratar/evitar exposición
+\end{itemize}
+El efecto del tratamiento/exposición percibido depende del índice\medskip
+
+Hay que \xout{hacerse} familiarizarse con todos
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Recapitulación II}\vspace*{-2ex}
+
+Insisto, cuidado con:
+\begin{itemize}
+\item {}<<Las mujeres que toman tamoxiflen tienen un 49\% menos de diagnósticos de cáncer invasivo de mama>>\medskip
+
+\item {}<<La tasa anual de cáncer uterino entre las mujeres que toman tamoxiflen es de 30 por cada 10,000, comparado con los 8 a 10 por cada 10,000 anuales en la población femenina general>>
+\end{itemize}
+\hspace*{\fill}{\footnotesize (\textsl{National Cancer Institute's Breast Cancer tool, 1998)}}\pause\medskip
+
+La incidencia del cáncer invasivo del mama era de 18 por cada 10,000 anual\medskip
+
+Por lo tanto, el tamoxiflen baja de 0.18\% a 0.09\% su riesgo, y sube el de cáncer uterino de 0.09\% a 0.3\%.
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Calculadoras de IC en línea}
+Por ahora:
+
+\begin{itemize}
+\item Para especificidad, sensibilidad, VPP, VPN y LRs:\smallskip
+
+{\footnotesize \url{https://www2.ccrb.cuhk.edu.hk/stat/confidence\%20interval/Diagnostic\%20Statistic.htm}
+
+}\medskip
+
+
+
+\item Para RR y AR:\smallskip
+
+{\footnotesize \url{https://www2.ccrb.cuhk.edu.hk/stat/confidence\%20interval/CI\%20for\%20relative\%20risk.htm}
+
+}\medskip
+
+\item Para RRR, RAR, OR y NNT:\smallskip
+
+{\footnotesize \url{https://www2.ccrb.cuhk.edu.hk/stat/confidence\%20interval/CI\%20for\%20ratio.htm}
+
+}
+\end{itemize}
+
+Entrad 0.95 en $1-\alpha$
+
+
+
+\end{frame}
+
+\subsection{Ejercicios}
+
+\begin{frame}
+\frametitle{Ejercicios}
+\vspace*{-2ex}\small
+
+En un estudio sobre la efectividad de una vacuna contra la tosferina, se recolectaron los siguientes datos (tantos por ciento del total):
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+ & \multicolumn{2}{|c|}{\bf Situación}\\ \cline{2-3}
+ & Vacunado & No vacunado\\ \hline
+Tosferina & 1\% & 2\% \\ \hline
+No tosferina & 66\% &  31\%\\ \hline 
+\end{tabular}
+\end{center}
+¿Cuál fue, aproximadamente, el riesgo relativo de contraer tosferina en un niño NO vacunado comparado con los niños vacunados?
+\begin{center}
+(a) 0.25\quad
+(b) 0.5\quad
+(c) 1.0\quad
+(d)  2.0\quad
+(e) 4.0 \only<1>{\hphantom{{\Large\red \checkmark}}}\only<2>{{\Large\red \checkmark}}
+\end{center}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicios}
+\vspace*{-2ex}\small
+
+ Ha realizado usted un estudio en el que ha seguido
+a 4.000 pacientes con artrosis durante
+3 años. De ellos 3.000 consumían de manera
+habitual antiinflamatorios no esteroideos y
+durante el seguimiento 600 presentaron problemas
+gastrointestinales graves. De los 1.000
+que no consumían antiinflamatorios no esteroideos,
+20 desarrollaron problemas gastrointestinales
+graves. ¿Podría indicar cuál de las
+siguientes cifras corresponde a la odds ratio
+del consumo de AINEs en el desarrollo de problemas
+gastrointestinales graves?:
+\begin{center}
+(a)  12.25 \only<1>{\quad}\only<2>{{\Large\red \checkmark}\ }
+(b) 10 \quad 
+(c) 0.1 \quad
+(d) 8.5 \quad
+(e) 0.12 
+\end{center}
+\only<2>{\footnotesize
+\begin{center}
+\begin{tabular}{l|c|c|c|}\hline
+\multicolumn{2}{c}{\bf } & \multicolumn{2}{c}{\bf Consumían AINE}\\ \cline{3-4}
+\multicolumn{2}{c|}{\bf }  & Sí & No\\ \cline{2-4}
+Problemas & Sí & 600 & 20 \\ \cline{2-4}
+gastrointestinales & No & 2400 &  980\\ \cline{2-4}
+graves (PGG) & Total & 3000 & 1000\\ \hline 
+\end{tabular}
+\end{center}}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicios}
+\vspace*{-2ex}\small
+
+ ¿En qué circunstancias la odds ratio (OR) o razón
+de probabilidades se aproxima al valor de
+riesgo relativo (RR)?:
+\begin{enumerate}[(a)] 
+\item Cuando la prevalencia de uso del factor de
+estudio es elevada.
+\item Cuando se trata de una enfermedad poco frecuente.\only<2>{{\Large\red \checkmark}}
+\item  Cuando se trata de una enfermedad crónica.
+\item  Cuando el diseño del estudio es experimental.
+\item  Cuando se trata de una enfermedad aguda.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejercicios}
+\vspace*{-2ex}\small
+
+De 143 pacientes que murieron  por endocarditis bacteriana, un 2\% tenían menos de 10 años de edad. Los autores del estudio concluyen que la endocarditis bacteriana es rara en la infancia. Esta conclusión es falsa o equivocada debido a (marque todas las respuestas correctas):
+\begin{enumerate}[(a)]\setlength\itemsep{0 ex}
+\item Falta de un grupo de control  {{\Large\red \checkmark}}
+
+\item Falta de seguimiento apropiado
+
+\item Falta información sobre la composición por sexos de la muestra de pacientes
+
+\item Falta de denominadores  {{\Large\red \checkmark}}
+
+\item Han invertido la probabilidad condicional  {{\Large\red \checkmark}}
+
+\item En realidad, la conclusión es correcta
+\end{enumerate}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicios}
+\vspace*{-2ex}\small
+
+  En un ensayo clínico aleatorizado, doble ciego
+y controlado con placebo, se evaluó el efecto
+sobre la mortalidad de un nuevo fármaco en
+pacientes con hiperlipidemia y sin antecedente
+de cardiopatía isquémica. Después de un seguimiento
+medio de cinco años se encontró una
+mortalidad del 10\% en el grupo placebo y del
+5\% en el grupo de tratamiento. Calcule el
+NNT, que se define como el número de pacientes
+que tenemos que tratar con el nuevo fármaco
+durante 5 años para evitar una muerte:
+\begin{center}
+(a) 5\qquad
+(b) 20\only<1>{\qquad}\only<2>{{\Large\red \checkmark}\ }
+(c) 0.5\qquad
+(d) 50\qquad
+(e) 1
+\end{center}
+\only<2>{\small\red{$$
+\hspace*{-2ex}\begin{array}{rl}
+\left.
+\begin{array}{l}
+P(\mbox{Muerte}|\mbox{Placebo})=0.1\\
+P(\mbox{Muerte}|\mbox{Tratmto})=0.05
+\end{array}\right\}
+&\hspace*{-2ex} \Longrightarrow RAR=0.1-0.05=0.05\\[1ex]
+&\hspace*{-2ex} \Longrightarrow NNT=\dfrac{1}{RAR}=20
+\end{array}
+$$}}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejercicios}
+\vspace*{-2ex}\small
+
+\blue{Una nueva prueba de diagnóstico rápido de una enfermedad rara, de una prevalencia estimada del 0.1\%, ha mostrado tener una sensibilidad del 80\% y una especificidad del 60\%. }
+
+\begin{enumerate}[(a)]\setlength\itemsep{0 ex}
+\item \blue{¿Cuál es la probabilidad de que un individuo enfermo dé positivo en la prueba?
+¿Cuál es la probabilidad  de que un individuo escogido al azar esté enfermo y al realizarle la prueba dé positivo?}
+\item \blue{¿Cuál es el valor predictivo negativo de esta prueba? ¿Qué significa, en lenguaje llano, el valor obtenido?}
+\item \blue{Si la enfermedad no fuera tan rara, digamos que su prevalencia fuera del 10\%, y sin realizar ningún cálculo extra, ¿qué le pasaría al  valor predictivo negativo de la prueba respecto del calculado  en el apartado anterior (aumentaría, disminuiría, se mantendría igual, no se puede saber)? Justificad brevemente vuestra respuesta.}
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Ejercicios}
+
+Una nueva prueba de diagnóstico rápido de una enfermedad rara, de una prevalencia estimada del 0.1\%, ha mostrado tener una sensibilidad del 80\% y una especificidad del 60\%. 
+
+
+\begin{center}
+\begin{tabular}{c|c|c|c|}
+        & $E$ & $E^c$ & Total \\ \hline
+$+$ &  \only<3,4,5>{80} &    \only<4,5>{39960} &  \only<5>{40040}  \\ \hline
+$-$ &   \only<4,5>{20} &  \only<3,4,5>{59940} & \only<5>{59960} \\ \hline
+Total & \only<1>{\hphantom{100}}\only<2,3,4,5>{100} &\only<1>{\hphantom{99900}}\only<2,3,4,5>{99900} & 100000\\ \hline
+ \end{tabular}
+ \end{center}
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Ejercicios}
+\begin{center}
+\begin{tabular}{c|c|c|c|}
+        & $E$ & $E^c$ & Total \\ \hline
+$+$ & {80} &    {39960} &  {40040}  \\ \hline
+$-$ &   {20} &  {59940} & {59960} \\ \hline
+Total & {100} &{99900} & 100000\\ \hline
+ \end{tabular}
+ \end{center}
+
+\blue{¿Cuál es la probabilidad de que un individuo enfermo dé positivo en la prueba?}\medskip
+
+
+$P(+|E)=\mbox{sensibilidad}=0.8$\pause\medskip
+
+\blue{¿Cuál es la probabilidad  de que un individuo escogido al azar esté enfermo y al realizarle la prueba dé positivo?}\medskip
+
+$P(E\cap +)=80/100=0.0008$
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Ejercicios}
+\begin{center}
+\begin{tabular}{c|c|c|c|}
+        & $E$ & $E^c$ & Total \\ \hline
+$+$ & {80} &    {39960} &  {40040}  \\ \hline
+$-$ &   {20} &  {59940} & {59960} \\ \hline
+Total & {100} &{99900} & 100000\\ \hline
+ \end{tabular}
+ \end{center}
+
+\blue{¿Cuál es el valor predictivo negativo de esta prueba?}\medskip
+
+$P(E^c|-)=59940/59960=0.9997$\medskip
+
+
+\blue{¿Qué significa, en lenguaje llano, el valor obtenido?} \medskip
+
+De cada 10000 personas que dan negativo en esta prueba, 9997 están sanas y  solo 3 están enfermas.
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Ejercicios}
+
+\blue{Si la enfermedad no fuera tan rara, digamos que su prevalencia fuera del 10\%, y sin realizar ningún cálculo extra, ¿qué le pasaría al  valor predictivo negativo de la prueba respecto del calculado  en el apartado anterior (aumentaría, disminuiría, se mantendría igual, no se puede saber)? Justificad brevemente vuestra respuesta.}\medskip
+
+Disminuiría: Si la prevalencia aumenta, el número de sanos disminuye y por lo tanto la probabilidad de estar sano si das negativo disminuye
+
+
+\end{frame}
+
+
+
+
