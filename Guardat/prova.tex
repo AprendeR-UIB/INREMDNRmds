@@ -7,6 +7,33 @@
 
 \begin{document}
 
+
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=5em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (0,0) node[block] (A) {\small\sf Madre fumadora};  
+\draw (10,0) node[block] (B) {\small\sf Hijo sin síndrome de Down}; 
+\draw (5,0.5) node {\large\sf ?};
+\draw[->] (A)--(B);
+\end{tikzpicture}
+\end{center}
+\vspace*{2cm}
+
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=5em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (0,0) node[block] (A) {\small\sf Madre fumadora};  
+\draw (10,0) node[block] (B) {\small\sf Hijo sin síndrome de Down}; 
+\draw (5,5) node {};
+\draw[dashed,->] (A)--(B);
+\draw(5,5) node[block] (C) {\small\sf Madre joven};
+\draw[->] (C)--(A);
+\draw[->] (C)--(B);
+\draw (5,0) node {\Large\bf /\hspace*{-0.7ex}/};
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
+
 \begin{center}
 \begin{tikzpicture}[very thick,>=stealth,
 grup/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=6em,align=center, rounded corners, minimum height=2em},
