@@ -5,23 +5,23 @@
 
 ### Sensibilidad, especificidad, valores predictivos etc.
 
-Una **prueba diagnóstica** es cualquier tecnología que pueda servir para detectar un signo que se relacione con la patología de interés. Por ejemplo, un test de embarazo, un determinación del nivel de un marcador tumoral, una prueba PCR para el SARS-COV-2, etc.
+Una **prueba diagnóstica** es cualquier tecnología que pueda servir para detectar un signo que se relacione con la patología de interés. Por ejemplo, un test de embarazo, una determinación del nivel de un marcador tumoral, una prueba PCR para el SARS-COV-2, etc.
 
 En la práctica, se suelen distinguir dos tipos de pruebas diagnósticas, de las que se esperan capacidades diagnósticas diferentes:
 
 * **Test de cribado**: se realiza sobre individuos asintomáticos, con el objetivo principal de descartar que tengan la enfermedad.
 
-* **Test diagnóstico**: determina la presencia o no de la enfermedad en individuos que muestran síntomas o que han dado positivo en un test de cribado.
+* **Test diagnóstico**: se realiza en individuos que muestran síntomas o que han dado positivo en un test de cribado, el objetivo principal de detectar la presencia de la enfermedad.
 
-Por ejemplo, distinguiríamos entre las *mamografías de cribado* como las que se realizan periódicamente a las mujeres a partir de una cierta edad, y las *mamografías diagnósticas* que se realizan a las mujeres que han detectado un bulto en un seno. 
+Por ejemplo, distinguiríamos entre las *mamografías de cribado*  que se realizan periódicamente a las mujeres a partir de una cierta edad, y las *mamografías diagnósticas* que se realizan a las mujeres que han detectado un bulto en un seno.  
  
-Tanto en un caso como el otro, el objetivo de una prueba diagnóstica es diagnosticar una enfermedad. Por ahora vamos a considerar que nuestra prueba es **dicotómica**, en el sentido de que da solo dos resultados posibles: positivo o negativo. Lo deseable sería entonces que:
+Tanto en un caso como el otro, el objetivo de una prueba diagnóstica es diagnosticar una enfermedad. Por ahora vamos a considerar que nuestra prueba es **binaria**, en el sentido de que da solo dos resultados posibles: positivo o negativo. Lo deseable sería entonces que:
 
 * El resultado de la prueba sea positivo exactamente cuando el paciente tiene la enfermedad.
 
 * El resultado de la prueba sea negativo exactamente cuando el paciente no tiene la enfermedad.
 
-Por desgracia, casi nunca se tiene una prueba diagnóstica cien por cien segura en este sentido. Ni tan solo para detectar si un individuo está muestro o no, por lo que parece.
+Por desgracia, casi nunca se tiene una prueba diagnóstica cien por cien segura en este sentido. Ni tan solo para detectar si un individuo está muerto o no, por lo que parece. Por lo tanto, habrá que evaluar y describir la probabilidad que tiene una prueba de acertar.
 
 
 ```{r , echo=FALSE, out.width="80%", fig.cap="Noticia aparecida en  El Comercio el 8/01/2018: https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html."}
@@ -29,15 +29,15 @@ knitr::include_graphics("INREMDN_files/figure-html/lazaro1.png")
 ```
 
 
-Vamos a poner algunos nombres. En una prueba diagnóstica, tenemos dos tipos de sucesos:
+Vamos a poner algunos nombres a sucesos. En una prueba diagnóstica, tenemos dos tipos de sucesos:
 
 * El **resultado del test**: $+$, positivo, o $-$, negativo
 ($-$ es el complementario de $+$).
 
-* El  **estado del sujeto**:  $S$, sano, o  $E$}, enfermo ($S$ es el complementario de $E^$).
+* El  **estado del sujeto**:  $S$, sano, o  $E$, enfermo ($S$ es el complementario de $E$).
 
 ```{block2,type="rmdnote"}
-Es importante tener en cuenta que la clasificación de un sujeto en Enfermo o Sano usualmente se lleva a cabo mediante una prueba de referencia (*gold standard*), que no siempre existe, y cuando existe, puede dar (eso sí, muy raramente) diagnósticos erróneos.
+Es importante tener en cuenta que la clasificación de un sujeto en Enfermo o Sano usualmente se lleva a cabo mediante una prueba de referencia (*gold standard*), que no siempre existe, y cuando existe, puede dar (eso sí, muy raramente) diagnósticos erróneos. Nosotros vamos a suponer que siempre existe y siempre acierta, de manera que podemos comparar nuestra prueba diagnóstica con la realidad del paciente.
 ```
 
 
@@ -68,12 +68,12 @@ Entonces, para una prueba diagnóstica:
 
 Observad que
 
-*  La Tasa de falsos negativos es  1 menos la Sensibilidad.
+*  La Tasa de falsos negativos es  1 menos la Sensibilidad: $P(-|E)=1-P(+|E)$.
 
-*  La Tasa de falsos positivos es  1 menos la Especificidad.
+*  La Tasa de falsos positivos es  1 menos la Especificidad: $P(+|S)=1-P(-|S)$.
 
 ```{block2,type="rmdnote"}
-Igual os es útil la regla mnemotécnica siguiente, para recordar que es la sensibilidad y qué la especificidad:
+Igual os es útil la regla mnemotécnica siguiente, para recordar qué es la sensibilidad y qué la especificidad:
 
 * La Se**N**sibilidad es  1 menos la Tasa de falsos **N**egativos.
 
@@ -83,13 +83,13 @@ Igual os es útil la regla mnemotécnica siguiente, para recordar que es la sens
 
 
 ```{example}
-Recordad el Ejemplo \@ref(exm:VIH995), en el que teníamos un test para el VIH que daba positivo en  un 99% de las personas en las que el virus estaba presente y en un 5% de las personas en las que el virus no está presente.
+Recordad el Ejemplo \@ref(exm:VIH995), en el que teníamos un test para el VIH que daba positivo en  un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente.
 
 * La **sensibilidad** de este test es la proporción de enfermos en los que da positivo: 99%.
 
 * La **especificidad**  de este test es la proporción de sanos en los que da negativo: 95%.
 
-* Y entonces, ¿qué es el 5%? La **tasa de falsos positivos**: la proporción de sanos en los que da positivo.
+* Y entonces, ¿qué es el 5%? Su **tasa de falsos positivos**: la proporción de sanos en los que da positivo.
 
 
 ```
@@ -102,19 +102,17 @@ Algunas definiciones más. Para una prueba diagnóstica:
 * Su **valor predictivo negativo** (**VPN**)  es la probabilidad de que, si da negativo, el individuo esté sano. Es decir, $P(S|-)$.
 
 
-Como hemos visto en la sección sobre la fórmula de Bayes de la lección anterior, conociendo la prevalencia $P(E)$ de la enfermedad, podemos calcular los valores predictivos a partir de la especificidad y sensibilidad. 
+Normalmente conocemos estimaciones de la sensibilidad y la especificidad de una prueba, obtenidas tomando una muestra de sanos y una de enfermos y pasándoles la prueba para ver cuántos dan positivo y cuántos negativo (**Ejercicio**: ¿De qué tipo de estudio se trata?). Entonces, como hemos visto en la sección sobre la fórmula de Bayes de la lección anterior, conociendo la prevalencia $P(E)$ de la enfermedad, podemos calcular los valores predictivos a partir de la especificidad y sensibilidad. 
 
 Por ejemplo, recordad el enunciado del Ejemplo \@ref(exm:VIH995):
 
-> Un test para el VIH da positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente. En una población con el 0.5% de infectados por VIH:
-> *(a)* ¿Cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado?
-> *(b)* ¿Cuál es la probabilidad de que un individuo que haya dado negativo en el test no esté infectado?
+> Un test para el VIH da positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente. En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado? ¿Y cuál es la probabilidad de que un individuo que haya dado negativo en el test no esté infectado?
 
 Su traducción en la terminología introducida al principio de esta sección es:
 
 > Un test para el VIH tiene una sensibilidad del 99% y una especificidad del 95%. En una población con una prevalencia del VIH del 0.5%, ¿cuáles son los VPP y VPN del test?
 
-Este tipo de cuestiones se pueden resolver usando el método de las frecuencias naturales o directamente la fórmula de Bayes:
+Este tipo de cuestiones se pueden resolver usando el método de  frecuencias naturales o, si os gusta recordar fórmulas, directamente la fórmula de Bayes:
 $$
 \begin{array}{l}
 \text{VPP} = P(E|+) =\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\
@@ -143,14 +141,14 @@ knitr::include_graphics("INREMDN_files/figure-html/espe2.png")
 ```
 
 
-Vamos a responder las preguntas para la prueba de anticuerpos antiendomisio, os dejamos la otra prueba como **ejercicio**.
+Vamos a responder las preguntas para la prueba de anticuerpos antiendomisio, os dejamos la otra como **ejercicio**.
 
 Para nuestra prueba, tenemos la tabla de frecuencias siguiente
 $$
 \begin{array}{r|c|c|c}
-& \text{Celíacos}\ E & \text{No celíacos}\ S & \text{Total} \\ \hline
-\text{Positivos}\ + & 47 & 1 & 48  \\  \hline
-\text{Negativos}\ - & 3 & 14 & 17 \\ \hline
+& \text{Celíacos}\ (E) & \text{No celíacos}\ (S) & \text{Total} \\ \hline
++ & 47 & 1 & 48  \\  \hline
+- & 3 & 14 & 17 \\ \hline
 \text{Total} & 50  & 15 & 65  
 \end{array}
 $$
@@ -166,23 +164,23 @@ Es decir,
 * El test da positivo en un 94% de los celíacos.
 * El test da negativo en un 93.33% de los no celíacos.
 
-*(b)* En primer lugar vamos a calcular los valores predictivos usando la fórmula de Bayes. Como $P(+|E)=0.94$, $P(-|S)=0.93333$ y en Uruguay $P(E)=1/64=0.015625$, por lo que $P(S)=0.984375$:
+*(b)* En primer lugar vamos a calcular los valores predictivos usando la fórmula de Bayes. Como $P(+|E)=0.94$, $P(-|S)=14/15$ y en Uruguay $P(E)=1/64$, por lo que $P(S)=53/64$:
 
 $$
 \begin{array}{rl}
 \text{VPP}\!\!\!\! & =P(E|+)=\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\
-&= \dfrac{0.94\cdot 0.015625}{0.94\cdot 0.015625+0.06667\cdot 0.984375}=0.1829\\[1ex]
+&= \dfrac{0.94\cdot \frac{1}{64}}{0.94\cdot \frac{1}{64}+\frac{1}{15}\cdot \frac{63}{64}}=0.1829\\[1ex]
 \text{VPN} \!\!\!\!& =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\
-&= \dfrac{0.93333\cdot 0.984375}{0.93333\cdot 0.984375+0.06\cdot 0.015625}=0.999
+&= \dfrac{\frac{14}{15}\cdot \frac{63}{64}}{\frac{1}{15}\cdot \frac{63}{64}+0.06\cdot \frac{1}{64}}=0.999
 \end{array}
 $$
 
 Es decir, 
 
-* Un 18.29% de los niños uruguayos positivos en el test son celíacos.
-* Un 99.9% de los niños uruguayos negativos en el test no son celíacos.
+* Estimamos que un 18.29% de los niños uruguayos que dan positivo en el test son celíacos.
+* Estimamos que un 99.9% de los niños uruguayos que dan negativo en el test no son celíacos.
 
-Vamos a repetir el cálculo usando frecuencias naturales. Para que nos salgan números redondos, vamos a partir de una población de referencia de 640,000 uruguayos.
+Vamos a repetir el cálculo usando frecuencias naturales. Para que nos salgan números redondos, vamos a partir de una población de referencia de 640,000 niños uruguayos.
 
 * Un 1/64 son celíacos, 10,000. Los 630,000 restantes no lo son.
 * De los 10,000 celíacos, un 94% dan positivo. Por lo tanto, 9,400 dan positivo y 600 negativo.
@@ -192,8 +190,8 @@ En resumen:
 $$
 \begin{array}{r|c|c|c}
 & \text{Celíacos} & \text{No celíacos}  & \text{Total} \\ \hline
-\text{Positivos} & 9400  &  42000 &  51400 \\ \hline
-\text{Negativos} & 600  & 588000 &  588600  \\ \hline
++ & 9400  &  42000 &  51400 \\ \hline
+- & 600  & 588000 &  588600  \\ \hline
 \text{Total} &  10000 & 630000 & 640000 
 \end{array}
 $$
@@ -204,18 +202,18 @@ Y por lo tanto, estimamos que:
 * $\text{VPN}= 588000/588600=0.999$
 
 
-*(c)* ¿Y en España? Usando la fórmula de Bayes ahora con $P(E)=1/71=0.01408$, obtenemos
+*(c)* ¿Y en España? Usando la fórmula de Bayes ahora con $P(E)=1/71$, obtenemos
 $$
 \begin{array}{rl}
 \text{VPP}\!\!\!\! & =P(E|+)=\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\
-&= \dfrac{0.94\cdot 0.01408}{0.94\cdot 0.01408+0.06667\cdot 0.98592}=0.1676\\[1ex]
-\text{VPN}\!\!\!\! & =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\
-&= \dfrac{0.93333\cdot 0.98592}{0.93333\cdot 0.98592+0.06\cdot 0.01408}=0.9991
+&= \dfrac{0.94\cdot \frac{1}{71}}{0.94\cdot \frac{1}{71}+\frac{1}{15}\cdot \frac{70}{71}}=0.1677\\[1ex]
+\text{VPN} \!\!\!\!& =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\
+&= \dfrac{\frac{14}{15}\cdot \frac{70}{71}}{\frac{1}{15}\cdot \frac{70}{71}+0.06\cdot \frac{1}{71}}=0.9991
 \end{array}
 $$
 
-* Un 16.76% de los niños españoles positivos en el test son celíacos.
-* Un 99.91% de los niños españoles negativos en el test no son celíacos.
+* Estimamos que un 16.77% de los niños españoles que dan positivo en el test son celíacos.
+* Estimamos que un 99.91% de los niños españoles que dan negativo en el test no son celíacos.
 
 
 Con el método de las frecuencias naturales a partir de una población de referencia de 710,000 españoles, y razonando como antes, obtenemos: 
@@ -235,8 +233,6 @@ Y por lo tanto, estimamos que:
 
 * $\text{VPN}= 653333.33/653933.33=0.9991$
 
-(La diferencia en el VPP es debida al redondeo.)
-
 En resumen:
 
 * Sensibilidad $P(+|E)=0.94$, Especificidad $P(-|S)=14/15$
@@ -253,13 +249,19 @@ VPP=P(E|+)=0.1677,\quad
 VPN=P(S|-)=0.9991
 $$
 
-Al ser la prevalencia en España más pequeña, el VPP es más pequeño y el VPN más grande. Es lo razonable, porque a mayor prevalencia:
+Notas que, en España,  la prevalencia es más pequeña, el VPP es más pequeño y el VPN más grande. El comportamiento de los valores predictivos es razonable:
 
-* Hay más enfermos, es más fácil encontrarlos, el VPP es mayor.
-* Hay menos sanos, es más difícil encontrarlos, el VPN es menor.
+```{block2,type="rmdimportant"}
+A mayor prevalencia, el VPP es mayor y el VPN es menor.
+```
+
+El motivo intuitivo es que si la prevalencia crece:
+
+* Hay más enfermos, por lo que aumenta la probabilidad de encontrar enfermos y por lo tanto el VPP es mayor.
+* Hay menos sanos, por lo que aumenta la probabilidad de encontrar sanos y por lo tanto  el VPN es menor.
 
 ```{block2,type="rmdcorbes"}
-Si llamamos $x\in [0,1]$ a la prevalencia y fijamos los valores de $P(+|E),P(+|S),P(-|E),P(-|S)$, de manera que el VPP y el VPN sean una función solo de $x$, tenemos que
+El motivo matemátic es el siguiente. Si llamamos $x\in [0,1]$ a la prevalencia y fijamos los valores de $P(+|E),P(+|S),P(-|E),P(-|S)$, de manera que el VPP y el VPN sean una función solo de $x$, tenemos que
 $$
 \begin{array}{l}        
 \text{VPP}(x)  =\dfrac{P(+|E)\cdot x}{P(+|E)\cdot x+P(+|S)\cdot (1-x)}\\
@@ -281,7 +283,7 @@ En cambio, la  prevalencia no influye para nada  en la sensibilidad y la especif
 * La **especificidad** es el porcentaje de sanos en que  la prueba da negativo, y esto también es independiente de la proporción de enfermos.
 
 ```{block2,type="rmdnote"}
-La sensibilidad y la especificidad no dependen de la prevalencia, pero sí que pueden depender de otras características de una población. Por ejemplo, en ["Findings From 752 081 Clinical Breast Examinations Reported to a National Screening Program From 1995 Through 1998"](https://academic.oup.com/jnci/article/92/12/971/2905789) (J. Bobo *et al*, *Journal of the National Cancer Institute* 92  (2000), pp. 971-976), se estiman la especificidad y la sensibilidad del examen físico clínico del pecho como prueba diagnóstica del cáncer de mama en diversos grupos de mujeres. En la tabla siguiente recogemos algunos de los datos obtenidos en este estudio:
+La sensibilidad y la especificidad no dependen de la prevalencia, pero sí que pueden depender de otras características de una población.  Por ejemplo, en ["Findings From 752 081 Clinical Breast Examinations Reported to a National Screening Program From 1995 Through 1998"](https://academic.oup.com/jnci/article/92/12/971/2905789) (J. Bobo *et al*, *Journal of the National Cancer Institute* 92  (2000), pp. 971-976), se estimaron la especificidad y la sensibilidad del examen físico clínico del pecho como prueba diagnóstica del cáncer de mama en diversos grupos de mujeres. En la tabla siguiente recogemos algunos de los datos obtenidos en ese estudio:
         
 
 ```
@@ -293,18 +295,16 @@ $$
 40-49\text{ años} & 0.714 & 0.916 & 0.036 \\
 50-59\text{ años} & 0.513 & 0.951 & 0.061 \\
 60-69\text{ años} & 0.572 & 0.960 & 0.074 \\
-\geq 70\text{ años} & 0.380 & 0.968 & 0.070  \\ \hline \hline
-\text{Asintomáticos} & 0.361 & 0.962 & 0.002 \\
-\text{Sintomáticos} & 0.852 & 0.729 & 0.043 \\ \hline \hline
+\geq 70\text{ años} & 0.380 & 0.968 & 0.070  \\  \hline
 \text{Global} & 0.588 & 0.934 & 0.043  
 \end{array}
 $$
-Las diferencias en la sensibilidad y especificidad entre las diferentes franjas de edad se pueden deber a las diferentes características físicas de los senos a diferentes edades.
+Las diferencias en la sensibilidad y especificidad entre las diferentes franjas de edad se deben a las diferentes características físicas de los senos a diferentes edades, que facilitan o dificultan la detección de los  tumores, no a la prevalencia del cáncer.
 
 
-Vamos a añadir algunos términos más sobre probabilidades para una prueba diagnóstica:
+Vamos a añadir algunos términos más sobre probabilidades referentes a una prueba diagnóstica:
 
-* Su **exactitud** es la probabilidad de acertar el diagnóstico. Es decir, $P(E\cap +)+P(S\cap -)$.
+* Su **exactitud** (**global**) es la probabilidad de acertar el diagnóstico. Es decir, $P(E\cap +)+P(S\cap -)$.
 
     Fijaos en que esta exactitud es igual a $P(+|E)\cdot P(E)+P(-|S)\cdot P(S)$ y por lo tanto depende de la prevalencia de la enfermedad.
 
@@ -312,7 +312,7 @@ Vamos a añadir algunos términos más sobre probabilidades para una prueba diag
 $$
 \text{LR}(+)=\dfrac{P(+|E)}{P(+|S)}=\dfrac{\text{sensibilidad}}{1-\text{especificidad}}
 $$
-     Un valor de $\text{LR}(+)$ por encima de 10 se toma como indicador de buen potencial diagnóstico. Por el contrario, un valor de $\text{LR}(+)$ cercano a 1 indica una prueba inútil ($+$ son $E$ sucesos aproximadamente independientes).
+     Un valor de $\text{LR}(+)$ por encima de 10 se toma como indicador de buen potencial diagnóstico. Por el contrario, un valor de $\text{LR}(+)$ cercano a 1 indica una prueba inútil: si dar positivo sobre un enfermo tiene aproximadamente la misma probabilidad que sobre un sano, los sucesos $+$ y $E$ son aproximadamente independientes.
 
 * Su **cociente de verosimilitud negativo**, $\text{LR}(-)$, es cuántas veces es más probable  un diagnóstico negativo sobre un enfermo  que sobre un sano. Es decir
 $$
@@ -408,12 +408,12 @@ Sospechamos que un paciente tiene tuberculosis, y decidimos hacerle  un test PCR
 
 ### Curvas ROC
 
-En las secciones anteriores hemos considerado solamente pruebas dicotómicas, que dan positivo o negativo sin ninguna gradación intermedia. Pero muchas veces una prueba diagnóstica da valores en un intervalo de números reales: concentraciones de algún metabolito, de algún  antígeno, de un marcador tumoral... En este caso, lo habitual es tomar un **valor de corte** y definir como **positivo** todo valor por encima (o por debajo, va a depender de la prueba concreta) de ese valor de corte y como **negativo** lo contrario. Por ejemplo, en el diagnóstico de la diabetes por medio del nivel de glucosa en sangre en ayunas, se toma como positivo un valor por encima de un cierto umbral. En cambio, en el diagnóstico de la anemia por medio del hematocrito, se toma como positivo un valor por debajo de un cierto umbral. 
+En las secciones anteriores hemos considerado solamente pruebas binarias, que dan positivo o negativo sin ninguna gradación intermedia. Pero muchas veces una prueba diagnóstica da valores en un intervalo de números reales: concentraciones de algún metabolito, de algún  antígeno, de un marcador tumoral... En este caso, lo habitual es tomar un **valor de corte** y definir como **positivo** todo valor por encima (o por debajo, va a depender de la prueba concreta) de ese valor de corte y como **negativo** lo contrario. Por ejemplo, en el diagnóstico de la diabetes por medio del nivel de glucosa en sangre en ayunas, se toma como positivo un valor por encima de un cierto umbral. En cambio, en el diagnóstico de la anemia por medio del hematocrito, se toma como positivo un valor por debajo de un cierto umbral. 
 
-De esta manera pasamos de una prueba diagnóstica que puede tomar todo un continuo de valores a una prueba dicotómica como las de las secciones anteriores, con su sensibilidad y su especificidad. Pero ¿cómo se ha llegado a definir el valor de corte que se usa para distinguir positivo de negativo? ¿Y cómo podemos aprovechar el hecho de que la prueba nos pueda dar todo un continuo de valores?
+De esta manera pasamos de una prueba diagnóstica que puede tomar todo un continuo de valores a una prueba binaria como las de las secciones anteriores, con su sensibilidad y su especificidad. Pero ¿cómo se ha llegado a definir el valor de corte que se usa para distinguir positivo de negativo? ¿Y cómo podemos aprovechar el hecho de que la prueba nos pueda dar todo un continuo de valores?
 
 
-Para simplificar el lenguaje y fijar ideas, vamos a suponer que los enfermos obtienen un valor anormalmente alto en la prueba diagnóstica, y que por lo tanto queremos definir como **positivo** cualquier valor por encima de un umbral. La prueba puede tomar muchos valores reales, y para cada uno de ellos el test dicotómico asociado tendrá una especificidad y una sensibilidad.
+Para simplificar el lenguaje y fijar ideas, vamos a suponer que los enfermos obtienen un valor anormalmente alto en la prueba diagnóstica, y que por lo tanto queremos definir como **positivo** cualquier valor por encima de un umbral. La prueba puede tomar muchos valores reales, y para cada uno de ellos el test binario asociado tendrá una especificidad y una sensibilidad.
 
 La eficacia diagnóstica global de esta prueba diagnóstica se representa gráficamente por medio de una **curva ROC** (de *Receiver Operating Characteristic*. Esta curva se obtiene:
 
@@ -503,7 +503,7 @@ plot(X,type="o",pch=20,xlab="1-especificidad",ylab="sensibilidad",
 text(X[,1]+0.01,X[,2],col="red",cex=0.5,labels=15:1)
 ```
 
-Una de las aplicaciones de la curva ROC es ayudar a decidir qué valor de corte tomar para definir el test diagnóstico dicotómico que se va a usar en la práctica.  Una estrategia muy común es tomar el **valor de corte óptimo**: el valor $x_o$ el que la exactitud de la prueba,
+Una de las aplicaciones de la curva ROC es ayudar a decidir qué valor de corte tomar para definir el test diagnóstico binario que se va a usar en la práctica.  Una estrategia muy común es tomar el **valor de corte óptimo**: el valor $x_o$ el que la exactitud de la prueba,
 $$
 P(+_{x_o}|E)+P(-_{x_o}|S)=\text{sensibilidad}_{x_o}+\text{especificidad}_{x_o}
 $$
