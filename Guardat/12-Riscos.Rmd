@@ -412,82 +412,35 @@ OR=\frac{\dfrac{a}{a+c}\Big/\dfrac{c}{a+c}}{\dfrac{b}{b+d}\Big/\dfrac{d}{b+d}}=\
 $$
 
 ```{example}
+En el estudio de casos y controles ["Factores de riesgo para bacteriemia por \textsl{Pseudomonas aeruginosa} resistente a carbapenémicos adquirida en un hospital colombiano"](https://www.redalyc.org/pdf/843/84346573010.pdf) (S. Valderrama *et al*,  *Biomédica* 36 (2016), pp. 69-77) se tomó como casos un grupo de pacientes con bacteriemia por *P. aeruginosa* resistente a un determinado antibiótico y como controles un grupo de pacientes con bacteriemia por *P. aeruginosa* sensible a este antibiótico. Se midieron varias características sobre ellos, como por ejemplo el haberles administrado meropenem o haberles administrado nutrición parenteral.
 
 
+```
 
-
-
-
-
-
- 
-
-
-\frametitle{Ejemplo} \vspace*{-3ex}
-
-
-$E$: eczema
-
-$F$: fiebre del heno
-
-
-\begin{center}
-\begin{tabular}{c|c|c|}
-        & $E$ & $E^c$ \\ \hline
-$F$ & 141 & 928   \\ \hline
-$F^c$ & 420 & 13525\\ \hline
- \end{tabular}
- \end{center}
-
-¿OR de eczema relativa a la fiebre del heno?\vspace*{1.5cm}
-
-¿OR de fiebre del heno relativa a eczema?\vspace*{1.5cm}
-
-
-
-{\tiny D. Strachan, B. Butland, H. Anderson, ``Incidence and prognosis
-of asthma and wheezing from early childhood to age 33 in a national
-British cohort.'' BMJ 312 (1996) 1195--9.
-
-}
-
-
-
-
-\frametitle{Ejemplo} \vspace*{-3ex}
-
-
-$E$: eczema
-
-$F$: fiebre del heno
-
-
-\begin{center}
-\only<1>{\begin{tabular}{c|c|c|}
-        & $E$ & $E^c$ \\ \hline
-$F$ & 141 & 928   \\ \hline
-$F^c$ & 420 & 13525\\ \hline
- \end{tabular}}
- \only<2>{\begin{tabular}{c|c|c|}
-        & $F$ & $F^c$ \\ \hline
-$E$ & 141 &  **420}  \\ \hline
-$E^c$ & **928} & 13525\\ \hline
- \end{tabular}}
-
- \end{center}
-
-¿OR de eczema relativa a la fiebre del heno?
-$$
-OR=\frac{141\cdot 13525}{928\cdot 420}=4.89
+Los resultados sobre estos dos riesgos se recogen en la tabla siguiente:
+$$ 
+\begin{array}{r|cc}
+&\text{Casos} &\text{Controles} \\[-0.5ex]
+\textbf{Riesgo} & (n=42) & (n=126) \\ \hline
+ \text{Nutrición parenteral} & 13\ (31\%) & 9\ (7.2\%) \\ \hline
+ \text{Uso de meropenem} & 16\ (38.1\%) & 14\ (11.1\%)
+ \end{array}
 $$
 
-¿OR de fiebre del heno relativa a eczema?
+El grupon de casos y controles se tomó con una composición específica, tres controles por caso, por lo que no podemos estimar riesgos de la enfermedad (infección de  *P. aeruginosa* resistente) en función de la exposición. No hay más remedio que calcular *odds ratios*. Para ello tenemos que extraer una tabla de frecuencias de expuestos y no expuestos entre sanos y controles. Lo haremos para la nutrición parenteral, dejamos como **ejercicio** el uso de meropenem.
 
-\only<2>{%
+$$ 
+\begin{array}{r|cc}
+\textbf{Nutr. paren.}  &E &E^c \\ \hline
+R & 13  & 9  \\ 
+R^c & 29 & 117
+ \end{array}
 $$
-OR=\frac{141\cdot 13525}{928\cdot 420}=4.89
+La *odd ratio*
 $$
-}
+OR=\frac{13\cdot 117}{29\cdot 9}=5.83
+$$
+Las *odds* de tener una bacteriemia por *P. aeruginosa* resistente entre los pacientes con bacteriemia por *P. aeruginosa* a los que se ha administrado nutrición parenteral son 5.8 veces mayores que las de  los pacientes con bacteriemia por *P. aeruginosa* a los que no se ha administrado nutrición parenteral.
 
 
 
@@ -499,97 +452,6 @@ $$
 
 
 
-
-
-\frametitle{Ejemplo} 
-
-\begin{center}
-\small \begin{tabular}{llcc}
-& &\bf Casos &\bf Controles \\
-& & ($n=42$) & ($n=126$) \\ \hline
-\bf Riesgo & Nutrición parenteral & 13 (31%) & 9 (7.2%) \\ \hline
- & Uso de meropenem & 16 (38.1%) & 14 (11.1%)\\ \hline
- \end{tabular}
- \end{center}
- 
- ${OR}_{NP}=$
- 
- $OR_{Mer}=$
-\vspace*{\fill}
-
-
-
-{\tiny Valderrama, S., González, P., \textsl{et al}. ``Factores de riesgo para bacteriemia por \textsl{Pseudomonas aeruginosa} resistente a carbapenémicos adquirida en un hospital colombiano.''
-Biomédica 36 (2016), 69--77.
-
-}
-
-
-
-
-\frametitle{Ejemplo} 
-
-\begin{center}
-\small \begin{tabular}{llcc}
-& &\bf Casos &\bf Controles \\
-& & ($n=42$) & ($n=126$) \\ \hline
-\bf Riesgo & Nutrición parenteral & 13 (31%) & 9 (7.2%) \\ \hline
- & Uso de meropenem & 16 (38.1%) & 14 (11.1%)\\ \hline
- \end{tabular}
- \end{center}
- 
-\begin{center}
-\small \begin{tabular}{l|c|c}
-\textbf{NP} & $E$ & $E^c$ \\\hline
-$R$ & 13 (31%) & 9 (7.2%) \\ \hline
-$R^c$ & 29 (69%) & 117 (92.8%) \\ \hline
- \end{tabular}
- \end{center}
- 
- ${OR}_{NP}={\dfrac{P(R|E)/P(R^c|E)}{P(R|E^c)/P(R^c|E^c)}}=\dfrac{0.31/0.69}{0.072/0.928}=5.83$
- 
-
-${OR}_{NP}=\dfrac{13\cdot 117}{9\cdot 29}=5.83$
-
-
-
-
-
-
-
-
-Las *odds* de tener bacteriemia de los han recibido nutrición parenteral son 5.8 veces mayores que las de los que no.
-
-
-
-
-\frametitle{Ejemplo} 
-
-\begin{center}
-\small \begin{tabular}{llcc}
-& &\bf Casos &\bf Controles \\
-& & ($n=42$) & ($n=126$) \\ \hline
-\bf Riesgo & Nutrición parenteral & 13 (31%) & 9 (7.2%) \\ \hline
- & Uso de meropenem & 16 (38.1%) & 14 (11.1%)\\ \hline
- \end{tabular}
- \end{center}
- 
-
-\begin{center}
-\small \begin{tabular}{l|c|c}
-\textbf{NP} & $E$ & $E^c$ \\\hline
-$R$ & 16 & 14 \\ \hline
-$R^c$ & 26  & 112   \\ \hline
- \end{tabular}
- \end{center}
-
-
-
-$OR_{Mer}=\dfrac{16\cdot 112}{14\cdot 26}=4.93$\bigskip
- 
-
-
-Las *odds* de tener bacteriemia de los que han recibido meropenem son 4.93 veces mayores que las de los que no
 
 
 \frametitle{Ejemplo} \vspace*{-3ex}

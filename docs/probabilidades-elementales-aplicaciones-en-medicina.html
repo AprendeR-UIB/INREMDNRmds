@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lección 5 Probabilidades elementales: Aplicaciones en medicina | Bioestadística (Medicina UIB)</title>
+  <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lección 5 Probabilidades elementales: Aplicaciones en medicina | Bioestadística (Medicina UIB)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lección 5 Probabilidades elementales: Aplicaciones en medicina | Bioestadística (Medicina UIB)" />
+  
+  <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2020-09-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="probabilidades-elementales-la-teoría.html"/>
+<link rel="next" href="tipos-de-datos.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">INREMDN</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="part"><span><b>Tema I: Introducción a los estudios médicos y la estadística</b></span></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="chap-estudios.html"><a href="chap-estudios.html"><i class="fa fa-check"></i><b>2</b> Estudios médicos</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-estudios.html"><a href="chap-estudios.html#sec:pasos"><i class="fa fa-check"></i><b>2.1</b> Pasos de un estudio médico</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-estudios.html"><a href="chap-estudios.html#algunos-calificativos-para-los-estudios-médicos"><i class="fa fa-check"></i><b>2.2</b> Algunos calificativos para los estudios médicos</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-estudios.html"><a href="chap-estudios.html#estudios-descriptivos"><i class="fa fa-check"></i><b>2.3</b> Estudios descriptivos</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-estudios.html"><a href="chap-estudios.html#sec:cyc"><i class="fa fa-check"></i><b>2.4</b> Estudios de casos y controles</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-estudios.html"><a href="chap-estudios.html#estudios-de-cohorte"><i class="fa fa-check"></i><b>2.5</b> Estudios de cohorte</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-estudios.html"><a href="chap-estudios.html#estudios-transversales"><i class="fa fa-check"></i><b>2.6</b> Estudios transversales</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-estudios.html"><a href="chap-estudios.html#sec:ecol"><i class="fa fa-check"></i><b>2.7</b> Estudios ecológicos</a></li>
+<li class="chapter" data-level="2.8" data-path="chap-estudios.html"><a href="chap-estudios.html#ensayos-clínicos"><i class="fa fa-check"></i><b>2.8</b> Ensayos clínicos</a></li>
+<li class="chapter" data-level="2.9" data-path="chap-estudios.html"><a href="chap-estudios.html#a-modo-de-resumen"><i class="fa fa-check"></i><b>2.9</b> A modo de resumen</a></li>
+<li class="chapter" data-level="2.10" data-path="chap-estudios.html"><a href="chap-estudios.html#revisiones-sistemáticas-y-metaanálisis"><i class="fa fa-check"></i><b>2.10</b> Revisiones sistemáticas y metaanálisis</a></li>
+<li class="chapter" data-level="2.11" data-path="chap-estudios.html"><a href="chap-estudios.html#bonus-track-unos-criterios-de-causalidad"><i class="fa fa-check"></i><b>2.11</b> (Bonus track) Unos criterios de causalidad</a></li>
+<li class="chapter" data-level="2.12" data-path="chap-estudios.html"><a href="chap-estudios.html#bonus-track-preguntas-clínicas-en-formato-pico"><i class="fa fa-check"></i><b>2.12</b> (Bonus track) Preguntas clínicas en formato PICO</a></li>
+<li class="chapter" data-level="2.13" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>2.13</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-conceptos.html"><a href="chap-conceptos.html"><i class="fa fa-check"></i><b>3</b> Algunos conceptos básicos en estadística</a><ul>
+<li class="chapter" data-level="3.1" data-path="chap-conceptos.html"><a href="chap-conceptos.html#unidad-de-observación"><i class="fa fa-check"></i><b>3.1</b> Unidad de observación</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-conceptos.html"><a href="chap-conceptos.html#población-y-muestra"><i class="fa fa-check"></i><b>3.2</b> Población y muestra</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:muestreo"><i class="fa fa-check"></i><b>3.3</b> Tipos básicos de muestreo</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:mas"><i class="fa fa-check"></i><b>3.3.1</b> Muestreo aleatorio con y sin reposición</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:sist"><i class="fa fa-check"></i><b>3.3.2</b> Muestreo sistemático (o a intervalos)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:estr"><i class="fa fa-check"></i><b>3.3.3</b> Muestreo aleatorio estratificado</a></li>
+<li class="chapter" data-level="3.3.4" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:mcluster"><i class="fa fa-check"></i><b>3.3.4</b> Muestreo por conglomerados</a></li>
+<li class="chapter" data-level="3.3.5" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:oport"><i class="fa fa-check"></i><b>3.3.5</b> Muestreos no aleatorios</a></li>
+<li class="chapter" data-level="3.3.6" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:poli"><i class="fa fa-check"></i><b>3.3.6</b> Muestreo polietápico</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:sesgos"><i class="fa fa-check"></i><b>3.4</b> Sesgos</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-conceptos.html"><a href="chap-conceptos.html#test-1"><i class="fa fa-check"></i><b>3.5</b> Test</a></li>
+</ul></li>
+<li class="part"><span><b>Tema II: Probabilidades</b></span></li>
+<li class="chapter" data-level="4" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html"><i class="fa fa-check"></i><b>4</b> Probabilidades elementales: la teoría</a><ul>
+<li class="chapter" data-level="4.1" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html#álgebra-de-conjuntos"><i class="fa fa-check"></i><b>4.1</b> Álgebra de conjuntos</a></li>
+<li class="chapter" data-level="4.2" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html#algunas-fórmulas-básicas"><i class="fa fa-check"></i><b>4.2</b> Algunas fórmulas básicas</a></li>
+<li class="chapter" data-level="4.3" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html#odds"><i class="fa fa-check"></i><b>4.3</b> Odds</a></li>
+<li class="chapter" data-level="4.4" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>4.4</b> Probabilidad condicionada</a></li>
+<li class="chapter" data-level="4.5" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html#sucesos-independientes"><i class="fa fa-check"></i><b>4.5</b> Sucesos independientes</a></li>
+<li class="chapter" data-level="4.6" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html#probabilidad-total"><i class="fa fa-check"></i><b>4.6</b> Probabilidad total</a></li>
+<li class="chapter" data-level="4.7" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html#fórmula-de-bayes"><i class="fa fa-check"></i><b>4.7</b> Fórmula de Bayes</a></li>
+<li class="chapter" data-level="4.8" data-path="probabilidades-elementales-la-teoría.html"><a href="probabilidades-elementales-la-teoría.html#test-2"><i class="fa fa-check"></i><b>4.8</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html"><i class="fa fa-check"></i><b>5</b> Probabilidades elementales: Aplicaciones en medicina</a><ul>
+<li class="chapter" data-level="5.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#pruebas-diagnósticas"><i class="fa fa-check"></i><b>5.1</b> Pruebas diagnósticas</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sensibilidad-especificidad-valores-predictivos-etc."><i class="fa fa-check"></i><b>5.1.1</b> Sensibilidad, especificidad, valores predictivos etc.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#curvas-roc"><i class="fa fa-check"></i><b>5.1.2</b> Curvas ROC</a></li>
+<li class="chapter" data-level="5.1.3" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#test-3"><i class="fa fa-check"></i><b>5.1.3</b> Test</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Tema II: Estadística descriptiva</b></span></li>
+<li class="chapter" data-level="6" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>6</b> Tipos de datos</a><ul>
+<li class="chapter" data-level="6.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>6.1</b> Ejercicios</a><ul>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#problemas"><i class="fa fa-check"></i>Problemas</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#test-4"><i class="fa fa-check"></i>Test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html"><i class="fa fa-check"></i><b>7</b> Descripción de datos cualitativos</a><ul>
+<li class="chapter" data-level="7.1" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#sec:frecs"><i class="fa fa-check"></i><b>7.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="7.2" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#gráficos"><i class="fa fa-check"></i><b>7.2</b> Gráficos</a></li>
+<li class="chapter" data-level="7.3" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#tablas-de-frecuencias-multidimensionales"><i class="fa fa-check"></i><b>7.3</b> Tablas de frecuencias multidimensionales</a></li>
+<li class="chapter" data-level="7.4" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#diagramas-de-barras-bidimensionales"><i class="fa fa-check"></i><b>7.4</b> Diagramas de barras bidimensionales</a></li>
+<li class="chapter" data-level="7.5" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#diagramas-de-mosaico"><i class="fa fa-check"></i><b>7.5</b> Diagramas de mosaico</a></li>
+<li class="chapter" data-level="7.6" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#ejercicios-1"><i class="fa fa-check"></i><b>7.6</b> Ejercicios</a><ul>
+<li class="chapter" data-level="" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#problemas-1"><i class="fa fa-check"></i>Problemas</a></li>
+<li class="chapter" data-level="" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#test-5"><i class="fa fa-check"></i>Test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html"><i class="fa fa-check"></i><b>8</b> Descripción de datos ordinales</a><ul>
+<li class="chapter" data-level="8.1" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#frecuencias-y-diagramas-de-barras"><i class="fa fa-check"></i><b>8.1</b> Frecuencias y diagramas de barras</a></li>
+<li class="chapter" data-level="8.2" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#ejercicios-2"><i class="fa fa-check"></i><b>8.2</b> Ejercicios</a><ul>
+<li class="chapter" data-level="" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#problemas-2"><i class="fa fa-check"></i>Problemas</a></li>
+<li class="chapter" data-level="" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#test-6"><i class="fa fa-check"></i>Test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html"><i class="fa fa-check"></i><b>9</b> Descripción de datos cuantitativos</a><ul>
+<li class="chapter" data-level="9.1" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#frecuencias"><i class="fa fa-check"></i><b>9.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="9.2" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>9.2</b> Medidas de tendencia central</a></li>
+<li class="chapter" data-level="9.3" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-posición"><i class="fa fa-check"></i><b>9.3</b> Medidas de posición</a></li>
+<li class="chapter" data-level="9.4" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>9.4</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="9.5" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#diagramas-de-puntos-y-de-caja"><i class="fa fa-check"></i><b>9.5</b> Diagramas de puntos y de caja</a></li>
+<li class="chapter" data-level="9.6" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#histogramas"><i class="fa fa-check"></i><b>9.6</b> Histogramas</a></li>
+<li class="chapter" data-level="9.7" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#polígonos-de-frecuencias"><i class="fa fa-check"></i><b>9.7</b> Polígonos de frecuencias</a></li>
+<li class="chapter" data-level="9.8" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#asimetría-y-curtosis"><i class="fa fa-check"></i><b>9.8</b> Asimetría y curtosis</a></li>
+<li class="chapter" data-level="9.9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#estadísticos-sobre-datos-agrupados"><i class="fa fa-check"></i><b>9.9</b> Estadísticos sobre datos agrupados</a></li>
+<li class="chapter" data-level="9.10" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#datos-cuantitativos-bivariantes"><i class="fa fa-check"></i><b>9.10</b> Datos cuantitativos bivariantes</a></li>
+<li class="chapter" data-level="9.11" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#gráficos-en-escala-logarítmica"><i class="fa fa-check"></i><b>9.11</b> Gráficos en escala logarítmica</a></li>
+<li class="chapter" data-level="9.12" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#ejercicios-3"><i class="fa fa-check"></i><b>9.12</b> Ejercicios</a><ul>
+<li class="chapter" data-level="" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#problemas-3"><i class="fa fa-check"></i>Problemas</a></li>
+<li class="chapter" data-level="" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#test-7"><i class="fa fa-check"></i>Test</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioestadística (Medicina UIB)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="probabilidades-elementales-aplicaciones-en-medicina" class="section level1">
+<h1><span class="header-section-number">Lección 5</span> Probabilidades elementales: Aplicaciones en medicina</h1>
+<div id="pruebas-diagnósticas" class="section level2">
+<h2><span class="header-section-number">5.1</span> Pruebas diagnósticas</h2>
+<div id="sensibilidad-especificidad-valores-predictivos-etc." class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Sensibilidad, especificidad, valores predictivos etc.</h3>
+<p>Una <strong>prueba diagnóstica</strong> es cualquier tecnología que pueda servir para detectar un signo que se relacione con la patología de interés. Por ejemplo, un test de embarazo, una determinación del nivel de un marcador tumoral, una prueba PCR para el SARS-COV-2, etc.</p>
+<p>En la práctica, se suelen distinguir dos tipos de pruebas diagnósticas, de las que se esperan capacidades diagnósticas diferentes:</p>
+<ul>
+<li><p><strong>Test de cribado</strong>: se realiza sobre individuos asintomáticos, con el objetivo principal de descartar que tengan la enfermedad.</p></li>
+<li><p><strong>Test diagnóstico</strong>: se realiza en individuos que muestran síntomas o que han dado positivo en un test de cribado, con el objetivo principal de detectar la presencia de la enfermedad.</p></li>
+</ul>
+<p>Por ejemplo, distinguiríamos entre las <em>mamografías de cribado</em> que se realizan periódicamente a las mujeres a partir de una cierta edad, y las <em>mamografías diagnósticas</em> que se realizan a las mujeres que han detectado un bulto en un seno.</p>
+<p>Tanto en un caso como el otro, el objetivo de una prueba diagnóstica es diagnosticar una enfermedad. Por ahora vamos a considerar que nuestra prueba es <strong>binaria</strong>, en el sentido de que da solo dos resultados posibles: positivo o negativo. Lo deseable sería entonces que:</p>
+<ul>
+<li><p>El resultado de la prueba sea positivo exactamente cuando el paciente tiene la enfermedad.</p></li>
+<li><p>El resultado de la prueba sea negativo exactamente cuando el paciente no tiene la enfermedad.</p></li>
+</ul>
+<p>Por desgracia, casi nunca se tiene una prueba diagnóstica cien por cien segura en este sentido. Ni tan solo para detectar si un individuo está muerto o no, por lo que parece. Por lo tanto, habrá que evaluar y describir la probabilidad que tiene una prueba de acertar.</p>
+<div class="figure" style="text-align: center"><span id="fig:elcomercio"></span>
+<img src="INREMDN_files/figure-html/lazaro1.png" alt="Noticia aparecida en  El Comercio el 8/01/2018: https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html." width="60%" />
+<p class="caption">
+Figura 5.1: Noticia aparecida en El Comercio el 8/01/2018: <a href="https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html" class="uri">https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html</a>.
+</p>
+</div>
+<p>Vamos a poner algunos nombres a sucesos. En una prueba diagnóstica, tenemos dos tipos de sucesos:</p>
+<ul>
+<li><p>El <strong>resultado del test</strong>: <span class="math inline">\(+\)</span>, positivo, o <span class="math inline">\(-\)</span>, negativo. Como suponemos que la prueba es binaria, <span class="math inline">\(-\)</span> es el complementario de <span class="math inline">\(+\)</span>.</p></li>
+<li><p>El <strong>estado del sujeto</strong>: <span class="math inline">\(S\)</span>, sano, o <span class="math inline">\(E\)</span>, enfermo. <span class="math inline">\(S\)</span> es el complementario de <span class="math inline">\(E\)</span>, no hay términos medios.</p></li>
+</ul>
+
+<div class="rmdnote">
+Es importante tener en cuenta que la clasificación de un sujeto en Enfermo o Sano usualmente se lleva a cabo mediante una prueba de referencia (<em>gold standard</em>), que no siempre existe y que cuando existe, puede dar (eso sí, muy raramente) diagnósticos erróneos. Nosotros vamos a suponer que siempre existe y siempre acierta, de manera que podemos comparar nuestra prueba diagnóstica con la “realidad” del paciente.
+</div>
+
+<p>Clasificamos los sujetos de la población según estos dos pares de sucesos:</p>
+<p><span class="math display">\[
+\begin{array}{l}
+\hphantom{TestTestTest}\textbf{Enfermedad} \\
+\begin{array}{c|c|c}
+\textbf{Test}  &amp; E &amp; S \\ \hline
++ &amp; \text{Verdaderos} &amp; \text{Falsos} \\[-0.5ex]    
+ &amp; \text{positivos} &amp; \text{positivos} \\ \hline
+- &amp; \text{Falsos} &amp; \text{Verdaderos} \\[-0.5ex]    
+ &amp; \text{negativos} &amp; \text{negativos}
+\end{array}
+\end{array}
+\]</span>
+Por ejemplo, el pobre preso de la noticia de la Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:elcomercio">5.1</a> fue un falso positivo.</p>
+<p>Entonces, para una prueba diagnóstica:</p>
+<ul>
+<li><p>Su <strong>sensibilidad</strong> es la probabilidad de que dé positivo sobre un individuo enfermo. Es decir, <span class="math inline">\(P(+|E)\)</span>.</p></li>
+<li><p>Su <strong>tasa de falsos negativos</strong> es la probabilidad de que dé negativo sobre un individuo enfermo. Es decir, <span class="math inline">\(P(-|E)\)</span>.</p></li>
+<li><p>Su <strong>especificidad</strong> es la probabilidad de que dé negativo sobre un individuo sano. Es decir, <span class="math inline">\(P(-|S)\)</span>.</p></li>
+<li><p>Su <strong>tasa de falsos positivos</strong> es la probabilidad de que dé positivo sobre un individuo sano. Es decir, <span class="math inline">\(P(+|S)\)</span>.</p></li>
+</ul>
+<p>Observad que</p>
+<ul>
+<li><p>La Tasa de falsos negativos es 1 menos la Sensibilidad: <span class="math inline">\(P(-|E)=1-P(+|E)\)</span>.</p></li>
+<li><p>La Tasa de falsos positivos es 1 menos la Especificidad: <span class="math inline">\(P(+|S)=1-P(-|S)\)</span>.</p></li>
+</ul>
+
+<div class="rmdnote">
+<p>Igual os es útil la regla mnemotécnica siguiente, para recordar qué es la sensibilidad y qué la especificidad:</p>
+<ul>
+<li><p>La Se<strong>N</strong>sibilidad es 1 menos la Tasa de falsos <strong>N</strong>egativos.</p></li>
+<li><p>La Es<strong>P</strong>ecificidad es 1 menos la Tasa de falsos <strong>P</strong>ositivos</p></li>
+</ul>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-111" class="example"><strong>Ejemplo 5.1  </strong></span>Recordad el Ejemplo <a href="probabilidades-elementales-la-teoría.html#exm:VIH995">4.21</a>, en el que teníamos un test para el VIH que daba positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente.</p>
+<ul>
+<li><p>La <strong>sensibilidad</strong> de este test es la proporción de enfermos en los que da positivo: 99%.</p></li>
+<li><p>La <strong>especificidad</strong> de este test es la proporción de sanos en los que da negativo: 95%.</p></li>
+<li><p>Y entonces, ¿qué es el 5%? Su <strong>tasa de falsos positivos</strong>: la proporción de sanos en los que da positivo.</p></li>
+</ul>
+</div>
+
+<p>Algunas definiciones más. Para una prueba diagnóstica:</p>
+<ul>
+<li><p>Su <strong>valor predictivo positivo</strong> (<strong>VPP</strong>) es la probabilidad de que, si da positivo, el individuo esté enfermo. Es decir, <span class="math inline">\(P(E|+)\)</span>.</p></li>
+<li><p>Su <strong>valor predictivo negativo</strong> (<strong>VPN</strong>) es la probabilidad de que, si da negativo, el individuo esté sano. Es decir, <span class="math inline">\(P(S|-)\)</span>.</p></li>
+</ul>
+<p>Normalmente conocemos estimaciones de la sensibilidad y la especificidad de una prueba, obtenidas tomando una muestra de sanos y una de enfermos y pasándoles la prueba para ver cuántos dan positivo y cuántos negativo (<strong>Ejercicio</strong>: ¿De qué tipo de estudio se trata?). Entonces, como hemos visto en la sección sobre la fórmula de Bayes de la lección anterior, conociendo la prevalencia <span class="math inline">\(P(E)\)</span> de la enfermedad, podemos calcular los valores predictivos a partir de la especificidad y sensibilidad.</p>
+<p>Por ejemplo, recordad el enunciado (ahora completo) del Ejemplo <a href="probabilidades-elementales-la-teoría.html#exm:VIH995">4.21</a>:</p>
+<blockquote>
+<p>Un test para el VIH da positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente. En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado? ¿Y cuál es la probabilidad de que un individuo que haya dado negativo en el test no esté infectado?</p>
+</blockquote>
+<p>Su traducción en la terminología introducida al principio de esta sección es:</p>
+<blockquote>
+<p>Un test para el VIH tiene una sensibilidad del 99% y una especificidad del 95%. En una población con una prevalencia del VIH del 0.5%, ¿cuáles son los VPP y VPN del test?</p>
+</blockquote>
+<p>Este tipo de cuestiones se pueden resolver usando el método de frecuencias naturales o, si os gusta recordar fórmulas, directamente la fórmula de Bayes:
+<span class="math display">\[
+\begin{array}{l}
+\text{VPP} = P(E|+) =\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\
+\qquad =\dfrac{\text{sensibilidad}\cdot \text{prevalencia}}{\text{sensibilidad}\cdot \text{prevalencia}+(1-\text{especificidad})(1-\text{prevalencia})}\\[2ex]
+\text{VPN} = P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\
+\qquad =\dfrac{\text{especificidad}\cdot (1-\text{prevalencia})}{\text{especificidad}\cdot (1-\text{prevalencia})+(1-\text{sensibilidad})\cdot\text{prevalencia}}
+\end{array}
+\]</span></p>
+
+<div class="example">
+<p><span id="exm:antiendomisio" class="example"><strong>Ejemplo 5.2  </strong></span>En el artículo <a href="http://www.scielo.edu.uy/scielo.php?pid=S1688-12492002000200003&amp;script=sci_arttext&amp;tlng=en">“Sensibilidad y especificidad de los exámenes de anticuerpos antigliadina y antiendomisio”</a> (W. Lozano <em>et al</em>, <em>Archivos de Pediatría del Uruguay</em> 73 (2002), pp. 69-73) se examinaron la sensibilidad y la especificidad de dos técnicas analíticas en el diagnóstico de la enfermedad celíaca en niños. Participaron en el estudio 65 niños: 15 celíacos y 50 que no lo eran. En el artículo se incluye la tabla que copiamos en la Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:espe2">5.2</a>, donde los enfermos se clasifican en celíacos y no celíacos mediante el diagnóstico de referencia, una biopsia de intestino delgado.</p>
+<p><em>(a)</em> Suponiendo que los resultados son representativos de la población infantil, ¿qué estimamos que valen la especificidad y la sensibilidad de cada una de las dos pruebas de anticuerpos estudiadas?</p>
+<p><em>(b)</em> Uno de cada 64 niños del Uruguay (donde se realizó este estudio) es celíaco. ¿Qué estimamos que valen el VPP y VPN de cada una de las dos pruebas de anticuerpos estudiadas para los niños uruguayos?</p>
+<p><em>(c)</em> En España, 1 de cada 71 niños es celíaco. ¿Qué estimamos que valen el VPP y VPN de cada una de las dos pruebas de anticuerpos estudiadas para los niños españoles?</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:espe2"></span>
+<img src="INREMDN_files/figure-html/espe2.png" alt="Tabla 1 en el artículo &quot;Sensibilidad y especificidad de los exámenes de anticuerpos antigliadina y antiendomisio&quot;." width="90%" />
+<p class="caption">
+Figura 5.2: Tabla 1 en el artículo “Sensibilidad y especificidad de los exámenes de anticuerpos antigliadina y antiendomisio”.
+</p>
+</div>
+<p>Vamos a responder las preguntas para la prueba de anticuerpos antiendomisio, os dejamos la otra como <strong>ejercicio</strong>.</p>
+<p>Para la prueba de anticuerpos antiendomisio, tenemos la tabla de frecuencias siguiente, obtenida de la de la derecha de la figura anterior:
+<span class="math display">\[
+\begin{array}{r|cc|c}
+&amp; \text{Celíacos}\ (E) &amp; \text{No celíacos}\ (S) &amp; \text{Total} \\ \hline
++ &amp; 47 &amp; 1 &amp; 48  \\  
+- &amp; 3 &amp; 14 &amp; 17 \\ \hline
+\text{Total} &amp; 50  &amp; 15 &amp; 65  
+\end{array}
+\]</span></p>
+<p><em>(a)</em> Estimamos que:</p>
+<ul>
+<li><p>La <strong>sensibilidad</strong> es <span class="math inline">\(P(+|E)=47/50=0.94\)</span></p></li>
+<li><p>La <strong>especificidad</strong> es <span class="math inline">\(P(-|S)= 14/15=0.9333\)</span></p></li>
+</ul>
+<p>Es decir,</p>
+<ul>
+<li>El test da positivo en un 94% de los celíacos.</li>
+<li>El test da negativo en un 93.33% de los no celíacos.</li>
+</ul>
+<p><em>(b)</em> En primer lugar vamos a calcular los valores predictivos usando la fórmula de Bayes. Como <span class="math inline">\(P(+|E)=0.94\)</span>, <span class="math inline">\(P(-|S)=14/15\)</span> y en Uruguay <span class="math inline">\(P(E)=1/64\)</span>, por lo que <span class="math inline">\(P(S)=63/64\)</span>:</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\text{VPP}\!\!\!\! &amp; =P(E|+)=\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\
+&amp;= \dfrac{0.94\cdot \frac{1}{64}}{0.94\cdot \frac{1}{64}+\frac{1}{15}\cdot \frac{63}{64}}=0.1829\\[1ex]
+\text{VPN} \!\!\!\!&amp; =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\
+&amp;= \dfrac{\frac{14}{15}\cdot \frac{63}{64}}{\frac{1}{15}\cdot \frac{63}{64}+0.06\cdot \frac{1}{64}}=0.999
+\end{array}
+\]</span></p>
+<p>Es decir,</p>
+<ul>
+<li>Estimamos que un 18.29% de los niños uruguayos que dan positivo en el test son celíacos.</li>
+<li>Estimamos que un 99.9% de los niños uruguayos que dan negativo en el test no son celíacos.</li>
+</ul>
+<p>Vamos a repetir el cálculo usando frecuencias naturales. Para que nos salgan números redondos, vamos a partir de una población de referencia de 640,000 niños uruguayos.</p>
+<ul>
+<li>Un 1/64 son celíacos, 10,000. Los 630,000 restantes no lo son.</li>
+<li>De los 10,000 celíacos, un 94% dan positivo. Por lo tanto, 9,400 dan positivo y 600 negativo.</li>
+<li>De los 630,000 no celíacos, 14 de cada 15 dan negativo Por lo tanto, 588,000 dan negativo y 42,000 positivo.</li>
+</ul>
+<p>En resumen:
+<span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; \text{Celíacos} &amp; \text{No celíacos}  &amp; \text{Total} \\ \hline
++ &amp; 9400  &amp;  42000 &amp;  51400 \\ \hline
+- &amp; 600  &amp; 588000 &amp;  588600  \\ \hline
+\text{Total} &amp;  10000 &amp; 630000 &amp; 640000 
+\end{array}
+\]</span>
+Y por lo tanto, estimamos que:</p>
+<ul>
+<li><p><span class="math inline">\(\text{VPP}= 9400/51400=0.1829\)</span></p></li>
+<li><p><span class="math inline">\(\text{VPN}= 588000/588600=0.999\)</span></p></li>
+</ul>
+<p><em>(c)</em> ¿Y en España? Usando la fórmula de Bayes ahora con <span class="math inline">\(P(E)=1/71\)</span>, obtenemos
+<span class="math display">\[
+\begin{array}{rl}
+\text{VPP}\!\!\!\! &amp; =P(E|+)=\dfrac{P(+|E)\cdot P(E)}{P(+|E)\cdot P(E)+P(+|S)\cdot P(S)}\\
+&amp;= \dfrac{0.94\cdot \frac{1}{71}}{0.94\cdot \frac{1}{71}+\frac{1}{15}\cdot \frac{70}{71}}=0.1677\\[1ex]
+\text{VPN} \!\!\!\!&amp; =P(S|-)=\dfrac{P(-|S)\cdot P(S)}{P(-|S)\cdot P(S)+P(-|E)\cdot P(E)}\\
+&amp;= \dfrac{\frac{14}{15}\cdot \frac{70}{71}}{\frac{1}{15}\cdot \frac{70}{71}+0.06\cdot \frac{1}{71}}=0.9991
+\end{array}
+\]</span></p>
+<ul>
+<li>Estimamos que un 16.77% de los niños españoles que dan positivo en el test son celíacos.</li>
+<li>Estimamos que un 99.91% de los niños españoles que dan negativo en el test no son celíacos.</li>
+</ul>
+<p>Con el método de frecuencias naturales a partir de una población de referencia de 710,000 niños españoles, y razonando como antes, obtenemos:</p>
+<p><span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; \text{Celíacos} &amp; \text{No celíacos}  &amp; \text{Total} \\ \hline
+\text{Positivos} &amp; 9400  &amp;  46666.67 &amp;  56066.67  \\ \hline
+\text{Negativos} &amp; 600  &amp; 653333.33 &amp;  653933.33  \\ \hline
+\text{Total} &amp;  10000 &amp; 700000 &amp; 710000
+\end{array}
+\]</span></p>
+<p>Y por lo tanto, estimamos que:</p>
+<ul>
+<li><p><span class="math inline">\(\text{VPP}= 9400/56066.67=0.1677\)</span></p></li>
+<li><p><span class="math inline">\(\text{VPN}= 653333.33/653933.33=0.9991\)</span></p></li>
+</ul>
+<p>En resumen:</p>
+<ul>
+<li><p>Sensibilidad <span class="math inline">\(P(+|E)=0.94\)</span>, Especificidad <span class="math inline">\(P(-|S)=14/15\)</span></p></li>
+<li><p>Si la prevalencia es <span class="math inline">\(P(E)=1/64\)</span>,
+<span class="math display">\[
+VPP=P(E|+)=0.1829,\quad
+VPN=P(S|-)=0.9990
+\]</span></p></li>
+<li><p>Si la prevalencia es <span class="math inline">\(P(E)=1/71\)</span>,
+<span class="math display">\[
+VPP=P(E|+)=0.1677,\quad
+VPN=P(S|-)=0.9991
+\]</span></p></li>
+</ul>
+<p>La prevalencia de la enfermedad celíaca es más pequeña en España que en Urugay, y observaréis que el VPP de la prueba de anticuerpos antiendomisio es más pequeño, y el VPN más grande, en España que en Uruguay. No es casualidad:</p>
+
+<div class="rmdimportant">
+A mayor prevalencia, el VPP es mayor y el VPN es menor.
+</div>
+
+<p>El motivo intuitivo es que si la prevalencia crece:</p>
+<ul>
+<li>Hay más enfermos, por lo que aumenta la probabilidad de encontrar enfermos y por lo tanto el VPP es mayor.</li>
+<li>Hay menos sanos, por lo que disminuye la probabilidad de encontrar sanos y por lo tanto el VPN es menor.</li>
+</ul>
+
+<div class="rmdcorbes">
+<p>El motivo matemático es el siguiente. Si llamamos <span class="math inline">\(x\in [0,1]\)</span> a la prevalencia y fijamos los valores de <span class="math inline">\(P(+|E),P(+|S),P(-|E),P(-|S)\)</span>, de manera que el VPP y el VPN sean una función solo de <span class="math inline">\(x\)</span>, tenemos que
+<span class="math display">\[
+\begin{array}{l}        
+\text{VPP}(x)  =\dfrac{P(+|E)\cdot x}{P(+|E)\cdot x+P(+|S)\cdot (1-x)}\\
+\text{VPN}(x) =\dfrac{P(-|S)\cdot (1-x)}{P(-|S)\cdot (1-x)+P(-|E)\cdot x}
+\end{array}
+\]</span>
+Y derivando, podréis comprobar que:</p>
+<ul>
+<li><p>La derivada de <span class="math inline">\(\text{VPP}(x)\)</span> sobre el intervalo [0,1] es positiva, y por tanto <span class="math inline">\(\text{VPP}(x)\)</span> es creciente en <span class="math inline">\(x\)</span>.</p></li>
+<li><p>La derivada de <span class="math inline">\(\text{VPN}(x)\)</span> sobre el intervalo [0,1] es negativa, y por tanto <span class="math inline">\(\text{VPP}(x)\)</span> es decreciente en <span class="math inline">\(x\)</span>.</p></li>
+</ul>
+</div>
+
+<p>En cambio, la prevalencia no influye para nada en la sensibilidad y la especificidad de la prueba:</p>
+<ul>
+<li><p>La <strong>sensibilidad</strong> es el porcentaje de enfermos en que la prueba da positivo, y esto es independiente de cuántos enfermos hay en la población.</p></li>
+<li><p>La <strong>especificidad</strong> es el porcentaje de sanos en que la prueba da negativo, y esto también es independiente de cuántos individuos sanos hay en la población.</p></li>
+</ul>
+
+<div class="rmdnote">
+<p>La sensibilidad y la especificidad no dependen de la prevalencia, pero sí que pueden depender de otras características de una población. Por ejemplo, en <a href="https://academic.oup.com/jnci/article/92/12/971/2905789">“Findings From 752 081 Clinical Breast Examinations Reported to a National Screening Program From 1995 Through 1998”</a> (J. Bobo <em>et al</em>, <em>Journal of the National Cancer Institute</em> 92 (2000), pp. 971-976), se estimaron la especificidad y la sensibilidad del examen físico clínico del pecho como prueba diagnóstica del cáncer de mama en diversos grupos de mujeres. En la tabla siguiente recogemos algunos de los datos obtenidos en ese estudio:</p>
+</div>
+
+<p><span class="math display">\[
+\begin{array}{l|ccc}
+\text{Grupo} &amp; \text{Sensibilidad} &amp; \text{Especificidad} &amp; \text{VPP}  \\ \hline
+&lt;40\text{ años} &amp; 0.885 &amp; 0.860 &amp; 0.014  \\
+40-49\text{ años} &amp; 0.714 &amp; 0.916 &amp; 0.036 \\
+50-59\text{ años} &amp; 0.513 &amp; 0.951 &amp; 0.061 \\
+60-69\text{ años} &amp; 0.572 &amp; 0.960 &amp; 0.074 \\
+\geqslant 70\text{ años} &amp; 0.380 &amp; 0.968 &amp; 0.070  \\  \hline
+\text{Global} &amp; 0.588 &amp; 0.934 &amp; 0.043  
+\end{array}
+\]</span>
+Las diferencias en la sensibilidad y especificidad entre las diferentes franjas de edad se deben a las diferentes características físicas de los senos a diferentes edades, que facilitan o dificultan la detección de los tumores, no a la prevalencia del cáncer.</p>
+<p>Vamos a añadir algunos términos más sobre probabilidades referentes a una prueba diagnóstica:</p>
+<ul>
+<li><p>Su <strong>exactitud</strong> (<strong>global</strong>) es la probabilidad de acertar el diagnóstico. Es decir, <span class="math inline">\(P(E\cap +)+P(S\cap -)\)</span>.</p>
+<p>Fijaos en que esta exactitud es igual a <span class="math inline">\(P(+|E)\cdot P(E)+P(-|S)\cdot P(S)\)</span> y por lo tanto depende de la prevalencia de la enfermedad.</p></li>
+<li><p>Su <strong>cociente de verosimilitud</strong> (<em>likelihood ratio</em>, en inglés) <strong>positivo</strong>, <span class="math inline">\(\text{LR}(+)\)</span>, es cuántas veces es más probable un diagnóstico positivo sobre un enfermo que sobre un sano. Es decir
+<span class="math display">\[
+\text{LR}(+)=\dfrac{P(+|E)}{P(+|S)}=\dfrac{\text{sensibilidad}}{1-\text{especificidad}}
+\]</span>
+Un valor de <span class="math inline">\(\text{LR}(+)\)</span> por encima de 10 se toma como indicador de buen potencial diagnóstico. Por el contrario, un valor de <span class="math inline">\(\text{LR}(+)\)</span> cercano a 1 indica una prueba inútil: si dar positivo sobre un enfermo tiene aproximadamente la misma probabilidad que sobre un sano, los sucesos <span class="math inline">\(+\)</span> y <span class="math inline">\(E\)</span> son aproximadamente independientes.</p></li>
+<li><p>Su <strong>cociente de verosimilitud negativo</strong>, <span class="math inline">\(\text{LR}(-)\)</span>, es cuántas veces es más probable un diagnóstico negativo sobre un enfermo que sobre un sano. Es decir
+<span class="math display">\[
+\text{LR}(-)=\dfrac{P(-|E)}{P(-|S)}=\dfrac{1-\text{sensibilidad}}{\text{especificidad}}
+\]</span>
+Un valor de <span class="math inline">\(\text{LR}(-)\)</span> por debajo de 0.1 se toma como indicador de buen potencial para descartar la enfermedad, y un valor de <span class="math inline">\(\text{LR}(-)\)</span> cercano a 1 indica una prueba inútil en este sentido.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-115" class="example"><strong>Ejemplo 5.3  </strong></span>Volviendo al Ejemplo <a href="probabilidades-elementales-aplicaciones-en-medicina.html#exm:antiendomisio">5.2</a>, habíamos obtenido que</p>
+</div>
+
+<ul>
+<li><p>Su <strong>sensibilidad</strong> es <span class="math inline">\(P(+|E)=47/50=0.94\)</span>. Por lo tanto, su <strong>tasa de falsos negativos</strong> es <span class="math inline">\(P(-|E)=0.06\)</span>.</p></li>
+<li><p>La <strong>especificidad</strong> es <span class="math inline">\(P(-|S)= 14/15\)</span>. Por lo tanto, su <strong>tasa de falsos positivos</strong> es <span class="math inline">\(P(+|S)=1/15\)</span>.</p></li>
+<li><p>En Uruguay teníamos que <span class="math inline">\(P(E)=1/64\)</span>, por lo que <span class="math inline">\(P(S)=63/64\)</span>.</p></li>
+</ul>
+<p>Entonces:</p>
+<ul>
+<li><p>Su <strong>exactitud</strong> en Uruguay es<br />
+<span class="math display">\[
+P(E\cap +)+P(S\cap -)=P(+|E)\cdot P(E)+P(-|S)\cdot P(S)=0.94\cdot \frac{1}{64}+\frac{14}{15}\cdot \frac{63}{64}=0.9334.
+\]</span></p></li>
+<li><p>Su <strong>cociente de verosimilitud positivo</strong> es
+<span class="math display">\[
+\text{LR}(+)=\dfrac{P(+|E)}{P(+|S)}=\frac{0.94}{1/15}=14.1
+\]</span>
+y su <strong>cociente de verosimilitud negativo</strong> es
+<span class="math display">\[
+\text{LR}(-)=\dfrac{P(-|E)}{P(-|S)}=\frac{0.06}{14/15}=0.064
+\]</span></p></li>
+</ul>
+<p>Los cocientes de verosimilitud se utilizan para transformar las <em>odds</em> de tener la enfermedad <em>a priori</em> (antes de realizar la prueba diagnóstica) en sus <em>odds</em> <em>a posteriori</em> (tras realizar la prueba diagnóstica). En concreto, sean:</p>
+<ul>
+<li><p><span class="math inline">\(\text{Odds}(E)\)</span>: las <em>odds</em> de un individuo de tener la enfermedad, antes de realizar la prueba diagnóstica.</p></li>
+<li><p><span class="math inline">\(\text{Odds}(E|+)\)</span>: las <em>odds</em> de un individuo de tener la enfermedad si en la prueba da positivo.</p></li>
+<li><p><span class="math inline">\(\text{Odds}(E|-)\)</span>: las <em>odds</em> de un individuo de tener la enfermedad si en la prueba da negativo.</p></li>
+</ul>
+Entonces
+<span class="math display">\[
+\begin{array}{l}
+\text{Odds}(E|+)=\text{Odds}(E)\cdot \text{LR}(+)\\
+\text{Odds}(E|-)=\text{Odds}(E)\cdot \text{LR}(-) 
+\end{array}
+\]</span>
+
+<div class="rmdcorbes">
+En efecto
+<span class="math display">\[
+\begin{array}{l}
+\text{Odds}(E|+)=\dfrac{P(E|+)}{P(S|+)}=\dfrac{P(E|+)P(+)}{P(S|+)P(+)}=\dfrac{P(E\cap +)}{P(S\cap +)}\\[1ex]
+\text{Odds}(E)\cdot \text{LR}(+)=\dfrac{P(E)}{P(S)}\cdot \dfrac{P(+|E)}{P(+|S)}=\dfrac{P(E\cap +)}{P(S\cap +)}
+\end{array}
+\]</span>
+Para <span class="math inline">\(\text{Odds}(E|-)\)</span> el cálculo es similar.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-117" class="example"><strong>Ejemplo 5.4  </strong></span>Se sabe que una mujer con un hermano hemofílico tiene un 50% de probabilidades de ser portadora del gen hemofilia. Una prueba genética para detectarlo tiene una sensibilidad del 90% y una especificidad del 80%. Si una mujer con hermano hemofílico se hace la prueba y da negativo, ¿cómo modifica este resultado sus <em>odds</em> de ser portadora?
+</div>
+
+<p>Llamemos <span class="math inline">\(E\)</span> al suceso “Ser portadora”. Si la mujer <em>a priori</em> tiene un 50% de probabilidades de serlo, sus <em>odds</em> son 1. Ahora sabemos que, para el test genético, <span class="math inline">\(P(-|E)=0.1\)</span> y <span class="math inline">\(P(-|S)=0.8\)</span>, por lo que <span class="math inline">\(\text{LR}(-)=P(-|E)/P(-|S)=\dfrac{1}{8}\)</span>.</p>
+<p>Entonces, <span class="math inline">\(\text{Odds}(E|-)=\text{Odds}(E)\cdot \text{LR}(-) =\dfrac{1}{8}\)</span>. Pasan de ser 1:1 a 1:8. Es decir, su “nueva probabilidad” de ser portadora es 1/9.</p>
+
+<div class="rmdexercici">
+<p>G. Stine, en el libro “AIDS Update 1999” (Prentice Hall, 1999), explica que en 1987 se notificó a 22 donantes de sangre de Florida que habían dado positivo en un test ELISA+Western Blot de VIH, que tenía sensibilidad y especificidad ambas del 99.99%. De ellos, 7 se suicidaron.</p>
+La prevalencia de VIH en su sector de población (heterosexuales de bajo riesgo) se estimaba en 1 por cada 10000. ¿Cuál era su probabilidad real de infección por VIH, sabiendo que habían dado positivo?
+</div>
+
+
+<div class="rmdexercici">
+<p>Sospechamos que un paciente tiene tuberculosis, y decidimos hacerle un test PCR. El test concreto que vamos a usar se analizó en el estudio <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143025">“Comparative Study of a Real-Time PCR Assay Targeting senX3-regX3 versus Other Molecular Strategies Commonly Used in the Diagnosis of Tuberculosis”</a>, donde en un grupo de 76 muestras de pacientes cin tuberculosis confirmada y 69 muestras de control hubo 58 verdaderos positivos y 9 falsos positivos.</p>
+<p><em>(a)</em> Estimad la sensibilidad, especificidad y cocientes de verosimilitud de esta prueba, y a partir de estos últimos valorad su capacidad diagnóstica.</p>
+<p><em>(b)</em> Por la sintomatología que presenta y la prevalencia local de la tuberculosis, asignáis <em>a priori</em> a vuestro paciente una probabilidad del 40% de tener tuberculosis. Para esta probabilidad de tener la enfermedad, calculad el VPP y el VPN de esta prueba.</p>
+<p><em>(c)</em> ¿Cuáles eran las <em>odds</em> de tener tuberculosis que le asignabais a este enfermo antes de realizar la prueba? Si da positivo en el test PCR, ¿cuáles son las <em>odds</em> de tener tuberculosis que le asignáis tras la prueba?</p>
+</div>
+
+</div>
+<div id="curvas-roc" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Curvas ROC</h3>
+<p>En las secciones anteriores hemos considerado solamente pruebas binarias, que dan positivo o negativo sin ninguna gradación intermedia. Pero muchas veces una prueba diagnóstica puede dar valores en un intervalo de números reales: por ejemplo, la concentración de algún metabolito o el nivel de algún antígeno. En este caso, lo habitual es tomar un <strong>valor de corte</strong> y definir como <strong>positivo</strong> todo valor por encima de ese valor de corte (o por debajo, va a depender de la prueba concreta) y como <strong>negativo</strong> lo contrario. Por ejemplo, en el diagnóstico de la diabetes por medio del nivel de glucosa en sangre en ayunas, se toma como positivo un valor por encima de un cierto umbral. En cambio, en el diagnóstico de la anemia por medio del hematocrito, se toma como positivo un valor por debajo de un cierto umbral.</p>
+<p>De esta manera pasamos de una prueba diagnóstica que puede tomar todo un continuo de valores a una prueba binaria como las de la sección anterior, con su sensibilidad y su especificidad. Pero ¿cómo se ha llegado a definir el valor de corte que se usa para distinguir positivo de negativo? ¿Y cómo podemos aprovechar el hecho de que la prueba nos pueda dar todo un continuo de valores?</p>
+<p>Para simplificar el lenguaje y fijar ideas, vamos a suponer que los enfermos obtienen un valor anormalmente alto en la prueba diagnóstica, y que por lo tanto queremos definir como <strong>positivo</strong> cualquier valor por encima de un umbral. La prueba puede dar muchos valores, y para cada uno de ellos el test binario asociado tendrá una especificidad y una sensibilidad.</p>
+<p>La eficacia diagnóstica global de esta prueba diagnóstica se representa gráficamente por medio de una <strong>curva ROC</strong> (de <em>Receiver Operating Characteristic</em>). Esta curva se obtiene de la manera siguiente:</p>
+<ul>
+<li><p>Tomamos varios resultados posibles <span class="math inline">\(x\)</span> de la prueba.</p></li>
+<li><p>Para cada uno de estos resultados <span class="math inline">\(x\)</span>, consideramos el test definido tomándolo como valor de corte. Para cada uno de ellos, sean:</p>
+<ul>
+<li><span class="math inline">\(+_{x}\)</span>: el suceso “Dar positivo en este test” (hemos quedado en que, para fijar ideas, estos significa dar en la prueba un valor <span class="math inline">\(\geqslant x\)</span>).</li>
+<li><span class="math inline">\(-_{x}\)</span>: el suceso “Dar negativo en este test” (es decir, dar en la prueba un valor <span class="math inline">\(&lt; x\)</span>).</li>
+<li>Especifidad<span class="math inline">\({}_{x} = P(-_{x}|S)\)</span>: la especificidad de este test, es decir, la probabilidad de que un individuo sano dé un valor <span class="math inline">\(&lt; x\)</span>.</li>
+<li>Sensibilidad<span class="math inline">\({}_{x} = P(+_{x}|E)\)</span>: la sensibilidad de este test, es decir, la probabilidad de que un individuo enfermo dé un valor <span class="math inline">\(\geqslant x\)</span>.</li>
+</ul></li>
+<li><p>Para cada test asociado a cada umbral <span class="math inline">\(x\)</span>, definimos el punto del plano real de abscisa su tasa de falsos positivos y ordenada su sensibilidad:
+<span class="math display">\[
+\large(P(+_x|S),P(+_x|E)\large)=(1-\text{especificidad}_x,\text{sensibilidad}_x)
+\]</span></p></li>
+<li><p>Dibujamos estos puntos y los unimos por una recta poligonal (que parecerá una curva si tomamos muchos valores de corte <span class="math inline">\(x\)</span>).</p></li>
+</ul>
+<p>El resultado es un gráfico como el siguiente:</p>
+<div class="figure" style="text-align: center"><span id="fig:roc1"></span>
+<img src="INREMDN_files/figure-html/roc1.png" alt="Una curva ROC." width="50%" />
+<p class="caption">
+Figura 5.3: Una curva ROC.
+</p>
+</div>
+<p>Fijaos en que, en la situación que estamos considerando en la que definimos positivo cuando el valor obtenido es <strong>mayor</strong> que un umbral, si <span class="math inline">\(x&lt;y\)</span> entonces el test con umbral <span class="math inline">\(y\)</span> da menos positivos que el test con umbral <span class="math inline">\(x\)</span>: todos los que dan positivo con valor de corte <span class="math inline">\(y\)</span> también dan positivo con valor de corte <span class="math inline">\(x\)</span>, pero un individuo puede dar un resultado entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> y por lo tanto positivo con valor de corte <span class="math inline">\(x\)</span> y negativo con valor de corte <span class="math inline">\(y\)</span>. En consecuencia, <span class="math inline">\(P(+_y|S)\leqslant P(+_x|S)\)</span> y <span class="math inline">\(P(+_y|E)\leqslant P(+_x|E)\)</span>: el punto de la curva ROC correspondiente al valor de corte <span class="math inline">\(y\)</span>, <span class="math inline">\(\large(P(+_y|S),P(+_y|E)\large)\)</span>, estará a la izquierda y por debajo del punto correspondiente al valor de corte <span class="math inline">\(x\)</span>, <span class="math inline">\(\large(P(+_x|S),P(+_x|E)\large)\)</span>. Es decir, recorremos las curva ROC, de izquierda a derecha, en orden descendente del valor de corte.</p>
+<p>Si hubiéramos definido positivo cuando el valor obtenido es <strong>menor</strong> que un umbral, entonces, cuando <span class="math inline">\(x&lt;y\)</span>, el test con umbral <span class="math inline">\(y\)</span> daría <strong>más</strong> positivos que el test con umbral <span class="math inline">\(x\)</span>, por lo que, el punto <span class="math inline">\(\large(P(+_y|S),P(+_y|E)\large)\)</span> estaria a la derecha y por encima del punto <span class="math inline">\(\large(P(+_x|S),P(+_x|E)\large)\)</span>. Es decir, recorreríamos las curva ROC, de izquierda a derecha, en orden ascendente del valor de corte.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-120" class="example"><strong>Ejemplo 5.5  </strong></span>Vamos a dibujar una curva ROC. En el estudio <a href="https://www.nejm.org/doi/full/10.1056/NEJM199608013350502">“Age-specific reference ranges for serum prostate-specific antigen in black men”</a> (T. Morgan <em>et al</em>, <em>New England Journal of Medicine</em> 335 (1996), pp. 304-310) se da la tabla siguiente con la especificidad y la sensibilidad del diagnóstico del cáncer de próstata por medio del <a href="https://medlineplus.gov/spanish/pruebas-de-laboratorio/prueba-de-psa-antigeno-prostatico-especifico/">nivel de PSA</a> en diferentes poblaciones de hombres estadounidenses, definidas por razas y franjsa de edad. En esta prueba, un nivel alto de PSA puede ser señal de cáncer, y por lo tanto, en cada fila, se define como “positivo” el tener un nivel de PSA mayor o igual que el valor de su primera columna.</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:tablapsaglobal"></span>
+<img src="INREMDN_files/figure-html/tablapsaglobal.png" alt="Tabla 2 en el artículo &quot;Age-specific reference ranges for serum prostate-specific antigen in black men&quot;." width="80%" />
+<p class="caption">
+Figura 5.4: Tabla 2 en el artículo “Age-specific reference ranges for serum prostate-specific antigen in black men”.
+</p>
+</div>
+<p>La curva ROC se obtiene uniendo puntos de la forma (1-especificidad,sensibilidad). Vamos a calcular estos puntos para la subpoblación de hombres blancos entre 50 y 59 años, que es la que más nos preocupa. Vamos a añadir el nivel PSA 0: como todo el mundo va a dar positivo, tendrá sensibilidad 1 y especificidad 0.</p>
+<p><span class="math display">\[
+\begin{array}{c|ccc}
+\text{PSA} &amp; \text{Especificidad}&amp; 1-\text{Especificidad}&amp; \text{Sensibilidad}\\ \hline
+1 &amp; 0 &amp; 1 &amp; 1 \\
+1 &amp; 0.528 &amp; 0.472 &amp; 0.997 \\
+2 &amp;  0.834 &amp; 0.166 &amp;0.994\\
+3 &amp; 0.932 &amp; 0.068 &amp;0.978\\
+4 &amp; 0.974 &amp; 0.026 &amp;0.748\\
+5 &amp; 0.987 &amp; 0.013 &amp;0.466\\
+6 &amp; 0.991 &amp; 0.009 &amp;0.261\\
+7 &amp; 1.000 &amp; 0.000 &amp;0.118\\
+8 &amp; 1.000  &amp;0.000 &amp;0.093\\
+9 &amp; 1.000  &amp;0.000 &amp;0.078\\
+10 &amp; 1.000 &amp; 0.000 &amp;0.075\\
+11 &amp; 1.000 &amp; 0.000 &amp;0.053\\
+12 &amp; 1.000 &amp; 0.000 &amp; 0.043\\
+13 &amp; 1.000 &amp; 0.000 &amp;0.040\\
+14 &amp; 1.000  &amp;0.000 &amp; 0.031\\
+15 &amp; 1.000  &amp;0.000 &amp; 0.025\\
+\end{array}
+\]</span></p>
+<p>La Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:ROCama1">5.5</a> muestra la curva ROC que corresponde a estos valores. En ella los puntos aparecen de izquierda a derecha en orden ascendente en la tabla, es decir en orden descendente del umbral de PSA. Para ayudar en su comprensión, al lado de cada punto hemos anotado el valor de PSA al que corresponde.</p>
+<div class="figure" style="text-align: center"><span id="fig:ROCama1"></span>
+<img src="INREMDN_files/figure-html/ROCama1-1.png" alt="Curva ROC del PSA entre 1 y 15 como criterio diagnótico de cáncer de próstata en hombres blancos de 50 a 59 años." width="75%" />
+<p class="caption">
+Figura 5.5: Curva ROC del PSA entre 1 y 15 como criterio diagnótico de cáncer de próstata en hombres blancos de 50 a 59 años.
+</p>
+</div>
+
+<div class="rmdimportant">
+La curva ROC representa la sensibilidad de la prueba, para diferentes umbrales, en función de su tasa de falsos positivos. Es decir, si asumimos una cierta tasa de falsos positivos, el punto de la curva ROC en la vertical de esta tasa de falsos positivos nos da la sensibilidad que obtendremos. No nos da la sensibilidad en función del valor de corte.
+</div>
+
+<p>Una de las aplicaciones de la curva ROC es ayudar a decidir qué valor de corte tomar para definir el test diagnóstico binario que se va a usar en la práctica. Una estrategia muy común es tomar el <strong>valor de corte óptimo</strong>: el valor <span class="math inline">\(x_o\)</span> en el que la exactitud de la prueba
+<span class="math display">\[
+P(+_{x_o}|E)+P(-_{x_o}|S)=\text{sensibilidad}_{x_o}+\text{especificidad}_{x_o}
+\]</span>
+sea máxima. Recordemos que, para cada punto de la curva ROC,</p>
+<ul>
+<li><p>Su distancia al eje vertical izquierdo <span class="math inline">\(x=0\)</span> es 1 menos la especificidad.</p></li>
+<li><p>Como su ordenada es la sensibilidad, su distancia a la recta horizontal <span class="math inline">\(y=1\)</span> es 1 menos la sensibilidad.</p></li>
+</ul>
+<p>Por lo tanto, el punto que corresponda a la suma máxima de especifidad y sensibilidad será el punto que dé la suma mínima de sus distancias a las rectas <span class="math inline">\(x=0\)</span> e <span class="math inline">\(y=1\)</span>. Se trata del punto de la curva más cercano al rincón superior izquierdo <span class="math inline">\((0,1)\)</span> del cuadrado unidad. Por ejemplo, para la curva ROC de la Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:roc1">5.3</a>, es el indicado con una flecha en el gráfico siguiente:</p>
+<div class="figure" style="text-align: center"><span id="fig:roc2"></span>
+<img src="INREMDN_files/figure-html/roc2.png" alt="Una curva ROC y su umbral óptimo." width="50%" />
+<p class="caption">
+Figura 5.6: Una curva ROC y su umbral óptimo.
+</p>
+</div>
+<p>En el ejemplo del PSA para hombres blancos entre 50 y 59 años, tendríamos la tabla siguiente:</p>
+<p><span class="math display">\[
+\begin{array}{c|ccc}
+\text{PSA} &amp; \text{Especificidad}&amp; \text{Sensibilidad} &amp; \text{Exactitud}\\ \hline
+1 &amp; 0.528&amp; 0.997&amp; 1.525 \\
+2 &amp;  0.834  &amp;0.994&amp; 1.828\\
+\mathbf{3} &amp; \mathbf{0.932}  &amp;\mathbf{0.978}&amp; \mathbf{1.910} \\
+4 &amp; 0.974  &amp;0.748&amp; 1.722\\
+5 &amp; 0.987  &amp;0.466&amp;1.453 \\
+6 &amp; 0.991  &amp;0.261&amp;1.252 \\
+7 &amp; 1.000  &amp;0.118&amp;1.118 \\
+8 &amp; 1.000 &amp;0.093&amp; 1.093\\
+9 &amp; 1.000  &amp;0.078&amp; 1.078\\
+10 &amp; 1.000  &amp;0.075&amp; 1.075\\
+11 &amp; 1.000  &amp;0.053&amp; 1.053\\
+12 &amp; 1.000  &amp; 0.043&amp; 1.043 \\
+13 &amp; 1.000  &amp;0.040&amp; 1.040\\
+14 &amp; 1.000  &amp; 0.031&amp; 1.031\\
+15 &amp; 1.000  &amp; 0.025&amp; 1.025
+\end{array}
+\]</span></p>
+<p>El valor de corte óptimo sería entonces tomar un valor de PSA igual a 3. En la práctica, se toma como nivel de PSA a partir del cual uno se ha de preocupar en esa franja de edad el 4. ¿Por qué? Es un compromiso: en las pruebas de cribado se prima la especificidad, para poder descartar sanos, y la especificidad mejora del PSA 3 al PSA 4, manteniendo aún una sensibilidad del 75%, es decir, detectando un 75% de los enfermos.</p>
+<p>La curva ROC también se usa para evaluar la <strong>capacidad discriminatoria global de la prueba</strong>, es decir, su habilidad en general para distinguir sanos de enfermos para el continuo de umbrales posibles.</p>
+<p>Para empezar, para que la prueba diagnóstica sirva para detectar enfermos, para cada umbral la sensibilidad ha de ser mayor que la tasa de falsos positivos (ha de dar positivo con más frecuencia en sanos que en enfermos, ¿verdad?). Esto significa que la curva ROC ha de estar por encima de la diagonal principal <span class="math inline">\(y=x\)</span>. Los puntos de esta diagonal corresponden a la situación <span class="math inline">\(P(+|E)=P(+|S)\)</span>. Es decir, a que el test dé positivo con la misma frecuencia en sanos que en enfermos y por lo tanto “estar enfermo” y “dar positivo” sean sucesos independientes. En este caso el test no sirve para nada. En el contexto de las curvas ROC, a la diagonal principal del cuadrado unidad se la llama la <strong>línea de no discriminación</strong> por este motivo.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-122" class="example"><strong>Ejemplo 5.6  </strong></span>Imaginaos que queremos diagnosticar una enfermedad mediante el lanzamiento de dados. Lanzas 5 dados, anotas el resultado y si supera un cierto umbral, da positivo. El estar enfermo o sano no influye para nada en el resultado del lanzamiento, por lo que para todo umbral <span class="math inline">\(x\)</span> que consideremos, la probabilidad de superar ese umbral si se está sano y si se está enfermo es la misma: <span class="math inline">\(P(+_x|E)=P(+_x|S)\)</span>. La curva ROC de esta prueba diagnóstica sería la diagonal principal del cuadrado unidad, la línea de no discriminación.</p>
+</div>
+
+<p>Como hemos comentado, un valor de la prueba es mejor cuanto más se acerca su punto de la curva ROC al extremo superior izquierdo del cuadrado unidad. Por lo tanto, cuanto más se se separe una curva ROC de la línea de no discriminación por encima de la misma y más se aproxime al ángulo que forman las rectas <span class="math inline">\(x=0\)</span> e <span class="math inline">\(y=1\)</span>, mejor es la prueba globalmente. Por ejemplo, en la Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:roc3">5.7</a>, la curva ROC con puntos rellenos corresponde a una prueba diagnóstica con mayor capacidad discriminatoria que la de los puntos vacíos.</p>
+<div class="figure" style="text-align: center"><span id="fig:roc3"></span>
+<img src="INREMDN_files/figure-html/roc3.png" alt="Dos curvas ROC." width="50%" />
+<p class="caption">
+Figura 5.7: Dos curvas ROC.
+</p>
+</div>
+<p>La <strong>capacidad discriminatoria global</strong> de una prueba diagnóstica se mide con su <strong>Área Bajo la Curva ROC</strong> (abreviada <strong>AUC</strong>, de <em>area under the curve</em>, en inglés). Este valor es, como su nombre indica, el área comprendida por la curva ROC, el eje de abscisas <span class="math inline">\(y=0\)</span> y la recta vertical <span class="math inline">\(x=1\)</span>. Representa el <strong>valor promedio de la sensibilidad</strong> para todos los valores de corte de la prueba</p>
+
+<div class="rmdcorbes">
+Los que visteis integrales en Matemáticas II del Bachillerato tendríais que recordar que esta área se obtiene integrando entre 0 y 1 la función que define la curva, y que la integral dividida por la longitud de la base, que en este caso es 1, es el valor promedio de la función sobre el intervalo. Por lo tanto, para ser precisos, la AUC es el <strong>valor promedio de la sensibilidad como función de la tasa de falsos positivos</strong>, pero tampoco importa hilar tan fino.
+</div>
+
+<p>Así:</p>
+<ul>
+<li><p>AUC=0.5 es la de la línea de no discriminación. Si una curva ROC tiene AUC=0.5, consideramos que la prueba diagnóstica es inútil.</p></li>
+<li><p>AUC=1 solo es posible si la curva ROC es la recta <span class="math inline">\(y=1\)</span>, es decir, si todos los valores de corte tienen sensibilidad 1, que querría decir que nunca se equivoca sobre un enfermo.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-124" class="example"><strong>Ejemplo 5.7  </strong></span>En el estudio <a href="http://scielo.isciii.es/pdf/asisna/v39n1/13_original_breve4.pdf">“Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias”</a>
+(R. Rodríguez <em>et al</em>, <em>Anales del Sistema Sanitario de Navarra</em> 39 (2016), pp. 115-122) se compararon dos técnicas analíticas de diagnóstico de la obstrucción intestinal: los niveles de la proteína C reactiva (PCR) y del enzima lactato deshidrogenasa (LDH) en plasma.</p>
+</div>
+
+<p>La Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:rocnavarra">5.8</a> muestra las curvas ROC de ambos tests, con sus valores de AUC y los valores de corte óptimos marcados. La AUC para la prueba de la PCR es 0.8 y la de la prueba del LDH es 0.86. Por lo tanto, la primera prueba tiene globalmente una mayor capacidad discriminatoria que la otra. Además, tomando como positivo a partir de los valores de corte óptimos en cada test, el nivel de LDH tiene especificidad y sensibilidad mayores: su punto de su curva ROC está más arriba y más a la izquierda que el otro.</p>
+<div class="figure" style="text-align: center"><span id="fig:rocnavarra"></span>
+<img src="INREMDN_files/figure-html/rocnavarra.png" alt="Curvas ROC en la Figura 1 del artículo &quot;Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias&quot;." width="90%" />
+<p class="caption">
+Figura 5.8: Curvas ROC en la Figura 1 del artículo “Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias”.
+</p>
+</div>
+</div>
+<div id="test-3" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Test</h3>
+<p><strong>(1)</strong> Una prueba diagnóstica muy específica nos asegura:</p>
+<ol style="list-style-type: decimal">
+<li>Pocos errores en general.</li>
+<li>Pocos falsos positivos.</li>
+<li>Pocos falsos negativos.</li>
+<li>Pocos diagnósticos positivos.</li>
+<li>Pocos diagnósticos negativos.</li>
+</ol>
+<p><strong>(2)</strong> Estáis comparando el diagnóstico clínico de úlcera gastroduodenal y su halllazgo en la autopsia en una serie de 10,000 pacientes. Al comenzar a analizar los datos se construye la siguiente tabla:
+<span class="math display">\[
+\begin{array}{l}
+\hphantom{Diagnóstico clínico clínico clí}\textbf{Autopsia}\\
+\begin{array}{l|cc}
+\textbf{Diagnóstico clínico} &amp; \text{Úlcera} &amp; \text{No úlcera}\\ \hline
+\text{Úlcera} &amp; 130 &amp; 20 \\  
+\text{No úlcera} &amp; 170 &amp;  9680
+\end{array}
+\end{array}
+\]</span></p>
+<p>De las siguientes cifras, ¿cuál es la más cercana a la
+sensibilidad estimada del diagnóstico clínico de la úlcera?:</p>
+<ol style="list-style-type: decimal">
+<li>3%</li>
+<li>43%</li>
+<li>87%</li>
+<li>98%</li>
+<li>100%</li>
+</ol>
+<p><strong>(3)</strong> Estáis evaluando una prueba diagnóstica y
+finalmente llegáis a la siguiente tabla:
+<span class="math display">\[
+\begin{array}{l}
+\hphantom{Diagnósticooi}\textbf{Enfermedad}\\
+\begin{array}{l|cc}
+\textbf{Prueba} &amp; \quad\text{Sí}\quad &amp; \quad\text{No}\quad\\ \hline
+\text{Positiva} &amp; 80 &amp; 100 \\  
+\text{Negativa} &amp; 20 &amp;  800 
+\end{array}
+\end{array}
+\]</span></p>
+<p>A partir de ella y redondeando porcentajes, señalad
+cuál de las siguientes afirmaciones es verdadera:</p>
+<ol style="list-style-type: decimal">
+<li>El VPP es del 56% y el VPN del 13%.</li>
+<li>El VPP es del 44% y el VPN del 98%.</li>
+<li>El VPP es del 80% y el VPN del 89%.</li>
+<li>El VPP es del 80% y el VPN del 11%.</li>
+<li>Ninguna de las anteriores.</li>
+</ol>
+<p><strong>(4)</strong> En el diagnóstico de cardiopatía isquémica, la
+prueba de esfuerzo tiene mayor valor predictivo positivo
+cuando (marcad una sola respuesta correcta; <strong>Pista</strong>: es una pregunta de esta asignatura):</p>
+<ol style="list-style-type: decimal">
+<li>La probabilidad previa de enfermedad coronaria es baja en el paciente estudiado.</li>
+<li>La probabilidad previa de enfermedad coronaria es alta en el paciente estudiado.</li>
+<li>Existe lesión de un solo vaso coronario.</li>
+<li>Se realiza con tratamiento con nitratos.</li>
+<li>Se realiza con tratamiento con betabloqueantes.</li>
+</ol>
+<p><strong>(5)</strong> El resultado de un electrocardiograma de esfuerzo,
+para la predicción de una enfermedad
+coronaria, cambia si se varían los milímetros
+de depresión del segmento ST que definen el
+resultado anormal. Si se considera como resultado
+anormal a partir de los 2 mm de depresión
+del segmento ST en lugar de a partir de
+0.5 mm (señalad la respuesta correcta):</p>
+<ol style="list-style-type: decimal">
+<li>La sensibilidad aumenta.</li>
+<li>Es necesario representar los falsos negativos frente a los verdaderos negativos en una curva ROC.</li>
+<li>La especificidad aumenta.<br />
+</li>
+<li>Los falsos positivos aumentan.</li>
+<li>Es necesario representar los falsos negativos
+frente a los falsos positivos en una curva ROC.</li>
+</ol>
+<p><strong>(6)</strong> ¿Cuáles de la siguientes afirmaciones son VERDADERAS en relación
+con la evaluación de pruebas diagnósticas?:</p>
+<ol style="list-style-type: decimal">
+<li>No es deseable usar una prueba poco específica en diagnósticos que originen un trauma emocional al sujeto de estudio.</li>
+<li>Una prueba muy sensible es sobre todo útil cuando su resultado es positivo.<br />
+</li>
+<li>Cuando una prueba presenta una sensibilidad muy alta un resultado positivo hace realmente posible el diagnóstico.</li>
+<li>Una prueba muy específica es sobre todo útil cuando su resultado es positivo.<br />
+</li>
+<li>La sensibilidad de una prueba aumenta en poblaciones donde la enfermedad es poco prevalente<br />
+</li>
+<li>La sensibilidad de una prueba aumenta en poblaciones donde la enfermedad es muy prevalente</li>
+</ol>
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="probabilidades-elementales-la-teoría.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tipos-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

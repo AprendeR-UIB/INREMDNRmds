@@ -1,6 +1,6 @@
 # (PART\*) Tema II: Probabilidades  {-}
 
-# Probabilidades elementales "en abstracto"
+# Probabilidades elementales: la teoría
 
 La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso vamos a definir  la **probabilidad de un suceso** como la **proporción** (la **fracción**, el **porcentaje**) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. 
 
@@ -123,7 +123,7 @@ Entonces:
 
 * $A \cap B$ es  el conjunto de los estudiantes de la clase que son mujeres y llevan gafas, es decir, las mujeres de la clase que llevan gafas.
 
-* $B^c$  es  el conjunto de los estudiantes de la clase que  no son mujeres, es decir el conjunto de los hombres  de la clase.
+* $A^c$  es  el conjunto de los estudiantes de la clase que  no son mujeres, es decir el conjunto de los hombres  de la clase.
 
 * $B^c$  es  el conjunto de los estudiantes de la clase que  no llevan gafas.
 
@@ -200,7 +200,7 @@ Hemos definido la probabilidad $P(A)$ de un subconjunto (o suceso) $A$ de una po
 
     Un subconjunto $A$ de $\Omega$ no puede representar ni una fracción negativa ni una fracción mayor que 1 de los sujetos de $\Omega$.
 
-2. $P(\Omega)=1$ y $P(\emptyset)=0$.
+2. $P(\Omega)=1$ y $P(\emptyset)=0$ (recordad que $\emptyset$ es el conjunto vacío).
 
 3. Si $A$ y $B$ son dos sucesos disjuntos, entonces $P(A\cup B)=P(A)+P(B)$.
 
@@ -430,7 +430,7 @@ Si $\text{Odds}(A)=q$, significa que **por cada vez que ocurre "no $A$", ocurre 
 * La **probabilidad** de suspender es de un 40%.
 
 ```{block2,type="rmdnote"}
-A veces, que unas *odds* valgan $a/b$ se expresadiciendo que son $a:b$, y se lee "$a$ a $b$". Por ejemplo, las *odds* de suspender anteriores son 2:3 o 2 a 3.
+A veces, que unas *odds* valgan $a/b$ se expresa diciendo que son $a:b$, y se lee "$a$ a $b$". Por ejemplo, las *odds* de suspender anteriores son 2:3, es decir, 2 a 3.
 ```
 
 ```{example} 
@@ -571,7 +571,7 @@ $$
 P(B|A)=\frac{P(A\cap B)}{P(A)}
 $$
 
-Este valor la fracción  de los sujetos de $A$ que pertenecen a  $B$; es decir,  es la probabilidad de que si pasa $A$, entonces pase $B$.
+Este valor  representa la fracción  de los sujetos de $A$ que pertenecen a  $B$; es decir,  es la probabilidad de que si pasa $A$, entonces pase $B$.
 
 ```{block2,type="rmdnote"}
 Supongamos que en una población de $N$ individuos hay $M_A$ que pertenecen a $A$, y que entre estos hay $M_{\textit{AB}}$ que también pertenecen a $B$. Entonces, la fracción de sujetos de $A$ que pertenecen a $B$ es 
@@ -638,7 +638,7 @@ $$
 P(\text{mujer}|\text{gafas})=\frac{P(\text{mujer y gafas})}{P(\text{gafas})}=\frac{18/50}{33/50}=\frac{18}{33}
 $$
 
-7. Escogemos un estudiante al azar. ¿Cuál es la probabilidad de si lleva gafas, entonces sea mujer?}
+7. Escogemos un estudiante al azar. ¿Cuál es la probabilidad de si lleva gafas, entonces sea mujer?
 
 Es la misma pregunta que la anterior, por lo que la respuesta es la misma: 18/33.
 
@@ -765,7 +765,7 @@ $$
 La probabilidad de que al hacer el test a un individuo al azar, dé positivo y esté infectado es del 0.0495%.
 
 ```{example}
-Una anécdota verídica. Un cardiólogo nos contó una vez que la mitad de los enfermos que acudían a su consulta por supuestos problemas de corazón sufrían de hecho estrés, y dos tercios, depresión. Nosotros vamos a suponer ahora que sólo un 15% de estos enfermos no sufrían ninguna de estas dos condiciones. 
+Una anécdota verídica. Un cardiólogo nos contó una vez que la mitad de los enfermos que acudían a su consulta por supuestos problemas de corazón sufrían en realidad estrés, y dos tercios, depresión. Nosotros vamos a suponer ahora que sólo un 15% de estos enfermos no sufrían ninguna de estas dos condiciones. 
 
 ¿Cuál es la probabilidad de que un enfermo de estos sufra estrés si sufre depresión? ¿Cuál es la probabilidad de que un enfermo de estos **no** sufra estrés si **no** sufre depresión?
 
@@ -829,6 +829,7 @@ y esta probabilidad la podemos calcular directamente, porque sabemos que $P(E^c\
 Dos sucesos $A$ y $B$ (ambos de probabilidad no 0) son  **independientes** cuando $P(B|A)=P(B)$: es decir: 
 
 * Cuando el pertenecer a $A$ no modifica la probabilidad de pertenecer a $B$.
+* Cuando que ocurra $A$ no modifica  la probabilidad de que ocurra $B$.
 * Cuando la proporción de sujetos de $B$ dentro de $A$ es la misma que dentro del total de la población.
 
 
@@ -1007,7 +1008,7 @@ X &100 & 40 &140\\ \hline
 $$
 Entonces la fracción de los sujetos del total de la población con la característica X es 140/1000, un 14%.
 
-¿Cómo podríamos poder usado las propiedades de las probabilidades para calcular este valor? Pues simplemente teniendo en cuenta que, como los sucesos $A$ y $B$, definidos por las correspondientes subpoblaciones, son disjuntos y recubren toda la población, tenemos que
+¿Cómo podríamos usar las propiedades de las probabilidades para calcular este valor? Pues simplemente teniendo en cuenta que, como los sucesos $A$ y $B$, definidos por las correspondientes subpoblaciones, son disjuntos y recubren toda la población, tenemos que
 $$
 X=(X\cap A)\cup (X\cap B),\quad (X\cap A)\cap (X\cap B)=\emptyset
 $$
@@ -1225,7 +1226,7 @@ Volved a la pregunta del Ejemplo \@ref(exm:cancerpitpres). ¿Y si os decimos que
 Este tipo de problemas se resuelve fácilmente por el método de frecuencias naturales.
 
 ```{example, cancerpitpres3}
-Volvamos a la pregunta de los dos ejemplos anteriores, pero para no hacer *spoilers*, vamos a resolverla con otro números Va, vamos a suponer que la probabilidad de dar positivo en la mamografía si se tiene cáncer es del 90%  y si no se tiene, del 10%, y que la prevalencia del cáncer de mama es del 1%.
+Volvamos a la pregunta de los dos ejemplos anteriores, pero para no hacer *spoilers*, vamos a resolverla con otro números. Vamos a suponer que la probabilidad de dar positivo en la mamografía si se tiene cáncer es del 90%  y si no se tiene, del 10%, y que la prevalencia del cáncer de mama es del 1%.
 
 ```
 

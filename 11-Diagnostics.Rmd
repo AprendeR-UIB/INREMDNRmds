@@ -1,4 +1,4 @@
-# Probabilidades básicas aplicadas en medicina
+#  Probabilidades elementales: Aplicaciones en medicina
 
 
 ## Pruebas diagnósticas
@@ -11,7 +11,7 @@ En la práctica, se suelen distinguir dos tipos de pruebas diagnósticas, de las
 
 * **Test de cribado**: se realiza sobre individuos asintomáticos, con el objetivo principal de descartar que tengan la enfermedad.
 
-* **Test diagnóstico**: se realiza en individuos que muestran síntomas o que han dado positivo en un test de cribado, el objetivo principal de detectar la presencia de la enfermedad.
+* **Test diagnóstico**: se realiza en individuos que muestran síntomas o que han dado positivo en un test de cribado, con el objetivo principal de detectar la presencia de la enfermedad.
 
 Por ejemplo, distinguiríamos entre las *mamografías de cribado*  que se realizan periódicamente a las mujeres a partir de una cierta edad, y las *mamografías diagnósticas* que se realizan a las mujeres que han detectado un bulto en un seno.  
  
@@ -24,20 +24,19 @@ Tanto en un caso como el otro, el objetivo de una prueba diagnóstica es diagnos
 Por desgracia, casi nunca se tiene una prueba diagnóstica cien por cien segura en este sentido. Ni tan solo para detectar si un individuo está muerto o no, por lo que parece. Por lo tanto, habrá que evaluar y describir la probabilidad que tiene una prueba de acertar.
 
 
-```{r , echo=FALSE, out.width="80%", fig.cap="Noticia aparecida en  El Comercio el 8/01/2018: https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html."}
+```{r elcomercio, echo=FALSE, out.width="60%", fig.cap="Noticia aparecida en  El Comercio el 8/01/2018: https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html."}
 knitr::include_graphics("INREMDN_files/figure-html/lazaro1.png")
 ```
 
 
 Vamos a poner algunos nombres a sucesos. En una prueba diagnóstica, tenemos dos tipos de sucesos:
 
-* El **resultado del test**: $+$, positivo, o $-$, negativo
-($-$ es el complementario de $+$).
+* El **resultado del test**: $+$, positivo, o $-$, negativo. Como suponemos que la prueba es binaria,  $-$ es el complementario de $+$.
 
-* El  **estado del sujeto**:  $S$, sano, o  $E$, enfermo ($S$ es el complementario de $E$).
+* El  **estado del sujeto**:  $S$, sano, o  $E$, enfermo. $S$ es el complementario de $E$, no hay términos medios.
 
 ```{block2,type="rmdnote"}
-Es importante tener en cuenta que la clasificación de un sujeto en Enfermo o Sano usualmente se lleva a cabo mediante una prueba de referencia (*gold standard*), que no siempre existe, y cuando existe, puede dar (eso sí, muy raramente) diagnósticos erróneos. Nosotros vamos a suponer que siempre existe y siempre acierta, de manera que podemos comparar nuestra prueba diagnóstica con la realidad del paciente.
+Es importante tener en cuenta que la clasificación de un sujeto en Enfermo o Sano usualmente se lleva a cabo mediante una prueba de referencia (*gold standard*), que no siempre existe y que cuando existe, puede dar (eso sí, muy raramente) diagnósticos erróneos. Nosotros vamos a suponer que siempre existe y siempre acierta, de manera que podemos comparar nuestra prueba diagnóstica con la "realidad" del paciente.
 ```
 
 
@@ -55,6 +54,7 @@ $$
 \end{array}
 \end{array}
 $$
+Por ejemplo, el pobre preso de la noticia de la Figura \@ref(fig:elcomercio) fue un falso positivo.
 
 Entonces, para una prueba diagnóstica:
 
@@ -104,7 +104,7 @@ Algunas definiciones más. Para una prueba diagnóstica:
 
 Normalmente conocemos estimaciones de la sensibilidad y la especificidad de una prueba, obtenidas tomando una muestra de sanos y una de enfermos y pasándoles la prueba para ver cuántos dan positivo y cuántos negativo (**Ejercicio**: ¿De qué tipo de estudio se trata?). Entonces, como hemos visto en la sección sobre la fórmula de Bayes de la lección anterior, conociendo la prevalencia $P(E)$ de la enfermedad, podemos calcular los valores predictivos a partir de la especificidad y sensibilidad. 
 
-Por ejemplo, recordad el enunciado del Ejemplo \@ref(exm:VIH995):
+Por ejemplo, recordad el enunciado (ahora completo) del Ejemplo \@ref(exm:VIH995):
 
 > Un test para el VIH da positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente. En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado? ¿Y cuál es la probabilidad de que un individuo que haya dado negativo en el test no esté infectado?
 
@@ -123,15 +123,15 @@ $$
 $$
 
 ```{example, antiendomisio}
-En el artículo ["Sensibilidad y especificidad de los exámenes de anticuerpos antigliadina y antiendomisio"](http://www.scielo.edu.uy/scielo.php?pid=S1688-12492002000200003&script=sci_arttext&tlng=en) (W. Lozano *et al*, *Archivos de Pediatría del Uruguay* 73 (2002), pp. 69-73) se examinaron la sensibilidad y la especificidad de dos técnicas analíticas en el diagnóstico de la enfermedad celíaca en niños.  En él se incluye la Tabla \@ref(tab:espe2), donde los enfermos se clasifican en celíacos y no celíacos mediante el diagnóstico de referencia, una biopsia de intestino delgado.
+En el artículo ["Sensibilidad y especificidad de los exámenes de anticuerpos antigliadina y antiendomisio"](http://www.scielo.edu.uy/scielo.php?pid=S1688-12492002000200003&script=sci_arttext&tlng=en) (W. Lozano *et al*, *Archivos de Pediatría del Uruguay* 73 (2002), pp. 69-73) se examinaron la sensibilidad y la especificidad de dos técnicas analíticas en el diagnóstico de la enfermedad celíaca en niños. Participaron en el estudio 65 niños: 15 celíacos y 50 que no lo eran. En el artículo se incluye la tabla que copiamos en la Figura \@ref(fig:espe2), donde los enfermos se clasifican en celíacos y no celíacos mediante el diagnóstico de referencia, una biopsia de intestino delgado.
 
 *(a)* Suponiendo que los resultados son representativos de la población infantil, ¿qué estimamos que valen la especificidad y la sensibilidad de cada una de las dos pruebas de anticuerpos estudiadas?
 
-*(b)* La prevalencia de la enfermedad celíaca entre los niños de Uruguay, donde se realizó este estudio, es de 1/64. ¿Qué estimamos que valen el VPP y VPN de cada una de las dos pruebas de anticuerpos estudiadas para los niños uruguayos?
+*(b)* Uno de cada 64 niños del Uruguay (donde se realizó este estudio) es celíaco. ¿Qué estimamos que valen el VPP y VPN de cada una de las dos pruebas de anticuerpos estudiadas para los niños uruguayos?
 
-*(c)* La prevalencia de la enfermedad celíaca entre los niños de España es de 1/71. ¿Qué estimamos que valen el VPP y VPN  de cada una de las dos pruebas de anticuerpos estudiadas para los niños españoles?
-        
-        
+*(c)* En España, 1 de cada 71 niños es celíaco. ¿Qué estimamos que valen el VPP y VPN  de cada una de las dos pruebas de anticuerpos estudiadas para los niños españoles?
+
+
 ```
 
 
@@ -143,11 +143,11 @@ knitr::include_graphics("INREMDN_files/figure-html/espe2.png")
 
 Vamos a responder las preguntas para la prueba de anticuerpos antiendomisio, os dejamos la otra como **ejercicio**.
 
-Para nuestra prueba, tenemos la tabla de frecuencias siguiente
+Para la  prueba de anticuerpos antiendomisio, tenemos la tabla de frecuencias siguiente, obtenida de la de la derecha de la figura anterior:
 $$
-\begin{array}{r|c|c|c}
+\begin{array}{r|cc|c}
 & \text{Celíacos}\ (E) & \text{No celíacos}\ (S) & \text{Total} \\ \hline
-+ & 47 & 1 & 48  \\  \hline
++ & 47 & 1 & 48  \\  
 - & 3 & 14 & 17 \\ \hline
 \text{Total} & 50  & 15 & 65  
 \end{array}
@@ -157,14 +157,14 @@ $$
 
 * La **sensibilidad** es $P(+|E)=47/50=0.94$
 
-* La **especificidad** es $P(-|S)= 14/15=0.93333$
+* La **especificidad** es $P(-|S)= 14/15=0.9333$
 
 Es decir, 
 
 * El test da positivo en un 94% de los celíacos.
 * El test da negativo en un 93.33% de los no celíacos.
 
-*(b)* En primer lugar vamos a calcular los valores predictivos usando la fórmula de Bayes. Como $P(+|E)=0.94$, $P(-|S)=14/15$ y en Uruguay $P(E)=1/64$, por lo que $P(S)=53/64$:
+*(b)* En primer lugar vamos a calcular los valores predictivos usando la fórmula de Bayes. Como $P(+|E)=0.94$, $P(-|S)=14/15$ y en Uruguay $P(E)=1/64$, por lo que $P(S)=63/64$:
 
 $$
 \begin{array}{rl}
@@ -216,7 +216,7 @@ $$
 * Estimamos que un 99.91% de los niños españoles que dan negativo en el test no son celíacos.
 
 
-Con el método de las frecuencias naturales a partir de una población de referencia de 710,000 españoles, y razonando como antes, obtenemos: 
+Con el método de  frecuencias naturales a partir de una población de referencia de 710,000 niños españoles, y razonando como antes, obtenemos: 
 
 $$
 \begin{array}{r|c|c|c}
@@ -249,7 +249,7 @@ VPP=P(E|+)=0.1677,\quad
 VPN=P(S|-)=0.9991
 $$
 
-Notas que, en España,  la prevalencia es más pequeña, el VPP es más pequeño y el VPN más grande. El comportamiento de los valores predictivos es razonable:
+La prevalencia de la enfermedad celíaca es más pequeña en España que en Urugay, y observaréis que el VPP de la prueba de anticuerpos antiendomisio es más pequeño, y el VPN más grande, en España que en Uruguay. No es casualidad:
 
 ```{block2,type="rmdimportant"}
 A mayor prevalencia, el VPP es mayor y el VPN es menor.
@@ -258,10 +258,10 @@ A mayor prevalencia, el VPP es mayor y el VPN es menor.
 El motivo intuitivo es que si la prevalencia crece:
 
 * Hay más enfermos, por lo que aumenta la probabilidad de encontrar enfermos y por lo tanto el VPP es mayor.
-* Hay menos sanos, por lo que aumenta la probabilidad de encontrar sanos y por lo tanto  el VPN es menor.
+* Hay menos sanos, por lo que disminuye la probabilidad de encontrar sanos y por lo tanto  el VPN es menor.
 
 ```{block2,type="rmdcorbes"}
-El motivo matemátic es el siguiente. Si llamamos $x\in [0,1]$ a la prevalencia y fijamos los valores de $P(+|E),P(+|S),P(-|E),P(-|S)$, de manera que el VPP y el VPN sean una función solo de $x$, tenemos que
+El motivo matemático es el siguiente. Si llamamos $x\in [0,1]$ a la prevalencia y fijamos los valores de $P(+|E),P(+|S),P(-|E),P(-|S)$, de manera que el VPP y el VPN sean una función solo de $x$, tenemos que
 $$
 \begin{array}{l}        
 \text{VPP}(x)  =\dfrac{P(+|E)\cdot x}{P(+|E)\cdot x+P(+|S)\cdot (1-x)}\\
@@ -278,9 +278,9 @@ Y derivando, podréis comprobar que:
 
 En cambio, la  prevalencia no influye para nada  en la sensibilidad y la especificidad de la prueba:
 
-* La **sensibilidad** es el porcentaje de enfermos en que la prueba da positivo, y esto es independiente de la proporción de enfermos.
+* La **sensibilidad** es el porcentaje de enfermos en que la prueba da positivo, y esto es independiente de cuántos enfermos hay en la población.
 
-* La **especificidad** es el porcentaje de sanos en que  la prueba da negativo, y esto también es independiente de la proporción de enfermos.
+* La **especificidad** es el porcentaje de sanos en que  la prueba da negativo, y esto también es independiente de cuántos individuos sanos hay en la población.
 
 ```{block2,type="rmdnote"}
 La sensibilidad y la especificidad no dependen de la prevalencia, pero sí que pueden depender de otras características de una población.  Por ejemplo, en ["Findings From 752 081 Clinical Breast Examinations Reported to a National Screening Program From 1995 Through 1998"](https://academic.oup.com/jnci/article/92/12/971/2905789) (J. Bobo *et al*, *Journal of the National Cancer Institute* 92  (2000), pp. 971-976), se estimaron la especificidad y la sensibilidad del examen físico clínico del pecho como prueba diagnóstica del cáncer de mama en diversos grupos de mujeres. En la tabla siguiente recogemos algunos de los datos obtenidos en ese estudio:
@@ -318,7 +318,7 @@ $$
 $$
 \text{LR}(-)=\dfrac{P(-|E)}{P(-|S)}=\dfrac{1-\text{sensibilidad}}{\text{especificidad}}
 $$
-    De nuevo, un valor de $\text{LR}(-)$ por encima de 10 se toma como indicador de buen potencial para descartar la enfermedad, y un valor de $\text{LR}(-)$ cercano a 1 indica una prueba inútil en este sentido.
+    Un valor de $\text{LR}(-)$ por debajo de 0.1 se toma como indicador de buen potencial para descartar la enfermedad, y un valor de $\text{LR}(-)$ cercano a 1 indica una prueba inútil en este sentido.
 
 ```{example}
 Volviendo al Ejemplo \@ref(exm:antiendomisio), habíamos obtenido que
@@ -348,7 +348,7 @@ $$
 \text{LR}(-)=\dfrac{P(-|E)}{P(-|S)}=\frac{0.06}{14/15}=0.064
 $$
 
-Los cocientes de verosimilitud tienen la ventaja que transforman las *odds* de tener la prueba *a priori* (antes de realizar la prueba diagnóstica) en *odds* *a posteriori* (tras realizar la prueba diagnóstica). En concreto, sean:
+Los cocientes de verosimilitud se utilizan para transformar las *odds* de tener la enfermedad *a priori* (antes de realizar la prueba diagnóstica) en sus *odds* *a posteriori* (tras realizar la prueba diagnóstica). En concreto, sean:
 
 * $\text{Odds}(E)$: las *odds* de un individuo de tener la enfermedad, antes de realizar la prueba diagnóstica.
 
@@ -371,11 +371,12 @@ $$
 \text{Odds}(E)\cdot \text{LR}(+)=\dfrac{P(E)}{P(S)}\cdot \dfrac{P(+|E)}{P(+|S)}=\dfrac{P(E\cap +)}{P(S\cap +)}
 \end{array}
 $$
+Para $\text{Odds}(E|-)$ el cálculo es similar.
 ```
 
 
 ```{example}
-Se sabe que una mujer con hermano hemofílico tiene un 50% de probabilidades de ser portadora de un gen hemofílico. Una prueba genética para detectarlo basada en rDNA tiene una sensibilidad del 90% y una especificidad del 80%. Si una mujer con hermano hemofílico se hace la prueba y da negativo, ¿cómo modifica este resultado sus *odds* de ser portadora?
+Se sabe que una mujer con un hermano hemofílico tiene un 50% de probabilidades de ser portadora del gen hemofilia. Una prueba genética para detectarlo tiene una sensibilidad del 90% y una especificidad del 80%. Si una mujer con hermano hemofílico se hace la prueba y da negativo, ¿cómo modifica este resultado sus *odds* de ser portadora?
         
 ```
 
@@ -385,9 +386,9 @@ Entonces, $\text{Odds}(E|-)=\text{Odds}(E)\cdot \text{LR}(-) =\dfrac{1}{8}$. Pas
 
 
 ```{block2,type="rmdexercici"}
-G. Stine, en el libro "AIDS Update 1999" (Prentice Hall, 1999), explica que en 1987 se notificó a 22 donantes de sangre de Florida que habían dado positivo en un test ELISA+Western Blot de VIH, que tiene sensibilidad y  especificidad ambas del 99.99%. De ellos, 7 se suicidaron. 
+G. Stine, en el libro "AIDS Update 1999" (Prentice Hall, 1999), explica que en 1987 se notificó a 22 donantes de sangre de Florida que habían dado positivo en un test ELISA+Western Blot de VIH, que tenía sensibilidad y  especificidad ambas del 99.99%. De ellos, 7 se suicidaron. 
 
-La prevalencia de VIH en su sector de población (heterosexuales de bajo riesgo) se estimaba en 1 por cada 10000. ¿Cuál  era su probabilidad real de infección por VIH, sabiendo que han dado positivo?
+La prevalencia de VIH en su sector de población (heterosexuales de bajo riesgo) se estimaba en 1 por cada 10000. ¿Cuál  era su probabilidad real de infección por VIH, sabiendo que habían dado positivo?
 ```
 
 
@@ -408,25 +409,25 @@ Sospechamos que un paciente tiene tuberculosis, y decidimos hacerle  un test PCR
 
 ### Curvas ROC
 
-En las secciones anteriores hemos considerado solamente pruebas binarias, que dan positivo o negativo sin ninguna gradación intermedia. Pero muchas veces una prueba diagnóstica da valores en un intervalo de números reales: concentraciones de algún metabolito, de algún  antígeno, de un marcador tumoral... En este caso, lo habitual es tomar un **valor de corte** y definir como **positivo** todo valor por encima (o por debajo, va a depender de la prueba concreta) de ese valor de corte y como **negativo** lo contrario. Por ejemplo, en el diagnóstico de la diabetes por medio del nivel de glucosa en sangre en ayunas, se toma como positivo un valor por encima de un cierto umbral. En cambio, en el diagnóstico de la anemia por medio del hematocrito, se toma como positivo un valor por debajo de un cierto umbral. 
+En las secciones anteriores hemos considerado solamente pruebas binarias, que dan positivo o negativo sin ninguna gradación intermedia. Pero muchas veces una prueba diagnóstica puede dar valores en un intervalo de números reales: por ejemplo, la concentración de algún metabolito o el nivel de algún  antígeno. En este caso, lo habitual es tomar un **valor de corte** y definir como **positivo** todo valor por encima de ese valor de corte (o por debajo, va a depender de la prueba concreta) y como **negativo** lo contrario. Por ejemplo, en el diagnóstico de la diabetes por medio del nivel de glucosa en sangre en ayunas, se toma como positivo un valor por encima de un cierto umbral. En cambio, en el diagnóstico de la anemia por medio del hematocrito, se toma como positivo un valor por debajo de un cierto umbral. 
 
-De esta manera pasamos de una prueba diagnóstica que puede tomar todo un continuo de valores a una prueba binaria como las de las secciones anteriores, con su sensibilidad y su especificidad. Pero ¿cómo se ha llegado a definir el valor de corte que se usa para distinguir positivo de negativo? ¿Y cómo podemos aprovechar el hecho de que la prueba nos pueda dar todo un continuo de valores?
+De esta manera pasamos de una prueba diagnóstica que puede tomar todo un continuo de valores a una prueba binaria como las de la sección anterior, con su sensibilidad y su especificidad. Pero ¿cómo se ha llegado a definir el valor de corte que se usa para distinguir positivo de negativo? ¿Y cómo podemos aprovechar el hecho de que la prueba nos pueda dar todo un continuo de valores?
 
 
-Para simplificar el lenguaje y fijar ideas, vamos a suponer que los enfermos obtienen un valor anormalmente alto en la prueba diagnóstica, y que por lo tanto queremos definir como **positivo** cualquier valor por encima de un umbral. La prueba puede tomar muchos valores reales, y para cada uno de ellos el test binario asociado tendrá una especificidad y una sensibilidad.
+Para simplificar el lenguaje y fijar ideas, vamos a suponer que los enfermos obtienen un valor anormalmente alto en la prueba diagnóstica, y que por lo tanto queremos definir como **positivo** cualquier valor por encima de un umbral. La prueba puede dar muchos valores, y para cada uno de ellos el test binario asociado tendrá una especificidad y una sensibilidad.
 
-La eficacia diagnóstica global de esta prueba diagnóstica se representa gráficamente por medio de una **curva ROC** (de *Receiver Operating Characteristic*. Esta curva se obtiene:
+La eficacia diagnóstica global de esta prueba diagnóstica se representa gráficamente por medio de una **curva ROC** (de *Receiver Operating Characteristic*). Esta curva se obtiene de la manera siguiente:
 
-* Considerando varios valores posibles de la prueba, $x$.
-* Para cada uno de estos $x$, considerar el test definido tomándolo como valor de corte (hemos quedado que, para fijar ideas, dará positivo en un paciente si el resultado de la prueba es mayor o igual que $x$ y negativo si es menor).
-* Para el test definido por el umbral $x_0$, sean:
+* Tomamos varios resultados posibles $x$ de la prueba.
 
-    * $+_{x_0}$: el suceso "Dar positivo en este test" (es decir, dar en la prueba un valor $\geq x_0$).
-    * $-_{x_0}$: el suceso "Dar negativo en este test" (es decir, dar en la prueba un valor $< x_0$).
-    * Especifidad${}_{x_0} = P(-_{x_0}|S)$: la especificidad de este test, es decir, la probabilidad de que un individuo sano de un valor $< x_0$.
-    * Sensibilidad${}_{x_0} = P(+_{x_0}|E)$: la sensibilidad de este test, es decir, la probabilidad de que un individuo enfermo de un valor $\geq  x_0$.
+* Para cada uno de estos resultados $x$, consideramos el test definido tomándolo como valor de corte. Para cada uno de ellos,  sean:
 
-* Para cada test asociado a un umbral $x$, definimos el punto del plano real de abscisa la tasa de falsos positivos del test definido por el umbral $x$ y ordenada su sensibilidad:
+    * $+_{x}$: el suceso "Dar positivo en este test" (hemos quedado en que, para fijar ideas, estos significa dar en la prueba un valor $\geq x$).
+    * $-_{x}$: el suceso "Dar negativo en este test" (es decir, dar en la prueba un valor $< x$).
+    * Especifidad${}_{x} = P(-_{x}|S)$: la especificidad de este test, es decir, la probabilidad de que un individuo sano dé un valor $< x$.
+    * Sensibilidad${}_{x} = P(+_{x}|E)$: la sensibilidad de este test, es decir, la probabilidad de que un individuo enfermo dé un valor $\geq  x$.
+
+* Para cada test asociado a cada umbral $x$, definimos el punto del plano real de abscisa su tasa de falsos positivos y ordenada su sensibilidad:
 $$
 \large(P(+_x|S),P(+_x|E)\large)=(1-\text{especificidad}_x,\text{sensibilidad}_x)
 $$
@@ -439,15 +440,13 @@ El resultado es un gráfico como el siguiente:
 knitr::include_graphics("INREMDN_files/figure-html/roc1.png")
 ```
 
-Fijaos en que, en la situación que estamos considerando en la que definimos positivo cuando el valor obtenido es mayor que un umbral, si $x<y$ entonces el test con umbral $y$ da menos positivos que el test con umbral $x$. Por tanto, el punto $\large(P(+_y|S),P(+_y|E)\large)$ estará a la izquierda y por debajo del punto $\large(P(+_x|S),P(+_x|E)\large)$. Si hubiéramos definido positivo cuando el valor obtenido es *mayor**menor** que un umbral, entonces, cuando $x<y$, el test con umbral $y$ daría **más** positivos que el test con umbral $x$, por lo que, el punto $\large(P(+_y|S),P(+_y|E)\large)$ estaria a la derecha y por encima del punto $\large(P(+_x|S),P(+_x|E)\large)$.
+Fijaos en que, en la situación que estamos considerando en la que definimos positivo cuando el valor obtenido es **mayor** que un umbral, si $x<y$ entonces el test con umbral $y$ da menos positivos que el test con umbral $x$: todos los que dan positivo con valor de corte $y$ también dan positivo con valor de corte $x$, pero un individuo puede dar un resultado entre $x$ e $y$ y por lo tanto positivo con valor de corte $x$ y negativo con valor de corte $y$. En consecuencia, $P(+_y|S)\leq P(+_x|S)$ y  $P(+_y|E)\leq P(+_x|E)$: el punto de la curva ROC correspondiente al valor de corte $y$, $\large(P(+_y|S),P(+_y|E)\large)$, estará a la izquierda y por debajo del punto correspondiente al valor de corte  $x$, $\large(P(+_x|S),P(+_x|E)\large)$. Es decir, recorremos las curva ROC, de izquierda a derecha, en orden descendente del valor de corte.
 
-```{block2,type="rmdimportant"}
-La curva ROC representa la sensibilidad de la prueba, para diferentes umbrales, en función de su tasa de falsos positivos. No en función del umbral.
-```
+Si hubiéramos definido positivo cuando el valor obtenido es **menor** que un umbral, entonces, cuando $x<y$, el test con umbral $y$ daría **más** positivos que el test con umbral $x$, por lo que, el punto $\large(P(+_y|S),P(+_y|E)\large)$ estaria a la derecha y por encima del punto $\large(P(+_x|S),P(+_x|E)\large)$. Es decir, recorreríamos las curva ROC, de izquierda a derecha, en orden ascendente del valor de corte.
 
 
 ```{example}
-Vamos a dibujar una curva ROC. En el estudio ["Age-specific reference ranges for serum prostate-specific antigen in black men"](https://www.nejm.org/doi/full/10.1056/NEJM199608013350502) (T. Morgan *et al*, *New England Journal of Medicine* 335 (1996), pp. 304-310) se da la tabla siguiente con la especificidad y la sensibilidad del diagnóstico del cáncer de prostata por medio del [nivel de PSA](https://medlineplus.gov/spanish/pruebas-de-laboratorio/prueba-de-psa-antigeno-prostatico-especifico/) en diferentes poblaciones de hombres estadounidenses, definidas por raza y franja de edad. En este caso, como vuestros padres seguro que saben, un nivel alto de PSA es señal de cáncer, y por lo tanto, en cada fila, se define como "positivo" el tener un nivel de PSA mayor o igual que el nivel de su primera columna.
+Vamos a dibujar una curva ROC. En el estudio ["Age-specific reference ranges for serum prostate-specific antigen in black men"](https://www.nejm.org/doi/full/10.1056/NEJM199608013350502) (T. Morgan *et al*, *New England Journal of Medicine* 335 (1996), pp. 304-310) se da la tabla siguiente con la especificidad y la sensibilidad del diagnóstico del cáncer de próstata por medio del [nivel de PSA](https://medlineplus.gov/spanish/pruebas-de-laboratorio/prueba-de-psa-antigeno-prostatico-especifico/) en diferentes poblaciones de hombres estadounidenses, definidas por razas y franjsa de edad. En esta prueba, un nivel alto de PSA puede ser señal de cáncer, y por lo tanto, en cada fila, se define como "positivo" el tener un nivel de PSA mayor o igual que el valor de su primera columna.
 
 ```
 
@@ -456,11 +455,12 @@ Vamos a dibujar una curva ROC. En el estudio ["Age-specific reference ranges for
 knitr::include_graphics("INREMDN_files/figure-html/tablapsaglobal.png")
 ```
 
-La curva ROC se obtiene uniendo puntos de la forma (1-especificidad,sensibilidad). Vamos a calcular estos puntos para la subpoblación de hombres blancos entre 50 y 59 años, que es la que más nos preocupa.
+La curva ROC se obtiene uniendo puntos de la forma (1-especificidad,sensibilidad). Vamos a calcular estos puntos para la subpoblación de hombres blancos entre 50 y 59 años, que es la que más nos preocupa. Vamos a añadir el nivel PSA 0: como todo el mundo va a dar positivo, tendrá sensibilidad 1 y especificidad 0.
 
 $$
 \begin{array}{c|ccc}
 \text{PSA} & \text{Especificidad}& 1-\text{Especificidad}& \text{Sensibilidad}\\ \hline
+1 & 0 & 1 & 1 \\
 1 & 0.528 & 0.472 & 0.997 \\
 2 &  0.834 & 0.166 &0.994\\
 3 & 0.932 & 0.068 &0.978\\
@@ -479,10 +479,11 @@ $$
 \end{array}
 $$
 
-La Figura \@ref(fig:ROCama1) muestra la curva ROC que corresponde a estos valores. En ella los puntos aparecen de izquierda a derecha en orden ascendiente en la tabla, es decir en orden descendiente del umbral de PSA. Para ayudar en su comprensión, al lado de cada punto hemos anotado el valor de PSA al que corresponde.
+La Figura \@ref(fig:ROCama1) muestra la curva ROC que corresponde a estos valores. En ella los puntos aparecen de izquierda a derecha en orden ascendente en la tabla, es decir en orden descendente del umbral de PSA. Para ayudar en su comprensión, al lado de cada punto hemos anotado el valor de PSA al que corresponde.
 
 ```{r ROCama1,echo=FALSE,out.width="75%",fig.cap="Curva ROC del PSA entre 1 y 15 como criterio diagnótico de cáncer de próstata en hombres blancos de 50 a 59 años.",fig.asp=1.5}
-X=matrix(c(0.472 , 0.997 ,
+X=matrix(c(1,1,
+           0.472 , 0.997 ,
  0.166 ,0.994,
 0.068 ,0.978,
 0.026 ,0.748,
@@ -496,26 +497,32 @@ X=matrix(c(0.472 , 0.997 ,
 0.000 , 0.043,
 0.000 ,0.040,
 0.000 , 0.031,
-0.000 , 0.025),nrow=15,byrow=T)
+0.000 , 0.025),nrow=16,byrow=T)
 
 plot(X,type="o",pch=20,xlab="1-especificidad",ylab="sensibilidad",
-     xaxp=c(0,0.5,10),yaxp=c(0,1,10))
-text(X[,1]+0.01,X[,2],col="red",cex=0.5,labels=15:1)
+     xaxp=c(0,1,20),yaxp=c(0,1,20))
+text(X[,1]+0.02,X[,2],col="red",cex=0.5,labels=0:15)
 ```
 
-Una de las aplicaciones de la curva ROC es ayudar a decidir qué valor de corte tomar para definir el test diagnóstico binario que se va a usar en la práctica.  Una estrategia muy común es tomar el **valor de corte óptimo**: el valor $x_o$ el que la exactitud de la prueba,
+
+```{block2,type="rmdimportant"}
+La curva ROC representa la sensibilidad de la prueba, para diferentes umbrales, en función de su tasa de falsos positivos. Es decir, si asumimos  una cierta tasa de falsos positivos, el punto de la curva ROC en la vertical de esta tasa de falsos positivos nos da la sensibilidad que obtendremos. No nos da la sensibilidad en función del valor de corte.
+```
+
+
+Una de las aplicaciones de la curva ROC es ayudar a decidir qué valor de corte tomar para definir el test diagnóstico binario que se va a usar en la práctica.  Una estrategia muy común es tomar el **valor de corte óptimo**: el valor $x_o$ en el que la exactitud de la prueba
 $$
 P(+_{x_o}|E)+P(-_{x_o}|S)=\text{sensibilidad}_{x_o}+\text{especificidad}_{x_o}
 $$
-sea máximo. Recordemos que, para cada punto de la curva ROC
+sea máxima. Recordemos que, para cada punto de la curva ROC,
 
 * Su distancia al eje vertical izquierdo $x=0$ es 1 menos la especificidad.
 
 * Como su ordenada es la sensibilidad, su distancia a la recta horizontal $y=1$ es 1 menos la sensibilidad.
 
-Por lo tanto, el punto que corresponda a la suma máxima de especifidad y sensibilidad  será el punto que dé la suma mínima de sus distancias a $x=0$ y a $y=1$. Es el punto más cercano al rincón superior izquierdo $(0,1)$ del cuadrado unidad que enmarca la curva. Por ejemplo, para la curva ROC de la Figura \@ref(fig:roc1), es el indicado con una flecha en el gráfico siguiente:
+Por lo tanto, el punto que corresponda a la suma máxima de especifidad y sensibilidad  será el punto que dé la suma mínima de sus distancias a las rectas $x=0$ e $y=1$. Se trata del punto de la curva más cercano al rincón superior izquierdo $(0,1)$ del cuadrado unidad. Por ejemplo, para la curva ROC de la Figura \@ref(fig:roc1), es el indicado con una flecha en el gráfico siguiente:
 
-```{r roc2,echo=FALSE,fig.cap="Una curva ROC.",out.width="50%"}
+```{r roc2,echo=FALSE,fig.cap="Una curva ROC y su umbral óptimo.",out.width="50%"}
 knitr::include_graphics("INREMDN_files/figure-html/roc2.png")
 ```
 
@@ -526,7 +533,7 @@ $$
 \text{PSA} & \text{Especificidad}& \text{Sensibilidad} & \text{Exactitud}\\ \hline
 1 & 0.528& 0.997& 1.525 \\
 2 &  0.834  &0.994& 1.828\\
-3 & 0.932  &0.978& 1.910 \\
+\mathbf{3} & \mathbf{0.932}  &\mathbf{0.978}& \mathbf{1.910} \\
 4 & 0.974  &0.748& 1.722\\
 5 & 0.987  &0.466&1.453 \\
 6 & 0.991  &0.261&1.252 \\
@@ -542,9 +549,11 @@ $$
 \end{array}
 $$
 
-El valor de corte óptimo sería entonces tomar un valor de PSA igual a 3.  En  la práctica, se toma como nivel de PSA a partir del cual uno se ha de preocupar en esa franja de edad el 4. ¿Por qué? Es un compromiso: en las pruebas de cribado se prima la especificidad, para poder descartar sanos,  y esta mejora del PSA 3 al PSA 4 manteniendo aún una sensibilidad del 75%, es decir, detectando un 75% de los enfermos. 
+El valor de corte óptimo sería entonces tomar un valor de PSA igual a 3.  En  la práctica, se toma como nivel de PSA a partir del cual uno se ha de preocupar en esa franja de edad el 4. ¿Por qué? Es un compromiso: en las pruebas de cribado se prima la especificidad, para poder descartar sanos,  y la especificidad mejora del PSA 3 al PSA 4, manteniendo aún una sensibilidad del 75%, es decir, detectando un 75% de los enfermos. 
 
-La curva ROC también se usa para evaluar la **capacidad discriminatoria global de la prueba**, es decir, la habilidad en general para distinguir sanos de enfermos para el continuo de umbrales posibles. Para empezar, para que la prueba diagnóstica sirva para detectar enfermos, para cada umbral la sensibilidad ha de ser mayor que la tasa de falsos positivos (ha de dar positivo con más frecuencia en sanos que en enfermos, ¿verdad?). Esto significa que la curva ROC ha de estar por encima de la diagonal principal $y=x$. Observad que los puntos de esta diagonal de esta diagonal principal corresponden a la situación "ordenada igual a abscisa", es decir, a $P(+|E)=P(+|S)$. Es decir, a que dar positivo y estar enfermo sean sucesos independientes, y que por lo tanto el test no sirva para nada. En el contexto de las curvas ROC, a la diagonal principal del cuadrado unidad se la llama  la **línea de no discriminación** por este motivo.
+La curva ROC también se usa para evaluar la **capacidad discriminatoria global de la prueba**, es decir, su habilidad en general para distinguir sanos de enfermos para el continuo de umbrales posibles. 
+
+Para empezar, para que la prueba diagnóstica sirva para detectar enfermos, para cada umbral la sensibilidad ha de ser mayor que la tasa de falsos positivos (ha de dar positivo con más frecuencia en sanos que en enfermos, ¿verdad?). Esto significa que la curva ROC ha de estar por encima de la diagonal principal $y=x$. Los puntos de esta diagonal corresponden a la situación $P(+|E)=P(+|S)$. Es decir, a que el test dé positivo con la misma frecuencia en sanos que en enfermos y por lo tanto "estar enfermo" y "dar positivo" sean sucesos independientes. En este caso el test no sirve para nada. En el contexto de las curvas ROC, a la diagonal principal del cuadrado unidad se la llama  la **línea de no discriminación** por este motivo.
 
 ```{example}
 Imaginaos que queremos diagnosticar una enfermedad mediante el lanzamiento de dados. Lanzas 5 dados, anotas el resultado y si supera un cierto umbral, da positivo. El estar enfermo o sano no influye para nada en el resultado del lanzamiento, por lo que para todo umbral $x$ que consideremos, la probabilidad de superar ese umbral si se está sano y si se está enfermo es la misma: $P(+_x|E)=P(+_x|S)$. La curva ROC de esta prueba diagnóstica sería la diagonal principal del cuadrado unidad,   la línea de no discriminación.
@@ -553,18 +562,18 @@ Imaginaos que queremos diagnosticar una enfermedad mediante el lanzamiento de da
 ```
 
 
-Como hemos comentado, un valor de la prueba es mejor cuanto más se acerca su punto de la curva ROC al extremo superior izquierdo del cuadrado unidad. Por lo tanto, cuanto más se se separe una curva ROC de la línea de no discriminación por su derecha y más se aproxime al ángulo que forman las rectas $x=0$ e $y=1$, mejor se entiende que es la prueba globalmente. Por ejemplo, en la Figura \@ref(fig:roc3), la curva ROC con puntos rellenos corresponde a una prueba diagnóstica con mayoy capacidad discriminatoria que la de los puntos vacíos.
+Como hemos comentado, un valor de la prueba es mejor cuanto más se acerca su punto de la curva ROC al extremo superior izquierdo del cuadrado unidad. Por lo tanto, cuanto más se se separe una curva ROC de la línea de no discriminación por encima de la misma y más se aproxime al ángulo que forman las rectas $x=0$ e $y=1$, mejor es la prueba globalmente. Por ejemplo, en la Figura \@ref(fig:roc3), la curva ROC con puntos rellenos corresponde a una prueba diagnóstica con mayor capacidad discriminatoria que la de los puntos vacíos.
 
 
-```{r roc3,echo=FALSE,fig.cap="Una curva ROC.",out.width="50%"}
+```{r roc3,echo=FALSE,fig.cap="Dos curvas ROC.",out.width="50%"}
 knitr::include_graphics("INREMDN_files/figure-html/roc3.png")
 ```
 
 
-La **capacidad discriminatoria de la prueba** se mide con su **Área Bajo la Curva** (**AUC**,  en inglés). Este valor es, como su nombre indica, el área comprendida por la curva ROC, el eje de abscisas $y=0$ y la recta vertical $x=1$. Representa el **valor promedio de la sensibilidad** para todos los valores de corte de la prueba 
+La **capacidad discriminatoria global** de una prueba diagnóstica se mide con su **Área Bajo la Curva ROC** (abreviada **AUC**, de *area under the curve*,  en inglés). Este valor es, como su nombre indica, el área comprendida por la curva ROC, el eje de abscisas $y=0$ y la recta vertical $x=1$. Representa el **valor promedio de la sensibilidad** para todos los valores de corte de la prueba 
 
 ```{block2,type="rmdcorbes"}
-Para los que visteis integrales en Matemáticas II del Bachillerato, recordad que esta área se obtiene integrando entre 0 y 1 la función que define la curva, y que la integral dividida por la longitud de la base, que es 1, es el valor promedio de la función sobre el intervalo. Por lo tanto, para ser precisos, la AUC es el **valor promedio de la sensibilidad como función de la tasa de falsos positivos**, pero tampoco importa hilar tan fino.
+Los que visteis integrales en Matemáticas II del Bachillerato tendríais que recordar que esta área se obtiene integrando entre 0 y 1 la función que define la curva, y que la integral dividida por la longitud de la base, que en este caso es 1, es el valor promedio de la función sobre el intervalo. Por lo tanto, para ser precisos, la AUC es el **valor promedio de la sensibilidad como función de la tasa de falsos positivos**, pero tampoco importa hilar tan fino.
 ```
 
 Así:
@@ -575,11 +584,11 @@ Así:
 
 ```{example}
 En el estudio ["Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias"](http://scielo.isciii.es/pdf/asisna/v39n1/13_original_breve4.pdf)
-(R. Rodríguez *et al*, *Anales del Sistema Sanitario de Navarra* 39 (2016), pp. 115-122) se comparan dos técnicas de diagnóstico de la obstrucción intestinal: los niveles de la proteína C reactiva (PCR) y del enzima lactato deshidrogenasa (LDH) en plasma.
+(R. Rodríguez *et al*, *Anales del Sistema Sanitario de Navarra* 39 (2016), pp. 115-122) se compararon dos técnicas analíticas de diagnóstico de la obstrucción intestinal: los niveles de la proteína C reactiva (PCR) y del enzima lactato deshidrogenasa (LDH) en plasma.
 
 ```
 
-La Figura \@ref(fig:rocnavarra) muestra las curvas ROC de ambos tests, con sus valores de AUC y los valores de corte óptimos marcados. Vemos que el test basado en el nivel de LDH tiene globalmente una mayor capacidad discriminatoria que la otra, y además tomando como positivo a partir de los valores de corte óptimos en cada test, el nivel de LDH tiene especificidad y sensibilidad mayores.
+La Figura \@ref(fig:rocnavarra) muestra las curvas ROC de ambos tests, con sus valores de AUC y los valores de corte óptimos marcados. La AUC para la prueba de la PCR es 0.8 y la de la prueba del LDH es 0.86. Por lo tanto, la primera prueba tiene globalmente una mayor capacidad discriminatoria que la otra. Además, tomando como positivo a partir de los valores de corte óptimos en cada test, el nivel de LDH tiene especificidad y sensibilidad mayores: su punto de su curva ROC está más arriba y más a la izquierda que el otro.
 
 
 ```{r rocnavarra,echo=FALSE,fig.cap="Curvas ROC en la Figura 1 del artículo \"Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias\".",out.width="90%"}
@@ -623,7 +632,7 @@ sensibilidad estimada del diagnóstico clínico de la úlcera?:
 
 
 **(3)** Estáis evaluando una prueba diagnóstica y
-finalmente os encuentráis en la siguiente tabla:
+finalmente llegáis a la siguiente tabla:
 $$
 \begin{array}{l}
 \hphantom{Diagnósticooi}\textbf{Enfermedad}\\
@@ -635,7 +644,7 @@ $$
 \end{array}
 $$
 
-A partir de ella y redondeando decimales, señalad
+A partir de ella y redondeando porcentajes, señalad
 cuál de las siguientes afirmaciones es verdadera:
 
 1. El VPP es del 56% y el VPN del 13%.
@@ -647,7 +656,7 @@ cuál de las siguientes afirmaciones es verdadera:
 
 
 **(4)** En el diagnóstico de cardiopatía isquémica, la
-prueba de esfuerzo tiene mayor valor predictivo (positivo)
+prueba de esfuerzo tiene mayor valor predictivo positivo
 cuando (marcad una sola respuesta correcta; **Pista**:  es una pregunta de esta asignatura):
 
 1. La probabilidad previa de enfermedad coronaria es baja en el paciente estudiado.
@@ -678,15 +687,10 @@ frente a los falsos positivos en una curva ROC.
 con la evaluación de pruebas diagnósticas?:
 
 1. No es deseable usar una prueba poco específica en diagnósticos que originen un trauma emocional al sujeto de estudio. 
-
 1. Una prueba muy sensible es sobre todo útil cuando su resultado es positivo.  
-
 1. Cuando una prueba presenta una sensibilidad muy alta un resultado positivo hace realmente posible el diagnóstico.
-
 1. Una prueba muy específica es sobre todo útil cuando su resultado es positivo.   
-
 1. La sensibilidad de una prueba aumenta en poblaciones donde la enfermedad es poco prevalente  
-
 1. La sensibilidad de una prueba aumenta en poblaciones donde la enfermedad es muy prevalente  
 
 
