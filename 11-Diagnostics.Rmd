@@ -3,7 +3,6 @@
 
 ## Pruebas diagnósticas
 
-### Sensibilidad, especificidad, valores predictivos etc.
 
 Una **prueba diagnóstica** es cualquier tecnología que pueda servir para detectar un signo que se relacione con la patología de interés. Por ejemplo, un test de embarazo, una determinación del nivel de un marcador tumoral, una prueba PCR para el SARS-COV-2, etc.
 
@@ -28,6 +27,8 @@ Por desgracia, casi nunca se tiene una prueba diagnóstica cien por cien segura 
 knitr::include_graphics("INREMDN_files/figure-html/lazaro1.png")
 ```
 
+### Sensibilidad, especificidad, valores predictivos etc.
+
 
 Vamos a poner algunos nombres a sucesos. En una prueba diagnóstica, tenemos dos tipos de sucesos:
 
@@ -40,7 +41,7 @@ Es importante tener en cuenta que la clasificación de un sujeto en Enfermo o Sa
 ```
 
 
-Clasificamos los sujetos de la población según estos dos pares de sucesos:
+Podemos clasificar los sujetos de la población según estos dos pares de sucesos complementarios:
 
 $$
 \begin{array}{l}
@@ -302,6 +303,23 @@ $$
 Las diferencias en la sensibilidad y especificidad entre las diferentes franjas de edad se deben a las diferentes características físicas de los senos a diferentes edades, que facilitan o dificultan la detección de los  tumores, no a la prevalencia del cáncer.
 
 
+```{block2,type="rmdexercici"}
+Una nueva prueba de diagnóstico rápido de una enfermedad rara, de una prevalencia estimada del 0.1%, ha mostrado tener una sensibilidad del 80% y una especificidad del 60%.
+
+*(a)* ¿Cuál es la probabilidad de que un individuo enfermo dé positivo en la prueba?
+
+*(b)* ¿Cuál es la probabilidad  de que un individuo escogido al azar esté enfermo y al realizarle la prueba dé positivo?
+
+*(c)* ¿Cuál es el valor predictivo negativo de esta prueba? ¿Qué significa, en lenguaje llano, el valor obtenido?
+
+*(d)* Si la enfermedad no fuera tan rara, digamos que su prevalencia fuera del 10%, y sin realizar ningún cálculo extra, ¿qué le pasaría al  valor predictivo negativo de la prueba respecto del calculado  en el apartado anterior (aumentaría, disminuiría, se mantendría igual, no se puede saber)? Justificad brevemente vuestra respuesta.
+
+```
+
+
+
+
+
 Vamos a añadir algunos términos más sobre probabilidades referentes a una prueba diagnóstica:
 
 * Su **exactitud** (**global**) es la probabilidad de acertar el diagnóstico. Es decir, $P(E\cap +)+P(S\cap -)$.
@@ -405,6 +423,16 @@ Sospechamos que un paciente tiene tuberculosis, y decidimos hacerle  un test PCR
 
 ```
 
+
+
+```{block2,type="rmdromans"}
+¿Nueve palabras para describir aspectos de una prueba diagnóstica? Pues preparaos, que vienen curvas. Literalmente. Lo sentimos, una parte importante de esta asignatura es aprender el vocabulario que se usa al aplicar estadística en medicina. Ya lo dice el autor de Reglas Médicas, la medicina es un idioma.
+```
+
+
+```{r idioma,echo=FALSE,fig.cap="No os perdáis la magnífica *Reglas médicas* en [Twitter](https://twitter.com/ReglasM) o [Facebook](https://www.facebook.com/reglasmedicas).",out.width="50%"}
+knitr::include_graphics("INREMDN_files/figure-html/idioma.png")
+```
 
 
 ### Curvas ROC
@@ -594,104 +622,6 @@ La Figura \@ref(fig:rocnavarra) muestra las curvas ROC de ambos tests, con sus v
 ```{r rocnavarra,echo=FALSE,fig.cap="Curvas ROC en la Figura 1 del artículo \"Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias\".",out.width="90%"}
 knitr::include_graphics("INREMDN_files/figure-html/rocnavarra.png")
 ```
-
-
-
-### Test
-
-
-**(1)** Una prueba diagnóstica muy específica nos asegura:
-
-1. Pocos errores en general.
-1. Pocos falsos positivos.
-1. Pocos falsos negativos.
-1. Pocos diagnósticos positivos.
-1. Pocos diagnósticos negativos.
-
-**(2)** Estáis  comparando el diagnóstico clínico de úlcera gastroduodenal y su halllazgo en la autopsia en una serie de 10,000 pacientes. Al comenzar a analizar los datos se construye la siguiente tabla:
-$$
-\begin{array}{l}
-\hphantom{Diagnóstico clínico clínico clí}\textbf{Autopsia}\\
-\begin{array}{l|cc}
-\textbf{Diagnóstico clínico} & \text{Úlcera} & \text{No úlcera}\\ \hline
-\text{Úlcera} & 130 & 20 \\  
-\text{No úlcera} & 170 &  9680
-\end{array}
-\end{array}
-$$
-
-De las siguientes cifras, ¿cuál es la más cercana a la
-sensibilidad estimada del diagnóstico clínico de la úlcera?:
-
-1. 3%
-1. 43%
-1. 87%
-1. 98%
-1. 100%
-
-
-
-**(3)** Estáis evaluando una prueba diagnóstica y
-finalmente llegáis a la siguiente tabla:
-$$
-\begin{array}{l}
-\hphantom{Diagnósticooi}\textbf{Enfermedad}\\
-\begin{array}{l|cc}
-\textbf{Prueba} & \quad\text{Sí}\quad & \quad\text{No}\quad\\ \hline
-\text{Positiva} & 80 & 100 \\  
-\text{Negativa} & 20 &  800 
-\end{array}
-\end{array}
-$$
-
-A partir de ella y redondeando porcentajes, señalad
-cuál de las siguientes afirmaciones es verdadera:
-
-1. El VPP es del 56% y el VPN del 13%.
-1. El VPP es del 44% y el VPN del 98%. 
-1. El VPP es del 80% y el VPN del 89%.
-1. El VPP es del 80% y el VPN del 11%. 
-1. Ninguna de las anteriores.
-
-
-
-**(4)** En el diagnóstico de cardiopatía isquémica, la
-prueba de esfuerzo tiene mayor valor predictivo positivo
-cuando (marcad una sola respuesta correcta; **Pista**:  es una pregunta de esta asignatura):
-
-1. La probabilidad previa de enfermedad coronaria es baja en el paciente estudiado.
-1. La probabilidad previa de enfermedad coronaria es alta en el paciente estudiado. 
-1. Existe lesión de un solo vaso coronario.
-1. Se realiza con tratamiento con nitratos.
-1. Se realiza con tratamiento con betabloqueantes.
-
-**(5)** El resultado de un electrocardiograma de esfuerzo,
-para la predicción de una enfermedad
-coronaria, cambia si se varían los milímetros
-de depresión del segmento ST que definen el
-resultado anormal. Si se considera como resultado
-anormal a partir de los 2 mm de depresión
-del segmento ST en lugar de a partir de
-0.5 mm (señalad la respuesta correcta):
-
-1. La sensibilidad aumenta. 
-1. Es necesario representar los falsos negativos frente a los verdaderos negativos en una curva ROC.
-1. La especificidad aumenta.  
-1. Los falsos positivos aumentan.
-1. Es necesario representar los falsos negativos
-frente a los falsos positivos en una curva ROC.
- 
-
-
-**(6)** ¿Cuáles de la siguientes afirmaciones son VERDADERAS en relación
-con la evaluación de pruebas diagnósticas?:
-
-1. No es deseable usar una prueba poco específica en diagnósticos que originen un trauma emocional al sujeto de estudio. 
-1. Una prueba muy sensible es sobre todo útil cuando su resultado es positivo.  
-1. Cuando una prueba presenta una sensibilidad muy alta un resultado positivo hace realmente posible el diagnóstico.
-1. Una prueba muy específica es sobre todo útil cuando su resultado es positivo.   
-1. La sensibilidad de una prueba aumenta en poblaciones donde la enfermedad es poco prevalente  
-1. La sensibilidad de una prueba aumenta en poblaciones donde la enfermedad es muy prevalente  
 
 
 
