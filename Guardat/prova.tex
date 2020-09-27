@@ -8,6 +8,31 @@
 \begin{document}
 
 
+\
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.5]
+%,block/.style ={}]%,xscale=0.75]
+
+\draw (0,0) node[circle, draw=blue, thick, fill=blue!10, align=center, minimum height=10em] (A) { };  
+\draw (15,0) node[circle, draw=green, thick, fill=green!10, align=center, minimum height=2em] (B) { }; 
+\draw (0,4.25) node {\Large\sf Población};  
+\draw (15,1.25) node {\sf Muestra};  
+\draw (7.5,3.5) node {\sf Muestreo};  
+\draw (7.5,-3.5) node {\sf Inferencia};  
+\draw (-3,0) node[circle,fill,inner sep=0.75pt] {}; 
+\draw (15.2,0) node[circle,fill,inner sep=0.75pt] {}; 
+
+\draw[->] (A) to [out=30,in=150] (B);
+\draw[->,red] (B) to [out=210,in=330] (A);
+\end{tikzpicture}
+\end{center}
+
+
+
+
+
+\end{document}
+
 \begin{center}
 \begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=5em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
 \draw (0,0) node[block] (A) {\small\sf Madre fumadora};  

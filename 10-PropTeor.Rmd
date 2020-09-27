@@ -1,6 +1,6 @@
 # (PART\*) Tema II: Probabilidades  {-}
 
-# Probabilidades elementales: La teoría
+# Probabilidades elementales: Las mates
 
 La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso vamos a definir  la **probabilidad de un suceso** como la **proporción** (la **fracción**, el **porcentaje**) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. 
 
@@ -760,23 +760,30 @@ P(E^c|D^c)=\dfrac{P(E^c\cap D^c)}{P(D^c)}
 $$
 y esta probabilidad la podemos calcular directamente, porque sabemos que $P(E^c\cap D^c)=0.15$ y $P(D^c)=1-P(D)=1-2/3=1/3$, por lo que $P(E^c|D^c)=P(E^c\cap D^c)/P(D^c)=0.15/(1/3)=0.45$.
 
+```{block2,type="rmdexercici"}
+En la situación del ejemplo anterior, ¿cuál es la probabilidad de que un enfermo de estos sufra depresión si sufre estrés? ¿Y cuál  la de que un enfermo de estos **no** sufra depresión si **no** sufre estrés?
+```
+
+
 Las *odds* y las *odds ratios* también pueden ser **condicionadas**. 
 
-* Las *odds* del suceso $B$ condicionado al suceso $A$  a 
+* Las ***odds* de  $B$ entre los sujetos de  $A$** (o las *odds* de $B$ **condicionado** a $A$) son 
 $$
 \text{Odds}(B|A)=\frac{P(B|A)}{P(B^c|A)}
 $$
 Mide cuántas veces es más (o menos) probable $B$ que "no $B$" entre los sujetos de $A$.
 
 
-* La *odds ratio* de $B$ **relativa** a $A$ es
+* La ***odds ratio* de $B$ relativa a $A$** es
 $$
 \text{OR}(B|A)=\frac{\text{Odds}(B|A)}{\text{Odds}(B|A^c)}
 $$
 Mide cuántas veces son mayores (o menores) las *odds* de $B$ condicionado a $A$  que las *odds* de $B$ condicionado a "no $A$". 
 
 ```{example}
-Volvamos a la situación del Ejemplo \@ref(exm:triola). Si, entre los pacientes de nuestro amigo cardiólogo, llamamos $E$ al suceso "Tener estrés" y $D$ al suceso "Tener depresión", habíamos calculado que $P(E|D)=0.475$ y $P(E^c|D^c)=0.45$. Entonces
+Volvamos a la situación del Ejemplo \@ref(exm:triola). Si, entre los pacientes de nuestro amigo cardiólogo, llamamos $E$ al suceso "Tener estrés" y $D$ al suceso "Tener depresión", habíamos calculado que $P(E|D)=0.475$ y $P(E^c|D^c)=0.45$. Si habéis hecho el ejercicio que hemos propuesto tras el ejemplo habréis calculado  $P(D|E)=0.6334$ y $P(D^c|E^c)=0.3$.
+
+Entonces:
 
 
 ```
@@ -786,19 +793,77 @@ $$
 \text{Odds}(E|D)=\frac{P(E|D)}{P(E^c|D)}=\frac{0.475}{0.525}=0.905
 $$
 
+    Entre los pacientes con depresión, la probabilidad de tener estrés es 0.905 veces la de no tenerlo.
+
+
+
 * Las *odds* de tener estrés entre los pacientes que no tienen depresión son
 $$
-\text{Odds}(E|D^c)=\frac{P(E|D^c)}{P(E^c|D^c)}=\frac{0.55}{0.45}=1.222
+\text{Odds}(E|D^c)=\frac{P(E|D^c)}{P(E^c|D^c)}=\frac{0.55}{0.45}=1.22
 $$
 
+    Entre los pacientes sin depresión, la probabilidad de tener estrés es 1.22 veces la de no tenerlo.
 
-* La *odds ratio* de tener estrés **relativa** a tener depresión es
+* Las *odds* de tener depresión entre los pacientes que tienen estrés son
+$$
+\text{Odds}(D|E)=\frac{P(D|E)}{P(D^c|E)}=\frac{0.6334}{0.3666}=1.73
+$$
+
+    Entre los pacientes con estrés, la probabilidad de tener depresión es 1.73 veces la de no tenerla.
+
+* Las *odds* de tener depresión entre los pacientes que no tienen estrés son
+$$
+\text{Odds}(D|E^c)=\frac{P(D|E^c)}{P(D^c|E^c)}=\frac{0.7}{0.3}=2.33
+$$
+
+    Entre los pacientes sin estrés, la probabilidad de tener depresión es 2.33 veces la de no tenerla.
+
+
+
+* La *odds ratio* de tener estrés relativa a tener depresión es
 $$
 \text{OR}(E|D)=\frac{\text{Odds}(E|D)}{\text{Odds}(E|D^c)}=\frac{0.905}{1.222}=0.74
 $$
 
+   Las *odds* de tener estrés entre los que tienen depresión son 0.74 veces las de tener estrés entre los que no tienen depresión.
 
 
+* La *odds ratio* de tener depresión relativa a tener estrés es
+$$
+\text{OR}(D|E)=\frac{\text{Odds}(D|E)}{\text{Odds}(D|E^c)}=\frac{1.73}{2.33}=0.74
+$$
+
+   Las *odds* de tener depresión entre los que tienen estrés son 0.74 veces las de tener depresión entre los que no tienen estrés. 
+   
+```{block2,type="rmdromans"}
+La *odds ratio* de tener estrés relativa a tener depresión ha dado lo mismo que la *odds ratio* de tener depresión relativa a tener estrés. ¿Casualidad? No.
+```
+
+El teorema siguiente va a ser muy útil en los estudios de casos y controles.
+
+```{theorem,ORrelativa}
+Dados dos sucesos $A$ y $B$, $\text{OR}(A|B)=\text{OR}(B|A)$.
+
+
+```
+
+
+```{block2,type="rmdcorbes"}
+En efecto
+$$
+\begin{array}{l}
+\text{OR}(B|A)\!\!\!\!\! &= \dfrac{\text{Odds}(B|A)}{\text{Odds}(B|A^c)}\\
+& = \dfrac{P(B|A)/P(B^c|A)}{P(B|A^c)/P(B^c|A^c)}\\
+&=\dfrac{P(B|A)\cdot P(B^c|A^c)}{P(B^c|A)\cdot P(B|A^c)}\\
+& =\dfrac{P(B|A)\cdot P(B^c|A^c)\cdot P(A)\cdot P(A^c)}{P(B^c|A)\cdot P(B|A^c)\cdot P(A)\cdot P(A^c)}\\
+& =\dfrac{P(B\cap A)\cdot P(B^c\cap A^c)}{P(B^c\cap A)\cdot P(B\cap A^c)}\\
+& =\dfrac{P(A|B)\cdot P(A^c|B^c)\cdot P(B)\cdot P(B^c)}{P(A|B^c)\cdot P(A^c|B)\cdot P(B)\cdot P(B^c)}\\
+& =\dfrac{P(A|B)\cdot P(A^c|B)}{P(A|B^c)\cdot P(A^c|B)}\\
+&=\dfrac{P(A|B)/P(A^c|B)}{P(A|B^c)/P(A^c|B^c)}\\
+& = \dfrac{\text{Odds}(A|B)}{\text{Odds}(A|B^c)}=\text{OR}(A|B)
+\end{array}
+$$
+```
 
 ## Sucesos independientes
 
@@ -1387,6 +1452,7 @@ Por lo tanto, la prevalencia de la enfermedad es 12222.22/100000=0.1222: un 12.2
 1. La probabilidad de tener asma si se tiene un gato es menor que si no se tiene un gato.
 1. La probabilidad de tener asma si se tiene un gato es mayor que si no se tiene un gato.
 1. Las *odds* de tener asma si se tiene un gato son 7:10.
+1. La *odds ratio* de tener gato  relativa a tener asma también es 0.7.
 1. Ninguna de las afirmaciones anteriores se puede deducir de la *odds ratio* que hemos dado. 
 
 
