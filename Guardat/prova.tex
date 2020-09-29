@@ -5,10 +5,78 @@
 \newcommand\TBox[3][]{%
 \tikz\node[thick, rounded corners,  align=left,#1] at #3 {#2};\hskip2pt}
 
+\tikzstyle{vecArrow} = [thick, decoration={markings,mark=at position
+   1 with {\arrow[semithick]{open triangle 60}}},
+   double distance=1.4pt, shorten >= 5.5pt,
+   preaction = {decorate},
+   postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
 \begin{document}
 
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.6,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=4em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (-6.5,0.1) node {\sf\red{\textbf{Prospectivo}}};
+\draw (4,0.75) node[block]   {\small\sf Expuestos}; 
+\draw (4,-0.75) node[block]   {\small\sf No expuestos}; 
+\draw (11,0.1) node[block] (P) {\small\sf Enfermos?};  
+\draw[vecArrow] (5.5,0.1)--(P);
+\draw (7.5,0.5) node {\small\sf {Seguimiento}};
 
-\
+\draw (-6.5,-3.9) node {\sf\red{\textbf{Retrospectivo}}};
+\draw (-3,-3.25) node[block]   {\small\sf Expuestos}; 
+\draw (-3,-4.75) node[block]   {\small\sf No expuestos}; 
+\draw (4,-3.9) node[block] (R) {\small\sf Enfermos?};  
+\draw[vecArrow] (-1.5,-3.9)--(R);
+\draw (0.5,-3.5) node {\small\sf {Seguimiento}};
+
+\draw[dashed] (2.5,2)--(2.5,-6.25);
+\draw (4,2) node {\sf\textbf{INICIO}};
+
+
+\end{tikzpicture}
+\end{center}\medskip
+
+
+
+
+
+\end{document}
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.6,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=7em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (0,0) node[block] (A) {\sf Proporción de expuestos en cada grupo};  
+\draw (10,0.75) node[block]   {\sf Enfermos}; 
+\draw (10,-0.75) node[block]   {\sf Sanos}; 
+\draw[vecArrow] (7.5,0)--(A);
+\draw (5,2.5) node {\sf\textbf{Lo que tenemos}};
+\end{tikzpicture}
+\end{center}\medskip
+
+\begin{center}
+\begin{tikzpicture}[very thick,>=stealth,scale=0.6,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=7em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
+\draw (10,0) node[block] (A) {\sf Proporción de enfermos en cada grupo};  
+\draw (0, 0.75) node[block]   {\sf Expuestos}; 
+\draw (0,-0.75) node[block]   {\sf No expuestos}; 
+\draw[vecArrow] (2.5,0)--(A);
+\draw (5,2.5) node {\sf\textbf{Lo que queremos}};
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
+
+\begin{center}
+\includegraphics[width=0.49\linewidth]{covidintro1}
+\includegraphics[width= 0.49\linewidth]{covidintro2}
+
+\includegraphics[width= 0.49\linewidth]{covidintro3}
+\includegraphics[width= 0.49\linewidth]{covidintro4}
+
+\includegraphics[width= 0.49\linewidth]{covidintro5}
+\includegraphics[width= 0.49\linewidth]{covidintro6}
+
+\end{center}
+\end{document}
 \begin{center}
 \begin{tikzpicture}[very thick,>=stealth,scale=0.5]
 %,block/.style ={}]%,xscale=0.75]

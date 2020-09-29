@@ -5,6 +5,12 @@
 
 Un **estudio** es un proceso cuyo objetivo es obtener evidencia empírica sobre alguna cuestión. En el caso de los estudios **médicos** que nos ocupan en este curso, esta cuestión es, naturalmente, sobre algún aspecto de la salud de las personas:  la efectividad de un tratamiento de una determinada enfermedad, la precisión de un test diagnóstico, las causas de una enfermedad, algún tema de salud pública... 
 
+
+```{r anuncis,echo=FALSE, out.width="80%",fig.cap="Estudios médicos."}
+knitr::include_graphics("INREMDN_files/figure-html/anuncis.png")
+```
+
+
 ## Pasos de un estudio médico {#sec:pasos}
 
 Para ir calentando motores, vamos a describir brevemente la estructura habitual de un estudio médico, y lo ilustraremos con el artículo ["Marcha nórdica para prevención cardiovascular en pacientes con cardiopatía isquémica crónica o síndrome metabólico"](https://www.sciencedirect.com/science/article/pii/S0025775316305024) (C. Vehí *et al*,^[Este *et al* significa "y otros" y se utiliza para no dar toda la lista de autores de un artículo.] *Medicina Clínica* 147 (2016), pp. 537-539) que convendría que fuerais consultando en paralelo a esta sección.
@@ -56,7 +62,7 @@ Es un buen momento para que volváis al artículo y observéis su estructura, t�
 
 El artículo científico además tiene otras dos partes muy importantes:
 
-* El **Resumen** (*Abstract*) al principio, describiendo lo más relevante de cada una de las cuatro partes centrales del artículo. Este resumen está relacionado con el último paso del proceso de investigación, la publicación de resultados, ya que es lo único que leemos en la mayoría de los casos, entrando solo en el detalle del artículo cuando, tras la lectura del resumen, decidimos que nos interesa de verdad.
+* El **Resumen** (*Abstract*) al principio, describiendo lo más relevante de cada una de las cuatro partes centrales del artículo. Este resumen está relacionado con el último paso del proceso de investigación, la publicación de resultados, ya que es lo único que se lee en la mayoría de los casos, entrando solo en el detalle del artículo cuando, tras la lectura del resumen, decidimos que nos interesa de verdad.
 
 * La **Bibliografía** al final, relacionada en parte con el paso 2 (los antecedentes).
 
@@ -197,7 +203,15 @@ De todas formas, no hay una línea divisoria clara entre las series de casos y l
 
 ## Estudios de casos y controles {#sec:cyc}
 
-En un **estudio de casos y controles**, se toma un grupo de individuos con una enfermedad  (los **casos**) y un grupo de individuos sin esta enfermedad (los **controles**), y se comparan **retrospectivamente** para encontrar diferencias en  su exposición a factores de riesgo en el pasado. El objetivo es determinar qué factores de riesgo fueron más frecuentes entre los casos que entre los controles, para inferir que, en la población general, la exposición a dichos factores está asociada a una mayor probabilidad de sufrir la enfermedad. 
+En un **estudio de casos y controles**:
+
+* Se toma un grupo de individuos con una enfermedad  (los **casos**) y un grupo de individuos sin esta enfermedad (los **controles**)
+
+* Se les compara **retrospectivamente** para encontrar diferencias en  su exposición a factores de riesgo en el pasado. 
+
+* Se determinan qué factores de riesgo fueron más frecuentes entre los casos que entre los controles.
+
+* Se infiere que, en la población general, la exposición a dichos factores está asociada a una mayor probabilidad de sufrir la enfermedad. 
 
 
 ```{r cataratas,echo=FALSE, out.width="80%",fig.cap="Esquema del estudio de casos y controles del Ejemplo \\@ref(exm:rubeola)."}
@@ -232,11 +246,24 @@ En el estudio ["Tabaquismo y fracaso del tratamiento de la tuberculosis pulmonar
 
 ```
 
+```{r TB,echo=FALSE, out.width="80%"}
+knitr::include_graphics("INREMDN_files/figure-html/TB.png")
+```    
+    
+
 Se analizaron un buen número de antecedentes que pudieran influir en el desenlace del tratamiento de la tuberculosis: sexo, edad, historial  de fumador, historial de consumo de alcohol, salario etc. La única diferencia "significativa"  que encontraron fue en el fumar: un 52% de los casos eran fumadores en el momento del diagnóstico de la tuberculosis o lo habían sido antes, contra solo un 30% de los controles. En cambio, por ejemplo, eran consumidores frecuentes de alcohol en el momento del diagnóstico de la tuberculosis o lo habían sido antes un 59% de los casos y un 52% de los controles, una diferencia que no fue lo suficientemente grande como para poder considerarla "significativa".
 
-El adjetivo **significativo**, que ha salido dos veces y hemos entrecomillado en el párrafo anterior, tiene un significado muy concreto en estadística, sobre el que volveremos más adelante en el curso. Por ahora lo tomaremos en el sentido intuitivo de **tan grande que nos hace sospechar que también hay diferencia en la población en general**. Por ejemplo, la diferencia entre el 52% de fumadores entre los casos y el 30%  de fumadores entre los casos fue tan grande, que sería muy improbable si las proporciones de fumadores entre casos y controles en la población general fueran iguales.
+El adjetivo **significativo**, que ha salido dos veces y hemos entrecomillado en el párrafo anterior, tiene un significado muy concreto en estadística, sobre el que volveremos más adelante en el curso. Por ahora lo tomaremos en el sentido intuitivo de **tan grande que sería muy raro que fuera causalidad, lo que nos hace sospechar que también hay diferencia en la población en general**. Por ejemplo, la diferencia entre el 52% de fumadores entre los casos y el 30%  de fumadores entre los controles fue tan grande, que sería muy improbable si las proporciones de fumadores entre casos y controles en la población general fueran iguales.
 
-En este estudio, los números de casos y controles no se prefijaron en su diseño, sino que se tomaron "los que encontraron" en un grupo de individuos. Diremos en casos como este que el grupo de sujetos analizados forman una muestra **transversal**.
+En este estudio, los números de casos y controles no se prefijaron en su diseño, sino que se tomaron "los que encontraron" en un grupo de individuos. Por lo tanto, en principio, su composición en casos y controles refleja la de la población. Diremos en casos como este que el grupo de sujetos analizados forman una muestra **transversal** de la población.
+
+```{block2,type="rmdcaution"}
+Id con cuidado, que el adjetivo transversal ya ha salido con dos significados diferentes (y aún habrá un tercero):
+  
+* Estudio **transversal** en el tiempo: Se recogen datos sobre un solo momento.
+* Muestra **transversal**: Una muestra cuya composición es representativa xwde la población
+
+```
 
 Esto no siempre es así, y a veces se toman números concretos, o al menos relacionados entre si, de casos y controles: tantos casos como controles, el doble de controles que de casos... Más adelante llamaremos a una muestra de este estilo **estratificada** (Sección \@ref(sec:estr)). Es importante distinguir las muestras transversales de las estratificadas, porque hay que tener en cuenta el tipo de muestra que se ha tomado a la hora de realizar el análisis estadístico de los datos y extraer conclusiones. 
 
@@ -272,7 +299,7 @@ El grupo de control es el que nos sirve de referencia y permite comparar este po
 
 
 ```{block2,type="rmdnote"}
-Al problema de conocer de la proporción de expuestos solo en el grupo de enfermos, sin saber esta proporción en un grupo de control (sea de sanos, sea una muestra transversal representativa de la población) se le suele llamar **problema de falta de denominador**. Cuando más adelante hablemos de riesgos relativos (Sección \@ref(sec:probaplic2)) se entenderá qué hace aquí la palabra "denominador".
+Al problema de conocer de la proporción de expuestos solo en el grupo de enfermos, sin saber esta proporción en un grupo de control (sea de sanos, sea una muestra transversal representativa de la población) se le suele llamar **problema de falta de denominador**. Cuando más adelante hablemos de riesgos relativos y *odds ratios* (Secciones \@ref(sec:probaplic2)) se entenderá qué hace aquí la palabra "denominador".
 ```
 
 
@@ -283,9 +310,9 @@ Hemos dicho que la diferencia entre casos y controles es la presencia o no de un
 
 Por ejemplo:
 
-* Podemos querer estudiar si el fracaso escolar aumenta la probabilidad de ser fumador: tomamos como casos un grupo de fumadores y como controles un grupo de no fumadores, y consultamos su historial académico.
+* Podemos querer estudiar mediante un estudio de casos y controles si el fracaso escolar aumenta la probabilidad de ser fumador: tomamos como casos un grupo de fumadores y como controles un grupo de no fumadores, y consultamos su historial académico.
 
-* Podemos querer estudiar si ser fumador aumenta la probabilidad de fracaso escolar: tomamos como casos un grupo de personas que no llegaron a terminar la ESO y como controles un grupo de universitarios, y les pedimos si durante sus estudios de secundaria fumaban y cuánto.
+* Podemos querer estudiar mediante un estudio de casos y controles si ser fumador aumenta la probabilidad de fracaso escolar: tomamos como casos un grupo de personas que no llegaron a terminar la ESO y como controles un grupo de universitarios, y les pedimos cuánto fumaban en Secundaria. 
 
 Por otro lado, tened presente que una exposición puede ser perjudicial en algún aspecto y beneficiosa en otro. Por ejemplo, tomar el sol está asociado a un incremento del riesgo de cáncer de piel y en este sentido es perjudicial. Pero también está asociado (vía la producción de vitamina D) a una disminución del riesgo de cáncer de colon, por lo que en este sentido es protector.
 
@@ -294,7 +321,7 @@ Algunas **ventajas** de los estudios de casos y controles:
 
 * Suelen ser fáciles de llevar a cabo  y rápidos (todos los datos se pueden recoger sin tener que hacer un seguimiento a los sujetos) y por lo tanto baratos; también en los estudios médicos el tiempo es oro.
 
-* Son adecuados para estudiar enfermedades raras, poco frecuentes o de desarrollo muy corto, ya que podemos partir de un grupo de enfermos que tengamos identificados previamente y un grupo de sanos, sin tener necesidad de buscar enfermos en una muestra transversal de individuos.
+* Son adecuados para estudiar enfermedades raras, poco frecuentes o de desarrollo muy corto, ya que podemos partir de un grupo de enfermos que tengamos identificados previamente y un grupo de sanos, sin tener necesidad de buscar enfermos en una muestra transversal de individuos. Fijaos en que si los enfermos son muy escasos, para encontrar un número razonablemente grande en una muestra transversal, esta tendrá que ser enorme. Esto dificultará la ejecución del estudio.
 
 * Podemos estudiar de golpe la asociación entre la exposición a muchos factores de riesgo y la enfermedad que nos ocupa.
 
@@ -341,7 +368,7 @@ Hay [un estudio  famoso](https://academic.oup.com/jnci/article-abstract/21/4/713
 
 * También se puede dar un **sesgo de supervivencia**, si solo se estudian individuos "vivos". Por ejemplo, si queremos llevar a cabo un estudio de casos y controles para una enfermedad rara con una tasa de mortalidad a corto plazo muy alta y tomamos como casos enfermos diagnosticados que estén vivos, puede que bastantes de ellos hayan sobrevivido más tiempo a la enfermedad que lo normal y por lo tanto no sean casos típicos.
 
-     Pero si se quiere incluir casos "muertos", seguramente habrá que entrevistar a familiares para conocer detalles de su exposición a factores de riesgo y aumenta el peligro de  sesgo de recuerdo. Si uno ya ha difuminado en su memoria los riesgos que corría hace 10 años, mucho menos los recordarán sus familiares.
+     Pero si se quiere incluir casos ya fallecidos, seguramente habrá que entrevistar a familiares para conocer detalles de su exposición a factores de riesgo y aumenta el peligro de  sesgo de recuerdo. Si uno ya ha difuminado en su memoria los riesgos que corría hace 10 años, mucho menos los recordarán sus familiares.
    
 Por otro lado, hay que tener mucho cuidado en la **selección de controles**. En teoría, para poder concluir que hay asociación entre la exposición y la enfermedad, sería necesario que:
 
@@ -353,6 +380,20 @@ En la práctica es muy difícil conseguir ambas condiciones, sobre todo si la po
 Así por ejemplo, en el estudio sobre alcoholismo y cáncer de pulmón del Ejemplo \@ref(exm:CAPUA), el hecho de escoger los controles entre individuos hospitalizados podría haber sesgado este grupo. La ingesta desmesurada de alcohol aumenta el riesgo de patologías que no sean cáncer de pulmón pero que impliquen ingreso hospitalario. Por lo tanto, podría ser que el alcoholismo fuera más frecuente entre personas hospitalizadas que en la población en general. Los autores tuvieron que tener mucho cuidado en este aspecto, eligiendo hospitalizados de algo que *a priori* no tuviera nada que ver con el consumo de alcohol.
 
 O en el ejemplo sobre el fracaso del tratamiento de la tuberculosis del Ejemplo \@ref(exm:tuberculosisCC), hubiera sido un error tomar como controles pacientes exitosos de otras clínicas, que pudieran seguir protocolos de tratamiento diferentes, ya que entonces los controles no serían comparables a los casos.
+
+El siguiente es un ejemplo famoso de la importancia de elegir bien los controles:
+
+```{example,krunkamp}
+En el artículo ["Association Between Malaria and Invasive Nontyphoidal Salmonella Infection in a Hospital Study: Accounting for Berkson's Bias"](https://academic.oup.com/cid/article/62/suppl_1/S83/2566657) (R. Krumkamp *et al*, *Clinical Infectious Diseases* 62 (2016), pp. S83–S89), se explica un estudio de casos y controles que en realidad fueron dos. El objetivo era determinar si la malaria es un factor de riesgo para la salmonellosis. Se tomaron como casos todos los niños ingresados en dos hospitales de Ghana con salmonellosis. Entonces:
+  
+
+```
+
+* En un primer estudio, se toman como controles todos los niños hospitalizados en los mismos hospitales con otras enfermedades bacterianas. Se obtuvo que la frecuencia de infecciones previas de malaria entre los **casos** fue significativamente mayor que entre los controles.
+
+* En un segundo estudio, se toman como controles un grupo de niños sin ninguna enfermedad  bacteriana. Se obtuvo que la frecuencia de infecciones previas de malaria entre los **controles** fue significativamente mayor que entre los casos.
+
+
     
 ```{block2,type="rmdimportant"}   
 En todo caso, es conveniente siempre preguntarse si la exposición observada en los controles es la esperada en la población sana, o si por el contrario hay algún motivo por el que no tenga por qué serlo.
@@ -367,9 +408,13 @@ Fijaos en que el objetivo de un estudio de casos y controles es determinar si la
 * En la parte de casos y controles del estudio chino sobre cirujanos ortopédicos y COVID-19, se observó que la proporción de sujetos que no recibieron formación específica reciente sobre control de infecciones fue superior entre los enfermos de COVID-19 que entre los sanos. Pero lo que queremos saber es si la proporción de infectados entre los que no reciben esta formación es superior a la de infectados entre los que sí la reciben.
 
 
+```{r queremos,echo=FALSE, out.width="80%"}
+knitr::include_graphics("INREMDN_files/figure-html/queremos.png")
+```
+
 Pues bien, por un lado estamos de suerte: la conclusión global es correcta. **Si la proporción de expuestos entre los casos es mayor que entre los controles, la proporción de casos entre los expuestos es mayor que entre los no expuestos**. 
 
-Hagamos los cálculos. Supongamos que en nuestra muestra hay $N$ casos y $M$ controles. De los $N$ casos, $n_1$ estuvieron expuestos al factor de riesgo y $n_0$ no. Entre los $M$ controles, estos números son $m_1$ y $m_0$, respectivamente. Llamemos $E_1=n_1+m_1$ al total de expuestos en la muestra y $E_0=n_0+m_0$ al de no expuestos. Estos números se resumen en la tabla siguiente:
+Hagamos los cálculos. Supongamos que en nuestra población hay $N$ casos y $M$ controles. De los $N$ casos, $n_1$ estuvieron expuestos al factor de riesgo y $n_0$ no. Entre los $M$ controles, estos números son $m_1$ y $m_0$, respectivamente. Llamemos $E_1=n_1+m_1$ al total de expuestos en la muestra y $E_0=n_0+m_0$ al de no expuestos. Estos números se resumen en la tabla siguiente:
 $$
 \begin{array}{r|c|c|c}
 & \text{Casos} & \text{Controles} & \text{Total} \\ \hline
@@ -464,10 +509,23 @@ Por suerte, como veremos más adelante, estos problemas tendrán solución estad
 ## Estudios de cohorte
 
 
-En un **estudio de cohorte**, se toma un grupo de individuos expuesto a un factor de riesgo y un grupo de individuos no expuestos a dicho factor de riesgo, o más en general, varios grupos de individuos expuestos a diferentes factores de riesgo. A partir de entonces, se les realiza un seguimiento durante un período de tiempo para comparar **prospectivamente** la aparición de una enfermedad en ambos grupos. El término "cohorte" del nombre refiere al grupo de individuos al que se realiza el seguimiento, aunque también a veces se llaman "cohortes" a los subgrupos de la cohorte global definidos por las diferentes exposiciones a factores de riesgo. Por el mismo motivo, a veces se habla de **estudio de cohortes**, en plural. A nosotros se nos escapará más de una vez, no nos lo tengáis en cuenta.
+En un **estudio de cohorte**:
+
+* Se toma un grupo de individuos expuestos a un factor de riesgo y un grupo de individuos no expuestos a dicho factor de riesgo, o más en general, varios grupos de individuos expuestos a diferentes factores de riesgo. 
+
+* Se les realiza un seguimiento durante un período de tiempo para comparar **prospectivamente** la aparición de una enfermedad en ambos grupos. 
+
+* Se determina si es más frecuente la aparición de la enfermedad entre los expuestos que entre los no expuestos. 
+
+* En caso afirmativo, se infiere que, en la población general, la exposición a dichos factores está asociada a una mayor probabilidad de sufrir la enfermedad. 
+
+* Como el objetivo es estudiar la aparición de la enfermedad tras la exposición, los individuos participantes han de estar **sanos** (es decir, sin la enfermedad de interés) en el momento de iniciar su seguimiento. 
+
+```{block2, type="rmdnote"}
+El término "cohorte" del nombre refiere al grupo completo de individuos al que se realiza el seguimiento, aunque también a veces se llaman "cohortes" a los subgrupos de la cohorte global definidos por las diferentes exposiciones a factores de riesgo. Por este motivo, a veces se habla de **estudio de cohortes**, en plural. A nosotros se nos escapará más de una vez, no nos lo tengáis en cuenta.
+```
 
 
-El objetivo de un estudio de cohorte es determinar bajo qué factores de riesgo resulta ser más frecuente la aparición de la enfermedad, para inferir que, en la población general, la exposición a dichos factores está asociada a una mayor probabilidad de sufrir la enfermedad. Como el objetivo es estudiar la aparición de la enfermedad tras la exposición, la cohorte ha de estar formada por individuos **sanos** (es decir, sin la enfermedad de interés) en el momento de iniciar su seguimiento. 
 
 
 
@@ -498,9 +556,11 @@ knitr::include_graphics("INREMDN_files/figure-html/epoc.png")
 Los estudios de cohorte son también **observacionales**, **analíticos** y **longitudinales**, por exactamente los mismos motivos que los de casos y controles. La información que se analiza va desde el momento en que los sujetos son clasificados según su exposición a factores de riesgo hacia adelante, para ver si desarrollan la enfermedad, y por tanto siempre es prospectiva. Sin embargo, se suele distinguir entre estudios de cohorte **prospectivos** y **retrospectivos** según el momento (presente o pasado) en que se realiza la clasificación en expuestos y no expuestos:
 
 
-* Estudio de cohorte **prospectivo**: se toman los expuestos y no expuestos a día de hoy, y se estudia su evolución futura (por tanto, esperando a que pase el tiempo necesario).
+* Estudio de cohorte **prospectivo**: se toman los expuestos y no expuestos a día de hoy, y se estudia su evolución futura (por tanto, esperando a que pase un cierto período de tiempo).
 
-El estudio de Rotterdam es prospectivo. Veamos otro ejemplo de estudio de cohorte prospectivo.
+
+
+El estudio de Rotterdam fue prospectivo. Veamos otro ejemplo de estudio de cohorte prospectivo.
 
 ```{example,IBScohorte}
 En el estudio ["Increased risk of irritable bowel syndrome after bacterial gastroenteritis: cohort study"](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC27756/) (L. A. García Rodríguez y A Ruigómez, *British Medical Journal* 318 (1999), 565-566) los autores realizaron un seguimiento a un grupo de pacientes que sufrieron un episodio de gastroenteritis bacteriana y lo compararon con un grupo de individuos sin gastroenteritis bacteriana. De ambos grupos se excluyeron los pacientes que ya tenían un historial de síndrome de colon irritable (SCI); recordad que en el inicio del estudio los sujetos han de estar libres de la enfermedad que se quiere ver aparecer. Además también se excluyeron los que tenían algún factor de riesgo conocido del SCI  (cáncer de colon, alcoholismo...), para poder "garantizar" que su riesgo de aparición del SCI fuera similar, salvo por la gastroenteritis. 
@@ -512,6 +572,13 @@ Se realizó un seguimiento a ambos grupos durante un año, al cabo del cual un 0
 
 
 * Estudio de cohorte  **retrospectivo** o **histórico**: se toman los expuestos y no expuestos en un cierto momento del pasado, y se estudia su evolución hasta el día de hoy (sin tener que esperar nada de tiempo).
+
+
+
+```{r INICIO,echo=FALSE, out.width="100%",fig.cap="Estudios de cohorte prospectivos y retrospectivos."}
+knitr::include_graphics("INREMDN_files/figure-html/INICIO.png")
+```
+
 
 Veamos un ejemplo de estudio de cohorte retrospectivo.
 
@@ -578,7 +645,7 @@ Por ejemplo, las siguientes frases refieren a la incidencia acumulada:
 
 * "En los últimos 14 días se han detectado en las Islas Baleares 249 casos por cada cien mil habitantes."
 
-```{block2,type="rmdcaution"}
+```{block2,type="rmderror"}
 Para ser precisos, al calcular la incidencia acumulada como proporción, el denominador no tendría que ser el total de la población, sino el número de individuos sanos en la población al principio del período de tiempo considerado. Es decir, tendríamos que hablar de "En los últimos 14 días se han detectado en las Islas Baleares 249 casos por cada cien mil habitantes **sin COVID-19**".
 ```
 
@@ -593,7 +660,7 @@ Por ejemplo, a la hora de calcular en septiembre de 2020 que "se han detectado e
 
 * El número de casos activos diagnosticados de COVID-19 (su **prevalencia**, concepto que trataremos en detalle en la siguiente sección) era de algo menos de 2500 enfermos.
 
-Está claro que no va a haber mucha diferencia entre dividir el número de casos nuevos por 11.4946 (para obtener el número aproximado de casos nuevos por cien mil habitantes) o por 11.4696  (para obtener el número aproximado de casos nuevos por cien mil habitantes sanos). Sobre todo si no estamos seguros de la exactitud del denominador.
+Está claro que no va a haber mucha diferencia entre dividir el número de casos nuevos por 11.4946 (para obtener el número aproximado de casos nuevos por cien mil habitantes) o por 11.4696  (para obtener el número aproximado de casos nuevos por cien mil habitantes sanos). Sobre todo si no estamos seguros de la exactitud del denominador en ninguno de los dos casos.
 
 
 Por otro lado, la **densidad de incidencia** es el **número medio de casos nuevos** de la enfermedad por unidad de tiempo (durante un cierto período de tiempo). 
@@ -607,7 +674,7 @@ Volviendo a los estudios de cohorte, algunos de sus **inconvenientes** son:
 
 * Se puede dar el mismo problema con los **confundidores** que en los estudios de casos y controles.
 
-     Por ejemplo, en el estudio de la mortalidad y la psoriasis del Ejemplo \@ref(exm:psoriasis), está claro que la causa del aumento de mortalidad  no es  la psoriasis, sino enfermedades asociadas a ella.
+     Por ejemplo, en el estudio de la mortalidad y la psoriasis del Ejemplo \@ref(exm:psoriasis), se especula con que la causa del aumento de mortalidad sea que "las modificaciones inmunológicas e inflamatorias observadas en la psoriasis podrían favorecer el desarrollo de la aterosclerosis", pero no está claro si la causa de las modificaciones  inmunológicas e inflamatorias es la psoriasis misma, o si la psoriasis y estas modificaciones se deben a una tercera causa. 
 
 * Son poco adecuados para estudiar enfermedades raras, ya que entonces habrá que tomar una cohorte muy grande o realizar el seguimiento durante un período muy largo de tiempo para poder observar una cantidad razonable de enfermos. Por el mismo motivo, los estudios de cohorte prospectivos  son poco adecuados para estudiar enfermedades de desarrollo lento.
 
@@ -626,12 +693,24 @@ Los estudios de cohorte retrospectivos resuelven estos inconvenientes, pero pres
 
 ## Estudios transversales
 
-En un **estudio transversal** se toma un grupo de individuos en principio representativo de una población (una **muestra transversal** de la población) y se miden simultáneamente, o  en un corto espacio de tiempo, varias características de todos ellos: por ejemplo, una enfermedad y los factores de riesgo relacionados con la misma y presentes en ese momento. El objetivo es inferir qué asociación hay entre estas condiciones  en la población general.
+En un **estudio transversal** se toma un grupo de individuos en principio representativo de una población (una **muestra transversal** de la población) y se miden en un momento concreto varias características de todos ellos: por ejemplo, una enfermedad y los factores de riesgo relacionados con la misma y presentes en ese momento. El objetivo es inferir qué asociación hay entre estas condiciones  en la población general.
+
+
 
 
 ```{r transversal,echo=FALSE, out.width="60%"}
 knitr::include_graphics("INREMDN_files/figure-html/transversal.png")
 ```
+
+```{block2,type="rmdimportant"}
+Para que un estudio sea **transversal** en el sentido de esta sección, es necesario que:
+
+* Sea **transversal** en el tiempo: la información refiera a un solo momento.
+* La muestra sea **transversal**: sin composición prefijada.
+
+```
+
+
 
 Una de las utilidades de los estudios transversales es poder estimar la **prevalencia** de una enfermedad (u otra característica): **la proporción**, o **el número**, **de individuos con la enfermedad** en una población en un momento determinado. 
 
@@ -639,8 +718,8 @@ Una de las utilidades de los estudios transversales es poder estimar la **preval
 ```{block2,type="rmdcaution"}
 No confundáis la  prevalencia  con la incidencia:
 
-* La **prevalencia** representa el número total de enfermos en una población en un momento determinado
-* La **incidencia** representa el número de enfermos nuevos en una población en un período de tiempo determinado
+* La **prevalencia** representa el número **total** de enfermos en una población en un momento determinado
+* La **incidencia** representa el número de enfermos **nuevos** en una población en un período de tiempo determinado
 
 Por ejemplo, en ["Estimates of global, regional, and national incidence, prevalence, and mortality of HIV, 1980-2015: the Global Burden of Disease Study 2015"](https://www.sciencedirect.com/science/article/pii/S235230181630087X) (H. Wang *et al*, *The Lancet. HIV* 3 (2016), e361-87) se afirma que: 
 
@@ -662,7 +741,13 @@ En el estudio ["Prevalencia de factores de riesgo cardiovascular en las Islas Ba
 
 > "Las prevalencias estimadas fueron: tabaquismo del 27% (el 36.9% en varones y el 18.7% en mujeres); hipertensión del 47.8% (el 52.3% en varones y el 43.4% en mujeres); hipercolesterolemia del 24.2% (el 24.4% en varones y el 24.1% en mujeres); diabetes del 11.7% (el 15.3% en varones y el 8.4% en mujeres); obesidad del 27% (el 24.8% en varones y el 29% en mujeres), sobrepeso del 40.1% (el 48.3% en varones y el 33.4% en mujeres) [...]"
 
-Este ejemplo es un estudio transversal de prevalencia: se tomó una muestra **transversal** de la población (la que salió, sin especificar su composición según alguna clasificación de los individuos por factores de riesgo o enfermedades) y su objetivo era estimar, a partir de la muestra, la prevalencia de algunas características entre la población de  nuestra comunidad. 
+Este ejemplo es un estudio transversal de prevalencia: 
+
+* Se tomó una muestra **transversal** de la población (la que salió, sin especificar su composición según alguna clasificación de los individuos por factores de riesgo o enfermedades).
+
+* Se midieron algunas características de los sujetos en un solo momento.
+
+* El objetivo era estimar la prevalencia de estas características entre la población de  nuestra comunidad. 
 
 En otros estudios transversales se estima la asociación entre factores de riesgo y enfermedades.
 
@@ -681,9 +766,9 @@ Vamos a ver, en este estudio se tomó una muestra de sujetos y se anotó, por un
   
 Pues sí,  podríamos considerarlo como de casos y controles, aunque el hecho de anotar no solo si los sujetos tenían las enfermedades a día 1/1/2017, sino también si las habían tenido en el pasado, no encaja del todo con un diseño de casos y controles. Pero como la "exposición", es decir, en este caso, el nacimiento, es anterior a cualquier enfermedad que pudieran desarrollar los sujetos, es aceptable.
 
-Y seguramente también podríamos considerarlo de cohorte retrospectivo, aunque para clasificarlo como tal es necesario que las enfermedades fueran tales que los sujetos no las tuvieran en el momento de nacer (lo fueron). Recordad que en los estudios de cohorte, en el momento en el que se clasifican los sujetos según su exposición a factores de riesgo han de estar **sanos**.
+Y seguramente también podríamos considerarlo de cohorte retrospectivo, aunque, de nuevo, para clasificarlo como tal es necesario que los sujetos no tuvieran las enfermedades en el momento de nacer. Recordad que en los estudios de cohorte, en el momento en el que se clasifican los sujetos según su exposición a factores de riesgo han de estar **sanos**.
 
-De hecho, los autores dicen que es un estudio transversal, y para nuestro gusto esta sería la clasificación más adecuada, ya que se toma una sola muestra de la población española "transversal" a dicha población y se anotan varias características de los sujetos de la muestra. Pero en cambio el análisis estadístico que realizan sus autores es el típico de un estudio de casos y controles (ya trataremos esta cuestión en el tema de Probabilidades más adelante), y eso ya sería un error.
+De hecho, los autores dicen que es un estudio transversal, y para nuestro gusto esta sería la clasificación más adecuada, ya que se toma una  muestra representativa de la población española y se anotan varias características de los sujetos de la muestra. Pero en cambio el análisis estadístico que realizan sus autores es el típico de un estudio de casos y controles (ya trataremos esta cuestión en la Sección \@ref(sec:probaplic2) del tema de Probabilidades). Eso ya es entonces un error.
 
 ```{block2,type="rmdimportant"}
 ¿Cuál es entonces la respuesta correcta? La verdad es que cualquiera de las tres. Lo importante no es tanto poner una etiqueta a un estudio como razonar correctamente qué tipo de estudio "puede ser" para poder llevar a cabo luego el análisis estadístico  de los datos recogidos de manera consistente con el tipo elegido.
@@ -691,7 +776,7 @@ De hecho, los autores dicen que es un estudio transversal, y para nuestro gusto 
 
 
 ```{example,HS}
-Consideremos el estudio ["Prevalencia de hipertensión arterial y otros factores de riesgo cardiovascular en la población con hipotiroidismo subclínico"](https://www.sciencedirect.com/science/article/pii/S0025775316305759) (L. G. Gil y A. de la Sierra, *Medicina Clínica* 148 (2017), pp. 351-353). En él, se tomó un grupo de  240 pacientes con hipotiroidismo subclínico (HS) visitados en un CAP de Terrassa, y un grupo de 480 pacientes (dos por cada uno con HS) del mismo CAP sin HS. Se evaluó en todos estos sujetos la presencia de hipertensión arterial, diabetes etc. El objetivo era comparar la prevalencia de estas patologías entre los pacientes con y sin HS.
+Consideremos el estudio ["Prevalencia de hipertensión arterial y otros factores de riesgo cardiovascular en la población con hipotiroidismo subclínico"](https://www.sciencedirect.com/science/article/pii/S0025775316305759) (L. G. Gil y A. de la Sierra, *Medicina Clínica* 148 (2017), pp. 351-353). En él, se tomó un grupo de  240 pacientes con hipotiroidismo subclínico (HS) visitados en un CAP de Terrassa, y un grupo de 480 pacientes  del mismo CAP sin HS (dos por cada uno con HS). Se evaluó en todos estos sujetos la presencia de hipertensión arterial, diabetes etc. El objetivo era comparar la prevalencia de estas patologías entre los pacientes con y sin HS.
 
 ```
 
@@ -732,13 +817,13 @@ Se trata de un estudio descriptivo (y como se describieron 141 sujetos, lo adecu
 
 La ventaja principal de los estudios transversales es que, como los de casos y controles y los de cohorte retrospectivos, son relativamente fáciles de llevar a cabo. Además, son el tipo de estudio adecuado para estimar prevalencias. 
 
-Los inconvenientes que comparten con los otros estudios observacionales son que puede haber confundidores y que se pueden dar diferentes sesgos en la recogida de datos. Además, al basarse en una muestra "transversal" tomada en un momento concreto, no son útiles para estudiar ni enfermedades que sean poco frecuentes o de desarrollo rápido ni exposiciones a riesgos poco frecuentes, ya que requerirían de muestras muy grandes para poder esperar un número significativo de estas enfermedades o exposiciones.  Tampoco permiten estimar incidencias, ya que para ello se necesita contar enfermos en diferentes momentos. Además, son muy susceptibles al sesgo de supervivencia que comentábamos en los estudios de casos y controles, ya que solo muestreamos individuos vivos. 
+Los inconvenientes que comparten con los otros estudios observacionales son que puede haber confundidores y que se pueden dar diferentes sesgos en la recogida de datos. Además, al basarse en una muestra "transversal" tomada en un momento concreto, es complicado usar un estudio transversal para estudiar  enfermedades poco frecuentes o de desarrollo rápido o exposiciones a riesgos poco frecuentes, ya que serían necesarias muestras muy grandes para poder esperar un número significativo de enfermos o de expuestos.  Tampoco permiten estimar incidencias, ya que para ello se necesita contar enfermos en diferentes momentos. Además, son muy susceptibles al sesgo de supervivencia que comentábamos en los estudios de casos y controles, ya que solo muestreamos individuos vivos. 
 
-Pero de entre todos sus inconvenientes, el más destacable es que, al referir la información a un momento concreto,  a partir de un estudio transversal en principio **es imposible obtener ninguna información sobre relaciones temporales** tipo antecedente/desenlace. 
+Pero de entre todos sus inconvenientes, el más destacable es que, al usar  información sobre un momento concreto,  a partir de un estudio transversal en principio **es imposible obtener ninguna información sobre relaciones temporales** tipo antecedente/desenlace. 
 
-Si en una muestra de individuos anotamos, por ejemplo, si en ese momento tienen caries o no y si usan inhaladores para el asma o no, no obtenemos ninguna información sobre si alguna de esas dos condiciones es anterior a la otra y por lo tanto no podemos deducir deducir nada sobre si una podría ser susceptible de "causar" la otra.
+Si en una muestra de individuos anotamos, por ejemplo, si en ese momento tienen caries o no y si usan inhaladores para el asma o no, no obtenemos ninguna información sobre si alguna de esas dos condiciones es anterior a la otra y por lo tanto no podemos  deducir nada sobre si una podría ser susceptible de "causar" la otra.
 
-O por ejemplo, en el estudio del Ejemplo \@ref(exm:HS), se observó que los enfermos de HS tenían un nivel de colesterol significativamente más alto que los controles. Pero no hay manera de saber a partir de los datos obtenidos en este estudio si el HS aumenta el riesgo de hipercolesterolemia, o si es el colesterol alto el que aumenta el riesgo de HS, o ninguna de las dos cosas y hay un confundidor escondido por ahí.
+O por ejemplo, en el estudio del Ejemplo \@ref(exm:HS), se observó que los enfermos de HS tenían un nivel de colesterol significativamente más alto que los controles. Pero no hay manera de saber a partir de los datos obtenidos en ese estudio si el HS aumenta el riesgo de hipercolesterolemia, o si es el colesterol alto el que aumenta el riesgo de HS, o ninguna de las dos cosas y las dos son consecuencia de un tercer factor.
 
 
 ```{block2,type="rmdromans"}
@@ -746,9 +831,9 @@ Volviendo a la prevalencia, para liar más las cosas los epidemiólogos distingu
 
 * **Prevalencia puntual**: lo que nosotros hemos definido como prevalencia, es decir, número (o proporción) de personas que tienen la enfermedad en un momento concreto.
 
-* **Prevalencia de período**: número (o proporción) de **personas** que en algún momento de un período de tiempo concreto  han tenido la enfermedad, incluidos los que ya estaban enfermos al inicio del período de tiempo considerado. Si una persona la ha tenido varias veces, solo cuenta una vez en este valor. 
+* **Prevalencia de período**: número (o proporción) de **personas** que en algún momento de un período de tiempo concreto  han tenido la enfermedad, incluidos los que ya estaban enfermos al inicio del período de tiempo considerado. Si una persona  ha tenido varias veces la enfermedad durante el período de tiempo considerado, solo cuenta una vez en este valor. 
 
-* **Prevalencia de vida**: número (o proporción) de **personas** que en algún momento de su vida han tenido la enfermedad. De nuevo, si una persona la ha sufrido varias veces a lo largo de su vida, solo cuenta una vez en este valor.
+* **Prevalencia de vida**: número (o proporción) de **personas** que en algún momento de su vida han tenido la enfermedad. De nuevo, si una persona  ha sufrido varias veces la enfermedad a lo largo de su vida, solo cuenta una vez en este valor.
 
 ```
 
@@ -801,7 +886,7 @@ En un [estudio llevado a cabo en 1928](https://journals.sagepub.com/doi/abs/10.3
 
 *(a)* ¿De qué tipo de estudio se trata? ¿Cuál es la "exposición" y cuál el "desenlace" de interés?
 
-*(b)* Teniendo en cuenta que la tuberculosis era una de las causas principales de hospitalización en el hospital donde se llevaron a cabo las autopsias, ¿creéis que su conclusión estaba justificada?
+*(b)* Teniendo en cuenta que la tuberculosis era una de las causas principales de ingreso en el hospital donde se llevaron a cabo las autopsias, ¿creéis que su conclusión estaba justificada?
 
 ```
 
@@ -814,7 +899,7 @@ En el estudio ["Radón residencial y cáncer de pulmón. Un estudio ecológico e
 
 ```
 
-¿Es correcta la conclusión? El hecho de que se observe una tendencia a que la tasa de mortalidad por cáncer de pulmón entre los varones sea mayor en los **municipios** con mayor media en las mediciones de concentración de radón en domicilios, ¿aporta evidencia de que el radón residencial aumenta el riesgo de cáncer de pulmón en **hombres**? (Y fijaos en que los autores usan el verbo "puede aumentar", no "aumenta".) 
+¿Es correcta la conclusión? El hecho de que se observe una tendencia a que la tasa de mortalidad por cáncer de pulmón entre los varones sea mayor en los **municipios** con mayor media en las mediciones de concentración de radón en domicilios, ¿aporta evidencia de que el radón residencial aumenta el riesgo de cáncer de pulmón en **hombres**? (Pista: los autores usan el verbo "puede aumentar", no "aumenta".) 
 
 En principio, no. Este tipo de conclusión es lo que se conoce como **falacia ecológica**: tomar una asociación positiva entre dos características a nivel de comunidades y traducirla a una asociación positiva a nivel de individuos. 
 
@@ -834,7 +919,7 @@ knitr::include_graphics("INREMDN_files/figure-html/meat.png")
 
 ¿Se puede concluir que consumir más carne roja aumenta el riesgo de cáncer de colon entre las mujeres? No, la tendencia observada es a nivel de países, no a nivel individual. Para poder deducir una asociación a nivel de mujeres, sería necesario un estudio de casos y controles, o mejor uno de cohorte.
 
-¿Para qué sirve entonces un estudio ecológico? Básicamente, para aportar evidencia indirecta de la veracidad de una hipótesis que puede reforzar otras evidencias o motivar estudios posteriores. Como además los estudios ecológicos son muy fáciles de llevar a cabo, ya que en general los datos en los que se basan son públicos en bases de datos al alcance de todos y se recogen en una tarde, son bastante comunes en epidemiología.
+¿Para qué sirve entonces un estudio ecológico? Básicamente, para aportar evidencia indirecta de la veracidad de una hipótesis. Esta evidencia indirecta puede reforzar la evidencia obtenida en otros lugares o motivar estudios posteriores. Como además los estudios ecológicos son muy fáciles de llevar a cabo, ya que en general los datos en los que se basan son públicos en bases de datos al alcance de todos y se recogen en una tarde, son bastante comunes en epidemiología.
 
 
 ## Ensayos clínicos
@@ -847,7 +932,7 @@ Se suele llamar **ensayo clínico** (o simplemente **ensayo**) a un estudio méd
 
 En este curso vamos a distinguir entre dos tipos de estudios intervencionistas:
 
-* Estudio **experimental** (o **intervencionista aleatorizado y controlado**): En él, los individuos se distribuyen **al azar** (*aleatorizado*) en **al menos dos** grupos (*controlado*) que son sometidos a tratamientos **diferentes** para luego comparar los resultados. Usualmente, uno de los grupos sirve como grupo **de control**, por ejemplo porque no se les administra ningún tratamiento, o se les administra un **placebo** (explicamos qué es esto dentro de un rato) o el tratamiento de referencia (el *gold standard*) con el que se quiere comparar un nuevo tratamiento.
+* Estudio **experimental** (o **intervencionista aleatorizado y controlado**): En él, los individuos se distribuyen **al azar** (*aleatorizado*) en **al menos dos** grupos (*controlado*) que son sometidos a tratamientos **diferentes** para luego comparar los resultados. Usualmente, uno de los grupos sirve como grupo **de control**, por ejemplo porque no se les administra ningún tratamiento, o se les administra un **placebo** (explicamos qué es esto dentro de un rato) o el tratamiento de referencia  con el que se quiere comparar un nuevo tratamiento.
 
 * Estudio **casi-experimental**: Todos los otros estudios intervencionistas. 
 
@@ -857,7 +942,7 @@ Por ejemplo, el estudio sobre marcha nórdica que usábamos en la Sección \@ref
 
 
 ```{block2,type="rmdcaution"}
-El adjetivo "controlado" en la descripción de los estudios experimentales hace referencia a la existencia de al menos dos grupos que comparamos, uno de los cuales normalmente hace de "control". No a que el investigador "controle" todos los aspectos del estudio: eso está incluido en el adjetivo "intervencionista".
+El adjetivo "controlado" en la descripción de los estudios experimentales hace referencia a la existencia de al menos dos grupos que comparamos, uno de los cuales normalmente hace de "control". No a que el investigador en teoría "controle" todos los aspectos del estudio: eso está incluido en el adjetivo "intervencionista".
 ```
 
 
@@ -866,7 +951,7 @@ Como comentaremos más adelante,  los estudios intervencionistas suelen aportar 
 
 
 ```{block2,type="rmdnote"}
-**En teoría**, lo estudios experimentales permiten establecer una asociación causal entre las variables, porque **en teoría** el investigador controla completamente las características de los sujetos del estudio, de manera que las diferencias que se den entre los diferentes grupos solo puedan deberse a los diferentes tratamientos. Pero esto es solo **en teoría**, porque en la práctica es imposible controlarlo todo. 
+**En teoría**, lo estudios experimentales tendrían que permitir establecer una asociación causal entre las variables, porque **en teoría** el investigador controla completamente las características de los sujetos del estudio, de manera que las diferencias que se den entre los diferentes grupos solo puedan deberse a los diferentes tratamientos. Pero esto es solo **en teoría**, porque en la práctica es imposible controlarlo todo. 
 ```
 
 
@@ -890,9 +975,9 @@ El objetivo del enmascaramiento es **evitar sesgos en la recogida o el análisis
 
 * Si el paciente sabe que está tomando el tratamiento nuevo, puede autosugestionarse y sentir menos dolor.
 
-* Si el que les pide a los pacientes cómo se encuentran sabe qué está tomando cada uno, puede favorecer los datos sobre el tratamiento nuevo ("De 0 a 10, ¿cómo está hoy de dolor?" "Ay, no sé, un 5 o un 6." "¿Ponemos un 5?").
+* Si el que entrevista a los pacientes sabe qué está tomando cada uno, puede favorecer los datos sobre el tratamiento nuevo ("De 0 a 10, ¿cómo está hoy de dolor?" "Ay, no sé, un 5 o un 6." "¿Ponemos un 5?").
 
-* Si el que analiza los datos sabe cada individuo de su tabla de datos a qué grupo pertenece, puede escoger de entre todas las técnicas correctas para analizarlos aquella que más favorezca el tratamiento nuevo. 
+* Si el que analiza los datos sabe cada individuo de su tabla de datos a qué grupo pertenece, puede escoger de entre todas las técnicas correctas para analizarlos una que  favorezca el tratamiento nuevo. 
 
 ```{block2,type="rmdnote"}
 A menudo se usan los calificativos "simple ciego" o "doble ciego" en el sentido más general de que se esconde "algo" a una o dos partes, pero no tiene por qué ser el tratamiento. Por ejemplo, puede ser que los sujetos sepan perfectamente qué tratamiento reciben, pero que no sepan el objetivo final del estudio para que su conocimiento no influya en su comportamiento. 
@@ -903,13 +988,13 @@ Hemos hablado hace un rato de placebo. Un **placebo** es una substancia similar 
 
 Usar placebo  en un ensayo  clínico suele tener dos finalidades:
 
-* **Enmascarar el ensayo**. Si el grupo de control recibe algo físicamente idéntico al tratamiento pero que no sirve para nada, se puede ocultar a los participantes (y a los que recogen los datos) quién está  tomando el tratamiento activo y quién no. En cambio, si a un grupo se les administra un tratamiento y a otro no se les administra nada, es imposible enmascarar el estudio en este sentido, al menos a los participantes.
+* **Enmascarar el ensayo**. Si el grupo de control recibe algo físicamente idéntico al tratamiento pero que no sirve para nada, se puede ocultar a los participantes (y a los que recogen los datos) quién está  tomando el tratamiento activo y quién no. En cambio, si a un grupo se les administra un tratamiento y a otro no se les administra nada, es imposible enmascarar el tipo de tratamiento a los participantes.
 
 * **Evaluar el [efecto placebo](https://es.wikipedia.org/wiki/Efecto_placebo)**. Se trata de la alteración en la respuesta de un paciente por el simple hecho de recibir tratamiento. Por ejemplo, en un estudio sobre el tratamiento del dolor crónico, puede ser que el paciente note un cierto alivio del dolor por el mero hecho de "tomar algo", aunque sea azúcar. Muchas pseudoterapias se basan en este efecto.
 
 
 ```{example, acupuntura}
-Considerad el estudio ["Effect of Zhubin (KI9) acupuncture in reducing alcohol craving in patients with alcohol dependence: a randomized placebo-controlled trial"](https://link.springer.com/article/10.1007/s11655-014-1851-1) (J. S. Lee *et al*, *Chinese Journal of Integrative Medicine* 21 (2015), pp. 307-311). Su objetivo era examinar el efecto de la acupuntura en un determinado punto para reducir el ansia de ingesta de alcohol en  alcohólicos. Para ello, se separó de manera aleatoria 20 pacientes alcohólicos en dos grupos de 10. El grupo de tratamiento recibió acupuntura con agujas reales dos veces por semana durante 4 semanas, y el grupo de control recibió el mismo régimen de acupuntura pero con agujas de placebo (de punta roma, que no perforan la piel).  El doctor que practicó la acupuntura conocía qué tipo de aguja usaba, pero los pacientes y el personal encargado de realizarles el seguimiento, no.
+Considerad el estudio ["Effect of Zhubin (KI9) acupuncture in reducing alcohol craving in patients with alcohol dependence: a randomized placebo-controlled trial"](https://link.springer.com/article/10.1007/s11655-014-1851-1) (J. S. Lee *et al*, *Chinese Journal of Integrative Medicine* 21 (2015), pp. 307-311). Su objetivo era examinar el efecto de la acupuntura en un determinado punto para reducir el ansia de ingesta de alcohol en  alcohólicos. Para ello, se repartió de manera aleatoria 20 pacientes alcohólicos en dos grupos de 10. El grupo de tratamiento recibió acupuntura con agujas reales dos veces por semana durante 4 semanas, y el grupo de control recibió el mismo régimen de acupuntura pero con agujas de placebo (de punta roma, que no perforan la piel).  El doctor que practicó la acupuntura conocía qué tipo de aguja usaba, pero los pacientes y el personal encargado de realizarles el seguimiento, no.
 
 
 ```
@@ -957,7 +1042,7 @@ Observad algunos aspectos de este estudio:
 
 * El ensayo fue **controlado**, ya que cada sujeto fue el control de si mismo. Se comparó para cada participante su digestión de la lactosa y de la "no-lactosa", que es el papel que juega la maltosa en este estudio. 
 
-* El ensayo fue **aleatorizado**, ya que el orden de los productos administrados a cada sujeto fue decidido al azar. De esta manera, se intentó evitar posibles sesgos que podrían haberse dado si todos hubieran consumido cada producto en el mismo día (debido a algún factor desconocido que influyera en la digestión de la lactosa y que se hubiera dado el día que tocara lactosa a todos).
+* El ensayo fue **aleatorizado**, ya que el orden de los productos administrados a cada sujeto fue decidido al azar. De esta manera, se intentó evitar posibles sesgos que podrían haberse dado si todos hubieran consumido cada producto en el mismo día. Por ejemplo, si hubiera algún factor desconocido que influyera en la digestión de la lactosa y que se hubiera dado el día que tocara lactosa a todos.
 
 * La maltosa en agua, tiene un aspecto y sabor similar al de la lactosa, por lo que sirvió de **placebo**.
 
@@ -978,7 +1063,7 @@ En un [famoso estudio](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2272051/pdf/
 
 a. Por su diseño, ¿de  qué tipo de estudio se trata?
 
-a. ¿Creéis que la conclusión de Gregg estaba justificada en base a los datos de los 78 neonatos con cataratas? En caso positivo, ¿por qué? En caso negativo, ¿qué información haría falta para poder llegar a una conclusión?
+a. ¿Creéis que la conclusión de Gregg estaba justificada en base solo a los datos de los 78 neonatos con cataratas? En caso positivo, ¿por qué? En caso negativo, ¿qué información haría falta para poder llegar a una conclusión?
 
 a. Si el estudio de Gregg no fue de casos y controles, diseñad (en detalle: cómo elegiríais los casos y los controles, cómo obtendríais la información etc.) un estudio de este tipo cuyo objetivo sea detectar la posible asociación entre la rubeola materna y las cataratas congénitas.
 
