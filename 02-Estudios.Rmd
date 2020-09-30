@@ -1166,10 +1166,10 @@ El objetivo final de la mayoría de estudios médicos es establecer una relació
 * Esta vacuna previene esta enfermedad.
 * Etc. 
 
-Por desgracia, como ya hemos comentado, es virtualmente imposible establecer sin ninguna duda una relación de causalidad entre dos eventos. Por ejemplo, ¿cómo podríamos estar absolutamente seguros de que fumar aumenta el riesgo de cáncer de pulmón? Pues tomando un grupo de personas, haciéndoles fumar cantidades fijas de cigarrillos diarios  y  anotando quiénes de ellos desarrollan cáncer de pulmón a lo largo de su vida. A continuación, volviendo atrás en el tiempo, impedirles totalmente que fumen, hacerles revivir su vida (su vida, y la del resto del universo) exactamente como en la primera ronda, salvo por el hecho de que ahora no fuman, y anotar quiénes desarrollan cáncer de pulmón en esta segunda oportunidad. Solo de esta manera garantizaríamos que cualquier diferencia en los números de cáncer de pulmón se debe a fumar.
+Por desgracia, como ya hemos comentado, es virtualmente imposible establecer sin ninguna duda una relación de causalidad entre dos eventos por medio de un estudio médico. Por ejemplo, ¿cómo podríamos estar absolutamente seguros de que fumar aumenta el riesgo de cáncer de pulmón? Pues tomando un grupo de personas, haciéndoles fumar cantidades fijas de cigarrillos diarios  y  anotando quiénes de ellos desarrollan cáncer de pulmón a lo largo de su vida. A continuación, volviendo atrás en el tiempo, impedirles totalmente que fumen, hacerles revivir su vida (su vida, y la del resto del universo) exactamente como en la primera ronda, salvo por el hecho de que ahora no fuman, y anotar quiénes desarrollan cáncer de pulmón en esta segunda oportunidad. Solo de esta manera garantizaríamos que cualquier diferencia en los números de cáncer de pulmón se debe al hecho de fumar.
 
 
-Como no podemos usar esta técnica, hemos de usar estudios como los explicados en las secciones anteriores, que en general solo muestran una asociación entre una exposición y un desenlace y en los que no podemos controlar todas las condiciones que pueden influir en el desenlace, incluyendo confundidores. Cierto es que en los estudios experimentales las controlamos más que en el resto, pero no al cien por cien. En estas condiciones, está claro que la asociación que se observe en principio no tiene por qué implicar causalidad.
+Como no podemos usar esta técnica, hemos de echar mano a estudios como los explicados en las secciones anteriores, que en general solo muestran una asociación entre una exposición y un desenlace y en los que no podemos controlar todas las variables que puedan influir en el desenlace, incluyendo confundidores. Cierto es que en los estudios experimentales las controlamos más que en el resto, pero no al cien por cien. En estas condiciones, está claro que la asociación que se observe en principio no tiene por qué implicar causalidad.
 
 ```{example,univturmor}
 En el estudio ["Socioeconomic position and the risk of brain tumour: a Swedish national population-based cohort study"](https://jech.bmj.com/content/70/12/1222) (A. Khanolkar *et al*, *Journal of Epidemiology and Community Health* 70  (2016), pp. 1222-1228) se realizó un seguimiento durante 17 años a más de 4 millones de suecos, y se observó una asociación sorprendente: los que habían cursado al menos 3 años de estudios universitarios tenían un 22% más de probabilidad de tener un glioma (un tipo de cáncer de cerebro) que los que solo tenían educación primaria.  La diferencia fue además estadísticamente significativa. ¿Creéis que puede ser verdad que tener estudios universitarios cause un aumento de la probabilidad de tener un glioma?
@@ -1177,7 +1177,7 @@ En el estudio ["Socioeconomic position and the risk of brain tumour: a Swedish n
   
 ```
 
-Seguramente no. Incluso los autores lo reconocen en las Conclusiones. En lo que se detectó una diferencia significativa fue en **el número de diagnósticos de glioma**, pero pudo deberse simplemente a que las personas con estudios superiores tienen una mayor probabilidad de que su glioma sea detectado, por ejemplo porque acudan al médico antes, y que sea registrado en el Registro Nacional de Cáncer, que es de donde se extrajo la información sobre los cánceres.  Naturalmente, en el periódico solo vais a encontrar la parte llamativa del estudio, como muestra el titular de la noticia del ABC sobre el tema.
+Seguramente no. Incluso los autores lo reconocen en las Conclusiones. En lo que se detectó una diferencia significativa fue en **el número de diagnósticos de glioma**, que pudo deberse  a que las personas con estudios superiores tienen una mayor probabilidad de que su glioma sea detectado, por ejemplo porque acudan al médico antes, y que sea registrado en el Registro Nacional de Cáncer, que es de donde se extrajo la información sobre los cánceres.  Naturalmente, en el periódico solo vais a encontrar la parte llamativa del estudio, como muestra el titular de la noticia del ABC sobre el tema.
 
 
 ```{r ABCglioma,echo=FALSE, out.width="80%",fig.cap="Noticia publicada en el ABC el 21 junio de 2016. El texto completo está disponible en https://www.abc.es/salud/enfermedades/abci-estudios-universitarios-podrian-aumentar-riesgo-tumores-cerebrales-201606201751_noticia.html."}
@@ -1186,13 +1186,13 @@ knitr::include_graphics("INREMDN_files/figure-html/ABCglioma.png")
 
 
 
-El estadístico [Austin Bradford Hill](https://es.wikipedia.org/wiki/Austin_Bradford_Hill) (que ya ha aparecido en esta lección como coautor del estudio pionero sobre cáncer y tabaco del Ejemplo \@ref(exm:rubeola)) enunció la lista que se usa comúnmente de criterios de causalidad para poder aceptar que una asociación observada entre una exposición y un desenlace,  sea en realidad una relación causal. El primer criterio es obvio, y el único que es necesario que se cumpla:
+El estadístico [Austin Bradford Hill](https://es.wikipedia.org/wiki/Austin_Bradford_Hill) (que ya ha aparecido en esta lección como coautor del estudio pionero sobre cáncer y tabaco del Ejemplo \@ref(exm:rubeola)) enunció la lista más popular de criterios de causalidad para poder aceptar que una asociación observada entre una exposición y un desenlace,  sea en realidad una relación causal. El primer criterio es obvio, y el único que es necesario que se cumpla:
 
 * **Temporalidad**: La pretendida causa tiene que preceder temporalmente al efecto.
 
-El resto de criterios son optativos, pero cuantos más se cumplan, más fuerza tiene el argumento en favor de la relación causa/efecto.  Vamos a ilustrarlos con los argumentos en favor de que niveles altos de colesterol en sangre aumentan el riesgo de enfermedad coronaria.
+El resto de criterios son optativos, pero cuantos más se cumplan, más fuerza tiene el argumento en favor de la relación causa/efecto.  Vamos a ilustrarlos con  argumentos en favor de que niveles altos de colesterol en sangre aumentan el riesgo de enfermedad coronaria.
 
-* **Fuerza de la asociación estadística**: Cuanto mayor sea la asociación observada (en el sentido, por ejemplo, de cuántas veces mayor es la probabilidad observada del desenlace entre los expuestos que entre los no expuestos), más creíble es que la exposición sea la causa del desenlace.
+* **Fuerza de la asociación estadística**: Cuanto mayor sea la asociación observada (en el sentido, por ejemplo, de cuántas veces mayor es la frecuencia observada del desenlace entre los expuestos que entre los no expuestos), más creíble es que la exposición sea la causa del desenlace.
 
      Por ejemplo, ha habido estudios de cohorte en los que se ha observado un aumento de casi el 300% en la incidencia de enfermedades coronarias entre los sujetos con nivel muy alto de colesterol respecto de los sujetos con niveles normales.
 
@@ -1207,7 +1207,7 @@ El resto de criterios son optativos, pero cuantos más se cumplan, más fuerza t
     
 * **Coherencia**: Si la relación causa/efecto propuesta es coherente con el conocimiento científico sobre el tema, es más creíble que sea verdadera.
 
-    Fijaos en que no es lo mismo tener una explicación biológica para la causalidad (el criterio anterior) que la ausencia de hechos conocidos y contrastados que la contradigan. En nuestro caso, la asociación entre el colesterol y la enfermedad cardíaca no contradice ningún estudio conocido ni ningún mecanismo biológico conocido.
+    Fijaos en que no es lo mismo tener una explicación biológica para la causalidad (el criterio anterior) que la ausencia de teorías o estudios que la contradigan. En nuestro caso, la asociación entre el colesterol y la enfermedad cardíaca no contradice ningún estudio conocido ni ningún mecanismo biológico conocido.
 
 * **Especificidad**: Si se han descartado mediante otros estudios otras posibles causas del desenlace, aumenta la verosimilitud de que la exposición para la que sí se ha encontrado una asociación lo cause.
 
@@ -1231,15 +1231,15 @@ El resto de criterios son optativos, pero cuantos más se cumplan, más fuerza t
 
 ## (Bonus track) Preguntas clínicas en formato PICO
 
-Al buscar información sobre un tema médico específico, es importante formular la pregunta de manera adecuada. Un esquema muy usado para estructurar este tipo de preguntas es el **PICO**, o su variante **PIO** , acrónimo de **P**aciente-**I**ntervención-**C**omparación-**O***utcome* (resultado).
+Al buscar información sobre un tema médico específico, es importante formular la pregunta de manera adecuada. Un esquema muy usado para estructurar este tipo de preguntas es el **PICO**, acrónimo de **P**aciente-**I**ntervención-**C**omparación-**O***utcome* (resultado):
 
-* ¿Sobre qué tipo de **P**aciente? Se trata de especificar de manera lo más precisa posible el tipo de paciente (o de **p**ersona, si está sano) sobre el que nos interesa obtener información.
+* ¿Sobre qué tipo de **P**aciente? Se trata de especificar de manera lo más precisa posible el tipo de paciente (o de **P**ersona, si está sano) sobre el que nos interesa obtener información.
 
 * ¿Qué **I**ntervención? Aquí **intervención** puede referir a un tratamiento de una enfermedad, la exposición a un factor de riesgo, una prueba diagnóstica...
 
 * ¿**C**omparado con qué otra intervención? A veces esta parte no se tiene en cuenta, si no se quiere comparar el resultado de la intervención con nada sino simplemente saber su resultado. Hablaríamos entonces del formato **PIO**.
 
-* ¿Qué resultado (**O***utcome*) nos interesa? Aquí **resultado** refiere a las consecuencias de la intervención referidas a la salud del paciente.
+* ¿Qué resultado (**O***utcome*) nos interesa? Aquí **resultado** refiere a las consecuencias de la intervención en lo que refiere a la salud del paciente.
 
 ```{example}
 Vamos a traducir al formato PICO la pregunta "¿El uso de ácido acetil salicílico  (AAS), aumenta la supervivencia en el infarto agudo de miocardio?"
@@ -1247,7 +1247,7 @@ Vamos a traducir al formato PICO la pregunta "¿El uso de ácido acetil salicíl
 
 ```
 
-* **P**aciente. ¿Ante qué tipo de pacientes se nos plantea el problema? Por ejemplo, podría ser:
+* **P**aciente. ¿Ante qué tipo de pacientes se nos plantea el problema? No vale "las personas en general". Por ejemplo, podría ser:
 
     * En los pacientes mayores de 60 años con síndrome coronario agudo con [elevación del ST](http://www.medintensiva.org/es/significado-clinico-del-sindrome-coronario/articulo/S0210569111000866/)...
 
@@ -1259,14 +1259,14 @@ Vamos a traducir al formato PICO la pregunta "¿El uso de ácido acetil salicíl
 
     * ... con respecto a no administrarles nada...
 
-* **O***utcome* (Resultado). ¿En qué efecto estamos interesados? Por ejemplo, podría ser
+* **O***utcome* (Resultado). ¿En qué efecto estamos interesados? Como a la larga nadie sobrevive a la vida, podría ser, por ejemplo
 
-* ... ¿aumenta la supervivencia a 30 días vista?
+* ... ¿aumenta la tasa de supervivencia a 30 días vista?
 
 
 Nos quedaría:
 
-> En los pacientes mayores de 60 años con síndrome coronario agudo con elevación del ST, ¿la administración de AAS aumenta la supervivencia a los 30 días con respecto a no administrarles nada?
+> En los pacientes mayores de 60 años con síndrome coronario agudo con elevación del ST, ¿la administración de AAS aumenta la tasa de supervivencia a los 30 días con respecto a no administrarles nada?
 
 ```{example}
 Considerad la situación siguiente. X es una nueva paciente de 76 años que acude a nuestra consulta para hacerse un examen físico periódico. X se encuentra en buen estado de salud aunque sufre de hipertensión desde hace muchos años. Su hipertensión está controlada con éxito mediante beta-bloqueantes y nos ha expresado su satisfacción con esta terapia. Sin embargo, su hijo ha sido diagnosticado recientemente de hipertensión y se le ha recetado un [inhibidor de la ECA](https://es.wikipedia.org/wiki/Inhibidor_de_la_enzima_convertidora_de_angiotensina). X nos pregunta si este tratamiento sería una mejor opción para ella.
