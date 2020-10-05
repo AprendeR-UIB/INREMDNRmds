@@ -2,10 +2,10 @@
 
 # Probabilidades elementales: Las mates
 
-La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso vamos a definir  la **probabilidad de un suceso** como la **proporción** (la **fracción**, el **porcentaje**) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. 
+La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso vamos a definir  la **probabilidad de un suceso** como la **proporción** (la **fracción**, el **porcentaje**) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. Esta proporción mide de manera intuitiva  la probabilidad de que si escogemos al azar un sujeto de la población, se dé en él el suceso (y de hecho coincide con esta probabilidad, para la definición formal de probabilidad que aquí no veremos).
 
 ```{example}
-La probabilidad de que al lanzar una moneda al aire salga cara es la proporción de la población (virtual) de lanzamientos de esta moneda en los que sale cara.
+La probabilidad de que al lanzar una moneda al aire salga cara es la proporción de la población (virtual y prácticamente infinita) de lanzamientos de esta moneda en los que sale cara.
 
 
 ```
@@ -14,8 +14,9 @@ La probabilidad de que al lanzar una moneda al aire salga cara es la proporción
 $$
 \text{Probabilidad}=\frac{\text{Casos favorables}}{\text{Casos posibles}}
 $$
+
 ```{block2,type="rmdcaution"}
-Esta fórmula solo es verdadera cuando **todos los resultados posibles tienen la misma probabilidad**, y aunque no os lo creáis, es un Teorema de Bernoulli que no es trivial.
+Esta fórmula solo es verdadera cuando **todos los resultados posibles tienen la misma probabilidad**. 
 ```
 
 Por ejemplo:
@@ -83,13 +84,13 @@ Entonces:
 
 * $A \cap B$ es  el conjunto de los estudiantes de la clase que son mujeres y llevan gafas, es decir, las mujeres de la clase que llevan gafas.
 
-* $A^c$  es  el conjunto de los estudiantes de la clase que  no son mujeres, es decir el conjunto de los hombres  de la clase.
+* $A^c$  es  el conjunto de los estudiantes de la clase que  no son mujeres, es decir los hombres  de la clase.
 
 * $B^c$  es  el conjunto de los estudiantes de la clase que  no llevan gafas.
 
 * $A-B$  es  el conjunto de las mujeres de la clase que no llevan gafas.
 
-* $B-A$  es  el conjunto de los hombres de la clase que  llevan gafas.
+* $B-A$  es  el conjunto de los estudiantes de la clase que llevan gafas y no son mujeres, es decir, los hombres de la clase que  llevan gafas.
 
 * $A$ y $B$ serán disjuntos (llevar gafas y ser mujer será incompatible en esta clase) si no hay ninguna mujer en la clase que lleve gafas.
 
@@ -154,7 +155,7 @@ para indicar, respectivamente, la intersección o la unión de los sucesos $A_1,
 
 ## Algunas fórmulas básicas
 
-Hemos definido la probabilidad $P(A)$ de un subconjunto (o suceso) $A$ de una población (o espacio muestral) $\Omega$ como la fracción de los sujetos de $\Omega$ que pertenecen a $A$.  A partir de esta definición se deducen, por puro conteo, las propiedades siguientes:
+Hemos definido la probabilidad $P(A)$ de un subconjunto (suceso) $A$ de una población (espacio muestral) $\Omega$ como la fracción de los sujetos de $\Omega$ que pertenecen a $A$.  A partir de esta definición se deducen, por puro conteo, las propiedades siguientes:
 
 1. Para todo suceso $A$, $0\leq P(A)\leq 1$.
 
@@ -177,7 +178,7 @@ $$
     El número de sujetos que  pertenecen a $A$ pero no a $B$ se obtiene restando del total de sujetos de $A$ los que pertenecen simultáneamente a $A$ y a $B$. Dividiendo por el número total de individuos de la población, obtenemos la correspondiente igualdad de proporciones.
 
 ```{block2,type="rmdcorbes"}
-Formalmente, como $A-B$ y $A\cap B$ son disjuntos (ya que ningún elemento de $A-B$ pertenece a $B$ y todos los elementos de $A\cap B$ pertenecen a $B$), tenemos que 
+Formalmente, como $A-B$ y $A\cap B$ son disjuntos (ya que ningún elemento de $A-B$ pertenece a $B$ y todos los elementos de $A\cap B$ pertenecen a $B$), la propiedad (3) nos dice que 
 $$
 P((A-B)\cup (A\cap B))=P(A-B)+P(A\cap B).
 $$
@@ -198,22 +199,14 @@ $$
 
 8. $P(A\cup B)=P(A)+P(B)-P(A \cap B)$.
 
-    En general, si queréis contar cuántos sujetos hay en $A\cup B$ y sumáis los de $A$ y los de $B$, los de la intersección los contáis dos veces, por lo que para dar el resultado correcto hay que restarlos una vez para compensarlo. Lo mismo pasa con las proporciones. 
-
+    Si queréis contar cuántos sujetos hay en $A\cup B$, tenéis que añadir a los de $A$ los de $B-A$ (mirad la Figura \@ref(fig:AmenysB)). Dividiendo por el total de la población para pasar a proporciones, esto nos dice que
+$$
+P(A\cup B)=P(A)+P(B-A)=P(A)+P(B)-P(A \cap B)
+$$
+donde la segunda igualdad se debe a (5).
+    
     Por ejemplo, si en una población hay un 50% de mujeres y un 60% de miopes, y un 35% del total son mujeres miopes, las personas que son mujeres o miopes (recordad, o ambas cosas)  forman un 75% de la población: al 50% de mujeres hay que sumarle el 25% de miopes que no son mujeres.
 
-
-```{block2,type="rmdcorbes"}
-Formalmente: Como podéis ver en la Figura \@ref(fig:AmenysB), $A\cup B=(A-B)\cup (B-A)\cup (A\cap B)$ y estos tres conjuntos son disjuntos, por lo que podéis aplicar las propiedades (4) y (5):
-$$
-\begin{array}{rl}
-P(A\cup B) & = P(A-B)+ P(B-A)+ P(A\cap B)\\
-& =P(A)-P(A\cap B)+P(B)-P(A\cap B)+ P(A\cap B)\\
-& =P(A)+P(B)-P(A \cap B)
-\end{array}
-$$
-```
-    
     
 ```{r AmenysB, echo=FALSE, out.width="50%", fig.cap="Descomposición de la unión en tres conjuntos disjuntos."}
 knitr::include_graphics("INREMDN_files/figure-html/A-B.png")
@@ -235,7 +228,7 @@ Más adelante veremos cuándo esta igualdad es verdadera.
 
 
 ```{example,VIHherpes1}
-Supongamos el 0.1% de todos los donantes de sangre da positivo en el test de VIH, y el 1% da positivo en el test de herpes simple (VHS). El 0.05% da positivo en ambos tests. 
+Supongamos que el 0.1% de todos los donantes de sangre da positivo en el test de VIH, y el 1% da positivo en el test de herpes simple (VHS). El 0.05% da positivo en ambos tests. 
 
 ¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en al menos uno de los dos tests? ¿Y la de que un donante escogido al azar dé positivo en VHS pero no en VIH?
   
@@ -274,9 +267,9 @@ Otra manera de calcular estas probabilidades sin necesidad de recordar fórmulas
 
 * Tomar como referencia una población de un tamaño  concreto. 
 
-* Calcular en esta población cuántos individuos pertenecen a $A\cap B$ (dan positivo en ambos tests), cuántos a $A-B$ (positivos en VIH pero no en VHS), cuántos a $B-A$ (positivos en VHS pero no en VIH) y cuántos a $A^c\cap B^c$ (negativo en ambos tests) y a partir de aquí calcular todo lo que queramos.
+* Calcular en esta población cuántos individuos pertenecen a $A\cap B$ (dan positivo en ambos tests), cuántos a $A-B$ (positivos en VIH pero no en VHS), cuántos a $B-A$ (positivos en VHS pero no en VIH) y cuántos a $A^c\cap B^c$ (negativo en ambos tests) y a partir de ahí calcular todo lo que queramos.
 
-A este método se le suele llamar **método de frecuencias naturales** ("la cuenta de la vieja" no suena lo suficientemente científico), y así nos referiremos nosotros a él. Pongámoslo en práctica en nuestro caso:
+A este método se le suele llamar **método de frecuencias naturales** ("la cuenta de la vieja" no suena lo suficientemente científico), y así lo llamaremos nosotros. Pongámoslo en práctica en nuestro caso:
 
 1. Vamos a tomar una población de referencia de 10,000 donantes 
 
@@ -322,13 +315,24 @@ Seguimos en la situación anterior: el 0.1% de todos los donantes de sangre da p
 
 
 ```{block2,type="rmdexercici"}
-Supongamos ahora que 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes y el 1.06% da positivo en al menos uno de los dos tests. 
+Supongamos ahora que el 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes y el 1.07% da positivo en al menos uno de los dos tests. 
 
 ¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en ambos tests? ¿Y la de que dé positivo en un solo test?
 ```
 
 
+```{block2,type="rmdexercici"}
+Y supongamos ahora que el 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes y el 1.2% da positivo en al menos uno de los dos tests. 
 
+¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en ambos tests? ¿Y la de que dé positivo en un solo test?
+```
+
+
+```{r  echo=FALSE, out.width="50%"}
+knitr::include_graphics("INREMDN_files/figure-html/batmanprobs.png")
+```
+
+<!--
 ```{block2,type="rmdexercici"}
 En la Sección \@ref(sec:mas) hemos dado las probabilidades de que se escoja más de una vez algún individuo en las situaciones siguientes:
 
@@ -341,6 +345,7 @@ a. Si escogemos 10 estudiantes de la UIB al azar permitiendo repeticiones.
 Comprobad que los valores que hemos dado son correctos.
 
 ```
+-->
 
 ## Odds
 
@@ -382,7 +387,7 @@ Como son un cociente de dos probabilidades, las *odds* de un suceso son siempre 
 
 
 ```{block2,type="rmdexercici"}
-Si lanzamos un dado equilibrado de 10 caras:
+Si lanzamos un dado equilibrado de 10 caras numeradas del 0 al 9:
 
 1. ¿Qué valen  las *odds* de sacar un 3? 
 
@@ -420,7 +425,7 @@ Como veremos en la Sección \@ref(sec:riesgosCyC), la manera correcta de present
 $$
 \text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}
 $$
-Su valor es difícil de interpretar excepto lo que refiere a su relación con 1:
+Es decir, $\text{OR}(A,B)$ nos dice cuántas veces son mayores (o menores) las *odds* de $A$ que las de $B$. Su valor es difícil de interpretar en términos de probabilidades excepto por lo que refiere a su relación con 1:
 
 *  $\text{OR}(A,B)=1\Longleftrightarrow \text{Odds}(A)=\text{Odds}(B) \Longleftrightarrow P(A)=P(B)$
 
@@ -709,11 +714,11 @@ Un cardiólogo nos contó una vez que la mitad de los enfermos que acudían a su
 
 ```
 
-Esta vez vamos a usar primero el método de frecuencias naturales. Vamos a suponer que tenemos una población de referencia de 300 enfermos que acuden al cardiólogo.
+Esta vez vamos a usar primero el método de frecuencias naturales. Vamos a suponer que tenemos una población de referencia de 300 personas que acuden al cardiólogo.
 
-* De ellos, 150 sufren estrés y los otros 150 no.
-* 200 sufren depresión y 100 no.
-* Hay 45 que no sufren ninguna de las dos condiciones. Por lo tanto:
+* De ellas, 150 sufren estrés y las otras 150 no.
+* Dos tercios, es decir, 200 sufren depresión y 100 no.
+* Hay un 15% de la población, es decir, 45 sujetos que no sufren ninguna de las dos condiciones. Por lo tanto:
     * De los 150 que no sufren estrés, 45 tampoco sufren depresión y los otros 105 sí.
     * De los 100 que no sufren depresión, 45 tampoco sufren estrés y los otros 55 sí.
 * Ya tenemos 45 pacientes sin estrés ni depresión,  105 con depresión pero sin estrés y 55 con estrés pero sin depresión, en total 205 pacientes. Los otros 95, del total de 300, tendrán ambas enfermedades.
@@ -747,12 +752,20 @@ $$
 P(E|D)=\dfrac{P(E\cap D)}{P(D)}
 $$
 Para calcularla, necesitamos saber $P(E\cap D)$. Para calcularla, usamos:
+$$
+P(E\cap D)=P(E)P(D)=0.5\cdot \frac{2}{3}=0.3333
+$$
+```{block2,type="rmderror"}
+**¡Que no!** ¡Que la probabilidad de la intersección NO es en general igual al producto de las probabilidades!
+```
+
+Habrá que currárselo algo más:
 
 1. $P((E\cup D)^c)=P(E^c\cap D^c)=0.15$, por lo tanto $P(E\cup D)=1-P((E\cup D)^c)=0.85$
 
 2. $P(E\cap D)=P(E)+P(D)-P(E\cup D)=0.5+2/3-0.85=0.31667$
 
-3. Y finalmente $P(E|D)=P(E\cap D)/P(D)=0.31667/0.66667=0.475$
+Ahora sí, finalmente, $P(E|D)=P(E\cap D)/P(D)=0.31667/0.66667=0.475$
 
 En la segunda pregunta nos piden
 $$
@@ -767,7 +780,7 @@ En la situación del ejemplo anterior, ¿cuál es la probabilidad de que un enfe
 
 Las *odds* y las *odds ratios* también pueden ser **condicionadas**. 
 
-* Las ***odds* de  $B$ entre los sujetos de  $A$** (o las *odds* de $B$ **condicionado** a $A$) son 
+* Las ***odds* de  $B$ entre los sujetos de  $A$** (o las *odds* de $B$ **condicionadas** a $A$) son 
 $$
 \text{Odds}(B|A)=\frac{P(B|A)}{P(B^c|A)}
 $$
@@ -778,7 +791,7 @@ Mide cuántas veces es más (o menos) probable $B$ que "no $B$" entre los sujeto
 $$
 \text{OR}(B|A)=\frac{\text{Odds}(B|A)}{\text{Odds}(B|A^c)}
 $$
-Mide cuántas veces son mayores (o menores) las *odds* de $B$ condicionado a $A$  que las *odds* de $B$ condicionado a "no $A$". 
+Mide cuántas veces son mayores (o menores) las *odds* de $B$ entre los sujetos de $A$  que las *odds* de $B$ entre los sujetos de fuera de $A$. 
 
 ```{example}
 Volvamos a la situación del Ejemplo \@ref(exm:triola). Si, entre los pacientes de nuestro amigo cardiólogo, llamamos $E$ al suceso "Tener estrés" y $D$ al suceso "Tener depresión", habíamos calculado que $P(E|D)=0.475$ y $P(E^c|D^c)=0.45$. Si habéis hecho el ejercicio que hemos propuesto tras el ejemplo habréis calculado  $P(D|E)=0.6334$ y $P(D^c|E^c)=0.3$.
@@ -795,6 +808,9 @@ $$
 
     Entre los pacientes con depresión, la probabilidad de tener estrés es 0.905 veces la de no tenerlo.
 
+```{block2,type="rmdcaution"}
+Por favor, no digáis que "la probabilidad de tener estrés es 0.905 veces **mayor** que la de no tenerlo".
+```
 
 
 * Las *odds* de tener estrés entre los pacientes que no tienen depresión son
@@ -809,14 +825,14 @@ $$
 \text{Odds}(D|E)=\frac{P(D|E)}{P(D^c|E)}=\frac{0.6334}{0.3666}=1.73
 $$
 
-    Entre los pacientes con estrés, la probabilidad de tener depresión es 1.73 veces la de no tenerla.
+    Entre los pacientes con estrés, la probabilidad de tener depresión es 1.73 veces la de no tenerla, es decir, un 73% mayor.
 
 * Las *odds* de tener depresión entre los pacientes que no tienen estrés son
 $$
 \text{Odds}(D|E^c)=\frac{P(D|E^c)}{P(D^c|E^c)}=\frac{0.7}{0.3}=2.33
 $$
 
-    Entre los pacientes sin estrés, la probabilidad de tener depresión es 2.33 veces la de no tenerla.
+    Entre los pacientes sin estrés, la probabilidad de tener depresión es 2.33 veces la de no tenerla, es decir, un 133% mayor.
 
 
 
@@ -825,7 +841,7 @@ $$
 \text{OR}(E|D)=\frac{\text{Odds}(E|D)}{\text{Odds}(E|D^c)}=\frac{0.905}{1.222}=0.74
 $$
 
-   Las *odds* de tener estrés entre los que tienen depresión son 0.74 veces las de tener estrés entre los que no tienen depresión.
+   Las *odds* de tener estrés entre los que tienen depresión son 0.74 veces las de tener estrés entre los que no tienen depresión, es decir, un 26% menores.
 
 
 * La *odds ratio* de tener depresión relativa a tener estrés es
@@ -833,7 +849,7 @@ $$
 \text{OR}(D|E)=\frac{\text{Odds}(D|E)}{\text{Odds}(D|E^c)}=\frac{1.73}{2.33}=0.74
 $$
 
-   Las *odds* de tener depresión entre los que tienen estrés son 0.74 veces las de tener depresión entre los que no tienen estrés. 
+   Las *odds* de tener depresión entre los que tienen estrés son 0.74 veces las de tener depresión entre los que no tienen estrés, es decir, de nuevo un 26% menores. 
    
 ```{block2,type="rmdromans"}
 La *odds ratio* de tener estrés relativa a tener depresión ha dado lo mismo que la *odds ratio* de tener depresión relativa a tener estrés. ¿Casualidad? No.
@@ -926,6 +942,8 @@ A partir del resultado anterior, se deduce fácilmente que las condiciones sigui
 2. $A^c$ y $B$ son independientes.
 3. $A$ y $B^c$ son independientes.
 4. $A^c$ y $B^c$ son independientes.
+
+Es razonable. Decir que la probabilidad de que pase $A$ no depende del hecho de que pase $B$ ($A$ y $B$ independientes) o no, es lo mismo que decir que la probabilidad de que pase $A$ no depende de que no pase $B$ o sí pase  ($A$ y $B^c$ independientes). Y si la probabilidad de que pase $A$ no depende de  que pase $B$ o no, la probabilidad de que no pase $A$ tampoco depende de que pase $B$ o no.
 
 Más en general, dada una familia de sucesos $A_1,\ldots,A_n$, diremos que son **independientes** cuando, para todo subconjunto de índices $\{i_1,\ldots,i_k\}\subseteq \{1,2,\ldots,n\}$ se tiene que
 $$
@@ -1076,7 +1094,7 @@ $$
 Algunos de vosotros habréis usado en Bachillerato un diagrama de árbol como el siguiente para representar este teorema:
 
 
-```{r arbreTPT, echo=FALSE, out.width="80%",fig.cap="Teorema de la probabilidad total."}
+```{r arbreTPT, echo=FALSE, out.width="80%"}
 knitr::include_graphics("INREMDN_files/figure-html/arbreTPT.png")
 ```
 
@@ -1088,13 +1106,13 @@ En el ejemplo anterior, este diagrama es
 knitr::include_graphics("INREMDN_files/figure-html/arbreTPTex.png")
 ```
 
-Más en general, llamaremos una **partición** (o **estratificación**, **clasificación**) de una población $\Omega$ a una familia (finita) de sucesos $A_1,\ldots,A_m$ tales que
+Más en general, llamaremos una **partición** (o **estratificación**, **clasificación**) de una población $\Omega$ a una familia (finita) de sucesos $A_1,\ldots,A_n$ tales que
 
-1. Recubren todo $\Omega$: $\Omega=A_1\cup\cdots\cup A_m$.
-2. Dos a dos son disjuntos: Para cada $i,j\in\{1,\ldots,m\}$, si $i\neq j$, se tiene que $A_i\cap A_j=\emptyset$.
+1. Recubren todo $\Omega$: $\Omega=A_1\cup\cdots\cup A_n$.
+2. Dos a dos son disjuntos: Para cada $i,j\in\{1,\ldots,n\}$, si $i\neq j$, se tiene que $A_i\cap A_j=\emptyset$.
 
 
-```{r partición, echo=FALSE, out.width="80%",fig.cap="Partición."}
+```{r partición, echo=FALSE, out.width="80%",fig.cap="Una partición."}
 knitr::include_graphics("INREMDN_files/figure-html/particio.png")
 ```
 
@@ -1159,7 +1177,7 @@ La proporción de personas en las que el test da positivo es 5470/100000=0.0547.
 
 
 ```{block2,type="rmdexercici"}
-En el estudio de Rotterdam del Ejemplo \@ref(exm:EPCOCoh), un 21.7% de la cohorte inicial eran fumadores, un 43% habían sido fumadores  pero ya no lo eran, y un 35.3% nunca habían fumado. En el primer grupo, un 26% desarrolló EPOC durante el seguimiento; entre el segundo grupo,  un 13.6%, y en el tercero, un 6.4%. Vamos a llamar "fumador" a un sujeto de la cohorte que o fumaba al principio del estudio, o había fumado anteriormente pero lo había dejado. ¿Qué fracción de estos fumadores desarrollò EPOC?
+En el estudio de Rotterdam del Ejemplo \@ref(exm:EPCOCoh), un 21.7% de la cohorte inicial eran fumadores, un 43% habían sido fumadores  pero ya no lo eran, y un 35.3% nunca habían fumado. En el primer grupo, un 26% desarrolló EPOC durante el seguimiento; entre el segundo grupo,  un 13.6%, y en el tercero, un 6.4%. Vamos a llamar "fumador" a un sujeto de la cohorte que o fumaba al principio del estudio, o había fumado anteriormente pero lo había dejado. ¿Qué fracción de estos fumadores desarrolló EPOC?
 ```
 
 
@@ -1245,7 +1263,7 @@ Supongamos que en los Emiratos Árabes, donde hay 256 hombres por cada 100 mujer
 ## Fórmula de Bayes
 
 
-A menudo conocemos las probabilidades condicionadas en una dirección pero las que nos interesa saber son precisamente las condicionadas en la dirección opuesta. Por ejemplo:
+A menudo conocemos las probabilidades condicionadas en un(0.5a dirección pero las que nos interesa saber son precisamente las condicionadas en la dirección opuesta. Por ejemplo:
 
 * En un estudio de casos y controles hemos estimado las probabilidades de que individuos sanos y enfermos hayan estado expuestos al factor de riesgo, pero lo que queremos es estimar las probabilidades de que individuos expuestos y no expuestos enfermen.
 
@@ -1256,6 +1274,8 @@ A menudo conocemos las probabilidades condicionadas en una dirección pero las q
 Una mujer de 45 años da positivo en una  mamografía anual de cribado. Si una mujer tiene cáncer de mama, la probabilidad de dar positivo en dicha prueba es del 99%, y si no lo tiene, esta probabilidad es aún del 9%. Os pide cuáles son sus probabilidades de tener cáncer de mama. ¿Qué contestaríais?
   
 a. Casi seguro, lo siento mucho
+
+a. Del orden de un 50%
 
 a.  Del orden de un 10%
 
@@ -1400,13 +1420,25 @@ Un test diseñado para diagnosticar una determinada enfermedad da positivo el 94
 Fijaos en que si llamamos $E$ al suceso "Tener la enfermedad" y $T$ al suceso "Dar positivo en el test", los datos que tenemos son $P(T)$, $P(T|E)$ y $P(T|E^c)$, y queremos saber $P(E)$.
 
 
-Vamos a usar la técnica de frecuencias naturales. Tomamos una población de referencia de 100,000 individuos. De ellos, un 15%, 15,000, dan positivo en el test, y los 85,000 restantes negativo.
+Vamos a usar la técnica de frecuencias naturales. Tomamos una población de referencia de 100,000 individuos. De ellos, un 15%, 15,000, dan positivo en el test, y los 85,000 restantes, negativo.
 
 Llamemos $x$ al número de enfermos, de manera que $100000-x$ es el número de sanos. Sabemos que un 94% de  los enfermos y un 4% de los sanos dan positivo. Por lo tanto, el número de positivos será igual al 94% de $x$ más el 4% de  $100000-x$:
 $$
 15000=0.94x+0.04(100000-x)=0.9x+4000\Longrightarrow x=\frac{11000}{0.9}=12222.22
 $$
 Por lo tanto, la prevalencia de la enfermedad es 12222.22/100000=0.1222: un 12.22%. 
+
+```{block2,type="rmdnote"}
+En realidad, si llamamos $E$ al suceso "estar enfermo" y $+$ al suceso "dar positivo", lo que hemos hecho ha sido aplicar el Teorema de la Probabilidad Total con $P(E)$ como incógnita:
+$$
+  \begin{array}{rl}
+0.15\!\!\!\!\! & =P(+)=P(+|E)P(E)+(P+|E^c)P(E^c)\\
+& =0.94 P(E)+0.04(1-P(E))
+\end{array}
+$$
+y despejamos $P(E)$.
+```
+
 
 ## Test 
 
