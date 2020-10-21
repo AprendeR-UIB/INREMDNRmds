@@ -13,6 +13,99 @@
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 
 \begin{document}
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=1.2,
+preg/.style ={rectangle, draw=blue, thick, fill=blue!20, align=center, rounded corners, minimum height=2em,},
+resp/.style={rectangle, draw=yellow, thick, fill=yellow!20, align=center,  minimum height=2em},
+study/.style={rectangle, draw=green, thick, fill=green!20, align=center, rounded corners,  minimum height=2em},
+prestudy/.style={rectangle, draw=red, thick, fill=red!20, align=center,  minimum height=2em,rounded corners}]
+
+\draw (0,3) node[preg] (P0) {\small\sf ¿Objetivo?};  
+\draw (-2,2) node[resp] (Si0) {\small\sf Descripción};  
+\draw (0,2) node[resp] (No0) {\small\sf Inferencia};  
+\draw (-2,1) node[study] (Desc) {\small\sf Descriptivo};  
+\draw (0,1) node[prestudy] (Anal) {\small\sf Analítico};  
+\draw (0,0) node[preg] (P2) {\small\sf ¿Asigna el investigador\\ \small\sf la exposición?};  
+\draw (-1.5,-1) node[resp] (Si2) {\small\sf Sí};  
+\draw (1.5,-1) node[resp] (No2) {\small\sf No};  
+\draw (-1.5,-2) node[prestudy] (Int) {\small\sf Intervencionista};  
+\draw (1.5,-2) node[prestudy] (Obs) {\small\sf Observacional};  
+\draw (-1.5,-3) node[preg] (P3) {\small\sf ¿Varios grupos\\ \small\sf y aleatorizados?};  
+\draw (-2.5,-4) node[resp] (Si3) {\small\sf Sí};  
+\draw (-0.5,-4) node[resp] (No3) {\small\sf No};  
+\draw (-2.5,-5) node[study] (Exp) {\small\sf Experimental};  
+\draw (-0.5,-5) node[study] (CExp) {\small\sf Casi-\\ \small \sf Experimental};  
+\draw (1.5,-3) node[preg] (P1) {\small\sf ¿Qué se mide?};  
+\draw (3.5,-4) node[resp] (RI) {\small\sf Indviduos};  
+\draw (1.5,-4) node[resp] (RC) {\small\sf Comunidades};  
+\draw (1.5,-5) node[study] (ES) {\small\sf Ecológico};  
+\draw (3.5,-5) node[preg] (P5) {\small\sf ¿En qué\\ \small\sf dirección?};  
+\draw (1.5,-6.5) node[resp] (RCC) {\small\sf Exposición\\ $\Downarrow$\\\small\sf  Enfermedad};  
+\draw (3.5,-6.5) node[resp] (RTr) {\small\sf Simultánea};  
+\draw (5.5,-6.5) node[resp] (RCo) {\small\sf Exposición\\ $\Uparrow$\\\small\sf  Enfermedad};  
+\draw (1.5,-7.5) node[study] (CC) {\small\sf Cohorte };  
+\draw (3.5,-7.5) node[study] (Tr) {\small\sf Transversal};  
+\draw (5.5,-7.5) node[study] (Co) {\small\sf Casos y controles};  
+
+
+\draw (P0)--(Si0);
+\draw (P0)--(No0);
+
+
+\draw (P2)--(Si2);
+\draw (P2)--(No2);
+\draw (Si2)--(Int);
+\draw (No2)--(Obs);
+\draw (Int)--(P3);
+\draw (P3)--(Si3);
+\draw (P3)--(No3);
+\draw (Si3)--(Exp);
+\draw (No3)--(CExp);
+\draw (Obs)--(P1);
+\draw (P1)--(RI);
+\draw (P1)--(RC);
+\draw (RC)--(ES);
+\draw (RI)--(P5);
+\draw (Si0)--(Desc);
+\draw (No0)--(Anal);
+\draw (Anal)--(P2);
+\draw (P5)--(RCC);
+\draw (P5)--(RTr);
+\draw (P5)--(RCo);
+\draw (RCC)--(CC);
+\draw (RTr)--(Tr);
+\draw (RCo)--(Co);
+
+
+\end{tikzpicture}
+\end{center}
+
+\end{document}
+\begin{center}
+
+\tikz\node[thick, rounded corners,  align=left,draw=green, fill=green!20] at (0,1){\textsf{\textbf{Descriptivos}}\\[2ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,1){\small\sf Informe de caso};
+\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,0) {\small\sf Serie de casos};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,-1) {\small \textsf{\textsl{Survey}}};};
+\hspace*{0.5cm}
+\tikz\node[thick, rounded corners,  align=left,draw=green, fill=green!20] at (3,0){\textsf{\textbf{Analíticos}}\\[2ex]
+\tikz\node[thick, rounded corners,  align=left,draw=red, fill=red!20] at (3,0){\textsf{\textbf{Observacionales}}\\[2ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,0){\small\sf Casos y controles};
+\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-1) {\small\sf Cohorte};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-2) {\small\sf Transversal};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-3) {\small\sf Ecológico};};
+\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw=red, fill=red!20] at (3,-4){\textsf{\textbf{Intervencionistas}}\\[2ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-5) {\small\sf Experimental};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-5) {\small\sf Casi-experimental};};\\[1ex]
+\tikz\node[thick, rounded corners,  align=left,draw=yellow, fill= yellow!20] at (3,-6){\textsf{\textbf{Metaanálisis \hphantom{xxxi}}}};};
+
+
+\end{center}
+
+\end{document}
 
 \begin{center}
 \begin{tikzpicture}[very thick,>=stealth,scale=0.6,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=4em,align=center, rounded corners, minimum height=2em}]%,xscale=0.75]
@@ -237,32 +330,6 @@ origen/.style ={rectangle, draw=black, thick, align=center,minimum height=2em}
 \end{document}
 
 \begin{center}
-
-\tikz\node[thick, rounded corners,  align=left,draw=green, fill=green!20] at (0,1){\textsf{\textbf{Descriptivos}}\\[2ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,1){\small\sf Informe de caso};
-\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,0) {\small\sf Serie de casos};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (0,-1) {\small \textsf{\textsl{Survey}}};};
-\hspace*{0.5cm}
-\tikz\node[thick, rounded corners,  align=left,draw=green, fill=green!20] at (3,0){\textsf{\textbf{Analíticos}}\\[2ex]
-\tikz\node[thick, rounded corners,  align=left,draw=red, fill=red!20] at (3,0){\textsf{\textbf{Observacionales}}\\[2ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,0){\small\sf Casos y controles};
-\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-1) {\small\sf Cohorte};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-2) {\small\sf Transversal};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-3) {\small\sf Ecológico};};
-\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw=red, fill=red!20] at (3,-4){\textsf{\textbf{Intervencionistas}}\\[2ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-5) {\small\sf Experimental};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw= blue,fill=blue!20] at (3,-5) {\small\sf Casi-experimental};};\\[1ex]
-\tikz\node[thick, rounded corners,  align=left,draw=yellow, fill= yellow!20] at (3,-6){\textsf{\textbf{Metaanálisis \hphantom{xxxi}}}};};
-
-
-\end{center}
-
-\end{document}
-
-\begin{center}
 \begin{tikzpicture}[very thick,>=stealth,scale=0.5,block/.style ={rectangle, draw=blue, thick, fill=blue!20, text width=4em,align=center, rounded corners, minimum height=1.7em}]%,xscale=0.75]
 \draw (0,0) node[block] (Omega) {$\Omega$};  
 \draw (8,3) node[block] (A)   {$A$}; 
@@ -405,71 +472,3 @@ prestudy/.style={rectangle, draw=blue, thick, fill=blue!10, align=center,  minim
 \end{center}
 
 
-\begin{center}
-\begin{tikzpicture}[>=stealth,scale=1.2,
-preg/.style ={rectangle, draw=blue, thick, fill=blue!20, align=center, rounded corners, minimum height=2em,},
-resp/.style={rectangle, draw=yellow, thick, fill=yellow!20, align=center,  minimum height=2em},
-study/.style={rectangle, draw=green, thick, fill=green!20, align=center, rounded corners,  minimum height=2em},
-prestudy/.style={rectangle, draw=red, thick, fill=red!20, align=center,  minimum height=2em,rounded corners}]
-
-\draw (0,3) node[preg] (P0) {\small\sf ¿Objetivo?};  
-\draw (-2,2) node[resp] (Si0) {\small\sf Descripción};  
-\draw (0,2) node[resp] (No0) {\small\sf Inferencia};  
-\draw (-2,1) node[study] (Desc) {\small\sf Descriptivo};  
-\draw (0,1) node[prestudy] (Anal) {\small\sf Analítico};  
-\draw (0,0) node[preg] (P2) {\small\sf ¿Asigna el investigador\\ \small\sf la exposición?};  
-\draw (-1.5,-1) node[resp] (Si2) {\small\sf Sí};  
-\draw (1.5,-1) node[resp] (No2) {\small\sf No};  
-\draw (-1.5,-2) node[prestudy] (Int) {\small\sf Intervencionista};  
-\draw (1.5,-2) node[prestudy] (Obs) {\small\sf Observacional};  
-\draw (-1.5,-3) node[preg] (P3) {\small\sf ¿Varios grupos\\ \small\sf y aleatorizados?};  
-\draw (-2.5,-4) node[resp] (Si3) {\small\sf Sí};  
-\draw (-0.5,-4) node[resp] (No3) {\small\sf No};  
-\draw (-2.5,-5) node[study] (Exp) {\small\sf Experimental};  
-\draw (-0.5,-5) node[study] (CExp) {\small\sf Casi-\\ \small \sf Experimental};  
-\draw (1.5,-3) node[preg] (P1) {\small\sf ¿Qué se mide?};  
-\draw (3.5,-4) node[resp] (RI) {\small\sf Indviduos};  
-\draw (1.5,-4) node[resp] (RC) {\small\sf Comunidades};  
-\draw (1.5,-5) node[study] (ES) {\small\sf Ecológico};  
-\draw (3.5,-5) node[preg] (P5) {\small\sf ¿En qué\\ \small\sf dirección?};  
-\draw (1.5,-6.5) node[resp] (RCC) {\small\sf Exposición\\ $\Downarrow$\\\small\sf  Enfermedad};  
-\draw (3.5,-6.5) node[resp] (RTr) {\small\sf Simultánea};  
-\draw (5.5,-6.5) node[resp] (RCo) {\small\sf Exposición\\ $\Uparrow$\\\small\sf  Enfermedad};  
-\draw (1.5,-7.5) node[study] (CC) {\small\sf Casos y controles};  
-\draw (3.5,-7.5) node[study] (Tr) {\small\sf Transversal};  
-\draw (5.5,-7.5) node[study] (Co) {\small\sf Cohorte};  
-
-
-\draw (P0)--(Si0);
-\draw (P0)--(No0);
-
-
-\draw (P2)--(Si2);
-\draw (P2)--(No2);
-\draw (Si2)--(Int);
-\draw (No2)--(Obs);
-\draw (Int)--(P3);
-\draw (P3)--(Si3);
-\draw (P3)--(No3);
-\draw (Si3)--(Exp);
-\draw (No3)--(CExp);
-\draw (Obs)--(P1);
-\draw (P1)--(RI);
-\draw (P1)--(RC);
-\draw (RC)--(ES);
-\draw (RI)--(P5);
-\draw (Si0)--(Desc);
-\draw (No0)--(Anal);
-\draw (Anal)--(P2);
-\draw (P5)--(RCC);
-\draw (P5)--(RTr);
-\draw (P5)--(RCo);
-\draw (RCC)--(CC);
-\draw (RTr)--(Tr);
-\draw (RCo)--(Co);
-
-
-\end{tikzpicture}
-\end{center}
-
-\end{document}
