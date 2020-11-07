@@ -2,18 +2,20 @@
 
 ## Generalidades
 
-Una **variable aleatoria** sobre una población $\Omega$ es una aplicación que asigna a cada sujeto de $\Omega$ un número real:
+Una **variable aleatoria** sobre una población $\Omega$ es una aplicación
 $$
 X: \Omega\to  \mathbb{R}
 $$
-Usualmente, entendemos que una variable aleatoria **mide** una característica de los sujetos de $\Omega$ que varía al azar de un sujeto a otro. Por ejemplo:
+que asigna a cada sujeto de $\Omega$ un número real.
+
+Usualmente, entendemos que una variable aleatoria **mide** una característica cuantitativa de los sujetos de $\Omega$ que varía al azar de un sujeto a otro. Por ejemplo:
 
 * Tomamos una persona de una población y  medimos su nivel de colesterol, o su altura, o su número de hijos... En este caso, $\Omega$ es la población bajo estudio, de la que tomamos la persona que medimos.
 
 * Lanzamos una momeda equilibrada 3 veces y contamos las caras que obtenemos. En este caso, $\Omega$ es la población virtual de los lanzamientos 3 veces consecutivas de una moneda equilibrada.
 
 ```{block2,type="rmdimportant"}
-Procurad, al menos al principio, adquirir la disciplina de describir siempre las variables aleatorias mediante una plantilla del estilo de "Tomamos ... y medimos ...", para que quede claro cuál es la población y cuál la función. Además, añadid las unidades si es necesario. Por ejemplo:
+Procurad, al menos al principio, adquirir la disciplina de describir siempre las variables aleatorias mediante una plantilla del estilo de "Tomamos ... y medimos ...", para que os quede claro cuál es la población y cuál la función. Además, añadid las unidades si es necesario. Por ejemplo:
   
 * "Tomamos una persona de Mallorca y medimos su altura (en cm)".
 
@@ -21,7 +23,7 @@ Fijaos en que esta variable aleatoria no es la misma que
 
 * "Tomamos una persona de Mallorca y medimos su altura (en m)", 
 
-porque, aunque mide lo mismo sobre los mismos sujetos, les asigna números diferentes, ni que
+porque, aunque mide lo mismo sobre los mismos sujetos, les asigna números diferentes. Y también es diferente de
 
 * "Tomamos una persona de Suecia y medimos su altura (en cm)", 
 
@@ -31,12 +33,12 @@ En cambio en
 
 * "Lanzamos una moneda 3 veces al aire y contamos las caras"
 
-no hay necesidad de especificar unidades, a no ser que vayáis a usar una unidad inesperada (yo qué sé, en fracciones de docena).
+no hay necesidad de especificar unidades, a no ser que vayáis a usar una unidad inesperada (yo qué sé, que contéis las caras en fracciones de docena).
 
 
 ```
 
-¿Qué sucesos nos interesan cuando medimos características? Pues básicamente sucesos definidos mediante igualdades y desigualdades. Por ejemplo, si  $X$ es la variable aleatoria "Tomamos una persona y medimos su nivel de colesterol en plasma (en mg/dl)", nos pueden interesar sucesos del estilo de:
+¿Qué sucesos nos interesan cuando medimos características numéricas? Pues básicamente sucesos definidos mediante igualdades y desigualdades. Por ejemplo, si  $X$ es la variable aleatoria "Tomamos una persona y medimos su nivel de colesterol en plasma (en mg/dl)", nos pueden interesar sucesos del estilo de:
 
 * El conjunto de las personas cuyo nivel de colesterol está entre 200 y 240. Lo denotaremos
 $$
@@ -67,23 +69,23 @@ $$
 
 Normalmente, de estos sucesos lo que nos interesará será su probabilidad, y entonces usaremos notaciones del estilo de las siguientes:
 
-* $P(200\leq X\leq 240)$: Probabilidad de que una persona tenga el nivel de colesterol entre 200 y 240.
+* $P(200\leq X\leq 240)$: Probabilidad de que una persona tenga el nivel de colesterol entre 200 y 240 (o, para abreviar, probabilidad de que $X$ esté entre 200 y 240).
 
-* $P(X\leq 200)$: Probabilidad de que una persona tenga el nivel de colesterol menor o igual que 200.
+* $P(X\leq 200)$: Probabilidad de que una persona tenga el nivel de colesterol menor o igual que 200 (probabilidad de que $X$ sea menor o igual que 240).
 
-* $P(X>180)$: Probabilidad de que una persona tenga el nivel de colesterol mayor que 180.
+* $P(X>180)$: Probabilidad de que una persona tenga el nivel de colesterol mayor que 180 (probabilidad de que $X$ sea mayor que 180).
 
-* $P(X=180)$: Probabilidad de que una persona tenga nivel de colesterol igual a 180. Normalmente esto lo abreviaremos escribiendo $P(180)$.
+* $P(X=180)$: Probabilidad de que una persona tenga nivel de colesterol igual a 180 (probabilidad de que $X$ sea 180). Normalmente esto lo abreviaremos escribiendo $P(180)$.
 
-* $P(X\in\{180,182,184,200\})$: Probabilidad de que una persona tenga nivel de colesterol 180 o 182 o 184 o 200. 
+* $P(X\in\{180,182,184,200\})$: Probabilidad de que una persona tenga nivel de colesterol 180 o 182 o 184 o 200 (probabilidad de que $X$ sea 180 o 182 o 184 o 200). 
 
 Recodad que nuestras probabilidades son proporciones. Por lo tanto, por ejemplo, $P(200\leq X\leq 240)$ es la **proporción** de personas (de alguna población concreta) con nivel de colesterol entre 200 y 240.
 
-En este contexto, la  unión la indicaremos con el signo usual $\cup$ o directamente con una **o**, y la intersección siempre la indicaremos con una coma. Por ejemplo, si $X$ es la variable aleatoria "Lanzamos una moneda 6 veces y contamos las caras":
+En este contexto, indicaremos normalmente la unión con una **o**  y la intersección con una coma. Por ejemplo, si $X$ es la variable aleatoria "Lanzamos una moneda 6 veces y contamos las caras":
 
 * $P(X\leq 2\text{ o }X>5)$: Probabilidad de sacar como máximo 2 caras o más de 5 caras.
 
-* $P(2\leq X\leq 5, X\in 2\mathbb{N})$: Probabilidad de sacar entre 2 y 5 caras y que además este número de caras sea par. Naturalmente, es la probabilidad de sacar 2 o 4 caras, que podemos escribir como $P(X=2\text{ o }X=4)$ y también $P(X\in \{2,4}\})$.
+* $P(2\leq X\leq 5, X\in 2\mathbb{N})$: Probabilidad de sacar entre 2 y 5 caras y que además este número de caras sea par. Naturalmente, es la probabilidad de sacar 2 o 4 caras, que podemos escribir como $P(X=2\text{ o }X=4)$ y también $P(X\in \{2,4\})$.
 
 Dos variables aleatorias $X,Y$ son **independientes** cuando, para todos los pares de valores $a,b\in \mathbb{R}$, los sucesos
 $$
@@ -145,13 +147,13 @@ Sea $X: \Omega\to \mathbb{R}$ una **variable aleatoria discreta**.
 $$
 f_X(x)=P(X=x)
 $$
-Es decir, la función que asigna a cada $x\in \RR$ la probabilidad del conjunto formado por los sujetos en los que $X$ vale $x$.
+Es decir, la función que asigna a cada $x\in \mathbb{R}$ la probabilidad del conjunto formado por los sujetos en los que $X$ vale $x$.
 
 * Su **función de distribución**  es la función  $F_X:\mathbb{R}\to  [0,1]$ definida por
 $$
 F_X(x)=P(X\leq x)
 $$
-Es decir, la función que asigna a cada $x\in \RR$ la probabilidad del conjunto formado por los sujetos en los que $X$ toma un valor $\leq x$.
+Es decir, la función que asigna a cada $x\in \mathbb{R}$ la probabilidad del conjunto formado por los sujetos en los que $X$ toma un valor $\leq x$.
 
 
 
@@ -314,7 +316,7 @@ La esperanza de las variables aleatorias discretas tiene las propiedades siguien
 
 * La esperanza es **lineal**: 
 
-    * Si $a,b\in \RR$, $E(aX+b)=aE(X)+b$
+    * Si $a,b\in \mathbb{R}$, $E(aX+b)=aE(X)+b$
     
          Si en una clase la media de un examen ha sido un 6 y decidimos multiplicar por 1.2 todas las notas y sumarles 1 punto, la media de la nueva nota será 1.2·6+1=8.2, ¿no?
         

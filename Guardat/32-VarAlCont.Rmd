@@ -175,268 +175,149 @@ Una variable aleatoria continua $X$ es **normal** de parámetros
 $\mu$ y $\sigma$, y lo denotaremos escribiendo 
 $X\sim N(\mu,\sigma)$}, cuando su función de densidad es
 $$
-f_{X}(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{{-(x-\mu)^2}/({2\sigma^{2}})} \text{
-para todo } x\in \mathbb{R}
+f_{X}(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{{-(x-\mu)^2}/({2\sigma^{2}})} 
 $$
 
-Si $X\sim N(\mu,\sigma)$, entonces
+Si $X\sim N(\mu,\sigma)$, entonces resulta que
 $$
 E(X)=\mu,\quad Var(X)=\sigma^2,\quad \sigma(X)=\sigma
 $$
 
-Una variable aleatoria normal es **típica} (o **estándar}) cuando tiene $\mu=0$ y $\sigma=1$; la denotaremos usualmente por $Z$
-
-En particular, si $Z\sim N(0,1)$, $E(Z)=0$ y $\sigma(Z)=1$.
-
-
-
-
-La gráfica de la densidad de una variable aleatoria normal es la conocida **campana de Gauss}\vspace*{-1ex}
-
-\begin{center}
-\includegraphics[width=0.8\linewidth]{dnorm01}
-\end{center}
+Una variable aleatoria normal es **típica** (o **estándar**) cuando tiene $\mu=0$ y $\sigma=1$; la denotaremos usualmente por $Z$. Por lo tanto,
+si $Z\sim N(0,1)$, $E(Z)=0$ y $\sigma(Z)=1$.
 
 
 
 
- 
-\frametitle{Distribución normal}
+La gráfica de la densidad de una variable aleatoria normal es la conocida **campana de Gauss**
 
-La distribución normal 
-\begin{itemize}
-* es una distribución teórica, no la encontraréis exacta en la práctica
-* no es más <<normal>> que otras
-* aproxima bien muchas distribuciones reales porque
+```{r,echo=FALSE}
+curve(dnorm(x),xlim=c(-5,5),xlab="",ylab="",main="Densidad de N(0,1)",lwd=2,col="blue")
+```
 
 
-\begin{quote}
-Muchas variables aleatorias que consisten en tomar $n$ observaciones independientes de una o varias variables aleatorias y sumarlas tienen distribución aproximadamente normal cuando $n$ es grande, aunque las variables aleatorias de partida no lo sean
-\end{quote}
-\end{itemize}
+La distribución normal: 
+
+* Es una distribución teórica, no encontraréis exacta en la vida real.
+* Pese a su nombre, no es más "normal" que otras distribuciones continuas.
+* Pero es muchas distribuciones de la vida real son aproximadamente nomales, porque:
+
+> Toda variable aleatoria que consista en tomar $n$ de  medidas independientes de una o varias variables aleatorias y sumarlas tiene distribución aproximadamente normal **cuando $n$ es muy grande**, aunque las variables aleatorias de partida no sean normales
 
 
+Por ejemplo, una variable binomial $B(n,p)$ se obtiene tomando $n$ medidas independientes de una variable Bernoulli $Be(p)$ y sumando los resultados. Por lo tanto, por la "regla" anterior, una  $B(n,p)$ tendría que ser aproximadamente normal si $n$ es grande. Pues sí, si $n$ es grande (pongamos mayor que 100, aunque si $p$ está lejos de 0 o 1 puede ser menor), la distribución de una variable $X\sim B(n,p)$ es aproximadamente la de una normal $N(np,\sqrt{np(1-p)})$, donde, recordad que si $X\sim B(n,p)$, entonces $\mu_X=np$ y $\sigma_X=\sqrt{np(1-p)}$. 
+
+Por ejemplo, el gráfico siguiente compara las funciones de distribución de una binomial $B(50,0.3)$ y una normal $N(50\cdot 0.3,\sqrt{50\cdot 0.3\cdot 0.7})$.
 
 
-
-\frametitle{Binomial aprox. normal}
-\vspace{-1ex}
-
-Si $X\sim B(n,p)$, con $n$ grande y $p$ lejos de 0 y 1 (digamos, $n\geq 50$, $10\leq pn\leq n-10$, pero cuanto más centrada sea $p$, menor puede ser $n$),  $X\approx N(np,\sqrt{np(1-p)})$
-\vspace{-1ex}
-
-\begin{center}
-\includegraphics[width=0.7\linewidth]{normvsbin}
-\end{center}
+```{r,echo=FALSE}
+curve(pnorm(x,50*0.3,sqrt(50*0.3*0.7)),xlim=c(0,30),xlab="",ylab="",col="blue",lwd=2,main="Ditribuciones de B(50,0.3) y N(50*0.3,sqrt(50*0.3*0.7)")
+curve(pbinom(x,50,0.3),col="red",add=TRUE)
+legend("topleft",lty=c(1,1),col=c("blue","red"),legend=c("Normal","Binomial"),cex=0.75)
+```
 
 
+Para calcular probabilidades de una $N(\mu,\sigma)$,  hay que calcular las integrales a mano 
+```{r,echo=FALSE, out.width="40%", scale=0.5}
+knitr::include_graphics("INREMDN_files/figure-html/dontpanic.png")
+```
 
+O podéis usar R o alguna aplicación para móvil o tablet. Par R, la normal es `norm`. Así, por ejemplo, si $X\sim N(1,2)$
 
+* $P(X\leq 1.5)$ es
+```{r}
+pnorm(1.5,1,2)
+```
 
+* El 0.4-cuantil de $X$, es decir, el valor $q$ tal que $P(X\leq q)=0.4$ es
+```{r}
+qnorm(0.4,1,2)
+```
 
+* $P(X=1.5)$ es
 
+```{r}
+dnorm(1.5,1,2)
+```
 
-
-\frametitle{Poisson aprox. normal}
-\vspace{-1ex}
-
-Si $X\sim Po(\lambda)$ y $\lambda$ es grande (digamos, $\lambda\geq 50$), entonces $X\approx N(\lambda,\sqrt{\lambda})$
-\vspace{-1ex}
-
-\begin{center}
-\includegraphics[width=0.7\linewidth]{poisvsnormal}
-\end{center}
-
-
-
-
-
-
-
-%
-%
-% 
-%\frametitle{Con R}\vspace*{-1ex}
-%
-%Para calcular probabilidades de una $N(\mu,\sigma)$,  hay que calcular las integrales a mano \includegraphics[width=0.7cm]{emorisa}\ o podéis usar \texttt{R}, para el que la normal es \blue{\texttt{norm}}
-%%
-%%
-%%Si $X\sim N(\mu,\sigma)$,
-%%\begin{itemize}
-%%*  **\texttt{dnorm(}$x$\texttt{,}$\mu$\texttt{,}$\sigma$\texttt{)}} da el valor de la densidad $f_X(x)$
-%%
-%%*  **\texttt{pnorm(}$x$\texttt{,}$\mu$\texttt{,}$\sigma$\texttt{)}} da el valor de la distribución $F_X(x)$
-%%
-%%
-%%* **\texttt{qnorm(}$q$\texttt{,}$\mu$\texttt{,}$\sigma$\texttt{)}} da el $q$-cuantil 
-%%
-%%
-%%* **\texttt{rnorm(}$N$\texttt{,}$\mu$\texttt{,}$\sigma$\texttt{)}} da una lista de $N$ números aleatorios generados con esta distribución
-%%\end{itemize}
-%%
-%%
-%%En la normal estándar no es necesario entrar $\mu$ y $\sigma$
-%
+```{block2,type="rmderror"}
+¡No! Como $X$ es continua, $P(X=1.5)=0$. `dnorm(1.5,1,2)`calcula el valor de la función de densidad de $X$ en 1.5, que no creemos que os interese mucho.
+```
 
 
 
+Veamos algunas propiedades importantes de la densidad y la distribución de una variable normal.
 
-
-%
-%
-%
-%[fragile] 
-%\frametitle{Con R}\vspace*{-1ex}
-%
-%\blue{Si $X\sim N(3,0.5)$, ¿qué vale $P(X\leq 2)$?}\vspace*{-1ex}
-%
-%\begin{verbatim}
-%> pnorm(2,3,0.5)
-%[1] 0.02275013
-%\end{verbatim}
-%
-%\blue{Si $X\sim N(0,1)$, ¿qué vale $P(-1\leq X\leq 1)$?}
-%
-%Como $P(-1\leq X\leq 1)=P(X\leq 1)-P(X\leq -1)$,\vspace*{-1ex}
-%
-%\begin{verbatim}
-%> pnorm(1)-pnorm(-1)
-%[1] 0.6826895
-%\end{verbatim}
-%
-%
-%\blue{¿Qué vale el primer cuartil de $X\sim N(3,0.5)$?}\vspace*{-1ex}
-%
-%\begin{verbatim}
-%> qnorm(0.25,3,0.5)
-%[1] 2.662755
-%\end{verbatim}
-%
-%
-%
-
-
-
-\frametitle{Propiedades} 
-\vspace{-1ex}
-
-Si $X\sim N(\mu,\sigma)$, su densidad $f_X$ es simétrica respecto de $x=\mu$,
+* Si $X\sim N(\mu,\sigma)$, su densidad $f_X$ es simétrica respecto de $x=\mu$,
 $$
 f_{X}(\mu-x)=f_{X}(\mu+x),
 $$
-y tiene el máximo en $x=\mu$
+y tiene el máximo en $x=\mu$.
 
-
-En particular, si $Z\sim N(0,1)$, entonces
+    En particular, si $Z\sim N(0,1)$, entonces
 $f_{Z}(-x)=f_{Z}(x)$, y $f_Z$ tiene el máximo en $x=0$
-\vspace{-5ex}
 
-\begin{center}
-\includegraphics[width=\linewidth]{simn}
-\end{center}
-
+```{r,echo=FALSE, out.width="60%"}
+knitr::include_graphics("INREMDN_files/figure-html/simn.png")
+```
 
 
+* Recordad que $P(X\leq x)=F_X(x)$ es el área comprendida entre la densidad $y=f_X(x)$ y el eje de abscisas a la izquierda de $x$.
+```{r,echo=FALSE, out.width="60%"}
+knitr::include_graphics("INREMDN_files/figure-html/undernorm.png")
+```
 
-\frametitle{Propiedades} 
-
-Recordemos que $P(X\leq x)=F_X(x)$ es el área comprendida entre la densidad $y=f_X(x)$ y el eje de abscisas a la izquierda de $x$
-\begin{center}
-\includegraphics[width=\linewidth]{undernorm}
-\end{center}
-
-
-
-
-\frametitle{Propiedades}\vspace*{-2ex}
-
-La simetría de $f_X$ hace que las áreas a la izquierda de $\mu-x$ y a la derecha de $\mu+x$ sean iguales\vspace*{-2ex}
-
-\begin{center}
-\includegraphics[width=0.9\linewidth]{simnorm1}
-\end{center}
-\vspace{-1.5cm}
-
+    Entonces, la simetría de $f_X$ hace que las áreas a la izquierda de $\mu-x$ y a la derecha de $\mu+x$ sean iguales:
 $$
-P(X\leq \mu-x)**=}P(X\geq \mu+x)=1-P(X\leq \mu+x)
+P(X\leq \mu-x)=P(X\geq \mu+x)=1-P(X\leq \mu+x)
 $$
 
-En particular (tomando $x=0$)
+
+```{r,echo=FALSE, out.width="60%"}
+knitr::include_graphics("INREMDN_files/figure-html/simnorm1.png")
+```
+
+
+* En particular (tomando $x=0$)
 $$
 P(X\leq \mu)=1-P(X\leq \mu)\Rightarrow P(X\leq \mu)=0.5
 $$
-** $\mu$ es también la {mediana} de $X$}
+    Por lo tanto, $\mu$ es también la **mediana** de $X$.
 
 
-
-
-\frametitle{Propiedades}\vspace*{-2ex}
-
-En particular, si $Z\sim N(0,1)$, las áreas a la izquierda de $-z$ y a la derecha de $z$ son iguales\vspace*{-0.4cm}
-
-\begin{center}
-\includegraphics[width=\linewidth]{simnorm2}
-\end{center}
-\vspace{-1cm}
-
+* En particular, si $Z\sim N(0,1)$, las áreas a la izquierda de $-z$ y a la derecha de $z$ son iguales y la mediana de $Z$ es 0.
 $$
 P(Z\leq -z)=P(Z\geq z)=1-P(Z\leq z)
 $$
 
-Y en particular la mediana de $Z$ es 0
+
+```{r,echo=FALSE, out.width="60%"}
+knitr::include_graphics("INREMDN_files/figure-html/simnorm2.png")
+```
+
+
+* Aumentar la $\mu$ desplaza a la derecha el máximo, y con él toda la curva. En el gráfico siguiente, $\mu_1<\mu_2$:
+
+```{r,echo=FALSE, out.width="60%"}
+knitr::include_graphics("INREMDN_files/figure-html/mu1mu2.png")
+```
+
+* Aumentar la $\sigma$ achata la curva: al aumentar la desviación típica, los valores se alejan más del valor medio. En el gráfico siguiente, $\sigma_1<\sigma_2$:
+```{r,echo=FALSE, out.width="60%"}
+knitr::include_graphics("INREMDN_files/figure-html/sigma1sigma2.png")
+```
+
+    El gráfico siguiente muestra el efecto combinado: $\mu_1<\mu_2$ y $\sigma_1<\sigma_2$:
+
+```{r,echo=FALSE, out.width="60%"}
+knitr::include_graphics("INREMDN_files/figure-html/musigma.png")
+```
 
 
 
+* Algunos números que tendríais que recordar:
 
-
-\frametitle{Propiedades} 
-
-Aumentar la $\mu$ desplaza a la derecha el máximo, y con él toda la curva
-\begin{center}
-\includegraphics[width=\linewidth]{mu1mu2}
-
-$\mu_1<\mu_2$
-\end{center}
-
-
-
-
-
-
-\frametitle{Propiedades} 
-
-Aumentar la $\sigma$ achata la curva: al aumentar la desviación típica, los valores se alejan más del valor medio
-\begin{center}
-\includegraphics[width=\linewidth]{sigma1sigma2}
-
-$\sigma_1<\sigma_2$
-\end{center}
-
-
-
-
-
-
-\frametitle{Propiedades} 
-
-El efecto combinado
-\begin{center}
-\includegraphics[width=\linewidth]{musigma}
-
-$\mu_1<\mu_2,\ \sigma_1<\sigma_2$
-\end{center}
-
-
-
-
-
-
-\frametitle{Propiedades} 
-
-Algunos números que se espera que recordéis:
-
-\begin{itemize}
-* Si $X\sim N(\mu,\sigma)$,
+    * Si $X\sim N(\mu,\sigma)$,
 $$
 \begin{array}{l}
 P(\mu-\sigma\leq X\leq \mu+\sigma)\approx 0.68\\
@@ -445,7 +326,7 @@ P(\mu-3\sigma\leq X\leq \mu+3\sigma)\approx 0.997
 \end{array}
 $$
 
-* Algunos cuantiles relevantes para $Z\sim N(0,1)$
+    * Algunos cuantiles relevantes para $Z\sim N(0,1)$
 $$
 \begin{array}{l}
 \text{$0.95$-cuantil}:\ z_{0.95}=1.64\\
@@ -453,37 +334,27 @@ $$
 \text{$0.995$-cuantil}:\ z_{0.995}=2.58
 \end{array}
 $$
-\end{itemize}
 
 
+Una de las propiedades de la distribución normal que nos facilitan mucho la vida es que **toda combinación lineal de variables aleatorias normales independientes es normal**. En concreto:
 
-
-
-
-
-
-
-\frametitle{Combinaciones lineales}\vspace*{-2ex}
-
-
-\begin{teorema}
-Si $X\sim N(\mu,\sigma)$ y $a,b\in \mathbb{R}$, entonces
+```{theorem,comblinnormals}
+1. Si $X\sim N(\mu,\sigma)$ y $a,b\in \mathbb{R}$, entonces
 $aX+b$ es $N(a\mu+b,|a|\cdot\sigma)$
 
-En particular, si $X\sim N(\mu,\sigma)$, entonces su **tipificada} (o **estandarizada})
-$Z=\dfrac{X-\mu}{\sigma}$ es $N(0,1)$
-\end{teorema}
+2. En particular, si $X\sim N(\mu,\sigma)$, entonces su **tipificada** (o **estandarizada**
+$$
+Z=\dfrac{X-\mu}{\sigma}
+$$
+es $N(0,1)$.
 
-Más en general:
-
-\begin{teorema}
-Si $X_1,\ldots,X_n$ son variables aleatorias normales independientes y $a_1,\ldots,a_n,b\in \mathbb{R}$, entonces
+3. Si $X_1,\ldots,X_n$ son variables aleatorias normales independientes y $a_1,\ldots,a_n,b\in \mathbb{R}$, entonces
 $a_1X_1+\cdots +a_nX_n+b$ es normal con $\mu$ y $\sigma$ lo que toque:
 $$
 \mu=a_1\mu_1+\cdots +a_n\mu_n+b,\ 
 \sigma=\sqrt{a_1^2\sigma^2_1+\cdots +a_n^2\sigma^2_n}
 $$
-\end{teorema}
+```
 
 
 
@@ -612,7 +483,7 @@ El **z-score} (**valor}, **puntuación}, **puntaje}, **z}) de un valor $x_0$ res
 $$
 \frac{x_0-\mu}{\sigma}
 $$
-Cuanto mayor en valor absoluto, más <<raro>> es $x_0$; el signo, si está por encima o por debajo del valor esperado
+Cuanto mayor en valor absoluto, más "raro" es $x_0$; el signo, si está por encima o por debajo del valor esperado
 
 \blue{Ejemplo}: Según la OMS, las alturas de las mujeres europeas de 18 años siguen una ley $N(163.1,18.53)$. ¿Cuál sería el z-score de la jugadora de baloncesto Alba Torrens, que mide 191 cm?
 

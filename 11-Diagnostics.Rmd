@@ -89,7 +89,7 @@ Entonces, podemos clasificar los sujetos de la población según estos dos pares
 
 * **Verdaderos negativos**: Sujetos sanos sobre los que la prueba da negativo.
 
-* **Falsos negativos**: Sujetos enfermos sobre los que la prueba da positivo.
+* **Falsos negativos**: Sujetos enfermos sobre los que la prueba da negativo.
 
 $$
 \begin{array}{l}
@@ -392,12 +392,12 @@ $$
 ```{block2,type="rmdcaution"}
 No confundáis el cociente de verosimilitud positivo $\text{LR}(+)$ con las *odds* de dar positivo entre los enfermos
 $$
-\text{OR}(+|E)= \dfrac{P(+|E)}{P(-|E)}
+\text{Odd}(+|E)= \dfrac{P(+|E)}{P(-|E)}
 $$
 
 * $\text{LR}(+)$ nos dice cuántas veces es más probable obtener un positivo en un enfermo que en un sano.
 
-* $\text{OR}(+|E)$ nos dice cuántas veces es más probable obtener un positivo que un negativo en un enfermo.
+* $\text{Odds}(+|E)$ nos dice cuántas veces es más probable obtener un positivo que un negativo en un enfermo.
 
 ```
      
@@ -674,7 +674,7 @@ En  la práctica, se toma como nivel de PSA a partir del cual uno se ha de preoc
 
 La curva ROC también se usa para evaluar la **capacidad discriminatoria global de la prueba**, es decir, su habilidad en general para distinguir sanos de enfermos para el conjunto de posibles umbrales. 
 
-Para empezar, para que la prueba diagnóstica sirva para detectar enfermos, ha de dar positivo con más frecuencia en sanos que en enfermos, ¿cierto?
+Para empezar, para que la prueba diagnóstica sirva para detectar enfermos, ha de dar positivo con más frecuencia en enfermos que en sanos, ¿cierto?
 Por lo tanto, requerimos que, para cada umbral la sensibilidad sea mayor que la tasa de falsos positivos. Esto significa que la curva ROC ha de estar por encima de la diagonal principal $y=x$. Los puntos de esta diagonal corresponden a la situación $P(+|E)=P(+|S)$. Es decir, a que el test dé positivo con la misma frecuencia en sanos que en enfermos y por lo tanto a que "estar enfermo" y "dar positivo" sean sucesos independientes. En este caso el test no sirve para nada. En el contexto de las curvas ROC, a la diagonal principal del cuadrado unidad se la llama  la **línea de no discriminación** por este motivo.
 
 ```{example}
@@ -1214,6 +1214,10 @@ Tenemos entonces las mismas tasas de riesgo que la sección anterior:
 
 *  **Tasa de riesgo de desenlace negativo en no tratados**, $P(E|T^c)$: La probabilidad de desenlace negativo entre las personas no tratadas. 
 
+*  **Tasa de curación** (**o  de desenlace positivo**) **en tratados**, $P(E^c|T)$: La probabilidad de desenlace positivo entre las personas tratadas.
+
+*  **Tasa de curación** (**o  de desenlace positivo**) **en no tratados**, $P(E^c|T^c)$: La probabilidad de desenlace positivo entre las personas no tratadas. 
+
 Para compararlas, podemos dividirlas o restarlas. 
 
 *  **Riesgo relativo**, **RR**:  El cociente entre la probabilidad de desenlace negativo entre los tratados y entre los no tratados 
@@ -1221,9 +1225,9 @@ $$
 RR=\dfrac{P(E|T)}{P(E|T^c)}.
 $$
 
-*  **Reducción absoluta del riesgo**, **RAR**: La diferencia entre la probabilidad de desenlace negativo entre los no tratados y entre los  tratados (para que salga positiva):  
+*  **Reducción absoluta del riesgo**, **RAR**: La diferencia entre la probabilidad de curación en los tratados y en los no tratados, que coincide con la probabilidad de desenlace negativo entre los no tratados y entre los tratados (recordad que $P(E|X)=1-P(E^c|X)$):  
 $$
-RAR=P(E|T^c)-P(E|T).
+RAR=P(E^c|T)-P(E^c|T^c)=P(E|T^c)-P(E|T).
 $$
     Fijaos en el cambio de nombre respecto a la sección anterior: en el contexto de exposición y enfermedad, a esta resta la hemos llamado "riesgo absoluto", RA, y aquí "reducción absoluta del riesgo", RAR.
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-11-03" />
+<meta name="date" content="2020-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -174,18 +174,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lección 1</span> Variables aleatorias</h1>
 <div id="generalidades" class="section level2">
 <h2><span class="header-section-number">1.1</span> Generalidades</h2>
-<p>Una <strong>variable aleatoria</strong> sobre una población <span class="math inline">\(\Omega\)</span> es una aplicación que asigna a cada sujeto de <span class="math inline">\(\Omega\)</span> un número real:
+<p>Una <strong>variable aleatoria</strong> sobre una población <span class="math inline">\(\Omega\)</span> es una aplicación
 <span class="math display">\[
 X: \Omega\to  \mathbb{R}
 \]</span>
-Usualmente, entendemos que una variable aleatoria <strong>mide</strong> una característica de los sujetos de <span class="math inline">\(\Omega\)</span> que varía al azar de un sujeto a otro. Por ejemplo:</p>
+que asigna a cada sujeto de <span class="math inline">\(\Omega\)</span> un número real.</p>
+<p>Usualmente, entendemos que una variable aleatoria <strong>mide</strong> una característica cuantitativa de los sujetos de <span class="math inline">\(\Omega\)</span> que varía al azar de un sujeto a otro. Por ejemplo:</p>
 <ul>
 <li><p>Tomamos una persona de una población y medimos su nivel de colesterol, o su altura, o su número de hijos… En este caso, <span class="math inline">\(\Omega\)</span> es la población bajo estudio, de la que tomamos la persona que medimos.</p></li>
 <li><p>Lanzamos una momeda equilibrada 3 veces y contamos las caras que obtenemos. En este caso, <span class="math inline">\(\Omega\)</span> es la población virtual de los lanzamientos 3 veces consecutivas de una moneda equilibrada.</p></li>
 </ul>
 
 <div class="rmdimportant">
-<p>Procurad, al menos al principio, adquirir la disciplina de describir siempre las variables aleatorias mediante una plantilla del estilo de “Tomamos … y medimos …”, para que quede claro cuál es la población y cuál la función. Además, añadid las unidades si es necesario. Por ejemplo:</p>
+<p>Procurad, al menos al principio, adquirir la disciplina de describir siempre las variables aleatorias mediante una plantilla del estilo de “Tomamos … y medimos …”, para que os quede claro cuál es la población y cuál la función. Además, añadid las unidades si es necesario. Por ejemplo:</p>
 <ul>
 <li>“Tomamos una persona de Mallorca y medimos su altura (en cm)”.</li>
 </ul>
@@ -193,7 +194,7 @@ Usualmente, entendemos que una variable aleatoria <strong>mide</strong> una cara
 <ul>
 <li>“Tomamos una persona de Mallorca y medimos su altura (en m)”,</li>
 </ul>
-<p>porque, aunque mide lo mismo sobre los mismos sujetos, les asigna números diferentes, ni que</p>
+<p>porque, aunque mide lo mismo sobre los mismos sujetos, les asigna números diferentes. Y también es diferente de</p>
 <ul>
 <li>“Tomamos una persona de Suecia y medimos su altura (en cm)”,</li>
 </ul>
@@ -202,10 +203,10 @@ Usualmente, entendemos que una variable aleatoria <strong>mide</strong> una cara
 <ul>
 <li>“Lanzamos una moneda 3 veces al aire y contamos las caras”</li>
 </ul>
-<p>no hay necesidad de especificar unidades, a no ser que vayáis a usar una unidad inesperada (yo qué sé, en fracciones de docena).</p>
+<p>no hay necesidad de especificar unidades, a no ser que vayáis a usar una unidad inesperada (yo qué sé, que contéis las caras en fracciones de docena).</p>
 </div>
 
-<p>¿Qué sucesos nos interesan cuando medimos características? Pues básicamente sucesos definidos mediante igualdades y desigualdades. Por ejemplo, si <span class="math inline">\(X\)</span> es la variable aleatoria “Tomamos una persona y medimos su nivel de colesterol en plasma (en mg/dl)”, nos pueden interesar sucesos del estilo de:</p>
+<p>¿Qué sucesos nos interesan cuando medimos características numéricas? Pues básicamente sucesos definidos mediante igualdades y desigualdades. Por ejemplo, si <span class="math inline">\(X\)</span> es la variable aleatoria “Tomamos una persona y medimos su nivel de colesterol en plasma (en mg/dl)”, nos pueden interesar sucesos del estilo de:</p>
 <ul>
 <li><p>El conjunto de las personas cuyo nivel de colesterol está entre 200 y 240. Lo denotaremos
 <span class="math display">\[
@@ -231,17 +232,17 @@ X\in\{180,182,184,200\}
 </ul>
 <p>Normalmente, de estos sucesos lo que nos interesará será su probabilidad, y entonces usaremos notaciones del estilo de las siguientes:</p>
 <ul>
-<li><p><span class="math inline">\(P(200\leq X\leq 240)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol entre 200 y 240.</p></li>
-<li><p><span class="math inline">\(P(X\leq 200)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol menor o igual que 200.</p></li>
-<li><p><span class="math inline">\(P(X&gt;180)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol mayor que 180.</p></li>
-<li><p><span class="math inline">\(P(X=180)\)</span>: Probabilidad de que una persona tenga nivel de colesterol igual a 180. Normalmente esto lo abreviaremos escribiendo <span class="math inline">\(P(180)\)</span>.</p></li>
-<li><p><span class="math inline">\(P(X\in\{180,182,184,200\})\)</span>: Probabilidad de que una persona tenga nivel de colesterol 180 o 182 o 184 o 200.</p></li>
+<li><p><span class="math inline">\(P(200\leq X\leq 240)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol entre 200 y 240 (o, para abreviar, probabilidad de que <span class="math inline">\(X\)</span> esté entre 200 y 240).</p></li>
+<li><p><span class="math inline">\(P(X\leq 200)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol menor o igual que 200 (probabilidad de que <span class="math inline">\(X\)</span> sea menor o igual que 240).</p></li>
+<li><p><span class="math inline">\(P(X&gt;180)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol mayor que 180 (probabilidad de que <span class="math inline">\(X\)</span> sea mayor que 180).</p></li>
+<li><p><span class="math inline">\(P(X=180)\)</span>: Probabilidad de que una persona tenga nivel de colesterol igual a 180 (probabilidad de que <span class="math inline">\(X\)</span> sea 180). Normalmente esto lo abreviaremos escribiendo <span class="math inline">\(P(180)\)</span>.</p></li>
+<li><p><span class="math inline">\(P(X\in\{180,182,184,200\})\)</span>: Probabilidad de que una persona tenga nivel de colesterol 180 o 182 o 184 o 200 (probabilidad de que <span class="math inline">\(X\)</span> sea 180 o 182 o 184 o 200).</p></li>
 </ul>
 <p>Recodad que nuestras probabilidades son proporciones. Por lo tanto, por ejemplo, <span class="math inline">\(P(200\leq X\leq 240)\)</span> es la <strong>proporción</strong> de personas (de alguna población concreta) con nivel de colesterol entre 200 y 240.</p>
-<p>En este contexto, la unión la indicaremos con el signo usual <span class="math inline">\(\cup\)</span> o directamente con una <strong>o</strong>, y la intersección siempre la indicaremos con una coma. Por ejemplo, si <span class="math inline">\(X\)</span> es la variable aleatoria “Lanzamos una moneda 6 veces y contamos las caras”:</p>
+<p>En este contexto, indicaremos normalmente la unión con una <strong>o</strong> y la intersección con una coma. Por ejemplo, si <span class="math inline">\(X\)</span> es la variable aleatoria “Lanzamos una moneda 6 veces y contamos las caras”:</p>
 <ul>
 <li><p><span class="math inline">\(P(X\leq 2\text{ o }X&gt;5)\)</span>: Probabilidad de sacar como máximo 2 caras o más de 5 caras.</p></li>
-<li><p><span class="math inline">\(P(2\leq X\leq 5, X\in 2\mathbb{N})\)</span>: Probabilidad de sacar entre 2 y 5 caras y que además este número de caras sea par. Naturalmente, es la probabilidad de sacar 2 o 4 caras, que podemos escribir como <span class="math inline">\(P(X=2\text{ o }X=4)\)</span> y también <span class="math inline">\(P(X\in \{2,4}\})\)</span>.</p></li>
+<li><p><span class="math inline">\(P(2\leq X\leq 5, X\in 2\mathbb{N})\)</span>: Probabilidad de sacar entre 2 y 5 caras y que además este número de caras sea par. Naturalmente, es la probabilidad de sacar 2 o 4 caras, que podemos escribir como <span class="math inline">\(P(X=2\text{ o }X=4)\)</span> y también <span class="math inline">\(P(X\in \{2,4\})\)</span>.</p></li>
 </ul>
 <p>Dos variables aleatorias <span class="math inline">\(X,Y\)</span> son <strong>independientes</strong> cuando, para todos los pares de valores <span class="math inline">\(a,b\in \mathbb{R}\)</span>, los sucesos
 <span class="math display">\[
@@ -297,12 +298,12 @@ P(X_1\in A_1,\ldots,X_n\in A_n)=P(X_1\in A_1)\cdots P(X_n\in A_n)
 <span class="math display">\[
 f_X(x)=P(X=x)
 \]</span>
-Es decir, la función que asigna a cada <span class="math inline">\(x\in \RR\)</span> la probabilidad del conjunto formado por los sujetos en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(x\)</span>.</p></li>
+Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilidad del conjunto formado por los sujetos en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(x\)</span>.</p></li>
 <li><p>Su <strong>función de distribución</strong> es la función <span class="math inline">\(F_X:\mathbb{R}\to [0,1]\)</span> definida por
 <span class="math display">\[
 F_X(x)=P(X\leq x)
 \]</span>
-Es decir, la función que asigna a cada <span class="math inline">\(x\in \RR\)</span> la probabilidad del conjunto formado por los sujetos en los que <span class="math inline">\(X\)</span> toma un valor <span class="math inline">\(\leq x\)</span>.</p></li>
+Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilidad del conjunto formado por los sujetos en los que <span class="math inline">\(X\)</span> toma un valor <span class="math inline">\(\leq x\)</span>.</p></li>
 </ul>
 
 <div class="example">
@@ -447,7 +448,7 @@ Por ejemplo, en los dos últimos ejemplos, <span class="math inline">\(E(X^2)=3 
 <p>Si en una clase todo el mundo saca un 8 de un examen, la media es 8, ¿no?</p></li>
 <li><p>La esperanza es <strong>lineal</strong>:</p>
 <ul>
-<li><p>Si <span class="math inline">\(a,b\in \RR\)</span>, <span class="math inline">\(E(aX+b)=aE(X)+b\)</span></p>
+<li><p>Si <span class="math inline">\(a,b\in \mathbb{R}\)</span>, <span class="math inline">\(E(aX+b)=aE(X)+b\)</span></p>
 <p>Si en una clase la media de un examen ha sido un 6 y decidimos multiplicar por 1.2 todas las notas y sumarles 1 punto, la media de la nueva nota será 1.2·6+1=8.2, ¿no?</p></li>
 <li><p>Si <span class="math inline">\(Y\)</span> es otra variable aleatoria, <span class="math inline">\(E(X+Y)=E(X)+E(Y)\)</span>.</p>
 <p>Si en una clase la media de la parte de cuestiones de un examen ha sido un 3.5 (sobre 5) y la de la parte de ejercicios ha sido un 3 (sobre 5), la nota media del examen será un 3.5+3=6.5, ¿no?</p></li>
@@ -743,18 +744,18 @@ Figura 1.3: La app <em>Probability Distributions</em>.
 <li>Queremos simular 50 rondas de lanzar 20 veces una moneda equilibrada y contar las caras, es decir, queremos una muestra aleatoria de tamaño 10 de nuestra variable <span class="math inline">\(X\)</span>:</li>
 </ul>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="variables-aleatorias.html#cb17-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1] 12 11  5  8  8 15 10  9 12  6 10  9 10 14 11  9  7  8 13  8 10 10  8 10 10
-## [26]  8 12  9 10  8  8 11 11 13 11 11 10 12  5  9 12  7  4 11 13  8  9  7 10 12</code></pre>
+<pre><code>##  [1]  9 10 10 12  8  4  9  8  8 10 13 13 10  7  7 12 12 10 12 14  7  7  8 10 12
+## [26] 10 13 10 10 10 13 13  8 11 11 12  8 10  9  9  6 11  8 10  7 11  7  9 10  9</code></pre>
 <pre><code>Cada vez que repitamos esta instrucción obtendremos una muestra aleatoria nueva:</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="variables-aleatorias.html#cb20-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1]  7 11 10 14  7 11 12  9 10  7  7  9 10 14  6  8 10 14 15  9 12  8  8  6 14
-## [26]  9 11  6 10 10  8  9  9 10  5  9 13  9 11  9 14 13 11  4  9  6 13 12 13  6</code></pre>
+<pre><code>##  [1] 10  9 10 11  9  9  9 14  9 15 11  6 13 13 12 11  8 12 11 13 10  9 10 11 11
+## [26] 17 15 13  9  9 12 15  5  8 10 11 11  8 10  5  7 11  9  8 11  8  6 10 13  7</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="variables-aleatorias.html#cb22-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1]  9 11 10 13 10  9  9 10 10  8  9 11 11 14  9 11 10 11 13 13 12  7 13  8 12
-## [26]  9 12 10 13  8 11 11 13  9  8 12 13 13 13  7  6  9  9 10  6 10 10  6 10  8</code></pre>
+<pre><code>##  [1]  7 11  9 10 11 10  7  5 13 10 11 13 11 13  9  9 11 11 10 12  8  9 11  9 11
+## [26] 11 11 11  8  8  8 11 12  7  8  8 11  8 11  8  9 10 10  7  6 11 15  9 13 10</code></pre>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="variables-aleatorias.html#cb24-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1]  9 11  9 10 12 13 12  7 11 11 12 11  9 11 11  9  9 13  7 12 13  9 10 10  9
-## [26] 12  8 12 13  7  8 11  8  9  8  6 11  9 13  8 11  8  9  6 11  9  6 12 11 10</code></pre>
+<pre><code>##  [1]  7 12  8  9 13  9 13  9 11 10 12  6 10  7 13  7 10  8  9  9 10  8 11  8 11
+## [26] 11 12  6  9  9 12  8 11  8 11 11 10 12 11 10 10  9 13  7  9 13  6 10 13 10</code></pre>
 <p>Veamos algunos gráficos de la función densidad de variables aleatorias binomiales.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="variables-aleatorias.html#cb26-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb26-2"><a href="variables-aleatorias.html#cb26-2"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="fl">0.1</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(10,0.1)&quot;</span>)</span>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-11-03" />
+<meta name="date" content="2020-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -256,7 +256,7 @@ Es importante tener en cuenta que la clasificación de un sujeto en Enfermo o Sa
 <li><p><strong>Verdaderos positivos</strong>: Sujetos enfermos sobre los que la prueba da positivo.</p></li>
 <li><p><strong>Falsos positivos</strong>: Sujetos sanos sobre los que la prueba da positivo.</p></li>
 <li><p><strong>Verdaderos negativos</strong>: Sujetos sanos sobre los que la prueba da negativo.</p></li>
-<li><p><strong>Falsos negativos</strong>: Sujetos enfermos sobre los que la prueba da positivo.</p></li>
+<li><p><strong>Falsos negativos</strong>: Sujetos enfermos sobre los que la prueba da negativo.</p></li>
 </ul>
 <p><span class="math display">\[
 \begin{array}{l}
@@ -518,11 +518,11 @@ Un valor de <span class="math inline">\(\text{LR}(+)\)</span> por encima de 10 s
 <div class="rmdcaution">
 <p>No confundáis el cociente de verosimilitud positivo <span class="math inline">\(\text{LR}(+)\)</span> con las <em>odds</em> de dar positivo entre los enfermos
 <span class="math display">\[
-\text{OR}(+|E)= \dfrac{P(+|E)}{P(-|E)}
+\text{Odd}(+|E)= \dfrac{P(+|E)}{P(-|E)}
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(\text{LR}(+)\)</span> nos dice cuántas veces es más probable obtener un positivo en un enfermo que en un sano.</p></li>
-<li><p><span class="math inline">\(\text{OR}(+|E)\)</span> nos dice cuántas veces es más probable obtener un positivo que un negativo en un enfermo.</p></li>
+<li><p><span class="math inline">\(\text{Odds}(+|E)\)</span> nos dice cuántas veces es más probable obtener un positivo que un negativo en un enfermo.</p></li>
 </ul>
 </div>
 
@@ -742,7 +742,7 @@ Figura 5.7: Una curva ROC y su umbral óptimo.
 <p>El valor de corte óptimo sería entonces tomar un valor de PSA igual a 3. También podéis observarlo en la Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:ROCama1">5.6</a>: el punto correspondiente al PSA 3 es el más cercano a la esquina superior izquierda.</p>
 <p>En la práctica, se toma como nivel de PSA a partir del cual uno se ha de preocupar en esa franja de edad el 4. ¿Por qué? Es un compromiso: en las pruebas de cribado se prima la especificidad, ya que se trata de descartar sanos, y la especificidad mejora del PSA 3 al PSA 4 manteniendo aún una sensibilidad aceptable del 75%, es decir, detectando un 75% de los enfermos.</p>
 <p>La curva ROC también se usa para evaluar la <strong>capacidad discriminatoria global de la prueba</strong>, es decir, su habilidad en general para distinguir sanos de enfermos para el conjunto de posibles umbrales.</p>
-<p>Para empezar, para que la prueba diagnóstica sirva para detectar enfermos, ha de dar positivo con más frecuencia en sanos que en enfermos, ¿cierto?
+<p>Para empezar, para que la prueba diagnóstica sirva para detectar enfermos, ha de dar positivo con más frecuencia en enfermos que en sanos, ¿cierto?
 Por lo tanto, requerimos que, para cada umbral la sensibilidad sea mayor que la tasa de falsos positivos. Esto significa que la curva ROC ha de estar por encima de la diagonal principal <span class="math inline">\(y=x\)</span>. Los puntos de esta diagonal corresponden a la situación <span class="math inline">\(P(+|E)=P(+|S)\)</span>. Es decir, a que el test dé positivo con la misma frecuencia en sanos que en enfermos y por lo tanto a que “estar enfermo” y “dar positivo” sean sucesos independientes. En este caso el test no sirve para nada. En el contexto de las curvas ROC, a la diagonal principal del cuadrado unidad se la llama la <strong>línea de no discriminación</strong> por este motivo.</p>
 
 <div class="example">
@@ -1192,6 +1192,8 @@ T^c &amp; \text{No tratados} &amp; \text{No tratados} \\[-1ex]
 <ul>
 <li><p><strong>Tasa de riesgo de desenlace negativo en tratados</strong>, <span class="math inline">\(P(E|T)\)</span>: La probabilidad de desenlace negativo entre las personas tratadas.</p></li>
 <li><p><strong>Tasa de riesgo de desenlace negativo en no tratados</strong>, <span class="math inline">\(P(E|T^c)\)</span>: La probabilidad de desenlace negativo entre las personas no tratadas.</p></li>
+<li><p><strong>Tasa de curación</strong> (<strong>o de desenlace positivo</strong>) <strong>en tratados</strong>, <span class="math inline">\(P(E^c|T)\)</span>: La probabilidad de desenlace positivo entre las personas tratadas.</p></li>
+<li><p><strong>Tasa de curación</strong> (<strong>o de desenlace positivo</strong>) <strong>en no tratados</strong>, <span class="math inline">\(P(E^c|T^c)\)</span>: La probabilidad de desenlace positivo entre las personas no tratadas.</p></li>
 </ul>
 <p>Para compararlas, podemos dividirlas o restarlas.</p>
 <ul>
@@ -1199,9 +1201,9 @@ T^c &amp; \text{No tratados} &amp; \text{No tratados} \\[-1ex]
 <span class="math display">\[
 RR=\dfrac{P(E|T)}{P(E|T^c)}.
 \]</span></p></li>
-<li><p><strong>Reducción absoluta del riesgo</strong>, <strong>RAR</strong>: La diferencia entre la probabilidad de desenlace negativo entre los no tratados y entre los tratados (para que salga positiva):<br />
+<li><p><strong>Reducción absoluta del riesgo</strong>, <strong>RAR</strong>: La diferencia entre la probabilidad de curación en los tratados y en los no tratados, que coincide con la probabilidad de desenlace negativo entre los no tratados y entre los tratados (recordad que <span class="math inline">\(P(E|X)=1-P(E^c|X)\)</span>):<br />
 <span class="math display">\[
-RAR=P(E|T^c)-P(E|T).
+RAR=P(E^c|T)-P(E^c|T^c)=P(E|T^c)-P(E|T).
 \]</span>
 Fijaos en el cambio de nombre respecto a la sección anterior: en el contexto de exposición y enfermedad, a esta resta la hemos llamado “riesgo absoluto”, RA, y aquí “reducción absoluta del riesgo”, RAR.</p></li>
 </ul>
