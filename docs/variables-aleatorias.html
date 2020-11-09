@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-11-04" />
+<meta name="date" content="2020-11-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -151,7 +151,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4.1" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#densidad-y-distribución"><i class="fa fa-check"></i><b>1.4.1</b> Densidad y distribución</a></li>
 <li class="chapter" data-level="1.4.2" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>1.4.2</b> Esperanza, varianza, cuantiles…</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#variables-aleatorias-normales"><i class="fa fa-check"></i><b>1.5</b> Variables aleatorias normales</a></li>
+<li class="chapter" data-level="1.5" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#variables-aleatorias-normales"><i class="fa fa-check"></i><b>1.5</b> Variables aleatorias normales</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#propiedades-básicas"><i class="fa fa-check"></i><b>1.5.1</b> Propiedades básicas</a></li>
+<li class="chapter" data-level="1.5.2" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#combinaciones-lineales"><i class="fa fa-check"></i><b>1.5.2</b> Combinaciones lineales</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#intervals-de-referència"><i class="fa fa-check"></i><b>1.6</b> Intervals de referència</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#aplicaciones-en-criterios-diagnósticos"><i class="fa fa-check"></i><b>1.6.1</b> Aplicaciones en criterios diagnósticos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#distribuciones-muestrales"><i class="fa fa-check"></i><b>1.7</b> Distribuciones muestrales</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#conceptos-básicos"><i class="fa fa-check"></i><b>1.7.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="1.7.2" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#media-muestral"><i class="fa fa-check"></i><b>1.7.2</b> Media muestral</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -178,11 +188,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math display">\[
 X: \Omega\to  \mathbb{R}
 \]</span>
-que asigna a cada sujeto de <span class="math inline">\(\Omega\)</span> un número real.</p>
-<p>Usualmente, entendemos que una variable aleatoria <strong>mide</strong> una característica cuantitativa de los sujetos de <span class="math inline">\(\Omega\)</span> que varía al azar de un sujeto a otro. Por ejemplo:</p>
+que asigna a cada sujeto de <span class="math inline">\(\Omega\)</span> un número real. La idea intuitiva tras esta definición es que una variable aleatoria <strong>mide</strong> una característica de los sujetos de <span class="math inline">\(\Omega\)</span> que varía al azar de un sujeto a otro. Por ejemplo:</p>
 <ul>
 <li><p>Tomamos una persona de una población y medimos su nivel de colesterol, o su altura, o su número de hijos… En este caso, <span class="math inline">\(\Omega\)</span> es la población bajo estudio, de la que tomamos la persona que medimos.</p></li>
-<li><p>Lanzamos una momeda equilibrada 3 veces y contamos las caras que obtenemos. En este caso, <span class="math inline">\(\Omega\)</span> es la población virtual de los lanzamientos 3 veces consecutivas de una moneda equilibrada.</p></li>
+<li><p>Lanzamos una moneda equilibrada 3 veces y contamos las caras que obtenemos. En este caso, <span class="math inline">\(\Omega\)</span> es la población virtual de los lanzamientos 3 veces consecutivas de una moneda equilibrada.</p></li>
 </ul>
 
 <div class="rmdimportant">
@@ -232,17 +241,17 @@ X\in\{180,182,184,200\}
 </ul>
 <p>Normalmente, de estos sucesos lo que nos interesará será su probabilidad, y entonces usaremos notaciones del estilo de las siguientes:</p>
 <ul>
-<li><p><span class="math inline">\(P(200\leq X\leq 240)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol entre 200 y 240 (o, para abreviar, probabilidad de que <span class="math inline">\(X\)</span> esté entre 200 y 240).</p></li>
+<li><p><span class="math inline">\(P(200\leq X\leq 240)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol entre 200 y 240 (o, para abreviar, “probabilidad de que <span class="math inline">\(X\)</span> esté entre 200 y 240”).</p></li>
 <li><p><span class="math inline">\(P(X\leq 200)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol menor o igual que 200 (probabilidad de que <span class="math inline">\(X\)</span> sea menor o igual que 240).</p></li>
 <li><p><span class="math inline">\(P(X&gt;180)\)</span>: Probabilidad de que una persona tenga el nivel de colesterol mayor que 180 (probabilidad de que <span class="math inline">\(X\)</span> sea mayor que 180).</p></li>
-<li><p><span class="math inline">\(P(X=180)\)</span>: Probabilidad de que una persona tenga nivel de colesterol igual a 180 (probabilidad de que <span class="math inline">\(X\)</span> sea 180). Normalmente esto lo abreviaremos escribiendo <span class="math inline">\(P(180)\)</span>.</p></li>
-<li><p><span class="math inline">\(P(X\in\{180,182,184,200\})\)</span>: Probabilidad de que una persona tenga nivel de colesterol 180 o 182 o 184 o 200 (probabilidad de que <span class="math inline">\(X\)</span> sea 180 o 182 o 184 o 200).</p></li>
+<li><p><span class="math inline">\(P(X=180)\)</span>: Probabilidad de que una persona tenga nivel de colesterol igual a 180 (probabilidad de que <span class="math inline">\(X\)</span> valga 180).</p></li>
+<li><p><span class="math inline">\(P(X\in\{180,182,184,200\})\)</span>: Probabilidad de que una persona tenga nivel de colesterol 180 o 182 o 184 o 200 (probabilidad de que <span class="math inline">\(X\)</span> valga 180 o 182 o 184 o 200).</p></li>
 </ul>
 <p>Recodad que nuestras probabilidades son proporciones. Por lo tanto, por ejemplo, <span class="math inline">\(P(200\leq X\leq 240)\)</span> es la <strong>proporción</strong> de personas (de alguna población concreta) con nivel de colesterol entre 200 y 240.</p>
-<p>En este contexto, indicaremos normalmente la unión con una <strong>o</strong> y la intersección con una coma. Por ejemplo, si <span class="math inline">\(X\)</span> es la variable aleatoria “Lanzamos una moneda 6 veces y contamos las caras”:</p>
+<p>En este contexto, indicaremos normalmente la <strong>unión</strong> con una <strong>o</strong> y la <strong>intersección</strong> con una <strong>coma</strong>. Por ejemplo, si <span class="math inline">\(X\)</span> es la variable aleatoria “Lanzamos una moneda 6 veces y contamos las caras”:</p>
 <ul>
-<li><p><span class="math inline">\(P(X\leq 2\text{ o }X&gt;5)\)</span>: Probabilidad de sacar como máximo 2 caras o más de 5 caras.</p></li>
-<li><p><span class="math inline">\(P(2\leq X\leq 5, X\in 2\mathbb{N})\)</span>: Probabilidad de sacar entre 2 y 5 caras y que además este número de caras sea par. Naturalmente, es la probabilidad de sacar 2 o 4 caras, que podemos escribir como <span class="math inline">\(P(X=2\text{ o }X=4)\)</span> y también <span class="math inline">\(P(X\in \{2,4\})\)</span>.</p></li>
+<li><p><span class="math inline">\(P(X\leq 2\text{ o }X\geq 5)\)</span>: Probabilidad de sacar como máximo 2 caras o como mínimo 5.</p></li>
+<li><p><span class="math inline">\(P(2\leq X, X\leq 5)\)</span>: Probabilidad de sacar un numéro de caras que sea mayor o igual que 2 y menor o igual que 5. Naturalmente, esta probabilidad <span class="math inline">\(P(2\leq X\leq 5)\)</span>.</p></li>
 </ul>
 <p>Dos variables aleatorias <span class="math inline">\(X,Y\)</span> son <strong>independientes</strong> cuando, para todos los pares de valores <span class="math inline">\(a,b\in \mathbb{R}\)</span>, los sucesos
 <span class="math display">\[
@@ -293,17 +302,17 @@ P(X_1\in A_1,\ldots,X_n\in A_n)=P(X_1\in A_1)\cdots P(X_n\in A_n)
 <h3><span class="header-section-number">1.2.1</span> Densidad y distribución</h3>
 <p>Sea <span class="math inline">\(X: \Omega\to \mathbb{R}\)</span> una <strong>variable aleatoria discreta</strong>.</p>
 <ul>
-<li><p>Su <strong>dominio</strong> <strong><span class="math inline">\(D_X\)</span></strong> es el conjunto de posibles valores que puede tomar.</p></li>
+<li><p>Su <strong>dominio</strong> <strong><span class="math inline">\(D_X\)</span></strong> es el conjunto de posibles valores que puede tomar, es decir, el conjunto de los <span class="math inline">\(x\in \mathbb{R}\)</span> tales que <span class="math inline">\(P(X=x)&gt;0\)</span>.</p></li>
 <li><p>Su <strong>función de densidad</strong> es la función <span class="math inline">\(f_X:\mathbb{R}\to [0,1]\)</span> definida por
 <span class="math display">\[
 f_X(x)=P(X=x)
 \]</span>
-Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilidad del conjunto formado por los sujetos en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(x\)</span>.</p></li>
+Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilidad de que <span class="math inline">\(X\)</span> valga <span class="math inline">\(x\)</span> (la proporción de sujetos de la población en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(x\)</span>).</p></li>
 <li><p>Su <strong>función de distribución</strong> es la función <span class="math inline">\(F_X:\mathbb{R}\to [0,1]\)</span> definida por
 <span class="math display">\[
 F_X(x)=P(X\leq x)
 \]</span>
-Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilidad del conjunto formado por los sujetos en los que <span class="math inline">\(X\)</span> toma un valor <span class="math inline">\(\leq x\)</span>.</p></li>
+Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilidad de que el valor de <span class="math inline">\(X\)</span> sea <span class="math inline">\(\leq x\)</span> (la proporción de sujetos de la población en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(\leq x\)</span>).</p></li>
 </ul>
 
 <div class="example">
@@ -326,6 +335,17 @@ Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb
 Si <span class="math inline">\(X\)</span> es una variable aleatoria discreta que solo puede tomar los valores de <span class="math inline">\(D_X\)</span>, entonces <span class="math inline">\(P(X\in A)=0\)</span> para cualquier subconjunto <span class="math inline">\(A\)</span> disjunto de <span class="math inline">\(D_X\)</span>, precisamente porque <span class="math inline">\(X\)</span> no puede tomar ningún valor de <span class="math inline">\(A\)</span>. Por ejemplo, ¿cuál es la probabilidad de sacar 2.5 caras al lanzar 3 veces una moneda? 0 ¿Y la de sacar <span class="math inline">\(\pi\)</span> caras? 0.
 </div>
 
+<p>En resumen, la función de densidad de <span class="math inline">\(X\)</span> es
+<span class="math display">\[
+f_X(x) =\left\{
+\begin{array}{ll}
+1/8 &amp; \text{ si $x=0$}\\ 
+3/8 &amp; \text{ si $x=1$}\\ 
+3/8 &amp; \text{ si $x=2$}\\ 
+1/8 &amp; \text{ si $x=3$}\\
+0 &amp; \text{ si $x\neq 0,1,2,3$}
+\end{array}\right.
+\]</span></p>
 <div class="figure" style="text-align: center"><span id="fig:densicares"></span>
 <img src="INREMDN_files/figure-html/densicaras.png" alt="Función de densidad de la variable aleatoria que cuenta el número de caras en 3 lanzamientos" width="60%" />
 <p class="caption">
@@ -337,28 +357,11 @@ Figura 1.1: Función de densidad de la variable aleatoria que cuenta el número 
 <li><p>Si <span class="math inline">\(x&lt;0\)</span>, <span class="math inline">\(F_X(x)=P(X\leq x)=0\)</span> porque <span class="math inline">\(X\)</span> no puede tomar ningún valor estrictamente negativo.</p></li>
 <li><p>Si <span class="math inline">\(0\leq x&lt;1\)</span>, <span class="math inline">\(F_X(x)=P(X\leq x)=P(X=0)=f_X(0)=1/8\)</span>, porque si <span class="math inline">\(0\leq x&lt;1\)</span>, el único valor <span class="math inline">\(\leq x\)</span> que puede tomar <span class="math inline">\(X\)</span> es el 0.</p></li>
 <li><p>Si <span class="math inline">\(1\leq x&lt;2\)</span>, <span class="math inline">\(F_X(x)=P(X\leq x)=P(X=0\text{ o }X=1)=f_X(0)+f_X(1)=4/8=1/2\)</span>, porque si <span class="math inline">\(1\leq x&lt;2\)</span>, los únicos valores <span class="math inline">\(\leq x\)</span> que puede tomar <span class="math inline">\(X\)</span> son 0 y 1.</p></li>
-<li><p>Si <span class="math inline">\(2\leq x&lt;3\)</span>, <span class="math inline">\(F_X(x)=P(X\leq x)=P(X=0\text{ o }X=1\text{ o }X=2)=f_X(0)+f_X(1)+f_X(2)=7/8\)</span>, porque si <span class="math inline">\(2\leq x&lt;3\)</span>, los únicos valores <span class="math inline">\(\leq x\)</span> que puede tomar <span class="math inline">\(X\)</span> son 0, 1 y 2.</p></li>
+<li><p>Si <span class="math inline">\(2\leq x&lt;3\)</span>, <span class="math inline">\(F_X(x)=P(X\leq x)=P(X=0\text{ o }X=1\text{ o }X=2)\)</span> <span class="math inline">\(=f_X(0)+f_X(1)+f_X(2)=7/8\)</span>, porque si <span class="math inline">\(2\leq x&lt;3\)</span>, los únicos valores <span class="math inline">\(\leq x\)</span> que puede tomar <span class="math inline">\(X\)</span> son 0, 1 y 2.</p></li>
 <li><p>Si <span class="math inline">\(3\leq x\)</span>, <span class="math inline">\(F_X(x)=P(X\leq x)=1\)</span>, porque si <span class="math inline">\(3\leq x\)</span>, seguro que obtenemos un número de caras <span class="math inline">\(\leq 3\)</span>.</p></li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:districares"></span>
-<img src="INREMDN_files/figure-html/distrcares.png" alt="Función de distribución de la variable aleatoria que cuenta el número de caras en 3 lanzamientos" width="60%" />
-<p class="caption">
-Figura 1.2: Función de distribución de la variable aleatoria que cuenta el número de caras en 3 lanzamientos
-</p>
-</div>
-<p>En resumen, la función de densidad es
-<span class="math display">\[
-f_X(x) =\left\{
-\begin{array}{ll}
-1/8 &amp; \text{ si $x=0$}\\ 
-3/8 &amp; \text{ si $x=1$}\\ 
-3/8 &amp; \text{ si $x=2$}\\ 
-1/8 &amp; \text{ si $x=3$}\\
-0 &amp; \text{ en otro caso}
-\end{array}\right.
-\]</span>
-y la función de distribución es
-<span class="math display">\[
+<p>Por lo tanto, la función <span class="math inline">\(F_X\)</span> es la función <strong>escalonada</strong></p>
+<p><span class="math display">\[
 F_X(x) =\left\{
 \begin{array}{ll}
 0 &amp; \text{ si $x&lt;0$}\\
@@ -368,6 +371,12 @@ F_X(x) =\left\{
 1 &amp; \text{ si $3\leq x$}
 \end{array}\right.
 \]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:districares"></span>
+<img src="INREMDN_files/figure-html/distrcares.png" alt="Función de distribución de la variable aleatoria que cuenta el número de caras en 3 lanzamientos" width="60%" />
+<p class="caption">
+Figura 1.2: Función de distribución de la variable aleatoria que cuenta el número de caras en 3 lanzamientos
+</p>
+</div>
 <p>El conocimiento de <span class="math inline">\(f_X\)</span>, más las reglas del cálculo de probabilidades, permite calcular la probabilidad de cualquier suceso relacionado con <span class="math inline">\(X\)</span>:
 <span class="math display">\[
 P(X\in A) =\sum_{a\in A} P(X=a) =\sum_{a\in D_X\cap A} P(X=a) = \sum_{a\in D_X\cap A} f_X(a)
@@ -376,6 +385,11 @@ En particular
 <span class="math display">\[
 F_X(x)=P(X\leq x)=\sum_{a\in D_X,\ a\leq x} f_X(a)
 \]</span></p>
+
+<div class="rmdexercici">
+Dada una variable aleatoria discreta <span class="math inline">\(X\)</span>, pueden existir dos elementos diferentes <span class="math inline">\(x,y\in D_X\)</span> tales que <span class="math inline">\(F_X(x)=F_X(y)\)</span>?
+</div>
+
 </div>
 <div id="esperanza" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Esperanza</h3>
@@ -384,17 +398,17 @@ F_X(x)=P(X\leq x)=\sum_{a\in D_X,\ a\leq x} f_X(a)
 E(X)=\sum_{x\in D_X} x\cdot f_X(x)
 \]</span>
 También se suele denotar con <span class="math inline">\(\mu_X\)</span> o simplemente <span class="math inline">\(\mu\)</span> si no hace falta especificar la <span class="math inline">\(X\)</span>.</p>
-<p>La interpretación de <span class="math inline">\(E(X)\)</span> es que es el <strong>valor medio</strong> de la variable <span class="math inline">\(X\)</span> en el total de la población <span class="math inline">\(\Omega\)</span>. En efecto, como <span class="math inline">\(P(X=x)\)</span> es la proporción de los sujetos de <span class="math inline">\(\Omega\)</span> en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(x\)</span>, entonces
+<p>La interpretación de <span class="math inline">\(E(X)\)</span> es que la <strong>media</strong> de los valores de la variable <span class="math inline">\(X\)</span> en el total de la población <span class="math inline">\(\Omega\)</span>. En efecto, como <span class="math inline">\(P(X=x)\)</span> es la proporción de los sujetos de <span class="math inline">\(\Omega\)</span> en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(x\)</span>, entonces
 <span class="math display">\[
 E(X)=\sum_{x\in D_X} x\cdot P(X=x)
 \]</span>
-es el promedio del valor de <span class="math inline">\(X\)</span> sobre todos los elementos de <span class="math inline">\(\Omega\)</span>. Comparadlo con el ejemplo siguiente. ¿Cómo lo hubiérais resuelto ayer?</p>
+es el promedio del valor de <span class="math inline">\(X\)</span> sobre todos los elementos de <span class="math inline">\(\Omega\)</span>. Comparadlo con el ejemplo siguiente.</p>
 
 <div class="example">
 <p><span id="exm:notes1" class="example"><strong>Ejemplo 1.2  </strong></span>Si, en una clase, un 10% han sacado un 4 en un examen, un 20% un 6, un 50% un 8 y un 20% un 10, ¿cuál ha sido la nota media obtenida?</p>
 </div>
 
-<p>Suponemos que la haubiérais calculado como
+<p>Suponemos que calcularíais esta media como
 <span class="math display">\[
 4\cdot 0.1+6\cdot 0.2+8\cdot 0.5+10\cdot 0.2=7.6
 \]</span>
@@ -407,7 +421,7 @@ E(X)\!\!\!\!\! &amp;=4\cdot P(X=4)+6\cdot P(X=6)+8\cdot P(X=8)+10\cdot P(X=10)\\
 \]</span></p>
 
 <div class="rmdimportant">
-<p>Aparte de su interpretación como “el promedio de <span class="math inline">\(X\)</span> en el total de la población”, <span class="math inline">\(E(X)\)</span> es el <strong>valor esperado</strong> de <span class="math inline">\(X\)</span>, en el sentido siguiente:</p>
+<p>Aparte de su interpretación como “el promedio de <span class="math inline">\(X\)</span> en el total de la población”, <span class="math inline">\(E(X)\)</span> es también el <strong>valor esperado</strong> de <span class="math inline">\(X\)</span>, en el sentido siguiente:</p>
 <blockquote>
 <p>Suponed que tomamos una muestra aleatoria de <span class="math inline">\(n\)</span> sujetos de la población, medimos <span class="math inline">\(X\)</span> sobre ellos y calculamos la media aritmética de los <span class="math inline">\(n\)</span> valores obtenidos. Entonces, cuando el tamaño <span class="math inline">\(n\)</span> de la muestra tiende a <span class="math inline">\(\infty\)</span>, esta media aritmética tiende a valer <span class="math inline">\(E(X)\)</span> “casi siempre”, en el sentido de que la probabilidad de que su límite sea <span class="math inline">\(E(X)\)</span> es 1.</p>
 </blockquote>
@@ -416,7 +430,7 @@ Es decir: si medimos <span class="math inline">\(X\)</span> sobre <strong>muchos
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-14" class="example"><strong>Ejemplo 1.3  </strong></span>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una moneda al aire 3 veces y contamos las caras”. Su valor esperado es
+<p><span id="exm:unnamed-chunk-15" class="example"><strong>Ejemplo 1.3  </strong></span>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una moneda al aire 3 veces y contamos las caras”. Su valor esperado es
 <span class="math display">\[
 E(X)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2\cdot \frac{3}{8}+3\cdot \frac{1}{8}=1.5
 \]</span></p>
@@ -427,10 +441,10 @@ E(X)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2\cdot \frac{3}{8}+3\cdot \frac{1}{8
 <span class="math display">\[
 E(g(X))=\sum_{x\in D_X} g(x)\cdot f_X(x)
 \]</span>
-De nuevo, su interpretación natural es que es el promedio de <span class="math inline">\(g(X)\)</span> sobre la población en la que medimos <span class="math inline">\(X\)</span>, y también es el valor “esperado” de media de <span class="math inline">\(g(X)\)</span> en el sentido anterior.</p>
+De nuevo, su interpretación natural es que es el promedio de <span class="math inline">\(g(X)\)</span> sobre la población en la que medimos <span class="math inline">\(X\)</span>, y también es el valor “esperado” de <span class="math inline">\(g(X)\)</span> en el sentido anterior.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-15" class="example"><strong>Ejemplo 1.4  </strong></span>Si lanzamos una moneda al aire 3 veces, contamos las caras y elevamos este número de caras al cuadrado, ¿qué valor esperamos obtener de media? Será la esperanza de <span class="math inline">\(X^2\)</span>, siendo <span class="math inline">\(X\)</span> la variable aleatoria “Lanzamos una moneda al aire 3 veces y contamos las caras”:
+<span id="exm:unnamed-chunk-16" class="example"><strong>Ejemplo 1.4  </strong></span>Si lanzamos una moneda al aire 3 veces, contamos las caras y elevamos este número de caras al cuadrado, ¿qué valor esperamos obtener, de media? Será la esperanza de <span class="math inline">\(X^2\)</span>, siendo <span class="math inline">\(X\)</span> la variable aleatoria “Lanzamos una moneda al aire 3 veces y contamos las caras”:
 </div>
 
 <p><span class="math display">\[
@@ -438,8 +452,8 @@ E(X^2)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2^2\cdot \frac{3}{8}+3^2\cdot \fra
 \]</span></p>
 
 <div class="rmdcaution">
-<p><span class="math inline">\(E(X^2) \neq E(X)^2\)</span></p>
-Por ejemplo, en los dos últimos ejemplos, <span class="math inline">\(E(X^2)=3 \neq E(X)^2=1.5^2=2.25\)</span>.
+<p>Fijaos en que <span class="math inline">\(E(X^2) \neq E(X)^2\)</span>.</p>
+Por ejemplo, en los dos últimos ejemplos hemos visto que si <span class="math inline">\(X\)</span> es la variable aleatoria que cuenta el número de caras en 3 lanzamientos de una moneda equilibrada, <span class="math inline">\(E(X^2)=3 \neq E(X)^2=1.5^2=2.25\)</span>.
 </div>
 
 <p>La esperanza de las variables aleatorias discretas tiene las propiedades siguientes, todas razonables si la interpretáis en términos del valor promedio de <span class="math inline">\(X\)</span>:</p>
@@ -454,9 +468,9 @@ Por ejemplo, en los dos últimos ejemplos, <span class="math inline">\(E(X^2)=3 
 <p>Si en una clase la media de la parte de cuestiones de un examen ha sido un 3.5 (sobre 5) y la de la parte de ejercicios ha sido un 3 (sobre 5), la nota media del examen será un 3.5+3=6.5, ¿no?</p></li>
 </ul></li>
 <li><p>La esperanza es <strong>monótona creciente</strong>: Si <span class="math inline">\(X\leq Y\)</span> (en el sentido de que el valor de <span class="math inline">\(X\)</span> sobre un sujeto de la población <span class="math inline">\(\Omega\)</span> siempre es menor o igual que el valor de <span class="math inline">\(Y\)</span> sobre el mismo sujeto), entonces <span class="math inline">\(E(X)\leq E(Y)\)</span>.</p>
-<p>Si todos sacáis mejor nota de Anatomía que de Bioestadística, la nota media de Anatomía será máyor que la de Bioestadística, ¿no?</p></li>
+<p>Si todos sacáis mejor nota de Anatomía que de Bioestadística, la nota media de Anatomía será mayor que la de Bioestadística, ¿no?</p></li>
 <li><p>Más en general, si <span class="math inline">\(g(X)\leq h(X)\)</span>, entonces <span class="math inline">\(E(g(X))\leq E(h(X))\)</span></p></li>
-<li><p>Pero atención, <span class="math inline">\(E(g(X)) \neq g(E(X))\)</span>, en general, como ya hemos visto.</p></li>
+<li><p>Pero atención, en general <span class="math inline">\(E(g(X)) \neq g(E(X))\)</span>, como ya hemos visto.</p></li>
 </ul>
 </div>
 <div id="varianza-y-desviación-típica" class="section level3">
@@ -469,7 +483,7 @@ Es la esperanza del cuadrado de la diferencia entre <span class="math inline">\(
 <p>El resultado siguiente puede ser útil para calcularla “a mano”.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-17" class="theorem"><strong>Teorema 1.1  </strong></span><span class="math inline">\(Var(X)=E(X^2)-E(X)^2\)</span>.
+<span id="thm:unnamed-chunk-18" class="theorem"><strong>Teorema 1.1  </strong></span><span class="math inline">\(Var(X)=E(X^2)-E(X)^2\)</span>.
 </div>
 
 
@@ -490,10 +504,15 @@ Var(X)\!\!\!\!\! &amp; =E((X-E(X))^2)=E(X^2-2E(X)\cdot X+E(X)^2)\\
 \sigma(X)=+\sqrt{Var(X)}
 \]</span>
 También mide la dispersión de los valores de <span class="math inline">\(X\)</span> respecto de la media. La denotaremos a veces por <span class="math inline">\(\sigma_X\)</span> o <span class="math inline">\(\sigma\)</span>.</p>
+
+<div class="rmdcaution">
+En el contexto de las variables aleatorias, no hay “varianza” y “varianza muestral”, solo “varianza” (el mismo nombre os tendría que dar la pista que la “varianza muestral” está definida solo para muestras).
+</div>
+
 <p>El motivo para introducir la varianza <strong>y</strong> la desviación típica para medir la dispersión de los valores de <span class="math inline">\(X\)</span> es la misma que en estadística descriptiva: la varianza es más fácil de manejar (no involucra raíces cuadradas) pero sus unidades son las de <span class="math inline">\(X\)</span> al cuadrado, mientras que las unidades de la desviación típica son las de <span class="math inline">\(X\)</span>, y por lo tanto su valor es más fácil de interpretar.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-19" class="example"><strong>Ejemplo 1.5  </strong></span>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una monea equilibrada 3 veces y contamos las caras”. Su varianza es:</p>
+<p><span id="exm:unnamed-chunk-21" class="example"><strong>Ejemplo 1.5  </strong></span>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una monea equilibrada 3 veces y contamos las caras”. Su varianza es:</p>
 </div>
 
 <p><span class="math display">\[
@@ -511,9 +530,29 @@ Su desviación típica es
 \]</span></p>
 <p>Veamos algunas propiedades de la varianza y la desviación típica:</p>
 <ul>
-<li><p>Si <span class="math inline">\(b\)</span> es una variable aleatoria constante que sobre todos los individuos de la población toma el valor <span class="math inline">\(b\in \mathbb{R}\)</span>, entonces <span class="math inline">\(Var(b)=\sigma(b)=0\)</span>.</p></li>
-<li><p><span class="math inline">\(Var(aX+b)=a^2\cdot Var(X)\)</span>.</p></li>
-<li><p><span class="math inline">\(\sigma(aX+b)=|a|\cdot \sigma(X)\)</span> (recodad que la desviación típica es positiva, y <span class="math inline">\(+\sqrt{a^2}=|a|\)</span>).</p></li>
+<li>Si <span class="math inline">\(b\)</span> es una variable aleatoria constante que sobre todos los individuos de la población toma el valor <span class="math inline">\(b\in \mathbb{R}\)</span>, entonces <span class="math inline">\(Var(b)=\sigma(b)=0\)</span>.</li>
+</ul>
+<p>Una variable aleatoria constante tiene 0 dispersión, ¿no?</p>
+<ul>
+<li><span class="math inline">\(Var(aX+b)=a^2\cdot Var(X)\)</span>.</li>
+</ul>
+
+<div class="rmdcorbes">
+En efecto
+<span class="math display">\[
+\begin{array}{l}
+Var(aX+b) =E((aX+b)^2)-E(aX+b)^2\\
+\quad = E(a^2X^2+2abX+b^2)-(aE(X)+b)^2\\
+\quad \text{(por la linealidad de la esperanza)}\\
+\quad = a^2E(X^2)+2abE(X)+b^2-a^2E(X)^2-2abE(X)-b^2\\
+\quad \text{(de nuevo, por la linealidad de la esperanza)}\\
+\quad = a^2(E(X^2)-E(X)^2)=a^2Var(X)
+\end{array}
+\]</span>
+</div>
+
+<ul>
+<li><p><span class="math inline">\(\sigma(aX+b)=|a|\cdot \sigma(X)\)</span> (recordad que la desviación típica es positiva, y <span class="math inline">\(+\sqrt{a^2}=|a|\)</span>).</p></li>
 <li><p>Si <span class="math inline">\(X,Y\)</span> son variables aleatorias <strong>independientes</strong>,
 <span class="math display">\[
 Var(X+Y)=Var(X)+Var(Y)
@@ -523,13 +562,17 @@ Var(X+Y)=Var(X)+Var(Y)
 </div>
 <div id="cuantiles" class="section level3">
 <h3><span class="header-section-number">1.2.4</span> Cuantiles</h3>
-<p>El <strong>cuantil de orden <span class="math inline">\(p\)</span></strong> (o <strong><span class="math inline">\(p\)</span>-cuantil</strong>) de una variable aleatoria <span class="math inline">\(X\)</span> discreta es el menor valor <span class="math inline">\(x_p\in D_X\)</span> tal que
-<span class="math display">\[
-F_X(x_p)=P(X\leq x_p)\geq p
-\]</span></p>
-<p>Es decir, el valor más pequeño de entre los que puede tomar <span class="math inline">\(X\)</span> tal que la probabilidad de que <span class="math inline">\(X\)</span> valga como máximo ese valor sea como mínimo <span class="math inline">\(p\)</span>.</p>
-<p>Si existen <span class="math inline">\(x\in D_X\)</span> tales que <span class="math inline">\(F_X(x)=p\)</span>, entonces será el <span class="math inline">\(x_p\in D_X\)</span> más pequeño tal que
-<span class="math inline">\(F_X(x_p)=p\)</span>.</p>
+<p>Sea <span class="math inline">\(p\in [0,1]\)</span>. El <strong>cuantil de orden <span class="math inline">\(p\)</span></strong> (o <strong><span class="math inline">\(p\)</span>-cuantil</strong>) de una variable aleatoria <span class="math inline">\(X\)</span> discreta es el valor <span class="math inline">\(x_p\in D_X\)</span> tal que:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(P(X\leq x_p)\geq p\)</span>.</li>
+<li><span class="math inline">\(P(X&lt; x_p)&lt;p\)</span></li>
+</ol>
+<p>Por ejemplo, que el 0.25-cuantil de una variable aleatoria discreta <span class="math inline">\(X\)</span> sea, yo qué sé, 8, significa que al menos una cuarta parte de la población tiene un valor de <span class="math inline">\(X\)</span> menor o igual que 8, pero menos de un 25% de la población que tiene un valor de <span class="math inline">\(X\)</span> estrictamente menor que 8..</p>
+
+<div class="rmdimportant">
+Si existe algún <span class="math inline">\(x_p\in D_X\)</span> tal que <span class="math inline">\(F_X(x_p)=P(X\leq x_p)=p\)</span>, entonces el <span class="math inline">\(p\)</span>-cuantil es ese <span class="math inline">\(x_p\)</span>.
+</div>
+
 <p>Como en estadística descriptiva, algunos cuantiles de variables aleatorias tienen nombres propios. Por ejemplo:</p>
 <ul>
 <li><p>La <strong>mediana</strong> de <span class="math inline">\(X\)</span> es su 0.5-cuantil</p></li>
@@ -538,7 +581,7 @@ F_X(x_p)=P(X\leq x_p)\geq p
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-20" class="example"><strong>Ejemplo 1.6  </strong></span>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una monea equilibrada 3 veces y contamos las caras”. Recordemos que su función de distribución es</p>
+<p><span id="exm:unnamed-chunk-24" class="example"><strong>Ejemplo 1.6  </strong></span>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una monea equilibrada 3 veces y contamos las caras”. Recordemos que su función de distribución es</p>
 </div>
 
 <p><span class="math display">\[
@@ -552,7 +595,6 @@ F_X(x)=\left\{
 \end{array}
 \right.
 \]</span></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="variables-aleatorias.html#cb1-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;INREMDN_files/figure-html/distrcares.png&quot;</span>)</span></code></pre></div>
 <p><img src="INREMDN_files/figure-html/distrcares.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Entonces, por ejemplo:</p>
 <ul>
@@ -583,7 +625,7 @@ F_X(x)=\left\{
 </div>
 <div id="familias-importantes-de-variables-aleatorias-discretas" class="section level2">
 <h2><span class="header-section-number">1.3</span> Familias importantes de variables aleatorias discretas</h2>
-<p>En esta sección vamos a describir 3 familias de variables aleatorias “distinguidas” que tenéis que conocer:</p>
+<p>En esta sección vamos a describir tres familias de variables aleatorias “distinguidas” que tenéis que conocer:</p>
 <ul>
 <li>Binomial</li>
 <li>Hipergeométrica</li>
@@ -593,26 +635,25 @@ F_X(x)=\left\{
 <p>De estas familias de variables tenéis que saber:</p>
 <ul>
 <li>Distinguirlas: saber cuando una variable aleatoria es de una familia de estas.</li>
-<li>Su densidad, su valor esperado y su varianza</li>
-<li>Usar algún programa o alguna aplicación para calcular cosas con ellas cuando sea necesario</li>
+<li>Su densidad, su valor esperado y su varianza.</li>
+<li>Usar algún programa o alguna aplicación para calcular cosas con ellas cuando sea necesario.</li>
 </ul>
 <div id="variables-aleatorias-binomiales" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Variables aleatorias binomiales</h3>
-<p>Un <strong>experimento aleatorio</strong> es un acción Por ejemplo, lanzar un dado, o escoger una persona y medir su nivel de colesterol en sangre.</p>
 <p>Un <strong>experimento de Bernoulli</strong> es una acción con solo dos posibles reultados, que identificamos con “Éxito” (<span class="math inline">\(E\)</span>) y “Fracaso” (<span class="math inline">\(F\)</span>), y de la que no podemos predecir su resultado debido a la influencia del azar. Por ejemplo, lanzar un dado y mirar si ha salido un 6 (<span class="math inline">\(E\)</span>: sacar un 6; <span class="math inline">\(F\)</span>: cualquier otro resultado).</p>
 <p>La <strong>probabilidad de éxito</strong> <span class="math inline">\(p\)</span> de un experimento de Bernoulli es la probabilidad de obtener <span class="math inline">\(E\)</span>. Es decir, <span class="math inline">\(P(E)=p\)</span>. Naturalmente, entonces, <span class="math inline">\(P(F)=1-p\)</span>.</p>
 <p>Por ejemplo:</p>
 <ul>
 <li>Lanzar una moneda equilibrada y mirar si da cara (<span class="math inline">\(E\)</span>: dar cara; <span class="math inline">\(p=1/2\)</span>).</li>
-<li>Realizar un test PCR de COVID-19 a una persona y mirar si da positivo (<span class="math inline">\(E\)</span>: dar positivo; <span class="math inline">\(p\)</span>: la probabilidad de que el test dé positivo en una persona de la población de la que hemos extraído nuestro sujeto).</li>
+<li>Realizar un test PCR de COVID-19 a una persona y mirar si da positivo (<span class="math inline">\(E\)</span>: dar positivo; <span class="math inline">\(p\)</span>: la proporción de personas de la población de la que hemos extraído nuestro sujeto que dan positivo en el test).</li>
 </ul>
-<p>Una <strong>variable aleatoria binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span></strong> es una variable aleatoria <span class="math inline">\(X\)</span> que cuenta el número de éxitos <span class="math inline">\(E\)</span> en una secuencia de <span class="math inline">\(n\)</span> repeticiones independientes (el resultado de una no depende de los resultados de las otras) de un mismo experimento de Bernoulli de probabilidad de éxito <span class="math inline">\(p\)</span>. A veces también diremos que <span class="math inline">\(X\)</span> <strong>tiene distribución binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span></strong>.</p>
-<p>Denotaremos la familia de las variables aleatorias binomiales de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span> dados por <span class="math inline">\(B(n,p)\)</span>, y llamaremos a <span class="math inline">\(n\)</span> el <strong>tamaño de las muestras</strong> y a <span class="math inline">\(p\)</span> la <strong>probabilidad</strong> (<strong>poblacional</strong>) <strong>de éxito</strong>.</p>
+<p>Una <strong>variable aleatoria binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span></strong> (abreviadamente, <span class="math inline">\(B(n,p)\)</span>) es una variable aleatoria <span class="math inline">\(X\)</span> que cuenta el número de éxitos <span class="math inline">\(E\)</span> en una secuencia de <span class="math inline">\(n\)</span> repeticiones independientes de un mismo experimento de Bernoulli de probabilidad de éxito <span class="math inline">\(p\)</span>. <strong>Independientes</strong> significa que resultado de una no depende de los resultados de las otras.</p>
+<p>Llamaremos a <span class="math inline">\(n\)</span> el <strong>tamaño de las muestras</strong> y a <span class="math inline">\(p\)</span> la <strong>probabilidad</strong> (<strong>poblacional</strong>) <strong>de éxito</strong>. A veces también diremos que una variable <span class="math inline">\(X\)</span> <span class="math inline">\(B(n,p)\)</span> <strong>tiene distribución binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span></strong>.</p>
 <p>Por ejemplo:</p>
 <ul>
 <li><p>Realizar un experimento de Bernoulli de parámetro <span class="math inline">\(p\)</span> y anotar 1 si resulta en éxito y 0 si resulta en fracaso es una variable binomial <span class="math inline">\(B(1,p)\)</span>.</p></li>
 <li><p>Lanzar una moneda equilibrada 10 veces y contar las caras es una variable binomial <span class="math inline">\(B(10,0.5)\)</span></p></li>
-<li><p>Elegir 20 personas al azar, una tras otra y de manera independiente las unas de las otras, realizar sobre ellas un test PCR y contar cuántos dan positivo: es binomial <span class="math inline">\(B(20,p)\)</span> con <span class="math inline">\(p\)</span> la probabilidad de que el test dé positivo.</p></li>
+<li><p>Elegir 20 personas al azar, una tras otra, permitiendo repeticiones y de manera independiente las unas de las otras, realizar sobre ellas un test PCR y contar cuántos dan positivo: es binomial <span class="math inline">\(B(20,p)\)</span> con <span class="math inline">\(p\)</span> la probabilidad de que el test dé positivo.</p></li>
 </ul>
 <p>El tipo más común de variables binomiales en medicina es este último:</p>
 
@@ -623,7 +664,7 @@ Tenemos un subconjunto <span class="math inline">\(A\)</span> de una población 
 <p>Tenemos el resultado siguiente.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-24" class="theorem"><strong>Teorema 1.2  </strong></span>Si <span class="math inline">\(X\)</span> es una variable <span class="math inline">\(B(n,p)\)</span>:</p>
+<p><span id="thm:unnamed-chunk-28" class="theorem"><strong>Teorema 1.2  </strong></span>Si <span class="math inline">\(X\)</span> es una variable <span class="math inline">\(B(n,p)\)</span>:</p>
 <ul>
 <li><p>Su dominio es <span class="math inline">\(D_X=\{0,1,\ldots,n\}\)</span></p></li>
 <li><p>Su función de densidad es
@@ -641,21 +682,21 @@ f_X(k)=\left\{\begin{array}{ll}
 <div class="rmdimportant">
 Recordad que el <strong>número combinatorio</strong>
 <span class="math display">\[
-\binom{n}{k}}=\frac{\overbrace{n\cdot (n-1)\cdots (n-k+1)}^k}{k\cdot (k-1)\cdots 2\cdot 1}=\frac{n!}{k!(n-k)!}
+\binom{n}{k}=\frac{\overbrace{n\cdot (n-1)\cdots (n-k+1)}^k}{k\cdot (k-1)\cdots 2\cdot 1}=\frac{n!}{k!(n-k)!}
 \]</span>
 nos da el número de subconjuntos de <span class="math inline">\(k\)</span> elementos de <span class="math inline">\(\{1,\ldots,n\}\)</span>.
 </div>
 
-<p>El tipo de teorema anterior es el que hace que nos interese estudiar algunas familias distinguidas de variables aleatorias. Si, por ejemplo, reconocemos que una variable aleatoria es binomial y conocemos sus valores de <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span> y nos sabemos el teorema anterior, automáticamente sabemos su función de densidad, y con ella su función de distribución, su valor esperado, su varianza etc. Sin necesidad de deducir cada vez que encontremos una variable de estas toda esta información</p>
+<p>El tipo de teorema anterior es el que hace que nos interese estudiar algunas familias distinguidas de variables aleatorias. Si, por ejemplo, reconocemos que una variable aleatoria es binomial y conocemos sus valores de <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span> y sabemos el teorema anterior, automáticamente sabemos su función de densidad, y con ella su función de distribución, su valor esperado, su varianza etc., sin necesidad de deducir toda esta información cada vez que encontremos una variable de estas.</p>
 
 <div class="rmdcorbes">
-<p>Supongamos que efectuamos <span class="math inline">\(n\)</span> repeticiones consecutivas e independientes de un experimento de Bernoulli de probabilidad de éxito <span class="math inline">\(p\)</span> y contamos el núnmero de éxitos <span class="math inline">\(E\)</span>; llamaremos <span class="math inline">\(X\)</span> a la variable aleatoria resultante. Para seguir la demostración, si no os sentís muy cómodos con el razonamiento con <span class="math inline">\(n\)</span>’s y <span class="math inline">\(k\)</span>’s abstractos, vosotros id repitiéndolo tomando, por ejemplo, <span class="math inline">\(n=4\)</span>.</p>
-<p>Los posibles resultados son todas las palabras posibles de <span class="math inline">\(n\)</span> letras formadas por <span class="math inline">\(E\)</span>’s y <span class="math inline">\(F\)</span>’s. Como los experimentos sucesivos son independientes, la probabilidad de cada una de estas palabras es el producto de las probabilidades de sus resultados individuales. Por lo tanto, si una palabra concreta tiene <span class="math inline">\(k\)</span> letras <span class="math inline">\(E\)</span> y <span class="math inline">\(n-k\)</span> letras <span class="math inline">\(F\)</span> (se han obtenido <span class="math inline">\(k\)</span> éxitos y <span class="math inline">\(n-k\)</span> fracasos), su probabilidad es <span class="math inline">\(p^k(1-p)^{n-k}\)</span>.</p>
+<p>Supongamos que efectuamos <span class="math inline">\(n\)</span> repeticiones consecutivas e independientes de un experimento de Bernoulli de probabilidad de éxito <span class="math inline">\(p\)</span> y contamos el número de éxitos <span class="math inline">\(E\)</span>; llamaremos <span class="math inline">\(X\)</span> a la variable aleatoria resultante. Para seguir la demostración, si no os sentís muy cómodos con el razonamiento con <span class="math inline">\(n\)</span>’s y <span class="math inline">\(k\)</span>’s abstractos, vosotros id repitiéndolo tomando, por ejemplo, <span class="math inline">\(n=4\)</span>.</p>
+<p>Los posibles resultados son todas las palabras posibles de <span class="math inline">\(n\)</span> letras formadas por <span class="math inline">\(E\)</span>’s y <span class="math inline">\(F\)</span>’s. Como los experimentos sucesivos son independientes, la probabilidad de cada una de estas palabras es el producto de las probabilidades de sus resultados individuales. Por lo tanto, si una palabra concreta tiene <span class="math inline">\(k\)</span> letras <span class="math inline">\(E\)</span> y <span class="math inline">\(n-k\)</span> letras <span class="math inline">\(F\)</span> (se han obtenido <span class="math inline">\(k\)</span> éxitos y <span class="math inline">\(n-k\)</span> fracasos), su probabilidad es <span class="math inline">\(p^k(1-p)^{n-k}\)</span>, independientemente del orden en el que hayamos obtenido los resultados.</p>
 <p>Para calcular la probabilidad de obtener una secuencia con <span class="math inline">\(k\)</span> éxitos, sumaremos las probabilidades de obtener cada una de las secuencias de <span class="math inline">\(k\)</span> letras. Como todas tienen la misma probabilidad, el resultado será la probabilidad de una palabra con <span class="math inline">\(k\)</span> <span class="math inline">\(E\)</span>’s y <span class="math inline">\(n-k\)</span> <span class="math inline">\(F\)</span>’s multiplicada por el número total de palabras diferentes con <span class="math inline">\(k\)</span> <span class="math inline">\(E\)</span>’s y <span class="math inline">\(n-k\)</span> <span class="math inline">\(F\)</span>’s.</p>
-<p>¿Cuántas palabras hay con <span class="math inline">\(k\)</span> <span class="math inline">\(E\)</span>’s y <span class="math inline">\(n-k\)</span> <span class="math inline">\(F\)</span>’s? Cada una queda caracterizada por las posiciones de las <span class="math inline">\(k\)</span> <span class="math inline">\(E\)</span>’s, por lo tanto es el número de posibles elecciones de conjuntos de <span class="math inline">\(k\)</span> posiciones para las <span class="math inline">\(E\)</span>’s. Este es el número de posibles subconjuntos de <span class="math inline">\(k\)</span> elementos (las posiciones donde habrá las <span class="math inline">\(E\)</span>’s) de <span class="math inline">\(\{1,\ldots,n\}\)</span> y este número, por combinatoria elemental, es el número combinatorio <span class="math inline">\(\binom{n}{k}\)</span>.
+<p>¿Cuántas palabras hay con <span class="math inline">\(k\)</span> <span class="math inline">\(E\)</span>’s y <span class="math inline">\(n-k\)</span> <span class="math inline">\(F\)</span>’s? Cada una queda caracterizada por las posiciones de las <span class="math inline">\(k\)</span> <span class="math inline">\(E\)</span>’s, por lo tanto es el número de posibles elecciones de conjuntos de <span class="math inline">\(k\)</span> posiciones para las <span class="math inline">\(E\)</span>’s. Este es el número de posibles subconjuntos de <span class="math inline">\(k\)</span> elementos (las posiciones donde habrá las <span class="math inline">\(E\)</span>’s) de <span class="math inline">\(\{1,\ldots,n\}\)</span>, que es el número combinatorio <span class="math inline">\(\binom{n}{k}\)</span>.
 Por lo tanto ya tenemos
 <span class="math display">\[
-P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}
+P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.
 \]</span></p>
 <p>A partir de aquí, el cálculo del valor esperado y la varianza es sumar
 <span class="math display">\[
@@ -664,13 +705,13 @@ P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}
 \displaystyle Var(X)=\sum_{k=0}^n k^2\cdot p^k(1-p)^{n-k}-\Big(\sum_{k=0}^n k\cdot p^k(1-p)^{n-k})^2
 \end{array}
 \]</span>
-Os podéis fiar de nosotros, dan <span class="math inline">\(np\)</span> y $np(1-p), respectivamente.</p>
+Os podéis fiar de nosotros, dan <span class="math inline">\(np\)</span> y <span class="math inline">\(np(1-p)\)</span>, respectivamente.</p>
 <p>El valor de <span class="math inline">\(E(X)\)</span> es razonable. Veamos, si tomáis una muestra aleatoria de <span class="math inline">\(n\)</span> sujetos de una población en la que la proporción de sujetos <span class="math inline">\(E\)</span> es <span class="math inline">\(p\)</span>, ¿cuántos sujetos <span class="math inline">\(E\)</span> “esperáis” obtener en vuestra muestra? Pues una proporción <span class="math inline">\(p\)</span> de la muestra, es decir <span class="math inline">\(p\cdot n\)</span>, ¿no?</p>
 </div>
 
 <p>Conocer las propiedades de las variables aleatorias binomiales solo es útil si sabemos reconocer cuándo estamos ante una de ellas. Fijaos que en una variable aleatoria binomial:</p>
 <ul>
-<li><p>Contamos cuántas veces ocurre un suceso (el éxito <span class="math inline">\(E\)</span>) en una serie (ordenada) de intentos.</p></li>
+<li><p>Contamos cuántas veces ocurre un suceso (el éxito <span class="math inline">\(E\)</span>) en una secuencia de intentos.</p></li>
 <li><p>En cada intento, el suceso que nos interesa pasa o no pasa, sin términos medios.</p></li>
 <li><p>El número de intentos es fijo, <span class="math inline">\(n\)</span>.</p></li>
 <li><p>Cada intento es independiente de los otros.</p></li>
@@ -678,12 +719,10 @@ Os podéis fiar de nosotros, dan <span class="math inline">\(np\)</span> y $np(1
 </ul>
 <p>Por ejemplo:</p>
 <ul>
-<li><p>Tratamos 100 enfermos con un cierto fármaco que puede producir un determinado efecto secundario, o no. Este medicamento produce este efecto secundario en un 4% de los casos. El efecto sobre cada enfermo es independiente de los otros. Contamos en cuántos se ha producido el efecto secundario.</p>
-<p>Se trata de una variable binomial <span class="math inline">\(B(100,0.04)\)</span>.</p></li>
 <li><p>Una mujer tiene 4 hijos. La probabilidad de que un hijo sea niña es fija, 0.51. El sexo de cada hijo es independiente de los otros. Contamos cuántas hijas tiene.</p>
 <p>Se trata de una variable binomial <span class="math inline">\(B(4,0.51)\)</span>.</p></li>
 <li><p>En una aula hay 5 chicos y 45 chicas. Escojo 10 estudiantes, uno tras otro y sin repetirlos, para hacerles una pregunta. Cada elección es independiente de las otras. Cuento cuántos chicos he interrogado.</p>
-<p>No se trata de una variable binomial: como no podemos repetir, en cada ronda la probabilidad de escoger un chico depende del sexo de los estudiantes elegidos antes que él.</p></li>
+<p>No se trata de una variable binomial: como no podemos repetir, en cada ronda la probabilidad de escoger un chico depende del sexo de los estudiantes elegidos antes que él. Por lo tanto la <span class="math inline">\(p\)</span> no es la misma en cada elección.</p></li>
 <li><p>En una aula hay 5 chicos y 45 chicas. Escojo 10 estudiantes, uno tras otro pero cada estudiante puede ser elegido más de una vez, para hacerles una pregunta. Cada elección es independiente de las otras. Cuento cuántos chicos he interrogado.</p>
 <p>Ahora sí que se trata de una variable binomial <span class="math inline">\(B(10,0.9)\)</span>.</p></li>
 <li><p>En una aula hay 5 chicos y 45 chicas. Escojo estudiantes uno tras otro y cada estudiante puede ser elegido más de una vez, para hacerles una pregunta. Cada elección es independiente de las otras. Cuento cuántos estudiantes he tenido que elegir para interrogar a 5 chicos.</p>
@@ -693,105 +732,105 @@ Os podéis fiar de nosotros, dan <span class="math inline">\(np\)</span> y $np(1
 <li><p>La probabilidad de que un día de noviembre llueva es de un 32%. Escogemos una semana de noviembre y contamos cuántos días ha llovido.</p>
 <p>No se trata de una variable binomial. Aunque cada día tenga la misma probabilidad de lluvia, que llueva un día no es independiente de que llueva el anterior.</p></li>
 <li><p>En España hay 46,700,000 personas, de las cuales un 11.7% son diabéticos. Escogemos 100 españoles diferentes al azar (de manera independiente unos de otros) y contamos cuántos son diabéticos.</p>
-<p>No es binomial, pero <strong>prácticamente</strong> sí que lo es, porque si tomáramos la muestra con repetición es muy improbable que obtuviéramos algún español repetido, y las probabilidades apenas varían de una elección a la siguiente. En este caso haremos la trampa de considerarla binomial.</p></li>
+<p>No es binomial, pero <strong>prácticamente</strong> sí que lo es, porque las probabilidades apenas varían de una elección a la siguiente. En este caso haremos la trampa de considerarla binomial.</p></li>
 </ul>
-<div id="cómo-efectuar-cálculos-con-una-variable-aleatoria-de-una-familia-dada" class="section level4">
-<h4><span class="header-section-number">1.3.1.1</span> ¿Cómo efectuar cálculos con una variable aleatoria de una familia dada?</h4>
-<p>Una posibilidad es usar una aplicación de móvil o tablet. Nuestra favorita es <em>Probability distributions</em></p>
+
+<div class="rmdnote">
+Recordad que cuando discutíamos sobre muestras aleatorias, decíamos que si tomamos una muestra aleatoria sin reposición de una población muchísimo más grande que la muestra, a efectos prácticos podíamos considerarla simple, porque, total, si hubiéramos permitido repeticiones, casi seguro que no se habrían dado. Pues aquí igual.
+</div>
+
+<div id="cómo-efectuar-cálculos-con-una-variable-aleatoria-de-una-familia-dada" class="section level5 unnumbered">
+<h5>¿Cómo efectuar cálculos con una variable aleatoria de una familia dada?</h5>
+<p>Una posibilidad es usar una aplicación de móvil o tablet. Nuestra favorita es <em>Probability distributions</em>, disponible tanto para Android como para iOS.</p>
 <div class="figure" style="text-align: center"><span id="fig:anuncis"></span>
 <img src="INREMDN_files/figure-html/appprobdistr.png" alt="La app *Probability Distributions*." width="80%" />
 <p class="caption">
 Figura 1.3: La app <em>Probability Distributions</em>.
 </p>
 </div>
-<p>Otra posibilidad es usar R. R conoce las familias de variables aleatorias más importantes; por ejemplo la binomial es <code>binom</code>. Entonces</p>
+<p>Otra posibilidad es usar R. R conoce todas la distribuciones de variables aleatorias importantes; por ejemplo, para R la binomial es <code>binom</code>. Entonces</p>
 <ul>
-<li><p>Añadiendo a su nombre el prefijo <code>d</code>, tenemos su <strong>función de densidad</strong>: de la binomial, será <code>dbinom</code>.</p></li>
-<li><p>Añadiendo a su nombre el prefijo <code>p</code>, tenemos su <strong>función de distribución</strong>: de la binomial, será <code>pbinom</code>.</p></li>
-<li><p>Añadiendo a su nombre el prefijo <code>q</code>, tenemos sus <strong>cuantiles</strong>: para la binomial, <code>qbinom</code>.</p></li>
-<li><p>Añadiendo a su nombre el prefijo <code>r</code>, tenemos una función que produce <strong>muestra aleatorias</strong> de números con esa distribución de probabilidad: para la binomial, <code>rbinom</code>.</p></li>
+<li><p>Añadiendo al nombre de la distribución el prefijo <code>d</code>, tenemos su <strong>función de densidad</strong>: de la binomial, será <code>dbinom</code>.</p></li>
+<li><p>Añadiendo al nombre de la distribución el prefijo <code>p</code>, tenemos su <strong>función de distribución</strong>: de la binomial, será <code>pbinom</code>.</p></li>
+<li><p>Añadiendo al nombre de la distribución el prefijo <code>q</code>, tenemos sus <strong>cuantiles</strong>: para la binomial, <code>qbinom</code>.</p></li>
+<li><p>Añadiendo al nombre de la distribución el prefijo <code>r</code>, tenemos una función que produce <strong>muestra aleatorias</strong> de números con esa distribución de probabilidad: para la binomial, <code>rbinom</code>.</p></li>
 </ul>
-<p>Estas funciones se aplican al argumento de la función y los parámetros de la variable aleatoria en su orden usual (todo entre paréntesis y separados por comas).</p>
+<p>Estas funciones se aplican al argumento de la función y los parámetros de la variable aleatoria en su orden usual (todo entre paréntesis y separados por comas). Por ejemplo, para la binomial, se aplican a (argumento, <span class="math inline">\(n\)</span>, <span class="math inline">\(p\)</span>).</p>
 <p>Veamos ejemplos de la binomial.</p>
 <ul>
 <li>Si lanzamos 20 veces una moneda equilibrada, ¿cuál es la probabilidad de sacar exactamente 6 caras? Si llamamos <span class="math inline">\(X\)</span> a la variable aleatoria que cuenta el número de caras en secuencias de 20 lanzamientos de una moneda equilibrada, se trata de una variable binomial <span class="math inline">\(B(20,0.5)\)</span>. Nos piden <span class="math inline">\(P(X=6)\)</span>, y esta probabilidad nos la da la función de densidad de <span class="math inline">\(X\)</span>. Es <span class="math inline">\(f_X(6)\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="variables-aleatorias.html#cb2-1"></a><span class="kw">dbinom</span>(<span class="dv">6</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="variables-aleatorias.html#cb1-1"></a><span class="kw">dbinom</span>(<span class="dv">6</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.03696442</code></pre>
 <ul>
 <li>Si lanzamos 20 veces una moneda equilibrada, ¿cuál es la probabilidad de sacar como máximo 6 caras? Con las notaciones anteriores, nos piden <span class="math inline">\(P(X\leq 6)\)</span>, y esta probabilidad nos la da la función de distribución de <span class="math inline">\(X\)</span>. Es <span class="math inline">\(F_X(6)\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="variables-aleatorias.html#cb4-1"></a><span class="kw">pbinom</span>(<span class="dv">6</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="variables-aleatorias.html#cb3-1"></a><span class="kw">pbinom</span>(<span class="dv">6</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.05765915</code></pre>
 <ul>
 <li>Si lanzamos 20 veces una moneda equilibrada, ¿cuál es la probabilidad de sacar más de 6 caras? Con las notaciones anteriores, nos piden <span class="math inline">\(P(X&gt; 6)=1-P(X\leq 5)=1-F_X(5)\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="variables-aleatorias.html#cb6-1"></a><span class="dv">1</span><span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">6</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="variables-aleatorias.html#cb5-1"></a><span class="dv">1</span><span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">6</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9423409</code></pre>
 <ul>
 <li>Si lanzamos 20 veces una moneda al aire, ¿cuál es el primer número de caras <span class="math inline">\(N\)</span> para el que la probabilidad de sacar como máximo <span class="math inline">\(N\)</span> caras llega al 25%? Nos piden el primer valor <span class="math inline">\(N\)</span> tal que <span class="math inline">\(P(X\leq N)\geq 0.25\)</span>, y esto por definición es el 0.25-cuantil de <span class="math inline">\(X\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="variables-aleatorias.html#cb8-1"></a><span class="kw">qbinom</span>(<span class="fl">0.25</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="variables-aleatorias.html#cb7-1"></a><span class="kw">qbinom</span>(<span class="fl">0.25</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<pre><code>Veamos que en efecto $N=8$ cumple lo pedido: la probabilidad de sacar como máximo 8 caras es </code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="variables-aleatorias.html#cb11-1"></a><span class="kw">pbinom</span>(<span class="dv">8</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<p>Veamos que en efecto <span class="math inline">\(N=8\)</span> cumple lo pedido: la probabilidad de sacar como máximo 8 caras es</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="variables-aleatorias.html#cb9-1"></a><span class="kw">pbinom</span>(<span class="dv">8</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2517223</code></pre>
-<pre><code>y la probabilidad de sacar como máximo 7 caras es </code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="variables-aleatorias.html#cb14-1"></a><span class="kw">pbinom</span>(<span class="dv">7</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<p>y la probabilidad de sacar como máximo 7 caras es</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="variables-aleatorias.html#cb11-1"></a><span class="kw">pbinom</span>(<span class="dv">7</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.131588</code></pre>
-<pre><code>Vemos por tanto que con 7 caras no llegamos al 25% de probabilidad y con 8 sí.</code></pre>
+<p>Vemos por tanto que con 7 caras no llegamos al 25% de probabilidad y con 8 sí.</p>
 <ul>
 <li>Queremos simular 50 rondas de lanzar 20 veces una moneda equilibrada y contar las caras, es decir, queremos una muestra aleatoria de tamaño 10 de nuestra variable <span class="math inline">\(X\)</span>:</li>
 </ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="variables-aleatorias.html#cb13-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>##  [1]  9 12  7 13  9 12 12  8 10 14  9  6 11  9 10 12 12 10  7 12 15  8 13 12  9
+## [26]  9 12 10 13 12 11  9 12  9 15  7 10 11 10 12 11 15 11  8 15 14  9  4 10 11</code></pre>
+<p>Cada vez que repitamos esta instrucción obtendremos una muestra aleatoria nueva:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="variables-aleatorias.html#cb15-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>##  [1]  6  7 11 10  7  8 10  9  9 10 11 10 10 10  8  8  7 14 12 12 11 11 10 12 10
+## [26]  8 14 11 14 11  8 11 11 14  9  7  5 10 10 11 14 10  9 13  3 11  8 13 11  9</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="variables-aleatorias.html#cb17-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1]  9 10 10 12  8  4  9  8  8 10 13 13 10  7  7 12 12 10 12 14  7  7  8 10 12
-## [26] 10 13 10 10 10 13 13  8 11 11 12  8 10  9  9  6 11  8 10  7 11  7  9 10  9</code></pre>
-<pre><code>Cada vez que repitamos esta instrucción obtendremos una muestra aleatoria nueva:</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="variables-aleatorias.html#cb20-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1] 10  9 10 11  9  9  9 14  9 15 11  6 13 13 12 11  8 12 11 13 10  9 10 11 11
-## [26] 17 15 13  9  9 12 15  5  8 10 11 11  8 10  5  7 11  9  8 11  8  6 10 13  7</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="variables-aleatorias.html#cb22-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1]  7 11  9 10 11 10  7  5 13 10 11 13 11 13  9  9 11 11 10 12  8  9 11  9 11
-## [26] 11 11 11  8  8  8 11 12  7  8  8 11  8 11  8  9 10 10  7  6 11 15  9 13 10</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="variables-aleatorias.html#cb24-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1]  7 12  8  9 13  9 13  9 11 10 12  6 10  7 13  7 10  8  9  9 10  8 11  8 11
-## [26] 11 12  6  9  9 12  8 11  8 11 11 10 12 11 10 10  9 13  7  9 13  6 10 13 10</code></pre>
+<pre><code>##  [1]  9 12 12 11 14 10  8  7 13 10  9 10  8  6  7 12 10 11 10 11 12 12  8 10 11
+## [26] 11 11 10 11  8 15  7 14  8 12  6 12  7  9 10  7  7 10  9  6 13 11 11  9 10</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="variables-aleatorias.html#cb19-1"></a><span class="kw">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>##  [1] 10 10 12  8 14 10  7 12  9  9 14  9  9  8  6  9  8 13  9  6 11 10 11 10 12
+## [26] 13  9 12 10 10  6  9 12  7 11  7 12 11  9  7 10 17 13 13  8  6 11  8 11 11</code></pre>
 <p>Veamos algunos gráficos de la función densidad de variables aleatorias binomiales.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="variables-aleatorias.html#cb26-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb26-2"><a href="variables-aleatorias.html#cb26-2"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="fl">0.1</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(10,0.1)&quot;</span>)</span>
-<span id="cb26-3"><a href="variables-aleatorias.html#cb26-3"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="fl">0.3</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(10,0.3)&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb26-4"><a href="variables-aleatorias.html#cb26-4"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="fl">0.6</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(10,0.6)&quot;</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb26-5"><a href="variables-aleatorias.html#cb26-5"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="fl">0.9</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(10,0.9)&quot;</span>,<span class="dt">col=</span><span class="st">&quot;brown&quot;</span>)</span></code></pre></div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-35-1.png" width="90%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="variables-aleatorias.html#cb27-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb27-2"><a href="variables-aleatorias.html#cb27-2"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="fl">0.1</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(100,0.1)&quot;</span>)</span>
-<span id="cb27-3"><a href="variables-aleatorias.html#cb27-3"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="fl">0.3</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(100,0.3)&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb27-4"><a href="variables-aleatorias.html#cb27-4"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="fl">0.6</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(100,0.6)&quot;</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb27-5"><a href="variables-aleatorias.html#cb27-5"></a><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="fl">0.9</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.75</span>,<span class="dt">xlab=</span><span class="st">&quot;Número de éxitos&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;B(100,0.9)&quot;</span>,<span class="dt">col=</span><span class="st">&quot;brown&quot;</span>)</span>
-<span id="cb27-6"><a href="variables-aleatorias.html#cb27-6"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-36-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-40-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-41-1.png" width="90%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdnote">
-<p>Por cierto, R también tiene una función para calcular la probabilidad de que se dé alguna repetición en una muestra aleatorias simples de un tamaño dado. En concreto:</p>
+<p>Por cierto, R también tiene una función para calcular la probabilidad de que se dé alguna repetición en una muestra aleatorias simple de un tamaño dado. En concreto:</p>
 <ul>
-<li><p>La instrucción <code>pbinom(n,N)</code> nos da la probabilidad de que en una muestra aleatoria simple de tamaño n de una población de tamaño N haya algún elemento repetido.</p></li>
-<li><p>La instrucción <code>qbinom(p,N)</code> nos da el tamaño mínimo de una muestra aleatoria simple de una población de tamaño N para que la probabilidad de que haya algún elemento repetido sea <span class="math inline">\(\geq p\)</span>.</p></li>
+<li><p>La instrucción <code>pbirthday(n,N)</code> nos da la probabilidad de que en una muestra aleatoria simple de tamaño n de una población de tamaño N haya algún elemento repetido.</p></li>
+<li><p>La instrucción <code>qbirthday(p,N)</code> nos da el tamaño mínimo de una muestra aleatoria simple de una población de tamaño N para que la probabilidad de que haya algún elemento repetido sea <span class="math inline">\(\geq p\)</span>.</p></li>
 </ul>
-El nombre es <code>birthday</code>, en referencia al típico problema de calcular la probabilidad de que dos estudiantes de una clase celebren el cumpleaños el mismo día y asombrase que en una clase de 30 estudiantes haya más de un 70% de probabilidades de que haya algún cumpleaños repetido. En efecto, podemos entender una clase de 30 estudiantes como una muestra aleatoria simple de 30 fechas de nacimiento, escogidas de un conjunto de 366 posibles fechas (los 366 días de un año bisiesto). La probabilidad de que al menos 2 estudiantes celebren el cumpleaños el mismo día es la probabilidad de que se dé al menos una repetición en esta muestra. R lo calcula con:
+<p>El nombre <code>birthday</code> hace referencia a la <strong>paradoja del cumpleaños</strong>: el típico problema de calcular la probabilidad de que dos estudiantes de una clase celebren el cumpleaños el mismo día y asombrarse de que en una clase de 30 estudiantes haya más de un 70% de probabilidades de que haya algún cumpleaños repetido.</p>
+En efecto, podemos entender una clase de 30 estudiantes como una muestra aleatoria simple de 30 fechas de nacimiento, escogidas de un conjunto de 366 posibles fechas (los 366 días de un año bisiesto). La probabilidad de que al menos 2 estudiantes celebren el cumpleaños el mismo día es la probabilidad de que se dé al menos una repetición en esta muestra. R lo calcula con:
 </div>
 
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="variables-aleatorias.html#cb28-1"></a><span class="kw">pbirthday</span>(<span class="dv">30</span>,<span class="dv">366</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="variables-aleatorias.html#cb21-1"></a><span class="kw">pbirthday</span>(<span class="dv">30</span>,<span class="dv">366</span>)</span></code></pre></div>
 <pre><code>## [1] 0.7053034</code></pre>
+
+<div class="rmdexercici">
+¿Cuál es el número mínimo de estudiantes en la clase para que la probabilidad de que se repita una fecha de cumpleaños sea del 95% o más?
+</div>
+
 </div>
 </div>
 <div id="variables-aleatorias-hipergeométricas" class="section level3">
 <h3><span class="header-section-number">1.3.2</span> Variables aleatorias hipergeométricas</h3>
-<p>Recordad que el paradigma de variable aleatoria binomial es: tengo una población con una proporción <span class="math inline">\(p\)</span> de sujetos que satisfacen una condición <span class="math inline">\(E\)</span>, tomo una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> y cuento el número de sujetos <span class="math inline">\(E\)</span> en mi muestra. Si cambiamos “muestra aleatoria simple” por “muestra aleatoria sin reposición”, la familia de variables aleatorias que obtenemos es otra: la hipergeométrica.</p>
-<p>Una <strong>variable aleatoria hipergeométrica de parámetros <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span></strong> es cualquier variable aleatoria <span class="math inline">\(X\)</span> que podáis identificar con el proceso siguiente: Tenemos una población formada por <span class="math inline">\(N\)</span> sujetos que satisfacen una condición <span class="math inline">\(E\)</span> y <span class="math inline">\(M\)</span> sujetos que no la satisfacen (por lo tanto, en total, <span class="math inline">\(N+M\)</span> sujetos en la población), tomo una muestra aleatoria *sin reposición<strong> de tamaño <span class="math inline">\(n\)</span> y cuento el número de sujetos <span class="math inline">\(E\)</span> en mi muestra. A veces también diremos que <span class="math inline">\(X\)</span> </strong>tiene distribución hipergeométrica de parámetros <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span>**.</p>
-<p>Denotaremos la familia de las variables aleatorias hipergeométricas de parámetros <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span> dados por <span class="math inline">\(H(N,M,n)\)</span>, y llamaremos a <span class="math inline">\(N+M\)</span> el <strong>tamaño de la población</strong>, a <span class="math inline">\(N/(N+M)\)</span> la <strong>probabilidad</strong> (<strong>poblacional</strong>) <strong>de éxito</strong>, y a <span class="math inline">\(n\)</span> el <strong>tamaño de las muestras</strong>. Con R, igual que la distribución binomial era <code>binom</code>, la distribución hipergeométrica es <code>hyper</code>.</p>
+<p>Recordad que el paradigma de variable aleatoria binomial es: tengo una población con una proporción <span class="math inline">\(p\)</span> de sujetos que satisfacen una condición <span class="math inline">\(E\)</span>, tomo una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> y cuento el número de sujetos <span class="math inline">\(E\)</span> en mi muestra. Si cambiamos “muestra aleatoria simple” por “muestra aleatoria sin reposición”, la distribución de la variable aleatoria que obtenemos es otra: la <strong>hipergeométrica</strong>.</p>
+<p>Una variable aleatoria es <strong>hipergeométrica</strong> (o <strong>tiene distribución hipergeométrica</strong>) <strong>de parámetros <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span></strong> (<span class="math inline">\(H(N,M,n)\)</span>, para abreviar) es cualquier variable aleatoria <span class="math inline">\(X\)</span> que podáis identificar con el proceso siguiente: Tenemos una población formada por <span class="math inline">\(N\)</span> sujetos que satisfacen una condición <span class="math inline">\(E\)</span> y <span class="math inline">\(M\)</span> sujetos que no la satisfacen (por lo tanto, en total, <span class="math inline">\(N+M\)</span> sujetos en la población), tomo una muestra aleatoria <strong>sin reposición</strong> de tamaño <span class="math inline">\(n\)</span> y cuento el número de sujetos <span class="math inline">\(E\)</span> en mi muestra.</p>
+<p>Llamaremos a <span class="math inline">\(N+M\)</span> el <strong>tamaño de la población</strong>, a <span class="math inline">\(N/(N+M)\)</span> la <strong>probabilidad</strong> (<strong>poblacional</strong>) <strong>de éxito</strong>, y a <span class="math inline">\(n\)</span> el <strong>tamaño de las muestras</strong>. Con R, igual que la distribución binomial era <code>binom</code>, la distribución hipergeométrica es <code>hyper</code>.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-39" class="theorem"><strong>Teorema 1.3  </strong></span>Si <span class="math inline">\(X\)</span> es una variable <span class="math inline">\(H(N,M,n)\)</span>:</p>
+<p><span id="thm:unnamed-chunk-45" class="theorem"><strong>Teorema 1.3  </strong></span>Si <span class="math inline">\(X\)</span> es una variable <span class="math inline">\(H(N,M,n)\)</span>:</p>
 <ul>
 <li><p>Su dominio es <span class="math inline">\(D_X=\{0,1,\ldots,\text{min}(N,n)\}\)</span></p></li>
 <li><p>Su función de densidad es
@@ -805,11 +844,11 @@ f_X(k)=\left\{\begin{array}{ll}
 <li><p>Su varianza es <span class="math inline">\(Var(X)=\dfrac{nNM(N+M-n)}{(N+M)^2(N+M-1)}\)</span></p>
 </div></li>
 </ul>
-<p>Fijaos que si llamáis <span class="math inline">\(p\)</span> ala probabilidad poblacional de éxito, <span class="math inline">\(p=N/(N+M)\)</span> y <span class="math inline">\(\mathbf{P}\)</span> al tamaño de la población, <span class="math inline">\(\mathbf{P}=N+M\)</span>, entonces
+<p>Fijaos que si llamamos <span class="math inline">\(p\)</span> a la probabilidad poblacional de éxito, <span class="math inline">\(p=N/(N+M)\)</span> y <span class="math inline">\(\mathbf{P}\)</span> al tamaño de la población, <span class="math inline">\(\mathbf{P}=N+M\)</span>, entonces
 <span class="math display">\[
 E(X)=np
 \]</span>
-la misma fórmula que para las variables binomiales <span class="math inline">\(B(n,p)\)</span> (y si lo reflexionáis veréis que de nuevo, por el mismo argumento, es lo razonable), y
+la misma fórmula que para las variables binomiales <span class="math inline">\(B(n,p)\)</span> (y si lo pensáis un rato veréis que, de nuevo y por el mismo argumento, es lo razonable), y
 <span class="math display">\[
 Var(X)=np(1-p)\cdot\dfrac{\mathbf{P}-n}{\mathbf{P}-1}
 \]</span>
@@ -832,57 +871,56 @@ Recordad el ejemplo:</p>
 \]</span></p></li>
 </ul>
 <p>El gráfico siguiente compara la densidad de una <span class="math inline">\(B(10,0.1)\)</span> con las de unas hipergeométricas <span class="math inline">\(H(5,45,10)\)</span>, <span class="math inline">\(H(50,450,10)\)</span> y <span class="math inline">\(H(5000,45000,10)\)</span> para que veáis cómo a medida que el tamaño de la población crece (manteniendo la probabilidad poblacional de éxito), la hipergeométrica se aproxima a la binomial.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-40-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-46-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="variable-aleatorias-de-poisson" class="section level3">
 <h3><span class="header-section-number">1.3.3</span> Variable aleatorias de Poisson</h3>
-<p>Una variable aleatoria <span class="math inline">\(X\)</span> es <strong>de Poisson</strong> (o tiene <strong>distribución de Poisson</strong>) <strong>con parámetro <span class="math inline">\(\lambda&gt;0\)</span></strong> cuando
-* Su <strong>dominio</strong> es <span class="math inline">\(D_X=\mathbb{N}\)</span>, el conjunto de todos los números naturales,</p>
+<p>Una variable aleatoria <span class="math inline">\(X\)</span> es <strong>de Poisson</strong> (o tiene <strong>distribución de Poisson</strong>) <strong>con parámetro <span class="math inline">\(\lambda&gt;0\)</span></strong> (<span class="math inline">\(Po(\lambda)\)</span>, para abreviar) cuando:</p>
 <ul>
-<li>Su <strong>función de densidad</strong> es
+<li><p>Su <strong>dominio</strong> es <span class="math inline">\(D_X=\mathbb{N}\)</span>, el conjunto de todos los números naturales (es decir, puede tomar cualquier valor de <span class="math inline">\(\mathbb{N}\)</span>),</p></li>
+<li><p>Su <strong>función de densidad</strong> es
 <span class="math display">\[
 f_X(k)=\left\{\begin{array}{ll}
-e^{-\lambda}\cdot \dfrac{\lambda^k}{k!} &amp; \quad \text{si $k\in \mathbb{N}$}\\
-0 &amp; \text{si $k\notin \mathbb{N}$}
+e^{-\lambda}\cdot \dfrac{\lambda^k}{k!} &amp;  \text{ si $k\in \mathbb{N}$}\\
+0 &amp; \text{ si $k\notin \mathbb{N}$}
 \end{array}\right.
-\]</span></li>
+\]</span></p></li>
 </ul>
-<p>Denotaremos la familia de las variables de Poisson de parámetro <span class="math inline">\(\lambda\)</span> por <span class="math inline">\(Po(\lambda)\)</span>. Con R, es <code>pois</code>.</p>
+<p>Para R, la distribución Poisson es <code>pois</code>.</p>
 <p>Si <span class="math inline">\(X\)</span> es una variable <span class="math inline">\(Po(\lambda)\)</span>, entonces
 <span class="math display">\[
 E(X)= Var(X)= \lambda
 \]</span>
 Es decir, el “parámetro” <span class="math inline">\(\lambda\)</span> de una variable de Poisson es su valor esperado, y coincide con su varianza.</p>
-<p>Suponemos que os estáis preguntando: ¿para qué nos sirve definir una variable de Poisson mediante su densidad, si lo que nos interesa es poder clasificar una variable como de Poisson (o binomial, o hipergeométrica etc.) poara así saber “gratis” su densidad? Bueno, la respuesta es que la familia Poisson incluye unas variables aleatorias muy comunes.</p>
-<p>Supongamos que tenemos un tipo de objetos que pueden aparecer, o no, en una región continua de tiempo o espacio. Por ejemplo, defunciones de personas en el decurso del tiempo, o defunciones de personas en diferentes zonas geográficas de un país, o números de bacterias en trozos de una superficie. Supongamos además que las apariciones de estos objetos satisfacen las propiedades siguientes:</p>
+<p>Suponemos que os estáis preguntando: ¿para qué nos sirve definir una variable de Poisson mediante su densidad, si lo que nos interesa es poder clasificar una variable como de Poisson (o binomial, o hipergeométrica etc.) para así saber “gratis” su densidad? Bueno, la respuesta es que la familia Poisson incluye unas variables aleatorias muy comunes.</p>
+<p>Supongamos que tenemos un tipo de objetos que pueden darse en una región continua de tiempo o espacio. Por ejemplo, defunciones de personas por una determinada enfermedad en el decurso del tiempo, defunciones de personas por una determinada enfermedad en diferentes zonas geográficas de un país, o números de bacterias en trozos de una superficie. Supongamos además que las apariciones de estos objetos satisfacen las propiedades siguientes:</p>
 <ul>
-<li><p>Las apariciones de los objetos son <strong>aleatorias</strong>: en cada instante del tiempo o punto del espacio un objeto aparece o no aparece al azar con una probabilidad fija y constante.</p></li>
-<li><p>Las apariciones de los objetos son <strong>independientes</strong>: que aparezca un objeto en un instante del tiempo o punto del espacio concretos, no depende de que haya aparecido o no un objeto en otro instante del tiempo o punto del espacio.</p></li>
+<li><p>Las apariciones de los objetos son <strong>aleatorias</strong>: en cada instante del tiempo, o punto del espacio, un objeto se da, o no, al azar con una probabilidad fija y constante.</p></li>
+<li><p>Las apariciones de los objetos son <strong>independientes</strong>: que se dé un objeto en un instante del tiempo, o en un punto del espacio, concreto, no depende de que se haya dado o no un objeto en otro instante del tiempo o punto del espacio.</p></li>
 <li><p>Las apariciones de los objetos <strong>no son simultáneas</strong>: es prácticamente imposible que dos objetos de estos se superpongan (aparezcan en el mismo instante exacto del tiempo o en el mismo punto exacto del espacio).</p></li>
 </ul>
 
 <div class="rmdimportant">
-En esta situación, la variable <span class="math inline">\(X_t\)</span> que cuenta el número de objetos en una región (del tiempo o del espacio) de tamaño <span class="math inline">\(t\)</span> es de Poisson <span class="math inline">\(Po(\lambda_t)\)</span>, con <span class="math inline">\(\lambda_t\)</span> el número esperado de objetos en esta región (es decir, el número medio de objetos en refgiones de este tamaño).
+En esta situación, la variable <span class="math inline">\(X_t\)</span> que toma una región (del tiempo o del espacio) de tamaño <span class="math inline">\(t\)</span> y cuenta el número de objetos en ellq es <span class="math inline">\(Po(\lambda_t)\)</span>, con <span class="math inline">\(\lambda_t\)</span> el número esperado de objetos en esta región (es decir, el número medio de objetos en regiones de este tamaño).
 </div>
 
 <p>Por ejemplo, cuando lo que cuentan ocurre al azar, son variables de Poisson:</p>
 <ul>
-<li><p>El número de enfermos admitidos en urgencias en un intervalo de tiempo de longitud fija.</p></li>
-<li><p>El número de defunciones por una enfermedad concreta en un intervalo de tiempo de longitud fija.</p></li>
-<li><p>Número de bacterias en una superficie de área fija.</p></li>
-<li><p>Número de mutaciones en un trozo de genoma de longitud fija.</p></li>
+<li><p>El número de enfermos admitidos en urgencias en un día (o en 12 horas, o en una semana…)</p></li>
+<li><p>El número de defunciones por una enfermedad concreta en un día (o en una semana, o en un año…)</p></li>
+<li><p>El número de bacterias en un cudadrado de 1 cm de lado (o de 1 m de lado…)</p></li>
 </ul>
-<p>Fijaos en que esto nos sirve para dos cosas:</p>
+<p>Fijaos en que este tipo de conocimiento nos sirve para dos cosas:</p>
 <ul>
-<li><p>Si sabemos que son Poissson, podemos calcular lo que queramos para estas variables.</p></li>
-<li><p>Si los datos que observamos parecen contradecir que sean Poisson, entonces los que cuentan no ocurre al azar y es señal de que algo pasa.</p></li>
+<li><p>Si sabemos que son Poisson, podemos calcular lo que queramos para estas variables.</p></li>
+<li><p>Si los datos que observamos no parece que sigan una distribución Poisson (por ejemplo, porque su varianza sea muy diferente de su media), entonces los que cuentan no ocurre al azar y es señal de que algo “no aleatorio” está pasando.</p></li>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-42" class="example"><strong>Ejemplo 1.7  </strong></span>Observad la diferencia entre las dos variables siguientes:</p>
+<p><span id="exm:unnamed-chunk-48" class="example"><strong>Ejemplo 1.7  </strong></span>Observad la diferencia entre las dos variables siguientes:</p>
 <ul>
 <li><p>Número anual de defunciones por un tipo de cáncer. El momento exacto de las defunciones se produce al azar, podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita, y las defunciones se producen de manera independiente. Es Poisson.</p></li>
-<li><p>Número anual de defunciones en accidente de tráfico. Las muertes por accidente de tráfico no son independientes: en un mismo accidente se pueden producir varias muertes en un corto espacio de tiempo, las condiciones metereológicas o de la carretera pueden hacer que aumente durante un cierto período de tiempo la probabilidad de accidente mortal, etc.</p></li>
+<li><p>Número anual de defunciones en accidentes de tráfico. De nuevo, el momento exacto de las defunciones se produce al azar y podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita. Pero las muertes en accidentes de tráfico no son independientes: en un mismo accidente mortal se pueden producir varias muertes en un corto espacio de tiempo, las condiciones metereológicas o de la carretera pueden hacer que aumente durante un cierto período de tiempo la probabilidad de accidente mortal, etc. No es Poisson.</p></li>
 </ul>
 </div>
 
@@ -895,21 +933,6 @@ En esta situación, la variable <span class="math inline">\(X_t\)</span> que cue
 \]</span></p>
 </div>
 
-<!--
-\frametitle{Poisson  vs binomial}
-\textit{<<Un 11.7\% de los españoles son diabéticos. Escogemos 100 españoles al azar (de manera independiente) y contamos cuántos son diabéticos.>>}
-
-
-El número de diabéticos en un grupo pequeño al azar de españoles cumple aproximadamente las condiciones de una Poisson:
-\begin{itemize}
-* Que una persona sea diabética será aleatorio e independiente de las otras 
-
-* Es muy improbable que haya repeticiones
-\end{itemize}
-
-Por lo tanto el número de diabéticos en 100 españoles es aproximadamente $Po(11.7)$ (si un 11.7\% son diabéticos, esperamos 11.7 de media en un grupo de 100)
-
--->
 
 </div>
 </div>
@@ -927,7 +950,7 @@ x &amp;\mapsto &amp;P(X\leq x)
 es continua.</p>
 <p>Fijaos entonces que, si <span class="math inline">\(X\)</span> es una variable aleatoria continua,
 <span class="math display">\[
-P(X=a)=0 \text{ para todo $a\in \mathbb{R}$.
+P(X=a)=0 \text{ para todo $a\in \mathbb{R}$}.
 \]</span></p>
 
 <div class="rmdcorbes">
@@ -942,23 +965,22 @@ P(X=a)\!\!\!\!\! &amp; =P(X\leq a)-P(X&lt;a)=P(X\leq a)- P\Big(\bigcup_{n\geq 1}
 por la continuidad de la <span class="math inline">\(F_X\)</span>.</p>
 </div>
 
-<p>En particular: <strong>probabilidad 0 no significa imposible</strong>. Cada suceso posible tiene probabilidad 0, pero algo ha de pasar, por lo que alguno ha de ser posible.</p>
+<p>En particular, para una variable aleatoria continua, <strong>probabilidad 0 no significa imposible</strong>. Cada valor de <span class="math inline">\(X\)</span> tiene probabilidad 0, pero cuando tomamos un sujeto, algún valor de <span class="math inline">\(X\)</span> tendrá, por lo que ese valor ha de ser posible.</p>
 <p>De <span class="math inline">\(P(X=a)=0\)</span> se deduce que la probabilidad de un suceso definido con una desigualdad es exactamente la misma que la del suceso correspondiente definido con una desigualdad estricta. Por ejemplo:</p>
 <ul>
 <li><span class="math inline">\(P(X\geq a)=P(X&gt; a)+P(X=a)=P(X&gt; a)\)</span></li>
-<li><span class="math inline">\(P(a\leq X\leq a)=P(a&lt;X&lt;b)+P(X=a)+P(X=b)=P(a&lt;X&lt;b)\)</span></li>
+<li><span class="math inline">\(P(a\leq X\leq a)=P(a&lt;X&lt;b)+P(X=a)+P(X=b)\)</span> <span class="math inline">\(=P(a&lt;X&lt;b)\)</span></li>
 </ul>
-<p>Como <span class="math inline">\(P(X=a)=0\)</span>, no podemos definir la densidad como <span class="math inline">\(f_X(a)=P(X=a)\)</span>. Pero recordad que, en variables aleatorias discretas
+<p>Como <span class="math inline">\(P(X=a)=0\)</span>, no podemos definir la densidad como <span class="math inline">\(f_X(a)=P(X=a)\)</span>. Pero recordad que, en las variables aleatorias discretas
 <span class="math display">\[
 F_X(a)=\sum_{x\leq a} f_X(x)
 \]</span></p>
 <p>En el contexto de matemáticas “continuas”, la suma <span class="math inline">\(\sum\)</span> se traduce en la integral <span class="math inline">\(\int\)</span>. Se define entonces la <strong>función de densidad</strong> de una variable aleatoria continua <span class="math inline">\(X\)</span> como la función <span class="math inline">\(f_X:\mathbb{R}\to \mathbb{R}\)</span> tal que <span class="math inline">\(f_X(x)\geq 0\)</span>, para todo <span class="math inline">\(x\in \mathbb{R}\)</span>, y
 <span class="math display">\[
-F_X(a)=\int_{-\infty}^a f_{X}(x)\, dx\quad \text{para todo $a\in \mathbb{R}$}
+F_X(a)=\int_{-\infty}^a f_{X}(x)\, dx\quad \text{para todo $a\in \mathbb{R}$.}
 \]</span></p>
-<p>La función de densidad <span class="math inline">\(f_X\)</span> es la función tal que <span class="math inline">\(y=f_X(x)\)</span> es la curva tal que <span class="math inline">\(F_X(a)\)</span> es el <strong>área bajo esta curva</strong> (entre la curva y el eje de abscisas) a la izquierda de <span class="math inline">\(x=a\)</span>.</p>
+<p>La función de densidad <span class="math inline">\(f_X\)</span> es la función tal que <span class="math inline">\(y=f_X(x)\)</span> es la curva para la que, para todo valor <span class="math inline">\(a\)</span>, <span class="math inline">\(F_X(a)\)</span> es el <strong>área bajo esta curva</strong> (entre la curva y el eje de abscisas) a la izquierda de <span class="math inline">\(x=a\)</span>.</p>
 <p><img src="INREMDN_files/figure-html/graficadensidad3.png" width="60%" style="display: block; margin: auto;" /></p>
-<p>La función de densidad <span class="math inline">\(f_X\)</span> de una variable aleatoria continua puede no ser continua. En cambio, <strong>por definición</strong>, su función de distribución sí que lo es.</p>
 <p>Como <span class="math inline">\(P(X\leq a)\)</span> es el área bajo la curva <span class="math inline">\(y=f_X(x)\)</span> a la izquierda de <span class="math inline">\(x=a\)</span>,
 <span class="math display">\[
 \begin{array}{rl}
@@ -969,28 +991,30 @@ P(a\leq X\leq b)\!\!\!\! &amp; =P(X\leq b)-P(X&lt;a)\\
 es el área bajo la curva <span class="math inline">\(y=f_X(x)\)</span> a la izquierda de <span class="math inline">\(x=b\)</span> <strong>menos</strong> el área bajo la curva <span class="math inline">\(y=f_X(x)\)</span> a la izquierda de <span class="math inline">\(x=a\)</span>, es decir,
 <strong><span class="math inline">\(P(a\leq X\leq b)\)</span> es igual al área bajo la curva <span class="math inline">\(y=f_X(x)\)</span> entre <span class="math inline">\(x=a\)</span> y <span class="math inline">\(x=b\)</span>.</strong></p>
 <p><img src="INREMDN_files/figure-html/entreaib.png" width="60%" style="display: block; margin: auto;" /></p>
-<p>Sabemos que <span class="math inline">\(P(X=a)=0\)</span>, pero si <span class="math inline">\(\varepsilon&gt;0\)</span> es pequeño,
-el área bajo <span class="math inline">\(y=f_X(x)\)</span> entre <span class="math inline">\(a-\varepsilon\)</span> y <span class="math inline">\(a+\varepsilon\)</span> es aproximadamente <span class="math inline">\(2\varepsilon\cdot f_X(a)\)</span></p>
-<p><img src="INREMDN_files/figure-html/density.png" width="60%" style="display: block; margin: auto;" /></p>
-<p>Por lo tanto <span class="math inline">\(f_X(a)\)</span> “mide” <span class="math inline">\(P(X=a)\)</span> (pero <strong>no es</strong> <span class="math inline">\(P(X=a)\)</span>, que vale 0).</p>
 <p>Como <span class="math inline">\(P(\Omega)=1\)</span>,
 <span class="math display">\[
 P(X&lt;\infty)=\int_{-\infty}^{\infty} f_X(x)\,dx=1
 \]</span>
 <strong>El área total bajo la curva <span class="math inline">\(y=f_X(x)\)</span> es 1.</strong></p>
+<p>Sabemos que <span class="math inline">\(P(X=a)=0\)</span>, pero si <span class="math inline">\(\varepsilon&gt;0\)</span> es muy, muy pequeño,
+el área bajo <span class="math inline">\(y=f_X(x)\)</span> entre <span class="math inline">\(a-\varepsilon\)</span> y <span class="math inline">\(a+\varepsilon\)</span> es aproximadamente <span class="math inline">\(2\varepsilon\cdot f_X(a)\)</span></p>
+<p><img src="INREMDN_files/figure-html/density.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Por lo tanto <span class="math inline">\(f_X(a)\)</span> nos da una indicación de la probabilidad de que <span class="math inline">\(X\)</span> valga aproximadamente <span class="math inline">\(a\)</span> (pero <strong>no es</strong> <span class="math inline">\(P(X=a)\)</span>, que vale 0).</p>
 </div>
 <div id="esperanza-varianza-cuantiles" class="section level3">
 <h3><span class="header-section-number">1.4.2</span> Esperanza, varianza, cuantiles…</h3>
-<p>La esperanza y la varianza de una variable aleatoria continua <span class="math inline">\(X\)</span>, con densidad <span class="math inline">\(f_X\)</span>, se definen como en el caso discreto, substituyendo la suma <span class="math inline">\(\sum_{x\in D_x}\)</span> por una integral.</p>
+<p>La esperanza y la varianza de una variable aleatoria continua <span class="math inline">\(X\)</span>, con función de densidad <span class="math inline">\(f_X\)</span>, se definen como en el caso discreto, substituyendo la suma <span class="math inline">\(\sum_{x\in D_x}\)</span> por una integral.</p>
 <p>La <strong>esperanza</strong> (<strong>media</strong>, <strong>valor esperado</strong>…) de <span class="math inline">\(X\)</span> es
 <span class="math display">\[
 E(X)=\int_{-\infty}^{\infty}x \cdot f_{X}(x)\, dx
 \]</span>
 También se escribe <span class="math inline">\(\mu_X\)</span> o simplemente <span class="math inline">\(\mu\)</span>.</p>
-<p>Este valor tiene la misma interpretación que en el caso discreto:
-representa el valor medio de <span class="math inline">\(X\)</span> sobre el total de la población, y es
-(con probabilidad 1) el límite de la media aritmética de los valores de <span class="math inline">\(X\)</span> sobre muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, cuando <span class="math inline">\(n\to \infty\)</span>.</p>
-<p>Si <span class="math inline">\(g:D_X\to \mathbb{R}\)</span> es una función continua,
+<p>Este valor tiene la misma interpretación que en el caso discreto:</p>
+<ul>
+<li><p>Representa el valor medio de <span class="math inline">\(X\)</span> sobre el total de la población</p></li>
+<li><p>Es (con probabilidad 1) el límite de la media aritmética de los valores de <span class="math inline">\(X\)</span> sobre muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, cuando <span class="math inline">\(n\to \infty\)</span>.</p></li>
+</ul>
+<p>Si <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span> es una función continua,
 la <strong>esperanza</strong> de <span class="math inline">\(g(X)\)</span> es
 <span class="math display">\[
 E(g(X))=\int_{-\infty}^{+\infty} g(x) f_X(x)dx
@@ -1014,7 +1038,7 @@ y también se escribe <span class="math inline">\(\sigma_X\)</span> o <span clas
 <ul>
 <li><p><span class="math inline">\(E(b)=b\)</span>, si <span class="math inline">\(b\)</span> es una variable aleatoria constante.</p></li>
 <li><p><span class="math inline">\(E(a X+b)=a E(X)+b\)</span>.</p></li>
-<li><p>$ E(X+Y)=E(X)+E(Y)$.</p></li>
+<li><p><span class="math inline">\(E(X+Y)=E(X)+E(Y)\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(X\leq Y\)</span>, entonces <span class="math inline">\(E(X)\leq E(Y)\)</span>.</p></li>
 <li><p><span class="math inline">\(Var(aX+b)=a^2 Var(X)\)</span>, donde <span class="math inline">\(a,b\)</span> son constantes reales.</p></li>
 <li><p><span class="math inline">\(\sigma(aX+b)=|a|\cdot \sigma(X)\)</span>.</p></li>
@@ -1024,334 +1048,584 @@ y también se escribe <span class="math inline">\(\sigma_X\)</span> o <span clas
 <p>El <strong>cuantil de orden <span class="math inline">\(p\)</span></strong> (o <strong><span class="math inline">\(p\)</span>-cuantil</strong>) de una variable aleatoria continua <span class="math inline">\(X\)</span> es el valor <span class="math inline">\(x_p\in \mathbb{R}\)</span> más pequeño tal que
 <span class="math display">\[
 F_X(x_p)=P(X\leq x_p)=p
-\]</span>
-(que ahora siempre existe por ser <span class="math inline">\(F_X\)</span> continua)</p>
-<p>La <strong>mediana</strong> de <span class="math inline">\(X\)</span> es su 0.5-cuantil, y el <strong>primer</strong> y <strong>tercer cuartiles</strong> son su 0.25-cuantil y su 0.75-cuantil.</p>
+\]</span></p>
+
+<div class="rmdcorbes">
+Fijaos en que como <span class="math inline">\(F_X\)</span> es continua, tiende a 0 cuando <span class="math inline">\(x\to -\infty\)</span> y tiende a 1 cuando <span class="math inline">\(x\to -\infty\)</span>, por el Teorema del Valor medio de las funciones continuas (que dice, básicamente, que las funciones continuas no dan saltos) toma todos los valores en (0,1) y por lo tanto dado cualquier <span class="math inline">\(p\in (0,1)\)</span> existe algún <span class="math inline">\(x\)</span> tal que <span class="math inline">\(F_X(x)=p\)</span>.
+</div>
+
+<p>La <strong>mediana</strong> de <span class="math inline">\(X\)</span> es su 0.5-cuantil, el <strong>primer</strong> y <strong>tercer cuartiles</strong> son su 0.25-cuantil y su 0.75-cuantil, etc.</p>
 </div>
 </div>
 <div id="variables-aleatorias-normales" class="section level2">
 <h2><span class="header-section-number">1.5</span> Variables aleatorias normales</h2>
-<p>Una variable aleatoria continua <span class="math inline">\(X\)</span> es <strong>normal</strong> de parámetros
-<span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>, y lo denotaremos escribiendo
-<span class="math inline">\(X\sim N(\mu,\sigma)\)</span>}, cuando su función de densidad es
-<span class="math display">\[
-f_{X}(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{{-(x-\mu)^2}/({2\sigma^{2}})} \text{
-para todo } x\in \mathbb{R}
-\]</span></p>
-<p>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, entonces
-<span class="math display">\[
-E(X)=\mu,\quad Var(X)=\sigma^2,\quad \sigma(X)=\sigma
-\]</span></p>
-<p>Una variable aleatoria normal es <strong>típica} (o </strong>estándar}) cuando tiene <span class="math inline">\(\mu=0\)</span> y <span class="math inline">\(\sigma=1\)</span>; la denotaremos usualmente por <span class="math inline">\(Z\)</span></p>
-<p>En particular, si <span class="math inline">\(Z\sim N(0,1)\)</span>, <span class="math inline">\(E(Z)=0\)</span> y <span class="math inline">\(\sigma(Z)=1\)</span>.</p>
-<p>La gráfica de la densidad de una variable aleatoria normal es la conocida **campana de Gauss}</p>
+<div id="propiedades-básicas" class="section level3">
+<h3><span class="header-section-number">1.5.1</span> Propiedades básicas</h3>
+<p>Una variable aleatoria continua <span class="math inline">\(X\)</span> es <strong>normal</strong> (o <strong>tiene distribución normal</strong>) de parámetros
+<span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> (<span class="math inline">\(N(\mu,\sigma)\)</span>, para abreviar) cuando su función de densidad es</p>
+<p><img src="INREMDN_files/figure-html/censored.png" width="35%" style="display: block; margin: auto;" /></p>
+<p>Naturalmente, no os tenéis que saber esta fórmula. Pero sí que tenéis que saber que:</p>
+<ul>
+<li><p>Una variable aleatoria normal <span class="math inline">\(X\)</span> es continua, y por lo tanto <span class="math inline">\(P(X=x)=0\)</span>, <span class="math inline">\(P(X\leq x)=P(X&lt;x)\)</span> etc.</p></li>
+<li><p>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, entonces su valor esperado es <span class="math inline">\(E(X)=\mu\)</span> y su desviación típica es <span class="math inline">\(\sigma_X=\sigma\)</span>.</p></li>
+</ul>
+<p>Una variable aleatoria normal es <strong>típica</strong> (o <strong>estándar</strong>) cuando tiene <span class="math inline">\(\mu=0\)</span> y <span class="math inline">\(\sigma=1\)</span>; la denotaremos usualmente por <span class="math inline">\(Z\)</span>. Por lo tanto,
+si <span class="math inline">\(Z\)</span> es <span class="math inline">\(N(0,1)\)</span>, <span class="math inline">\(E(Z)=0\)</span> y <span class="math inline">\(\sigma(Z)=1\)</span>.</p>
+<p>La gráfica de la densidad de una variable aleatoria normal es la conocida <strong>campana de Gauss</strong>:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-56-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>La distribución normal es una distribución teórica, no la encontraréis exacta en la vida real. Y pese a su nombre, no es más “normal” que otras distribuciones continuas.</p>
+<p><img src="INREMDN_files/figure-html/paranormal.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>Su impottancia se debe a que muchas distribuciones de la vida real son aproximadamente nomales, porque:</p>
+<blockquote>
+<p>Toda variable aleatoria que consista en tomar <span class="math inline">\(n\)</span> medidas independientes de una o varias variables aleatorias y sumarlas, tiene distribución aproximadamente normal <strong>cuando <span class="math inline">\(n\)</span> es muy grande</strong>, aunque las variables aleatorias de partida no sean normales</p>
+</blockquote>
 
+<div class="example">
+<p><span id="exm:unnamed-chunk-58" class="example"><strong>Ejemplo 1.8  </strong></span>Una variable binomial <span class="math inline">\(B(n,p)\)</span> se obtiene tomando <span class="math inline">\(n\)</span> medidas independientes de una variable Bernoulli <span class="math inline">\(B(1,p)\)</span> y sumando los resultados. Por lo tanto, por la “regla” anterior, una <span class="math inline">\(B(n,p)\)</span> tendría que ser aproximadamente normal si <span class="math inline">\(n\)</span> es grande. Pues sí, si <span class="math inline">\(n\)</span> es grande (pongamos mayor que 100, aunque si <span class="math inline">\(p\)</span> está lejos de 0 o 1 el tamaño de las muestras puede ser mucho menor), la distribución de una variable <span class="math inline">\(X\)</span> binomial <span class="math inline">\(B(n,p)\)</span> es aproximadamente la de una normal <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>, donde, recordad que si <span class="math inline">\(X\)</span> es <span class="math inline">\(B(n,p)\)</span>, entonces <span class="math inline">\(\mu_X=np\)</span> y <span class="math inline">\(\sigma_X=\sqrt{np(1-p)}\)</span>.</p>
+</div>
 
-La distribución normal
+<p>Por ejemplo, el gráfico siguiente compara las funciones de distribución de una binomial <span class="math inline">\(B(50,0.3)\)</span> y una normal <span class="math inline">\(N(50\cdot 0.3,\sqrt{50\cdot 0.3\cdot 0.7})\)</span>.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Para calcular probabilidades de una <span class="math inline">\(N(\mu,\sigma)\)</span>, hay que calcular las integrales a mano</p>
+<p><img src="INREMDN_files/figure-html/dontpanic.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>O podéis usar R o alguna aplicación para móvil o tablet. Par R, la normal es <code>norm</code>. Así, por ejemplo, si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(1,2)\)</span></p>
+<ul>
+<li><span class="math inline">\(P(X\leq 1.5)\)</span> es</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="variables-aleatorias.html#cb23-1"></a><span class="kw">pnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5987063</code></pre>
+<ul>
+<li>El 0.4-cuantil de <span class="math inline">\(X\)</span>, es decir, el valor <span class="math inline">\(q\)</span> tal que <span class="math inline">\(P(X\leq q)=0.4\)</span> es</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="variables-aleatorias.html#cb25-1"></a><span class="kw">qnorm</span>(<span class="fl">0.4</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.4933058</code></pre>
+<ul>
+<li><span class="math inline">\(P(X=1.5)\)</span> es</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="variables-aleatorias.html#cb27-1"></a><span class="kw">dnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.1933341</code></pre>
 
+<div class="rmderror">
+¡No! Como <span class="math inline">\(X\)</span> es continua, <span class="math inline">\(P(X=1.5)=0\)</span>. <code>dnorm(1.5,1,2)</code> calcula el valor de la función de densidad de <span class="math inline">\(X\)</span> en 1.5, que no creemos que os interese mucho.
+</div>
 
-<p>Si <span class="math inline">\(X\sim B(n,p)\)</span>, con <span class="math inline">\(n\)</span> grande y <span class="math inline">\(p\)</span> lejos de 0 y 1 (digamos, <span class="math inline">\(n\geq 50\)</span>, <span class="math inline">\(10\leq pn\leq n-10\)</span>, pero cuanto más centrada sea <span class="math inline">\(p\)</span>, menor puede ser <span class="math inline">\(n\)</span>), <span class="math inline">\(X\approx N(np,\sqrt{np(1-p)})\)</span>
-</p>
+<p>Una de las propiedades clave de la distribución normal es su simetría:</p>
 
-
-<p>Si <span class="math inline">\(X\sim Po(\lambda)\)</span> y <span class="math inline">\(\lambda\)</span> es grande (digamos, <span class="math inline">\(\lambda\geq 50\)</span>), entonces <span class="math inline">\(X\approx N(\lambda,\sqrt{\lambda})\)</span>
-</p>
-
-%
-%
-%
-%
-
-<p>%
-%Para calcular probabilidades de una <span class="math inline">\(N(\mu,\sigma)\)</span>, hay que calcular las integrales a mano  o podéis usar , para el que la normal es 
-%%
-%%
-%%Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>,
-%%\begin{itemize}
-%%* <strong><span class="math inline">\(x\)</span><span class="math inline">\(\mu\)</span><span class="math inline">\(\sigma\)</span>} da el valor de la densidad <span class="math inline">\(f_X(x)\)</span>
-%%
-%%* </strong><span class="math inline">\(x\)</span><span class="math inline">\(\mu\)</span><span class="math inline">\(\sigma\)</span>} da el valor de la distribución <span class="math inline">\(F_X(x)\)</span>
-%%
-%%
-%%* <strong><span class="math inline">\(q\)</span><span class="math inline">\(\mu\)</span><span class="math inline">\(\sigma\)</span>} da el <span class="math inline">\(q\)</span>-cuantil
-%%
-%%
-%%* </strong><span class="math inline">\(N\)</span><span class="math inline">\(\mu\)</span><span class="math inline">\(\sigma\)</span>} da una lista de <span class="math inline">\(N\)</span> números aleatorios generados con esta distribución
-%%\end{itemize}
-%%
-%%
-%%En la normal estándar no es necesario entrar <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>
-%</p>
-%
-%
-%
-%[fragile]
-%
-
-<p>%
-%
-%
-%\begin{verbatim}
-%&gt; pnorm(2,3,0.5)
-%[1] 0.02275013
-%\end{verbatim}
-%
-%
-%
-%Como <span class="math inline">\(P(-1\leq X\leq 1)=P(X\leq 1)-P(X\leq -1)\)</span>,
-%
-%\begin{verbatim}
-%&gt; pnorm(1)-pnorm(-1)
-%[1] 0.6826895
-%\end{verbatim}
-%
-%
-%
-%
-%\begin{verbatim}
-%&gt; qnorm(0.25,3,0.5)
-%[1] 2.662755
-%\end{verbatim}
-%
-%
-%</p>
-
-<p>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, su densidad <span class="math inline">\(f_X\)</span> es simétrica respecto de <span class="math inline">\(x=\mu\)</span>,
+<div class="rmdimportant">
+Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, su densidad <span class="math inline">\(f_X\)</span> es simétrica respecto de <span class="math inline">\(x=\mu\)</span>, es decir,
 <span class="math display">\[
 f_{X}(\mu-x)=f_{X}(\mu+x),
 \]</span>
-y tiene el máximo en <span class="math inline">\(x=\mu\)</span></p>
-<p>En particular, si <span class="math inline">\(Z\sim N(0,1)\)</span>, entonces
-<span class="math inline">\(f_{Z}(-x)=f_{Z}(x)\)</span>, y <span class="math inline">\(f_Z\)</span> tiene el máximo en <span class="math inline">\(x=0\)</span>
-</p>
+y tiene el máximo en <span class="math inline">\(x=\mu\)</span>. Decimos entonces que <span class="math inline">\(\mu\)</span> es la <strong>moda</strong> de <span class="math inline">\(X\)</span>.
+</div>
 
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-66-1.png" width="80%" style="display: block; margin: auto;" /></p>
 
-Recordemos que <span class="math inline">\(P(X\leq x)=F_X(x)\)</span> es el área comprendida entre la densidad <span class="math inline">\(y=f_X(x)\)</span> y el eje de abscisas a la izquierda de <span class="math inline">\(x\)</span>
+<div class="rmdnote">
+Recordamos que no tiene sentido definir la moda de una variable continua <span class="math inline">\(X\)</span> como el valor <span class="math inline">\(x_0\)</span> tal que <span class="math inline">\(P(X=x_0)\)</span> sea máximo, porque <span class="math inline">\(P(X=x)=0\)</span> para todo <span class="math inline">\(x\in \mathbb{R}\)</span>. Se define entonces la <strong>moda</strong> de una variable continua <span class="math inline">\(X\)</span> como el valor (o los valores) <span class="math inline">\(x_0\)</span> tal(es) que <span class="math inline">\(f_X(x_0)\)</span> es máximo.
+</div>
 
-
-<p>La simetría de <span class="math inline">\(f_X\)</span> hace que las áreas a la izquierda de <span class="math inline">\(\mu-x\)</span> y a la derecha de <span class="math inline">\(\mu+x\)</span> sean iguales</p>
-
-<p><span class="math display">\[
-P(X\leq \mu-x)**=}P(X\geq \mu+x)=1-P(X\leq \mu+x)
+<p>En particular, si <span class="math inline">\(Z\)</span> es <span class="math inline">\(N(0,1)\)</span>, entonces <span class="math inline">\(f_Z\)</span> es simétrica alrededor de <span class="math inline">\(x=0\)</span>, es decir, <span class="math inline">\(f_{Z}(-x)=f_{Z}(x)\)</span>, y la moda de <span class="math inline">\(Z\)</span> es <span class="math inline">\(x=0\)</span></p>
+<p>Recordad que la función de distribución de una variable aleatoria continua <span class="math inline">\(X\)</span>,
+<span class="math display">\[
+P(X\leq x)=F_X(x)
+\]</span>
+es el área comprendida entre la densidad <span class="math inline">\(y=f_X(x)\)</span> y el eje de abscisas a la izquierda de <span class="math inline">\(x\)</span>.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-68-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Entonces, la simetría de <span class="math inline">\(f_X\)</span> hace que las áreas a la izquierda de <span class="math inline">\(\mu-x\)</span> y a la derecha de <span class="math inline">\(\mu+x\)</span> sean iguales.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-69-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Es decir,
+<span class="math display">\[
+P(X\leq \mu-x)=P(X\geq \mu+x)=1-P(X\leq \mu+x)
 \]</span></p>
 <p>En particular (tomando <span class="math inline">\(x=0\)</span>)
 <span class="math display">\[
 P(X\leq \mu)=1-P(X\leq \mu)\Rightarrow P(X\leq \mu)=0.5
 \]</span>
-** <span class="math inline">\(\mu\)</span> es también la {mediana} de <span class="math inline">\(X\)</span>}</p>
+y por lo tanto, <span class="math inline">\(\mu\)</span> es también la <strong>mediana</strong> de <span class="math inline">\(X\)</span>.</p>
 
-<p>En particular, si <span class="math inline">\(Z\sim N(0,1)\)</span>, las áreas a la izquierda de <span class="math inline">\(-z\)</span> y a la derecha de <span class="math inline">\(z\)</span> son iguales</p>
+<div class="rmdimportant">
+Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, <span class="math inline">\(\mu\)</span> es la moda, la mediana y la media, o esperanza, de <span class="math inline">\(X\)</span>.
+</div>
 
-<p><span class="math display">\[
-P(Z\leq -z)=P(Z\geq z)=1-P(Z\leq z)
-\]</span></p>
-<p>Y en particular la mediana de <span class="math inline">\(Z\)</span> es 0</p>
-
-Aumentar la <span class="math inline">\(\mu\)</span> desplaza a la derecha el máximo, y con él toda la curva
-
-
-Aumentar la <span class="math inline">\(\sigma\)</span> achata la curva: al aumentar la desviación típica, los valores se alejan más del valor medio
-
-
-El efecto combinado
-
-
-<p>Algunos números que se espera que recordéis:</p>
-
-
-<p>\begin{teorema}
-Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span> y <span class="math inline">\(a,b\in \mathbb{R}\)</span>, entonces
-<span class="math inline">\(aX+b\)</span> es <span class="math inline">\(N(a\mu+b,|a|\cdot\sigma)\)</span></p>
-<p>En particular, si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, entonces su <strong>tipificada} (o </strong>estandarizada})
-<span class="math inline">\(Z=\dfrac{X-\mu}{\sigma}\)</span> es <span class="math inline">\(N(0,1)\)</span>
-\end{teorema}</p>
-<p>Más en general:</p>
-
-
-<p>Las probabilidades de la normal tipificada determinan las de la normal original <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>:
+<p>En particular, si <span class="math inline">\(Z\)</span> es <span class="math inline">\(N(0,1)\)</span>, las áreas a la izquierda de <span class="math inline">\(-z\)</span> y a la derecha de <span class="math inline">\(z\)</span> son iguales
 <span class="math display">\[
-\begin{array}{l}
-**P(X\leq a)}\displaystyle   =P\Big(\frac{X-\mu}{\sigma}\leq \frac{a-\mu}{\sigma}\Big)**=P\Big(Z\leq \frac{a-\mu}{\sigma}\Big)}\\[5ex]
-**P(a\leq X\leq b)}\displaystyle   =P\Big( \frac{a-\mu}{\sigma}\leq \frac{X-\mu}{\sigma}\leq \frac{b-\mu}{\sigma}\Big)\\[2ex] \hphantom{**P(a\leq X\leq b)}}\ \displaystyle**=P\Big(\frac{a-\mu}{\sigma}\leq Z\leq \frac{b-\mu}{\sigma}\Big)}
+P(Z\leq -z)=P(Z\geq z)=1-P(Z\leq z)
+\]</span>
+y la mediana de <span class="math inline">\(Z\)</span> es 0</p>
+<p>Si <span class="math inline">\(\mu\)</span> crece, desplaza a la derecha el máximo de la densidad, y con él toda la curva de manera rígida.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-72-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Si <span class="math inline">\(\sigma\)</span> crece, la curva se aplana: al aumentar la desviación típica, los valores se alejan más del valor medio.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-73-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>El gráfico siguiente muestra el efecto combinado:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-74-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Denotaremos por <span class="math inline">\(z_q\)</span> el <strong><span class="math inline">\(q\)</span>-cuantil</strong> de una variable normal estándar <span class="math inline">\(Z\)</span>. Es decir, <span class="math inline">\(z_q\)</span> es el valor tal que <span class="math inline">\(P(Z\leq z_q)=q\)</span>.</p>
+<p>Aparte del hecho que <span class="math inline">\(z_{0.5}=0\)</span> (la mediana de <span class="math inline">\(Z\)</span> es 0), hay dos cuantiles más de la normal estándard que tendríais que recordar:</p>
+<ul>
+<li><p><span class="math inline">\(z_{0.95}=1.64\)</span>; es decir, <span class="math inline">\(P(Z\leq 1.64)=0.95\)</span> y por lo tanto <span class="math inline">\(P(Z\leq -1.64)=P(Z\geq 1.64)=0.05\)</span>.</p></li>
+<li><p><span class="math inline">\(z_{0.975}=1.96\)</span>; es decir, <span class="math inline">\(P(Z\leq 1.96)=0.975\)</span> y por lo tanto <span class="math inline">\(P(Z\leq -1.96)=P(Z\leq 1.96)=0.025\)</span></p></li>
+</ul>
+
+<div class="rmdmercifulgod">
+Muy a menudo el valor 1.96 de <span class="math inline">\(z_{0.975}\)</span> se aproxima por 2. Tenéis permiso para hacerlo cuando no disponéis de medios (R, aplis de móvil) para calcular cuantiles.
+</div>
+
+</div>
+<div id="combinaciones-lineales" class="section level3">
+<h3><span class="header-section-number">1.5.2</span> Combinaciones lineales</h3>
+<p>Una de las propiedades de la distribución normal que nos facilitan mucho la vida es que <strong>toda combinación lineal de variables aleatorias normales independientes es normal</strong>. En concreto:</p>
+
+<div class="theorem">
+<p><span id="thm:comblinnormals" class="theorem"><strong>Teorema 1.4  </strong></span>1. Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span> y <span class="math inline">\(a,b\in \mathbb{R}\)</span>, entonces
+<span class="math inline">\(aX+b\)</span> es <span class="math inline">\(N(a\mu+b,|a|\cdot\sigma)\)</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>En particular, si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, entonces su <strong>tipificada</strong> (o <strong>estandarizada</strong>)
+<span class="math display">\[
+Z=\dfrac{X-\mu}{\sigma}
+\]</span>
+es <span class="math inline">\(N(0,1)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(X_1,\ldots,X_n\)</span> son variables aleatorias normales <strong>independientes</strong> y <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, entonces
+<span class="math inline">\(a_1X_1+\cdots +a_nX_n+b\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span> con
+<span class="math display">\[
+\mu=a_1\mu_1+\cdots +a_n\mu_n+b,\ 
+\sigma=\sqrt{a_1^2\sigma^2_1+\cdots +a_n^2\sigma^2_n}
+\]</span></p>
+</div></li>
+</ol>
+
+<div class="rmdnote">
+Que toda combinación lineal de variables normales vuelva a ser del mismo tipo, es decir, normal, es una propiedad muy útil de las variables normales que no comparten muchos otras distribuciones. Por ejemplo, si <span class="math inline">\(X\)</span> es una variable binomial <span class="math inline">\(B(n,p)\)</span> con <span class="math inline">\(p\neq 0\)</span>, <span class="math inline">\(2X\)</span> no es una variable binomial, porque solo toma valores pares y una variable binomial <span class="math inline">\(B(m,q)\)</span> puede tomar todos los valores entre 0 y <span class="math inline">\(m\)</span>.
+</div>
+
+<p>Las probabilidades de la normal tipificada determinan las de la normal original, porque si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>:
+<span class="math display">\[
+\begin{array}{rl}
+P(a\leq X\leq b) &amp; \displaystyle  =P\Big( \frac{a-\mu}{\sigma}\leq \frac{X-\mu}{\sigma}\leq \frac{b-\mu}{\sigma}\Big)\\ &amp; \displaystyle =P\Big(\frac{a-\mu}{\sigma}\leq Z\leq \frac{b-\mu}{\sigma}\Big)
 \end{array}
 \]</span>
-Sirve para deducir fórmulas, y vuestros padres las usaban para cálculos (con tablas); ahora es más cómodo usar un programa</p>
+Sirve para deducir fórmulas, y vuestros padres las usaban para cálculos (con tablas); ahora es más cómodo usar una aplicación del móvil.</p>
+</div>
+</div>
+<div id="intervals-de-referència" class="section level2">
+<h2><span class="header-section-number">1.6</span> Intervals de referència</h2>
+<p>Un <strong>intervalo de referencia</strong> del <span class="math inline">\(100q%\)</span> para una variable aleatoria <span class="math inline">\(X\)</span> es un intervalo <span class="math inline">\([a,b]\)</span> tal que
+<span class="math display">\[
+P(a\leq X\leq b)=q.
+\]</span>
+Es decir, un intervalo de referencia del <span class="math inline">\(100q%\)</span> para <span class="math inline">\(X\)</span> es un intervalo que contiene los valores de <span class="math inline">\(X\)</span> del <span class="math inline">\(100q%\)</span> de los sujetos de la población.</p>
+<p>Los más comunes son los intervalos de referencia del 95% (<span class="math inline">\(q=0.95\)</span>), que satisfacen que
+<span class="math display">\[
+P(a\leq X\leq b)=0.95
+\]</span>
+y son los, que por ejemplo, os dan como valores de referencia en las analíticas:</p>
+<p><img src="INREMDN_files/figure-html/analit.png" width="80%" style="display: block; margin: auto;" /></p>
 
-<p>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, ¿cómo calcular un intervalo centrado en <span class="math inline">\(\mu\)</span> tal que la probabilidad de que <span class="math inline">\(X\)</span> pertenezca a este intervalo sea un valor <span class="math inline">\(q\)</span> fijo?</p>
+<div class="rmdnote">
+Cuando se habla de un <strong>intervalo de referencia</strong> sin dar la probabilidad, se sobreentiende siempre que es el intervalo de referencia del 95%.
+</div>
+
+<p>Cuando <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, estos intervalos de referencia se toman siempre <strong>centrados en la media</strong> <span class="math inline">\(\mu\)</span>, es decir, de la forma <span class="math inline">\([\mu-\text{algo},\mu+\text{algo}]\)</span>. Para calcularlos fácilmente, podemos emplear el resultado siguiente:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-79" class="theorem"><strong>Teorema 1.5  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, un intervalo de referencia del <span class="math inline">\(100q%\)</span> para <span class="math inline">\(X\)</span> es
+<span class="math display">\[
+[\mu- z_{(1+q)/2}\cdot \sigma, \mu+ z_{(1+q)/2}\cdot \sigma]
+\]</span>
+donde <span class="math inline">\(z_{(1+q)/2}\)</span> denota el <span class="math inline">\((1+q)/2\)</span>-cuantil de la normal estándar <span class="math inline">\(Z\)</span>. Normalmente lo escribiremos
+<span class="math display">\[
+\mu\pm z_{(1+q)/2}\cdot \sigma.
+\]</span></p>
+</div>
 
 
-<p>:
+<div class="rmdcorbes">
+<p>En efecto:
 <span class="math display">\[
 \begin{array}{l}
 P(\mu-x\leq X\leq \mu+x)=q\\
 \qquad \Longleftrightarrow \displaystyle P\Big(\frac{\mu-x-\mu}{\sigma}\leq \frac{X-\mu}{\sigma}\leq \frac{\mu+x-\mu}{\sigma}\Big)=q\\
-\qquad \Longleftrightarrow \displaystyle P(-x/{\sigma}\leq Z\leq  {x}/{\sigma})=q\\
-\qquad \Longleftrightarrow \displaystyle P(Z\leq  {x}/{\sigma})-P(Z\leq  -{x}/{\sigma})=q\\
-\qquad \Longleftrightarrow \displaystyle P(Z\leq  {x}/{\sigma})-(1-P(Z\leq  {x}/{\sigma}))=q\\
-\qquad \text{(por la simetría de $f_Z$ alrededor de 0)}\\
-\qquad \Longleftrightarrow \displaystyle 2F_Z(x/\sigma)=2P(Z\leq  {x}/{\sigma})=q+1\\
-\qquad \Longleftrightarrow F_Z(x/\sigma)=(1+q)/2\\
-\qquad \Longleftrightarrow x/\sigma=**z_{(1+q)/2}}\\
+\qquad \Longleftrightarrow \displaystyle P(-x/{\sigma}\leq Z\leq {x}/{\sigma})=q\\
+\qquad \Longleftrightarrow \displaystyle P(Z\leq {x}/{\sigma})-P(Z\leq -{x}/{\sigma})=q\\
+\qquad \Longleftrightarrow \displaystyle P(Z\leq {x}/{\sigma})-(1-P(Z\leq {x}/{\sigma}))=q\\
+\qquad \mbox{(per la simetria de $f_Z$ al voltant de 0)}\\
+\qquad \Longleftrightarrow \displaystyle 2P(Z\leq {x}/{\sigma})=q+1\\
+\qquad \Longleftrightarrow P(Z\leq {x}/{\sigma})=(1+q)/2\\
+\qquad \Longleftrightarrow x/\sigma=
+z_{(1+q)/2}\\
 \qquad \Longleftrightarrow x=z_{(1+q)/2}\cdot \sigma
 \end{array}
 \]</span></p>
+</div>
 
-
-
-
-<p>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, el **intervalo de referencia} para <span class="math inline">\(X\)</span> es el intervalo <span class="math inline">\((\mu-x,\mu+x)\)</span> tal que
-<span class="math display">\[
-P(\mu-x&lt; X&lt; \mu+x)=0.95,
-\]</span>
-es decir (recordando <span class="math inline">\(q=0.95\Rightarrow (1+q)/2=0.975\)</span> y <span class="math inline">\(z_{0.975}=1.96\approx 2\)</span>)
+<p>En particular, como si <span class="math inline">\(q=0.95\)</span>, entonces <span class="math inline">\((1+q)/2=0.975\)</span> y entonces <span class="math inline">\(z_{0.975}=1.96\)</span>, el intervalo de referencia del 95% para una <span class="math inline">\(X\)</span> normal <span class="math inline">\(N(\mu,\sigma)\)</span> es
 <span class="math display">\[
 \mu\pm 1.96\sigma
 \]</span>
-(o <span class="math inline">\(\mu\pm 2\sigma\)</span>, para simplificar)</p>
+Y como este 1.96 a menudo se aproxima por 2, el intervalo de referencia del 95% se simplifica a
+<span class="math display">\[
+\mu\pm 2\sigma.
+\]</span>
+Esto dice, básicamente, que</p>
+<blockquote>
+<p>si una población sigue una distribución normal <span class="math inline">\(N(\mu,\sigma)\)</span>, un 95% de sus individuos tienen su valor de <span class="math inline">\(X\)</span> a distancia como a máximo <span class="math inline">\(2\sigma\)</span> (“a dos sigmas”) de <span class="math inline">\(\mu\)</span>.</p>
+</blockquote>
 
+<div class="example">
+<span id="exm:unnamed-chunk-81" class="example"><strong>Ejemplo 1.9  </strong></span>Según la OMS, las alturas de las mujeres europeas de 18 años (en cm) siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál es el intervalo de alturas centrado en la media que contenga a la mitad las europeas de 18 años?
+</div>
 
-<p>El <strong>z-score} (</strong>valor}, <strong>puntuación}, </strong>puntaje}, **z}) de un valor <span class="math inline">\(x_0\)</span> respecto de una distribución <span class="math inline">\(N(\mu,\sigma)\)</span> es
+<p>Fijaos en que, si llamamos <span class="math inline">\(X\)</span> a la variable aleatoria “Altura de una mujer europea de 18 años en cm”, lo que quiero encontrar es el intervalo centrado en su media, 163.1, tal que la probabilidad de que la altura de una europea de 18 años escogida al azar pertenezca a este intervalo sea 0.5 Es decir, el intervalo de referencia del 50% para <span class="math inline">\(X\)</span>.</p>
+<p>Como <span class="math inline">\(X\)</span> es <span class="math inline">\(N(163.1,18.53)\)</span> y si <span class="math inline">\(q=0.5\)</span>, entonces <span class="math inline">\((1+q)/2=0.75\)</span> y podemos calcular con R o una aplicación el 0.75-cuantil <span class="math inline">\(z_{0.75}\)</span> de una normal estándar. Por ejemplo, con R,</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="variables-aleatorias.html#cb29-1"></a><span class="kw">qnorm</span>(<span class="fl">0.75</span>)</span></code></pre></div>
+<pre><code>## [1] 0.6744898</code></pre>
+<p>Por lo tanto, redondeando a mm, es el intervalo <span class="math inline">\(163.1\pm 0.6745\cdot 18.53\)</span>, es decir <span class="math inline">\([150.6, 175.6]\)</span>. Por lo tanto, la mitad de las mujeres europeas de 18 años miden entre 150.6 y 175.6.</p>
+<p>El <strong>z-score</strong> (<strong>valor</strong>, <strong>puntuación</strong>, <strong>puntaje</strong>…) de un valor <span class="math inline">\(x_0\in \mathbb{R}\)</span> respecto de una distribución <span class="math inline">\(N(\mu,\sigma)\)</span> es
 <span class="math display">\[
 \frac{x_0-\mu}{\sigma}
-\]</span>
-Cuanto mayor en valor absoluto, más &lt;<raro>&gt; es <span class="math inline">\(x_0\)</span>; el signo, si está por encima o por debajo del valor esperado</p>
-<p>: Según la OMS, las alturas de las mujeres europeas de 18 años siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál sería el z-score de la jugadora de baloncesto Alba Torrens, que mide 191 cm?</p>
-<p><span class="math display">\[ 
+\]</span></p>
+<p>Es decir, el z-score de <span class="math inline">\(x_0\)</span> es el resultado de “tipificar” <span class="math inline">\(x_0\)</span> en el sentido del Teorema <a href="variables-aleatorias.html#thm:comblinnormals">1.4</a>.2.</p>
+<p>Si la variable poblacional es normal, cuanto mayor es el valor absoluto del z-score de <span class="math inline">\(x_0\)</span>, más “raro” es <span class="math inline">\(x_0\)</span>; el signo nos dice si es más grande o más pequeño que el valor esperado <span class="math inline">\(\mu\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-83" class="example"><strong>Ejemplo 1.10  </strong></span>Recordad que, según la OMS, las alturas de las mujeres europeas de 18 años siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál sería el z-score de una jugadora de baloncesto de 18 años que midiera 191 cm?</p>
+</div>
+
+<p>Es
+<span class="math display">\[ 
 \frac{191-163.1}{18.53}=1.5
 \]</span></p>
-
-
-<p>{E. Delgado . ``Asociación entre peso al nacer y factores de riesgo cardiometabólicos en niños de Bucaramanga, Colombia." Nutrición Hospitalaria 34 (2017), 1105–1111.</p>
-<p>}</p>
-
-<p>Supongamos que la concentración de un cierto metabolito es una variable aleatoria <span class="math inline">\(X_S\sim N(\mu_S, \sigma_S)\)</span> sobre personas sanas y una variable aleatoria <span class="math inline">\(X_E\sim N(\mu_E, \sigma_E)\)</span> sobre personas enfermas. Supongamos <span class="math inline">\(\mu_E&gt;\mu_S\)</span>.</p>
-<p>Podemos usar como test diagnóstico de la enfermedad la concentración del metabolito: positivo si mayor que un cierto valor de referencia <span class="math inline">\(x_0\)</span>, negativo si menor.</p>
-<p>Sensibilidad:
+<p>Esto se suele leer diciendo que la altura de esta jugadora está <em>a 1.5 sigmas por encima de la altura media</em>.</p>
+<div id="aplicaciones-en-criterios-diagnósticos" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> Aplicaciones en criterios diagnósticos</h3>
+<p>Supongamos que la concentración de un cierto metabolito es una variable aleatoria:</p>
+<ul>
+<li><p>En personas <strong>enfermas</strong> (de una determinada enfermedad), <span class="math inline">\(X_E\)</span>, <span class="math inline">\(N(\mu_E, \sigma_E)\)</span>.</p></li>
+<li><p>En personas <strong>sanas</strong> (sin esa enfermedad), <span class="math inline">\(X_S\)</span>, <span class="math inline">\(N(\mu_S, \sigma_S)\)</span>;</p></li>
+</ul>
+<p>Supongamos, para fijar ideas, que <span class="math inline">\(\mu_E&gt;\mu_S\)</span>: la concentración media de este metabolito en los enfermos es más alta que en las sanas.</p>
+<p>Podemos usar como prueba diagnóstica de la enfermedad la concentración del metabolito. Para cada valor de referencia <span class="math inline">\(x_0\)</span>, nuestra prueba da:</p>
+<ul>
+<li><p><strong>Positivo</strong>, si la concentración es mayor que <span class="math inline">\(x_0\)</span></p></li>
+<li><p><strong>Negativo</strong>, si la concentración es menor que <span class="math inline">\(x_0\)</span></p></li>
+</ul>
+<p>Entonces:</p>
+<ul>
+<li><p>La <strong>sensibilidad</strong> de esta prueba es
 <span class="math display">\[
 P(+|E)  =P(X_E\geq x_0)=1-P(X_E&lt; x_0)=1-F_{X_E}(x_0)
-\]</span></p>
-<p>Especificidad
+\]</span></p></li>
+<li><p>Su <strong>especificidad</strong> es
 <span class="math display">\[
 P(-|S)=P(X_S&lt; x_0)=F_{X_S}(x_0)
-\]</span></p>
-<p>Dibujamos la curva ROC (teórica) y escogemos <span class="math inline">\(x_0\)</span></p>
-
-
-<p>{P. Martínez-Camblor, ``Comparación de pruebas diagnósticas desde la curva ROC."
-Rev. Colomb. Estadística 30 (2007), 163–176</p>
-<p>}</p>
-
-<p>Algunas variables interesantes son muy diferentes de normales, pero admiten transformaciones en variables parecidas a normales.</p>
-
- de mediciones de triglicéridos en sangre de cordón umbilical
-
-<p>}</p>
-
-<p>A menudo el logaritmo de una variable asimétrica a la derecha es aproximadamente normal</p>
-<p>Diremos que <span class="math inline">\(X\)</span> es una variable <strong>lognormal} cuando <span class="math inline">\(\ln(X)\)</span> es normal. En este caso, se suelen dar
-\begin{itemize}
-* La </strong>media geométrica} de <span class="math inline">\(X\)</span>: <span class="math inline">\(\mu^*(X)=e^{\mu(\ln(X))}\)</span>
-\end{itemize}</p>
-
-<p>La **media geométrica} de <span class="math inline">\(X=\{x_1,\ldots,x_n\}\)</span> es
+\]</span></p></li>
+<li><p>Su <strong>tasa de falsos positivos</strong> es
 <span class="math display">\[
-\sqrt[n]{x_1\cdots x_n}
-\]</span></p>
-<p>La media aritmética de sus logaritmos es
+P(+|S)=P(X_S\geq  x_0)=1-F_{X_S}(x_0)
+\]</span></p></li>
+</ul>
+<p>Al variar <span class="math inline">\(x_0\)</span>, tenemos valores diferentes de la sensibilidad y la tasa de falsos positivos y podemos dibujar una curva ROC y escoger el umbral con algún criterio.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-84" class="example"><strong>Ejemplo 1.11  </strong></span>Imaginad que la densidad de <span class="math inline">\(X_E\)</span> es la línea discontinua del gráfico de la izquierda de la Figura <a href="#fig:rocnormal"><strong>??</strong></a> y la de <span class="math inline">\(X_S\)</span> la línea continua. Ambas son normales y <span class="math inline">\(\mu_E&gt;\mu_S\)</span>.</p>
+</div>
+
+<p><img src="INREMDN_files/figure-html/rocnormal.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Si para cada <span class="math inline">\(x\)</span> dibujamos los puntos <span class="math inline">\((1-F_{X_S}(x),1-F_{X_E}(x))\)</span>, obtenemos la curva ROC de la derecha de dicha figura.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-85" class="example"><strong>Ejemplo 1.12  </strong></span>Se acepta que la presión sistólica se distribuye como una variable normal con valor medio y desviación típica que dependen de la edad. Para la franja de edad 16-24 años, estos valores son:</p>
+<ul>
+<li>Para hombres, <span class="math inline">\(\mu=124\)</span> y <span class="math inline">\(\sigma=13.7\)</span></li>
+<li>Para mujeres, <span class="math inline">\(\mu=117\)</span> y <span class="math inline">\(\sigma=13.7\)</span></li>
+</ul>
+<p>El modelo de hipertensión-hipotensión aceptado es el descrito en la Figura <a href="#fig:hiperhipo"><strong>??</strong></a>. Queremos calcular los límites de cada clase para cada sexo en este grupo de edad.</p>
+</div>
+
+<p><img src="INREMDN_files/figure-html/hiperhipo.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Veamos:</p>
+<ul>
+<li>El límite superior del grupo de hipotensión es el valor que deja a la izquierda un 5% de las tensiones: el 0.05-cuantil de la distribución.</li>
+<li>El límite superior del grupo de riesgo de hipotensión es el valor que deja a la izquierda un 10% de las tensiones: el 0.1-cuantil de la distribución.</li>
+<li>El límite inferior del grupo de riesgo de hipertensión es el valor que deja a la izquierda un 90% de las tensiones: el 0.9-cuantil de la distribución.</li>
+<li>El límite inferior del grupo de hipertensión es el valor que deja a la izquierda un 95% de las tensiones: el 0.95-cuantil de la distribución.</li>
+</ul>
+<p>En los hombres, la tensión sistólica es una variable aleatoria <span class="math inline">\(N(124,13.7)\)</span>. Podemos usar R o una aplicación para calcular estos cuantiles. Con R:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="variables-aleatorias.html#cb31-1"></a><span class="kw">qnorm</span>(<span class="fl">0.05</span>,<span class="dv">124</span>,<span class="fl">13.7</span>)</span></code></pre></div>
+<pre><code>## [1] 101.4655</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="variables-aleatorias.html#cb33-1"></a><span class="kw">qnorm</span>(<span class="fl">0.1</span>,<span class="dv">124</span>,<span class="fl">13.7</span>)</span></code></pre></div>
+<pre><code>## [1] 106.4427</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="variables-aleatorias.html#cb35-1"></a><span class="kw">qnorm</span>(<span class="fl">0.9</span>,<span class="dv">124</span>,<span class="fl">13.7</span>)</span></code></pre></div>
+<pre><code>## [1] 141.5573</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="variables-aleatorias.html#cb37-1"></a><span class="kw">qnorm</span>(<span class="fl">0.95</span>,<span class="dv">124</span>,<span class="fl">13.7</span>)</span></code></pre></div>
+<pre><code>## [1] 146.5345</code></pre>
+
+<div class="rmdromans">
+Hemos trabajado más de lo necesario: por la simetría, el 0.95-cuantil ha de estar a la misma distancia de <span class="math inline">\(\mu\)</span> que el 0.05-cuantil, pero a la derecha:
 <span class="math display">\[
-\overline{\ln(X)}=\frac{\ln(x_1)+\cdots+\ln(x_n)}{n}
+124-101.4655=22.5345\Longrightarrow  124+22.5345=126.5345
 \]</span>
-Entonces
+Lo mismo pasa con el 0.9-cuantil y el 0.1-cuantil, comprobadlo.
+</div>
+
+<p>En resumen,entre los hombres de 16 a 24 años:
 <span class="math display">\[
-\begin{array}{rl}
-e^{\overline{\ln(X)}} &amp; =e^{(\ln(x_1)+\cdots+\ln(x_n))/n}\\
-&amp; =\sqrt[n]{e^{\ln(x_1)}\cdots e^{\ln(x_1)}}\\
-&amp; = \sqrt[n]{x_1\cdots x_n}
+\begin{array}{|ll|}
+\hline
+\text{Grupo} &amp; \text{Intervalo}\\ \hline
+\text{Hipotenso} &amp; &lt;101.5\\
+\text{Prehipotenso} &amp; 101.5\text{ a }106.4\\
+\text{Normotenso} &amp; 106.4\text{ a }141.6\\
+\text{Prehipertenso} &amp; 141.6\text{ a }141.5\\
+\text{Hipertenso} &amp; &gt; 141.5\\ \hline
 \end{array}
 \]</span></p>
 
-<p>A menudo el logaritmo de una variable asimétrica a la derecha es aproximadamente normal</p>
-<p>Diremos que <span class="math inline">\(X\)</span> es una variable <strong>lognormal} cuando <span class="math inline">\(\ln(X)\)</span> es normal. En este caso, se suelen dar
-\begin{itemize}
-* La </strong>media geométrica} de <span class="math inline">\(X\)</span>: <span class="math inline">\(\mu^*(X)=e^{\mu(\ln(X))}\)</span>
-* La **desviación típica geométrica} de <span class="math inline">\(X\)</span>: <span class="math inline">\(\sigma^*(X)=e^{\sigma(\ln(X))}\)</span>
-\end{itemize}
-o directamente sus logaritmos neperianos <span class="math inline">\(\mu(\ln(X))\)</span> y <span class="math inline">\(\sigma(\ln(X))\)</span></p>
-<p>La transformación logarítmica de ida y vuelta permite calcular intervalo de referencia</p>
+<div class="rmdexercici">
+Calculad los límites para las mujeres.
+</div>
 
-<p><span class="math inline">\(\mu_{\ln(X)}=\ln(\mu^*_X)=\ln(144.51)=4.9733\)</span></p>
-<p><span class="math inline">\(\sigma_{\ln(X)}=\ln(\sigma^*_X)=\ln(1.46)=0.38\)</span></p>
-<p>El intervalo de referencia para <span class="math inline">\(\ln(X)\)</span> es
-<span class="math display">\[
-(4.9733-1.96\cdot 0.38, 4.9733+1.96\cdot 0.38)=(4.2285,5.7181)
-\]</span></p>
-<p>Como
-<span class="math display">\[
-\hspace*{-1ex}P(a&lt; \ln(X)&lt; b)=P(e^a&lt; e^{\ln(X)}&lt; e^b)=P(e^a&lt; X&lt; e^b)
-\]</span>
-el intervalo de referencia para <span class="math inline">\(X\)</span> es
-<span class="math display">\[
-\big(e^{4.2285},e^{5.7181}\big)=(68.6142, 304.3261)
-\]</span></p>
-
-<p>Muchos métodos estadísticos que explicaremos requieren que la muestra provenga de una distribución normal. ¿Cómo lo podemos saber?</p>
-<p>No podemos (el azar, ya sabéis), pero podemos mirar si es razonable suponer que proviene de una distribución normal</p>
-<p>Más adelante explicaremos métodos estadísticos, por ahora métodos gráficos:</p>
-<p>\begin{itemize}
-* Un histograma y, superpuesta, la densidad de la normal con media y desv. típ. las de la muestra</p>
+</div>
+</div>
+<div id="distribuciones-muestrales" class="section level2">
+<h2><span class="header-section-number">1.7</span> Distribuciones muestrales</h2>
+<div id="conceptos-básicos" class="section level3">
+<h3><span class="header-section-number">1.7.1</span> Conceptos básicos</h3>
+<p>El problema típico de la <strong>estadística inferencial</strong> es:</p>
 <ul>
-<li>Un **q-q-plot}
+<li><p>Queremos conocer el valor de una característica en el total de una población, pero no podemos medir esta característica en <strong>todos</strong> los individuos de la población</p></li>
+<li><p>Extraemos una muestra de la población, medimos la característica en los individuos de esta muestra, calculamos algo con estas medidas e <strong>inferimos</strong> el valor de la característica en el global de la población.</p></li>
+</ul>
+<p>Inmediatamente surgen varias preguntas que responderemos en esta sección y la próxima lección.</p>
+<ul>
+<li>¿Cómo tiene que ser la muestra?</li>
+<li>¿Qué tenemos que calcular?</li>
+<li>¿Con qué precisión podemos inferir la característica de la población?</li>
+</ul>
+<p>De entrada, vamos a suponer de ahora en adelante que tomamos <strong>muestras aleatorias simples</strong>. También permitimos muestras aleatorias sin reposición si la población es mucho más grande que la muestra, ya que entonces no hay diferencia práctica entre permitir y prohibir las repeticiones.</p>
+<p>Sí, ya sabemos que en la práctica casi nunca tomamos muestras aleatorias. En este caso, recordad lo que os explicábamos en la Sección <a href="#sec:oport"><strong>??</strong></a>. Lo que se suele hacer es describir en detalle las características de la muestra para justificar que, pese a no ser aleatoria, es razonablemente representativa de la población y podría pasar por aleatoria.</p>
+<p>¿Qué calculamos? Pues un <strong>estimador</strong>: alguna función adecuada aplicada a los valores de la muestra.</p>
+<p>Por ejemplo</p>
+<ul>
+<li><p>Queremos estimar la altura media de los estudiantes de la UIB: tomamos una muestra aleatoria de estudiantes de la UIB, medimos sus alturas y calculamos su media aritmética.</p></li>
+<li><p>Queremos estimar el riesgo relativo apara un estudiante de la UIB de suspender alguna asignatura si es fumador: tomamos una muestra aleatoria de estudiantes de la UIB, anotamos si fuman o no, si han suspendido alguna asignatura o no, y restamos de la proporción de suspensos entre los fumadores la proporción de suspensos entre los o fumadores.</p></li>
+</ul>
+
+<div class="rmdimportant">
+Fijaos que un estimador es una <strong>variable aleatoria</strong>, definida sobre la población formada por las muestras de la población, y por lo tanto tiene función de distribución (que genéricamente llamaremos <strong>distribución muestral</strong>, para indicar que mida la probabilidad de que al valor del <strong>estimador sobre una muestra</strong> le pase algo), esperanza, desviación típica, etc.
+</div>
+
+</div>
+<div id="media-muestral" class="section level3">
+<h3><span class="header-section-number">1.7.2</span> Media muestral</h3>
+<p>Cuando queremos estimar el valor medio de una medida sobre una población, tomamos una muestra de valores y calculamos la media aritmética, ¿verdad?</p>
+<p>Pues eso. Dada una variable aleatoria <span class="math inline">\(X\)</span>, llamamos <strong>media muestral</strong>, <span class="math inline">\(\overline{X}\)</span>, a la variable aleatoria consistente en tomar una muestra aleatoria de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calcular la media aritmética de sus valores</p>
+
+<div class="rmdimportant">
+<strong>Recordad</strong>: Los estimadores como <span class="math inline">\(\overline{X}\)</span> tienen siempre sentido para muestras en general, pero casi todos los teoremas que establecen sus propiedades solo son ciertos bajo restricciones (que las muestras sean aleatorias simples, condiciones extra sobre la variable aleatoria poblacional, …) por lo que sus consecuencias solo son seguras bajo estas restricciones.
+</div>
+
+<p>Tenemos el teorema siguiente</p>
+
+<div class="theorem">
+<p><span id="thm:mitjmostgral" class="theorem"><strong>Teorema 1.6  </strong></span>Sea <span class="math inline">\(X\)</span> una variable aleatoria de media <span class="math inline">\(\mu_X\)</span> y desviación típica <span class="math inline">\(\sigma_X\)</span>, y sea <span class="math inline">\(\overline{X}\)</span> la media artimética de muestras aleatorias de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span>. Entonces:</p>
+<ul>
+<li><p><span class="math inline">\(E(\overline{X})=\mu_X\)</span></p></li>
+<li><p>Si las muestras aleatorias son simples, <span class="math inline">\(\sigma(\overline{X})=\dfrac{\sigma_X}{\sqrt{n}}\)</span></p></li>
+<li><p>Si las muestras aleatorias no son simples y <span class="math inline">\(N\)</span> es el tamaño de la población,
+<span class="math display">\[
+\sigma(\overline{X})=\frac{\sigma_X}{\sqrt{n}}\cdot\sqrt{\frac{N-n}{N-1}}
+\]</span></p>
+</div></li>
+</ul>
+<p>Al factor
+<span class="math display">\[
+\sqrt{\frac{N-n}{N-1}}
+\]</span>
+que transforma <span class="math inline">\(\sigma(\overline{X})\)</span> para muestras aleatorias simples a muestras aleatorias sin reposición se le llama <strong>factor de población finita</strong>, y si os fijáis, es el que transformaba la desviación típica de una variable binomial (que cuenta éxitos en muestras aleatorias simples) en la desviación típica de una variable hipergeométrica (que cuenta éxitos en muestras aleatorias sin reposición).</p>
+<p>Y recordad que si el tamaño de la población <span class="math inline">\(N\)</span> es muy grande relativamente a <span class="math inline">\(n\)</span>, podemos suponer que una muestra aleatoria sin reposición es simple.</p>
+
+<p>\begin{itemize}
+* <span class="math inline">\(\red{E(\overline{X})=\mu_X}\)</span>: <span class="math inline">\(\overline{X}\)</span> sirve para estimar <span class="math inline">\(\mu_X\)</span> (es un buen **estimador} () de <span class="math inline">\(\mu_X\)</span>):</p>
+<p>{}</p>
+<ul>
+<li>**<span class="math inline">\(\sigma(\overline{X})= \sigma_X/\sqrt{n}\)</span>}: la variabilidad de las medias crece con la de <span class="math inline">\(X\)</span> y decrece cuando tomamos muestras mayores</li>
+</ul>
+<p><strong><span class="math inline">\(\sigma_X/\sqrt{n}\)</span>} es el </strong>error típico} de <span class="math inline">\(\overline{X}\)</span> (para la v.a. <span class="math inline">\(X\)</span> y m.a.s. de tamaño <span class="math inline">\(n\)</span>)
+\end{itemize}</p>
+
+<p>Recordando que una combinación de vv.aa. normales independientes es normal, tenemos:
+\begin{teorema}
+Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y las mm.aa.  son simples, entonces
+<span class="math display">\[
+\overline{X}$ es $N\Big(\mu_X,\frac{\sigma_X}{\sqrt{n}}\Big)
+\]</span>
+y por lo tanto
+<span class="math display">\[
+Z=\frac{\overline{X}-\mu_X}{\frac{\sigma_X}{\sqrt{n}}}$ es $N(0,1)
+\]</span>
+\end{teorema}</p>
+
+<p>\begin{teorema}
+Sea <span class="math inline">\(X\)</span> una v.a. **cualquiera} de esperanza <span class="math inline">\(\mu_X\)</span> y desviación típica <span class="math inline">\(\sigma_X\)</span>. Si las mm.aa.  son simples, entonces,
+cuando <span class="math inline">\(n\to \infty\)</span>,
+<span class="math display">\[
+\overline{X}\mbox{ tiende a ser }N\Big(\mu_X,\frac{\sigma_X}{\sqrt{n}}\Big)
+\]</span>
+y por lo tanto
+<span class="math display">\[
+Z=\frac{\overline{X}-\mu_X}{\frac{\sigma_X}{\sqrt{n}}}\mbox{ tiende a ser }N(0,1)
+\]</span>
+\end{teorema}</p>
+
+<p>En resumen, para mm.aa. simples:
+\begin{itemize}
+* Si <span class="math inline">\(X\)</span> es normal, siempre
+<span class="math display">\[
+\overline{X}$ es $N\Big(\mu_X,\dfrac{\sigma_X}{\sqrt{n}}\Big)
+\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(X\)</span> no es normal pero <span class="math inline">\(n\)</span> es grande (**<span class="math inline">\(n\geq 30\)</span> o }),
+<span class="math display">\[
+\overline{X}\approx N\Big(\mu_X,\dfrac{\sigma_X}{\sqrt{n}}\Big)
+\]</span>
+\end{itemize}</li>
+</ul>
+<p>Para muestras que no sean (prácticamente) aleatorias simples, ambos resultados son falsos (incluso usando el factor de población finita), pero si no tenemos nada más</p>
+
+¿Qué sois vosotros? Marcad la única respuesta correcta
+
+
+Si queremos disminuir a la mitad el error típico de una media muestral (calculada a partir de m.a.s.):
+
+
+
+<p>**Varianza muestral}, : Tomamos una m.a.  de tamaño <span class="math inline">\(n\)</span> de una v.a. <span class="math inline">\(X\)</span> y calculamos la varianza  de sus valores</p>
+<p>**Desviación típica muestral}, : Tomamos una m.a.  de tamaño <span class="math inline">\(n\)</span> de una v.a. <span class="math inline">\(X\)</span> y calculamos la desviación típica  de sus valores</p>
+<p>Formalmente, si se trata de una m.a.s., tomamos <span class="math inline">\(n\)</span> copias independientes <span class="math inline">\(X_1,\ldots,X_n\)</span> de una misma v.a. <span class="math inline">\(X\)</span> y entonces
+<span class="math display">\[
+ \red{\widetilde{S}_{X}^2}=\frac{\sum_{i=1}^n (X_{i}-\overline{X})^2}{\blue{n-1}},\quad 
+ \red{\widetilde{S}_{X}}=+\sqrt{\widetilde{S}_{X}^2}
+\]</span></p>
+
+
+<p>Por lo tanto, si <span class="math inline">\(X\)</span> es normal, <span class="math inline">\(\widetilde{S}_{X}^2\)</span> es un buen  de <span class="math inline">\(\sigma_{X}^2\)</span>:</p>
+<p>{}</p>
+
+
+<p>Si <span class="math inline">\(X\)</span> no es normal o si las muestras no son simples, los dos puntos son en general ``muy falsos’’</p>
+<p> <span class="math inline">\(E(\widetilde{S}_{X})\ \red{\neq}\ \sigma_{X}\)</span></p>
+<p> Si <span class="math inline">\(S^2_{X}\)</span> es la varianza a secas (dividiendo por <span class="math inline">\(n\)</span>), <span class="math inline">\(E(S^2_{X})\ \red{\neq}\ \sigma^2_{X}\)</span></p>
+
+<p>La distribución <span class="math inline">\(\chi_n^2\)</span> (<span class="math inline">\(\chi\)</span>: en castellano, <strong>ji}; en catalán, </strong>khi}; en inglés, <strong>chi}), donde <span class="math inline">\(n\)</span> son los </strong>grados de libertad}, es la distribución de probabilidad de la suma de los cuadrados de <span class="math inline">\(n\)</span> vv.aa. <span class="math inline">\(N(0,1)\)</span></p>
+
+
+
+
+<p>\begin{teorema}
+Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y tomamos mm.aa.ss. de tamaño <span class="math inline">\(n\)</span>, la v.a.
+<span class="math display">\[
+T=\frac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}
+\]</span>
+tiene distribución conocida:  (**<span class="math inline">\(t\)</span> de Student} con <span class="math inline">\(n-1\)</span> grados de libertad)
+\end{teorema}</p>
+<p>: el **error típico} de la muestra, estima el error típico <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> de <span class="math inline">\(\overline{X}\)</span></p>
+
+<p>La distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(n\)</span> grados de libertad,
+ satisface que:</p>
+
+
+
+
+
+
+
+<p>**Proporción muestral}, : Tomamos una m.a.  de tamaño <span class="math inline">\(n\)</span> de una v.a. <span class="math inline">\(X\)</span> es <span class="math inline">\(B(1,p_X)\)</span> de  y contamos el número total de éxitos</p>
+<p>Formalmente, si se trata de una m.a.s., tomamos <span class="math inline">\(n\)</span> copias independientes <span class="math inline">\(X_1,\ldots,X_n\)</span> de una misma v.a. <span class="math inline">\(X\)</span> de Bernoulli y
+<span class="math display">\[
+\red{\widehat{p}_X}=\frac{X_1+\cdots+X_n}{n}=\overline{X}
+\]</span></p>
+<p>Como <span class="math inline">\(\widehat{p}_X\)</span> es un caso particular de <span class="math inline">\(\overline{X}\)</span>, todo el que hemos dicho para medias muestrales vale también para proporciones muestrales</p>
+
+
+
+<p>\begin{itemize}
+* <span class="math inline">\(\red{E(\widehat{p}_X)=p_X}\)</span>: <span class="math inline">\(\widehat{p}_X\)</span> es un buen estimador de <span class="math inline">\(p_X\)</span>:</p>
+<p>{}</p>
+<ul>
+<li>**<span class="math inline">\(\sigma(\widehat{p}_X)= \sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span>}: la variabilidad de los resultados de <span class="math inline">\(\widehat{p}_X\)</span> decrece cuando tomamos muestras mayores
 \end{itemize}</li>
 </ul>
 
-<p>: 280 mediciones de triglicéridos en sangre de cordón umbilical</p>
-<p>Su histograma y la densidad de la normal con <span class="math inline">\(\mu\)</span> su media y <span class="math inline">\(\sigma\)</span> su desv. típ. es:</p>
+<p>Si tomamos una m.a.s. de tamaño <span class="math inline">\(n\)</span> de una v.a. Bernoulli <span class="math inline">\(X\)</span>:</p>
+<p>\begin{itemize}</p>
+<ul>
+<li><p><strong><span class="math inline">\(\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span>} es el </strong>error típico} de la v.a. <span class="math inline">\(\widehat{p}_X\)</span></p></li>
+<li><p>**<span class="math inline">\(\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}}\)</span>} es el  de la muestra, que estima el error típico de <span class="math inline">\(\widehat{p}_X\)</span>
+\end{itemize}</p></li>
+</ul>
 
-
-<p>: 280 **logaritmos} de mediciones de triglicéridos en sangre de cordón umbilical</p>
-<p>Su histograma y la densidad de la normal con <span class="math inline">\(\mu\)</span> su media y <span class="math inline">\(\sigma\)</span> su desv. típ. es:</p>
-
-
-Un **q-q-plot} de una muestra y una distribución teórica es el gráfico de los puntos
-
-Si la muestra proviene de la distribución, es de esperar que
-
-<p>y estos puntos estarán cerca de la diagonal principal <span class="math inline">\(x=y\)</span></p>
-<p>Cuando la distribución a comparar es una normal es un **normal(-q)-plot}</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-Se acepta que la presión sistólica se distribuye como una variable normal con valor medio y
-desviación típica que dependen de la edad. Para la franja de edad 16–24 años, estos valores son:
-
-El modelo de hipertensión-hipotensión aceptado es el siguiente:
-
-<p>Calculad los límites de cada clase para cada sexo en este grupo de edad.</p>
-
-
-<p>En los hombres, la tensión sistólica es una variable aleatoria <span class="math inline">\(N(124,13.7)\)</span></p>
-[fragile]
-
-
-<p>Hemos trabajado más de lo necesario: por la simetría, el 0.95-cuantil (o el 0.9-cuantil) ha de estar a la misma distancia de <span class="math inline">\(\mu\)</span> que el 0.05-cuantil (que el 0.1-cuantil), pero a la derecha
+<p>Por el T.C.L.:</p>
+<p>\begin{block}{``Teorema’’}
+Si <span class="math inline">\(n\)</span> es grande (**<span class="math inline">\(n\geq 30\)</span> o }) y las mm.aa.  son simples,
 <span class="math display">\[
-124-101.4655=22.5345\Longrightarrow  124+22.5345=126.5345
-\]</span></p>
+\widehat{p}_X\approx N\Big (p_X,\sqrt{\frac{p_X(1-p_X)}{n}}\Big)
+\]</span>
+y por lo tanto
+<span class="math display">\[
+\frac{\widehat{p}_X-p_X}{\sqrt{\frac{{p}_X(1-{p}_X)}{n}}}\approx N(0,1)
+\]</span>
+\end{block}</p>
 
-<p>Entre los hombres de 16 a 24 años:</p>
+<p>Otros casos que nos interesarán:</p>
 
-<p>Calculad los límites para las mujeres</p>
 
+No confundáis:
+
+<p>El error típico es mucho más pequeño que la desviación típica</p>
+%
+%
+%
+%
+
+%
+%\begin{center}
+%
+%\end{center}
+%
+%
+%
+%
+%{S. Schmitz-Valckenberg . <code>Natural history of geographic atrophy progression secondary to age-related macular degeneration (Geographic Atrophy Progression Study).'' \textit{Ophthalmology}, 123 (2016), 361--368 % %} % % % % % %\frametitle{Desviación típica \textsl{vs} error típico}\vspace*{-2.5ex} % %\begin{center} %\includegraphics[width=\linewidth]{sdvsse2} %\end{center} % % % % %{\tiny A. Landucci \textsl{et al}.</code>Efficacy of a single dose of low-level laser therapy in reducing pain, swelling, and trismus following third molar extraction surgery.’’ , 45 (2016), 392–398.
+%
+%}
+%
+%
+%
+%
+%
+%
+
+<p>%
+%\begin{center}
+%
+%\end{center}
+%
+%
+%
+%
+%{L. Liaudet, . <code>Comparison of inflammation, organ damage, [\ldots]''. \textit{Infection and immunity}, 70          (2002), 192--198. % %} % % % % %\frametitle{Inciso} % %\begin{center} %\includegraphics[width=0.6\linewidth]{sdvsse4}\\ %\sl Mean $+$ standard error, $n = 5$ to 6/group %\end{center} % % % % %{\tiny L. Liaudet, \textsl{et al}.</code>Comparison of inflammation, organ damage, []’’. , 70 (2002), 192–198.
+%
+%}
+%
+%</p>
+
+<p>Si el tamaño de una muestra aleatoria simple de una v.a. aumenta (marcad todas las afirmaciones correctas):</p>
+
+
+<p>La prevalencia de una afección en una población es del 10%. Si estimamos dicha prevalencia repetidamente a partir de muestras de tamaño 1000, estas estimaciones siguen una distribución que (marcad todas las afirmaciones correctas):</p>
+
+
+</div>
 </div>
 </div>
             </section>
