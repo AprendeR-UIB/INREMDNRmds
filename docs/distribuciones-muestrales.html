@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lección 3 Distribuciones muestrales | Bioestadística (Medicina UIB)</title>
+  <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lección 3 Distribuciones muestrales | Bioestadística (Medicina UIB)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lección 3 Distribuciones muestrales | Bioestadística (Medicina UIB)" />
+  
+  <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2020-11-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="variables-aleatorias-continuas.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">INREMDN</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>1</b> Variables aleatorias discretas</a><ul>
+<li class="chapter" data-level="1.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#generalidades-sobre-variables-aleatorias"><i class="fa fa-check"></i><b>1.1</b> Generalidades sobre variables aleatorias</a></li>
+<li class="chapter" data-level="1.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>1.2</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="1.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>1.3</b> Esperanza</a></li>
+<li class="chapter" data-level="1.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>1.4</b> Varianza y desviación típica</a></li>
+<li class="chapter" data-level="1.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>1.5</b> Cuantiles</a></li>
+<li class="chapter" data-level="1.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>1.6</b> Familias importantes de variables aleatorias discretas</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>1.6.1</b> Variables aleatorias binomiales</a></li>
+<li class="chapter" data-level="1.6.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>1.6.2</b> Variables aleatorias hipergeométricas</a></li>
+<li class="chapter" data-level="1.6.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variable-aleatorias-de-poisson"><i class="fa fa-check"></i><b>1.6.3</b> Variable aleatorias de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test"><i class="fa fa-check"></i><b>1.7</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>2</b> Variables aleatorias continuas</a><ul>
+<li class="chapter" data-level="2.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>2.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="2.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>2.2</b> Esperanza, varianza, cuantiles…</a></li>
+<li class="chapter" data-level="2.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#variables-aleatorias-normales"><i class="fa fa-check"></i><b>2.3</b> Variables aleatorias normales</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#propiedades-básicas"><i class="fa fa-check"></i><b>2.3.1</b> Propiedades básicas</a></li>
+<li class="chapter" data-level="2.3.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#combinaciones-lineales"><i class="fa fa-check"></i><b>2.3.2</b> Combinaciones lineales</a></li>
+<li class="chapter" data-level="2.3.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#intervalos-de-referencia"><i class="fa fa-check"></i><b>2.3.3</b> Intervalos de referencia</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test"><i class="fa fa-check"></i><b>2.4</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html"><i class="fa fa-check"></i><b>3</b> Distribuciones muestrales</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#estimadores"><i class="fa fa-check"></i><b>3.1</b> Estimadores</a></li>
+<li class="chapter" data-level="3.2" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-media-muestral"><i class="fa fa-check"></i><b>3.2</b> La media muestral</a></li>
+<li class="chapter" data-level="3.3" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-proporción-muestral"><i class="fa fa-check"></i><b>3.3</b> La proporción muestral</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-varianza-muestral"><i class="fa fa-check"></i><b>3.4</b> La varianza muestral</a></li>
+<li class="chapter" data-level="3.5" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-t-de-student"><i class="fa fa-check"></i><b>3.5</b> La t de Student</a></li>
+<li class="chapter" data-level="3.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test"><i class="fa fa-check"></i><b>3.6</b> Test</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioestadística (Medicina UIB)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="distribuciones-muestrales" class="section level1">
+<h1><span class="header-section-number">Lección 3</span> Distribuciones muestrales</h1>
+<div id="estimadores" class="section level2">
+<h2><span class="header-section-number">3.1</span> Estimadores</h2>
+<p>En un problema típico de <strong>estadística inferencial</strong>:</p>
+<ul>
+<li><p>Queremos conocer el valor de una característica en el total de una población, pero no podemos medir esta característica en <strong>todos</strong> los individuos de la población.</p></li>
+<li><p>Entonces, extraemos una muestra de la población, medimos la característica en los individuos de esta muestra, calculamos algo con estas medidas e <strong>inferimos</strong> el valor de la característica en el global de la población.</p></li>
+</ul>
+<p>Inmediatamente surgen varias preguntas, que responderemos entre esta lección y la próxima:</p>
+<ul>
+<li>¿Cómo tiene que ser la muestra?</li>
+<li>¿Qué tenemos que calcular?</li>
+<li>¿Con qué precisión podemos inferir la característica de la población?</li>
+</ul>
+<p>¿Qué tipo de muestra tomamos? Vamos a suponer de ahora en adelante que tomamos <strong>muestras aleatorias simples</strong>. Esto incluye las muestras aleatorias sin reposición si la población es mucho más grande que la muestra, ya que entonces no hay diferencia práctica entre permitir y prohibir las repeticiones. En algunos casos muy concretos permitiremos muestras aleatorias sin reposición en general.</p>
+<p>Sí, ya sabemos que en la práctica casi nunca tomamos muestras aleatorias, sino oportunistas. En este caso, recordad lo que os explicábamos en la Sección <a href="#sec:oport"><strong>??</strong></a>. Lo que se suele hacer es describir en detalle las características de la muestra para justificar que, pese a no ser aleatoria, es razonablemente representativa de la población y podría pasar por aleatoria.</p>
+<p>¿Qué calculamos? Pues un <strong>estimador</strong>: alguna función adecuada aplicada a los valores de la muestra, y que dependerá de la que queramos estimar. Por ejemplo:</p>
+<ul>
+<li><p>Si queremos estimar la altura media de los estudiantes de la UIB, tomaremos una muestra aleatoria de estudiantes de la UIB, mediremos sus alturas y calcularemos su <strong>media aritmética</strong>.</p></li>
+<li><p>Si queremos estimar la proporción de estudiantes de la UIB que han pasado la COVID-19, tomaremos una muestra aleatoria de estudiantes de la UIB, les haremos un test de anticuerpos y calcularemos la <strong>proporción muestral</strong> de positivos en la muestra.</p></li>
+<li><p>Si queremos estimar el riesgo relativo para un estudiante de la UIB de suspender alguna asignatura si es fumador, tomaremos una muestra aleatoria de estudiantes de la UIB, anotaremos si fuman o no y si han suspendido alguna asignatura o no, y calcularemos la <strong>diferencia entre las proporciones muestrales</strong> de suspensos entre los fumadores y los no fumadores de la muestra.</p></li>
+</ul>
+
+<div class="rmdimportant">
+Fijaos que <strong>un estimador es una variable aleatoria</strong>, definida sobre la población formada por las muestras de la población de partida, y por lo tanto tiene función de distribución (que genéricamente llamaremos <strong>distribución muestral</strong>, para indicar que mide la probabilidad de que le pase algo al valor del <strong>estimador sobre una muestra</strong>), esperanza, desviación típica (a la que se suele llamar <strong>error típico</strong> del estimador), etc.
+</div>
+
+</div>
+<div id="la-media-muestral" class="section level2">
+<h2><span class="header-section-number">3.2</span> La media muestral</h2>
+<p>Cuando queremos estimar el valor medio de una variable sobre una población, tomamos una muestra de valores y calculamos su media aritmética, ¿verdad? Pues eso:</p>
+<p>Dada una variable aleatoria <span class="math inline">\(X\)</span>, llamamos <strong>media muestral</strong> (<strong>de tamaño <span class="math inline">\(n\)</span></strong>) a la variable aleatoria <span class="math inline">\(\overline{X}\)</span> “Tomamos una muestra aleatoria de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calculamos la media aritmética de sus valores”.</p>
+<p>Veamos algunas propiedades de la distribución muestral de <span class="math inline">\(\overline{X}\)</span>:</p>
+
+<div class="theorem">
+<p><span id="thm:mitjmostgral" class="theorem"><strong>Teorema 3.1  </strong></span>Sea <span class="math inline">\(X\)</span> una variable aleatoria de media <span class="math inline">\(\mu_X\)</span> y desviación típica <span class="math inline">\(\sigma_X\)</span>, y sea <span class="math inline">\(\overline{X}\)</span> la media muestral de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span>. Entonces:</p>
+<ul>
+<li><p><span class="math inline">\(E(\overline{X})=\mu_X\)</span></p></li>
+<li><p>Si las muestras aleatorias son simples, <span class="math inline">\(\sigma(\overline{X})=\dfrac{\sigma_X}{\sqrt{n}}\)</span></p></li>
+<li><p>Si las muestras aleatorias son sin reposiciónm y <span class="math inline">\(N\)</span> es el tamaño de la población,
+<span class="math display">\[
+\sigma(\overline{X})=\frac{\sigma_X}{\sqrt{n}}\cdot\sqrt{\frac{N-n}{N-1}}
+\]</span></p>
+</div></li>
+</ul>
+<p>Al factor
+<span class="math display">\[
+\sqrt{\frac{N-n}{N-1}}
+\]</span>
+que transforma <span class="math inline">\(\sigma(\overline{X})\)</span> para muestras aleatorias simples en la desviación típica de <span class="math inline">\(\overline{X}\)</span> para muestras aleatorias sin reposición se le llama el <strong>factor de población finita</strong>, y si os fijáis, es el que transformaba la desviación típica de una variable binomial (que cuenta éxitos en muestras aleatorias simples) en la desviación típica de una variable hipergeométrica (que cuenta éxitos en muestras aleatorias sin reposición).</p>
+<p>Y recordad que si el tamaño de la población <span class="math inline">\(N\)</span> es muy grande comparado con <span class="math inline">\(n\)</span>, podemos suponer que una muestra aleatoria sin reposición es simple.</p>
+<p>Que <span class="math inline">\(E(\overline{X})\)</span> sea <span class="math inline">\(\mu_X\)</span> nos indica que <span class="math inline">\(\overline{X}\)</span> sirve para estimar <span class="math inline">\(\mu_X\)</span>, porque <strong>su valor esperado es <span class="math inline">\(\mu_X\)</span></strong>:</p>
+<blockquote>
+<p>Si calculáramos muchas medias de muestras aleatorias de <span class="math inline">\(X\)</span>, es muy probable que, de media, obtuviéramos un valor muy cercano a <span class="math inline">\(\mu_X\)</span>.</p>
+</blockquote>
+<p>Cuando el valor esperado de un estimador es precisamente el parámetro poblacional que se quiere estimar, se dice que el estimador es <strong>insesgado</strong>. Así, el primer punto del teorema anterior nos dice que la media muestral <span class="math inline">\(\overline{X}\)</span> es un estimador insesgado de la media poblacional <span class="math inline">\(\mu_X\)</span>.</p>
+<p>Que <span class="math inline">\(\sigma(\overline{X})\)</span> sea <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> implica que la variabilidad de las medias muestrales crece con la variabilidad de <span class="math inline">\(X\)</span> y decrece si tomamos muestras de mayor tamaño. A <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> se le llama el <strong>error típico de la media muestral</strong> (para la variable aleatoria <span class="math inline">\(X\)</span> y muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>).</p>
+<p>La media muestral <span class="math inline">\(\overline{X}\)</span> de muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span> de una variable aleatoria <span class="math inline">\(X\)</span> se interpreta formalmente como la variable aleatoria obtenida tomando <span class="math inline">\(n\)</span> copias independientes <span class="math inline">\(X_1,\ldots,X_n\)</span> de <span class="math inline">\(X\)</span> y calculando
+<span class="math display">\[
+\overline{X}=\frac{X_1+\cdots+X_n}{n}.
+\]</span></p>
+<p>Por lo tanto, es una combinación lineal de <span class="math inline">\(n\)</span> copias independientes de <span class="math inline">\(X\)</span>.
+Recordando que una combinación de variables aleatorias normales independientes es normal, tenemos el resultado siguiente:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-99" class="theorem"><strong>Teorema 3.2  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y las muestras aleatorias son simples, entonces
+<span class="math display">\[
+\overline{X}\text{ es }N(\mu_X,\sigma_X/\sqrt{n})
+\]</span>
+y por lo tanto
+<span class="math display">\[
+Z=\frac{\overline{X}-\mu_X}{\sigma_X/\sqrt{n}}\text{ es }N(0,1)
+\]</span></p>
+</div>
+
+<p>Si <span class="math inline">\(X\)</span> no es normal, la tesis del teorema anterior sigue siendo cierta “aproximadamente” si <span class="math inline">\(n\)</span> es grande. Este resultado, llamado el <strong>Teorema central del límite</strong> es, como su nombre indica, uno de los más importantes en estadística.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-100" class="theorem"><strong>Teorema 3.3  </strong></span>Sea <span class="math inline">\(X\)</span> una variable aleatoria <strong>cualquiera</strong> de esperanza <span class="math inline">\(\mu_X\)</span> y desviación típica <span class="math inline">\(\sigma_X\)</span>. Si las muestras aleatorias son simples y <span class="math inline">\(n\)</span> es suficientemente grande,
+<span class="math display">\[
+\overline{X}\text{ es aproximadamente }N(\mu_X, {\sigma_X}/{\sqrt{n}})
+\]</span>
+y por lo tanto
+<span class="math display">\[
+Z=\frac{\overline{X}-\mu_X}{{\sigma_X}/{\sqrt{n}}}\text{ es aproximadamente }N(0,1)
+\]</span></p>
+</div>
+
+<p>Dos observaciones:</p>
+<ul>
+<li><p>¿Cuándo una muestra es suficientemente grane? En realidad, depende de la <span class="math inline">\(X\)</span>. Cuánto más se parezca <span class="math inline">\(X\)</span> a una variable normal, más pequeñas pueden ser la muestras. Por fijar, un valor, aceptaremos que “suficientement grande” es <span class="math inline">\(n\geq 30\)</span>.</p></li>
+<li><p>¿Qué quiere decir que una variable aleatoria sea “aproximadamente” normal? Pues que su función de distribución <span class="math inline">\(F_X\)</span> toma valores muy cercanos a la función de distribución de una normal.</p></li>
+</ul>
+<p>En resumen, para muestras aleatorias simples:</p>
+<ul>
+<li><p>Si <span class="math inline">\(X\)</span> es normal, siempre se tiene que <span class="math inline">\(\overline{X}\)</span> es <span class="math inline">\(N(\mu_X,{\sigma_X}/{\sqrt{n}})\)</span></p></li>
+<li><p>Si <span class="math inline">\(X\)</span> no es normal pero <span class="math inline">\(n\)</span> es grande (pongamos <span class="math inline">\(n\geq 30\)</span>, aunque puede ser menor si <span class="math inline">\(X\)</span> se parece a una normal y seguramente tendrá que ser mayor si <span class="math inline">\(X\)</span> es muy diferente de una normal), <span class="math inline">\(\overline{X}\)</span> es aproximadamente <span class="math inline">\(N(\mu_X,{\sigma_X}/{\sqrt{n}})\)</span></p></li>
+</ul>
+<p>Para muestras que no sean (prácticamente) aleatorias simples, ambos resultados son falsos (incluso usando el factor de población finita), pero si no tenemos nada más…</p>
+</div>
+<div id="la-proporción-muestral" class="section level2">
+<h2><span class="header-section-number">3.3</span> La proporción muestral</h2>
+<p>Cuando queremos estimar la proporción de sujetos de una población que tienen una determinada característica, tomamos una muestra y calculamos la proporción de sujetos de la muestra con esta característica. Dada una variable aleatoria <span class="math inline">\(X\)</span> de Bernoulli <span class="math inline">\(Be(p_X)\)</span>, llamamos <strong>proporción muestral</strong>, <span class="math inline">\(\widehat{p}_X\)</span>, a la variable aleatoria consistente en tomar una muestra aleatoria de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calcular la proporción de éxitos en la muestra: es decir, contar el número total de éxitos y dividir el resultado por <span class="math inline">\(n\)</span>.</p>
+<p>Fijaos en que <span class="math inline">\(\widehat{p}_X\)</span> es un caso particular de media muestral <span class="math inline">\(\overline{X}\)</span>: estamos calculando medias muestrales de muestras de la variable de Bernoulli <span class="math inline">\(X\)</span>. Por lo tanto, todo lo que hemos dicho para medias muestrales vale también para proporciones muestrales:</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-101" class="theorem"><strong>Teorema 3.4  </strong></span>Si <span class="math inline">\(X\)</span> es una variable aleatoria de Bernoulli con probabilidad poblacional de éxito <span class="math inline">\(p_X\)</span>:
+</div>
+
+<ul>
+<li><p><span class="math inline">\(E(\widehat{p}_X)=p_X\)</span></p>
+<p>Por lo tanto, <span class="math inline">\(\widehat{p}_X\)</span> es un estimador insesgado de <span class="math inline">\(p_X\)</span>. Si calculáramos muchas proporciones muestrales de muestras aleatorias de <span class="math inline">\(X\)</span>, es muy probable que, de media, obtuviéramos un valor muy cercano a la proporción poblacional de éxitos <span class="math inline">\(p_X\)</span>.</p></li>
+<li><p>Si las muestras aleatorias son simples, <span class="math inline">\(\sigma({\widehat{p}_X})=\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span>.</p>
+<p>En particular, si fijada la <span class="math inline">\(X\)</span> tomamos muestras de tamaño mayor, la variabilidad de los resultados de <span class="math inline">\(\widehat{p}_X\)</span> disminuye.</p></li>
+<li><p>Si las muestras aleatorias no son simples (y <span class="math inline">\(N\)</span> es el tamaño de la población),
+<span class="math display">\[
+\sigma({\widehat{p}_X})=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot
+\sqrt{\frac{N-n}{N-1}}
+\]</span></p>
+<p>Y como antes, si <span class="math inline">\(N\)</span> es muy grande relativamente a <span class="math inline">\(n\)</span>, podemos suponer en la práctica que una muestra aleatoria sin reposición es simple</p></li>
+</ul>
+
+<div class="rmdcaution">
+<p>Si tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span> de una variable aleatoria Bernoulli <span class="math inline">\(X\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span> es el <strong>error típico</strong> de la variable aleatoria <span class="math inline">\(\widehat{p}_X\)</span>: su desviación típica.</p></li>
+<li><p>Para cada muestra, <span class="math inline">\(\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}}\)</span> es el <strong>error típico</strong> de la muestra, que estima el error típico de <span class="math inline">\(\widehat{p}_X\)</span>.</p></li>
+</ul>
+</div>
+
+<p>Y como la proporción muestral es un caso particular de media muestral, por el Teorema Central del Límite tenemos el resultado siguiente:</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-103" class="theorem"><strong>Teorema 3.5  </strong></span>Si <span class="math inline">\(n\)</span> es grande y las muestras aleatorias son simples,
+<span class="math display">\[
+\widehat{p}_X\text{ es aproximadamente }N\Big (p_X,\sqrt{\frac{p_X(1-p_X)}{n}}\Big)
+\]</span>
+y por lo tanto
+<span class="math display">\[
+\frac{\widehat{p}_X-p_X}{\sqrt{\frac{{p}_X(1-{p}_X)}{n}}}\text{ es aproximadamente }N(0,1)
+\]</span>
+</div>
+
+</div>
+<div id="la-varianza-muestral" class="section level2">
+<h2><span class="header-section-number">3.4</span> La varianza muestral</h2>
+<p>Dada una variable aleatoria <span class="math inline">\(X\)</span>, llamamos:</p>
+<ul>
+<li><p><strong>Varianza muestral</strong>, <span class="math inline">\(\widetilde{S}_{X}^2\)</span>, a la variable aleatoria consistente en tomar una muestra aleatoria de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calcular la varianza muestral de sus valores.</p></li>
+<li><p><strong>Desviación típica muestral</strong>, <span class="math inline">\(\widetilde{S}_{X}\)</span>, a la variable aleatoria consistente en tomar una muestra aleatoria de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calcular la desviación típica muestral de sus valores.</p></li>
+</ul>
+<p>Formalmente, estas variables se definen tomando <span class="math inline">\(n\)</span> copias independientes <span class="math inline">\(X_1,\ldots,X_n\)</span> de <span class="math inline">\(X\)</span> y calculando
+<span class="math display">\[
+\widetilde{S}_{X}^2=\frac{\sum_{i=1}^n (X_{i}-\overline{X})^2}{n-1},\quad 
+\widetilde{S}_{X}=+\sqrt{\widetilde{S}_{X}^2}
+\]</span></p>
+<p>Tenemos los dos resultados siguientes para variables poblacionales <strong>normales</strong>. El primero nos dice que en este caso <span class="math inline">\(\widetilde{S}_{X}^2\)</span> es un estimador insesgado de la varianza poblacional <span class="math inline">\(\sigma_{X}^2\)</span>.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-104" class="theorem"><strong>Teorema 3.6  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y tomamos muestras aleatorias de tamaño <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+E(\widetilde{S}_{X}^2)=\sigma_{X}^2.
+\]</span>
+</div>
+
+<p>Por lo tanto, si <span class="math inline">\(X\)</span> es normal, <strong>esperamos</strong> que la varianza muestral de una muestra aleatoria simple grande sea <span class="math inline">\(\sigma_{X}^2\)</span>, en el sentido usual de que si tomamos muestras aleatorias simples de <span class="math inline">\(X\)</span> de tamaño <span class="math inline">\(n\)</span> grande y calculamos sus varianzas muestrales, esperamos de media obtener un valor muy cercano a <span class="math inline">\(\sigma_{X}^2\)</span>.</p>
+<p>El segundo resultado nos dice que un múltiplo adecuado de <span class="math inline">\(\widetilde{S}_{X}^2\)</span> tiene distribución muestral conocida, lo que nos permite calcular probabilidades.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-105" class="theorem"><strong>Teorema 3.7  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y tomamos muestras aleatorias de tamaño <span class="math inline">\(n\)</span>,La variable aleatoria
+<span class="math display">\[
+  \dfrac{(n-1)\widetilde{S}_{X}^2}{\sigma_{X}^2}
+\]</span>
+tiene distribución <span class="math inline">\(\chi_{n-1}^2\)</span>.
+</div>
+
+<p>La distribución <span class="math inline">\(\chi_n^2\)</span> (la letra griega <span class="math inline">\(\chi\)</span> en castellano se lee <strong>ji</strong>; en catalán, <strong>khi</strong>; en inglés, <strong>chi</strong>, pronunciado “xai”), donde <span class="math inline">\(n\)</span> son los <strong>grados de libertad</strong>, es la distribución de probabilidad de la suma de los cuadrados de <span class="math inline">\(n\)</span> variables aleatorias normales estándar independientes. Para R es <code>chisq</code>. Os puede interesar recordar que una variable <span class="math inline">\(\chi_n^2\)</span>:</p>
+<ul>
+<li><p>Tien valor esperado <span class="math inline">\(\mu=n\)</span> y varianza <span class="math inline">\(\sigma^2=2 n\)</span></p></li>
+<li><p>Tiene una distribución asimétrica a la derecha, como muestra el gráfico siguiente:</p></li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="distribuciones-muestrales.html#cb39-1"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">1</span>),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="dt">main=</span><span class="st">&quot;Algunas ji quadrado&quot;</span>)</span>
+<span id="cb39-2"><a href="distribuciones-muestrales.html#cb39-2"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">2</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb39-3"><a href="distribuciones-muestrales.html#cb39-3"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">3</span>),<span class="dt">col=</span><span class="dv">3</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb39-4"><a href="distribuciones-muestrales.html#cb39-4"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">4</span>),<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb39-5"><a href="distribuciones-muestrales.html#cb39-5"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">5</span>),<span class="dt">col=</span><span class="dv">5</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb39-6"><a href="distribuciones-muestrales.html#cb39-6"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb39-7"><a href="distribuciones-muestrales.html#cb39-7"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb39-8"><a href="distribuciones-muestrales.html#cb39-8"></a>       <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">paste</span>(<span class="st">&quot;n=&quot;</span>,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="dt">cex=</span><span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-106-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Aunque, por el Teorema Central del Límite, si <span class="math inline">\(n\)</span> es muy grande, la distribución <span class="math inline">\(\chi_n^2\)</span> se aproxima a la de una variable normal <span class="math inline">\(N(n,\sqrt{2n})\)</span>.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="distribuciones-muestrales.html#cb40-1"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">300</span>),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">150</span>,<span class="dv">450</span>),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Ji quadrado vs Normal&quot;</span>)</span>
+<span id="cb40-2"><a href="distribuciones-muestrales.html#cb40-2"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="dv">300</span>,<span class="kw">sqrt</span>(<span class="dv">600</span>)),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb40-3"><a href="distribuciones-muestrales.html#cb40-3"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb40-4"><a href="distribuciones-muestrales.html#cb40-4"></a>       <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Ji quadrado con n=300&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-107-1.png" width="480" style="display: block; margin: auto;" /></p>
+
+<div class="rmdcaution">
+<p>Tened cuidado:</p>
+<ul>
+<li><p>Si la variable poblacional <span class="math inline">\(X\)</span> no es normal o si las muestras aleatorias no son simples, las conclusiones de los dos teoremas anteriores no son verdaderas, ni tan solo aproximadamente o añadiendo factores de corrección tipo el factor de población finita.</p></li>
+<li><p>Aunque <span class="math inline">\(X\)</span> sea normal, <span class="math inline">\(E(\widetilde{S}_{X})\neq \sigma_{X}\)</span>.</p></li>
+<li><p>Aunque <span class="math inline">\(X\)</span> sea normal, si <span class="math inline">\(S^2_{X}\)</span> es la varianza a secas (dividiendo por <span class="math inline">\(n\)</span>), <span class="math inline">\(E(S^2_{X})\neq \sigma^2_{X}\)</span>. Esto lo podéis comprobar fácilmente, porque <span class="math inline">\(S_X^2\)</span> se obtiene a partir de <span class="math inline">\(\widetilde{S}_{X}\)</span> cambiando el denominador,
+<span class="math display">\[
+S_X^2=\frac{n-1}{n} \widetilde{S}_{X}
+\]</span>
+y por lo tanto
+<span class="math display">\[
+E(S_X^2)=\frac{n-1}{n}E(\widetilde{S}_{X})=\frac{n-1}{n}\sigma^2_{X}
+\]</span></p></li>
+</ul>
+</div>
+
+</div>
+<div id="la-t-de-student" class="section level2">
+<h2><span class="header-section-number">3.5</span> La t de Student</h2>
+<p>Recordad que si la variable poblacional <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, entonces la variable
+<span class="math display">\[
+\frac{\overline{X}-\mu}{\sigma_{X}/\sqrt{n}}
+\]</span>
+es normal estándar. Desde el punto de vista teórico, para óbtener fórmulas, esto será útil, pero normalmente no nos sirve para calcular la probabilidad de que a <span class="math inline">\(\overline{X}\)</span> le pase algo, porque casi nunca sabemos la desviación típica poblacional <span class="math inline">\(\sigma_{X}\)</span>. ¿Qué pasa si la estimamos por medio de <span class="math inline">\(\widetilde{S}_{X}\)</span> con la misma muestra con la que calculamos <span class="math inline">\(\overline{X}\)</span>? Pues que el resultado siguiente nos salva el día, porque la variable que resulta tiene distribución conocida.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-109" class="theorem"><strong>Teorema 3.8  </strong></span>Sea <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>. Si tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, la variable aleatoria
+<span class="math display">\[
+T=\frac{\overline{X}-\mu_X}{\widetilde{S}_{X}/\sqrt{n}}
+\]</span>
+tiene una distribución conocida, llamada <strong>t de Student con <span class="math inline">\(n-1\)</span> grados de libertad</strong>, <span class="math inline">\(t_{n-1}\)</span>.</p>
+</div>
+
+<p>Al denominador <span class="math inline">\(\widetilde{S}_{X}/\sqrt{n}\)</span> de la <span class="math inline">\(T\)</span> del teorema anterior se le llama el <strong>error típico</strong> de la muestra, y estima el error típico <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> de la media muestral <span class="math inline">\(\overline{X}\)</span>.</p>
+<p>Algunas propiedades que conviene que recordéis de las variables <span class="math inline">\(T_m\)</span> que tienen distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(m\)</span> grados de libertad, <span class="math inline">\(t_m\)</span>:</p>
+<ul>
+<li><p>Su valor esperado es <span class="math inline">\(E(T_m)=0\)</span> y su varianza es <span class="math inline">\(\sigma(T_m)=\dfrac{m}{m-2}\)</span> (en realidad esto solo es verdad si <span class="math inline">\(m\geq 3\)</span>, pero no hace falta recordarlo).</p></li>
+<li><p>Su función de distribución es simétrica respecto de <span class="math inline">\(0\)</span> (como la de una <span class="math inline">\(N(0,1)\)</span>):
+<span class="math display">\[
+P(T_m\leq -x)=P(T_m\geq x)=1-P(T_m\leq x)
+\]</span></p></li>
+<li><p>Si <span class="math inline">\(m\)</span> es grande, <span class="math inline">\(T_m\)</span> es aproximadamente una <span class="math inline">\(N(0,1)\)</span> (pero con un poco más de varianza: un poco más achatada). Esto es consecuencia del Teorema Central del Límite.</p></li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="distribuciones-muestrales.html#cb41-1"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),</span>
+<span id="cb41-2"><a href="distribuciones-muestrales.html#cb41-2"></a>      <span class="dt">main=</span><span class="st">&quot;Algunas t de Student&quot;</span>)</span>
+<span id="cb41-3"><a href="distribuciones-muestrales.html#cb41-3"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">2</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb41-4"><a href="distribuciones-muestrales.html#cb41-4"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">3</span>),<span class="dt">col=</span><span class="dv">3</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb41-5"><a href="distribuciones-muestrales.html#cb41-5"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">4</span>),<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb41-6"><a href="distribuciones-muestrales.html#cb41-6"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">5</span>),<span class="dt">col=</span><span class="dv">5</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb41-7"><a href="distribuciones-muestrales.html#cb41-7"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb41-8"><a href="distribuciones-muestrales.html#cb41-8"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">6</span>),</span>
+<span id="cb41-9"><a href="distribuciones-muestrales.html#cb41-9"></a><span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estandar&quot;</span>, <span class="kw">paste</span>(<span class="st">&quot;Student con g.l.=&quot;</span>,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)),<span class="dt">cex=</span><span class="fl">0.7</span>)</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-110-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="distribuciones-muestrales.html#cb42-1"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),</span>
+<span id="cb42-2"><a href="distribuciones-muestrales.html#cb42-2"></a>      <span class="dt">main=</span><span class="st">&quot;t vs Normal estandar&quot;</span>)</span>
+<span id="cb42-3"><a href="distribuciones-muestrales.html#cb42-3"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">50</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb42-4"><a href="distribuciones-muestrales.html#cb42-4"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">2</span>),</span>
+<span id="cb42-5"><a href="distribuciones-muestrales.html#cb42-5"></a>       <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estandar&quot;</span>, <span class="st">&quot;Student con g.l.=50&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-111-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Denotaremos por <span class="math inline">\(t_{m,q}\)</span> el <span class="math inline">\(q\)</span>-cuantil de una variable aleatoria <span class="math inline">\(T_{m}\)</span> con distribución <span class="math inline">\(t_m\)</span>. Es decir, <span class="math inline">\(t_{m,q}\)</span> és el valor tal que
+<span class="math display">\[
+P(T_{m}\leq t_{m,q})=q
+\]</span>
+Entonces:</p>
+<ul>
+<li><p>Por la simetría de la distribución <span class="math inline">\(t_m\)</span>,
+<span class="math display">\[
+t_{m,q}=-t_{m,1-q}.
+\]</span>
+Exactamente lo mismo que pasaba con la normal estándar</p></li>
+<li><p>Si <span class="math inline">\(m\)</span> es grande, como <span class="math inline">\(T_m\)</span> será aproximadamente una <span class="math inline">\(N(0,1)\)</span>, <span class="math inline">\(t_{m,q}\approx z_q\)</span>.</p></li>
+</ul>
+
+<div class="rmdcaution">
+<p>No confundáis:</p>
+<ul>
+<li><p><strong>Desviación típica de una variable aleatoria</strong>: El parámetro poblacional, normalmente desconocido. Es <span class="math inline">\(\sigma_X\)</span></p></li>
+<li><p><strong>Desviación típica</strong> (muestral o no) <strong>de una muestra</strong>: El estadístico que calculamos sobre la muestra; lo damos cuando describimos la muestra. Es <span class="math inline">\(\widetilde{S}_X\)</span> (la muestral) o <span class="math inline">\({S}_X\)</span> (la “verdadera”).</p></li>
+<li><p><strong>Error típico de la media muestral</strong>: La desviación típica de la variable media muestral. Es <span class="math inline">\(\sigma_X/\sqrt{n}\)</span>, con <span class="math inline">\(n\)</span> el tamaño de las muestras.</p></li>
+<li><p><strong>Error típico de una muestra</strong>: Estimación del error típico del estimador a partir de la muestra. Es <span class="math inline">\(\widetilde{S}_X/\sqrt{n}\)</span>, con <span class="math inline">\(n\)</span> el tamaño de la muestra.</p></li>
+</ul>
+Fijaos en que el denominador <span class="math inline">\(\sqrt{n}\)</span> hace que, en general, los errores típicos sean mucho más pequeños que las desviaciones típicas.
+</div>
+
+</div>
+<div id="test" class="section level2">
+<h2><span class="header-section-number">3.6</span> Test</h2>
+<p><strong>(1)</strong> Si el tamaño de una muestra aleatoria simple de una variable aleatoria aumenta (marcad todas las afirmaciones correctas):</p>
+<ol style="list-style-type: decimal">
+<li>La media muestral siempre disminuye.</li>
+<li>El error típico de la media muestral siempre disminuye.</li>
+<li>El error típico de la muestra siempre disminuye.<br />
+</li>
+<li>La varianza muestral siempre aumenta.</li>
+<li>El número de grados de libertad del estimador <span class="math inline">\(\chi^2\)</span> asociado a la varianza muestral siempre aumenta.</li>
+<li>Ninguna de las otras afirmaciones es correcta</li>
+</ol>
+<p><strong>(2)</strong> Si queremos disminuir a la mitad el error típico de una media muestral (calculada a partir de muestras aleatorias simples):</p>
+<ol style="list-style-type: decimal">
+<li>Tenemos que aumentar en un 50% el tamaño de la muestra</li>
+<li>Tenemos que doblar el tamaño de la muestra.</li>
+<li>Tenemos que cuadruplicar el tamaño de la muestra.<br />
+</li>
+<li>Tenemos que dividir por 2 el tamaño de la muestra.</li>
+<li>Tenemos que dividir por 4 el tamaño de la muestra.</li>
+<li>Ninguna de las otras respuestas es correcta.</li>
+</ol>
+<p><strong>(3)</strong> La prevalencia de una afección en una población es del 10%. Si estimamos dicha prevalencia repetidamente a partir de muestras de tamaño 1000, estas estimaciones siguen una distribución que (marcad todas las afirmaciones correctas):</p>
+<ol style="list-style-type: decimal">
+<li>Es una distribución muestral.</li>
+<li>Es aproximadamente normal.<br />
+</li>
+<li>Es binomial.</li>
+<li>Tiene media 0.1.<br />
+</li>
+<li>Tiene media 900.</li>
+<li>Ninguna de las otras afirmaciones es correcta</li>
+</ol>
+<p><strong>(4)</strong> Sobre una muestra de 100 mujeres se obtuvo una concentración media de la hemoglobina de 10 con una desviación típica de 2. ¿Cuál es el error típico de la muestra (para la media muestral, se entiende)?</p>
+<ol style="list-style-type: decimal">
+<li><ol start="0" style="list-style-type: decimal">
+<li>02</li>
+</ol></li>
+<li><p>0.04</p></li>
+<li><p>0.2</p></li>
+<li><p>0.4</p></li>
+<li><p>1</p></li>
+<li><p>Ninguno de los anteriores</p></li>
+</ol>
+<p><strong>(5)</strong> ¿Cuáles de las afirmaciones siguientes sobre la media muestral son verdaderas? Marcad todas las respuestas correctas.</p>
+<ol style="list-style-type: decimal">
+<li>Si la distribución poblacional es normal, siempre coincide con la media de la distribución poblacional.</li>
+<li>Si la distribución poblacional es normal, siempre coincide con la mediana de la distribución poblacional.</li>
+<li>Siempre sirve para estimar la media poblacional.<br />
+</li>
+<li>Si la distribución poblacional es normal, sirve para estimar la mediana poblacional. </li>
+<li>Se calcula sumando todos los valores de la muestra y dividiendo por <span class="math inline">\(n-1\)</span>, donde <span class="math inline">\(n\)</span> indica la medida de la muestra.</li>
+<li>Ninguna de las otras respuestas es correcta.</li>
+</ol>
+<p><strong>(6)</strong> La concentración de un cierto metabolito en sangre tiene un valor medio <span class="math inline">\(\mu\)</span>. Si tomamos muestras aleatorias simples de 20 individuos, calculamos su media muestral <span class="math inline">\(\overline{X}\)</span> y su desviación típica muestral <span class="math inline">\(\widetilde{S}_X\)</span> (marcad la continuación más correcta):</p>
+<ol style="list-style-type: decimal">
+<li>El estadístico <span class="math inline">\(\frac{\overline{X}-\mu}{\widetilde{S}_X/\sqrt{n}}\)</span> sigue siempre una ley normal.</li>
+<li>El estadístico <span class="math inline">\(\frac{\overline{X}-\mu}{\widetilde{S}_X/\sqrt{n}}\)</span> sigue siempre una ley t de Student.</li>
+<li>El estadístico <span class="math inline">\(\frac{\overline{X}-\mu}{\widetilde{S}_X/\sqrt{n}}\)</span> sigue una ley normal si la concentración sigue una ley normal.</li>
+<li>El estadístico <span class="math inline">\(\frac{\overline{X}-\mu}{\widetilde{S}_X/\sqrt{n}}\)</span> sigue una ley t de Student si la concentración sigue una ley normal.<br />
+</li>
+<li>El estadístico <span class="math inline">\(\frac{\overline{X}-\mu}{\widetilde{S}_X/\sqrt{n}}\)</span> no sigue nunca ni una ley normal ni una ley t de Student, porque las muestras no son lo suficientemente grandes.</li>
+</ol>
+<p><strong>(7)</strong> Tenemos una variable aleatoria <span class="math inline">\(X\)</span> normal de media <span class="math inline">\(\mu\)</span> y desviación típica <span class="math inline">\(\sigma\)</span>. Tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, y denotamos por <span class="math inline">\(\widetilde{S}_X\)</span> su desviación típica muestral. ¿Cuáles de las afirmaciones siguientes son verdaderas? Marcad todas las respuestas verdaderas:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E(\widetilde{S}_X^2)=\sigma^2\)</span>.</li>
+<li><span class="math inline">\(E(\widetilde{S}_X)=\sigma\)</span>.</li>
+<li><span class="math inline">\(\widetilde{S}_X^2\)</span> sigue una distribución <span class="math inline">\(\chi^2\)</span> con <span class="math inline">\(n-1\)</span> grados de libertad.</li>
+<li><span class="math inline">\((n-1)\widetilde{S}_X^2/\sigma^2\)</span> sigue una distribución <span class="math inline">\(\chi^2\)</span> con <span class="math inline">\(n-1\)</span> grados de libertad.</li>
+<li>Todas las otras respuestas son falsas.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="variables-aleatorias-continuas.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
