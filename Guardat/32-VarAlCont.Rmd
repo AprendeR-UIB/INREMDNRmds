@@ -1,30 +1,42 @@
 # Variables aleatorias continuas 
 
-Cuando una variable aleatoria discreta puede tomar pocos valores, la probabilidad de cada valor es relevante.
+Cuando una variable aleatoria puede tomar muchos valores, las probabilidades individuales pueden ser muy pequeñas ya que la probabilidad total, 1, se ha de repartir entre ellos. Comparad en el gráfico siguiente las probabilidades de los diferentes valores para una binomial $B(0.5,5)$, que solo puede tomar 6 valores (de 0 a 5), y una binomial $B(0.5,500)$, que puede tomar 501 valores (de 0 a 500). La probabilidad mínima en el primer caso es mayor que la probabilidad máxima en el segundo. 
 
-```{r,echo=FALSE}
+
+```{r,echo=FALSE,out.width="100%",fig.asp=0.5,fig.width=10}
+par(mfrow=c(1,2))
 barplot(dbinom(0:5,5,0.5),col="skyblue",names=0:5,ylim=c(0,0.35),main="Densidad de B(5,0.5)")
+barplot(dbinom(210:290,500,0.5),col="skyblue",names=210:290,ylim=c(0,0.35), cex.names=0.5,main="Densidad de B(200,0.5)")
+par(mfrow=c(1,1))
 ```
+ 
+Como os podéis imaginar, las variables aleatorias continuas, que pueden tomar todo un continuo de valores reales (y por lo tanto infinitos), van a tener probabilidades individuales muy, muy pequeñas. 
 
-Pero cuando puede tomar muchos valores, las probabilidades individuales pueden ser muy pequeñas y entonces lo que más nos interesa es la probabilidad de intervalos de valores.
-
-```{r,echo=FALSE}
-barplot(dbinom(20:80,100,0.5),col="skyblue",names=20:80,ylim=c(0,0.08), cex.names=0.5,main="Densidad de B(100,0.5)")
-```
-
-En este curso nos vamos a restringir variables aleatorias continuas $X: \Omega\to \mathbb{R}$ que satisfacen la siguiente propiedad extra: su **función de distribución**
+Para simplificarnos la vida, en este curso nos vamos a restringir variables aleatorias continuas $X: \Omega\to \mathbb{R}$ que satisfacen la siguiente propiedad extra: su **función de distribución**
 $$
 \begin{array}{rcl}
 F_X: \mathbb{R} & \to & [0,1]\\
 x &\mapsto &P(X\leq x)
 \end{array}
 $$ 
-es continua.
+es continua. Todas las variables aleatorias continuas que os puedan interesar en algún momento van a cumplir esta propiedad, así que no perdemos nada imponiéndola. ¿Y qué ganamos?
 
-Resulta entonces que, si $X$ es una variable aleatoria continua, la probabilidad de que tome cada valor concreto es 0
+Pues que, entonces, si $X$ es una variable aleatoria continua, la probabilidad de que tome cada valor concreto es 0:
 $$
 P(X=a)=0 \text{ para todo $a\in \mathbb{R}$}.
 $$
+
+```{block2,type="rmdcorbes"}
+Por si pasa por aquí alguien que necesite una demostración:
+$$
+\begin{array}{l}
+\displaystyle P(X=a) = P(X\leq a)-P(X<a)=P(X\leq a)-P\Big(\bigcup_{n\geq 1} \Big(X\leq a-\frac{1}{n}\Big)\Big)\\
+\displaystyle \qquad= P(X\leq a)-\lim_{n\geq 1}P\Big(X\leq a-\frac{1}{n}\Big)\\
+\displaystyle \qquad= F_X(a)-\lim_{n\geq 1}F_X\Big(a-\frac{1}{n}\Big)=0
+\end{array}
+$$
+porque $F_X$ es continua.
+```
 
 En particular, para una variable aleatoria continua: 
 
@@ -32,7 +44,7 @@ En particular, para una variable aleatoria continua:
 
 Cada valor de $X$ tiene probabilidad 0, pero cuando tomamos un sujeto, tendrá algún valor de $X$, ¿no?. Por lo tanto, su valor de $X$ es posible, aunque tenga probabilidad 0.
 
-De $P(X=a)=0$ se deduce que la probabilidad de un suceso definido con una desigualdad es exactamente la misma que la del suceso correspondiente definido con una desigualdad estricta, y en particular, contrariamente a lo que comentábamos para las variables aleatorias discretas
+De $P(X=a)=0$ se deduce que la probabilidad de un suceso definido con una desigualdad es exactamente la misma que la del suceso correspondiente definido con una desigualdad estricta, y en particular, contrariamente a lo que comentábamos para las variables aleatorias discretas, siempre tenemos que 
 $$
 P(X\leq a)=P(X<a)
 $$
@@ -43,15 +55,16 @@ Otros ejemplos:
 * $P(X\geq a)=P(X> a)+P(X=a)=P(X> a)$
 * $P(a\leq X\leq a)=P(a<X<b)+P(X=a)+P(X=b)$ $=P(a<X<b)$
 
+Cuando una variable aleatoria discreta puede tomar pocos valores, la probabilidad de cada valor es relevante. Pero si la probabilidad de cada valor concreto es 0, deja de interesarnos la probabilidad de que tome un valor  concreto, y lo que más nos interesa pasa a ser la probabilidad de que caiga dentro de un intervalo. 
 
 ## Densidad y distribución
 
 Sea $X$ una variable aleatoria continua. Como ya hemos dicho, su **función de distribución** $F_X$ se sigue definiendo como
 $$
-a\mapsto F_X(a)=P(X\leq a)
+x\mapsto F_X(x)=P(X\leq x)
 $$
 
-Pero pùesto que tenemos que $P(X=a)=0$, ahora no podemos definir la función de densidad de $X$ como $f_X(a)=P(X=a)$. ¿Qué podemos hacer?
+Pero puesto que tenemos que $P(X=x)=0$, ahora no podemos definir la función de densidad de $X$ como $f_X(x)=P(X=x)$. ¿Qué podemos hacer?
 
 Recordad que, en las variables aleatorias discretas
 $$
@@ -64,15 +77,15 @@ F_X(a)=\int_{-\infty}^a f_{X}(x)\, dx\quad \text{para todo $a\in \mathbb{R}$.}
 $$
 
 
-```{r,echo=FALSE, out.width="40%"}
+```{r,echo=FALSE, out.width="30%"}
 knitr::include_graphics("INREMDN_files/figure-html/dontpanic.png")
 ```
 
-Recordad (o saber por primera vez) que la integral tiene una interpretación sencilla en términos de áreas. En concreto, dados $a\in \mathbb{R}$ y una función "integrable" $f(x)$, la integral
+Recordad (o aprended por primera vez) que la integral tiene una interpretación sencilla en términos de áreas. En concreto, dados $a\in \mathbb{R}$ y una función $f(x)$, la integral
 $$
-\int_{-\infty}^a f_{X}(x)\, dx
+\int_{-\infty}^a f(x)\, dx
 $$
-es igual al área de la región a la izquierda de la recta vertical $x=a$ comprendida entre la curva $y=f(x)$ y el eje de abscisas $y=0$. Por lo tanto, la función de densidad $f_X$ de $X$ es la función tal que para todo $a\in \mathbb{R}$, $F_X(a)$ es igual al **área bajo la curva** $y=f_X(x)$ (entre esta curva y el eje de abscisas) a la izquierda de $x=a$.  
+es igual al área de la región a la izquierda de la recta vertical $x=a$ comprendida entre la curva $y=f(x)$ y el eje de abscisas $y=0$. Por lo tanto, la función de densidad $f_X$ de $X$ es la función positiva tal que para todo $a\in \mathbb{R}$, $F_X(a)$ es igual al **área bajo la curva** $y=f_X(x)$ (entre esta curva y el eje de abscisas) a la izquierda de $x=a$.  
 
 
 ```{r echo=FALSE, out.width="60%"}
@@ -80,31 +93,32 @@ knitr::include_graphics("INREMDN_files/figure-html/graficadensidad3.png")
 ```
 
 
-¿Cuál es la idea intuitiva que hay bajo esta definición de densidad? Suponed que dibujamos  histogramas de frecuencias relativas de los valores de $X$ sobre toda la población. Recordad que, en un histograma de estos, la frecuencia relativa (la **probabilidad**) de cada clase es la amplitud de la clase por la altura de su barra, a la que llamábamos la **densidad** de la clase (y por lo tanto, algo tendrá que ver con la densidad de $X$, ¿no creéis?). 
+¿Cuál es la idea intuitiva que hay bajo esta definición de densidad? Suponed que dibujamos  histogramas de frecuencias relativas de los valores de $X$ sobre toda la población. Recordad que, en un histograma de estos, la frecuencia relativa (la **probabilidad**) de cada clase es la amplitud de la clase por la altura de su barra, y que llamábamos a esta altura la **densidad** de la clase (y por lo tanto, algo tendrá que ver con la densidad de $X$, ¿no creéis?). 
 
 Si dibujamos los histogramas de $X$ tomando clases cada vez más estrechas, sus polígonos de frecuencias tienden a dibujar una curva, que hemos coloreado en rojo en el último histograma:
 
-```{r,echo=FALSE,out.width="90%"}
+```{r,echo=FALSE,out.width="100%",fig.asp=1.3,fig.width=10}
 par(mfrow=c(3,2))
 set.seed(100)
 x=rf(10001000,2,4)
 x=x[x<20]
 hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=10))
-hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=50))
-hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=100),ylim=c(0,0.8))
-H4=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=200),ylim=c(0,0.9))
-hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=500),ylim=c(0,1))
+hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=20))
+hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=50),ylim=c(0,0.8))
+hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=100),ylim=c(0,0.9))
+hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=200),ylim=c(0,0.9))
+H4=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=500),ylim=c(0,1))
 lines(H4$mids,H4$density,col="red",lwd=1.5)
 par(mfrow=c(1,1))
 ```
 
-Cuando hacemos que el ancho de las clases tienda a 0, obtenemos una curva que es el límite de estos polígonos de frecuencias:
+Cuando el ancho de las clases tiende a 0, obtenemos una curva que es el límite de estos polígonos de frecuencias:
 ```{r,echo=FALSE}
 H5=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0,20,length.out=200),ylim=c(0,1))
 polygon(c(0,H5$mids),c(0,H5$density),col="skyblue",lwd=1.5,xlab="",ylab="Densidad")
 ```
 
-Esta curva es precisamente $y=f_X(x)$. Es decir, la **función de densidad** $f_X$ de una variable aleatoria continua $X$ es la función límite de los polígonos de frecuencias de histogramas de $X$ cuando hacemos que la amplitud de las clases tienda  a 0.
+Esta curva es precisamente $y=f_X(x)$. Es decir, la **función de densidad** $f_X$ de una variable aleatoria continua $X$ es la función límite de los polígonos de frecuencias de histogramas de $X$ cuando la amplitud de las clases tiende  a 0.
 
 Como $P(X\leq a)$ es el área  bajo la curva $y=f_X(x)$ a la izquierda de $x=a$,
 $$
@@ -138,6 +152,16 @@ Por lo tanto $f_X(a)$ nos da una indicación de la probabilidad de que $X$ valga
 Pero $P(X=a)=P(X=b)=0$, así que, por favor, evitad decir que "la probabilidad de que $X$ valga $a$ es 5 veces **mayor** que la probabilidad de que valga $b$". Sí, ya sabemos que $5\cdot 0=0$, pero la frase es engañosa.
 ```
 
+Dos últimas consideraciones:
+
+* $f_X(a)$ no es una probabilidad, y por lo tanto puede ser mayor que 1 (aunque, por definición no puede ser menor que 0). Por ejemplo, el gráfico siguiente muestra la densidad de una variable normal $N(0,0.01)$ (véase la Sección \@ref(sec:normal)), que llega  a valer casi 40.
+
+```{r,echo=FALSE,out.width="60%",fig.asp=1,fig.width=5}
+curve(dnorm(x,0,0.01),xlim=c(-0.05,0.05),xlab="",ylab="",main="Densidad de N(0,0.01)")
+```
+
+* La función de densidad $f_X$ no tiene por qué ser continua, aunque la función de distribución $F_X$ lo sea.
+
 
 ## Esperanza, varianza, cuantiles...
 
@@ -145,15 +169,15 @@ La esperanza y la varianza de una variable aleatoria continua $X$, con función 
 
 
 
-La **esperanza** (**media**, **valor esperado**...) de $X$ es 
+La **media**, o **esperanza** (**valor medio**, **valor esperado**...), de $X$ es 
 $$
 E(X)=\int_{-\infty}^{\infty}x \cdot f_{X}(x)\, dx
 $$
-También se escribe $\mu_X$ o simplemente $\mu$.
+También la denotaremos por $\mu_X$.
 
 Este valor tiene la misma interpretación que en el caso discreto: 
 
-* Representa el valor medio de $X$ sobre el total de la población
+* Representa el valor medio de $X$ sobre el total de la población.
 
 * Es (con probabilidad 1) el límite de la media aritmética de los valores de $X$ sobre muestras aleatorias simples de tamaño $n$, cuando $n\to \infty$.
 
@@ -165,20 +189,20 @@ $$
 
 La **varianza** de $X$ es
 $$
-Var(X)=E((X-E(X))^2)
+\sigma(X)^2=E((X-\mu_X)^2)
 $$
 y se puede demostrar que es igual a
 $$
-Var(X)=E(X^2)-E(X)^2
+\sigma(X)^2=E(X^2)-\mu_X^2
 $$
-También se escribe $\sigma_X^2$ o simplemente $\sigma^2$.
+También se escribe $\sigma_X^2$.
 
 
 La **desviación típica** de $X$ es 
 $$
-\sigma(X)=+\sqrt{Var(X)}
+\sigma(X)=+\sqrt{\sigma(X)^2}
 $$
-y también se escribe $\sigma_X$ o $\sigma$.
+y también se escribe $\sigma_X$.
 
 
 Como en el caso discreto, la varianza y la desviación típica miden la variabilidad de los resultados de $X$ respecto de su valor medio.
@@ -197,16 +221,16 @@ Estos parámetros de $X$ tienen las **mismas propiedades** en el caso continuo q
 * Si $X\leq Y$, entonces $E(X)\leq E(Y)$.
 
 
-* $Var(aX+b)=a^2 Var(X)$, donde $a,b$ son constantes reales.
+* $\sigma(aX+b)^2=a^2 \sigma(X)^2$, donde $a,b$ son constantes reales.
 
 
 * $\sigma(aX+b)=|a|\cdot \sigma(X)$.
 
 
-* $Var(b)=0$, si $b$ es una variable aleatoria constante
+* $\sigma(b)^2=0$, si $b$ es una variable aleatoria constante
 
 
-* $Var(X+Y)=Var(X)+Var(Y)$ si $X,Y$ son **independientes**
+* $\sigma(X+Y)^2=\sigma(X)^2+\sigma(Y)^2$ si $X,Y$ son **independientes**
 
 
 El **cuantil de orden $p$** (o **$p$-cuantil**) de una variable aleatoria continua $X$ es el valor $x_p\in \mathbb{R}$ más pequeño tal que 
@@ -215,16 +239,15 @@ F_X(x_p)=P(X\leq x_p)=p
 $$
 
 ```{block2,type="rmdcorbes"}
-Fijaos en que como $F_X$ es continua, tiende a 0 cuando $x\to -\infty$ y tiende a 1 cuando $x\to -\infty$, por el Teorema del Valor medio de las funciones continuas (que dice, básicamente, que las funciones continuas no dan saltos) toma todos los valores en (0,1) y por lo tanto dado cualquier $p\in (0,1)$ existe algún $x$ tal que $F_X(x)=p$.
+Fijaos en que como $F_X$ tiende a 0 cuando $x\to -\infty$ y tiende a 1 cuando $x\to -\infty$ y  es continua, por el Teorema del Valor medio de las funciones continuas (que dice, básicamente, que las funciones continuas no dan saltos) toma todos los valores en (0,1) y por lo tanto dado cualquier $p\in (0,1)$ existe algún $x$ tal que $F_X(x)=p$.
 ```
 
 La **mediana** de $X$ es su 0.5-cuantil,  el **primer** y **tercer cuartiles** son su 0.25-cuantil y su 0.75-cuantil, etc.
 
 
 
-## Variables aleatorias normales
+## Variables aleatorias normales {#sec:normal}
 
-### Propiedades básicas
 
 Una variable aleatoria continua $X$ es **normal** (o **tiene distribución normal**) de parámetros
 $\mu$ y $\sigma$ ($N(\mu,\sigma)$, para abreviar) cuando su función de densidad es
@@ -244,10 +267,9 @@ Pero sí que tenéis que saber que:
 
 * Una variable aleatoria normal $X$ es continua, y por lo tanto $P(X=x)=0$, $P(X\leq x)=P(X<x)$ etc.
 
-* Si $X$ es $N(\mu,\sigma)$, entonces su valor esperado es $E(X)=\mu$ y su desviación típica es $\sigma_X=\sigma$.
+* Si $X$ es normal, su función de distribución $F_X$ es inyectiva y creciente: si $x<y$, $F_X(x)<F_X(y)$.
 
-Una variable aleatoria normal es **típica** (o **estándar**) cuando tiene $\mu=0$ y $\sigma=1$; la denotaremos usualmente por $Z$. Por lo tanto,
-si $Z$ es $N(0,1)$, $E(Z)=0$ y $\sigma(Z)=1$.
+Una variable aleatoria normal es **típica** (o **estándar**) cuando es $N(0,1)$. Usaremos normalmente $Z$ para denotar una variable normal estándar. 
 
 
 La gráfica de la densidad de una variable aleatoria normal es la conocida **campana de Gauss**:
@@ -265,30 +287,30 @@ La distribución normal es una distribución teórica, no la encontraréis exact
 knitr::include_graphics("INREMDN_files/figure-html/paranormal.png")
 ```
 
-Su importancia se debe a que muchas distribuciones de la vida real son aproximadamente normales, porque:
+Pero es muy importante, debido a que muchas distribuciones de la vida real son aproximadamente normales, porque:
 
 > Toda variable aleatoria que consista en tomar $n$ medidas independientes de una o varias variables aleatorias y sumarlas, tiene distribución aproximadamente normal **cuando $n$ es muy grande**, aunque las variables aleatorias de partida no sean normales
 
 
 ```{example}
-Una variable binomial $B(n,p)$ se obtiene tomando $n$ medidas independientes de una variable Bernoulli $B(1,p)$ y sumando los resultados. Por lo tanto, por la "regla" anterior, una  $B(n,p)$ tendría que ser aproximadamente normal si $n$ es grande. Pues sí, si $n$ es grande (pongamos mayor que 100, aunque si $p$ está lejos de 0 o 1 el tamaño de las muestras puede ser mucho menor), la distribución de una variable $X$ binomial $B(n,p)$ se acerca mucho a la de una normal $N(np,\sqrt{np(1-p)})$, donde, recordad que si $X$ es $B(n,p)$, entonces $\mu_X=np$ y $\sigma_X=\sqrt{np(1-p)}$. 
+Una variable binomial $B(n,p)$ se obtiene tomando $n$ medidas independientes de una variable Bernoulli $Be(p)$ y sumando los resultados. Por lo tanto, por la "regla" anterior, una  $B(n,p)$ tendría que ser aproximadamente normal si $n$ es grande. Pues sí, si $n$ es grande (pongamos mayor que 40, aunque si $p$ está muy cerca de 0 o 1 el tamaño de las muestras tiene que ser mayor), la distribución de una variable $X$ binomial $B(n,p)$ se acerca mucho a la de una normal $N(np,\sqrt{np(1-p)})$, donde, recordad que si $X$ es $B(n,p)$, entonces $\mu_X=np$ y $\sigma_X=\sqrt{np(1-p)}$. 
 
 
 ```
 
-Por ejemplo, el gráfico siguiente compara las funciones de distribución de una binomial $B(50,0.3)$ y una normal $N(50\cdot 0.3,\sqrt{50\cdot 0.3\cdot 0.7})$.
+Por ejemplo, el gráfico siguiente compara las funciones de distribución de una binomial $B(40,0.3)$ y una normal $N(40\cdot 0.3,\sqrt{40\cdot 0.3\cdot 0.7})$.
 
 
 ```{r,echo=FALSE}
-curve(pnorm(x,50*0.3,sqrt(50*0.3*0.7)),xlim=c(0,30),xlab="",ylab="",col="blue",lwd=2,main="Ditribuciones de B(50,0.3) y N(50*0.3,sqrt(50*0.3*0.7)")
-curve(pbinom(x,50,0.3),col="red",add=TRUE)
+curve(pnorm(x,40*0.3,sqrt(40*0.3*0.7)),xlim=c(0,30),xlab="",ylab="",col="blue",lwd=2,main="Ditribuciones de B(40,0.3) y N(40*0.3,sqrt(50*0.3*0.7)")
+curve(pbinom(x,40,0.3),col="red",add=TRUE)
 legend("topleft",lty=c(1,1),col=c("blue","red"),legend=c("Normal","Binomial"),cex=0.75)
 ```
 
 
 Para calcular probabilidades de una $N(\mu,\sigma)$,  hay que calcular las integrales a mano.
 
-```{r,echo=FALSE, out.width="30%"}
+```{r,echo=FALSE, out.width="20%"}
 knitr::include_graphics("INREMDN_files/figure-html/emorisa.png")
 ```
 
@@ -314,10 +336,95 @@ dnorm(1.5,1,2)
 ¡No! Como $X$ es continua, $P(X=1.5)=0$. Lo que os da `dnorm(1.5,1,2)` es el valor de la función de densidad de $X$ en 1.5, que no creemos que os interese mucho.
 ```
 
+Si la normal es estándar, no hace falta entrar la $\mu=0$ y la $\sigma=1$. Así, si
+$Z$ es $N(0,1)$
+
+* $P(Z\leq 1.5)$ es
+```{r}
+pnorm(1.5)
+```
+
+* Su 0.95-cuantil es
+```{r}
+qnorm(0.95)
+```
+
+
+
+
+```{example,exhiperhipo}
+La presión sistólica se distribuye como una variable normal con valor medio y  desviación típica que dependen del sexo y la edad. Para la franja de edad 16-24 años, estos valores son:
+
+* Para hombres, $\mu=124$ y $\sigma=13.7$
+* Para mujeres, $\mu=117$ y $\sigma=13.7$
+
+El modelo de hipertensión-hipotensión aceptado es el descrito en la Figura \@ref(fig:hiperhipo). Queremos calcular los límites de cada clase para cada sexo en este grupo de edad.
+
+```
+
+
+```{r, hiperhipo, echo=FALSE, out.width="80%",fig.cap="Modelo de hipertensión-hipotensión."}
+knitr::include_graphics("INREMDN_files/figure-html/hiperhipo.png")
+```
+
+Veamos:
+
+* El límite superior del grupo de hipotensión será el valor que deja a la izquierda un 5% de las tensiones: el 0.05-cuantil de la distribución.
+* El límite superior del grupo de riesgo de hipotensión será el valor que deja a la izquierda un 10% de las tensiones: el 0.1-cuantil de la distribución.
+* El límite inferior del grupo de riesgo de hipertensión será el valor que deja a la izquierda un 90% de las tensiones: el 0.9-cuantil de la distribución.
+* El límite inferior del grupo de hipertensión será el valor que deja a la izquierda un 95% de las tensiones: el 0.95-cuantil de la distribución.
+
+En los hombres, la tensión sistólica es una variable aleatoria $N(124,13.7)$. Podemos usar R o una aplicación para calcular estos cuantiles. Con R:
+
+* El 0.05-cuantil es
+```{r}
+qnorm(0.05,124,13.7)
+```
+
+* El 0.1-cuantil es
+```{r}
+qnorm(0.1,124,13.7)
+```
+
+* El 0.9-cuantil es
+```{r}
+qnorm(0.9,124,13.7)
+```
+
+* El 0.95-cuantil es
+```{r}
+qnorm(0.95,124,13.7)
+```
+
+En resumen,entre los hombres de 16 a 24 años:
+$$
+\begin{array}{|ll|}
+\hline
+\text{Grupo} & \text{Intervalo}\\ \hline
+\text{Hipotenso} & <101.5\\
+\text{Prehipotenso} & 101.5\text{ a }106.4\\
+\text{Normotenso} & 106.4\text{ a }141.6\\
+\text{Prehipertenso} & 141.6\text{ a }146.5\\
+\text{Hipertenso} & > 146.5\\ \hline
+\end{array}
+$$
+
+
+```{block2,type="rmdexercici"}
+Calculad los límites para las mujeres.
+```
+
+
+### Propiedades básicas
+
+Para empezar, si $X$ es $N(\mu,\sigma)$, entonces su valor esperado es $E(X)=\mu$ y su desviación típica es $\sigma_X=\sigma$. Por lo tanto, si $Z$ es una normal estándar,
+$E(Z)=0$ y $\sigma(Z)=1$.
+
+
 Una de las propiedades clave de la distribución normal es su simetría:
 
 ```{block2, type='rmdimportant'}
-Si $X$ es $N(\mu,\sigma)$, su densidad $f_X$ es simétrica respecto de $x=\mu$, es decir,
+Si $X$ es $N(\mu,\sigma)$, su densidad $f_X$ es simétrica respecto de $\mu$, es decir,
 $$
 f_{X}(\mu-x)=f_{X}(\mu+x),
 $$
@@ -331,10 +438,10 @@ axis(1,at=c(0), labels=c(expression(mu)))
 ```
 
 ```{block2, type='rmdnote'}
-Recordemos que no tiene sentido definir la moda de una variable continua $X$ como el valor $x_0$ tal que $P(X=x_0)$ sea máximo, porque $P(X=x)=0$ para todo $x\in \mathbb{R}$. Se define entonces la **moda** de una variable continua $X$ como el valor (o los valores) $x_0$ tal(es) que $f_X(x_0)$ es máximo. Como  $f_X(x_0)$ mide, como hemos visto, la probabilidad de que $X$ vala aproximadamente $x_0$, tenemos que la moda de $X$ es el valor que maximiza la probabilidad de que $X$ sea aproximadamente igual a él.
+Recordad que no tiene sentido definir la moda de una variable continua $X$ como el valor $x_0$ tal que $P(X=x_0)$ sea máximo, porque $P(X=x)=0$ para todo $x\in \mathbb{R}$. Se define entonces la **moda** de una variable continua $X$ como el valor (o los valores) $x_0$ tal  que $f_X(x_0)$ es máximo. Como  $f_X(x_0)$ mide, como hemos visto, la probabilidad de que $X$ valga aproximadamente $x_0$, tenemos que la moda de $X$ es el valor que es más probable que tome $X$ aproximadamente.
 ```
 
-En particular, si $Z$ es $N(0,1)$, entonces $f_Z$ es simétrica alrededor de $x=0$, es decir, $f_{Z}(-x)=f_{Z}(x)$, y la moda de $Z$ es $x=0$
+En particular, si $Z$ es $N(0,1)$, entonces $f_Z$ es simétrica alrededor de 0, es decir, $f_{Z}(-x)=f_{Z}(x)$, y la moda de $Z$ es $x=0$
 
 Recordad que la función de distribución de una variable aleatoria continua $X$,
 $$
@@ -360,7 +467,7 @@ arrows(-0,0.1,-2.5,0.3,lwd=2)
 text(-2.5,0.32,expression(F[X](x)== P(X<=x) ) )
 ```
 
-Entonces, la simetría de $f_X$ hace que, para todo $x\in \mathbb{R}$, las áreas a la izquierda de $\mu-x$ y a la derecha de $\mu+x$ sean iguales.
+Entonces, la simetría de $f_X$ hace que, para todo $x\geq 0$, las áreas a la izquierda de $\mu-x$ y a la derecha de $\mu+x$ sean iguales.
 
 
 ```{r, echo=FALSE, out.width="80%", fig.width=8, fig.asp = 0.5}
@@ -402,7 +509,7 @@ Si $X$ es $N(\mu,\sigma)$, $\mu$ es la media, la mediana y la moda de $X$.
 ```
 
 
-En particular, si $Z$ es $N(0,1)$, para cualquier $z\in \mathbb{R}$, las áreas a la izquierda de $-z$ y a la derecha de $z$ son iguales
+En particular, si $Z$ es $N(0,1)$, para cualquier $z\geq 0$, las áreas a la izquierda de $-z$ y a la derecha de $z$ son iguales
 $$
 P(Z\leq -z)=P(Z\geq z)=1-P(Z\leq z)
 $$
@@ -430,6 +537,15 @@ for(i in 1:4){
 
 axis(1,at=c(-1,0,1), labels=c(expression(-z),"0",expression(z)))
 abline(v=0,lty=2)
+```
+
+
+```{block2,type="rmdnote"}
+En el Ejemplo \@ref(exm:exhiperhipo) hemos trabajado más de lo necesario: por la simetría, el 0.95-cuantil ha de estar a la misma distancia de $\mu$ que el 0.05-cuantil, pero a la derecha:
+$$
+124-101.4655=22.5345\Longrightarrow  124+22.5345=126.5345
+$$
+Lo mismo pasa con el 0.9-cuantil y el 0.1-cuantil, comprobadlo.
 ```
 
 
@@ -474,9 +590,16 @@ Denotaremos por $z_q$ el **$q$-cuantil** de una variable normal estándar $Z$. E
 
 Aparte del hecho que $z_{0.5}=0$ (la mediana de $Z$ es 0), hay dos cuantiles más de la normal estándar $Z$ que tendríais que recordar:
 
-* $z_{0.95}=1.64$; es decir, $P(Z\leq 1.64)=0.95$ y por lo tanto $P(Z\leq -1.64)=P(Z\geq 1.64)=0.05$.
+* $z_{0.95}=1.64$; es decir, $P(Z\leq 1.64)=0.95$ y por lo tanto $P(Z\leq -1.64)=P(Z\geq 1.64)=0.05$ y
+$$
+P(-1.64\leq Z\leq 1.64)=0.9.
+$$
 
-* $z_{0.975}=1.96$; es decir, $P(Z\leq 1.96)=0.975$ y por lo tanto $P(Z\leq -1.96)=P(Z\leq 1.96)=0.025$
+
+* $z_{0.975}=1.96$; es decir, $P(Z\leq 1.96)=0.975$ y por lo tanto $P(Z\leq -1.96)=P(Z\leq 1.96)=0.025$ y
+$$
+P(-1.96\leq Z\leq 1.96)=0.95.
+$$
 
 ```{block2, type='rmdmercifulgod'}
 Muy a menudo el valor 1.96 de $z_{0.975}$ se aproxima por 2. Tenéis permiso para hacerlo cuando no dispongáis de medios (R, aplis de móvil) para calcular cuantiles; por ejemplo, en un examen. Pero solo en este caso.
@@ -485,7 +608,7 @@ Muy a menudo el valor 1.96 de $z_{0.975}$ se aproxima por 2. Tenéis permiso par
 
 
 ```{example}
-Supongamos que la concentración de un cierto metabolito es una variable aleatoria de distribución normal, pero cuyos parámetros $\mu$ y $\sigma$ varían dependen de si la medimos en personas sanas o en personas con una cierta enfermedad. Sean:
+Supongamos que la concentración de un cierto metabolito es una variable aleatoria de distribución normal, pero cuyos parámetros $\mu$ y $\sigma$ dependen de si la medimos en personas sanas o en personas con una cierta enfermedad. Sean:
   
 
 ```
@@ -497,11 +620,11 @@ Supongamos que la concentración de un cierto metabolito es una variable aleator
 * Supongamos, para fijar ideas, que $\mu_E>\mu_S$: la concentración media de este metabolito en los enfermos es más alta que en las personas sanas.
 
 
-Podemos usar como prueba diagnóstica de la enfermedad la concentración del metabolito. Para cada valor de referencia  $x_0$, nuestra prueba dará:
+Podríamos usar como prueba diagnóstica de la enfermedad la concentración del metabolito. Para cada valor de referencia  $x_0$, nuestra prueba dará:
 
-* **Positivo**, si la concentración es mayor o igual que $x_0$
+* **Positivo**, si la concentración es mayor o igual que $x_0$.
 
-* **Negativo**, si la concentración es menor que $x_0$
+* **Negativo**, si la concentración es menor que $x_0$.
 
 Entonces:
 
@@ -521,7 +644,7 @@ P(+|S)=P(X_S\geq  x_0)=1-F_{X_S}(x_0)
 $$
 
 
-Al variar $x_0$, tenemos valores diferentes de la sensibilidad y la tasa de falsos positivos. Entonces, podemos dibujar su curva ROC y escoger el umbral con algún criterio o, con su AUC, valorar su capacidad diagnóstica global.
+Al variar $x_0$, tenemos valores diferentes de la sensibilidad y la tasa de falsos positivos. Entonces, podemos dibujar su curva ROC y escoger el umbral con algún criterio o valorar su capacidad diagnóstica global con su AUC.
 
 Por ejemplo, imaginad que la densidad de $X_E$ es la línea discontinua del gráfico de la izquierda de la figura siguiente y la de $X_S$ la línea continua. Ambas son normales y $\mu_E>\mu_S$, porque el pico de la densidad de $X_E$ está a la derecha del de $X_S$.
 
@@ -532,8 +655,6 @@ knitr::include_graphics("INREMDN_files/figure-html/rocnormal.png")
 
 Si para cada $x$ dibujamos los puntos $(1-F_{X_S}(x),1-F_{X_E}(x))$, obtenemos la curva ROC de la derecha de dicha figura.
 
-
-### Combinaciones lineales
 
 Una de las propiedades de la distribución normal que nos facilitan mucho la vida es que **toda combinación lineal de variables aleatorias normales independientes es normal**. En concreto, tenemos los resultados siguientes:
 
@@ -589,6 +710,8 @@ P(a\leq X\leq b)=q.
 $$
 Es decir, un intervalo de referencia del $100q\%$ para $X$ es un intervalo que contiene los valores de $X$ del $100q\%$ de los sujetos de la población.
 
+Por ejemplo, hemos visto en la sección anterior que [-1.64,1.64] y [-1.96,1.96] son intervalos de referencia del 90% y del 95%, respectivamente, para una variable normal estándar $Z$.
+
 Los más comunes son los intervalos de referencia del 95% ($q=0.95$), que satisfacen que
 $$
 P(a\leq X\leq b)=0.95
@@ -604,7 +727,7 @@ Cuando se habla de un **intervalo de referencia** sin dar la probabilidad, se so
 ```
 
 
-Cuando $X\sim N(\mu,\sigma)$, estos intervalos de referencia se toman siempre **centrados en la media** $\mu$, es decir, de la forma $[\mu-\text{algo},\mu+\text{algo}]$. Para calcularlos fácilmente, podemos emplear el resultado siguiente:
+Cuando $X\sim N(\mu,\sigma)$, estos intervalos de referencia se toman siempre **centrados en la media** $\mu$, es decir, de la forma $[\mu-\text{algo},\mu+\text{algo}]$. Para calcularlos fácilmente, podemos usar el resultado siguiente:
 
 ```{theorem} 
 Si $X$ es $N(\mu,\sigma)$, un intervalo de referencia del $100q\%$ para $X$ es
@@ -650,7 +773,7 @@ $$
 $$
 Esto dice, básicamente, que
 
-> si una población sigue una distribución normal $N(\mu,\sigma)$, un 95% de sus individuos tienen su valor de $X$ a distancia como a máximo $2\sigma$ ("a dos sigmas") de $\mu$.
+> si una población sigue una distribución normal $N(\mu,\sigma)$, un 95% de sus individuos tienen su valor de $X$ a distancia como máximo $2\sigma$ ("a dos sigmas") de $\mu$.
 
 
 ```{example}
@@ -659,9 +782,9 @@ Según la OMS, las alturas de las mujeres europeas de 18 años (en cm) siguen un
 
 ```   
     
-Fijaos en que, si llamamos $X$ a la variable aleatoria "Altura de una mujer europea de 18 años en cm", lo que queremos saber es el intervalo centrado en su media, 163.1, tal que la probabilidad de que la altura de una europea de 18 años escogida al azar pertenezca a este intervalo sea 0.5 Es decir, el intervalo de referencia del 50% para $X$.
+Fijaos en que, si llamamos $X$ a la variable aleatoria "Altura de una mujer europea de 18 años en cm", lo que queremos saber es el intervalo centrado en su media, 163.1, tal que la probabilidad de que la altura de una europea de 18 años escogida al azar pertenezca a este intervalo sea 0.5. Es decir, el intervalo de referencia del 50% para $X$.
 
-Sabemos que $X$ es $N(163.1,18.53)$. Si $q=0.5$, entonces $(1+q)/2=0.75$ y podemos calcular con R o una aplicación el 0.75-cuantil $z_{0.75}$ de una normal estándar. Por ejemplo, con R,
+Nos dicen que $X$ es $N(163.1,18.53)$. Si $q=0.5$, entonces $(1+q)/2=0.75$ y podemos calcular con R o una aplicación el 0.75-cuantil $z_{0.75}$ de una normal estándar. Por ejemplo, con R,
 ```{r}
 qnorm(0.75)
 ```
@@ -691,76 +814,6 @@ $$
 Esto se suele leer diciendo que la altura de esta jugadora está *1.5 sigmas por encima de la altura media*.
 
 
-
-```{example}
-Se acepta que la presión sistólica se distribuye como una variable normal con valor medio y  desviación típica que dependen del sexo y la edad. Para la franja de edad 16-24 años, estos valores son:
-
-* Para hombres, $\mu=124$ y $\sigma=13.7$
-* Para mujeres, $\mu=117$ y $\sigma=13.7$
-
-El modelo de hipertensión-hipotensión aceptado es el descrito en la Figura \@ref(fig:hiperhipo). Queremos calcular los límites de cada clase para cada sexo en este grupo de edad.
-
-```
-
-
-```{r, hiperhipo, echo=FALSE, out.width="80%",fig.cap="Modelo de hipertensión-hipotensión."}
-knitr::include_graphics("INREMDN_files/figure-html/hiperhipo.png")
-```
-
-Veamos:
-
-* El límite superior del grupo de hipotensión será el valor que deja a la izquierda un 5% de las tensiones: el 0.05-cuantil de la distribución.
-* El límite superior del grupo de riesgo de hipotensión será el valor que deja a la izquierda un 10% de las tensiones: el 0.1-cuantil de la distribución.
-* El límite inferior del grupo de riesgo de hipertensión será el valor que deja a la izquierda un 90% de las tensiones: el 0.9-cuantil de la distribución.
-* El límite inferior del grupo de hipertensión será el valor que deja a la izquierda un 95% de las tensiones: el 0.95-cuantil de la distribución.
-
-En los hombres, la tensión sistólica es una variable aleatoria $N(124,13.7)$. Podemos usar R o una aplicación para calcular estos cuantiles. Con R:
-
-* El 0.05-cuantil es
-```{r}
-qnorm(0.05,124,13.7)
-```
-
-* El 0.1-cuantil es
-```{r}
-qnorm(0.1,124,13.7)
-```
-
-* El 0.9-cuantil es
-```{r}
-qnorm(0.9,124,13.7)
-```
-
-* El 0.95-cuantil es
-```{r}
-qnorm(0.95,124,13.7)
-```
-
-```{block2,type="rmdromans"}
-Hemos trabajado más de lo necesario: por la simetría, el 0.95-cuantil ha de estar a la misma distancia de $\mu$ que el 0.05-cuantil, pero a la derecha:
-$$
-124-101.4655=22.5345\Longrightarrow  124+22.5345=126.5345
-$$
-Lo mismo pasa con el 0.9-cuantil y el 0.1-cuantil, comprobadlo.
-```
-
-En resumen,entre los hombres de 16 a 24 años:
-$$
-\begin{array}{|ll|}
-\hline
-\text{Grupo} & \text{Intervalo}\\ \hline
-\text{Hipotenso} & <101.5\\
-\text{Prehipotenso} & 101.5\text{ a }106.4\\
-\text{Normotenso} & 106.4\text{ a }141.6\\
-\text{Prehipertenso} & 141.6\text{ a }146.5\\
-\text{Hipertenso} & > 146.5\\ \hline
-\end{array}
-$$
-
-
-```{block2,type="rmdexercici"}
-Calculad los límites para las mujeres.
-```
 
 ## Test
 
@@ -821,25 +874,17 @@ $$
 1. $\mu$ es la media, la mediana y la moda de $X$ y $P(X=\mu)>P(X=a)$ para todo $a\neq \mu$
 
 
-**(7)** Si la concentración de un cierto metabolito tiene un intervalo de referencia (del 95%) entre 0 y 22 mg/dL, ¿qué podemos afirmar de su distribución? (Marcad la única respuesta correcta.)
-
-1. Que es normal.
-1. Que es simétrica, pero no necesariamente normal.
-1. Que es asimétrica con cola a la derecha. 
-1. Que es asimétrica  con cola a la izquierda. 
-1. Que es platicúrtica.  
 
 
-
-**(8)** ¿Qué distribución es la más adecuada para modelar el número anual de fallecimientos entre enfermos de cáncer tratados con una determinada quimioterapia? Marcad una única respuesta.
+**(7)** ¿Qué distribución es la más adecuada para modelar el número anual de fallecimientos entre enfermos de cáncer tratados con una determinada quimioterapia? Marcad una única respuesta.
 
 1. Normal
 1. Binomial
 1. Poisson 
-1. Uniforme acotada (todos los números de fallecimientos entre 0 y un cierto valor $N$ tienen la misma probabilidad)
+1. Uniforme acotada (todos los números de fallecimientos entre 0 y el número $N$ de enfermos de cáncer tratados con esta quimioterapia tienen la misma probabilidad)
 
 
-**(9)** El FME (Flujo Máximo de Expiración) de las chicas de 11 años sigue una distribución aproximadamente normal de  media 300 l/min y desviación típica 20 l/min. Marcad las afirmaciones verdaderas:
+**(8)** El FME (Flujo Máximo de Expiración) de las chicas de 11 años sigue una distribución aproximadamente normal de  media 300 l/min y desviación típica 20 l/min. Marcad las afirmaciones verdaderas:
 
 1. Aproximadamente la mitad de las chicas de 11 años tienen un FME entre 280 l/min y 320 l/min. 
 1. Alrededor del 95% de las chicas de 11 años tienen un FME entre 280 l/min y 320 l/min. 
@@ -848,7 +893,7 @@ $$
 1. Ninguna chica de 11 años tiene FME superior a 360 l/min. 
 
 
-**(10)** En una muestra aleatoria extraída de población sana se encuentra que una variable bioquímica tiene como media 90 y desviación típica 10. Si tomamos una muestra de individuos sanos ¿es razonable esperar que aproximadamente el 95% de ellos tengan un valor de esa variable comprendido entre 70 y 110? (marcad todas las respuestas correctas):
+**(9)** En una muestra aleatoria extraída de población sana se encuentra que una variable bioquímica tiene como media 90 y desviación típica 10. Si tomamos una muestra de individuos sanos ¿es razonable esperar que aproximadamente el 95% de ellos tengan un valor de esa variable comprendido entre 70 y 110? (marcad todas las respuestas correctas):
 
 1. Sí, siempre. 
 1. No, nunca.
