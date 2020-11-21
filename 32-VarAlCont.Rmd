@@ -44,7 +44,7 @@ En particular, para una variable aleatoria continua:
 
 Cada valor de $X$ tiene probabilidad 0, pero cuando tomamos un sujeto, tendrá algún valor de $X$, ¿no?. Por lo tanto, su valor de $X$ es posible, aunque tenga probabilidad 0.
 
-De $P(X=a)=0$ se deduce que la probabilidad de un suceso definido con una desigualdad es exactamente la misma que la del suceso correspondiente definido con una desigualdad estricta, y en particular, contrariamente a lo que comentábamos para las variables aleatorias discretas, siempre tenemos que 
+De $P(X=a)=0$ se deduce que la probabilidad de un suceso definido con una desigualdad es exactamente la misma que la del suceso correspondiente definido con una desigualdad estricta. En particular, contrariamente a lo que pasaba en las variables aleatorias discretas, para una variable aleatoria continua siempre tenemos que 
 $$
 P(X\leq a)=P(X<a)
 $$
@@ -71,11 +71,11 @@ $$
 F_X(a)=\sum_{x\leq a} f_X(x)
 $$
 
-En el contexto de matemáticas "continuas", la suma $\sum$ se traduce en la integral $\int$. Se define entonces la  **función de densidad** de una variable aleatoria continua $X$ como la función $f_X:\mathbb{R}\to \mathbb{R}$ tal que $f_X(x)\geq 0$, para todo $x\in \mathbb{R}$, y
-$$
-F_X(a)=\int_{-\infty}^a f_{X}(x)\, dx\quad \text{para todo $a\in \mathbb{R}$.}
-$$
+En el contexto de matemáticas "continuas", la suma $\sum$ se traduce en la integral $\int$. Se define entonces la  **función de densidad** de una variable aleatoria continua $X$ como la función $f_X:\mathbb{R}\to \mathbb{R}$ tal que:
 
+* $f_X(x)\geq 0$, para todo $x\in \mathbb{R}$
+
+* $\displaystyle F_X(a)=\int_{-\infty}^a f_{X}(x)\, dx$ para todo $a\in \mathbb{R}$
 
 ```{r,echo=FALSE, out.width="30%"}
 knitr::include_graphics("INREMDN_files/figure-html/dontpanic.png")
@@ -93,7 +93,7 @@ knitr::include_graphics("INREMDN_files/figure-html/graficadensidad3.png")
 ```
 
 
-¿Cuál es la idea intuitiva que hay bajo esta definición de densidad? Suponed que dibujamos  histogramas de frecuencias relativas de los valores de $X$ sobre toda la población. Recordad que, en un histograma de estos, la frecuencia relativa (la **probabilidad**) de cada clase es la amplitud de la clase por la altura de su barra, y que llamábamos a esta altura la **densidad** de la clase (y por lo tanto, algo tendrá que ver con la densidad de $X$, ¿no creéis?). 
+¿Cuál es la idea intuitiva que hay tras esta definición de densidad? Suponed que dibujamos  histogramas de frecuencias relativas de los valores de $X$ sobre toda la población. Recordad que, en un histograma de estos, la frecuencia relativa (la **probabilidad**) de cada clase es la amplitud de la clase por la altura de su barra, y que llamábamos a esta altura la **densidad** de la clase (y por lo tanto, algo tendrá que ver con la densidad de $X$, ¿no creéis?). 
 
 Si dibujamos los histogramas de $X$ tomando clases cada vez más estrechas, sus polígonos de frecuencias tienden a dibujar una curva, que hemos coloreado en rojo en el último histograma:
 
@@ -122,10 +122,7 @@ Esta curva es precisamente $y=f_X(x)$. Es decir, la **función de densidad** $f_
 
 Como $P(X\leq a)$ es el área  bajo la curva $y=f_X(x)$ a la izquierda de $x=a$,
 $$
-\begin{array}{rl}
-P(a\leq X\leq b)\!\!\!\! & =P(X\leq b)-P(X<a)\\
-&=P(X\leq b)-P(X\leq a)
-\end{array}
+P(a\leq X\leq b)=P(X\leq b)-P(X<a)
 $$
 es el área  bajo la curva $y=f_X(x)$ a la izquierda de $x=b$ **menos** el área  bajo la curva $y=f_X(x)$ a la izquierda de $x=a$, es decir,  **$P(a\leq X\leq b)$ es igual al área  bajo la curva $y=f_X(x)$ entre $x=a$ y $x=b$.**
 
@@ -139,7 +136,10 @@ knitr::include_graphics("INREMDN_files/figure-html/entreaib.png")
 Como $P(X<\infty)=P(\Omega)=1$, **el área total bajo la curva $y=f_X(x)$ es 1.**
 
 Sabemos que $P(X=a)=0$, pero si $\varepsilon>0$ es muy, muy pequeño,
-el área bajo $y=f_X(x)$ entre $a-\varepsilon$ y $a+\varepsilon$ es aproximadamente  $2\varepsilon\cdot f_X(a)$.
+el área bajo $y=f_X(x)$ entre $a-\varepsilon$ y $a+\varepsilon$ es aproximadamente  $2\varepsilon\cdot f_X(a)$. Es decir,
+$$
+P(a-\varepsilon\leq X\leq a+\varepsilon)\approx 2\varepsilon\cdot f_X(a).
+$$
 
 
 ```{r echo=FALSE, out.width="60%"}
@@ -152,9 +152,11 @@ Por lo tanto $f_X(a)$ nos da una indicación de la probabilidad de que $X$ valga
 Pero $P(X=a)=P(X=b)=0$, así que, por favor, evitad decir que "la probabilidad de que $X$ valga $a$ es 5 veces **mayor** que la probabilidad de que valga $b$". Sí, ya sabemos que $5\cdot 0=0$, pero la frase es engañosa.
 ```
 
-Dos últimas consideraciones:
+Unas  consideraciones finales:
 
-* $f_X(a)$ no es una probabilidad, y por lo tanto puede ser mayor que 1 (aunque, por definición no puede ser menor que 0). Por ejemplo, el gráfico siguiente muestra la densidad de una variable normal $N(0,0.01)$ (véase la Sección \@ref(sec:normal)), que llega  a valer casi 40.
+* Lo hemos dicho en la definición, y lo hemos usado implícitamente en toda la sección,  pero lo volvemos a repetir: $f_X(x)\geq 0$ para todo $x\in \mathbb{R}$.
+
+* $f_X(x)$ no es una probabilidad, y por lo tanto puede ser mayor que 1. Por ejemplo, el gráfico siguiente muestra la densidad de una variable normal $N(0,0.01)$ (véase la Sección \@ref(sec:normal)), que llega  a valer casi 40.
 
 ```{r,echo=FALSE,out.width="60%",fig.asp=1,fig.width=5}
 curve(dnorm(x,0,0.01),xlim=c(-0.05,0.05),xlab="",ylab="",main="Densidad de N(0,0.01)")
@@ -173,7 +175,8 @@ La **media**, o **esperanza** (**valor medio**, **valor esperado**...), de $X$ e
 $$
 E(X)=\int_{-\infty}^{\infty}x \cdot f_{X}(x)\, dx
 $$
-También la denotaremos por $\mu_X$.
+Es decir, es el área comprendida entre el eje de abscisas y la curva $y=xf_X(x)$.
+Como en el caso discreto, también la denotaremos a veces por $\mu_X$. 
 
 Este valor tiene la misma interpretación que en el caso discreto: 
 
@@ -209,7 +212,7 @@ Como en el caso discreto, la varianza y la desviación típica miden la variabil
 
 Estos parámetros de $X$ tienen las **mismas propiedades** en el caso continuo que en el discreto. Las recordamos:
 
-* $E(b)=b$, si $b$ es una variable aleatoria constante.
+* Si $b$ es una variable aleatoria constante, $E(b)=b$ y $\sigma(b)^2=0$.
 
 
 * $E(a X+b)=a E(X)+b$.
@@ -221,16 +224,13 @@ Estos parámetros de $X$ tienen las **mismas propiedades** en el caso continuo q
 * Si $X\leq Y$, entonces $E(X)\leq E(Y)$.
 
 
-* $\sigma(aX+b)^2=a^2 \sigma(X)^2$, donde $a,b$ son constantes reales.
+* Si $a,b\in \mathbb{R}$, $\sigma(aX+b)^2=a^2 \sigma(X)^2$.
 
 
 * $\sigma(aX+b)=|a|\cdot \sigma(X)$.
 
 
-* $\sigma(b)^2=0$, si $b$ es una variable aleatoria constante
-
-
-* $\sigma(X+Y)^2=\sigma(X)^2+\sigma(Y)^2$ si $X,Y$ son **independientes**
+* Si $X,Y$ son **independientes**, $\sigma(X+Y)^2=\sigma(X)^2+\sigma(Y)^2$.
 
 
 El **cuantil de orden $p$** (o **$p$-cuantil**) de una variable aleatoria continua $X$ es el valor $x_p\in \mathbb{R}$ más pequeño tal que 
@@ -272,7 +272,7 @@ Pero sí que tenéis que saber que:
 Una variable aleatoria normal es **típica** (o **estándar**) cuando es $N(0,1)$. Usaremos normalmente $Z$ para denotar una variable normal estándar. 
 
 
-La gráfica de la densidad de una variable aleatoria normal es la conocida **campana de Gauss**:
+La gráfica de la densidad de una variable aleatoria normal es la famosa **campana de Gauss**:
 
 ```{r,echo=FALSE}
 curve(dnorm(x),-5,5,col="blue",lwd=3,ylim=c(0,0.5),main="Densidad de N(0,1)",xlab="",ylab="")
@@ -445,7 +445,7 @@ En particular, si $Z$ es $N(0,1)$, entonces $f_Z$ es simétrica alrededor de 0, 
 
 Recordad que la función de distribución de una variable aleatoria continua $X$,
 $$
-P(X\leq x)=F_X(x)
+F_X(x)=P(X\leq x)
 $$ 
 es el área comprendida entre la densidad $y=f_X(x)$ y el eje de abscisas a la izquierda de $x$.
 
@@ -541,9 +541,9 @@ abline(v=0,lty=2)
 
 
 ```{block2,type="rmdnote"}
-En el Ejemplo \@ref(exm:exhiperhipo) hemos trabajado más de lo necesario: por la simetría, el 0.95-cuantil ha de estar a la misma distancia de $\mu$ que el 0.05-cuantil, pero a la derecha:
+En el Ejemplo \@ref(exm:exhiperhipo) hemos trabajado más de lo necesario: por la simetría, el 0.95-cuantil ha de estar a la misma distancia de $\mu$ que el 0.05-cuantil, pero a la derecha. Es decir, como $\mu=124$ y el 0.05-cuantil había sido 101.4655, el 0.95-cuantil ha de ser el valor a la derecha de 124 y a la misma distancia que 101.4655:
 $$
-124-101.4655=22.5345\Longrightarrow  124+22.5345=126.5345
+124+(124-101.4655)=126.5345
 $$
 Lo mismo pasa con el 0.9-cuantil y el 0.1-cuantil, comprobadlo.
 ```
@@ -596,7 +596,7 @@ P(-1.64\leq Z\leq 1.64)=0.9.
 $$
 
 
-* $z_{0.975}=1.96$; es decir, $P(Z\leq 1.96)=0.975$ y por lo tanto $P(Z\leq -1.96)=P(Z\leq 1.96)=0.025$ y
+* $z_{0.975}=1.96$; es decir, $P(Z\leq 1.96)=0.975$ y por lo tanto $P(Z\leq -1.96)=P(Z\geq 1.96)=0.025$ y
 $$
 P(-1.96\leq Z\leq 1.96)=0.95.
 $$
@@ -648,9 +648,14 @@ Al variar $x_0$, tenemos valores diferentes de la sensibilidad y la tasa de fals
 
 Por ejemplo, imaginad que la densidad de $X_E$ es la línea discontinua del gráfico de la izquierda de la figura siguiente y la de $X_S$ la línea continua. Ambas son normales y $\mu_E>\mu_S$, porque el pico de la densidad de $X_E$ está a la derecha del de $X_S$.
 
-
-```{r rocnormal, echo=FALSE, out.width="60%"}
-knitr::include_graphics("INREMDN_files/figure-html/rocnormal.png")
+```{r,echo=FALSE,out.width="100%",fig.asp=0.5,fig.width=10}
+par(mfrow=c(1,2))
+curve(dnorm(x,12,2.3),xlim=c(4,20),ylim=c(0,0.5),lwd=2,xlab="",ylab="")
+curve(dnorm(x,16,0.8),add=TRUE,lwd=2,lty="dashed",col="red")
+legend("topleft",lty=c(1,2),col=c("black","red"),legend=c("Sanos","Enfermos"),cex=0.75)
+plot(1-pnorm((-1000:20000)/1000,12,2.3),1-pnorm((-1000:20000)/1000,16,0.8),type="l",lwd=2,xlab="1-Especificidad",ylab="Sensibilidad",main="Curva ROC")
+abline(0,1,lty="dotted")
+par(mfrow=c(1,1))
 ```
 
 Si para cada $x$ dibujamos los puntos $(1-F_{X_S}(x),1-F_{X_E}(x))$, obtenemos la curva ROC de la derecha de dicha figura.
@@ -727,7 +732,7 @@ Cuando se habla de un **intervalo de referencia** sin dar la probabilidad, se so
 ```
 
 
-Cuando $X\sim N(\mu,\sigma)$, estos intervalos de referencia se toman siempre **centrados en la media** $\mu$, es decir, de la forma $[\mu-\text{algo},\mu+\text{algo}]$. Para calcularlos fácilmente, podemos usar el resultado siguiente:
+Cuando $X$ es $N(\mu,\sigma)$, estos intervalos de referencia se toman siempre **centrados en la media** $\mu$, es decir, de la forma $[\mu-\text{algo},\mu+\text{algo}]$. Para calcularlos fácilmente, podemos usar el resultado siguiente:
 
 ```{theorem} 
 Si $X$ es $N(\mu,\sigma)$, un intervalo de referencia del $100q\%$ para $X$ es
@@ -763,7 +768,7 @@ $$
 ```
 
 
-Si $q=0.95$, entonces $(1+q)/2=0.975$ y entonces $z_{0.975}=1.96$. Por lo tanto, el intervalo de referencia del 95% para una variable $X$ normal $N(\mu,\sigma)$ es
+Si $q=0.95$, entonces $(1+q)/2=0.975$ y $z_{0.975}=1.96$. Por lo tanto, el intervalo de referencia del 95% para una variable $X$ normal $N(\mu,\sigma)$ es
 $$
 \mu\pm 1.96\sigma.
 $$
@@ -777,7 +782,7 @@ Esto dice, básicamente, que
 
 
 ```{example}
-Según la OMS, las alturas de las mujeres europeas de 18 años (en cm) siguen una ley $N(163.1,18.53)$. ¿Cuál es el intervalo de alturas centrado en la media que contiene a la mitad las europeas de 18 años?
+Según la OMS, las alturas (en cm) de las mujeres europeas de 18 años siguen una ley $N(163.1,18.53)$. ¿Cuál es el intervalo de alturas centrado en la media que contiene a la mitad las europeas de 18 años?
     
 
 ```   

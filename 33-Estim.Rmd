@@ -30,23 +30,23 @@ Sí, ya sabemos que en la práctica casi nunca tomamos muestras aleatorias, sino
 * Si queremos estimar el riesgo relativo para un estudiante de la UIB de suspender alguna asignatura si es fumador, tomaremos una muestra aleatoria de estudiantes de la UIB, anotaremos si fuman o no y si han suspendido alguna asignatura o no, y calcularemos la **diferencia entre las proporciones muestrales** de suspensos entre los fumadores y los   no fumadores de la muestra.
 
 ```{block2,type="rmdimportant"}
-Fijaos que **un estimador es una variable aleatoria**, definida sobre la población formada por las muestras de la población de partida. Por lo tanto, tiene función de densidad, función de distribución (que genéricamente llamaremos **distribución muestral**, para indicar que mide la probabilidad de que le pase algo al valor del **estimador sobre una muestra**), esperanza, desviación típica, etc.
+**Un estimador es una variable aleatoria**, definida sobre la población formada por las muestras de la población de partida. Por lo tanto, tiene función de densidad, función de distribución (que genéricamente llamaremos **distribución muestral**, para indicar que mide la probabilidad de que le pase algo al valor del **estimador sobre una muestra**), esperanza, desviación típica, etc.
 ```
 
 ## La media muestral
 
 Cuando queremos estimar el valor medio de una variable sobre una población, tomamos una muestra de valores y calculamos su media aritmética, ¿verdad? Pues eso es la media muestral. 
 
-Dada una variable aleatoria $X$, llamamos **media muestral de** (muestras de) **tamaño $n$**) a la variable aleatoria $\overline{X}$ "Tomamos una *muestra aleatoria simple* de tamaño $n$ de $X$ y calculamos la media aritmética de sus valores".
+Dada una variable aleatoria $X$, llamamos **media muestral de** (muestras de) **tamaño $n$** a la variable aleatoria $\overline{X}$ "Tomamos una *muestra aleatoria simple* de tamaño $n$ de $X$ y calculamos la media aritmética de sus valores".
 
 ```{block2,type="rmdcaution"}
-Fijaos en que definimos la media muestral solo para muestras aleatorias simples. Naturalmente, tiene sentido definirla para muestras cualesquiera, pero entonces en general su distribución muestral dejaría de cumplir las propiedades que damos en esta sección. Lo mismo se aplica a los estimadores que definimos en las próximas secciones.
+Fijaos en que definimos la media muestral solo para muestras aleatorias simples. Naturalmente, tiene sentido definirla para muestras cualesquiera, pero entonces su distribución muestral dejaría de cumplir las propiedades que damos en esta sección. La misma advertencia vale a los estimadores que definimos en las próximas secciones.
 ```
 
 Veamos algunas propiedades de la distribución muestral de  $\overline{X}$:
 
 ```{theorem,mitjmostgral}
-Sea $X$ una variable aleatoria de media $\mu_X$ y desviación típica $\sigma_X$, y sea $\overline{X}$ la media muestral de tamaño $n$ de $X$. Entonces:
+Sea $X$ una variable aleatoria cualquiera de media $\mu_X$ y desviación típica $\sigma_X$, y sea $\overline{X}$ la media muestral de tamaño $n$ de $X$. Entonces:
 
 * $E(\overline{X})=\mu_X$
 
@@ -75,6 +75,7 @@ $$
 $$
 porque, de nuevo, como $X_1,\ldots,X_n$ son copias de $X$,
 $\sigma(X_1)^2=\cdots=\sigma(X_n)^2=\sigma_X^2$.
+
 ```
 
 
@@ -103,7 +104,7 @@ set.seed(42)
 
 ```{r}
 X=runif(10^6)
-hist(X,freq=FALSE,main="Histograma de X",xlab="",ylab="Densidad")
+hist(X,freq=FALSE,main="Histograma de X",xlab="",ylab="Densidad",col="light blue")
 ```
 
 La desviación típica $\sigma_X$ de la variable $X$ sobre nuestra población es
@@ -117,7 +118,7 @@ Ahora vamos a tomar 1000 medias muestrales de tamaño 100 de esta población, la
 
 ```{r}
 Medias=replicate(1000,mean(sample(X,100,replace=TRUE)))
-hist(Medias,freq=FALSE,main="Histograma de las medias muestrales",xlab="",ylab="Densidad")
+hist(Medias,freq=FALSE,main="Histograma de las medias muestrales",xlab="",ylab="Densidad",col="light blue")
 ```
 
 Podéis observar cómo los valores de estas medias se concentran alrededor de 0.5. Veamos su desviación típica:
@@ -147,7 +148,7 @@ es $N(0,1)$.
   
 ```
 
-Si $X$ no es normal, la tesis del teorema anterior sigue siendo cierta "aproximadamente" siempre y cuando $n$ es grande. Este resultado, llamado el **Teorema Central del Límite** es, como su nombre indica, uno de los más importantes en estadística.
+Si $X$ no es normal, la tesis del teorema anterior sigue siendo cierta "aproximadamente" siempre y cuando $n$ sea grande. Este resultado, llamado el **Teorema Central del Límite** es, como su nombre indica, uno de los más importantes en estadística.
 
 ```{theorem}
 Sea $X$ una variable aleatoria **cualquiera** de esperanza $\mu_X$ y desviación típica $\sigma_X$. Si $n$ es **suficientemente grande**,
@@ -189,16 +190,16 @@ Las afirmaciones del bloque anterior son verdaderas para medias muestrales de mu
 
 Cuando queremos estimar la proporción de sujetos de una población que tienen una determinada característica, tomamos una muestra y calculamos la proporción de sujetos de la muestra con esta característica. Esta será la **proporción muestral** de sujetos  con esta característica en nuestra muestra.
 
-Dada una variable aleatoria $X$  de Bernoulli $Be(p_X)$, llamamos **proporción muestral**, $\widehat{p}_X$, a la variable aleatoria consistente en tomar una muestra aleatoria de tamaño $n$ de $X$ y calcular la proporción de éxitos en la muestra: es decir, contar el número total de éxitos  y dividir el resultado por $n$.
+Dada una variable aleatoria $X$  de Bernoulli $Be(p_X)$, la **proporción muestral de** (muestras de) **tamaño $n$**,  $\widehat{p}_X$, es la variable aleatoria consistente en tomar una muestra aleatoria de tamaño $n$ de $X$ y calcular la proporción de éxitos en la muestra: es decir, contar el número total de éxitos  y dividir el resultado por $n$.
 
-Fijaos en que $\widehat{p}_X$ es un caso particular de media muestral $\overline{X}$: estamos calculando medias muestrales de muestras de la variable de Bernoulli $X$. Por lo tanto, todo lo que hemos dicho  para medias muestrales vale también para proporciones muestrales:
+Fijaos en que $\widehat{p}_X$ es un caso particular de media muestral $\overline{X}$: estamos calculando medias muestrales de muestras aleatorias simples de la variable de Bernoulli $X$. Por lo tanto, todo lo que hemos dicho  para medias muestrales vale también para proporciones muestrales:
 
 ```{theorem}
-Si $X$ es una variable aleatoria de Bernoulli con probabilidad poblacional de éxito $p_X$:
+Si $X$ es una variable aleatoria de Bernoulli con probabilidad poblacional de éxito $p_X$ y  $\widehat{p}_X$ es la proporción muestral de tamaño $n$:
     
 * $E(\widehat{p}_X)=p_X$
 
-*  $\sigma({\widehat{p}_X})=\sqrt{\dfrac{p_X(1-p_X)}{n}}$.
+*  $\sigma({\widehat{p}_X})=\sqrt{\dfrac{p_X(1-p_X)}{n}}$
 
 
 ```    
@@ -210,17 +211,17 @@ $E(\widehat{p}_X)=p_X$ nos dice que $\widehat{p}_X$ es un estimador insesgado de
 $\sigma({\widehat{p}_X})=\sqrt{\dfrac{p_X(1-p_X)}{n}}$ nos dice que, fijada la variable $X$, si tomamos muestras de tamaño mayor, la variabilidad de los resultados de $\widehat{p}_X$ disminuye.
     
 ```{block2,type="rmdimportant"}
-En el caso de la proporción muestral, a veces vamos a permitir tomar muestras aleatorias sin reposición. En este caso, seguimos teniendo que $E(\widehat{p}_X)=p_X$, pero ahora,
+En el caso de la proporción muestral, a veces vamos a permitir tomar **muestras aleatorias sin reposición**. En este caso, seguimos teniendo que $E(\widehat{p}_X)=p_X$, pero ahora,
 si $N$ es el tamaño de la población, 
 $$
 \sigma({\widehat{p}_X})=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot
 \sqrt{\frac{\vphantom{(p_X}N-n}{N-1}}.
 $$
-A este factor
+El factor
 $$
 \sqrt{\frac{N-n}{N-1}}
 $$ 
-que transforma $\sigma({\widehat{p}_X})$ para muestras aleatorias simples en la desviación típica de ${\widehat{p}_X}$ para muestras aleatorias sin reposición se le llama el **factor de población finita**, y si os fijáis, es el que transformaba la desviación típica de una variable binomial (que cuenta éxitos en muestras aleatorias simples) en la desviación típica de una variable hipergeométrica  (que cuenta éxitos en muestras aleatorias sin reposición).
+que transforma $\sigma({\widehat{p}_X})$ para muestras aleatorias simples en la desviación típica de ${\widehat{p}_X}$ para muestras aleatorias sin reposición es el **factor de población finita**  que transformaba la desviación típica de una variable binomial (que cuenta éxitos en muestras aleatorias simples) en la desviación típica de una variable hipergeométrica  (que cuenta éxitos en muestras aleatorias sin reposición).
 ```
 
 ```{block2,type="rmdrecordau"}
@@ -253,9 +254,9 @@ es aproximadamente $N(0,1)$.
 
 Dada una variable aleatoria $X$, llamamos:
 
-* **Varianza muestral**, $\widetilde{S}_{X}^2$, a la variable aleatoria consistente en tomar una muestra aleatoria simple de tamaño $n$ de $X$ y calcular la varianza muestral de sus valores.
+* **Varianza muestral de** (muestras de) **tamaño $n$**, $\widetilde{S}_{X}^2$, a la variable aleatoria consistente en tomar una muestra aleatoria simple de tamaño $n$ de $X$ y calcular la varianza muestral de sus valores.
 
-* **Desviación típica muestral**, $\widetilde{S}_{X}$, a la variable aleatoria consistente en tomar una muestra aleatoria simple de tamaño $n$ de $X$ y calcular la desviación típica muestral de sus valores.
+* **Desviación típica muestral de** (muestras de) **tamaño $n$**, $\widetilde{S}_{X}$, a la variable aleatoria consistente en tomar una muestra aleatoria simple de tamaño $n$ de $X$ y calcular la desviación típica muestral de sus valores.
 
 
 
@@ -273,9 +274,13 @@ Si $X$ es $N(\mu_X,\sigma_X)$, $E(\widetilde{S}_{X}^2)=\sigma_{X}^2$.
 
 ```
 
-Por lo tanto, si $X$ es normal,  **esperamos** que la varianza muestral de una muestra aleatoria simple grande sea $\sigma_{X}^2$, en el sentido usual de que si tomamos muestras aleatorias simples de $X$ de tamaño $n$ grande y calculamos sus varianzas muestrales, esperamos de media obtener un valor muy cercano a $\sigma_{X}^2$.
+Por lo tanto, si $X$ es normal,  **esperamos** que la varianza muestral de una muestra aleatoria simple valga $\sigma_{X}^2$, en el sentido usual de que si tomamos muestras aleatorias simples de $X$ de tamaño $n$ grande y calculamos sus varianzas muestrales, esperamos de media obtener un valor muy cercano a $\sigma_{X}^2$.
 
-El segundo resultado nos dice que un cierto múltiplo de $\widetilde{S}_{X}^2$ tiene  distribución muestral conocida, lo que nos permite calcular la probabilidad de que le pase algo a $\widetilde{S}_{X}^2$.
+```{block2,type="rmdcaution"}
+Y por lo tanto **no esperamos** que la varianza "a secas" de una muestra aleatoria simple valga $\sigma_{X}^2$, porque la varianza muestral y la varianza "a secas" toman valores diferentes (tienen el mismo numerador y denominadores diferentes).
+```
+
+El segundo resultado nos dice que un  múltiplo adecuado de $\widetilde{S}_{X}^2$ tiene  distribución muestral conocida, lo que nos permite calcular la probabilidad de que le pase algo a $\widetilde{S}_{X}^2$.
 
 
 ```{theorem}
@@ -288,10 +293,19 @@ tiene una distribución conocida, llamada **ji cuadrado con $n-1$ grados de libe
 
 ```
 
+```{block2,type="rmdrecordau"}
+La letra griega $\chi$  en castellano se lee **ji**; en catalán, **khi**;  en inglés, **chi**, pronunciado "xai".
+```
 
-La distribución $\chi_m^2$ (la letra griega $\chi$  en castellano se lee **ji**; en catalán, **khi**;  en inglés, **chi**, pronunciado "xai"), donde $m$ es un parámetro llamado sus **grados de libertad**, es la distribución de probabilidad de la suma de los cuadrados de $m$ variables aleatorias normales estándar independientes. Para R es `chisq`. Os puede interesar recordar que una variable $\chi_m^2$ de tipo ji cuadrado con $m$ grados de libertad:
 
-* Tien valor esperado $E(\chi_m^2)=m$ y  varianza  $\sigma(\chi_m^2)^2=2 m$.
+
+```{r, echo=FALSE, out.width="40%"}
+knitr::include_graphics("INREMDN_files/figure-html/chihogar.png")
+```
+
+La distribución $\chi_\nu^2$, donde $\nu$ es un parámetro llamado sus **grados de libertad**, es la distribución de probabilidad de la suma de los cuadrados de $\nu$ variables aleatorias normales estándar independientes. Para R es `chisq`. Os puede interesar recordar que una variable $\chi_\nu^2$ de tipo ji cuadrado con $\nu$ grados de libertad:
+
+* Tiene valor esperado $E(\chi_\nu^2)=\nu$ y  varianza  $\sigma(\chi_\nu^2)^2=2 \nu$.
 
 * Tiene una distribución asimétrica a la derecha, como muestra el gráfico siguiente:
 
@@ -303,16 +317,16 @@ curve(dchisq(x,4),col=4,lwd=2,add=TRUE)
 curve(dchisq(x,5),col=5,lwd=2,add=TRUE)
 curve(dchisq(x,10),col=6,lwd=2,add=TRUE)
 legend("topright",col=1:6,lty=c(1,1),
-       lwd=c(2,2),legend=paste("n=",c(1:5,10),sep=""),cex=0.8)
+       lwd=c(2,2),legend=paste("g.l.=",c(1:5,10),sep=""),cex=0.8)
 ```
 
-A medida que el número de grados de libertad $m$ crece, la asimetría tiende a desaparecer y, por el Teorema Central del Límite, la distribución $\chi_m^2$ se aproxima a la de una variable normal $N(m,\sqrt{2m})$.
+A medida que el número de grados de libertad $\nu$ crece, la asimetría tiende a desaparecer y, por el Teorema Central del Límite, la distribución $\chi_\nu^2$ se aproxima a la de una variable normal $N(\nu,\sqrt{2\nu})$.
 
 ```{r,echo=FALSE}
 curve(dchisq(x,300),xlim=c(150,450),lwd=2,xlab="",ylab="",main="Ji quadrado vs Normal")
 curve(dnorm(x,300,sqrt(600)),lwd=2,col="red",add=TRUE)
 legend("topleft",col=c("black","red"),lty=c(1,1),
-       lwd=c(2,2),legend=c("Ji quadrado con n=300","Normal"),cex=0.7)
+       lwd=c(2,2),legend=c("Ji quadrado con 300 g.l.","Normal"),cex=0.7)
 ```
 
 ```{block2,type="rmdcaution"}
@@ -322,7 +336,7 @@ Tened cuidado:
 
 * Aunque $X$ sea normal, $E(\widetilde{S}_{X})\neq \sigma_{X}$. La desviación típica muestral es un estimador **sesgado** de $\sigma_{X}$ (pero tiene otras buenas propiedades que hacen que lo usemos igualmente).
 
-* Aunque $X$ sea normal, si $S^2_{X}$ es la varianza "a secas" (dividiendo por $n$ en vez de por $n-1$), $E(S^2_{X})\neq \sigma^2_{X}$. Esto lo podéis comprobar fácilmente, porque $S_X^2$ se obtiene a partir de $\widetilde{S}_{X}^2$ cambiando el denominador,
+* Ya lo hemos comentado antes. Aunque $X$ sea normal, si $S^2_{X}$ es la varianza "a secas" (dividiendo por $n$ en vez de por $n-1$), $E(S^2_{X})\neq \sigma^2_{X}$. Esto lo podéis comprobar fácilmente, porque $S_X^2$ se obtiene a partir de $\widetilde{S}_{X}^2$ cambiando el denominador,
 $$
   S_X^2=\frac{n-1}{n} \widetilde{S}_{X}^2
 $$
@@ -351,22 +365,25 @@ T=\frac{\overline{X}-\mu_X}{\widetilde{S}_{X}/\sqrt{n}}
 $$
 tiene una distribución conocida, llamada **t de Student con $n-1$ grados de libertad**, $t_{n-1}$.
   
-
 ```
 
 Al denominador $\widetilde{S}_{X}/\sqrt{n}$ de la $T$ del teorema anterior se le llama el **error típico** de la muestra, y estima el error típico $\sigma_X/\sqrt{n}$ de la media muestral $\overline{X}$.
 
-Algunas propiedades que conviene que recordéis de las variables $T_m$ que tienen distribución $t$ de Student con $m$ grados de libertad, $t_m$:
+```{block2,type="rmdimportant"}
+Fijaos en que el teorema anterior es solo para variables poblacionales $X$ **normales**. Por el Teorema Central del Límite, si $n$ es grande, $T$ es aproximadanente $t_{n-1}$ aunque $X$ no sea normal.
+```
+
+Para R, la distribución t de Student es `t`, a secas. Algunas propiedades que conviene que recordéis de las variables $T_\nu$ que tienen distribución $t$ de Student con $\nu$ grados de libertad, $t_\nu$:
 
 
-* Su valor esperado es $E(T_m)=0$  y su varianza es $\sigma(T_m)=\dfrac{m}{m-2}$ (en realidad esto solo es verdad si $m\geq 3$, pero no hace falta recordarlo).
+* Su valor esperado es $E(T_\nu)=0$  y su varianza es $\sigma(T_\nu)=\dfrac{\nu}{\nu-2}$ (en realidad esto solo es verdad si $\nu\geq 3$, pero no hace falta recordarlo).
 
 * Su función de distribución es simétrica respecto de $0$ (como la de una $N(0,1)$):
 $$
-P(T_m\leq -x)=P(T_m\geq x)=1-P(T_m\leq x)
+P(T_\nu\leq -x)=P(T_\nu\geq x)=1-P(T_\nu\leq x)
 $$
 
-* Si $m$ es grande  (digamos, de nuevo, $m\geq 40$), $T_m$ es aproximadamente una $N(0,1)$ (pero con un poco más de varianza, porque $m/(m-2)>1$, y por lo tanto un poco más achatada). Esto es consecuencia del Teorema Central del Límite.
+* Si $\nu$ es grande  (digamos, de nuevo, $\nu\geq 40$), $T_\nu$ es aproximadamente una $N(0,1)$ (pero con un poco más de varianza, porque $\nu/(\nu-2)>1$, y por lo tanto un poco más achatada). Esto es consecuencia del Teorema Central del Límite.
 
 ```{r,echo=FALSE}
 curve(dnorm(x),col=1,lwd=2,xlim=c(-4,4),xlab="",ylab="",ylim=c(0,0.4),
@@ -383,24 +400,24 @@ legend=c("Normal estandar", paste("Student con g.l.=",c(2:5,10),sep="")),cex=0.7
 ```{r,echo=FALSE}
 curve(dnorm(x),col=1,lwd=2,xlim=c(-4,4),xlab="",ylab="",ylim=c(0,0.4),
       main="t vs Normal estandar")
-curve(dt(x,50),col=2,lwd=2,add=TRUE)
+curve(dt(x,40),col=2,lwd=2,add=TRUE)
 legend("topleft",col=1:2,lty=rep(1,2), lwd=rep(2,2),
-       legend=c("Normal estandar", "Student con g.l.=50"),cex=0.7)
+       legend=c("Normal estandar", "Student con g.l.=40"),cex=0.7)
 ```
 
-Denotaremos por $t_{m,q}$ el  $q$-cuantil de una  variable aleatoria  $T_{m}$ con distribución   $t_m$. Es decir, $t_{m,q}$ es el valor tal que
+Denotaremos por $t_{\nu,q}$ el  $q$-cuantil de una  variable aleatoria  $T_{\nu}$ con distribución   $t_\nu$. Es decir, $t_{\nu,q}$ es el valor tal que
 $$
-P(T_{m}\leq t_{m,q})=q
+P(T_{\nu}\leq t_{\nu,q})=q
 $$
 Entonces:
 
-* Por la simetría de la distribución $t_m$,
+* Por la simetría de la distribución $t_\nu$,
 $$
-t_{m,q}=-t_{m,1-q}.
+t_{\nu,q}=-t_{\nu,1-q}.
 $$
     Exactamente lo mismo que pasaba con la normal estándar
 
-* Si $m$ es grande, $T_m$ será aproximadamente una $N(0,1)$ y por lo tanto $t_{m,q}\approx z_q$.
+* Si $\nu$ es grande, $T_\nu$ será aproximadamente una $N(0,1)$ y por lo tanto $t_{\nu,q}\approx z_q$.
 
 ```{block2,type="rmdcaution"}
 No confundáis:
@@ -413,7 +430,7 @@ No confundáis:
 
 * **Error típico de una muestra**: Estimación del error típico del estimador a partir de la muestra. Es $\widetilde{S}_X/\sqrt{n}$, con $n$ el tamaño de la muestra.
 
-Fijaos en que el denominador $\sqrt{n}$ hace que, en general, los errores típicos sean mucho más pequeños que las desviaciones típicas.
+Fijaos en que el denominador $\sqrt{n}$ hace que, en general, los errores típicos sean mucho más pequeños que las desviaciones típicas. Id con cuidado, porque esto se usa a menudo en artículos para enmascarar los resultados. Si una muestra ha salido con una dispersión muy grande, se da su error típico en vez de su desviación típica y parece que ha salido más concentrada.
 
 
 ```
