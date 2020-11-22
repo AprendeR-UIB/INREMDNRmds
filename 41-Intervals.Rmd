@@ -2,14 +2,12 @@
 
 Los estimadores de la lección anterior nos permiten estimar el valor de una característica de una población, pero no nos indican el error que cometemos con esta estimación. En la práctica, lo que se suele hacer es complementar una estimación puntual con un intervalo que indique la precisión de la estimación. Esta precisión va a depender:
 
-* De la variabilidad de la variable aleatoria de interés, es decir, de su desviación típica.
+* De la variabilidad del estimador: cuánta menos variabilidad tenga, más precisa será la estimación. Normalmente, la variabilidad del estimador crece con la desviación típica de la variable poblacional y decrece con el tamaño de las muestras.
 
-* Del tamaño de la muestra.
-
-* Y del **nivel de confianza**, o de **seguridad**, deseado para la estimación: cómo de seguros queremos estar de que la estimación es correcta.
+* Del **nivel de confianza**, o de **seguridad**, deseado para la estimación: cómo de seguros queremos estar de que la estimación es correcta.
 
 
-```{r, echo=FALSE, fig.width=5}
+```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics("INREMDN_files/figure-html/Garfield.png")
 ```
 
@@ -17,10 +15,10 @@ knitr::include_graphics("INREMDN_files/figure-html/Garfield.png")
 
 Un **intervalo de confianza del Q%** (para abreviar, un **IC-Q%**) de un parámetro poblacional es un intervalo obtenido aplicando a una muestra aleatoria simple de tamaño $n$ una fórmula que satisface la propiedad siguiente: 
 
-> El intervalo obtenido contiene el valor del parámetro poblacional el Q% de las veces que aplicamos la fórmula a muestras aleatorias simples de tamaño $n$ tomadas al azar.
+> El intervalo obtenido contiene el valor del parámetro poblacional **el Q% de las veces** que aplicamos la fórmula a muestras aleatorias simples de tamaño $n$ tomadas al azar.
 
 
-Tener una **confianza del Q%** significa pues que empleamos una fórmula que **acierta el Q% de las veces**; o, para ser precisos, **el Q% de las veces que la aplicamos bien**. Pero asumimos que en un (100-Q)% de las veces que la aplicamos da un intervalo que no contiene el valor del parámetro poblacional, **y no sabemos cuándo sí y cuándo no**. De manera que solo podemos tener una cierta confianza, fruto del optimismo, de que con nuestra muestra acierta, pero no podemos estar seguros del todo.
+Tener una **confianza del Q%** significa pues que usamos una fórmula que **acierta el Q% de las veces**; o, para ser precisos, **el Q% de las veces que la aplicamos bien**. Pero asumimos que en un (100-Q)% de las veces que la aplicamos da un intervalo que no contiene el valor del parámetro poblacional, **y no sabemos cuándo sí y cuándo no**. De manera que solo podemos tener una cierta confianza, fruto del optimismo, de que con nuestra muestra acierta, pero no podemos estar seguros del todo.
 
 
 ```{example}
@@ -37,7 +35,7 @@ No confundáis:
 
 * **Intervalo de confianza del Q% para un parámetro**: Intervalo que contiene **el valor poblacional del parámetro de la variable aleatoria** "con probabilidad" Q%, en el sentido de que lo hemos calculado con una fórmula que da un intervalo que contiene el parámetro el Q% de las veces que la aplicamos a una muestra aleatoria.
 
-* **Intervalo de referencia del Q% para un estimador***: Intervalo que contiene **el valor del estimador sobre una muestra aleatoria** con probabilidad Q%. 
+* **Intervalo de referencia del Q% para un estimador**: Intervalo que contiene **el valor del estimador sobre una muestra aleatoria** con probabilidad Q%. 
 
 ```
 
@@ -55,30 +53,30 @@ Por ejemplo:
 * Si decimos que un **intervalo de confianza del 95%** para la concentración media de una proteína en suero en individuos sanos medida en g/dl es [11,16], esto significa 
 
     * que hemos tomado una muestra aleatoria de concentraciones de esta proteína en suero en individuos sanos y a partir de esta muestra hemos estimado que, con un 95% de seguridad, la concentración media de esta proteína en suero en el total de la población de individuos sanos está entre 11 y 16 g/dl; 
-    * y que tenemos este 95% de seguridad porque hemos calculado este intervalo con una fórmula que da un intervalo que contiene la media poblacional un 95% de las veces que la empleamos sobre muestras aleatorias del misma tamaño que la nuestra.
+    * y que tenemos este 95% de seguridad porque hemos calculado este intervalo con una fórmula que da un intervalo que contiene la media poblacional un 95% de las veces que la aplicamos a muestras aleatorias del misma tamaño que la nuestra.
 
-* Si decimos que el 95% de las muestras de 100 concentraciones de una determinada proteína en suero en individuos sanos tienen la media muestral entre 11 y 16, esto es un **intervalo de referencia del 95% para la media muestral** de muestras de tamaño 100, no un intervalo de confianza para la concentración media poblacional ni un intervalo de referencia para el valor de la concentración en un individuo.
+* Si decimos que el 95% de las muestras de 100 concentraciones de una determinada proteína en suero en individuos sanos tienen la media muestral entre 11 y 16 g/dl, esto es un **intervalo de referencia del 95% para la media muestral** de muestras de tamaño 100, no un intervalo de confianza para la concentración media poblacional ni un intervalo de referencia para el valor de la concentración en un individuo.
 
 
 Que un IC-Q% para un parámetro $\theta$ sea $[a,b]$ sirve:
 
-* Para estimar $\theta$ con este margen de confianza: Estamos bastante seguros de que el valor poblacional de $\theta$ está entre $a$ y $b$  (porque la fórmula empleada acierta a menudo).
+* Para estimar $\theta$ con este margen de confianza: Estamos bastante seguros de que el valor poblacional de $\theta$ está entre $a$ y $b$  (porque la fórmula usada acierta a menudo).
 
-* Para descartar, con este margen de confianza,  que $\theta$ valga un valor concreto: Estamos bastante seguros de que el valor real de $\theta$ no está ni por debajo de $a$ ni por encima de $b$ y por tanto de que es diferente de todos los valores $<a$ o $>b$.
+* Para descartar, con este margen de confianza,  que $\theta$ valga cualquier valor concreto fuera de $[a,b]$: Estamos bastante seguros de que el valor real de $\theta$ no está ni por debajo de $a$ ni por encima de $b$ y por tanto de que es diferente de todos los valores menores que $a$ o mayores que $b$.
 
-Por ejemplo: si un IC-95% para la prevalència $p$ de una determinada enfermedad en una población  va de 0.025 a 0.047:
+Por ejemplo: si un IC-95% para la prevalencia $p$ de una determinada enfermedad en una población  va de 0.025 a 0.047:
 
-* Estamos muy ("un 95%") seguros de que $p\in [0.025,0.047]$ (porque la fórmula empleada para calcular este intervalo acierta en un 95% de las veces).
+* Estamos muy ("un 95%") seguros de que $p\in [0.025,0.047]$ (porque la fórmula usada para calcular este intervalo acierta en un 95% de las veces).
 
 * Estamos muy  ("un 95%") seguros de que $p\neq 0.05$ (porque 0.05 no pertenece al intervalo que estamos muy seguros que contiene el valor real de $p$).
 
-* Pero no estamos muy seguros de que $p=0.03$, por mucho que $0.03\in [0.025,0.047]$: estamos muy seguros de que $p$ está entre 0.025 y 0.047, pero no tenemos ninguna seguridad de que valga un valor concreto entre estos límites, solo que está entre estos límites.
+* Pero no estamos muy seguros de que $p=0.03$, por mucho que $0.03\in [0.025,0.047]$: estamos muy seguros de que $p$ está entre 0.025 y 0.047, pero no tenemos ninguna seguridad de que valga un valor concreto entre estos límites, solo de que está entre estos límites.
 
 
 Hay dos tipos de métodos básicos de cálculo de intervalos de confianza a partir de una muestra aleatoria:
 
 
-* **Paramétricos**: Usando alguna fórmula basada en la distribución muestral del estimador. Se basan en algún teorema y solo tiene sentido usarlos si la variable aleatoria y la muestra aleatoria satisfacen (aproximadamente) las hipótesis del teorema.
+* **Paramétricos**: Usando alguna fórmula basada en la distribución muestral del estimador. Se basan en teoremas y solo tiene sentido usarlos si la variable aleatoria y la muestra aleatoria satisfacen (aproximadamente) las hipótesis de los teoremas.
 
 * **No paramétricos**. Los otros. El más popular, y nuestro favorito, es el **bootstrap**:
 
@@ -86,16 +84,16 @@ Hay dos tipos de métodos básicos de cálculo de intervalos de confianza a part
     * Calculamos el estimador para cada una de estas muestras.
     * Usamos el vector de resultados para estimar un intervalo de confianza. Por ejemplo, tomamos como IC-95% el intervalo entre los cuantiles 0.025 y 0.975 de este vector.
 
-    El **bootstrap** se puede usar siempre y funciona bien si la muestra es aleatoria, pero se basa en un proceso aleatorio y por lo tanto cada ejecución sobre una misma muestra puede dar un intervalo diferente.
+    El **bootstrap** se puede usar siempre y funciona bien si la muestra es aleatoria, pero se basa en un proceso aleatorio y por lo tanto cada ejecución sobre una misma muestra puede dar un intervalo diferente (y un 95% de ellos contendrán el valor que queremos estimar).
 
 ```{block2,type="rmdnote"}
-El **bootstrap** es una herramienta muy poderosa para calcular intervalos de confianza y, en general, para estimar la distribución muestral de un estadístico. Tanto, que en la práctica ya empieza a sustituir los métodos paramétricos. Pero no hace milagros: si la muestra es pequeña o muy poco representativa de la población, un IC calculado con el bootstrap sirve de tan poco como uno calculado con un método paramétrico.
+El **bootstrap** es una herramienta muy poderosa para calcular intervalos de confianza y, en general, para estimar la distribución muestral de un estadístico. Tanto, que en la práctica ya empieza a sustituir los métodos paramétricos. Pero no hace milagros: si la muestra es pequeña o muy poco representativa de la población, un intervalo de confianza calculado con el bootstrap sirve de tan poco como uno calculado con un método paramétrico.
 ```
 
 
 ## Un ejemplo: IC-95% para la media de una variable aleatoria normal
 
-Una de las fórmulas más conocidas para intervalos de confianza **y que tenéis que saber** es la siguiente:
+Una de las fórmulas más conocidas para intervalos de confianza  es la siguiente:
 
 ```{block2, type="rmdimportant"}
 Si $X$ es $N(\mu,\sigma)$ y tenemos una muestra aleatoria simple de tamaño $n$, media muestral $\overline{X}$ y varianza muestral $\widetilde{S}^2_X$, un IC-95% para $\mu$ es
@@ -146,7 +144,7 @@ $$
 $$
 Por lo tanto, ¡esto será un IC-95% para $\mu$!
 
-Nos falta encontrar los $A,B$ tales que $P(A\leq T\leq B)=0.95$. Para encontrarlos, emplearemos **cuantiles de la distribución de $T$**. Recordemos que, por definición de cuantil, 
+Nos falta encontrar los $A,B$ tales que $P(A\leq T\leq B)=0.95$. Para encontrarlos, usaremos **cuantiles de la distribución de $T$**. Recordemos que, por definición de cuantil, 
 $$
 P(T\leq t_{n-1,0.975})=0.975
 $$
@@ -222,7 +220,7 @@ Hagamos un experimento para ver que, efectivamente, esta fórmula "acierta", en 
 
 * Tomamos, al azar, 200 muestras aleatorias simples de tamaño 50 de nuestra población y les aplicamos esta función. Obtenemos una matriz `M` de 200 columnas formadas por los dos extremos de los intervalos (el inferior en la primera fila y el superior en la segunda fila).
 
-* Dibujamos los intervalos en un gráfico, donde aparecerán en gris los que aciertan y en rojo los que no aciertan. La recta vertical marca la media poblacional $\mu$.
+* Dibujamos los intervalos en un gráfico, donde aparecerán en gris los que aciertan y en rojo los que fallan. La recta vertical marca la media poblacional $\mu$.
 
 
 ```{r,echo=FALSE}
@@ -251,7 +249,7 @@ Encerts
 ```
 
 
-Si contáis los intervalos rojos, veréis que hemos fallado `r 200-Encerts` veces y por lo tanto hemos acertado `r Encerts` veces, es decir, en un `r round(100*Encerts/200,1)`% de los intervalos. Es aproximadamente el que esperábamos. Si lo probáis en casa, ejecutando el código de R que hemos dado, obtendréis  otros resultados, a veces mejores, a veces peores. Es lo que tiene la aleatoriedad.
+Si contáis los intervalos rojos, veréis que hemos fallado `r 200-Encerts` veces y por lo tanto hemos acertado `r Encerts` veces, es decir, en un `r round(100*Encerts/200,1)`% de los intervalos. Es aproximadamente lo que esperábamos. Si lo probáis en casa, ejecutando el código de R que hemos dado, obtendréis  otros resultados, a veces mejores, a veces peores. Es lo que tiene la aleatoriedad.
 
 ```{block2, type='rmdcaution'}
 **¡Atención!** De media, un IC-Q% **NO contiene el valor real del parámetro en un (100-Q)%** de las ocasiones.
@@ -259,7 +257,7 @@ Si contáis los intervalos rojos, veréis que hemos fallado `r 200-Encerts` vece
 
 Por ejemplo, de media, un 5% de las veces que calculemos un IC-95%, el parámetro poblacional no pertenecerá al intervalo obtenido. En nuestro experimento, de los 200 IC-95% que hemos calculado, `r 200-Encerts` no han contenido el valor real de $\mu$.
 
-Por lo tanto, si calculamos $n$ IC-95% sobre muestras aleatorias simples independientes, el número de veces que el intervalo resultante será erróneo, es decir, no contendrá el parámetro poblacional, seguirá una distribución binomial $B(n,0.05)$. El gráfico siguiente representa el valor de $P(X\geq 1)$ para una variable aleatoria $X$ de tipo $B(n,0.05)$, para $n=0,...,100$, y por tanto la probabilidad de que si calculamos $n$ IC-95% sobre muestras aleatorias simples independientes, al menos uno de ellos no contenga el parámetro poblacional deseado.
+Por lo tanto, si calculamos $n$ IC-95% sobre muestras aleatorias simples independientes, el número de veces que el intervalo resultante  no contendrá el parámetro poblacional seguirá una distribución binomial $B(n,0.05)$. El gráfico siguiente representa el valor de $P(X\geq 1)$ para una variable aleatoria $X$ de tipo $B(n,0.05)$, para $n=0,...,100$, y por tanto la probabilidad de que si calculamos $n$ IC-95% sobre muestras aleatorias simples independientes, al menos uno de ellos no contenga el parámetro poblacional deseado.
 
 
 ```{r,echo=FALSE}
@@ -267,7 +265,7 @@ plot(1-dbinom(0,0:100,0.05),pch=20,xlab="n",ylab="Probabilitat",
      main="Probabilidad de algún éxito en una B(n,0.05)")
 ```
 
-Esto es un problema grave en artículos científicos donde se calculen intervalos de confianza para muchos parámetros. De cada 20 IC-95% que calculemos, hemos de esperar que 1 sea erróneo. Y no podemos hacer nada al respecto, salvo aumentar el nivel de confianza de todos ellos (pero entonces, como veremos, los intervalos serán más anchos).
+Esto es un problema grave en artículos científicos donde se calculen intervalos de confianza para muchos parámetros. De media, de cada 20 IC-95% que se calculan, 1 es erróneo. Y no se puede hacer nada al respecto, forma parte de la definición.
 
 ```{example, alcohol1}
 Volvamos al experimento en el que medimos el porcentaje de aumento de alcohol en sangre a 40 personas después de tomar 4 cañas de cerveza. La media y la desviación típica muestral de estos porcentajes de incremento fueron
@@ -282,20 +280,20 @@ Para calcular un IC-95% para el porcentaje medio de aumento, $\mu$, supondremos 
 
 Entonces, como $t_{n-1,0.975}$=`qt(0.975,39)`=`r round(qt(0.975,39),4)`, un IC-95% para $\mu$ es
 $$
-41.2\pm 2.0227\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67\Rightarrow [40.53, 41. 87]
+41.2\pm 2.0227\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67\Rightarrow [40.53, 41.87]
 $$
 
-Por lo tanto, estimamos con un 95% de confianza que el porcentaje medio de aumento de alcohol en sangre después de tomar 4 cañas de cerveza está entre el 40.53% y el 41. 87%.
+Por lo tanto, estimamos con un 95% de confianza que el porcentaje medio de aumento de alcohol en sangre después de tomar 4 cañas de cerveza está entre el 40.5% y el 41.9%.
 
 Para calcular el intervalo anterior hemos supuesto que la variable poblacional "Porcentaje de aumento de alcohol en sangre después de tomar 4 cañas de cerveza" sigue una distribución normal. ¿Y si no fuera normal? 
 
-* En este caso, como el tamaño de la muestra $n=40$ es grande, y gracias al Teorema Central del Límite, por el Teorema \@ref(thm:ICmu) de la próxima sección el intervalo obtenido sigue siendo (aproximadamente) un intervalo de confianza del 95% para $\mu$.
+* En este caso, como el tamaño de la muestra $n=40$ es lo bastante grande como para poder invocar el Teorema Central del Límite,  el Teorema \@ref(thm:ICmu) de la próxima sección nos dice que el intervalo obtenido sigue siendo (aproximadamente) un intervalo de confianza del 95% para $\mu$.
 
-* Si $n$ fuera pequeño y $X$ muy diferente de una normal, no se puede usar esta fórmula y hay que buscarse la vida (por ejemplo, emplear el método bootstrap).
+* Si $n$ fuera pequeño y $X$ muy diferente de una normal, no se puede usar esta fórmula y hay que buscarse la vida (por ejemplo, usar el método bootstrap).
 
 También hemos supuesto que era una muestra aleatoria simple. ¿Y si no lo es?
 
-* Si es aleatoria, como la población sobre la que tenemos definida nuestra variable aleatoria, las personas del mundo que pueden tomar 4 cañas de cerveza, es muy grande, a efectos prácticos la podemos considerar simple.
+* Si es aleatoria, como la población sobre la que tenemos definida nuestra variable aleatoria, las personas que pueden tomar 4 cañas de cerveza, es muy grande, a efectos prácticos la podemos considerar simple.
 
 * Pero seguro que no es aleatoria, sino oportunista. En este caso, no hemos sacado 40 personas por sorteo de la lista de toda la población mundial, ni siquiera de la de Mallorca, sino que hemos buscado voluntarios. Entonces, no podemos hacer nada para salvar la fórmula, y su validez depende de si la muestra de personas usada puede pasar por aleatoria o no. 
 
@@ -304,7 +302,7 @@ También hemos supuesto que era una muestra aleatoria simple. ¿Y si no lo es?
 ## Intervalo de confianza para la media basado en la t de Student
 
 ```{block2,type="rmdcaution"}
-A partir de ahora, para evitar ambigüedades, en las fórmulas expresaremos el nivel de confianza de los intervalos en tanto por uno, no en tanto por ciento; es decir, como una proporción en vez de como un porcentaje. Por lo tanto, hablaremos de intervalos de confianza de nivel de confianza $q$ (IC-$q$), con $q$ entre 0 y 1, en lugar de intervalos de confianza del Q% con Q=100q. Con estas notaciones, por ejemplo, los intervalos de confianza del 95% serán intervalos de confianza de nivel de confianza 0.95.
+A partir de ahora, para evitar ambigüedades, en las fórmulas expresaremos el nivel de confianza de los intervalos en tanto por uno, no en tanto por ciento; es decir, como una proporción en vez de como un porcentaje. Por lo tanto, hablaremos de intervalos de confianza de nivel de confianza $q$ (IC-$q$), con $q$ entre 0 y 1, en vez de intervalos de confianza del Q% con Q=100q. Con estas notaciones, por ejemplo, los intervalos de confianza del 95% serán intervalos de confianza de nivel de confianza 0.95.
 ```
 
 El mismo argumento de la sección anterior, cambiando 0.95 por $q$, da:
@@ -317,7 +315,7 @@ $$
 
 ```
 
-Recordad que en los IC-0.95, $q=0.95$ y por tanto $(1+q)/2=1. 95/2=0.975$. La fórmula de la sección anterior es un caso particular de esta.
+La fórmula de la sección anterior es un caso particular de esta, porque en los IC-0.95, $q=0.95$ y por lo tanto $(1+q)/2=1.95/2=0.975$. 
 
 Usando el Teorema Central del Límite y algunas aproximaciones, tenemos el siguiente resultado:
 
@@ -346,28 +344,28 @@ Observad que la estructura del IC-$q$ para $\mu$ dado por esta fórmula es
 
 > estimador $\pm$ ($\frac{1+q}{2}$-cuantil de la distr. muestral)$\times$(error típico de la muestra)
 
-Esta estructura es muy típica (pero no todos los intervalos de confianza paramétricos tienen esta forma, ¿eh?) y cumple que:
+Esta estructura es muy típica (pero no universal: no creáis que todos los intervalos de confianza paramétricos tienen esta forma) y cumple que:
 
 * El intervalo de confianza está centrado en la estimación puntual.
 
-* La "probabilidad de equivocarnos" se reparte por igual a los dos lados del intervalo: una fracción $q/2$ de las veces el parámetro estará a la izquierda del extremo inferior y una fracción $q/2$ de las veces estará a la derecha del extremo superior.
+* La "probabilidad de equivocarnos" se reparte por igual a los dos lados del intervalo: en una fracción $q/2$ de las veces que aplicamos la fórmula, el valor real del parámetro estará a la izquierda del extremo inferior y en otra fracción $q/2$ de estas ocasiones estará a la derecha del extremo superior.
 
-Además, tenemos que:
-
-* Para una misma muestra y una misma fórmula (paramétrica) para calcular el intervalo de confianza, si el nivel de confianza crece, el intervalo se ensancha.
+```{block2,type="rmdimportant"}
+Para una misma muestra y una misma fórmula (paramétrica) para calcular el intervalo de confianza, si el nivel de confianza crece, el intervalo se ensancha.
+```
 
 Esto es general, **para todos los intervalos de confianza paramétricos**. La idea intuitiva es que, para estar más seguros de que un intervalo contiene un valor, el intervalo tiene que ser más ancho. En un intervalo de confianza con la estructura descrita hace un momento, el motivo matemático es que a mayor $q$, mayor $(1+q)/2$-cuantil de la distribución muestral.
 
-Por ejemplo, en el Ejemplo \@ref(exm:alcohol1), teníamos $n=40$, $\overline{x}=41. 2$ y $\widetilde{s}=2.1$:
+Por ejemplo, en el Ejemplo \@ref(exm:alcohol1), teníamos $n=40$, $\overline{x}=41.2$ y $\widetilde{s}=2.1$:
 
 * El IC-95% tiene $q=0.95$, por lo tanto $t_{n-1,(1+q)/2}=t_{39,0.975}=2.02$, y daba 
 $$
-41. 2\pm 2.02\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41. 2\pm 0.67
+41.2\pm 2.02\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67
 $$
 
 * El IC-99% tiene $q=0.99$, por lo tanto $t_{n-1,(1+q)/2}=t_{39,0.995}=2.71$, y da
 $$
-41. 2\pm 2.71\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41. 2\pm 0.9
+41.2\pm 2.71\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.9
 $$
 más ancho
 
@@ -380,7 +378,7 @@ más ancho
 Supongamos que tenemos una variable Bernoulli $X$ con probabilidad poblacional de éxito $p_X$ desconocida. Queremos calcular un intervalo de confianza para $p_X$. 
 Para hacerlo, tomamos una muestra aleatoria simple de $X$ de tamaño $n$, con número de éxitos $S$ y por tanto proporción muestral de éxitos $\widehat{p}_{X}=S/n$
 
-Explicaremos tres métodos para calcular este intervalo de confianza:
+Explicaremos tres métodos para calcular este intervalo de confianza: el método de Clopper-Pearson, el de Wilson y el de Laplace.
 
 
 
@@ -421,19 +419,18 @@ $$
 
 Fijaos en que:
 
-* Este método no se puede usar con muestras de cualquier tamaño, han de ser grandes para poder invocar el Teorema Central del Límite.
-* El centro del intervalo vuelve a no ser $\widehat{p}_X$.
-* Se basa en la aproximación a la normal dada por el Teorema Central del Límite, y por lo tanto el intervalo resultante es un intervalo de confianza "aproximado", no exacto como el de Clopper-Pearson. Esto no es un gran problema, porque total, la muestra usada seguramente tampoco será simple. 
+* Este método no se puede usar con muestras de cualquier tamaño, han de ser lo bastante  grandes como para poder invocar el Teorema Central del Límite.
+* El centro del intervalo no es $\widehat{p}_X$.
+* Se basa en la aproximación a la normal dada por el Teorema Central del Límite, y por lo tanto el intervalo resultante es un intervalo de confianza "aproximado", no exacto como el de Clopper-Pearson. Esto no es un gran problema, porque total, la muestra usada seguramente tampoco será aleatoria simple. 
 
 
 
 #### Fórmula de Laplace {-}
 
-Supongamos finalmente que tomamos una muestra aleatoria simple de $X$ de tamaño $n$ todavía más grande y que el valor de $\widehat{p}_{X}$ no es muy próximo ni a 0 ni a 1.  Para fijar ideas, supongamos que:
+Supongamos finalmente que tomamos una muestra aleatoria simple de $X$ de tamaño $n$ todavía más grande y que el valor de $\widehat{p}_{X}$ no es muy próximo ni a 0 ni a 1.  Para fijar unas condiciones que suelen ser suficientes, supongamos que:
 
-* $n\geq 100$
-* El número de éxitos en la muestra es $\geq 10$
-* El número de fracasos en la muestra es $\geq 10$
+* $n\geq 100$.
+* Tanto el número de éxitos como el número de fracasos en la muestra son $\geq 10$.
 
 
 En este caso, en la fórmula del intervalo de Wilson los términos $z_{(1+q)/{2}}^2/n$ son despreciablemente pequeños comparados con los otros. Si los igualamos a  0, obtenemos la fórmula siguiente:
@@ -491,7 +488,7 @@ Cuando se tiene que calcular "a ojo" un intervalo de confianza del 95% para una 
 
 > **Regla del 3:** Cuando en una muestra aleatoria simple de tamaño $n$ de una variable aleatoria de Bernoulli de parámetro $p_X$ no encontramos ningún éxito, un IC-95% para $p_X$ va, aproximadamente, de 0 a $3/n$.
 
-Con esta regla, en nuestro ejemplo con $n=20$ obtendríem el intervalo [0,3/20]=[0,0.15], no muy lejos del [0,0.1684] que hemos obtenido. 
+Con esta regla, en nuestro ejemplo con $n=20$ obtendríamos el intervalo [0,3/20]=[0,0.15], no muy lejos del [0,0.1684] que hemos obtenido. 
 
 Para ver como la regla del 3 aproxima el intervalo de Clopper-Pearson, el gráfico siguiente muestra los valores $3/n$ y el extremo superior del IC-95% de Clopper-Pearson a partir de una muestra de tamaño $n$ con 0 éxitos:
 
@@ -530,13 +527,13 @@ En un ensayo de un tratamiento de quimioterapia, en una muestra de 100 pacientes
 
 ```
 
-En este caso podemos emplear los tres métodos.
+En este caso podemos usar los tres métodos.
 
 * Clopper-Pearson, porque se puede usar siempre
 * Wilson, porque $n=100\geq 40$
-* Laplace, porque $n\geq 100$, hay $25\geq 10$ éxitos y $75\geq 10$ fracasos.
+* Laplace, porque $n\geq 100$ y hay más de 10 éxitos y más de 10 fracasos.
 
-Vamos a aplicar la fórmula de Laplace, que es la única que es sensato calcular a mano (y es la que os recomendamos usar si podéis). Tenemos que $\widehat{p}_{X}=25/100=0.25$ y, como $z_{0.975}=1.96$. Da:
+Vamos a aplicar la fórmula de Laplace, que es la única que es sensato calcular a mano (y es la que os recomendamos usar si podéis). Tenemos que $\widehat{p}_{X}=25/100=0.25$ y $z_{0.975}=1.96$. Da:
 $$
 0.25\pm 1.96\sqrt{\frac{0.25\cdot 0.75}{100}}=0.25\pm 0.085\Rightarrow [0.165, 0.335]
 $$
@@ -547,29 +544,31 @@ Por si os interesan:
 * El intervalo de Clopper-Pearson da [0.169, 0.347]
 * El intervalo de Wilson da [0.175, 0.343]
 
-Como podéis ver, los tres dan muy parecidos, con diferencias en los extremos de una centésima de punto.
+Como podéis ver, los tres dan muy parecidos, con diferencias en los extremos de un punto porcentual.
 
 #### Cálculo del tamaño de la muestra para fijar el error {-}
 
-El **margen de error** (o la **precisión**) del intervalo de confianza de Laplace es
+Llamaremos **margen de error** (o **error**, **precisión**...) del intervalo de confianza de Laplace a la mitad de su amplitud, es decir, a
 $$
 M= z_{(q+1)/2} \sqrt{\frac{\widehat{p}_{X} (1-\widehat{p}_{X})}{n}}
 $$
-porque el intervalo de confianza de Laplace es $\widehat{p}_X\pm M$ y por lo tanto, si contiene el valor real de $p_X$, el error $|\widehat{p}_X-p_X|$ que cometemos cuando decimos que el valor de $p_X$ es $\widehat{p}_X$ es como máximo $M$.
+Fijaos en que el intervalo de confianza de Laplace es $\widehat{p}_X\pm M$ y por lo tanto, si contiene el valor real de $p_X$, el error $|\widehat{p}_X-p_X|$ que cometemos cuando decimos que el valor de $p_X$ es $\widehat{p}_X$ es como máximo este $M$.
 
 
-Una típica pregunta al diseñar un estudio es ¿de qué tamaño he de tomar la muestra para garantizar que el error en la estimación sea como máximo tal valor concreto?
+Una típica pregunta al diseñar un estudio es ¿de qué tamaño he de tomar la muestra para garantizar que el margen de error en la estimación sea como máximo un valor concreto $M_{max}$?
 En el caso del intervalo de Laplace para una proporción, podemos dar un tamaño $n$ que garantice un error máximo dado valga lo que valga $\widehat{p}_{X}\in [0,1]$.
 
 
 Fijaos que la función $y=p(1-p)$, con $p\in [0,1]$, es una parábola cóncava con vértice en su punto $p=0.5$
+
 ```{r,echo=FALSE}
 curve(x*(1-x),xlim=c(0,1),xlab="p",ylab="",main="Gráfico de y=p(1-p)")
 abline(v=0.5,lty="dashed")
 ```
+
 Por lo tanto, toma su valor máximo en $p=0.5$. Así, pues
 $$
-\widehat{p}_{X} (1-\widehat{p}_{X})\leq 0.5(1-0.5)=0.5^2\texto{ para todo $\widehat{p}_X\in[0,1]$}
+\widehat{p}_{X} (1-\widehat{p}_{X})\leq 0.5(1-0.5)=0.5^2
 $$
 y por lo tanto
 $$
@@ -607,16 +606,16 @@ el error del intervalo de Laplace calculado con una muestra de tamaño $n$ siemp
 ```
 
 ```{example}
-¿Cuál es el menor tamaño de una muestra que nos garantice un error de como máximo 0.05 al estimar una proporción $p_X$ empleando un intervalo de confianza de Laplace del 95%?
+¿Cuál es el menor tamaño de una muestra que nos garantice un error de como máximo 0.05 al estimar una proporción $p_X$ usando un intervalo de confianza de Laplace del 95%?
 
 ```
 
-Por el teorema anterior, para garantizar un error de 0.05 al calcular un IC 95% para una proporción $p_X$ usando la fórmula de Laplace, tenemos que emplear una muestra de tamaño $n$ tal que
+Por el teorema anterior, para garantizar un error de 0.05 al calcular un IC-95% para una proporción $p_X$ usando la fórmula de Laplace, tenemos que usar una muestra de tamaño $n$ tal que
 $$
 n\geq \Bigg(\frac{z_{(1+q)/2}}{2M_{max}}\Bigg)^2=\Bigg(\frac{1.96}{0.1}\Bigg)^2=384.16
 $$
 
-El tamaño más pequeño que satisface esta condición es $n=385$.
+El menor tamaño  que satisface esta condición es $n=385$.
 
 ```{block2,type="rmdcaution"}
 La respuesta correcta no es 384, por mucho que 384.16 se redondee a 384. Fijaos en que 384 no es más grande que 384.16.
@@ -632,9 +631,9 @@ Observad tres cosas:
 
 #### "Poblaciones finitas" {-}
 
-En esta sección hasta ahora hemos usado muestras aleatorias simples. Ya sabemos que si tomamos muestras aleatorias sin reposición y la  población es mucho más grande que el tamaño $n$ de las muestras, las fórmulas dadas hasta ahora van a funcionar (aproximadamente) bien. Pero, ¿qué pasa si tomamos muestras aleatorias sin reposición y la población no es mucho más grande que el tamaño $n$ de las muestras? 
+En esta sección hasta ahora hemos usado muestras aleatorias simples. Ya sabemos que si tomamos muestras aleatorias sin reposición y la  población es mucho más grande que el tamaño $n$ de las muestras, las fórmulas que hemos dado siguen funcionando  (aproximadamente) bien. Pero, ¿qué pasa si tomamos muestras aleatorias sin reposición y la población no es mucho más grande que el tamaño $n$ de las muestras? 
 
-Por un lado, hay métodos tipo el de Clopper-Pearson que usan que el número de éxitos en muestras aleatorias sin reposición sigue una distribución hipergeométrica, pero son aun más complicados que el de Clopper-Pearson. Lo que se hace habitualmente es usar la fórmula de Laplace teniendo en cuenta el factor de población finita. Obtenemos por tanto que:
+Por un lado, hay métodos tipo el de Clopper-Pearson que usan que el número de éxitos en muestras aleatorias sin reposición sigue una distribución hipergeométrica, pero son aun más complicados que el de Clopper-Pearson. Lo que se hace cuando se puede es usar la fórmula de Laplace teniendo en cuenta el factor de población finita:
 
 * Si $X$ una variable aleatoria de Bernoulli $Be(p_X)$ definida sobre una población  de tamaño $N$ y tomamos una muestra aleatoria sin reposición de $X$, con $n\geq 100$ y números de éxitos y fracasos $\geq 10$, un intervalo de confianza de nivel de confianza $q$ para $p_X$ es, aproximadamente,
 $$
@@ -644,16 +643,16 @@ $$
 
 * En las condiciones del punto anterior, para obtener un intervalo de confianza de nivel de confianza $q$ para $p_X$ con un margen de error $M_{max}$ en el caso más desfavorable ($\widehat{p}_X=0.5$) habrá que tomar una muestra de tamaño
 $$
-n\geq \frac{Nz_{(q+1)/2}^2}{4M_{max}^2(N-1)+z_{(q+1)/2}^2}
+n\geq \frac{Nz_{(q+1)/2}^2}{4(N-1)M_{max}^2+z_{(q+1)/2}^2}
 $$
 
 ```{example}
-En una muestra aleatoria de 727 estudiantes (diferentes) de la UIB ($N=12000$), 557 afirmaron haber cometido plagio en algún trabajo durante sus estudios. ¿Cuál sería un intervalo de confianza del 95% para la proporción $p_X$ de estudiantes de la UIB que han cometido plagio en algún trabajo?
+En una muestra aleatoria de 727 estudiantes diferentes de la UIB ($N=12000$), 557 afirmaron haber cometido plagio en algún trabajo durante sus estudios. ¿Cuál sería un intervalo de confianza del 95% para la proporción $p_X$ de estudiantes de la UIB que han cometido plagio en algún trabajo?
 
 
 ```
 
-Una muestra de 727 estudiantes diferentes es muy grande respecto del total de estudiantes de la UIB, por lo cual conviene emplear la fórmula de Laplace con el factor de población finita
+Una muestra de 727 estudiantes diferentes es muy grande respecto del total de estudiantes de la UIB, por lo cual conviene usar la fórmula de Laplace con el factor de población finita
 $$
 \widehat{p}_{X}\pm z_{(q+1)/2}\sqrt{\frac{\widehat{p}_{X}
 (1-\widehat{p}_{X})}{n}}\sqrt{\frac{\vphantom{(}N-n}{N-1}}
@@ -662,7 +661,7 @@ donde $\widehat{p}_{X}=557/727=`r round(557/727,3)`$, $z_{(q+1)/2}=1.96$, $n=727
 $$
 0.766\pm \sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}12000-727}{12000-1}}\Rightarrow [0.751,0.781]
 $$
-Estimamos con un nivel de confianza del 95% que entre un 75.1 y un 78.1 de los estudiantes de la UIB han cometido plagio en algún trabajo.
+Estimamos con un nivel de confianza del 95% que entre un 75.1% y un 78.1% de los estudiantes de la UIB han cometido plagio en algún trabajo.
 
 
 ```{r, echo=FALSE, out.width="80%", fig.cap="https://diari.uib.cat/digitalAssets/125/125740_1_reportatge.pdf"}
@@ -673,11 +672,16 @@ knitr::include_graphics("INREMDN_files/figure-html/plagiuib.png")
 
 ## Intervalos de confianza para diferencias de medias
 
+
+
 Sean $X_1$ y $X_2$ dos variables de medias $\mu_1$ y $\mu_2$, respectivamente.
 Supongamos que queremos calcular un IC-$q$ para la diferencia de medias $\mu_1-\mu_2$.
-Para ello, tomamos una muestra aleatoria simple de tamaño $n_1$ de $X_1$, de media muestral $\overline{X}_1$, y una muestra aleatoria simple de tamaño $n_2$ de $X_2$, de media muestral $\overline{X}_1$. 
+Para ello, tomamos:
 
-Si  $X_1$ y $X_2$ son aproximadamente normales o si las muestras aleatorias simples usadas son grandes (de nuevo, digamos, **ambas de tamaño como mínimo 40**), entonces podemos usar un método paramétrico basado en una distribución t de Student, que da un intervalo de la forma
+* Una muestra aleatoria simple de tamaño $n_1$ de $X_1$, de media muestral $\overline{X}_1$.
+* Una muestra aleatoria simple de tamaño $n_2$ de $X_2$, de media muestral $\overline{X}_2$. 
+
+Si  $X_1$ y $X_2$ son aproximadamente normales o si las muestras aleatorias simples usadas son grandes (de nuevo, digamos, **ambas** de tamaño como mínimo 40), entonces podemos usar un método paramétrico basado en una distribución t de Student, que da un intervalo de la forma
 $$
 \overline{X}_1-\overline{X}_2\pm t_{\nu,(q+1)/2}\times\text{error típico}
 $$
@@ -686,102 +690,52 @@ Pero el número de grados de libertad $\nu$ a usar en el cuantil y el error típ
 
 Por un lado, de que las muestras sean **independientes** (hemos medido $X_1$ y $X_2$ sobre dos muestras obtenidas de manera independiente la una de la otra) o **emparejadas** (hemos medido $X_1$ y $X_2$ sobre los individuos de una misma muestra o hay un emparejamiento natural entre los sujetos de las dos muestras; en particular, si las muestras son emparejadas ha de pasar que $n_1=n_2$).
 
-Y si las muestras son independientes, la fórmula a usar depende de si las varianzas de $X_1$ y $X_2$ son iguales o diferentes.
+Y si las muestras son independientes, la fórmula a usar depende de si las varianzas de $X_1$ y $X_2$ son iguales o diferentes. (¿Y cómo podemos saber si son iguales o diferentes? No os perdáis la próxima lección.)
 
-Os damos las fórmulas, aunque no hace falta saberlas, solo recordar que la fórmula concreta a usar depende de varios factores.
+Os damos las fórmulas, aunque no hace falta saberlas, solo recordar que la fórmula concreta a usar depende de estas condiciones. Supongamos, pues, que  $X_1$ y $X_2$ son aproximadamente normales o  que $n_1,n_2\geq 40$. En estas condiciones:
 
+* Si las muestras son emparejadas y $n_1=n_2=n$, un IC-$q$ para $\mu_1-\mu_2$ es
+$$
+\overline{X}_1-\overline{X}_2\pm t_{n-1,(q+1)/2}\cdot \frac{\widetilde{S}_D}{\sqrt{n}}
+$$
+donde $\widetilde{S}_D$ es la  desviación típica muestral de las diferencias $X_1-X_2$ sobre las parejas de la muestra.
 
+* Si las muestras son independientes y $\sigma_{X_1}^2=\sigma_{X_2}^2$, un IC-$q$ para $\mu_1-\mu_2$ es
+$$
+\overline{X}_1-\overline{X}_2\pm t_{n_1+n_2-2,(q+1)/2} \sqrt{\Big(\frac{1}{n_1}+\frac{1}{n_2}\Big)\cdot 
+\frac{(n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2}
+{n_1+n_2-2}}
+$$
+donde $\widetilde{S}_1^2$ y $\widetilde{S}_2^2$ son las varianzas muestrales de las muestras de $X_1$ y $X_2$, respectivamente.
 
-\begin{frame}
-\frametitle{¿IC para diferencia de medias?}\vspace*{-2ex}
-
-Para comparar las medias de dos vv.aa.\medskip
-\begin{itemize}
-1. Podéis calcular un IC de cada media:
-\begin{itemize} 
-1. Si se solapan, no tenéis evidencia de que las medias sean diferentes
-\begin{center}
-\begin{picture}(250,45)(0,-10)
-\thicklines
-\put(-5,-13){\dashbox{1}(220,57){}}
-\put(0,20){\line(1,0){200}}
-\put(20,10){\red{\line(0,1){20}}}
-\put(100,10){\blue{\line(0,1){20}}}
-\put(120,10){\red{\line(0,1){20}}}
-\put(190,10){\blue{\line(0,1){20}}}
-\put(70,40){\makebox(0,0)[t]{\red{\footnotesize IC para $\mu_1$}}}
-\put(150,40){\makebox(0,0)[t]{\blue{\footnotesize IC para $\mu_2$}}}
-\put(110,15){\makebox(0,0)[t]{$\uparrow$}}
-\put(110,0){\makebox(0,0)[t]{\footnotesize Podría ser $\red{\mu_1}=\blue{\mu_2}$}}
-    \end{picture}
-\end{center}
-
-1. Si no se solapan, tenéis evidencia de que son diferentes (y de cuál es más pequeña)
-\begin{center}
-\begin{picture}(250,45)(0,-10)
-\thicklines
-\put(-5,-13){\dashbox{1}(220,57){}}
-\put(0,20){\line(1,0){200}}
-\put(20,10){\red{\line(0,1){20}}}
-\put(100,10){\red{\line(0,1){20}}}
-\put(120,10){\blue{\line(0,1){20}}}
-\put(190,10){\blue{\line(0,1){20}}}
-\put(60,40){\makebox(0,0)[t]{\red{\footnotesize IC para $\mu_1$}}}
-\put(155,40){\makebox(0,0)[t]{\blue{\footnotesize IC para $\mu_2$}}}
-\put(100,0){\makebox(0,0)[t]{\footnotesize Improbable $\red{\mu_1}=\blue{\mu_2}$; Evidencia de  $\red{\mu_1}<\blue{\mu_2}$}}
-    \end{picture}
-\end{center}
-
-\end{itemize}
-\end{itemize}
-
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{¿IC para diferencia de medias?}\vspace*{-3ex}
-
-\begin{itemize}
-1. O podéis calcular un IC de la diferencia:
-\begin{itemize} 
-1. Si contiene el 0, no tenéis evidencia que las medias sean diferentes
-\begin{center}
-\begin{picture}(250,45)(0,-15)
-\thicklines
-\put(-5,-17){\dashbox{1}(220,60){}}
-\put(0,20){\line(1,0){200}}
-\put(20,10){{\line(0,1){20}}}
-\put(100,10){\blue{\line(0,1){20}}}
-\put(170,10){{\line(0,1){20}}}
-\put(100,40){\makebox(0,0)[t]{{\footnotesize IC para $\mu_1-\mu_2$}}}
-\put(100,5){\makebox(0,0)[t]{0}}
-\put(110,-5){\makebox(0,0)[t]{\footnotesize Podría ser ${\mu_1}-{\mu_2}=0$}}
-    \end{picture}
-\end{center}
+* Si las muestras son independientes y $\sigma_{X_1}^2=\sigma_{X_2}^2$, un IC-$q$ para $\mu_1-\mu_2$ es
+$$
+\overline{X}_1-\overline{X}_2\pm t_{\nu,(q+1)/2}\cdot\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}
+$$
+donde, de nuevo, $\widetilde{S}_1^2$ y $\widetilde{S}_2^2$ son las varianzas muestrales de las muestras de $X_1$ y $X_2$, respectivamente, y
+$$
+\nu=\frac{\displaystyle \left( \frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}\right)^2}{\displaystyle \frac{1}{n_1-1}\left(\frac{\widetilde{S}_1^2}{n_1}\right)^2+\frac{1}{n_2-1}\left(\frac{\widetilde{S}_2^2}{n_2}\right)^2}
+$$
 
 
 
-1. Si no contiene el 0, tenéis evidencia de que son diferentes (y de cuál es más pequeña)
-\begin{center}
-\begin{picture}(250,45)(0,-15)
-\thicklines
-\put(-5,-17){\dashbox{1}(220,60){}}
-\put(0,20){\line(1,0){200}}
-\put(120,10){{\line(0,1){20}}}
-\put(100,10){\blue{\line(0,1){20}}}
-\put(190,10){{\line(0,1){20}}}
-\put(155,40){\makebox(0,0)[t]{{\footnotesize IC para $\mu_1-\mu_2$}}}
-\put(100,5){\makebox(0,0)[t]{0}}
-\put(100,-5){\makebox(0,0)[t]{\footnotesize Improbable ${\mu_1}={\mu_2}$; Evidencia de  ${\mu_1}-{\mu_2}>0$}}
-    \end{picture}
-\end{center}
-\end{itemize}
-\end{itemize}
+## Un intervalo de confianza para la diferencia de proporciones
 
-\red{\bf Recomendable el IC de la diferencia}: Menor margen de error (un IC en lugar de dos)
+Sean $X_1$ y $X_2$ dos variables Bernoulli de probabilidades poblacionales de éxito $p_1$ y $p_2$, respectivamente.  Supongamos que queremos calcular un IC-$q$ para la diferencia de estas probabilidades, $p_1-p_2$. Para ello, tomamos dos muestras **independientes**, una de cada variable:
 
-\end{frame}
+* Una muestra aleatoria simple de tamaño $n_1$ de $X_1$, de proporción muestral $\widehat{p}_1$.
+* Una muestra aleatoria simple de tamaño $n_2$ de $X_2$, de proporción muestral $\widehat{p}_2$.
+
+Si las dos muestras son grandes, pongamos cada una de 50 o más sujetos, y las proporciones muestrales no son muy cercanas a 0 o a 1 (para fijar ideas, que en cada muestra haya como mínimo 5 éxitos y 5 fracasos), un IC-$q$ para la diferencia $p_1-p_2$ es, aproximadamente,
+$$
+\widehat{p}_1-\widehat{p}_2 \pm z_{(q+1)/2}\cdot
+\sqrt{\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\cdot \Big(\frac{n_1 (1-\widehat{p}_1) +n_2( 1-\widehat{p}_2)}{n_1
++n_2}\Big)\cdot \Big(\frac{1}{n_1}+\frac{1}{n_2}
+\Big)}
+$$
+Notad que $n_1 \widehat{p}_1 +n_2 \widehat{p}_2$ es el número total de éxitos y $n_1 (1-\widehat{p}_1) +n_2( 1-\widehat{p}_2)$ el número total de fracasos en las dos muestras.
+
 
 
 
@@ -791,23 +745,23 @@ Para comparar las medias de dos vv.aa.\medskip
 
 1. Un 1% de las concentraciones medias de todas las muestras de cualquier tamaño
 1. Un 1% de las concentraciones medias de las muestras grandes (con $n\geq 40$) 
-1. Un 99% de las concentraciones medias de las muestras de cualquier tamaño
+1. Un 99% de las concentraciones medias  de todas las muestras de cualquier tamaño
 1. Un 1% de todas las concentraciones en la población
 1. Un 99% de todas las concentraciones en la población
 1. Ninguna de las anteriores respuestas es correcta.
 
 
-**(2)**  Para estimar una cierta media poblacional con un nivel de confianza 0.95, hemos usado una muestra de 100 individuos y un método paramétrico y hemos obtenido un IC 95% con un margen de error de 0.02. Si usamos una muestra de 200 individuos y la misma fórmula para calcular el IC, estamos seguros de que (marcad todas las afirmaciones correctas):
+**(2)**  Para estimar una cierta media poblacional con un nivel de confianza 0.95, hemos usado una muestra de 100 individuos y un método paramétrico y hemos obtenido un IC-95% con un margen de error de 0.02. Si usamos una muestra de 200 individuos y la misma fórmula para calcular el IC, estamos seguros de que (marcad todas las afirmaciones correctas):
 
-1. El IC 95% obtenido tendrá un margen de error $<0.02$
-1. El IC 95% obtenido tendrá un margen de error $>0.02$
-1. Si calculamos un IC 99%, su margen de error será $>0.02$
-1. Si calculamos un IC 90%, su margen de error será $>0.02$
+1. El IC-95% obtenido tendrá un margen de error $<0.02$
+1. El IC-95% obtenido tendrá un margen de error $>0.02$
+1. Si calculamos un IC-99%, su margen de error será $>0.02$
+1. Si calculamos un IC-90%, su margen de error será $>0.02$
 1. Ninguna de las otras afirmaciones es correcta 
 
 
 
-**(3)** Para calcular un IC 95% para la media poblacional $\mu$ de un cierto parámetro con la fórmula basada en la t de Student, hemos tomado una muestra aleatoria simple  de 100 individuos con $\overline{x}=2$ y $\widetilde{s}_X^2=0.8$. Si ahora usamos otra muestra aleatoria simple  de 100 individuos y obtenemos $\overline{x}=3$ y $\widetilde{s}_X^2=0.6$, ¿como será el IC 95% que obtengamos? 
+**(3)** Para calcular un IC-95% para la media poblacional $\mu$ de un cierto parámetro con la fórmula basada en la t de Student, hemos tomado una muestra aleatoria simple  de 100 individuos con $\overline{x}=2$ y $\widetilde{s}_X^2=0.8$. Si ahora usamos otra muestra aleatoria simple  de 100 individuos y obtenemos $\overline{x}=3$ y $\widetilde{s}_X^2=0.6$, ¿como será el IC-95% que obtengamos? 
 
 
 1. Igual de ancho que el anterior. 
@@ -815,13 +769,23 @@ Para comparar las medias de dos vv.aa.\medskip
 1. Más ancho que el anterior. 
 1. No podemos saber si el nuevo IC será más ancho, más estrecho o igual de ancho que el anterior. 
 
-**(4)** Un artículo de una revista científica informa de que el intervalo de confianza al 95% del nivel medio de colesterolemia en los adultos atendidos en un Centro de Salud es 192-208. Se aceptó que la variable tenía una distribución normal y el número de pacientes estudiados fue de 100. ¿Cuáles de las siguientes afirmaciones son verdaderas?
+**(4)** Un artículo de una revista científica informa de que el intervalo de confianza del 95% del nivel medio de colesterolemia en los adultos atendidos en un Centro de Salud es 192-208. Se aceptó que la variable tenía una distribución normal y el número de pacientes estudiados fue de 100. ¿Cuáles de las siguientes afirmaciones son verdaderas?
 
 1. Es muy probable que el nivel medio poblacional esté comprendido entre 192 y 208. 
 1. Si se repitiera el estudio muchas veces, en un 95% de ellas se obtendría una media muestral comprendida entre 192 y 208. 
 1. El 95% de los adultos de la población tiene un nivel de colesterolemia comprendido entre 192 y 208. 
 1. La media muestral encontrada en el estudio es de 200.
 1. La desviación típica muestral encontrada en el estudio ha sido aproximadamente 40 o 41. 
+1. Ninguna de las anteriores respuestas es correcta.
+
+**(5)** Un intervalo de confianza del 95% para la media estimado a partir de una muestra (marcad las afirmaciones correctas): 
+
+1. Es un intervalo en el cual, a largo plazo, caen el 95% de las observaciones. 
+1. Es una manera de expresar la precisión de la estimación de la media. 
+1. Es un intervalo que se ha calculado con una fórmula para que incluya la media muestral en el 95% de las  ocasiones que la apliquemos a muestras. 
+1. Es un intervalo que se ha calculado con una fórmula para que incluya la media de la población en el 95% de las 
+ocasiones que la apliquemos a muestras.  
+1. Es una manera de expresar la variabilidad de un conjunto de observaciones. 
 
 
 
