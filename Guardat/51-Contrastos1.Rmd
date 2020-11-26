@@ -550,7 +550,7 @@ La comparación entre la realidad y la decisión resultante de un contraste da l
 
 
 ```{r, echo=FALSE,fig.width=1,out.width="75%"}
-knitr::include_graphics("INREMDN_filas/figure-html/errors.png")
+knitr::include_graphics("INREMDN_files/figure-html/errors.png")
 ```
 
 
@@ -629,7 +629,7 @@ $$
 ```
 
 ```{r, echo=FALSE,fig.width=1,out.width="60%"}
-knitr::include_graphics("INREMDN_filas/figure-html/types.png")
+knitr::include_graphics("INREMDN_files/figure-html/types.png")
 ```
 
 
@@ -679,7 +679,7 @@ Normalmente, se considera peor cometer un error de tipo I que cometer un error d
 El problema es que cuando hacemos que $\alpha$ disminuya, $\beta$ suele aumentar.
 
 ```{r, echo=FALSE,fig.width=5,fig.asp=2}
-knitr::include_graphics("INREMDN_filas/figure-html/columpio.png")
+knitr::include_graphics("INREMDN_files/figure-html/columpio.png")
 ```
 
 ¿Qué se suele hacer? 
@@ -702,17 +702,17 @@ include_graphics2("http://imgs.xkcd.com/comics/significant.png")
 ```
 
 
-## Exemple: El test t {#sec:exttest}
+## Ejemplo: El test t {#sec:exttest}
 
-Ens demanam si els homes joves amb diabetis tenen una concentració de calci en plasma superior a la dels homes joves sans. Ho traduirem en un contrast d'hipòtesis sobre la concentració mitjana de calci en plasma en els homes joves amb diabetis, diguem-li $\mu$: 
+Supongamos que nos preguntamos si los hombres jóvenes con diabetes tienen una concentración de calcio en plasma superior a la de los hombres jóvenes sanos. Traducimos esta cuestión en un contraste de hipótesis sobre la concentración media de calcio en plasma en los hombres jóvenes con diabetes, a la que llamaremos $\mu$:
 
-* La hipòtesi nul·la serà que no hi ha diferència entre $\mu$ i la concentració mitjana de calci en plasma en els homes joves sans, és a dir, que són iguals
+* La hipótesis nula será que no hay diferencia entre $\mu$ y la concentración media de calcio en plasma en los hombres jóvenes sanos, es decir, que son iguales
 
-* La hipòtesi alternativa és d'allò que cercam evidència: que $\mu$ és més gran que la concentració mitjana de calci en plasma en els homes joves sans.
+* La hipótesis alternativa es de lo que buscamos evidencia: que $\mu$ es mayor que la concentración media de calcio en plasma en los hombres jóvenes sanos.
 
-Se sap que la concentració de calci en plasma en homes sans segueix una llei aproximadament normal. El seu valor mitjà en homes sans de 22 a 44 anys s'estima en 2.5 mmol/l. 
+Se sabe que la concentración de calcio en plasma en hombres sanos sigue una ley aproximadamente normal. Su valor medio en hombres sanos de 22 a 44 años se estima en 2.5 mmol/l. 
 
-Per tant, el contrast que volem realitzar és 
+Por lo tanto, el contraste que queremos realizar es 
 $$
 \left\{\begin{array}{l}
 H_{0}:\mu=2.5\\ 
@@ -721,12 +721,13 @@ H_{1}:\mu >2.5
 \right.
 $$
 
-En una mostra de 20 diabètics d'aquesta franja d'edat, es va obtenir una concentració mitjana de calci $\overline{x}=3.2$ mmol/l amb una desviació típica mostral $\widetilde{s}=1.5$. Suposem que aquesta mostra de diabètics joves és representativa i raonablement aleatòria. Volem decidir el contrast a partir d'aquesta mostra.
-
-Diguem $X$ a la variable aleatòria "Prenem un home diabètic de 22 a 44 anys i li mesuram la concentració de calci en plasma en mmol/l". Aquesta variable $X$ també segueix una llei normal, però ara no sabem la seva mitjana $\mu$ i volem contrastar si és més gran que 2.5 o no.
+En una muestra de 20 diabéticos de esta franja de edad, se obtuvo una concentración media de calcio en plasma de $\overline{x}=3.2$ mmol/l con una desviación típica muestral $\widetilde{s}=1.5$. Vamos a suponer que podemos considerar esta muestra de diabéticos jóvenes como aleatoria. 
 
 
-La nostra situació, doncs, és un cas particular del cas general següent. Tenim una variable aleatòria poblacional $X\sim N(\mu,\sigma)$ i plantejam el contrast
+Llamemos $X$ a la variable aleatoria "Tomamos un hombre diabético de 22 a 44 años y le medimos la concentración de calcio en plasma en mmol/l". Esta variable $X$ también sigue una ley normal, pero ahora no sabemos su media $\mu$ y queremos contrastar si es mayor que 2.5 o no.
+
+
+Nuestra situación, pues, es un caso particular del caso general siguiente. Tenemos una variable aleatoria poblacional $X\sim N(\mu,\sigma)$ y planteamos el contraste
 $$
 \left\{\begin{array}{l}
 H_{0}:\mu=\mu_0\\ 
@@ -734,30 +735,30 @@ H_{1}:\mu >\mu_0
 \end{array}
 \right.
 $$
-per a un valor concret $\mu_0$. Volem prendre una decisió a partir d'una mostra aleatòria simple.
+para un valor concreto $\mu_0$. Queremos tomar una decisión a partir de una muestra aleatoria simple.
 
-En aquesta situació, si $H_0$ és vertadera, és a dir, si la mitjana de $X$ és $\mu_0$, sabem que
+En esta situación, si $H_0$ es verdadera, es decir, si la media de $X$ es $\mu_0$, sabemos que
 $$
 T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\sim t_{n-1}
 $$
 
-La idea que guiarà el procediment per prendre una decisió en aquest contrast serà:
+La idea que guiará el procedimiento para tomar una decisión en este contraste será:
 
-> Rebutjarem $H_0$ en favor de $H_1$ si aquest *estadístic de contrast* $T$ pren un valor "molt gran" sobre la mostra, és a dir, si $\overline{X}$ és "molts errors típics" més gran que $\mu_0$.
+> Rechazaremos $H_0$ en favor de $H_1$ si este **estadístico de contraste** $T$ toma un valor "muy grande" sobre la muestra, es decir, si $\overline{X}$ es "muchos errores típicos" mayor que $\mu_0$.
 
-La definició precisa de "molt gran" dependrà del valor d'$\alpha$ que volguem prendre, és a dir, de la probabilitat de cometre un error de tipus I que estiguem disposats a assumir. 
+La definición precisa de "muy grande" dependerá del valor de $\alpha$ que queramos tomar, es decir, de la probabilidad de cometer un error de tipo I que estemos dispuestos a asumir. 
 
 ```{block2,type="rmdrecordau"}
-En Biologia i Bioquímica usualment es pren $\alpha=0.05$: una mica menys que la probabilitat de treure 4 cares seguides amb una moneda equilibrada.
+Es costumbre tomar $\alpha=0.05$: algo menos que la probabilidad de sacar 4 caras seguidas con una moneda equilibrada.
 ```
 
-Aquí ara prendrem aquest mateix nivell de significació $\alpha=0.05$. És a dir, acceptarem que la probabilitat d'equivocar-nos rebutjant $H_0$ en favor de $H_1$ és 0.05, o el que és el mateix, ens permetrem cometre un error de tipus I una vegada de cada 20  que la hipòtesi nul·la sigui vertadera.
+Vamos a tomar aquí este mismo nivel de significación $\alpha=0.05$. Es decir, aceptaremos una probabilidad de equivocarnos rechazando $H_0$ en favor de $H_1$ de 0.05, o lo que es el mismo, nos permitiremos cometer, de media, un error de tipo I una vez de cada 20 que la hipótesis nula sea verdadera.
 
-Sigui $T_0$ el valor que pren l'estadístic de contrast $T$ en la nostra mostra.  Rebutjarem $H_{0}$ si $T_0$ és més gran que un cert llindar $L_0$, que determinam a partir de $\alpha$:
+Sea $T_0$ el valor que toma el estadístico de contraste $T$ en nuestra muestra. Rechazaremos $H_{0}$ si $T_0$ es más grande que cierto umbral $L_0$, que determinamos a partir de $\alpha$:
 
 $$
 \begin{array}{l}
-\alpha = P(\text{Rebutjar } H_{0}| H_{0} \text{ certa})=P(T> L_0)\\
+\alpha = P(\text{Rechazar } H_{0}| H_{0} \text{ cierta})=P(T> L_0)\\
 \qquad\quad \Longrightarrow 1-\alpha= P(T\leq L_0)\Longrightarrow 
 L_0= t_{n-1,1-\alpha}
 \end{array}
@@ -769,12 +770,12 @@ x <- seq(-3.2,3.2,.05)
 plot(x,dt(x,n),type="l",xlab="",ylab="",xlim=c(-3.2,3.2),ylim=c(0,.4),bty="n",xaxt="n",yaxt="n",lwd=3)
 abline(h=0)
 polysection <- function(a,b,col="blue",n=11){
-  dx <- seq(a,b,length.out=n)
-  polygon(c(a,dx,b),c(0,dt(dx,n),0),border=NA,col=col)
+dx <- seq(a,b,length.out=n)
+polygon(c(a,dx,b),c(0,dt(dx,n),0),border=NA,col=col)
 }
 
-for(i in 2:3){
-  polysection(i,i+1,col="light blue")
+for(y in 2:3){
+polysection(y,y+1,col="light blue")
 }
 points(x,dt(x,n),type="l",lwd=3)
 abline(h=0)
@@ -787,13 +788,13 @@ text(3,0.12,expression(alpha),cex=2)
 
 
 
-Per tant, a fi que el nivell de significació del contrast sigui $\alpha$, 
+Por lo tanto, para que el nivel de significación del contraste sea $\alpha$, 
 
-> Rebutjarem $H_0$ si $T_0>t_{n-1,1-\alpha}$
+> Rechazaremos $H_0$ si $T_0>t_{n-1,1-\alpha}$
 
-En direm una **regla de rebuig** per aquest tipus de contrast.
+Llamaremos a esta regla la **regla de rechazo** para este tipo de contraste.
 
-Tornem al nostre exemple dels diabètics 
+Volvamos a nuestro ejemplo de los jóvenes diabéticos 
 $$
 \left\{\begin{array}{l}
 H_{0}:\mu=2.5\\ 
@@ -801,9 +802,9 @@ H_{1}:\mu > 2.5
 \end{array}
 \right.
 $$
-Si $\alpha=0.05$ i $n=20$, el llindar a partir del qual rebutjam $H_0$ és $t_{n-1,1-\alpha}=t_{19,0.95}=\texttt{qt(0.95,19)}=1.73$.
+Si $\alpha=0.05$ y $n=20$, el umbral a partir del cual rechazamos $H_0$ es $t_{n-1,1-\alpha}=t_{19,0.95}=$`qt(0.95,19)`=1.73.
 
-A la nostra mostra hi tenim que $\overline{x}=3.2$, $\widetilde{s}=1.5$ i $n=20$, per tant  l'estadístic de contrast val
+En nuestra muestra tenemos que $\overline{x}=3.2$, $\widetilde{s}=1.5$ y $n=20$, por lo tanto el estadístico de contraste vale
 $$
 T_0=\frac{3.2-2.5}{1.5/\sqrt{20}}=2.09
 $$
@@ -814,12 +815,12 @@ x <- seq(-4,4,.05)
 plot(x,dt(x,n),type="l",xlab="",ylab="",xlim=c(-4,4),ylim=c(0,.4),bty="n",xaxt="n",yaxt="n",lwd=2.5)
 abline(h=0)
 polysection <- function(a,b,col,n=11){
-  dx <- seq(a,b,length.out=n)
-  polygon(c(a,dx,b),c(0,dt(dx,n),0),border=NA,col=col)
+dx <- seq(a,b,length.out=n)
+polygon(c(a,dx,b),c(0,dt(dx,n),0),border=NA,col=col)
 }
 
-for(i in 1.7:4){
-  polysection(i,i+1,col="light blue")
+for(y in 1.7:4){
+polysection(y,y+1,col="light blue")
 }
 
 points(x,dt(x,n),type="l",lwd=2.5)
@@ -834,59 +835,63 @@ arrows(2.1,0,2.1,0.2,lwd=1)
 text(2.1,0.22,2.09,cex=1.2)
 segments(1.7,0,1.7,0.4)
 text(3,0.12,0.05,cex=1.2)
-text(3,0.4,"Regió de rebuig", cex=1.2, col="blue")
+text(3,0.4,"Región de rechazo", cex=1.2, col="blue")
 text(3,0.38,"de", cex=1.2, col="blue")
 text(3.44,0.378,expression(H[0]), cex=1.2, col="blue")
 
-text(-2,0.4,"Regió d'acceptació", cex=1.2)
+text(-2,0.4,"Región de aceptación", cex=1.2)
 text(-2.2,0.38,"de", cex=1.2)
 text(-1.76,0.378,expression(H[0]), cex=1.2)
 ```
 
 
 
-Com que $2.09>1.73$, *concloem amb un nivell de significació de 0.05 que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els joves sans.*
+Como $2.09>1.73$, concluimos con un nivel de significación del 5% que el nivel medio de calcio en sangre en los jóvenes diabéticos es mayor que en los jóvenes sanos.
 
 
-Anem a veure com entra en joc el p-valor. Recordem que rebutjarem $H_0$ quan $T_0>t_{n-1,1-\alpha}$:
+Vamos a ver como entra en juego el p-valor. Recordemos que rechazamos $H_0$ cuando $T_0>t_{n-1,1-\alpha}$:
 $$
 \begin{array}{l}
-\text{Rebutjarem $H_0$} \Longleftrightarrow T_0> t_{n-1,1-\alpha}\\
+\text{Rechazamos $H_0$} \Longleftrightarrow T_0> t_{n-1,1-\alpha}\\
 \qquad \Longleftrightarrow P(T\geq T_0)< P(T\geq t_{n-1,1-\alpha})\\
 \qquad \Longleftrightarrow P(T\geq T_0)< 1-P(T\leq t_{n-1,1-\alpha})=1-(1-\alpha)=\alpha\\
 \qquad \Longleftrightarrow P(T\geq T_0)<\alpha
 \end{array}
 $$
 
-I ara observau que $P(T\geq T_0)$ és la probabilitat que, si $H_0$ és vertadera, l'estadístic de contrast $T$ prengui un valor tan  extrem o més, en el sentit de $H_1: \mu>2.5$, que l'obtingut en la nostra mostra, $T_0$: és el *p-valor* del contrast. Per tant, tenim una altra regla de rebuig (equivalent a l'anterior):
+I ahora notad que $P(T\geq T_0)$ es la probabilidad de que, si $H_0$ es verdadera, el estadístico de contraste $T$ tome un valor tan o más extremo, en el sentido de $H_1: \mu>2.5$, que el obtenido en nuestra muestra, $T_0$: ¡es el **p-valor** del contraste! Por lo tanto, tenemos otra regla de rechazo (equivalente a la anterior):
 
-> Rebutjarem $H_0$ quan el  p-valor sigui més petit que $\alpha$
+> Rechazaremos $H_0$ cuando el p-valor sea menor que $\alpha$
 
-En el nostre exemple, ja hem calculat $T_0=2.09$. Llavors,
+En nuestro ejemplo, ya hemos calculado $T_0=2.09$. Entonces,
 $$
-\text{p-valor}  =P(T\geq 2.09)=\texttt{1-pt(2.09,19)} =0.025
+\text{p-valor} =P(T\geq 2.09)=\texttt{1-pt(2.09,19)} =0.025
 $$
-Com que el p-valor és més petit que 0.05, *concloem amb un nivell de significació de 0.05 que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els  sans*.
+Como el p-valor es menor que 0.05, concluimos con un nivel de significación del 5% que el nivel medio de calcio en plasma en los jóvenes diabéticos es mayor que en los jóvenes sanos.
 
-```{r, echo=FALSE,fig.width=1,out.width="35%"}
+```{r, echo=FALSE,out.width="35%"}
 knitr::include_graphics("INREMDN_files/figure-html/pfm.png")
 ```
 
 ```{block2,type="rmdrecordau"}
-D'aquest tipus de procediment, emprant la distribució t de Student de
+A este tipo de procedimiento, usando que de 
 $$
-T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\sim t_{n-1}
+T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}
 $$
-per comparar la $\mu$ d'una variable amb el valor $\mu_0$ en direm un **test t**.
+sigue una distribución t de Student con $n-1$ grados de libertad, $t_{n-1}$, para comparar la $\mu$ de una variable con el valor $\mu_0$ lo llamaremos un **test t**.
 ```
 
 
 
-Fixau-vos que la nostra conclusió ha estat que "concloem amb un *nivell de significació de 0.05* que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els joves sans."
+Fijaos en que nuestra conclusión ha sido que "concluimos con un **nivel de significación del 5%** que el nivel medio de calcio en sangre en los jóvenes diabéticos es mayor que en los jóvenes sanos."
 
-Per tant, *reconeixem una probabilitat d'equivocar-nos del 5%*: Si en realitat el nivell mitjà de calci en sang en els joves diabètics és el mateix que en els sans, la probabilitat que teníem d'equivocar-nos i concloure que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els sans és del 5%.
+Por lo tanto, **reconocemos una probabilidad de equivocarnos del 5%**. Si en realidad el nivel medio de calcio en sangre en los jóvenes diabéticos es el mismo que en los sanos, la probabilidad que tenemos de equivocarnos y concluir que el nivel medio de calcio en sangre en los jóvenes diabéticos es mayor que en los sanos es del 5%.
 
-Anem a estudiar aquesta taxa d'encerts per mitjà d'una simulació.
+```{example}
+Vamos a estudiar esta tasa de aciertos por medio de una simulación.
+
+
+```
 
 Primer suposarem que el nivell mitjà real és 2.5, i simularem la probabilitat d'error de tipus I. Com que estam fent el contrast amb nivell de significació 0.05, esperam al voltant d'un 5% d'errors de tipus I. Per fixar idees, modelarem la població de joves diabètics per mitjà d'una variable aleatòria $N(2.5,0.5)$. La $\sigma=0.5$ ens l'hem inventada. Aprofitam per fixar la llavor d'aleatorietat. 
 
