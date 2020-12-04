@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-11-30" />
+<meta name="date" content="2020-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="contrastes-de-hipótesis" class="section level1">
 <h1><span class="header-section-number">Lección 1</span> Contrastes de hipótesis</h1>
-<p>En muchas situaciones, queremos tomar una <strong>decisión</strong> sobre si podemos aceptar o rechazar una <strong>hipótesis</strong> sobre el valor de un parámetro en una o varias poblaciones. Para tomarla, nos basaremos en los datos de una muestra. Por ejemplo:</p>
+<p>En muchas situaciones, queremos tomar una <strong>decisión</strong> sobre si podemos aceptar o rechazar una <strong>hipótesis</strong> sobre el valor de un parámetro en una o varias poblaciones, y para tomar esta decisión, nos basamos en los datos de una muestra. Por ejemplo:</p>
 <ul>
 <li><p>Queremos saber si una moneda está trucada a favor de cara.</p>
 <p>Para decidirlo, la lanzamos varias veces y contamos cuántas caras salen.</p></li>
@@ -204,7 +204,7 @@ H_{1}:\text{hipótesis alternativa}
 <li><p>Si obtenemos evidencia suficiente de que <span class="math inline">\(H_0\)</span> es falsa, rechazaremos <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> y concluiremos que <span class="math inline">\(H_1\)</span> es verdadera.</p>
 <p>¿Qué quiere decir “obtener evidencia suficiente de que <span class="math inline">\(H_0\)</span> es falsa”? Pues que las pruebas obtenidas hacen que <span class="math inline">\(H_0\)</span> sea <strong>inverosímil</strong> (difícil de creer) por comparación con <span class="math inline">\(H_1\)</span>:</p>
 <ul>
-<li><p>Tendremos evidencia de que la moneda está trucada a favor de cara si en nuestra serie de lanzamientos la proporción de caras es tan y tan grande que hace muy difícil creer que la moneda no está trucada a favor de cara.</p></li>
+<li><p>Tendremos evidencia de que la moneda está trucada a favor de cara si en nuestra serie de lanzamientos la proporción de caras es tan y tan grande que hace muy difícil creer que la moneda no esté trucada a favor de cara.</p></li>
 <li><p>Tendremos evidencia de que el tratamiento A es más efectivo que B en la curación de la enfermedad X si en nuestro ensayo la tasa de curación de la enfermedad X con el tratamiento A es tan y tan superior a la de B que hace muy difícil creer que los dos tratamientos sean iguales de efectivos.</p></li>
 </ul></li>
 <li><p>Si no obtenemos evidencia suficiente de que <span class="math inline">\(H_0\)</span> es falsa, es decir, si nuestros datos son razonablemente compatibles con <span class="math inline">\(H_0\)</span>, no podremos rechazarla. Entonces, aceptaremos la hipótesis nula.</p>
@@ -215,7 +215,7 @@ H_{1}:\text{hipótesis alternativa}
 </ul>
 
 <div class="rmdcaution">
-Si rechazamos <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> <strong>no</strong> será porque hayamos demostrado que <span class="math inline">\(H_0\)</span> sea imposible, ni siquiera que sea improbable: tan solo habremos observado que es difícil de creer que sea verdad vistos los resultados de nuestro experimento.
+Si rechazamos <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> <strong>no</strong> será porque hayamos demostrado que <span class="math inline">\(H_0\)</span> sea imposible, ni siquiera que sea improbable: tan solo habremos observado que es difícil de creer que sea verdad a la vista de los resultados de nuestro experimento.
 </div>
 
 <p>Por ejemplo, si en una secuencia de 30 lanzamientos de una moneda obtenemos todas las veces cara, seguramente lo consideraremos evidencia de que la moneda está trucada, pero <strong>no demuestra que la moneda esté trucada</strong>. Sí, cuesta creer que no esté trucada, pero no es imposible: la moneda podría ser equilibrada y por puro azar nosotros haber tenido esta racha de caras. Y tampoco podemos decir que sea improbable que sea equilibrada, puesto que nosotros sabemos calcular
@@ -231,7 +231,7 @@ P(\text{La moneda es equilibrada}\,|\,\text{30 caras en 30 lanzamientos}).
 Si aceptamos la hipótesis nula es porque no encontramos motivos para dudar de ella, pero no habremos encontrado evidencia de que sea verdadera ni habremos demostrado que sea probable (y posible en principio lo es siempre).
 </div>
 
-<p>Por ejemplo, si en una secuencia de 4 lanzamientos de una moneda obtenemos 2 caras, tendremos que aceptar que la moneda es equilibrada. Pero podría ser que estuviera ligeramente sesgada hacia cara y no haberse notado en una secuencia tan corta de lanzamientos. Así que no hemos encontrado evidencia de que sea equilibrada, simplemente no lo podemos descartar (como no podemos descartar que la probabilidad de cara sea, yo qué sé, 0.50001).</p>
+<p>Por ejemplo, si en una secuencia de 4 lanzamientos de una moneda obtenemos 2 caras, tendremos que aceptar que la moneda es equilibrada. Pero podría ser que estuviera ligeramente sesgada hacia cara y no haberse notado en una secuencia tan corta de lanzamientos. Así que no hemos encontrado evidencia de que sea equilibrada, simplemente no lo podemos descartar (como tampoco podemos descartar que la probabilidad de cara sea, yo qué sé, 0.50001).</p>
 
 <div class="example">
 <p><span id="exm:juicio" class="example"><strong>Ejemplo 1.1  </strong></span>En un juicio (en el que el acusado es inocente si no se demuestra lo contrario, es decir, que estamos dispuestos a aceptar por defecto que es inocente), se busca evidencia de que el acusado es culpable. Por lo tanto, esta es la hipótesis alternativa. Así:</p>
@@ -283,7 +283,7 @@ H_{1}:\text{La persona sí tiene la enfermedad}
 \]</span></p>
 
 <div class="example">
-<p><span id="exm:esport1" class="example"><strong>Ejemplo 1.4  </strong></span>Si leemos la noticia siguiente en el diario, quede que nos preguntemos si es verdad que las mujeres practican menos deporte que los hombres.</p>
+<p><span id="exm:esport1" class="example"><strong>Ejemplo 1.4  </strong></span>Si leemos la noticia siguiente en el diario, puede que nos preguntemos si es verdad que las mujeres practican menos deporte que los hombres.</p>
 </div>
 
 <p><img src="INREMDN_files/figure-html/mujeresdeporte.png" width="75%" style="display: block; margin: auto;" /></p>
@@ -301,12 +301,12 @@ H_{1}:\text{La persona sí tiene la enfermedad}
 <p>En este contraste, las variables poblacionales de interés son:</p>
 <ul>
 <li><p><span class="math inline">\(X_m\)</span>: “Tomo una mujer y calculo su número medio de horas semanales de deporte”, con media <span class="math inline">\(\mu_m\)</span>: la media semanal de horas de deporte de las mujeres (la media de las medias de horas semanales de deporte de todas las mujeres es la media de horas semanales de deporte de las mujeres).</p></li>
-<li><p><span class="math inline">\(X_h\)</span>: “Tomo un hombre y calculo su número medio de horas semanales de deporte”, con media <span class="math inline">\(\mu_h\)</span>: la media semanal de horas de deporte de los hombres</p></li>
+<li><p><span class="math inline">\(X_h\)</span>: “Tomo un hombre y calculo su número medio de horas semanales de deporte”, con media <span class="math inline">\(\mu_h\)</span>: la media semanal de horas de deporte de los hombres.</p></li>
 </ul>
 <p>El contraste que queremos realizar es</p>
 <ul>
 <li><p><strong>Hipótesis nula</strong>: no hay diferencia entre las medias semanales de horas de deporte de hombres y mujeres.</p></li>
-<li><p>**Hipótesis alternativa*: la media semanal de horas de deporte de las mujeres es más pequeña que la de los hombres.</p></li>
+<li><p><strong>Hipótesis alternativa</strong>: la media semanal de horas de deporte de las mujeres es más pequeña que la de los hombres.</p></li>
 </ul>
 <p>Es decir
 <span class="math display">\[
@@ -326,7 +326,7 @@ H_{1}:\mu_m&lt;\mu_h
 </ul>
 <p>¿Qué significa “<span class="math inline">\(\overline{X}_m\)</span> mucho menor que <span class="math inline">\(\overline{X}_h\)</span>”? Una opción, que podríamos importar del tema anterior, seria calcular un intervalo de confianza del 95% para <span class="math inline">\(\mu_m-\mu_h\)</span> a partir de la muestra. Entonces:</p>
 <ul>
-<li><p>Si estuviera totalmente a la izquierda del 0, con un 95% de confianza podríamos concluir que <span class="math inline">\(\mu_m&lt;\mu_h\)</span>.</p></li>
+<li><p>Si estuviera totalmente a la izquierda del 0, con un 95% de confianza podríamos concluir que <span class="math inline">\(\mu_m&lt;\mu_h\)</span> (porque tendríamos un 95% de seguridad de que el valor real de la diferencia <span class="math inline">\(\mu_m-\mu_h\)</span> pertenece a un intervalo de números estrictamente negativos).</p></li>
 <li><p>En caso contrario (si contuviera el 0 o si estuviera totalmente a la derecha del 0), con un 95% de confianza no podríamos concluir que <span class="math inline">\(\mu_m&lt;\mu_h\)</span>.</p></li>
 </ul>
 <p>Aquí querremos afinar un poco más que lo del “nivel de confianza”, por lo que el procedimiento será algo más complicado (básicamente, la idea es que vamos a usar diferentes fórmulas para calcular los intervalos de confianza según la forma de la hipótesis alternativa).</p>
@@ -347,10 +347,10 @@ La falta de evidencia en favor de <span class="math inline">\(H_1\)</span> no es
 <p>Simplemente, significará que la evidencia a favor de <span class="math inline">\(H_1\)</span> <strong>no ha sido lo bastante fuerte como para poder afirmar que es verdadera</strong> y por tanto aceptamos que ambos sexos practican de media la misma cantidad de deporte semanal.</p>
 
 <div class="rmdcaution">
-En general, nunca podremos encontrar evidencia de la hipótesis nula.
+De hecho, nunca podremos encontrar evidencia de la hipótesis nula.
 </div>
 
-<p>Si por ejemplo en nuestro estudio hubiéramos encontrado que <span class="math inline">\(\overline{X}_m=\overline{X}_h\)</span>, esto sería compatible con la hipótesis nula <span class="math inline">\(\mu_m=\mu_h\)</span>, y por eso no la podríamos rechazar, pero no aportaría evidencia de que <span class="math inline">\(\mu_m=\mu_h\)</span>, puesto que seguramente también sería compatible, por ejemplo, con <span class="math inline">\(\mu_m=\mu_h+0.0007\)</span> (las mujeres hacen, de media, un minuto más de deporte en la semana que los hombres).</p>
+<p>Si por ejemplo en nuestro estudio hubiéramos encontrado que <span class="math inline">\(\overline{X}_m=\overline{X}_h\)</span>, esto sería compatible con la hipótesis nula <span class="math inline">\(\mu_m=\mu_h\)</span>, y por eso no la podríamos rechazar, pero no aportaría evidencia de que <span class="math inline">\(\mu_m=\mu_h\)</span>, puesto que seguramente también sería compatible, por ejemplo, con <span class="math inline">\(\mu_m=\mu_h+0.0007\)</span> (las mujeres hacen, de media, un minuto más de deporte a la semana que los hombres).</p>
 
 <div class="rmdcaution">
 La pregunta (el contraste) os lo tenéis que plantear <em>a priori</em> a partir de hipótesis o suposiciones previas, antes de llevar a cabo la recolección de datos. No vale cambiar de contraste a la vista de los datos obtenidos.
@@ -364,7 +364,7 @@ H_{1}:\mu_m&lt;\mu_h
 \end{array}
 \right.
 \]</span>
-y obtenemos que <span class="math inline">\(\overline{X}_m\)</span> es mucho mayor que <span class="math inline">\(\overline{X}_h\)</span> en nuestra muestra, concluimos que no tenemos evidencia que <span class="math inline">\(\mu_m&lt;\mu_h\)</span> y punto. <strong>Sería hacer trampas</strong> decir: “No hemos encontrado evidencia de que las mujeres practiquen menos deporte que los hombres, pero si con estos mismos datos realizamos el contraste
+y obtenemos que <span class="math inline">\(\overline{X}_m\)</span> es mucho mayor que <span class="math inline">\(\overline{X}_h\)</span> en nuestra muestra, concluimos que no tenemos evidencia de que <span class="math inline">\(\mu_m&lt;\mu_h\)</span> y punto. <strong>Sería hacer trampas</strong> decir: “No hemos encontrado evidencia de que las mujeres practiquen menos deporte que los hombres, pero si con estos mismos datos realizamos el contraste
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}: \mu_m=\mu_h\\ 
@@ -408,13 +408,13 @@ que traduce la pregunta “Los hombres y las mujeres, de media, ¿practican depo
 </div></li>
 </ul></li>
 </ul>
-<p>Los contrastes toman el nombre del tipo de hipótesis alternativa: <strong>contraste unilateral</strong>, <strong>de dos colas</strong>, etc.</p>
+<p>Los contrastes toman el nombre del tipo de hipótesis alternativa: <strong>contraste unilateral</strong>, <strong>contraste de dos colas</strong>, etc.</p>
 </div>
 <div id="sec:moneda" class="section level2">
 <h2><span class="header-section-number">1.2</span> Un ejemplo</h2>
-<p>Tengo una moneda, y creo que está trucada en favor de cara. Quiero contrastarlo.</p>
-<p>Aquí la variable aleatoria <span class="math inline">\(X\)</span> que nos interesa es “Lanzo la moneda y miro si sale cara”, que es Bernoulli con probabilidad de éxito (es decir, probabilidad de sacar cara con mi moneda) <span class="math inline">\(p_{\mathit{Cara}}\)</span>.</p>
-<p>La hipótesis nula será que la moneda no está trucada (no le pasa nada a mi moneda), y la alternativa (de la que busco evidencia), que la moneda está trucada en favor de cara. En términos de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contraste es
+<p>Tenemos una moneda, y creemos que está trucada en favor de cara. Queremos contrastarlo.</p>
+<p>Aquí la variable aleatoria <span class="math inline">\(X\)</span> que nos interesa es “lanzamos la moneda y miro si sale cara”, que es Bernoulli con probabilidad de éxito (es decir, probabilidad de sacar cara con nuestra moneda) <span class="math inline">\(p_{\mathit{Cara}}\)</span>.</p>
+<p>La hipótesis nula será que la moneda no está trucada (no le pasa nada a nuestra moneda), y la alternativa (de la que busco evidencia), que la moneda está trucada en favor de cara. En términos de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contraste es
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -424,22 +424,22 @@ H_{1}:p_{\mathit{Cara}}&gt; 0.5
 \]</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-20" class="example"><strong>Ejemplo 1.5  </strong></span>Supongamos que lanzo la moneda 3 veces y obtengo 3 caras. ¿Es evidencia suficiente de que está trucada?</p>
+<p><span id="exm:unnamed-chunk-20" class="example"><strong>Ejemplo 1.5  </strong></span>Supongamos que lanzamos la moneda 3 veces y obtenemos 3 caras. ¿Es evidencia suficiente de que está trucada?</p>
 </div>
 
 <p>Llamemos <span class="math inline">\(S_3\)</span> a la variable aleatoria “Número de caras en 3 lanzamientos de esta moneda.” Si la moneda no está trucada, <span class="math inline">\(S_3\)</span> es binomial <span class="math inline">\(B(3,0.5)\)</span>, y por lo tanto
 <span class="math display">\[
 P(S_3=3)=0.5^{3}=0.125.
 \]</span></p>
-<p>El resultado obtenido no es muy improbable con una moneda equilibrada: pasa, de media, en 1 de cada 8 secuencias de 3 lanzamientos. Por lo tanto, no creo que sea evidencia suficiente de que la moneda esté trucada. Acepto que la moneda es equilibrada.</p>
+<p>El resultado obtenido no es muy improbable con una moneda equilibrada: pasa, de media, en 1 de cada 8 secuencias de 3 lanzamientos. Por lo tanto, no vamos a considerarlo evidencia suficiente de que la moneda esté trucada. Aceptamos que la moneda es equilibrada.</p>
 
 <div class="rmdrecordau">
-A este tipo de procedimiento, usar la distribución binomial del número de éxitos en una muestra aleatoria simple para contrastar un valor de la probabilidad poblacional de éxito, lo llamaremos un <strong>test binomial</strong>.
+A este tipo de procedimiento, usar la distribución binomial del número de éxitos en una muestra aleatoria simple de una variable aleatoria de Bernoulli para contrastar un valor de su probabilidad poblacional de éxito, lo llamaremos un <strong>test binomial</strong>.
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-22" class="example"><strong>Ejemplo 1.6  </strong></span>Supongamos que ahora lanzo la moneda 10 veces y obtengo 10 caras. ¿Es evidencia suficiente de que está trucada?</p>
+<p><span id="exm:unnamed-chunk-22" class="example"><strong>Ejemplo 1.6  </strong></span>Supongamos que ahora lanzamos la moneda 10 veces y obtenemos 10 caras. ¿Es evidencia suficiente de que está trucada?</p>
 </div>
 
 <p>Llamemos <span class="math inline">\(S_{10}\)</span> a la variable aleatoria “Número de caras en 10 lanzamientos.” Si la moneda no está trucada, <span class="math inline">\(S_{10}\)</span> es <span class="math inline">\(B(10,0.5)\)</span> y por lo tanto
@@ -461,12 +461,12 @@ H_{1}:p_{\mathit{Cara}}&gt; 0.5
 \end{array}
 \right.
 \]</span></p></li>
-<li><p>Hemos recogido una muestra aleatoria: la secuencia de lanzamientos.</p></li>
+<li><p>Hemos recogido una muestra aleatoria simple de valores: la secuencia de lanzamientos.</p></li>
 <li><p>Hemos elegido un <strong>estadístico de contraste</strong> con distribución muestral conocida cuando <span class="math inline">\(H_0\)</span> es verdadera: en nuestro caso, el número de caras.</p></li>
 <li><p>Hemos calculado el valor de este estadístico sobre nuestra muestra.</p></li>
 <li><p>Hemos calculado la probabilidad de que el estadístico tome el valor observado si <span class="math inline">\(H_0\)</span> es verdadera.</p></li>
 <li><p>Si esta probabilidad es muy pequeña, lo consideramos evidencia de que <span class="math inline">\(H_1\)</span> es verdadera</p></li>
-<li><p>Si no es lo bastante pequeña, no tenemos evidencia que <span class="math inline">\(H_0\)</span> sea falsa.</p></li>
+<li><p>Si no es lo bastante pequeña, no tenemos evidencia de que <span class="math inline">\(H_0\)</span> sea falsa.</p></li>
 </ol>
 <p>Bien, esto es lo que hemos hecho, pero no es del todo correcto. En los puntos (5) y (6) decimos que: “Calculamos la probabilidad de que el estadístico tome el valor observado si <span class="math inline">\(H_0\)</span> es verdadera y si es muy pequeña, lo consideramos evidencia de que <span class="math inline">\(H_1\)</span> es verdadera.” ¿Seguro que queremos hacer esto?</p>
 <ul>
@@ -478,13 +478,13 @@ P(S_{10}=0)=0.5^{10}=0.001
 <span class="math display">\[
 \binom{10000}{5000}0.5^{10000}=0.008
 \]</span>
-muy pequeña, pero claramente que la mitad de lanzamientos den cara no puede ser evidencia de que la moneda esté trucada.</p></li>
+muy pequeña, pero claramente que la mitad de lanzamientos den cara no puede ser evidencia de que la moneda esté trucada.</p>
+<p>O, más exagerado aún, si el estadístico de contraste es una variable continua, la probabilidad de que tome un valor concreto, el que sea, es 0. Más pequeño imposible, pero no siempre rechazaremos la hipótesis nula.</p></li>
 </ul>
-<p>O, más exagerado aún, si el estadístico de contraste es una variable continua, la probabilidad de que tome un valor concreto, el que sea, es 0. Más pequeño imposible, pero no siempre rechazaremos la hipótesis nula.</p>
 <p>Así que:</p>
 
 <div class="rmdrecordau">
-En realidad, en (5) se calcula la probabilidad de que, si <span class="math inline">\(H_0\)</span> es verdadera, el estadístico tome un valor tan extremo o más (en el sentido de <span class="math inline">\(H_1\)</span>) que el obtenido. A esta probabilidad la llamamos el <strong>p-valor</strong>.
+En realidad, en (5) se calcula la probabilidad de que, si <span class="math inline">\(H_0\)</span> es verdadera, el estadístico tome un valor tan extremo o más, en el sentido de <span class="math inline">\(H_1\)</span>, que el obtenido. A esta probabilidad la llamamos el <strong>p-valor</strong>.
 </div>
 
 <p>En nuestro ejemplo de la moneda, como la hipótesis nula es <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span> y la hipótesis alternativa es <span class="math inline">\(p_{\mathit{Cara}}&gt; 0.5\)</span>, el p-valor es la probabilidad de que, si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>, el número de caras sea igual o mayor que el obtenido en nuestra muestra.</p>
@@ -499,7 +499,7 @@ H_{1}:p_{\mathit{Cara}}&gt; 0.5
 \end{array}
 \right.
 \]</span>
-Supongamos que lanzo la moneda 10 veces y obtengo 7 caras. ¿Es evidencia suficiente de que está trucada?</p>
+Supongamos que lanzamos la moneda 10 veces y obtenemos 7 caras. ¿Es evidencia suficiente de que está trucada?</p>
 </div>
 
 <p>Seguimos llamando <span class="math inline">\(S_{10}\)</span> a la variable aleatoria “Número de caras en 10 lanzamientos”. Si la moneda no está trucada, <span class="math inline">\(S_{10}\)</span> es <span class="math inline">\(B(10,0.5)\)</span>. Como la hipótesis alternativa es <span class="math inline">\(p_{\mathit{Cara}}&gt; 0.5\)</span>, “obtener un número de caras tan extremo o más que el que hemos obtenido en el sentido de la hipótesis alternativa” es sacar <strong>tantas caras como las que hemos obtenido o más</strong>, es decir sacar 7 o más caras. Por lo tanto
@@ -509,7 +509,7 @@ Supongamos que lanzo la moneda 10 veces y obtengo 7 caras. ¿Es evidencia sufici
 <p>Un resultado tan o más extremo como el obtenido no es muy improbable si la moneda no está trucada: pasaría en 1 de cada 6 veces. Por lo tanto, como es bastante compatible con el hecho que la moneda sea equilibrada, no lo podemos considerar evidencia de que esté trucada a favor de cara.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-25" class="example"><strong>Ejemplo 1.8  </strong></span>Tengo una moneda, y ahora creo que está trucada a favor de cruz. Quiero contrastarlo. Planteado en términos de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contraste que quiero realizar es
+<p><span id="exm:unnamed-chunk-25" class="example"><strong>Ejemplo 1.8  </strong></span>Tenemos una moneda, y ahora creemos que está trucada a favor de cruz. Queremos contrastarlo. Planteado en términos de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contraste que queremos realizar es
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -517,7 +517,7 @@ H_{1}: p_{\mathit{Cara}}&lt; 0.5
 \end{array}
 \right.
 \]</span>
-Suponemos que lanzo la moneda 10 veces y obtengo 1 cara. ¿Es suficiente evidencia de que <span class="math inline">\(p_{\mathit{Cara}}&lt; 0.5\)</span>?</p>
+Lanzamos la moneda 10 veces y obtenemos 1 cara. ¿Es suficiente evidencia de que <span class="math inline">\(p_{\mathit{Cara}}&lt; 0.5\)</span>?</p>
 </div>
 
 <p>Seguimos llamando <span class="math inline">\(S_{10}\)</span> a la variable aleatoria “Número de caras en 10 lanzamientos de esta moneda.” Si la moneda no está trucada, <span class="math inline">\(S_{10}\)</span> es <span class="math inline">\(B(10,0.5)\)</span>.</p>
@@ -540,7 +540,7 @@ Un resultado tan o más extremo como el obtenido es muy improbable si <span clas
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-26" class="example"><strong>Ejemplo 1.9  </strong></span>Supongamos que en el contraste de las medias semanales de horas de deporte de hombres y mujeres del Ejemplo <a href="contrastes-de-hipótesis.html#exm:esport1">1.4</a> usamos como estadístico de contraste la diferencia entre las medias muestrales <span class="math inline">\(\overline{X}_m-\overline{X}_h\)</span> (no será así: !solo es un ejemplo!), que hemos tomado muestras de 50 mujeres y de 50 hombres, y que sobre esta muestra la diferencia de medias muestrales ha sido -1.2. Entonces, el p-valor del contraste es</p>
+<p><span id="exm:unnamed-chunk-26" class="example"><strong>Ejemplo 1.9  </strong></span>Supongamos que en el contraste de las medias semanales de horas de deporte de hombres y mujeres del Ejemplo <a href="contrastes-de-hipótesis.html#exm:esport1">1.4</a> usamos como estadístico de contraste la diferencia entre las medias muestrales <span class="math inline">\(\overline{X}_m-\overline{X}_h\)</span> (no será así: ¡solo es un ejemplo!), que hemos tomado muestras de 50 mujeres y de 50 hombres, y que la diferencia de medias muestrales ha sido -1.2. Entonces, el p-valor del contraste es</p>
 </div>
 
 <ul>
@@ -548,7 +548,7 @@ Un resultado tan o más extremo como el obtenido es muy improbable si <span clas
 <li><p>si la hipótesis nula es verdadera,</p>
 <p>si <span class="math inline">\(\mu_m=\mu_h\)</span>, es decir, si los hombres y las mujeres practican de media el mismo número de horas de deporte a la semana,</p></li>
 <li><p>el estadístico de contraste tome en una muestra aleatoria simple del mismo tamaño que la nuestra</p>
-<p>el valor de <span class="math inline">\(\overline{X}_m-\overline{X}_h\)</span>, es decir, de la diferencia entre las medias muestrales de horas semanales de deporte en las mujeres y en los hombres, de una muestra aleatoria formada por 50 mujeres y 50 hombres</p></li>
+<p>el valor de <span class="math inline">\(\overline{X}_m-\overline{X}_h\)</span>, es decir, de la diferencia entre las medias muestrales de horas semanales de deporte en las mujeres y en los hombres, en una muestra aleatoria formada por 50 mujeres y 50 hombres</p></li>
 <li><p>un valor tan o más extremo, en el sentido de la hipótesis alternativa,</p>
 <p>sea <strong>menor o igual</strong> (porque la hipótesis alternativa es <span class="math inline">\(\mu_m&lt;\mu_h\)</span>, es decir <span class="math inline">\(\mu_m-\mu_h&lt;0\)</span>)</p></li>
 <li><p>que el obtenido con nuestra muestra.</p>
@@ -574,7 +574,7 @@ Un resultado tan o más extremo como el obtenido es muy improbable si <span clas
 </blockquote>
 <p>Por ejemplo, si el p-valor de un contraste vale 0.03:</p>
 <ul>
-<li><p><strong>Significa</strong> que, si <span class="math inline">\(H_0\)</span> es verdadera, la probabilidad de que el estadístico de contraste tome sobre una muestra un valor tan extremo o más que el que hemos obtenido es 0.03.</p>
+<li><p><strong>Significa</strong> que, si <span class="math inline">\(H_0\)</span> es verdadera, la probabilidad de que el estadístico de contraste tome sobre una muestra un valor tan extremo o más, en el sentido de <span class="math inline">\(H_1\)</span>, que el que hemos obtenido es 0.03.</p>
 <ul>
 <li><p><strong>¿Lo encontráis pequeño?</strong> Lo tomáis como evidencia de que <span class="math inline">\(H_0\)</span> es falsa y <span class="math inline">\(H_1\)</span> verdadera.</p></li>
 <li><p><strong>¿No lo encontráis pequeño?</strong> No tenéis evidencia para rechazar que <span class="math inline">\(H_0\)</span> es verdadera.</p></li>
@@ -592,10 +592,10 @@ En un contraste de hipótesis no obtenemos ninguna información directa sobre la
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-29" class="example"><strong>Ejemplo 1.10  </strong></span>Tengo una moneda y creo que está trucada; a favor de cara o a favor de cruz, no lo sé, solo sospecho que está trucada. Quiero contrastarlo.</p>
+<p><span id="exm:unnamed-chunk-29" class="example"><strong>Ejemplo 1.10  </strong></span>Tenemos una moneda y creemos que está trucada; a favor de cara o a favor de cruz, no lo sabemos, solo sospechamos que no es equilibrada. Queremos contrastarlo.</p>
 </div>
 
-<p>Planteado en términos de la probabilidad de sacar cara <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contraste que quiero realizar ahora es
+<p>Planteado en términos de la probabilidad de sacar cara <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contraste que queremos realizar ahora es
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -603,7 +603,7 @@ H_{1}:p_{\mathit{Cara}}\neq 0.5
 \end{array}
 \right.
 \]</span>
-Suponemos que la lanzo 10 veces y obtengo 8 caras. ¿Es evidencia suficiente de que está trucada?</p>
+Suponemos que la lanzamos 10 veces y obtenemos 8 caras. ¿Es evidencia suficiente de que está trucada?</p>
 <p>Como en la sección anterior, sea <span class="math inline">\(S_{10}\)</span> la variable “Número de caras en 10 lanzamientos”. Si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>, <span class="math inline">\(S_{10}\)</span> es <span class="math inline">\(B(10,0.5)\)</span>.</p>
 <p>Si la hipótesis nula fuera verdadera, esperaríamos sacar 5 caras y 5 cruces. Como la hipótesis alternativa es <span class="math inline">\(H_{1}:p_{\mathit{Cara}}\neq 0.5\)</span>, ahora “obtener un resultado tan o más extremo, en el sentido de la hipótesis alternativa, que el obtenido” es <strong>sacar un resultado tan diferente o más de 5 caras y 5 cruces que el obtenido</strong>. Es decir, sacar al menos 8 caras o al menos 8 cruces, o lo que es el mismo, sacar o bien 8 o más caras, o bien 2 o menos caras. Por lo tanto, el p-valor es
 <span class="math display">\[
@@ -624,7 +624,7 @@ P(S_{10}\geq 8\text{ o }S_{10}\leq 2) =P(S_{10}\geq 8) + P(S_{10}\leq 2)\\
 <ul>
 <li><p>Si <span class="math inline">\(H_0\)</span> es la hipótesis verdadera en la realidad y nosotros decidimos que <span class="math inline">\(H_1\)</span> es verdadera:</p>
 <ul>
-<li><p>La conclusión del contraste es errónea. Lo llamaremos un <strong>error de tipo I</strong> o **falso positivo*.</p></li>
+<li><p>La conclusión del contraste es errónea. Lo llamaremos un <strong>error de tipo I</strong> o <strong>falso positivo</strong>.</p></li>
 <li><p>Denotaremos por <span class="math inline">\(\alpha\)</span> la probabilidad de cometer un error de tipo I, es decir, de rechazar <span class="math inline">\(H_0\)</span> si es verdadera, y la llamaremos el <strong>nivel de significación</strong>:
 <span class="math display">\[
 \alpha=P(\text{Rechazar } H_0\,|\, H_0\text{ verdadera}).
@@ -736,7 +736,7 @@ H_{1}:\text{El estudiante sabe la materia}
 </div>
 
 <p>Normalmente, se considera peor cometer un error de tipo I que cometer un error de tipo II. Por lo tanto, el objetivo primario en un contraste es encontrar una regla de rechazo de <span class="math inline">\(H_{0}\)</span> que tenga poca probabilidad <span class="math inline">\(\alpha\)</span> de error de tipo I. Pero también querríamos minimizar la probabilidad <span class="math inline">\(\beta\)</span> de error de tipo II.
-El problema es que cuando hacemos que <span class="math inline">\(\alpha\)</span> disminuya, <span class="math inline">\(\beta\)</span> suele aumentar, porque al hacer más difícil rechazar la hipótesis nula, aumenta el riesgo de no rechazarla “cuando toque”.</p>
+El problema es que cuando hacemos que <span class="math inline">\(\alpha\)</span> disminuya, <span class="math inline">\(\beta\)</span> suele aumentar, porque al hacer más difícil rechazar la hipótesis nula, aumenta el riesgo de no rechazarla aunque sea falsa.</p>
 <p><img src="INREMDN_files/figure-html/columpio.png" width="1754" style="display: block; margin: auto;" /></p>
 <p>¿Qué se suele hacer?</p>
 <ol style="list-style-type: decimal">
@@ -755,15 +755,21 @@ Si efectuamos muchos contrastes, aumenta la probabilidad de “encontrar algo”
 Figura 1.1: “Significant” (<a href="https://xkcd.com/882/" class="uri">https://xkcd.com/882/</a> (CC-BI-NC 2.5))
 </p>
 </div>
+
+<div class="rmdimportant">
+Es costumbre tomar <span class="math inline">\(\alpha=0.05\)</span>: algo menos que la probabilidad de sacar 4 caras seguidas con una moneda equilibrada.
+</div>
+
+<p>Tomando <span class="math inline">\(\alpha=0.05\)</span>, aceptamos una probabilidad de equivocarnos rechazando <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> de 0.05. Es decir, nos permitimos cometer, de media, un error de tipo I una vez de cada 20 que la hipótesis nula sea verdadera.</p>
 </div>
 <div id="sec:exttest" class="section level2">
 <h2><span class="header-section-number">1.5</span> Ejemplo: El test t</h2>
-<p>Supongamos que nos preguntamos si los hombres jóvenes con diabetes tienen una concentración de calcio en plasma superior a la de los hombres jóvenes sanos. Traducimos esta cuestión en un contraste de hipótesis sobre la concentración media de calcio en plasma en los hombres jóvenes con diabetes, a la que llamaremos <span class="math inline">\(\mu\)</span>:</p>
+<p>La concentración media de calcio en plasma en hombres sanos de 22 a 44 años es de 2.5 mmol/l.
+Supongamos que nos preguntamos si los hombres jóvenes con diabetes tienen una concentración de calcio en plasma superior a la de los hombres jóvenes sanos. Traducimos esta cuestión en un contraste de hipótesis sobre la concentración media de calcio en plasma en los hombres jóvenes con diabetes, a la que llamaremos <span class="math inline">\(\mu\)</span>:</p>
 <ul>
-<li><p>La hipótesis nula será que no hay diferencia entre <span class="math inline">\(\mu\)</span> y la concentración media de calcio en plasma en los hombres jóvenes sanos, es decir, que son iguales</p></li>
-<li><p>La hipótesis alternativa es de lo que buscamos evidencia: que <span class="math inline">\(\mu\)</span> es mayor que la concentración media de calcio en plasma en los hombres jóvenes sanos.</p></li>
+<li><p>La hipótesis nula será que no hay diferencia entre <span class="math inline">\(\mu\)</span> y la concentración media de calcio en plasma en los hombres jóvenes sanos, es decir, que <span class="math inline">\(\mu=2.5\)</span></p></li>
+<li><p>La hipótesis alternativa es de lo que buscamos evidencia: que <span class="math inline">\(\mu&gt;2.5\)</span>.</p></li>
 </ul>
-<p>Se sabe que la concentración de calcio en plasma en hombres sanos sigue una ley aproximadamente normal. Su valor medio en hombres sanos de 22 a 44 años se estima en 2.5 mmol/l.</p>
 <p>Por lo tanto, el contraste que queremos realizar es
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -772,8 +778,8 @@ H_{1}:\mu &gt;2.5
 \end{array}
 \right.
 \]</span></p>
+<p>Llamemos <span class="math inline">\(X\)</span> a la variable aleatoria “Tomamos un hombre diabético de 22 a 44 años y le medimos la concentración de calcio en plasma en mmol/l”. Vamos a suponer en esta sección que esta variable <span class="math inline">\(X\)</span> sigue una ley normal.</p>
 <p>En una muestra de 40 diabéticos de esta franja de edad, se obtuvo una concentración media de calcio en plasma de <span class="math inline">\(\overline{x}=3.2\)</span> mmol/l con una desviación típica muestral <span class="math inline">\(\widetilde{s}=1.5\)</span>. Vamos a suponer que podemos considerar esta muestra de diabéticos jóvenes como aleatoria.</p>
-<p>Llamemos <span class="math inline">\(X\)</span> a la variable aleatoria “Tomamos un hombre diabético de 22 a 44 años y le medimos la concentración de calcio en plasma en mmol/l”. Vamos a suponer en esta sección que esta variable <span class="math inline">\(X\)</span> también sigue una ley normal, pero ahora no sabemos su media <span class="math inline">\(\mu\)</span> y queremos contrastar si es mayor que 2.5 o no.</p>
 <p>Nuestra situación, pues, es un caso particular del caso general siguiente. Tenemos una variable aleatoria poblacional <span class="math inline">\(X\)</span> que es <span class="math inline">\(N(\mu,\sigma)\)</span> y planteamos el contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -792,13 +798,7 @@ tiene distribución <span class="math inline">\(t_{n-1}\)</span>.</p>
 <blockquote>
 <p>Rechazaremos <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> si este <strong>estadístico de contraste</strong> <span class="math inline">\(T\)</span> toma un valor “muy grande” sobre la muestra, es decir, si <span class="math inline">\(\overline{X}\)</span> es “muchos errores típicos” mayor que <span class="math inline">\(\mu_0\)</span>.</p>
 </blockquote>
-<p>La definición precisa de “muy grande” dependerá del valor de <span class="math inline">\(\alpha\)</span> que queramos tomar, es decir, de la probabilidad de cometer un error de tipo I que estemos dispuestos a asumir.</p>
-
-<div class="rmdrecordau">
-Es costumbre tomar <span class="math inline">\(\alpha=0.05\)</span>: algo menos que la probabilidad de sacar 4 caras seguidas con una moneda equilibrada.
-</div>
-
-<p>Vamos a tomar aquí este mismo nivel de significación <span class="math inline">\(\alpha=0.05\)</span>. Es decir, aceptaremos una probabilidad de equivocarnos rechazando <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> de 0.05, o lo que es el mismo, nos permitiremos cometer, de media, un error de tipo I una vez de cada 20 que la hipótesis nula sea verdadera.</p>
+<p>La definición precisa de “muy grande” dependerá del valor de <span class="math inline">\(\alpha\)</span> que queramos tomar, es decir, de la probabilidad de cometer un error de tipo I que estemos dispuestos a asumir: cuanto menor queramos que sea <span class="math inline">\(\alpha\)</span>, mayor tendrá que ser <span class="math inline">\(T\)</span>. Aquí vamos a tomar el valor usual <span class="math inline">\(\alpha=0.05\)</span>.</p>
 <p>Sea <span class="math inline">\(T_0\)</span> el valor que toma el estadístico de contraste <span class="math inline">\(T\)</span> en nuestra muestra. Rechazaremos <span class="math inline">\(H_{0}\)</span> si <span class="math inline">\(T_0\)</span> es mayor que un cierto umbral <span class="math inline">\(L_0\)</span>, que determinamos a partir de <span class="math inline">\(\alpha\)</span>:</p>
 <p><span class="math display">\[
 \begin{array}{l}
@@ -812,7 +812,7 @@ L_0= t_{n-1,1-\alpha}
 <blockquote>
 <p>Rechazaremos <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T_0&gt;t_{n-1,1-\alpha}\)</span></p>
 </blockquote>
-<p>Llamaremos a esta regla la <strong>regla de rechazo</strong> para este tipo de contraste.</p>
+<p>Llamaremos a esta regla una <strong>regla de rechazo</strong> para este tipo de contraste.</p>
 <p>Volvamos a nuestro ejemplo de los jóvenes diabéticos
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -845,49 +845,58 @@ T_0=\frac{3.2-2.5}{1.5/\sqrt{40}}=2.95
 <span class="math display">\[
 \text{p-valor} =P(T\geq 2.95)=\texttt{1-pt(2.95,39)} =0.003
 \]</span>
-Como el p-valor es menor que 0.05, concluimos con un nivel de significación del 5% que el nivel medio de calcio en plasma en los jóvenes diabéticos es mayor que en los jóvenes sanos.</p>
+Como el p-valor es menor que 0.05:</p>
+<blockquote>
+<p>Concluimos con un nivel de significación del 5% que el nivel medio de calcio en plasma en los jóvenes diabéticos es mayor que en los jóvenes sanos.</p>
+</blockquote>
+<p>Esto también se suele expresar diciendo que</p>
+<blockquote>
+<p>Hemos encontrado evidencia estadísticamente significativa de que el nivel medio de calcio en plasma en los jóvenes diabéticos es mayor que en los jóvenes sanos.</p>
+</blockquote>
 <p><img src="INREMDN_files/figure-html/pfm.png" width="35%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdrecordau">
-A este tipo de procedimiento, usando que de
+A este tipo de procedimiento para comparar la <span class="math inline">\(\mu\)</span> de una variable con un valor dado <span class="math inline">\(\mu_0\)</span>, usando que<br />
 <span class="math display">\[
 T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}
 \]</span>
-sigue una distribución t de Student con <span class="math inline">\(n-1\)</span> grados de libertad, <span class="math inline">\(t_{n-1}\)</span>, para comparar la <span class="math inline">\(\mu\)</span> de una variable con el valor <span class="math inline">\(\mu_0\)</span> lo llamaremos un <strong>test t</strong>.
+sigue una distribución t de Student con <span class="math inline">\(n-1\)</span> grados de libertad, <span class="math inline">\(t_{n-1}\)</span>, se le llama un <strong>test t</strong>.
 </div>
 
-<p>Fijaos en que nuestra conclusión ha sido que “concluimos con un <strong>nivel de significación del 5%</strong> que el nivel medio de calcio en sangre en los jóvenes diabéticos es mayor que en los jóvenes sanos.”</p>
-<p>Por lo tanto, <strong>reconocemos una probabilidad de equivocarnos del 5%</strong>. Si en realidad el nivel medio de calcio en sangre en los jóvenes diabéticos es el mismo que en los sanos, la probabilidad que tenemos de equivocarnos y concluir que el nivel medio de calcio en sangre en los jóvenes diabéticos es mayor que en los sanos es del 5%.</p>
+<p>Fijaos en que nuestra conclusión ha sido que “concluimos con un <strong>nivel de significación del 5%</strong> que el nivel medio de calcio en sangre en los jóvenes diabéticos es mayor que en los jóvenes sanos.” Por lo tanto, <strong>reconocemos una probabilidad de equivocarnos del 5%</strong>. Si en realidad el nivel medio de calcio en sangre en los jóvenes diabéticos es el mismo que en los sanos, la probabilidad que tenemos de equivocarnos y concluir que el nivel medio de calcio en sangre en los jóvenes diabéticos es mayor que en los sanos es del 5%.</p>
 
 <div class="example">
 <p><span id="exm:unnamed-chunk-46" class="example"><strong>Ejemplo 1.14  </strong></span>Vamos a estudiar esta tasa de aciertos por medio de una simulación.</p>
 </div>
 
-<p>Primero supondremos que el nivel medio real es 2.5, y simularemos la probabilidad de error de tipo I. Como estamos realizando el contraste con nivel de significación 0.05, esperamos alrededor de un 5% de errores de tipo I. Para fijar ideas, modelaremos la población de jóvenes diabéticos por medio de una variable aleatoria normal <span class="math inline">\(N(2.5,0.5)\)</span>. La <span class="math inline">\(\sigma=0.5\)</span> nos la hemos inventado. Damos el código R de la simulación, por si la queréis repetir en casa.</p>
+<p>Primero supondremos que el nivel medio real es 2.5, y simularemos la probabilidad de error de tipo I. Como estamos realizando el contraste con nivel de significación 0.05, esperamos alrededor de un 5% de errores de tipo I. Para fijar ideas, modelaremos la población de jóvenes diabéticos por medio de una variable aleatoria normal <span class="math inline">\(N(2.5,0.5)\)</span>. La <span class="math inline">\(\sigma=0.5\)</span> nos la hemos inventado. Damos el código R de la simulación, por si la queréis repetir en casa. Cada simulación dará resultados diferentes.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="contrastes-de-hipótesis.html#cb1-1"></a>mu0=<span class="fl">2.5</span></span>
 <span id="cb1-2"><a href="contrastes-de-hipótesis.html#cb1-2"></a>sigma0=<span class="fl">0.5</span></span></code></pre></div>
 <p>El umbral <span class="math inline">\(L_0\)</span> para <span class="math inline">\(n=40\)</span> y <span class="math inline">\(\alpha=0.05\)</span> es <span class="math inline">\(t_{39,0.975}\)</span>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="contrastes-de-hipótesis.html#cb2-1"></a>L0=<span class="kw">qt</span>(<span class="fl">0.95</span>,<span class="dv">39</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="contrastes-de-hipótesis.html#cb2-1"></a>L0=<span class="kw">qt</span>(<span class="fl">0.95</span>,<span class="dv">39</span>)</span>
+<span id="cb2-2"><a href="contrastes-de-hipótesis.html#cb2-2"></a>L0</span></code></pre></div>
+<pre><code>## [1] 1.684875</code></pre>
 <p>La función <code>estadístico</code> siguiente toma una muestra aleatoria de tamaño <span class="math inline">\(n\)</span> de una variable <span class="math inline">\(N(\mu, \sigma)\)</span> y calcula el estadístico de contraste <span class="math inline">\(T\)</span>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="contrastes-de-hipótesis.html#cb3-1"></a>estadístico=<span class="cf">function</span>(n,mu,sigma){</span>
-<span id="cb3-2"><a href="contrastes-de-hipótesis.html#cb3-2"></a>muestra=<span class="kw">rnorm</span>(n,mu,sigma) </span>
-<span id="cb3-3"><a href="contrastes-de-hipótesis.html#cb3-3"></a>(<span class="kw">mean</span>(muestra)<span class="op">-</span>mu0)<span class="op">/</span>(<span class="kw">sd</span>(muestra)<span class="op">/</span><span class="kw">sqrt</span>(n))</span>
-<span id="cb3-4"><a href="contrastes-de-hipótesis.html#cb3-4"></a>}</span></code></pre></div>
-<p>Ahora, repetimos 200 veces el proceso de tomar una muestra aleatoria de tamaño 20 de nuestra población y calcular la <span class="math inline">\(T\)</span> correspondiente. Después miramos la proporción de veces que la <span class="math inline">\(T\)</span> ha dado un valor mayor que el umbral <span class="math inline">\(L_0\)</span>, es decir, la proporción de veces que rechazamos la hipótesis nula <span class="math inline">\(\mu=2.5\)</span> y que por lo tanto cometemos un error de tipo I.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="contrastes-de-hipótesis.html#cb4-1"></a>Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stico</span>(<span class="dv">40</span>,mu0,sigma0))</span>
-<span id="cb4-2"><a href="contrastes-de-hipótesis.html#cb4-2"></a>p.error.Tipus.I=<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&gt;</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span></span>
-<span id="cb4-3"><a href="contrastes-de-hipótesis.html#cb4-3"></a>p.error.Tipus.I</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="contrastes-de-hipótesis.html#cb4-1"></a>estadístico=<span class="cf">function</span>(n,mu,sigma){</span>
+<span id="cb4-2"><a href="contrastes-de-hipótesis.html#cb4-2"></a>muestra=<span class="kw">rnorm</span>(n,mu,sigma) </span>
+<span id="cb4-3"><a href="contrastes-de-hipótesis.html#cb4-3"></a>(<span class="kw">mean</span>(muestra)<span class="op">-</span>mu0)<span class="op">/</span>(<span class="kw">sd</span>(muestra)<span class="op">/</span><span class="kw">sqrt</span>(n))</span>
+<span id="cb4-4"><a href="contrastes-de-hipótesis.html#cb4-4"></a>}</span></code></pre></div>
+<p>Ahora, repetimos 200 veces el proceso de tomar una muestra aleatoria de tamaño 20 de nuestra población y calcular la <span class="math inline">\(T\)</span> correspondiente. Llamamos <code>Tes</code> al vector de estos valores de <span class="math inline">\(T\)</span>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="contrastes-de-hipótesis.html#cb5-1"></a>Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stico</span>(<span class="dv">40</span>,mu0,sigma0))</span></code></pre></div>
+<p>Finalmente, calculamos la proporción de veces que la <span class="math inline">\(T\)</span> ha dado un valor mayor que el umbral <span class="math inline">\(L_0\)</span>, es decir, la proporción de veces que rechazamos la hipótesis nula <span class="math inline">\(\mu=2.5\)</span> y que por lo tanto cometemos un error de tipo I.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="contrastes-de-hipótesis.html#cb6-1"></a>p.error.Tipo.I=<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&gt;</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span></span>
+<span id="cb6-2"><a href="contrastes-de-hipótesis.html#cb6-2"></a>p.error.Tipo.I</span></code></pre></div>
 <pre><code>## [1] 0.055</code></pre>
-<p>¡Hemos cometido exactamente un 5.5% de errores de tipo I!</p>
-<p>Ahora supondremos que el nivel medio real es estrictamente mayor que 2.5, y vamos a simular los errores de tipo II, para ver con qué frecuencia los cometemos. Para empezar, generamos al azar un vector de 100 <span class="math inline">\(\mu\)</span>’s entre 2.6 y 3, de manera que todos los valores tengan la misma probabilidad de salir.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="contrastes-de-hipótesis.html#cb6-1"></a>mus=<span class="kw">runif</span>(<span class="dv">100</span>,<span class="fl">2.6</span>,<span class="dv">3</span>)</span></code></pre></div>
+<p>Hemos cometido un 5.5% de errores de tipo I.</p>
+<p>Ahora vamos a suponer que el nivel medio real es estrictamente mayor que 2.5, y vamos a simular los errores de tipo II, para ver con qué frecuencia los cometemos. Para empezar, generamos al azar un vector de 100 <span class="math inline">\(\mu\)</span>’s entre 2.6 y 3, de manera que todos los valores tengan la misma probabilidad de salir.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="contrastes-de-hipótesis.html#cb8-1"></a>mus=<span class="kw">runif</span>(<span class="dv">100</span>,<span class="fl">2.6</span>,<span class="dv">3</span>)</span></code></pre></div>
 <p>Y ahora lo que haremos será lo siguiente. Para cada <span class="math inline">\(\mu_i\)</span> de este vector, tomaremos como “población de diabéticos” una variable <span class="math inline">\(N(\mu_i,0.5)\)</span>. A continuación, para cada una de estas poblaciones, repetiremos 200 veces el proceso de tomar una muestra aleatoria simple de tamaño 40 de esta población y calcular la <span class="math inline">\(T\)</span> correspondiente. Después, para cada población, miraremos la proporción de veces que la <span class="math inline">\(T\)</span> ha dado menor o igual que el umbral <span class="math inline">\(L_0\)</span>, es decir, la proporción de veces que aceptaríamos la hipótesis nula <span class="math inline">\(\mu=2.5\)</span> y que por lo tanto cometeríamos un error de tipo II. Organizamos todas estas proporciones en un vector que llamamos <strong>p.error.Tipo.II</strong>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="contrastes-de-hipótesis.html#cb7-1"></a>p.error.Tipo.II=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">100</span>)</span>
-<span id="cb7-2"><a href="contrastes-de-hipótesis.html#cb7-2"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){</span>
-<span id="cb7-3"><a href="contrastes-de-hipótesis.html#cb7-3"></a>  Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stico</span>(<span class="dv">40</span>,mus[j],sigma0))    </span>
-<span id="cb7-4"><a href="contrastes-de-hipótesis.html#cb7-4"></a>  p.error.Tipo.II[j]=<span class="kw">round</span>(<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>)</span>
-<span id="cb7-5"><a href="contrastes-de-hipótesis.html#cb7-5"></a>}</span>
-<span id="cb7-6"><a href="contrastes-de-hipótesis.html#cb7-6"></a>p.error.Tipo.II</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="contrastes-de-hipótesis.html#cb9-1"></a>p.error.Tipo.II=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb9-2"><a href="contrastes-de-hipótesis.html#cb9-2"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){</span>
+<span id="cb9-3"><a href="contrastes-de-hipótesis.html#cb9-3"></a>  Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stico</span>(<span class="dv">40</span>,mus[j],sigma0))    </span>
+<span id="cb9-4"><a href="contrastes-de-hipótesis.html#cb9-4"></a>  p.error.Tipo.II[j]=<span class="kw">round</span>(<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>)</span>
+<span id="cb9-5"><a href="contrastes-de-hipótesis.html#cb9-5"></a>}</span>
+<span id="cb9-6"><a href="contrastes-de-hipótesis.html#cb9-6"></a>p.error.Tipo.II</span></code></pre></div>
 <pre><code>##   [1] 0.01 0.28 0.06 0.00 0.50 0.04 0.00 0.00 0.42 0.09 0.00 0.09 0.24 0.00 0.20
 ##  [16] 0.00 0.08 0.00 0.52 0.00 0.00 0.41 0.14 0.00 0.00 0.33 0.05 0.00 0.01 0.61
 ##  [31] 0.46 0.58 0.00 0.00 0.00 0.00 0.11 0.00 0.00 0.00 0.00 0.00 0.01 0.12 0.02
@@ -895,16 +904,16 @@ sigue una distribución t de Student con <span class="math inline">\(n-1\)</span
 ##  [61] 0.00 0.00 0.60 0.01 0.00 0.00 0.00 0.00 0.50 0.00 0.09 0.20 0.37 0.64 0.01
 ##  [76] 0.00 0.24 0.13 0.14 0.59 0.32 0.32 0.00 0.10 0.00 0.09 0.00 0.46 0.00 0.00
 ##  [91] 0.00 0.17 0.06 0.39 0.00 0.00 0.01 0.00 0.00 0.00</code></pre>
-<p>La proporción media de errores de tipo II ha sido:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="contrastes-de-hipótesis.html#cb9-1"></a><span class="kw">mean</span>(p.error.Tipo.II)</span></code></pre></div>
+<p>En algunos casos no hemos cometido ningún error de tipo II, y en otros, en más de la mitad de las veces. La proporción media de errores de tipo II ha sido:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="contrastes-de-hipótesis.html#cb11-1"></a><span class="kw">mean</span>(p.error.Tipo.II)</span></code></pre></div>
 <pre><code>## [1] 0.1175</code></pre>
 <p>Si tomamos muestras más grandes, la probabilidad de error de tipo II disminuye. Comprobémoslo repitiendo este segundo experimento con muestras de tamaño 400.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="contrastes-de-hipótesis.html#cb11-1"></a>p.error.Tipo.II<span class="fl">.400</span>=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">100</span>)</span>
-<span id="cb11-2"><a href="contrastes-de-hipótesis.html#cb11-2"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){</span>
-<span id="cb11-3"><a href="contrastes-de-hipótesis.html#cb11-3"></a>Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stico</span>(<span class="dv">400</span>,mus[j],sigma0))    </span>
-<span id="cb11-4"><a href="contrastes-de-hipótesis.html#cb11-4"></a>  p.error.Tipo.II<span class="fl">.400</span>[j]=<span class="kw">round</span>(<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>)</span>
-<span id="cb11-5"><a href="contrastes-de-hipótesis.html#cb11-5"></a>}</span>
-<span id="cb11-6"><a href="contrastes-de-hipótesis.html#cb11-6"></a><span class="kw">mean</span>(p.error.Tipo.II<span class="fl">.400</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="contrastes-de-hipótesis.html#cb13-1"></a>p.error.Tipo.II<span class="fl">.400</span>=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb13-2"><a href="contrastes-de-hipótesis.html#cb13-2"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){</span>
+<span id="cb13-3"><a href="contrastes-de-hipótesis.html#cb13-3"></a>Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stico</span>(<span class="dv">400</span>,mus[j],sigma0))    </span>
+<span id="cb13-4"><a href="contrastes-de-hipótesis.html#cb13-4"></a>  p.error.Tipo.II<span class="fl">.400</span>[j]=<span class="kw">round</span>(<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>)</span>
+<span id="cb13-5"><a href="contrastes-de-hipótesis.html#cb13-5"></a>}</span>
+<span id="cb13-6"><a href="contrastes-de-hipótesis.html#cb13-6"></a><span class="kw">mean</span>(p.error.Tipo.II<span class="fl">.400</span>)</span></code></pre></div>
 <pre><code>## [1] 1e-04</code></pre>
 <p>Multiplicando por 10 el tamaño de las muestras, hemos bajado de una tasa de errores de tipo II del 11.75% al 0.01%.</p>
 <p>Recordad que la <strong>potencia</strong> de un contraste es la probabilidad de <strong>no</strong> cometer un error de tipo II. Hemos visto que tomando muestras más grandes, la proporción de errores de tipos II ha disminuido. Esto es general:</p>
@@ -923,8 +932,10 @@ H_{1}:\mu &lt; \mu_0
 \]</span>
 En este caso, el p-valor es <span class="math inline">\(P(T\leq T_0)\)</span> y, razonando exactamente igual que antes, obtenemos las dos reglas de rechazo equivalentes siguientes:</p>
 <blockquote>
-<p>Rechazaremos <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T_0&lt; t_{n-1,\alpha}\)</span>
-Rechazaremos <span class="math inline">\(H_0\)</span> si p-valor <span class="math inline">\(&lt;\alpha\)</span></p>
+<p>Rechazaremos <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T_0&lt; t_{n-1,\alpha}\)</span></p>
+</blockquote>
+<blockquote>
+<p>Rechazaremos <span class="math inline">\(H_0\)</span> si p-valor <span class="math inline">\(&lt;\alpha\)</span></p>
 </blockquote>
 <p>¿Y qué pasa si ahora buscamos evidencia de que <span class="math inline">\(\mu\)</span> <strong>es diferente</strong> de <span class="math inline">\(\mu_0\)</span>? Es decir, si tenemos el contraste
 <span class="math display">\[
@@ -935,7 +946,7 @@ H_{1}:\mu\
 \end{array}
 \right.
 \]</span></p>
-<p>En este caso, rechazaremos <span class="math inline">\(H_{0}\)</span> cuando <span class="math inline">\(\overline{X}\)</span> es lo bastante diferente de <span class="math inline">\(\mu_0\)</span>, por encima o por debajo de <span class="math inline">\(\mu_0\)</span>, y esto lo traducimos en que rechazaremos <span class="math inline">\(H_{0}\)</span> cuando <span class="math inline">\(|T_0|\)</span> (el valor absoluto de <span class="math inline">\(T_0\)</span>) sea mayor que cierto umbral <span class="math inline">\(L_0\)</span>, que determinamos a partir de <span class="math inline">\(\alpha\)</span> como antes:</p>
+<p>En este caso, rechazaremos <span class="math inline">\(H_{0}\)</span> cuando <span class="math inline">\(\overline{X}\)</span> es lo bastante diferente de <span class="math inline">\(\mu_0\)</span>, por encima o por debajo de <span class="math inline">\(\mu_0\)</span>, y esto lo traducimos en que rechazaremos <span class="math inline">\(H_{0}\)</span> cuando <span class="math inline">\(|T_0|\)</span> (el <strong>valor absoluto</strong> de <span class="math inline">\(T_0\)</span>) sea mayor que cierto umbral <span class="math inline">\(L_0\)</span>, que determinamos a partir de <span class="math inline">\(\alpha\)</span> como antes:</p>
 <p><span class="math display">\[
 \begin{array}{l}
 \alpha = P(\text{Rechazar } H_{0}| H_{0} \text{ verdadera})=P(|T|&gt; L_0)\\
@@ -972,20 +983,23 @@ Fijaos en que usamos que, por la simetría de las variables t de Student, <span 
 <div class="rmdimportant">
 <p>En resumen, en un contraste de una media <span class="math inline">\(\mu\)</span> usando un test t y nivel de significación <span class="math inline">\(\alpha\)</span>:</p>
 <ul>
-<li>Si <span class="math inline">\(H_1:\mu&gt; \mu_0\)</span>:
+<li><p>Si <span class="math inline">\(H_1:\mu&gt; \mu_0\)</span>:</p>
 <ul>
 <li>Rechazamos <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T_0&gt;t_{n-1,1-\alpha}\)</span></li>
-<li>El p-valor es <span class="math inline">\(P(T\geq T_0)\)</span> y rechazamos <span class="math inline">\(H_0\)</span> si el p-valor es más pequeño que <span class="math inline">\(\alpha\)</span></li>
+<li>El p-valor es <span class="math inline">\(P(T\geq T_0)\)</span></li>
+<li>Rechazamos <span class="math inline">\(H_0\)</span> si el p-valor es más pequeño que <span class="math inline">\(\alpha\)</span></li>
 </ul></li>
-<li>Si <span class="math inline">\(H_1:\mu&lt; \mu_0\)</span>:
+<li><p>Si <span class="math inline">\(H_1:\mu&lt; \mu_0\)</span>:</p>
 <ul>
 <li>Rechazamos <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T_0&lt; t_{n-1,\alpha}\)</span></li>
-<li>El p-valor es <span class="math inline">\(P(T\leq T_0)\)</span> y rechazamos <span class="math inline">\(H_0\)</span> si el p-valor es más pequeño que <span class="math inline">\(\alpha\)</span></li>
+<li>El p-valor es <span class="math inline">\(P(T\leq T_0)\)</span></li>
+<li>Rechazamos <span class="math inline">\(H_0\)</span> si el p-valor es más pequeño que <span class="math inline">\(\alpha\)</span></li>
 </ul></li>
-<li>Si <span class="math inline">\(H_1:\mu\neq \mu_0\)</span>:
+<li><p>Si <span class="math inline">\(H_1:\mu\neq \mu_0\)</span>:</p>
 <ul>
 <li>Rechazamos <span class="math inline">\(H_0\)</span> si <span class="math inline">\(|T_0|&gt;t_{n-1,1-\alpha/2}\)</span></li>
-<li>El p-valor es <span class="math inline">\(2P(T\geq |T_0|)\)</span> y rechazamos <span class="math inline">\(H_0\)</span> si el p-valor es más pequeño que <span class="math inline">\(\alpha\)</span></li>
+<li>El p-valor es <span class="math inline">\(2P(T\geq |T_0|)\)</span></li>
+<li>Rechazamos <span class="math inline">\(H_0\)</span> si el p-valor es más pequeño que <span class="math inline">\(\alpha\)</span></li>
 </ul></li>
 </ul>
 </div>
@@ -1017,7 +1031,7 @@ P(T\geq 1.944)=\texttt{1-pt(1.944,24)}=0.032
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-58" class="example"><strong>Ejemplo 1.16  </strong></span>Sea <span class="math inline">\(X\)</span> una población normal. Queremos realizar el contraste
+<p><span id="exm:unnamed-chunk-59" class="example"><strong>Ejemplo 1.16  </strong></span>Sea <span class="math inline">\(X\)</span> una población normal. Queremos realizar el contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu&gt;20
@@ -1042,7 +1056,7 @@ H_{0}:\mu=20\\ H_{1}:\mu&lt; 20
 \end{array}
 \right.
 \]</span>
-con un nivel de significación de 0.05. Con la misma muestra aleatoria simple de los ejemplos anteriores (<span class="math inline">\(n=25\)</span>, <span class="math inline">\(\overline{x}=20.7\)</span>,<span class="math inline">\(\widetilde{s}=1.8\)</span>), ¿qué decidimos?</p>
+con un nivel de significación de 0.05. Con la misma muestra aleatoria simple de los ejemplos anteriores (<span class="math inline">\(n=25\)</span>, <span class="math inline">\(\overline{x}=20.7\)</span>, <span class="math inline">\(\widetilde{s}=1.8\)</span>), ¿qué decidimos?</p>
 </div>
 
 <ul>
@@ -1055,7 +1069,7 @@ P(T\leq 1.944)=\texttt{pt(1.944,24)}=0.968
 </ul>
 
 <div class="rmderror">
-Veamos, ¿cómo queríais que concluyéramos que <span class="math inline">\(\mu&lt;20\)</span> si nos ha salido una media muestral 20.7, mayor que 20? No hacía falta hacer ningún cálculo (y exponernos a equivocarnos), bastaba razonar un poco.
+Veamos, ¿cómo queríais que hubiéramos encontrado evidencia de que <span class="math inline">\(\mu&lt;20\)</span> si nos ha salido una media muestral 20.7, mayor que 20? No hacía falta hacer ningún cálculo (y exponernos a equivocarnos), bastaba razonar un poco.
 </div>
 
 
@@ -1079,14 +1093,14 @@ con un nivel de significación de 0.05. Con la misma muestra aleatoria simple de
 <p>Como el p-valor es más grande que <span class="math inline">\(\alpha\)</span>, no podemos rechazar <span class="math inline">\(H_0\)</span>: no podemos afirmar con <span class="math inline">\(\alpha=0.05\)</span> que <span class="math inline">\(\mu\neq 20\)</span>.</p>
 
 <div class="rmdromans">
-¿Cómo puede ser que, con la misma muestra y mismo nivel de significación, podamos concluir que <span class="math inline">\(\mu&gt; 20\)</span> pero no podamos concluir que <span class="math inline">\(\mu \neq 20\)</span>? O es que <span class="math inline">\(\mu&gt; 20\)</span> no implica que <span class="math inline">\(\mu \neq 20\)</span>?
+¿Cómo puede ser que, con la misma muestra y mismo nivel de significación, podamos concluir que <span class="math inline">\(\mu&gt; 20\)</span> pero no podamos concluir que <span class="math inline">\(\mu \neq 20\)</span>? ¿Acaso <span class="math inline">\(\mu&gt; 20\)</span> no implica que <span class="math inline">\(\mu \neq 20\)</span>?
 </div>
 
 <p>Veamos, si hubiéramos demostrado que seguro que <span class="math inline">\(\mu&gt; 20\)</span>, está claro que esto implicaría que <span class="math inline">\(\mu \neq 20\)</span>. Pero hemos llegado a la conclusión <span class="math inline">\(\mu&gt; 20\)</span> asumiendo una cierta probabilidad de cometer un error de tipo I, y nos preguntamos si podemos decidir que <span class="math inline">\(\mu \neq 20\)</span> asumiendo el mismo riesgo de equivocarnos. En esta situación las reglas de la lógica aristotélica ya no funcionan.</p>
-<p>Fijaos en que, en realidad, lo que pasa es que encontraremos evidencia que <span class="math inline">\(\mu \neq 20\)</span> si <span class="math inline">\(T\)</span> es muy grande o muy pequeño, y por tanto en el contraste bilateral tenemos dos fuentes de error de tipo I: que por puro azar <span class="math inline">\(T\)</span> nos salga muy grande o que nos salga muy pequeño. En cambio, solo encontraremos evidencia de que <span class="math inline">\(\mu&gt; 20\)</span> si <span class="math inline">\(T\)</span> es muy grande, y por tanto en el contraste unilateral tenemos una sola fuente de error de tipo I. Entonces, para garantizar una misma probabilidad de error de tipo I, tenemos que ser mucho más exigentes en el contraste bilateral, donde nos podemos equivocar de dos maneras diferentes, que en el unilateral.</p>
+<p>Fijaos en que, en realidad, lo que pasa es que encontraríamos evidencia de que <span class="math inline">\(\mu \neq 20\)</span> si <span class="math inline">\(T\)</span> fuera muy grande o muy pequeño. Por lo tanto, en el contraste bilateral tenemos dos fuentes de error de tipo I: que por puro azar <span class="math inline">\(T\)</span> nos salga muy grande o que nos salga muy pequeño. En cambio, solo encontraremos evidencia de que <span class="math inline">\(\mu&gt; 20\)</span> si <span class="math inline">\(T\)</span> es muy grande, y por tanto en el contraste unilateral tenemos una sola fuente de error de tipo I. Entonces, para garantizar una misma probabilidad de error de tipo I, tenemos que ser mucho más exigentes en el contraste bilateral, donde nos podemos equivocar de dos maneras diferentes, que en el unilateral. Por eso es más fácil rechazar la hipótesis nula en un contraste unilateral que en uno bilateral.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-62" class="example"><strong>Ejemplo 1.19  </strong></span>Sea <span class="math inline">\(X\)</span> una población normal. Queremos realizar el contraste
+<p><span id="exm:unnamed-chunk-63" class="example"><strong>Ejemplo 1.19  </strong></span>Sea <span class="math inline">\(X\)</span> una población normal. Queremos realizar el contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu
@@ -1131,11 +1145,11 @@ y como este p-valor es más pequeño que <span class="math inline">\(\alpha\)</s
 <li><p><strong>Estadístico de contraste</strong>: lo que calculamos sobre una muestra aleatoria simple y nos permite definir una regla de rechazo de <span class="math inline">\(H_{0}\)</span>.</p></li>
 <li><p><strong>Región crítica o de rechazo</strong>: el rango de valores del estadístico de contraste para los que rechazamos <span class="math inline">\(H_{0}\)</span> con un nivel de significación <span class="math inline">\(\alpha\)</span> dado.</p></li>
 <li><p><strong>Región de aceptación</strong>: el complementario de la región de rechazo, es decir, el rango de valores del estadístico de contraste para los que aceptamos <span class="math inline">\(H_{0}\)</span> con un nivel de significación <span class="math inline">\(\alpha\)</span> dado.</p></li>
-<li><p><strong>p-valor</strong>: la probabilidad que, si <span class="math inline">\(H_0\)</span> es verdadera, el estadístico de contraste tome sobre una muestra aleatoria simple del mismo tamaño que la nuestra un valor tan o más extremo (en el sentido de <span class="math inline">\(H_1\)</span>) que el obtenido sobre nuestra muestra.</p></li>
+<li><p><strong>p-valor</strong>: la probabilidad de que, si <span class="math inline">\(H_0\)</span> es verdadera, el estadístico de contraste tome sobre una muestra aleatoria simple del mismo tamaño que la nuestra un valor tan o más extremo (en el sentido de <span class="math inline">\(H_1\)</span>) que el obtenido sobre nuestra muestra.</p></li>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-64" class="example"><strong>Ejemplo 1.20  </strong></span>Si realizamos un test t para efectuar un contraste
+<p><span id="exm:unnamed-chunk-65" class="example"><strong>Ejemplo 1.20  </strong></span>Si realizamos un test t para efectuar un contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=\mu_0\\ 
@@ -1154,7 +1168,7 @@ T=\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}&gt;t_{n-1,1-\alpha}
 <li><p><strong>Estadístico de contraste</strong>: este <span class="math inline">\(T\)</span></p></li>
 <li><p><strong>Región crítica</strong> para el nivel de significación <span class="math inline">\(\alpha\)</span>: el intervalo <span class="math inline">\((t_{n-1,1-\alpha},\infty)\)</span></p></li>
 <li><p><strong>Región de aceptación</strong> para el nivel de significación <span class="math inline">\(\alpha\)</span>: el intervalo <span class="math inline">\((-\infty,t_{n-1,1-\alpha}]\)</span></p></li>
-<li><p><strong>p-valor</strong>*: <span class="math inline">\(P(T\geq T_0)\)</span>, donde <span class="math inline">\(T_0\)</span> denota el valor de <span class="math inline">\(T\)</span> en nuestra muestra</p></li>
+<li><p><strong>p-valor</strong>: <span class="math inline">\(P(T\geq T_0)\)</span>, donde <span class="math inline">\(T_0\)</span> denota el valor de <span class="math inline">\(T\)</span> en nuestra muestra</p></li>
 </ul>
 <p>Si en cambio el contraste que queremos efectuar es
 <span class="math display">\[
@@ -1197,7 +1211,7 @@ Por lo tanto:</p>
 </ul>
 <div id="intervalo-de-confianza-de-un-contraste" class="section level3 unnumbered">
 <h3>Intervalo de confianza de un contraste</h3>
-<p>El <strong>intervalo de confianza de nivel de confianza <span class="math inline">\(1-\alpha\)</span></strong> de un contraste es un intervalo que contiene con probabilidad <span class="math inline">\(1-\alpha\)</span> el parámetro poblacional que contrastamos, en el sentido de los intervalos de confianza del tema anterior: calculado con una fórmula que un <span class="math inline">\((1-\alpha)\cdot 100\%\)</span> de las veces que lo aplicamos de manera correcta a una muestra aleatoria simple, da un intervalo que contiene el parámetro poblacional.</p>
+<p>El <strong>intervalo de confianza de nivel de confianza <span class="math inline">\(1-\alpha\)</span></strong> de un contraste es un intervalo que tiene una probabilidad <span class="math inline">\(1-\alpha\)</span> de contener el parámetro poblacional que contrastamos, en el sentido de los intervalos de confianza del tema anterior: se calcula con una fórmula que un <span class="math inline">\((1-\alpha)\cdot 100%\)</span> de las veces que lo aplicamos de manera correcta a una muestra aleatoria simple, da un intervalo que contiene el parámetro poblacional.</p>
 <p>Este intervalo de confianza se obtiene imponiendo que el estadístico de contraste pertenezca a la región de aceptación para el nivel de significación <span class="math inline">\(\alpha\)</span> y despejando el parámetro poblacional.</p>
 <ul>
 <li><p>Cuando <span class="math inline">\(H_1\)</span> es bilateral, coincide con el intervalo de confianza dado en el tema anterior.</p></li>
@@ -1219,11 +1233,11 @@ Despejando <span class="math inline">\(\mu_0\)</span>, obtenemos
 <span class="math display">\[
 \overline{X}- t_{n-1,1-\alpha}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leq \mu_0
 \]</span>
-Por lo tanto, el intervalo de confianza de nivel de confianza <span class="math inline">\(1-\alpha\)</span> para este contraste* es
+Por lo tanto, el <strong>intervalo de confianza de nivel de confianza <span class="math inline">\(1-\alpha\)</span> para este contraste</strong> es
 <span class="math display">\[
 \Bigg[\overline{X}- t_{n-1,1-\alpha}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}},\infty\Bigg)
 \]</span>
-Si la <span class="math inline">\(\mu_0\)</span> que contrastamos pertenece a este intervalo, no podemos concluir que la <span class="math inline">\(\mu\)</span> poblacional sea más grande, y por tanto no podemos rechazar que <span class="math inline">\(\mu=\mu_0\)</span>.</p>
+Si la <span class="math inline">\(\mu_0\)</span> que contrastamos pertenece a este intervalo, no podemos concluir que la <span class="math inline">\(\mu\)</span> poblacional sea más mayor que <span class="math inline">\(\mu_0\)</span>, y por tanto no podemos rechazar que <span class="math inline">\(\mu=\mu_0\)</span>.</p>
 <p>En el ejemplo de los diabéticos de la Sección <a href="contrastes-de-hipótesis.html#sec:exttest">1.5</a>, da el intervalo
 <span class="math display">\[
 \Bigg[3.2- 1.73\cdot \dfrac{1.5}{\sqrt{20}},\infty\Bigg)=[2.62,\infty)
@@ -1250,7 +1264,7 @@ Por lo tanto, el intervalo de confianza de nivel de confianza <span class="math 
 <span class="math display">\[
 \Bigg[\overline{X}- t_{n-1,1-\alpha/2}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}},\overline{X}+ t_{n-1,1-\alpha/2}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
 \]</span>
-¿Os suena? Haciendo <span class="math inline">\(q=1-\alpha\)</span>, es el del tema anterior.</p>
+¿Os suena? Llamando <span class="math inline">\(q\)</span> a <span class="math inline">\(1-\alpha\)</span>, es el del tema anterior.</p>
 
 <div class="rmdimportant">
 <p>Dado un contraste de hipótesis, podemos decidir si rechazamos <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> con nivel de significación <span class="math inline">\(\alpha\)</span> usando:</p>
@@ -1259,7 +1273,7 @@ Por lo tanto, el intervalo de confianza de nivel de confianza <span class="math 
 <li><p><strong>El p-valor</strong>: Si el p-valor es menor que el nivel de significación <span class="math inline">\(\alpha\)</span>, rechazamos <span class="math inline">\(H_0\)</span>.</p></li>
 <li><p><strong>El intervalo de confianza</strong>: Si el valor que contrastamos del parámetro poblacional no pertenece al intervalo de confianza de nivel de confianza <span class="math inline">\(1-\alpha\)</span>, rechazamos <span class="math inline">\(H_0\)</span>.</p></li>
 </ul>
-<p>Los tres métodos son equivalentes. El más adecuado es dar el p-valor y el intervalo de confianza: el p-valor porque el lector lo pueda comparar con el nivel de significación que considere oportuno y el intervalo de confianza porque muestra el margen con el cual hemos aceptado o rechazado la hipótesis nula con nuestro nivel de significación.</p>
+<p>Los tres métodos son equivalentes. Lo más adecuado es dar el p-valor y el intervalo de confianza: el p-valor para que el lector lo pueda comparar con el nivel de significación que considere oportuno y el intervalo de confianza porque muestra el margen con el cual hemos aceptado o rechazado la hipótesis nula con nuestro nivel de significación.</p>
 </div>
 
 <p>Si no establecemos un nivel de significación <span class="math inline">\(\alpha\)</span>, lo habitual es:</p>
@@ -1274,13 +1288,18 @@ Por lo tanto, el intervalo de confianza de nivel de confianza <span class="math 
 <li><strong>Fuertemente significativo</strong> si está entre 0.001 y 0.01</li>
 <li><strong>Muy significativo</strong> si es menor que 0.001</li>
 </ul>
-<p>R marca estas franjas con un código de asteriscos</p>
-<pre><code>Signif. codes: 0 ‘*’ 0.001 ‘’ 0.01 ‘’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+<p>Normalmente estas franjas se indican con un código de asteriscos:</p>
+<ul>
+<li><p>Un asterisco, *, para los p-valores entre 0.01 y 0.05</p></li>
+<li><p>Dos asteriscos, **, para los p-valores entre 0.001 y 0.01</p></li>
+<li><p>Tres asteriscos, ***, para los p-valores por debajo de 0.001</p></li>
+</ul>
+<p>Aunque hay otras propuestas:</p>
 <p><img src="INREMDN_files/figure-html/emojis.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Dado que rechazamos <span class="math inline">\(H_0\)</span> si, y solo si, el p-valor es menor que <span class="math inline">\(\alpha\)</span>, el p-valor de un contraste es el nivel de significación más pequeño para el cual rechazaríamos la hipótesis nula. Es decir:</p>
 
 <div class="rmdimportant">
-El p-valor obtenido en un contraste es la probabilidad mínima que tenemos de equivocarnos rechazando la hipótesis nula si es verdadera.
+El p-valor obtenido en un contraste es la probabilidad mínima que tenemos de equivocarnos rechazando la hipótesis nula si esta es verdadera.
 </div>
 
 <p>Por lo tanto, por favor, acostumbraos a dar el p-valor, y no la franja de significación donde cae.</p>
@@ -1288,7 +1307,7 @@ El p-valor obtenido en un contraste es la probabilidad mínima que tenemos de eq
 <div id="la-potencia" class="section level3 unnumbered">
 <h3>La potencia</h3>
 <p>Recordad que la <strong>potencia</strong> <span class="math inline">\(1-\beta\)</span> es la probabilidad de rechazar <span class="math inline">\(H_0\)</span> cuando <span class="math inline">\(H_1\)</span> es verdadera.</p>
-<p>Por ejemplo, en el ejemplo del calcio en diabéticos de la Sección <a href="#seco:exttest"><strong>??</strong></a>, la regla de rechazo era
+<p>Por ejemplo, en el ejemplo del calcio en diabéticos de la Sección <a href="contrastes-de-hipótesis.html#sec:exttest">1.5</a>, la regla de rechazo era
 <span class="math display">\[
 T=\frac{\overline{X}-2.5}{\widetilde{S}_X/\sqrt{n}}&gt;1.73,
 \]</span>
@@ -1296,7 +1315,7 @@ por lo tanto la potencia era
 <span class="math display">\[
 1-\beta=P(\text{Rechazar } H_0| H_1\text{ verdadera})=P(T&gt;1.73| \mu&gt;2.5).
 \]</span>
-Esta probabilidad es imposible de calcular, pero hay programas que la saben estimar.</p>
+Esta probabilidad es imposible de calcular, pero hay programas que la saben estimar. Vamos a explicar muy por encima cómo.</p>
 <p>Para cada tipo de contraste se tiene una relación numérica entre:</p>
 <ul>
 <li><p>La <strong>potencia</strong> <span class="math inline">\(1-\beta\)</span></p></li>
@@ -1304,8 +1323,8 @@ Esta probabilidad es imposible de calcular, pero hay programas que la saben esti
 <li><p>El <strong>nivel de significación</strong> <span class="math inline">\(\alpha\)</span>: la potencia decrece con <span class="math inline">\(\alpha\)</span></p></li>
 <li><p>El <strong>tamaño del efecto</strong>, un valor que cuantifica la diferencia entre el parámetro muestral y el valor contrastado. La potencia crece con el valor absoluto del tamaño del efecto (puesto que, cuanto mayor es la diferencia entre el parámetro muestral y el valor contrastado, más probable es que sea estadísticamente significativa y por tanto rechacemos la hipótesis nula).</p></li>
 </ul>
-<p>Esta relación permite calcular cualquier de los cuatro valores a partir de los otros tres. No explicaremos cómo, pero al menos permitidnos mencionar que, con R, el paquete <strong>pwr</strong> permite hacerlo para los contrastes más usuales.</p>
-<p>Al planear un experimento para realizar un contraste, lo que hay que hacer es:</p>
+<p>Esta relación permite calcular cualquiera de los cuatro valores a partir de los otros tres. No entraremos en el detalle de cómo, pero al menos permitidnos mencionar que, con R, el paquete <strong>pwr</strong> aporta funciones que permiten hacerlo para los contrastes más usuales.</p>
+<p>Entonces, al planear un experimento para realizar un contraste, lo que hay que hacer es:</p>
 <ul>
 <li><p>Fijar el nivel de significación deseado</p></li>
 <li><p>Fijar la potencia deseada</p></li>
@@ -1314,13 +1333,13 @@ Esta probabilidad es imposible de calcular, pero hay programas que la saben esti
 <p>y usar un programa adecuado que calcule el tamaño de la muestra necesario para lograr la potencia deseada.</p>
 
 <div class="rmdcaution">
-Desconfiad de los trabajos donde esto no se haga. Podría ser que la potencia fuera muy baja y hubiera un <strong>sesgo de infrapotència</strong> (<em>underpower</em>): se necesitaba un efecto muy grande para poder rechazar la hipótesis nula y publicar el artículo.
+Desconfiad de los trabajos donde esto no se haga. Podría ser que la potencia fuera muy baja y hubiera un <strong>sesgo de infrapotencia</strong> (<em>underpower</em>): se necesitaba un efecto muy grande para poder rechazar la hipótesis nula y publicar el artículo.
 </div>
 
 </div>
 <div id="el-riesgo-de-positivo-falso-opcional" class="section level3 unnumbered">
 <h3>El riesgo de positivo falso (Opcional)</h3>
-<p>El paquete *statcheck** de R permite revisar de manera automática todos los cálculos de un artículo escrito en un formato concreto en psicología y comprobar los p-valores. Los autores analizaron 30,000 artículos y concluyeron que (<em>Behavior research methods</em> 48 (2016), 1205-1226):</p>
+<p>El paquete <strong>statcheck</strong> de R permite revisar de manera automática todos los cálculos de un artículo escrito en un formato concreto en psicología y comprobar los p-valores. Los autores del paquete analizaron 30,000 artículos y concluyeron que (<em>Behavior research methods</em> 48 (2016), 1205-1226):</p>
 <blockquote>
 <p>“Hemos encontrado que la mitad de los artículos contienen al menos un p-valor erróneo. Y uno de cada ocho artículos contiene un p-valor erróneo que además afecta la conclusión estadística.”</p>
 </blockquote>
@@ -1328,17 +1347,19 @@ Desconfiad de los trabajos donde esto no se haga. Podría ser que la potencia fu
 <ul>
 <li>Cualquier artículo puede dar un p-valor pequeño que esté equivocado</li>
 </ul>
-<p>No os fiéis de los resultados. Además, tened presente que:</p>
+<p>No os fiéis de los resultados. Si las conclusiones os interesan, revisad los cálculos.</p>
+<p>Además, tened presente que:</p>
 <ul>
-<li><p>Cualquier estudio mal diseñado o mal realizado puede dar un p-valor pequeño… que no signifique absolutamente nada</p></li>
-<li><p>Cualquier estudio perfectamente diseñado y realizado puede dar por puro azar un p-valor pequeño… que implique un positivo falso</p></li>
+<li><p>Cualquier estudio mal diseñado o mal realizado puede dar un p-valor pequeño… que no signifique absolutamente nada.</p>
+<p>Si las conclusiones de un estudio os interesan, revisad si el experimento ha sido bien diseñado y ejecutado.</p></li>
+<li><p>Cualquier estudio perfectamente diseñado y realizado puede dar por puro azar un p-valor pequeño… que implique un positivo falso.</p>
+<p>Contra esto último no podemos hacer nada, salvo ser escépticos.</p></li>
 </ul>
-<p>En resumen, en cualquier estudio os podéis encontrar con un falso positivo. Sed escépticos.</p>
-<p>El <strong>riesgo de falso positivo</strong>, *FPR**, en un contraste es
+<p>Bueno. sí que podemos hacer algo. Calcular el <strong>riesgo de falso positivo</strong>, <strong>FPR</strong>, del contraste, que es
 <span class="math display">\[
 P(H_0\text{ verdadera}|H_0\text{ rechazada}).
 \]</span>
-Por el teorema de Bayes (notad que interpretamos <span class="math inline">\(H_1= \text{no }H_0\)</span>)
+Por el teorema de Bayes (notad que interpretamos <span class="math inline">\(H_1\)</span> como lo contrario de <span class="math inline">\(H_0\)</span>)
 <span class="math display">\[
 \begin{array}{rl}
 FPR&amp;=\dfrac{P(H_0)\cdot P(H_0\text{ rech.}|H_0)}{P(H_0)\cdot P(H_0\text{ rech.}|H_0)+P(H_1)\cdot P(H_0\text{ rech.}|H_1)}\\
@@ -1346,23 +1367,105 @@ FPR&amp;=\dfrac{P(H_0)\cdot P(H_0\text{ rech.}|H_0)}{P(H_0)\cdot P(H_0\text{ rec
 &amp; =\dfrac{(1-P(H_1))\cdot \alpha}{(1-P(H_1))\cdot \alpha+ P(H_1)\cdot (1-\beta)}
 \end{array}
 \]</span></p>
-<p>Para calcularlo, tenemos que saber el nivel de significación y la potencia y tenemos que decidir <em>a priori</em> qué probabilidad asignamos al hecho de que <span class="math inline">\(H_1\)</span> sea verdadera.</p>
+<p>Por lo tanto, para calcularlo, tenemos que saber el nivel de significación y la potencia y tenemos que decidir <em>a priori</em> qué probabilidad asignamos al hecho de que <span class="math inline">\(H_1\)</span> sea verdadera.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-69" class="example"><strong>Ejemplo 1.21  </strong></span>En un estudio (publicado en <em>Psychological Science</em> 22 (2011), pp. 1011-1018) se repartieron 66 participantes en dos grupos de 33, a los que diremos grupo Bandera y grupo Control, y les mostraron las mismas 4 fotos de edificios. En las del grupo Bandera, dos mostraban una bandera de los EE.UU., y en las del grupo Control, estas banderas habían sido eliminadas digitalmente. Para enmascarar el estudio, se los pidió que adivinaran la hora del día en que fueron tomadas las fotos.</p>
+<p><span id="exm:unnamed-chunk-70" class="example"><strong>Ejemplo 1.21  </strong></span>En un estudio (publicado en <em>Psychological Science</em> 22 (2011), pp. 1011-1018) se repartieron 66 participantes en dos grupos de 33, a los que llamaremos grupo Bandera y grupo Control, y les mostraron las mismas 4 fotos de edificios. Dos de las fotografías del grupo Bandera mostraban una bandera de los EE.UU. En las fotografías del grupo Control, estas banderas habían sido eliminadas digitalmente. Para enmascarar el estudio, se les pidió que adivinaran la hora del día en que fueron tomadas las fotos.</p>
 </div>
 
-<p>Después de mirar las fotos, los participantes rellenaron un cuestionario sobre ideas políticas, a partir del cual se puede calcular cierto “índice de republicanismo” (en el sentido norteamericano del término) <span class="math inline">\(M\)</span> de quien lo ha contestado. Resulta que <span class="math inline">\(M\)</span> fue significativamente más alto en el grupo Bandera que en el grupo Control, y con un nivel de significación <span class="math inline">\(\alpha=0.05\)</span> los autores del estudio concluyeron que mirar fotos con banderas estatales “derechiza” (al menos a corto plazo) tus ideas políticas. Voy a estimar el riesgo que este positivo sea falso.</p>
-<p>Como <em>a priori</em> encuentro muy improbable que la conclusión sea cierta, le asignaré <span class="math inline">\(P(H_1)=0.1\)</span> y gracias. Usaremos su <span class="math inline">\(\alpha=0.05\)</span>, y si se calcula la potencia del contraste publicado, da 0.5.</p>
+<p>Después de mirar las fotos, los participantes rellenaron un cuestionario sobre ideas políticas, a partir del cual se puede calcular un “índice de republicanismo” (en el sentido norteamericano del término) <span class="math inline">\(M\)</span> de quien lo ha contestado. Resulta que <span class="math inline">\(M\)</span> fue significativamente más alto en el grupo Bandera que en el grupo Control, y con un nivel de significación <span class="math inline">\(\alpha=0.05\)</span> los autores del estudio concluyeron que mirar fotos con banderas estatales “derechiza” (al menos a corto plazo) tus ideas políticas. Vamos a estimar el riesgo que este positivo sea falso.</p>
+<p>Como <em>a priori</em> encontramos muy improbable que la conclusión sea cierta, le asignaremos una probabilidad de <span class="math inline">\(P(H_1)=0.1\)</span> y gracias. Usaremos su <span class="math inline">\(\alpha=0.05\)</span>, y si se calcula la potencia del contraste publicado, da 0.5.</p>
 <p>Entonces
 <span class="math display">\[
 FPR =\dfrac{0.9\cdot 0.05}{0.9\cdot 0.05+0.1\cdot 0.5}=0.47
 \]</span>
-Por lo tanto, <em>a posteriori</em>, creo que hay un 47% de probabilidades que <span class="math inline">\(H_1\)</span> sea falsa y un 53% de probabilidades que <span class="math inline">\(H_1\)</span> sea verdadera.</p>
+Por lo tanto, <em>a posteriori</em>, creemos que hay un 47% de probabilidades de que <span class="math inline">\(H_1\)</span> sea falsa y un 53% de probabilidades de que <span class="math inline">\(H_1\)</span> sea verdadera.</p>
 </div>
 </div>
 <div id="test" class="section level2">
 <h2><span class="header-section-number">1.7</span> Test</h2>
+<p><strong>(1)</strong> ¿Qué significa que en un contraste de hipótesis tomemos un nivel de significación del 1%? Marcad la respuesta correcta:</p>
+<ol style="list-style-type: decimal">
+<li>Que un 1% de las veces que la hipótesis nula sea falsa la rechazaremos en favor de la alternativa.</li>
+<li>Que un 1% de las veces que la hipótesis nula sea falsa la aceptaremos.</li>
+<li>Que un 1% de las veces que la hipótesis nula sea verdadera la rechazaremos en favor de la alternativa.</li>
+<li>Que un 1% de las veces que la hipótesis nula sea verdadera la aceptaremos.</li>
+<li>Que un 1% de las veces rechazaremos la hipótesis nula.</li>
+<li>Que un 1% de las veces aceptaremos la hipótesis nula.</li>
+</ol>
+<p><strong>(2)</strong> Al analizar los resultados de un ensayo clínico, se concluye que la tasa de curación de los dos tratamientos estudiados son diferentes, con <span class="math inline">\(p=0.034\)</span>. Esto significa (marcad todas las respuestas correctas):</p>
+<ol style="list-style-type: decimal">
+<li>Que hay un 3.4% de probabilidad de que, si se repite el estudio, no se encuentren diferencias significativas.</li>
+<li>Que hay un 3.4% de probabilidad de que la tasa de curación de los tratamientos estudiados sean iguales.</li>
+<li>Que hay un 3.4% de diferencia, o más, en las tasas de curación de los tratamientos estudiados.</li>
+<li>Que ha habido un 3.4% de diferencia, o más, en las tasas de curación de los tratamientos en nuestras muestras.</li>
+<li>Que hay un 3.4% de probabilidad de que la diferencia obtenida entre las tasas de curación, o una aún mayor, se deba al azar.</li>
+<li>Todas las otras respuestas son incorrectas.</li>
+</ol>
+<p><strong>(3)</strong> En un pequeño ensayo aleatorio simple ciego de un nuevo tratamiento en pacientes con infarto de miocardio agudo, la mortalidad en el grupo tratado fue la mitad que en el grupo control, pero
+la diferencia no resultó estadísticamente significativa. Podemos concluir que (marcad todas las respuestas correctas):</p>
+<ol style="list-style-type: decimal">
+<li>Como la diferencia no es estadísticamente significativa, el tratamiento es inútil.</li>
+<li>Podría ser que el contraste tuviera poca potencia, y por eso la diferencia detectada no ha sido estadísticamente significativa.</li>
+<li>La reducción observada de la mortalidad es tan grande que deberíamos introducir el tratamiento inmediatamente, aunque dicha reducción no sea estadísticamente significativa.</li>
+<li>Esto se debe a que el ensayo fue simple ciego, y no doble ciego.</li>
+<li>Es conveniente llevar a cabo un nuevo ensayo sobre una muestra de pacientes de mayor tamaño.</li>
+<li>Todas las otras respuestas son incorrectas.</li>
+</ol>
+<p><strong>(4)</strong> En un estudio donde se contrastó si los individuos con hipertensión arterial tienen un mayor riesgo de sufrir un infarto de miocardio que los individuos normotensos, se obtuvo un p-valor de 0.02. ¿Qué quiere decir esto?
+(Marcad una sola respuesta.)</p>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de que los hipertensos tengan más riesgo de sufrir un infarto de miocardio que los normotensos es 0.02</li>
+<li>La probabilidad de que los hipertensos tengan más riesgo de sufrir un infarto de miocardio que los normotensos es 0.98</li>
+<li>Un hipertenso tiene una probabilidad de sufrir un infarto de miocardio un 2% mayor que un normotenso.</li>
+<li>En las muestras que hemos usado en el estudio, la proporción de hipertensos que han sufrido un infarto de miocardio es un 2% mayor que la de normotensos que han sufrido un infarto de miocardio</li>
+<li>Ninguna de las otras respuestas es correcta.</li>
+</ol>
+<p><strong>(5)</strong> En un estudio sobre lactancia materna e inteligencia, a 300 niños
+que fueron muy pequeños al nacer se les dio la leche materna de su madre o leche infantil, a elección de la madre. A la edad de 8 años, se midió el CI (cociente intelectual) de estos niños. La media de CI en el grupo de leche infantil fue 92.8, en comparación con una media de 103.0 en el grupo de leche materna. La diferencia fue significativa, <span class="math inline">\(p &lt;0.001\)</span>. Marcad todas las afirmaciones correctas:</p>
+<ol style="list-style-type: decimal">
+<li>Hay evidencia estadísticamente significativa de que la alimentación mediante leche infantil de los bebés muy pequeños reduce su CI a los 8 años.</li>
+<li>Hay evidencia estadísticamente significativa de que elegir alimentar un bebé muy pequeño con leche materna aumenta el CI del niño a los 8 años.</li>
+<li>Hay evidencia estadísticamente significativa de que el tipo de leche no tiene ningún efecto en el CI subsecuente.</li>
+<li>La probabilidad de que el tipo de leche no afecte al CI subsiguiente es inferior al 0.1%.</li>
+<li>Si la elección del tipo de leche estuviera relacionada con el CI posterior, la probabilidad de que
+la diferencia observada en el CI medio fuera la observada, o menor, es menor que 0.001.</li>
+<li>Todas las otras respuestas son incorrectas.</li>
+</ol>
+<p><strong>(6)</strong> En un contraste de hipótesis estadístico, si la hipótesis alternativa es verdadera pero se acepta la hipótesis nula (marca todas las conclusiones correctas, hay al menos una):</p>
+<ol style="list-style-type: decimal">
+<li>Se comete un error de tipo I.</li>
+<li>Se comete un error de tipo II.</li>
+<li>La potencia disminuye.</li>
+<li>El p-valor es mayor que el nivel de significación.</li>
+<li>El p-valor es menor que el nivel de significación.</li>
+</ol>
+<p><strong>(7)</strong> Siempre que en un contraste de hipótesis NO se rechaza la hipótesis nula, ¿cuáles de las siguientes afirmaciones son correctas? (Marca todas las respuestas correctas.)</p>
+<ol style="list-style-type: decimal">
+<li>Se ha demostrado que la hipótesis nula es verdadera.</li>
+<li>Se ha demostrado que la hipótesis alternativa es falsa.</li>
+<li>Se ha encontrado evidencia de que la hipótesis nula es verdadera</li>
+<li>Se ha encontrado evidencia de que la hipótesis alternativa es falsa</li>
+<li>Ninguna de las otras afirmaciones es verdadera.</li>
+</ol>
+<p><strong>(8)</strong> Si en un contraste de hipótesis tomamos un nivel de significación del 10% y una potencia del 60% y obtenemos un p-valor <span class="math inline">\(p=0.28\)</span>, ¿cuál de las afirmaciones siguientes es verdadera?</p>
+<ol style="list-style-type: decimal">
+<li>Aceptamos la hipótesis nula porque <span class="math inline">\(p&gt;0.1\)</span>.</li>
+<li>Aceptamos la hipótesis nula porque <span class="math inline">\(p&lt;0.6\)</span>.</li>
+<li>Rechazamos la hipótesis nula porque <span class="math inline">\(p&gt;0.1\)</span>.</li>
+<li>Rechazamos la hipótesis nula porque <span class="math inline">\(p&lt;0.6\)</span>.</li>
+<li>Con los datos dados, no tenemos criterio para aceptar o rechazar la hipótesis nula.</li>
+</ol>
+<p><strong>(9)</strong> En un estudio se trató con un suplemento dietético más dieta a 15 insuficientes renales y solamente con
+dieta a 16, de manera que los pacientes conocían qué tratamiento recibieron. Se compararon 20 variables
+entre ambos grupos y en una comparación se encontró una diferencia a favor del suplemento estadísticamente significativa con un nivel de significación del 5% (p-valor <span class="math inline">\(p=0.021\)</span>). ¿Cómo interpretas estos resultados?</p>
+<ol style="list-style-type: decimal">
+<li>El estudio no permite concluir nada, ya si realizamos 20 contrastes con un nivel de significación del 5%, esperamos que uno dé un resultado estadísticamente significativo aunque no haya diferencia entre los tratamientos</li>
+<li>El p-valor tan pequeño descarta la posibilidad de un falso positivo en el caso en que se ha encontrado una diferencia estadísticamente significativa</li>
+<li>El hecho de haber encontrado una diferencia estadísticamente significativa en una comparación puede deberse a un error de tipo II</li>
+<li>Con unas muestras de pacientes tan pequeñas, la potencia de los contrastes es muy baja, lo que explica que hayamos obtenido algún resultado estadísticamente significativo</li>
+<li>Como en un 5% (el nivel de significación) de los contrastes se obtuvo un resultado favorable a favor del suplemento dietético, concluimos que su introducción es eficaz</li>
+</ol>
 
 </div>
 </div>
