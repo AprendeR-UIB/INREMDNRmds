@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-11-26" />
+<meta name="date" content="2020-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -271,6 +271,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>13.6</b> Intervalos de confianza para diferencias de medias</a></li>
 <li class="chapter" data-level="13.7" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>13.7</b> Test</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>14</b> Contrastes de hipótesis</a><ul>
+<li class="chapter" data-level="14.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#hipótesis-nula-y-alternativa"><i class="fa fa-check"></i><b>14.1</b> Hipótesis nula y alternativa</a></li>
+<li class="chapter" data-level="14.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:moneda"><i class="fa fa-check"></i><b>14.2</b> Un ejemplo</a></li>
+<li class="chapter" data-level="14.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:pval"><i class="fa fa-check"></i><b>14.3</b> El p-valor</a></li>
+<li class="chapter" data-level="14.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#tipo-de-errores"><i class="fa fa-check"></i><b>14.4</b> Tipo de errores</a></li>
+<li class="chapter" data-level="14.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:exttest"><i class="fa fa-check"></i><b>14.5</b> Ejemplo: El test t</a></li>
+<li class="chapter" data-level="14.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#recapitulación"><i class="fa fa-check"></i><b>14.6</b> Recapitulación</a><ul>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#intervalo-de-confianza-de-un-contraste"><i class="fa fa-check"></i>Intervalo de confianza de un contraste</a></li>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#la-potencia"><i class="fa fa-check"></i>La potencia</a></li>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#el-riesgo-de-falso-positivo"><i class="fa fa-check"></i>El riesgo de falso positivo</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>14.7</b> Test</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -303,7 +316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-122" class="example"><strong>Ejemplo 5.1  </strong></span>En el artículo <a href="https://www.sciencedirect.com/science/article/pii/S0210480611003767">“Incidencia, prevalencia y mortalidad del cáncer renal en España: estimaciones y proyecciones para el período 1998-2022”</a> (<em>Actas Urológicas Españolas</em> 36 (2012), pp. 521-526) se puede leer:</p>
+<p><span id="exm:unnamed-chunk-123" class="example"><strong>Ejemplo 5.1  </strong></span>En el artículo <a href="https://www.sciencedirect.com/science/article/pii/S0210480611003767">“Incidencia, prevalencia y mortalidad del cáncer renal en España: estimaciones y proyecciones para el período 1998-2022”</a> (<em>Actas Urológicas Españolas</em> 36 (2012), pp. 521-526) se puede leer:</p>
 </div>
 
 <blockquote>
@@ -397,7 +410,7 @@ Por ejemplo, el pobre preso dado por muerto sería un falso positivo en una prue
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-126" class="example"><strong>Ejemplo 5.2  </strong></span>Recordad el Ejemplo <a href="probabilidades-elementales-las-mates.html#exm:VIH995">4.21</a>, en el que teníamos un test para el VIH que daba positivo en un 99% de los infectados y en un 5% de las personas libres del virus.</p>
+<p><span id="exm:unnamed-chunk-127" class="example"><strong>Ejemplo 5.2  </strong></span>Recordad el Ejemplo <a href="probabilidades-elementales-las-mates.html#exm:VIH995">4.21</a>, en el que teníamos un test para el VIH que daba positivo en un 99% de los infectados y en un 5% de las personas libres del virus.</p>
 <ul>
 <li><p>La <strong>sensibilidad</strong> de este test es la proporción de enfermos en los que da positivo: 99%.</p></li>
 <li><p>La <strong>especificidad</strong> de este test es la proporción de sanos en los que da negativo: 95%.</p></li>
@@ -638,7 +651,7 @@ Un valor de <span class="math inline">\(\text{LR}(-)\)</span> por debajo de 0.1 
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-134" class="example"><strong>Ejemplo 5.4  </strong></span>Volviendo al Ejemplo <a href="probabilidades-elementales-aplicaciones-en-medicina.html#exm:antiendomisio">5.3</a>, habíamos obtenido que</p>
+<p><span id="exm:unnamed-chunk-135" class="example"><strong>Ejemplo 5.4  </strong></span>Volviendo al Ejemplo <a href="probabilidades-elementales-aplicaciones-en-medicina.html#exm:antiendomisio">5.3</a>, habíamos obtenido que</p>
 </div>
 
 <ul>
@@ -693,7 +706,7 @@ Para <span class="math inline">\(\text{Odds}(E|-)\)</span> el cálculo es simila
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-136" class="example"><strong>Ejemplo 5.5  </strong></span>Se sabe que una mujer con un hermano hemofílico tiene un 50% de probabilidades de ser portadora de una copia defectuosa del gen del factor VIII. Una prueba genética para detectar dicho gen defectuoso tiene una sensibilidad del 90% y una especificidad del 80%. Si una mujer con un hermano hemofílico se hace la prueba y da negativo, ¿cómo modifica este resultado sus <em>odds</em> de ser portadora?</p>
+<p><span id="exm:unnamed-chunk-137" class="example"><strong>Ejemplo 5.5  </strong></span>Se sabe que una mujer con un hermano hemofílico tiene un 50% de probabilidades de ser portadora de una copia defectuosa del gen del factor VIII. Una prueba genética para detectar dicho gen defectuoso tiene una sensibilidad del 90% y una especificidad del 80%. Si una mujer con un hermano hemofílico se hace la prueba y da negativo, ¿cómo modifica este resultado sus <em>odds</em> de ser portadora?</p>
 </div>
 
 <p>Llamemos <span class="math inline">\(E\)</span> al suceso “Ser portadora de una copia defectuosa del gen del factor VIII”. Si la mujer <em>a priori</em> tiene un 50% de probabilidades de serlo, sus <em>odds</em> de serlo valen 1. Ahora sabemos que, para el test genético, <span class="math inline">\(P(-|E)=0.1\)</span> y <span class="math inline">\(P(-|S)=0.8\)</span>, por lo que <span class="math inline">\(\text{LR}(-)=P(-|E)/P(-|S)=\dfrac{1}{8}\)</span>.</p>
@@ -762,7 +775,7 @@ Es decir, el punto de la curva ROC correspondiente al valor de corte <span class
 <p>Por lo tanto, <strong>la curva ROC siempre es creciente</strong>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-140" class="example"><strong>Ejemplo 5.6  </strong></span>Vamos a dibujar una curva ROC. El artículo <a href="https://www.nejm.org/doi/full/10.1056/NEJM199608013350502">“Age-specific reference ranges for serum prostate-specific antigen in black men”</a> (T. Morgan <em>et al</em>, <em>New England Journal of Medicine</em> 335 (1996), pp. 304-310) contiene la tabla que hemos copiado en la Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:tablapsaglobal">5.5</a>. Esta tabla da la especificidad y la sensibilidad del diagnóstico del cáncer de próstata por medio del <a href="https://medlineplus.gov/spanish/pruebas-de-laboratorio/prueba-de-psa-antigeno-prostatico-especifico/">nivel de PSA</a> (abreviatura de <em>antígeno prostático específico</em>) en diferentes poblaciones de hombres estadounidenses, definidas por razas y franjas de edad. A los hombres con cáncer de próstata más pronto o más tarde se les dispara el nivel de PSA. Por lo tanto, dado un nivel de corte de PSA, se considera como “positivo” un nivel por encima de él. En particular, en cada fila de esta tabla, se define como “positivo” el tener un nivel de PSA mayor o igual que el valor de su primera columna.</p>
+<p><span id="exm:unnamed-chunk-141" class="example"><strong>Ejemplo 5.6  </strong></span>Vamos a dibujar una curva ROC. El artículo <a href="https://www.nejm.org/doi/full/10.1056/NEJM199608013350502">“Age-specific reference ranges for serum prostate-specific antigen in black men”</a> (T. Morgan <em>et al</em>, <em>New England Journal of Medicine</em> 335 (1996), pp. 304-310) contiene la tabla que hemos copiado en la Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:tablapsaglobal">5.5</a>. Esta tabla da la especificidad y la sensibilidad del diagnóstico del cáncer de próstata por medio del <a href="https://medlineplus.gov/spanish/pruebas-de-laboratorio/prueba-de-psa-antigeno-prostatico-especifico/">nivel de PSA</a> (abreviatura de <em>antígeno prostático específico</em>) en diferentes poblaciones de hombres estadounidenses, definidas por razas y franjas de edad. A los hombres con cáncer de próstata más pronto o más tarde se les dispara el nivel de PSA. Por lo tanto, dado un nivel de corte de PSA, se considera como “positivo” un nivel por encima de él. En particular, en cada fila de esta tabla, se define como “positivo” el tener un nivel de PSA mayor o igual que el valor de su primera columna.</p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:tablapsaglobal"></span>
@@ -849,7 +862,7 @@ Figura 5.7: Una curva ROC y su umbral óptimo.
 Por lo tanto, requerimos que, para cada umbral la sensibilidad sea mayor que la tasa de falsos positivos. Esto significa que la curva ROC ha de estar por encima de la diagonal principal <span class="math inline">\(y=x\)</span>. Los puntos de esta diagonal corresponden a la situación <span class="math inline">\(P(+|E)=P(+|S)\)</span>. Es decir, a que el test dé positivo con la misma frecuencia en sanos que en enfermos y por lo tanto a que “estar enfermo” y “dar positivo” sean sucesos independientes. En este caso el test no sirve para nada. En el contexto de las curvas ROC, a la diagonal principal del cuadrado unidad se la llama la <strong>línea de no discriminación</strong> por este motivo.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-142" class="example"><strong>Ejemplo 5.7  </strong></span>Imaginaos que queremos diagnosticar una enfermedad mediante el lanzamiento de dados. Lanzas 5 dados, anotas el resultado y si supera un cierto umbral, da positivo. El estar enfermo o sano no influye para nada en el resultado del lanzamiento, por lo que para todo umbral <span class="math inline">\(x\)</span> que consideremos, la probabilidad de superar ese umbral si se está sano y si se está enfermo es la misma: <span class="math inline">\(P(+_x|E)=P(+_x|S)\)</span>. La curva ROC de esta prueba diagnóstica sería la diagonal principal del cuadrado unidad, la línea de no discriminación.</p>
+<p><span id="exm:unnamed-chunk-143" class="example"><strong>Ejemplo 5.7  </strong></span>Imaginaos que queremos diagnosticar una enfermedad mediante el lanzamiento de dados. Lanzas 5 dados, anotas el resultado y si supera un cierto umbral, da positivo. El estar enfermo o sano no influye para nada en el resultado del lanzamiento, por lo que para todo umbral <span class="math inline">\(x\)</span> que consideremos, la probabilidad de superar ese umbral si se está sano y si se está enfermo es la misma: <span class="math inline">\(P(+_x|E)=P(+_x|S)\)</span>. La curva ROC de esta prueba diagnóstica sería la diagonal principal del cuadrado unidad, la línea de no discriminación.</p>
 </div>
 
 <p>Como hemos comentado, un valor de la prueba es mejor cuanto más se acerca su punto de la curva ROC al extremo superior izquierdo del cuadrado unidad. Por lo tanto, cuanto más se se separe una curva ROC de la línea de no discriminación por encima de la misma y más se aproxime al ángulo que forman las rectas <span class="math inline">\(x=0\)</span> e <span class="math inline">\(y=1\)</span>, mejor es la prueba globalmente. Por ejemplo, en la Figura <a href="probabilidades-elementales-aplicaciones-en-medicina.html#fig:roc3">5.8</a>, la curva ROC con puntos rellenos corresponde a una prueba diagnóstica con mayor capacidad discriminatoria global que la de los puntos vacíos.</p>
@@ -877,7 +890,7 @@ Los que visteis integrales en Matemáticas II del Bachillerato tendríais que re
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-145" class="example"><strong>Ejemplo 5.8  </strong></span>En el estudio <a href="http://scielo.isciii.es/pdf/asisna/v39n1/13_original_breve4.pdf">“Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias”</a>
+<p><span id="exm:unnamed-chunk-146" class="example"><strong>Ejemplo 5.8  </strong></span>En el estudio <a href="http://scielo.isciii.es/pdf/asisna/v39n1/13_original_breve4.pdf">“Proteína C reactiva y lactato deshidrogenasa en el diagnóstico de la obstrucción intestinal en un servicio de urgencias”</a>
 (R. Rodríguez <em>et al</em>, <em>Anales del Sistema Sanitario de Navarra</em> 39 (2016), pp. 115-122) se compararon dos técnicas analíticas de diagnóstico de la obstrucción intestinal: los niveles de la proteína C reactiva (PCR) y del enzima lactato deshidrogenasa (LDH) en plasma.</p>
 </div>
 
@@ -1048,7 +1061,7 @@ No es lo mismo.
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-152" class="theorem"><strong>Teorema 5.1  </strong></span><span class="math inline">\(NND=1/RA\)</span>.</p>
+<p><span id="thm:unnamed-chunk-153" class="theorem"><strong>Teorema 5.1  </strong></span><span class="math inline">\(NND=1/RA\)</span>.</p>
 </div>
 
 
@@ -1091,7 +1104,7 @@ P(E|R)=RR\cdot P(E|R^c)
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-156" class="example"><strong>Ejemplo 5.11  </strong></span>La página <a href="https://www.cancer.org/es/cancer/causas-del-cancer/tratamientos-medicos/terapia-de-restitucion-de-hormonas-en-la-menopausia-y-el-riesgo-de-cancer.html">“Terapia hormonal en la menopausia y el riesgo de padecer cáncer”</a> de la <em>American Cancer Society</em> recoge, entre muchos otros, los datos siguientes:</p>
+<p><span id="exm:unnamed-chunk-157" class="example"><strong>Ejemplo 5.11  </strong></span>La página <a href="https://www.cancer.org/es/cancer/causas-del-cancer/tratamientos-medicos/terapia-de-restitucion-de-hormonas-en-la-menopausia-y-el-riesgo-de-cancer.html">“Terapia hormonal en la menopausia y el riesgo de padecer cáncer”</a> de la <em>American Cancer Society</em> recoge, entre muchos otros, los datos siguientes:</p>
 </div>
 
 <ul>
@@ -1108,7 +1121,7 @@ Los 50% y 0.8% que aparecen en el ejemplo anterior, ¿qué son: riesgos absoluto
 <p>Insistimos.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-158" class="example"><strong>Ejemplo 5.12  </strong></span>Según la <em>National Cancer Institute’s Breast Cancer tool</em> de 1998,</p>
+<p><span id="exm:unnamed-chunk-159" class="example"><strong>Ejemplo 5.12  </strong></span>Según la <em>National Cancer Institute’s Breast Cancer tool</em> de 1998,</p>
 <ul>
 <li><p>“Las mujeres que toman tamoxiflen tienen un 49% menos de diagnósticos de cáncer invasivo de mama”</p></li>
 <li><p>“La tasa anual de cáncer uterino entre las mujeres que toman tamoxiflen es de 30 por cada 10,000, comparado con los 8 a 10 por cada 10,000 anuales en la población femenina general”</p></li>
@@ -1214,7 +1227,7 @@ OR=\frac{\dfrac{a}{a+c}\Big/\dfrac{c}{a+c}}{\dfrac{b}{b+d}\Big/\dfrac{d}{b+d}}=\
 \]</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-161" class="example"><strong>Ejemplo 5.14  </strong></span>En el estudio de casos y controles <a href="https://www.redalyc.org/pdf/843/84346573010.pdf">“Factores de riesgo para bacteriemia por <em>Pseudomonas aeruginosa</em> resistente a carbapenémicos adquirida en un hospital colombiano”</a> (S. Valderrama <em>et al</em>, <em>Biomédica</em> 36 (2016), pp. 69-77) se tomó como casos un grupo de pacientes con bacteriemia por <em>P. aeruginosa</em> resistente a carbapenémicos (un determinado tipo de antibióticos) y como controles un grupo de pacientes con bacteriemia por <em>P. aeruginosa</em> sensible a estos antibióticos. Se midieron varias características sobre ellos, como por ejemplo si se les había administrado previamente meropenem (un carbapenémico) o nutrición parenteral.</p>
+<p><span id="exm:unnamed-chunk-162" class="example"><strong>Ejemplo 5.14  </strong></span>En el estudio de casos y controles <a href="https://www.redalyc.org/pdf/843/84346573010.pdf">“Factores de riesgo para bacteriemia por <em>Pseudomonas aeruginosa</em> resistente a carbapenémicos adquirida en un hospital colombiano”</a> (S. Valderrama <em>et al</em>, <em>Biomédica</em> 36 (2016), pp. 69-77) se tomó como casos un grupo de pacientes con bacteriemia por <em>P. aeruginosa</em> resistente a carbapenémicos (un determinado tipo de antibióticos) y como controles un grupo de pacientes con bacteriemia por <em>P. aeruginosa</em> sensible a estos antibióticos. Se midieron varias características sobre ellos, como por ejemplo si se les había administrado previamente meropenem (un carbapenémico) o nutrición parenteral.</p>
 </div>
 
 <p>Los resultados sobre estos dos riesgos se recogen en la tabla siguiente:
@@ -1324,7 +1337,7 @@ RRR=\dfrac{P(E|T^c)-P(E|T)}{P(E|T^c)}=1-RR.
 <p>Veamos un ejemplo concreto de NNT, para ayudar a entenderlo.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-162" class="example"><strong>Ejemplo 5.16  </strong></span>Imaginad la situación en la que con el tratamiento se cura el 30% de los enfermos y sin el tratamiento solo se cura el 10%. Es decir, <span class="math inline">\(P(E|T)=0.7\)</span> y <span class="math inline">\(P(E|T^c)=0.9\)</span>. ¿A cuántos pacientes tendríamos que empezar a tratar, de media, para que se curara 1 paciente adicional (que no se curaría sin el tratamiento)?</p>
+<p><span id="exm:unnamed-chunk-163" class="example"><strong>Ejemplo 5.16  </strong></span>Imaginad la situación en la que con el tratamiento se cura el 30% de los enfermos y sin el tratamiento solo se cura el 10%. Es decir, <span class="math inline">\(P(E|T)=0.7\)</span> y <span class="math inline">\(P(E|T^c)=0.9\)</span>. ¿A cuántos pacientes tendríamos que empezar a tratar, de media, para que se curara 1 paciente adicional (que no se curaría sin el tratamiento)?</p>
 De media, por cada 100 pacientes, si los dejamos sin tratar se curan 10 y si los tratamos se curan 30. Por lo tanto, por cada 100 pacientes que pasamos de no tratados a tratados, se añaden de media 20 pacientes al conjunto de los curados. Es decir, cada 100 pacientes que tratamos significan, de media, 20 curados adicionales (que se suman a los que se curarían sin necesidad de tratamiento). ¿Cuántos hemos de tratar para que tengamos 1 curado adicional? Si 100 pacientes tratados dan 20 curados adicionales, el número NNT de pacientes tratados para obtener 1 curado extra es
 <span class="math display">\[
 NNT=\frac{100}{20}=5
@@ -1334,7 +1347,7 @@ NNT=\frac{100}{20}=5
 El mismo argumento que para el NND y que el dado en el ejemplo anterior, prueba la siguiente igualdad:
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-163" class="theorem"><strong>Teorema 5.2  </strong></span><span class="math inline">\(NNT=1/RAR\)</span>.</p>
+<p><span id="thm:unnamed-chunk-164" class="theorem"><strong>Teorema 5.2  </strong></span><span class="math inline">\(NNT=1/RAR\)</span>.</p>
 </div>
 
 <p>Por lo tanto, en el caso de tratamientos, el RAR y el NNT tienen la misma información.</p>
@@ -1367,7 +1380,7 @@ Calculad los RR, RAR, RRR y NNT y explicad su significado.</p>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-165" class="example"><strong>Ejemplo 5.17  </strong></span>En el estudio <a href="https://www.sciencedirect.com/science/article/pii/S0140673694924074">“Completeness of reporting trial results: effect on physicians’ willingness to prescribe.”</a>(M. Bobbio <em>et al</em>, <em>The Lancet</em> 343 (1994), pp. 1209-1211) se explicó a 148 médicos los resultados que se habían obtenido en unos ensayos clínicos similares (controlados con placebo) sobre 4 tratamientos para que decidieran para cada uno de ellos si lo recetarían para reducir el colesterol. Se les dijo que:</p>
+<p><span id="exm:unnamed-chunk-166" class="example"><strong>Ejemplo 5.17  </strong></span>En el estudio <a href="https://www.sciencedirect.com/science/article/pii/S0140673694924074">“Completeness of reporting trial results: effect on physicians’ willingness to prescribe.”</a>(M. Bobbio <em>et al</em>, <em>The Lancet</em> 343 (1994), pp. 1209-1211) se explicó a 148 médicos los resultados que se habían obtenido en unos ensayos clínicos similares (controlados con placebo) sobre 4 tratamientos para que decidieran para cada uno de ellos si lo recetarían para reducir el colesterol. Se les dijo que:</p>
 </div>
 
 <ul>
@@ -1430,7 +1443,7 @@ finalmente llegáis a la siguiente tabla:
 \end{array}
 \end{array}
 \]</span></p>
-<p>A partir de ella y redondeando porcentajes, señalad
+<p>A partir de ella y redondeando porcentajes, señala
 cuál de las siguientes afirmaciones es verdadera:</p>
 <ol style="list-style-type: decimal">
 <li>El VPP es del 56% y el VPN del 13%.</li>
@@ -1441,7 +1454,7 @@ cuál de las siguientes afirmaciones es verdadera:</p>
 </ol>
 <p><strong>(4)</strong> En el diagnóstico de cardiopatía isquémica, la
 prueba de esfuerzo tiene mayor valor predictivo positivo
-cuando (marcad una sola respuesta correcta; <strong>Pista</strong>: es una pregunta de esta asignatura):</p>
+cuando (marca una sola respuesta correcta; <strong>Pista</strong>: es una pregunta de esta asignatura):</p>
 <ol style="list-style-type: decimal">
 <li>La probabilidad previa de enfermedad coronaria es baja en el paciente estudiado.</li>
 <li>La probabilidad previa de enfermedad coronaria es alta en el paciente estudiado.</li>
@@ -1456,7 +1469,7 @@ de depresión del segmento ST que definen el
 resultado anormal. Si se considera como resultado
 anormal a partir de los 2 mm de depresión
 del segmento ST en lugar de a partir de
-0.5 mm (señalad la respuesta correcta):</p>
+0.5 mm (marca la respuesta correcta):</p>
 <ol style="list-style-type: decimal">
 <li>La sensibilidad aumenta.</li>
 <li>Es necesario representar los falsos negativos frente a los verdaderos negativos en una curva ROC.</li>
@@ -1470,8 +1483,7 @@ frente a los falsos positivos en una curva ROC.</li>
 con la evaluación de pruebas diagnósticas?:</p>
 <ol style="list-style-type: decimal">
 <li>No es deseable usar una prueba poco específica en diagnósticos que originen un trauma emocional al sujeto de estudio.</li>
-<li>Una prueba muy sensible es sobre todo útil cuando su resultado es positivo.<br />
-</li>
+<li>Una prueba muy sensible es sobre todo útil cuando su resultado es positivo.</li>
 <li>Cuando una prueba presenta una sensibilidad muy alta un resultado positivo hace realmente posible el diagnóstico.</li>
 <li>Una prueba muy específica es sobre todo útil cuando su resultado es positivo.<br />
 </li>
@@ -1518,7 +1530,7 @@ gastrointestinales graves?:</p>
 <li>0.12</li>
 </ol>
 <p><strong>(9)</strong> ¿En qué circunstancias la odds ratio (OR) se aproxima al valor de
-riesgo relativo (RR)? (marcad todas las respuestas correctas):</p>
+riesgo relativo (RR)? (marca todas las respuestas correctas):</p>
 <ol style="list-style-type: decimal">
 <li>Cuando la exposición al factor de riesgo es poco frecuente.</li>
 <li>Cuando la exposición al factor de riesgo es muy frecuente.</li>
@@ -1528,7 +1540,7 @@ riesgo relativo (RR)? (marcad todas las respuestas correctas):</p>
 <li>Cuando el diseño del estudio es de casos y controles.</li>
 <li>Nunca.</li>
 </ol>
-<p><strong>(10)</strong> De 143 pacientes que murieron por endocarditis bacteriana, un 2% tenían menos de 10 años de edad. Los autores del estudio concluyen que la endocarditis bacteriana es rara en la infancia. Esta conclusión es falsa o equivocada debido a (marque todas las respuestas correctas):</p>
+<p><strong>(10)</strong> De 143 pacientes que murieron por endocarditis bacteriana, un 2% tenían menos de 10 años de edad. Los autores del estudio concluyen que la endocarditis bacteriana es rara en la infancia. Esta conclusión es falsa o equivocada debido a (marca todas las respuestas correctas):</p>
 <ol style="list-style-type: decimal">
 <li>Falta de un grupo de control<br />
 </li>

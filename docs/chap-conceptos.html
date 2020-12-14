@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-11-26" />
+<meta name="date" content="2020-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -270,6 +270,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><i class="fa fa-check"></i><b>13.5</b> Un intervalo de confianza para la diferencia de proporciones</a></li>
 <li class="chapter" data-level="13.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>13.6</b> Intervalos de confianza para diferencias de medias</a></li>
 <li class="chapter" data-level="13.7" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>13.7</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>14</b> Contrastes de hipótesis</a><ul>
+<li class="chapter" data-level="14.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#hipótesis-nula-y-alternativa"><i class="fa fa-check"></i><b>14.1</b> Hipótesis nula y alternativa</a></li>
+<li class="chapter" data-level="14.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:moneda"><i class="fa fa-check"></i><b>14.2</b> Un ejemplo</a></li>
+<li class="chapter" data-level="14.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:pval"><i class="fa fa-check"></i><b>14.3</b> El p-valor</a></li>
+<li class="chapter" data-level="14.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#tipo-de-errores"><i class="fa fa-check"></i><b>14.4</b> Tipo de errores</a></li>
+<li class="chapter" data-level="14.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:exttest"><i class="fa fa-check"></i><b>14.5</b> Ejemplo: El test t</a></li>
+<li class="chapter" data-level="14.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#recapitulación"><i class="fa fa-check"></i><b>14.6</b> Recapitulación</a><ul>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#intervalo-de-confianza-de-un-contraste"><i class="fa fa-check"></i>Intervalo de confianza de un contraste</a></li>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#la-potencia"><i class="fa fa-check"></i>La potencia</a></li>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#el-riesgo-de-falso-positivo"><i class="fa fa-check"></i>El riesgo de falso positivo</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>14.7</b> Test</a></li>
 </ul></li>
 </ul>
 
@@ -625,6 +638,14 @@ los investigadores tenían que tomar una muestra de adolescentes de San Leopoldo
 <p>Siguiendo con el ejemplo de la influencia de algunos factores de riesgo en una enfermedad que en principio no conlleve hospitalización, se daría si tomáramos los casos entre pacientes hospitalizados por otras causas y los controles entre pacientes no hospitalizados.</p></li>
 <li><p><strong>Sesgo de supervivencia</strong>: Cuando se toma una muestra de pacientes vivos de una enfermedad con una alta tasa de mortalidad. En este caso, es muy probable que la muestra incluya más enfermos que hayan sobrevivido más de lo esperado a la enfermedad, y estos no tienen por qué ser representativos de la población general de enfermos de esta enfermedad.</p></li>
 </ol></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-59"></span>
+<img src="http://es.xkcd.com/site_media/strips/survivorship_bias.png" alt="&quot;Sesgo de supervivencia&quot; (https://xkcd.com/1827/ (CC-BI-NC 2.5))"  />
+<p class="caption">
+Figura 3.12: “Sesgo de supervivencia” (<a href="https://xkcd.com/1827/" class="uri">https://xkcd.com/1827/</a> (CC-BI-NC 2.5))
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
 <li><p><strong>Sesgo de medida</strong>: Se produce cuando el método de medición es defectuoso en algún sentido. Incluye, por ejemplo:</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><strong>Sesgo de recuerdo</strong>: En estudios en los que recojamos la información sobre exposición por medio de entrevistas o encuestas, existe la posibilidad de que algunos encuestados hayan olvidado información, o simplemente de que mientan en temas delicados.</p></li>
@@ -664,21 +685,21 @@ No hace falta ser tan burdo a la hora de amañar un cuestionario. En una encuest
 <div class="figure" style="text-align: center"><span id="fig:felipe6"></span>
 <img src="INREMDN_files/figure-html/felipe6.png" alt="¿El País marcándose un Ryanair con Felipe VI? Gráfico publicado por El País  el 30/08/2020; referencia: https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html" width="80%" />
 <p class="caption">
-Figura 3.12: ¿El País marcándose un Ryanair con Felipe VI? Gráfico publicado por El País el 30/08/2020; referencia: <a href="https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html" class="uri">https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html</a>
+Figura 3.13: ¿El País marcándose un Ryanair con Felipe VI? Gráfico publicado por El País el 30/08/2020; referencia: <a href="https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html" class="uri">https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html</a>
 </p>
 </div>
 <p><strong>(3)</strong> ¿Confusión? Dado que, por así decirlo, se trataba de un estudio transversal de prevalencia, sin intentar estimar relaciones de causa-efecto, no tiene sentido preguntarse por la existencia de confundidores.</p>
 <p>Otra cosa sería si se hubiera pretendido estudiar qué características hacen que se opine mejor o peor sobre la familia real española. Entonces sí que podrían entrar en juego confundidores. Para no meternos en berenjenales, no vamos a describirlos.</p>
 
 <div class="rmdexercici">
-<p>En un famoso <a href="https://www.nejm.org/doi/full/10.1056/NEJM198103123041102">estudio publicado en 1981</a> sobre la asociación entre consumo de café y cáncer de páncreas, se tomó un grupo formado por todos los pacientes diagnosticados de cáncer de páncreas entre 1974 y 1979 en once hospitales. Luego, para cada uno de estos casos, se pidió al médico que lo había diagnosticado que eligiera de entre sus pacientes hospitalizados más o menos al mismo tiempo uno o dos controles de características similares pero sin cáncer de páncreas. En total participaron 369 casos y 644 controles. A todos los participantes se les pidió información sobre su consumo de tabaco, alcohol, te y café. Por lo que refiere al café, se observó que los sujetos sin cáncer de páncreas de la muestra consumían menos café que los sujetos con cáncer, como podéis ver en la Figura <a href="chap-conceptos.html#fig:macmahon">3.13</a>.</p>
+<p>En un famoso <a href="https://www.nejm.org/doi/full/10.1056/NEJM198103123041102">estudio publicado en 1981</a> sobre la asociación entre consumo de café y cáncer de páncreas, se tomó un grupo formado por todos los pacientes diagnosticados de cáncer de páncreas entre 1974 y 1979 en once hospitales. Luego, para cada uno de estos casos, se pidió al médico que lo había diagnosticado que eligiera de entre sus pacientes hospitalizados más o menos al mismo tiempo uno o dos controles de características similares pero sin cáncer de páncreas. En total participaron 369 casos y 644 controles. A todos los participantes se les pidió información sobre su consumo de tabaco, alcohol, te y café. Por lo que refiere al café, se observó que los sujetos sin cáncer de páncreas de la muestra consumían menos café que los sujetos con cáncer, como podéis ver en la Figura <a href="chap-conceptos.html#fig:macmahon">3.14</a>.</p>
 ¿Creéis que el consumo de café entre los controles es representativo de la población sin cáncer de páncreas? (Va, una pista: La mayoría de los casos de cáncer de páncreas son diagnosticados por digestólogos.)
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:macmahon"></span>
 <img src="INREMDN_files/figure-html/macmahon-1.png" alt="Proporciones de sujetos que tomaban diferentes números de tazas diarias de café en la muestra analizada por B. MacMahon *et al*, &quot;Coffee and cancer of the pancreas&quot;." width="480" />
 <p class="caption">
-Figura 3.13: Proporciones de sujetos que tomaban diferentes números de tazas diarias de café en la muestra analizada por B. MacMahon <em>et al</em>, “Coffee and cancer of the pancreas”.
+Figura 3.14: Proporciones de sujetos que tomaban diferentes números de tazas diarias de café en la muestra analizada por B. MacMahon <em>et al</em>, “Coffee and cancer of the pancreas”.
 </p>
 </div>
 

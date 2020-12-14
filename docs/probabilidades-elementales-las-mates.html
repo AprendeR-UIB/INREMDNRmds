@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-11-26" />
+<meta name="date" content="2020-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -271,6 +271,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>13.6</b> Intervalos de confianza para diferencias de medias</a></li>
 <li class="chapter" data-level="13.7" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>13.7</b> Test</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>14</b> Contrastes de hipótesis</a><ul>
+<li class="chapter" data-level="14.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#hipótesis-nula-y-alternativa"><i class="fa fa-check"></i><b>14.1</b> Hipótesis nula y alternativa</a></li>
+<li class="chapter" data-level="14.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:moneda"><i class="fa fa-check"></i><b>14.2</b> Un ejemplo</a></li>
+<li class="chapter" data-level="14.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:pval"><i class="fa fa-check"></i><b>14.3</b> El p-valor</a></li>
+<li class="chapter" data-level="14.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#tipo-de-errores"><i class="fa fa-check"></i><b>14.4</b> Tipo de errores</a></li>
+<li class="chapter" data-level="14.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:exttest"><i class="fa fa-check"></i><b>14.5</b> Ejemplo: El test t</a></li>
+<li class="chapter" data-level="14.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#recapitulación"><i class="fa fa-check"></i><b>14.6</b> Recapitulación</a><ul>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#intervalo-de-confianza-de-un-contraste"><i class="fa fa-check"></i>Intervalo de confianza de un contraste</a></li>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#la-potencia"><i class="fa fa-check"></i>La potencia</a></li>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#el-riesgo-de-falso-positivo"><i class="fa fa-check"></i>El riesgo de falso positivo</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>14.7</b> Test</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -293,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso vamos a definir la <strong>probabilidad de un suceso</strong> como la <strong>proporción</strong> (la <strong>fracción</strong>, el <strong>porcentaje</strong>) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. Esta proporción mide de manera intuitiva la probabilidad de que si escogemos al azar un sujeto de la población, se dé en él el suceso (y de hecho coincide con esta probabilidad, para la definición formal de probabilidad que aquí no veremos).</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-62" class="example"><strong>Ejemplo 4.1  </strong></span>La probabilidad de que al lanzar una moneda al aire salga cara es la proporción de la población (virtual y prácticamente infinita) de lanzamientos de esta moneda en los que sale cara.</p>
+<p><span id="exm:unnamed-chunk-63" class="example"><strong>Ejemplo 4.1  </strong></span>La probabilidad de que al lanzar una moneda al aire salga cara es la proporción de la población (virtual y prácticamente infinita) de lanzamientos de esta moneda en los que sale cara.</p>
 </div>
 
 <p><strong>En casos MUY sencillos</strong>, esta proporción coincide con la fracción de veces en que se da este suceso en el conjunto de resultados posibles y por lo tanto se puede calcular con la famosa <strong>regla de Laplace</strong>:
@@ -343,7 +356,7 @@ En este curso la disjunción “o” nunca va a ser exclusiva, salvo cuando diga
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-66" class="example"><strong>Ejemplo 4.2  </strong></span>Consideremos la población <span class="math inline">\(\Omega\)</span> formada por los estudiantes de una clase, y sean <span class="math inline">\(A\)</span> el subconjunto formado por la mujeres de esa clase y <span class="math inline">\(B\)</span> el subconjunto formado por los estudiantes de esa clase que llevan gafas.</p>
+<p><span id="exm:unnamed-chunk-67" class="example"><strong>Ejemplo 4.2  </strong></span>Consideremos la población <span class="math inline">\(\Omega\)</span> formada por los estudiantes de una clase, y sean <span class="math inline">\(A\)</span> el subconjunto formado por la mujeres de esa clase y <span class="math inline">\(B\)</span> el subconjunto formado por los estudiantes de esa clase que llevan gafas.</p>
 </div>
 
 <p>Entonces:</p>
@@ -363,13 +376,13 @@ En este curso la disjunción “o” nunca va a ser exclusiva, salvo cuando diga
 <li><p>La unión y la intersección son <strong>conmutativas</strong>: <span class="math inline">\(A\cup B=B\cup A\)</span> y <span class="math inline">\(A\cap B=B\cap A\)</span>.</p></li>
 <li><p>La unión y la intersección son <strong>asociativas</strong>: <span class="math inline">\(A\cup(B\cup C)=(A\cup B)\cup C\)</span> y <span class="math inline">\(A\cap(B\cap C)=(A\cap B) \cap C\)</span>.</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-68"></span>
 <img src="INREMDN_files/figure-html/assocunio.png" alt="Propiedad asociativa de la unión." width="80%" />
 <p class="caption">
 Figura 4.1: Propiedad asociativa de la unión.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-68"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-69"></span>
 <img src="INREMDN_files/figure-html/assocint.png" alt="Propiedad asociativa de la intersección." width="80%" />
 <p class="caption">
 Figura 4.2: Propiedad asociativa de la intersección.
@@ -378,13 +391,13 @@ Figura 4.2: Propiedad asociativa de la intersección.
 <ol start="3" style="list-style-type: lower-alpha">
 <li>La unión y la intersección son <strong>distributivas</strong>: <span class="math inline">\(A\cap(B\cup C)=(A\cap B)\cup (A\cap C)\)</span> y <span class="math inline">\(A\cup(B\cap C)=(A\cup B)\cap (A\cup C)\)</span>.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-69"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-70"></span>
 <img src="INREMDN_files/figure-html/distr1BD.png" alt="Propiedad distributiva de la unión respecto de la intersección." width="80%" />
 <p class="caption">
 Figura 4.3: Propiedad distributiva de la unión respecto de la intersección.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-70"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-71"></span>
 <img src="INREMDN_files/figure-html/distr2BD.png" alt="Propiedad distributiva de la intersección respecto de la unión." width="80%" />
 <p class="caption">
 Figura 4.4: Propiedad distributiva de la intersección respecto de la unión.
@@ -394,7 +407,7 @@ Figura 4.4: Propiedad distributiva de la intersección respecto de la unión.
 <li><p>Propiedad del <strong>doble complementario</strong>: <span class="math inline">\((A^c)^c=A\)</span>.</p>
 <p>Corresponde al hecho de que, en el lenguaje natural, “No es verdad que no lleve gafas” significa lo mismo que “Lleva gafas”.</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-71"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-72"></span>
 <img src="INREMDN_files/figure-html/dcBD.png" alt="Propiedad del doble complementario." width="80%" />
 <p class="caption">
 Figura 4.5: Propiedad del doble complementario.
@@ -404,13 +417,13 @@ Figura 4.5: Propiedad del doble complementario.
 <li><p><strong>Leyes de De Morgan</strong>: <span class="math inline">\((A\cup B)^c=A^c \cap B^c\)</span> y <span class="math inline">\((A\cap B)^c=A^c\cup B^c\)</span>.</p>
 <p>La primera corresponde al hecho de que, en el lenguaje natural, lo contrario de “Ser mujer o llevar gafas” es “No ser mujer <strong>Y</strong> no llevar gafas”. La segunda corresponde al hecho de que, en el lenguaje natural, lo contrario de “Ser mujer y llevar gafas” es “No ser mujer <strong>O</strong> no llevar gafas”.</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-72"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-73"></span>
 <img src="INREMDN_files/figure-html/dM1BD.png" alt="Primera ley de de Morgan." width="80%" />
 <p class="caption">
 Figura 4.6: Primera ley de de Morgan.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-73"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-74"></span>
 <img src="INREMDN_files/figure-html/dM2BD.png" alt="Segunda ley de de Morgan." width="80%" />
 <p class="caption">
 Figura 4.7: Segunda ley de de Morgan.
@@ -599,7 +612,7 @@ A veces, que unas <em>odds</em> valgan <span class="math inline">\(a/b\)</span> 
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-83" class="example"><strong>Ejemplo 4.4  </strong></span>Algunos ejemplos de <em>odds</em> a partir de probabilidades:</p>
+<p><span id="exm:unnamed-chunk-84" class="example"><strong>Ejemplo 4.4  </strong></span>Algunos ejemplos de <em>odds</em> a partir de probabilidades:</p>
 <ul>
 <li>Si <span class="math inline">\(P(A)=0.2\)</span>, <span class="math inline">\(\text{Odds}(A)=0.2/0.8=0.25\)</span>.</li>
 <li>Si <span class="math inline">\(P(A)=0\)</span>, <span class="math inline">\(\text{Odds}(A)=0\)</span>.</li>
@@ -630,8 +643,8 @@ A veces, que unas <em>odds</em> valgan <span class="math inline">\(a/b\)</span> 
 y=\frac{x}{1+x}
 \]</span>
 es creciente en <span class="math inline">\(x\)</span>:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
-<img src="INREMDN_files/figure-html/unnamed-chunk-85-1.png" alt="Gráfica de la curva y=x/(1+x)." width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-86"></span>
+<img src="INREMDN_files/figure-html/unnamed-chunk-86-1.png" alt="Gráfica de la curva y=x/(1+x)." width="480" />
 <p class="caption">
 Figura 4.10: Gráfica de la curva y=x/(1+x).
 </p>
@@ -672,7 +685,7 @@ y por lo tanto la relación entre <span class="math inline">\(P(A)\)</span> y <s
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-87" class="example"><strong>Ejemplo 4.5  </strong></span>En un <a href="https://www.gastrojournal.org/article/S0016-5085(20)30490-X/fulltext">estudio de casos y controles reciente</a> (Y. Nobel <em>et al</em>, <em>Gastroenterology</em> 159 (2020), pp. 373-375) se afirma que</p>
+<p><span id="exm:unnamed-chunk-88" class="example"><strong>Ejemplo 4.5  </strong></span>En un <a href="https://www.gastrojournal.org/article/S0016-5085(20)30490-X/fulltext">estudio de casos y controles reciente</a> (Y. Nobel <em>et al</em>, <em>Gastroenterology</em> 159 (2020), pp. 373-375) se afirma que</p>
 </div>
 
 <blockquote>
@@ -843,7 +856,7 @@ P(\text{mujer}|\text{gafas})=\frac{P(\text{mujer y gafas})}{P(\text{gafas})}=\fr
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-95" class="example"><strong>Ejemplo 4.7  </strong></span>Supongamos que un 15% de los adultos son hipertensos, un 25% de los adultos creen que son hipertensos, y un 9% de los adultos son hipertensos y creen que lo son.</p>
+<p><span id="exm:unnamed-chunk-96" class="example"><strong>Ejemplo 4.7  </strong></span>Supongamos que un 15% de los adultos son hipertensos, un 25% de los adultos creen que son hipertensos, y un 9% de los adultos son hipertensos y creen que lo son.</p>
 <p>Si un adulto cree que es hipertenso, ¿cuál es la probabilidad de que lo sea? Y si un adulto es hipertenso, ¿cuál es la probabilidad de que crea que lo es?</p>
 </div>
 
@@ -865,7 +878,7 @@ P(B|A) =\frac{P(A\cap B)}{P(A)}=\frac{0.09}{0.15}=0.6
 Si un adulto es hipertenso, su probabilidad de que crea que lo es es del 60%.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-96" class="example"><strong>Ejemplo 4.8  </strong></span>Un test para el VIH da positivo en un 99% de los casos en los que el virus está presente. En una población con el 0.5% de infectados por VIH:</p>
+<p><span id="exm:unnamed-chunk-97" class="example"><strong>Ejemplo 4.8  </strong></span>Un test para el VIH da positivo en un 99% de los casos en los que el virus está presente. En una población con el 0.5% de infectados por VIH:</p>
 <ul>
 <li><p>¿Cuál es la probabilidad de que si hacemos el test a un infectado, dé positivo?</p></li>
 <li><p>¿Cuál es la probabilidad de que hagamos el test a un infectado y dé positivo?</p>
@@ -964,7 +977,7 @@ Mide cuántas veces son mayores (o menores) las <em>odds</em> de <span class="ma
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-99" class="example"><strong>Ejemplo 4.10  </strong></span>Volvamos a la situación del Ejemplo <a href="probabilidades-elementales-las-mates.html#exm:triola">4.9</a>. Si, entre los pacientes de nuestro amigo cardiólogo, llamamos <span class="math inline">\(E\)</span> al suceso “Tener estrés” y <span class="math inline">\(D\)</span> al suceso “Tener depresión”, habíamos calculado que <span class="math inline">\(P(E|D)=0.475\)</span> y <span class="math inline">\(P(E^c|D^c)=0.45\)</span>. Si habéis hecho el ejercicio que hemos propuesto tras el ejemplo habréis calculado <span class="math inline">\(P(D|E)=0.6334\)</span> y <span class="math inline">\(P(D^c|E^c)=0.3\)</span>.</p>
+<p><span id="exm:unnamed-chunk-100" class="example"><strong>Ejemplo 4.10  </strong></span>Volvamos a la situación del Ejemplo <a href="probabilidades-elementales-las-mates.html#exm:triola">4.9</a>. Si, entre los pacientes de nuestro amigo cardiólogo, llamamos <span class="math inline">\(E\)</span> al suceso “Tener estrés” y <span class="math inline">\(D\)</span> al suceso “Tener depresión”, habíamos calculado que <span class="math inline">\(P(E|D)=0.475\)</span> y <span class="math inline">\(P(E^c|D^c)=0.45\)</span>. Si habéis hecho el ejercicio que hemos propuesto tras el ejemplo habréis calculado <span class="math inline">\(P(D|E)=0.6334\)</span> y <span class="math inline">\(P(D^c|E^c)=0.3\)</span>.</p>
 <p>Entonces:</p>
 </div>
 
@@ -1113,7 +1126,7 @@ La fórmula <span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span> que tanto o
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-106" class="example"><strong>Ejemplo 4.11  </strong></span>En los EEUU, un 33% de la población es hipertensa. Supongamos que escogemos al azar un estadounidense y le hacemos lanzar una moneda equilibrada. ¿Cuál es la probabilidad de que sea hipertenso y saque cara?</p>
+<p><span id="exm:unnamed-chunk-107" class="example"><strong>Ejemplo 4.11  </strong></span>En los EEUU, un 33% de la población es hipertensa. Supongamos que escogemos al azar un estadounidense y le hacemos lanzar una moneda equilibrada. ¿Cuál es la probabilidad de que sea hipertenso y saque cara?</p>
 </div>
 
 <p>Consideremos los sucesos:</p>
@@ -1129,7 +1142,7 @@ P(A\cap B)=P(A)\cdot P(B)=0.33\cdot 0.5=0.165
 La probabilidad de que el estadounidense escogido al azar sea hipertenso y saque cara es del 16.5%.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-107" class="example"><strong>Ejemplo 4.12  </strong></span>En los EEUU, el 36.5% de la población adulta es obesa, el 33% es hipertensa, y el 49.5% es obesa o hipertensa (datos del Centro de Control de Enfermedades, CDC, 2014). ¿Son la obesidad y la hipertensión sucesos independientes?</p>
+<p><span id="exm:unnamed-chunk-108" class="example"><strong>Ejemplo 4.12  </strong></span>En los EEUU, el 36.5% de la población adulta es obesa, el 33% es hipertensa, y el 49.5% es obesa o hipertensa (datos del Centro de Control de Enfermedades, CDC, 2014). ¿Son la obesidad y la hipertensión sucesos independientes?</p>
 </div>
 
 <p>Consideremos los sucesos:</p>
@@ -1145,7 +1158,7 @@ P(A \cap B)  =P(A)+P(B)-P(A\cup B)=0.365+0.33-0.495=0.2
 <p>Por lo tanto, son sucesos dependientes. De hecho, <span class="math inline">\(P(B|A)=0.2/0.365=0.55&gt; 0.33=P(B)\)</span>: la probabilidad de ser hipertenso entre los obesos es mayor que en el global de la población estadounidense.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-108" class="example"><strong>Ejemplo 4.13  </strong></span>Un cierto test da positivo en un 10% de los individuos que no tienen una determinada enfermedad. Si a un individuo sano se le realizan dos tests independientes, ¿auál es la probabilidad de que <strong>ambos</strong> den positivo?
+<p><span id="exm:unnamed-chunk-109" class="example"><strong>Ejemplo 4.13  </strong></span>Un cierto test da positivo en un 10% de los individuos que no tienen una determinada enfermedad. Si a un individuo sano se le realizan dos tests independientes, ¿auál es la probabilidad de que <strong>ambos</strong> den positivo?
 ¿Y la de que <strong>alguno</strong> dé positivo?</p>
 </div>
 
@@ -1213,7 +1226,7 @@ P(X)=0.5\cdot 0.2+0.05\cdot 0.8=0.14.
 <p>El ejemplo anterior es una aplicación del <strong>Teorema de la probabilidad total</strong> siguiente:</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-111" class="theorem"><strong>Teorema 4.2  </strong></span>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(X\)</span> son dos sucesos y <span class="math inline">\(0&lt;P(A)&lt;1\)</span>,
+<span id="thm:unnamed-chunk-112" class="theorem"><strong>Teorema 4.2  </strong></span>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(X\)</span> son dos sucesos y <span class="math inline">\(0&lt;P(A)&lt;1\)</span>,
 <span class="math display">\[
 P(X)= P(X\cap A) +P(X\cap A^c)=P(A)\cdot P(X|A)+ P(A^c)\cdot P(X|A^c)
 \]</span>
@@ -1238,7 +1251,7 @@ Figura 4.11: Una partición.
 <p>Por ejemplo, los sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> del Ejemplo <a href="probabilidades-elementales-las-mates.html#exm:TPT1">4.14</a> forman una partición de la población considerada.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-112" class="theorem"><strong>Teorema 4.3  </strong></span>Sea <span class="math inline">\(A_1\)</span>, …, <span class="math inline">\(A_n\)</span> una partición de la población tal que <span class="math inline">\(P(A_1)\)</span>, …, <span class="math inline">\(P(A_n)\)</span> son todas diferentes de 0. Para todo suceso <span class="math inline">\(X\)</span>,
+<span id="thm:unnamed-chunk-113" class="theorem"><strong>Teorema 4.3  </strong></span>Sea <span class="math inline">\(A_1\)</span>, …, <span class="math inline">\(A_n\)</span> una partición de la población tal que <span class="math inline">\(P(A_1)\)</span>, …, <span class="math inline">\(P(A_n)\)</span> son todas diferentes de 0. Para todo suceso <span class="math inline">\(X\)</span>,
 <span class="math display">\[
   \begin{array}{rl}
 P(X)\!\!\!\! &amp; = P(X\cap A_1) +\cdots+P(X\cap A_n)\\ &amp; =P(A_1)\cdot P(X|A_1)+\cdots+ P(A_n)\cdot P(X|A_n)
@@ -1303,7 +1316,7 @@ En el estudio de Rotterdam del Ejemplo <a href="chap-estudios.html#exm:EPCOCoh">
 <p>Calculando estas tasas ajustadas para todos los paíes de la UE, se pueden comparar sus tasas de mortalidad evitando el factor de confusión que podría representar la edad.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-115" class="example"><strong>Ejemplo 4.16  </strong></span>Una cierta enfermedad tiene en China una tasa de mortalidad del 0.1% entre los menores de 15 años, del 0.3% entre las personas de 15 a 64 años y de un 0.7% entre los mayores de 65 años. En la Unión Europea, un 15.5% de la población es menor de 15 años, un 65.4% tiene entre 15 y 64 años, y un 19.1% tiene 65 años o más. En China, estas proporciones son del 17.6%, 71.2% y 11.2%, respectivamente</p>
+<p><span id="exm:unnamed-chunk-116" class="example"><strong>Ejemplo 4.16  </strong></span>Una cierta enfermedad tiene en China una tasa de mortalidad del 0.1% entre los menores de 15 años, del 0.3% entre las personas de 15 a 64 años y de un 0.7% entre los mayores de 65 años. En la Unión Europea, un 15.5% de la población es menor de 15 años, un 65.4% tiene entre 15 y 64 años, y un 19.1% tiene 65 años o más. En China, estas proporciones son del 17.6%, 71.2% y 11.2%, respectivamente</p>
 <p>¿Cuál es la tasa de mortalidad de esta enfermedad en China? ¿Cuál sería la tasa de mortalidad de esta enfermedad ajustada a la distribución de edades de la Unión Europea?</p>
 </div>
 
@@ -1399,7 +1412,7 @@ Es decir, esta tasa de mortalidad ajustada es del 0.34%. Es un poco mayor que la
 <p>La <strong>fórmula de Bayes</strong> siguiente permite resolver este tipo de problemas.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-118" class="theorem"><strong>Teorema 4.4  </strong></span>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos sucesos. Si <span class="math inline">\(P(A),P(B)&gt;0\)</span>, entonces
+<span id="thm:unnamed-chunk-119" class="theorem"><strong>Teorema 4.4  </strong></span>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos sucesos. Si <span class="math inline">\(P(A),P(B)&gt;0\)</span>, entonces
 <span class="math display">\[
 P(A|B) =\dfrac{P(A)\cdot P(B|A)}{P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c)}
 \]</span>
@@ -1471,7 +1484,7 @@ P(A^c|B^c)\!\!\!\!&amp; =\dfrac{P(B^c|A^c)\cdot P(A^c)}{P(B^c|A)\cdot P(A)+P(B^c
 <p>Terminemos con un ejemplo donde no podemos aplicar la fórmula de Bayes.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-120" class="example"><strong>Ejemplo 4.22  </strong></span>Un test diseñado para diagnosticar una determinada enfermedad da positivo el 94% de las veces en las que existe la enfermedad, y un 4% de las veces en las que no existe la enfermedad. A partir de un estudio masivo se estima que un 15% de la población da positivo en el test. ¿Cuál sería la prevalencia de la enfermedad?</p>
+<p><span id="exm:unnamed-chunk-121" class="example"><strong>Ejemplo 4.22  </strong></span>Un test diseñado para diagnosticar una determinada enfermedad da positivo el 94% de las veces en las que existe la enfermedad, y un 4% de las veces en las que no existe la enfermedad. A partir de un estudio masivo se estima que un 15% de la población da positivo en el test. ¿Cuál sería la prevalencia de la enfermedad?</p>
 </div>
 
 <p>Fijaos en que si llamamos <span class="math inline">\(E\)</span> al suceso “Tener la enfermedad” y <span class="math inline">\(T\)</span> al suceso “Dar positivo en el test”, los datos que tenemos son <span class="math inline">\(P(T)\)</span>, <span class="math inline">\(P(T|E)\)</span> y <span class="math inline">\(P(T|E^c)\)</span>, y queremos saber <span class="math inline">\(P(E)\)</span>.</p>
