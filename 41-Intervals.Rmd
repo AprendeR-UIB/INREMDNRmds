@@ -435,6 +435,14 @@ Este método tiene la ventaja de que se puede usar siempre, independientemente d
 * Los intervalos que produce no son de la forma "probabilidad muestral $\pm$ algo".
 * Se necesita un ordenador para calcularlo, no basta una calculadora.
 
+Con R, se calcula con la función `binom.exact` del paquete **epitools**. Su sintaxis es
+
+```{r, eval=FALSE}
+binom.exact(x,n,conf.level)
+```
+
+donde `x` y `n` representan, respectivamente, el número de éxitos y el tamaño de la muestra, y `conf.level` es $q$, el nivel de confianza en tanto por uno.  El valor por defecto de  `conf.level` es 0.95, por lo que no hace falta especificarlo si queréis calcular un IC-95%.
+
 #### Método aproximado de Wilson {-}
 
 Supongamos ahora que tomamos una muestra aleatoria simple de $X$ de tamaño $n$ grande, pongamos $n\geq 40$, y proporción muestral de éxitos $\widehat{p}_{X}$. En estas condiciones, por el Teorema Central del Límite, sabemos que la distribución de
@@ -458,6 +466,15 @@ $$
   
 
 ```
+
+Podéis calcular este intervalo con la función `binom.wilson` del paquete **epitools**. Su sintaxis es
+
+```{r, eval=FALSE}
+binom.wilson(x,n,conf.level)
+```
+
+con los mismos parámetros que `binom.exact`.
+
 
 Fijaos en que:
 
@@ -488,6 +505,8 @@ $$
 ```
 
 Esta fórmula es la más popular, y forma parte de la "cultura general" de un científico. De hecho, tiene más de 200 años y precede en más de 100 años a los otros dos métodos. Además, tiene la forma familiar "estimador $\pm$ cuantil$\times$error típico".
+
+Podéis calcular este intervalo con la función `binom.approx` del paquete **epitools**. Su sintaxis es la misma que la de `binom.exact` y `binom.wilson`.
 
 
  
@@ -526,6 +545,15 @@ $$
 $$
 En nuestro caso, $n=20$, da el intervalo [0,0.1684]. Por lo tanto, estimamos con un 95% de confianza que menos del 16.84% de los pacientes operados con esta  técnica nueva desarrollan complicaciones importantes en las 24 horas siguientes a la operación.
 
+Con R, hubiéramos entrado
+```{r}
+library(epitools)
+binom.exact(0,20)
+```
+
+El intervalo que se obtiene tiene como extremo inferior el valor `lower` y extremo superior el valor `upper`.
+
+
 Cuando se tiene que calcular "a mano" un intervalo de confianza del 95% para una probabilidad $p_X$ a partir de una muestra aleatoria simple donde no ha habido ningún éxito, a menudo se usa la regla siguiente:
 
 > **Regla del 3:** Cuando en una muestra aleatoria simple de tamaño $n$ de una variable aleatoria de Bernoulli de parámetro $p_X$ no encontramos ningún éxito, un IC-95% para $p_X$ va, aproximadamente, de 0 a $3/n$.
@@ -544,7 +572,18 @@ legend("topright",lty=c(NA,1),pch=c(20,NA),
 legend=c("Clopper-Pearson","Regla del 3"),col=c("black","red"),cex=0.7)
 ```
 
-Si la muestra hubiera sido mayor, pongamos de 50 pacientes y de nuevo 0 complicaciones graves, podríamos usar el método de Wilson. Podéis comprobar con algo de paciencia que da [0,0.0713]. El método de Clopper-Pearson da en este caso [0,0.0711] y la regla del 3 da [0,0.06]. 
+Si la muestra hubiera sido mayor, pongamos de 50 pacientes y de nuevo 0 complicaciones graves, podríamos usar el método de Wilson.  Calculémoslo con R:
+
+```{r}
+binom.wilson(0,50)
+```
+
+Da el intervalo  [0,0.0713]. El método de Clopper-Pearson da en este caso
+```{r}
+binom.exact(0,50)
+```
+
+y la regla del 3 da [0,0.06]. 
 
 El gráfico siguiente muestra los valores $3/n$ y los extremos superiores de los IC-95% de Clopper-Pearson y de Wilson a partir de una muestra de tamaño $n$ ($n\geq 40$ para los intervalos de confianza de Wilson) con 0 éxitos:
 
@@ -575,7 +614,7 @@ En este caso podemos usar los tres métodos.
 * Wilson, porque $n=100\geq 40$.
 * Laplace, porque $n\geq 100$, $S=25\geq 10$ y $n-S=75\geq 10$.
 
-Vamos a aplicar la fórmula de Laplace, que es la única que es sensato calcular a mano (y es la que os recomendamos usar si podéis). Tenemos que $\widehat{p}_{X}=25/100=0.25$ y $z_{0.975}=1.96$. Da:
+Vamos a aplicar a mano la fórmula de Laplace, que es la única que es sensato calcular a mano (y es la que os recomendamos usar si podéis). Tenemos que $\widehat{p}_{X}=25/100=0.25$ y $z_{0.975}=1.96$. Da:
 $$
 0.25\pm 1.96\sqrt{\frac{0.25\cdot 0.75}{100}}=0.25\pm 0.085\Rightarrow [0.165, 0.335]
 $$
@@ -583,8 +622,22 @@ Concluimos, con un nivel de confianza del 95%, que entre aproximadamente un 16.5
 
 Por si os interesan:
 
-* El intervalo de Clopper-Pearson da [0.169, 0.347]
-* El intervalo de Wilson da [0.175, 0.343]
+* El intervalo de Clopper-Pearson da 
+```{r}
+binom.exact(25,100)
+```
+
+* El intervalo de Wilson da 
+```{r}
+binom.wilson(25,100)
+```
+
+Ya que estamos, calculamos el intervalo de Laplace con R:
+```{r}
+binom.approx(25,100)
+```
+Da lo mismo que a mano.
+
 
 Como podéis ver, los tres dan muy parecidos, con diferencias en los extremos de un punto porcentual.
 

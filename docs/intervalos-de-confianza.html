@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-12-20" />
+<meta name="date" content="2020-12-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -623,6 +623,9 @@ más ancho</p></li>
 <li>Los intervalos que produce no son de la forma “probabilidad muestral <span class="math inline">\(\pm\)</span> algo”.</li>
 <li>Se necesita un ordenador para calcularlo, no basta una calculadora.</li>
 </ul>
+<p>Con R, se calcula con la función <code>binom.exact</code> del paquete <strong>epitools</strong>. Su sintaxis es</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="intervalos-de-confianza.html#cb52-1"></a><span class="kw">binom.exact</span>(x,n,conf.level)</span></code></pre></div>
+<p>donde <code>x</code> y <code>n</code> representan, respectivamente, el número de éxitos y el tamaño de la muestra, y <code>conf.level</code> es <span class="math inline">\(q\)</span>, el nivel de confianza en tanto por uno. El valor por defecto de <code>conf.level</code> es 0.95, por lo que no hace falta especificarlo si queréis calcular un IC-95%.</p>
 </div>
 <div id="método-aproximado-de-wilson" class="section level4 unnumbered">
 <h4>Método aproximado de Wilson</h4>
@@ -639,12 +642,15 @@ P\Big(-z_{(1+q)/2}\leq \dfrac{\widehat{p}_{X}-p_X}
 <p>Despejando <span class="math inline">\(p_X\)</span> como en el cálculo del IC-95% para la <span class="math inline">\(\mu\)</span> usando la t de Student, obtenemos el resultado siguiente (que no hay que saber, tranquilos):</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-433" class="theorem"><strong>Teorema 13.3  </strong></span>Si <span class="math inline">\(n\)</span> es grande, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(p_X\)</span> es aproximadamente:
+<p><span id="thm:unnamed-chunk-434" class="theorem"><strong>Teorema 13.3  </strong></span>Si <span class="math inline">\(n\)</span> es grande, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(p_X\)</span> es aproximadamente:
 <span class="math display">\[
 \frac{\widehat{p}_{X}+\frac{z_{(1+q)/{2}}^2}{2n}}{1+\frac{z_{(1+q)/{2}}^2}{n}}\pm \frac{z_{(1+q)/{2}}\sqrt{\frac{\widehat{p}_{X}(1-\widehat{p}_{X})}{n}+\frac{z_{(1+q)/{2}}^2}{4n^2}}}{1+\frac{z_{(1+q)/{2}}^2}{n}}
 \]</span></p>
 </div>
 
+<p>Podéis calcular este intervalo con la función <code>binom.wilson</code> del paquete <strong>epitools</strong>. Su sintaxis es</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="intervalos-de-confianza.html#cb53-1"></a><span class="kw">binom.wilson</span>(x,n,conf.level)</span></code></pre></div>
+<p>con los mismos parámetros que <code>binom.exact</code>.</p>
 <p>Fijaos en que:</p>
 <ul>
 <li>Este método no se puede usar con muestras de cualquier tamaño, han de ser lo bastante grandes como para poder invocar el Teorema Central del Límite.</li>
@@ -662,7 +668,7 @@ P\Big(-z_{(1+q)/2}\leq \dfrac{\widehat{p}_{X}-p_X}
 <p>En este caso, en la fórmula del intervalo de Wilson los términos <span class="math inline">\(z_{(1+q)/{2}}^2/n\)</span> son despreciablemente pequeños comparados con los otros. Si los igualamos a 0, obtenemos la fórmula siguiente:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-434" class="theorem"><strong>Teorema 13.4  </strong></span>En las condiciones explicadas, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(p_X\)</span> es aproximadamente
+<p><span id="thm:unnamed-chunk-436" class="theorem"><strong>Teorema 13.4  </strong></span>En las condiciones explicadas, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(p_X\)</span> es aproximadamente
 <span class="math display">\[
 \widehat{p}_{X}\pm z_{(q+1)/2}\sqrt{\frac{\widehat{p}_{X}
 (1-\widehat{p}_{X})}{n}}
@@ -670,6 +676,7 @@ P\Big(-z_{(1+q)/2}\leq \dfrac{\widehat{p}_{X}-p_X}
 </div>
 
 <p>Esta fórmula es la más popular, y forma parte de la “cultura general” de un científico. De hecho, tiene más de 200 años y precede en más de 100 años a los otros dos métodos. Además, tiene la forma familiar “estimador <span class="math inline">\(\pm\)</span> cuantil<span class="math inline">\(\times\)</span>error típico”.</p>
+<p>Podéis calcular este intervalo con la función <code>binom.approx</code> del paquete <strong>epitools</strong>. Su sintaxis es la misma que la de <code>binom.exact</code> y <code>binom.wilson</code>.</p>
 
 <div class="rmdmercifulgod">
 <p>Os tenéis que saber la fórmula de Laplace, no hay que saber las fórmulas de los otros dos métodos. Pero sí cuándo se pueden usar y cuándo no.</p>
@@ -684,7 +691,7 @@ Solo un consejo: Si podéis usar la fórmula de Laplace, usadla. Todo el mundo l
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-437" class="example"><strong>Ejemplo 13.4  </strong></span>En una muestra de 20 pacientes operados de cáncer de próstata con una nueva técnica, ninguno desarrolló complicaciones importantes en las 24 horas siguientes a la operación.
+<p><span id="exm:unnamed-chunk-439" class="example"><strong>Ejemplo 13.4  </strong></span>En una muestra de 20 pacientes operados de cáncer de próstata con una nueva técnica, ninguno desarrolló complicaciones importantes en las 24 horas siguientes a la operación.
 ¿Cuál sería un IC-95% para la proporción de pacientes operados con esta técnica nueva que desarrollan complicaciones importantes en las 24 horas siguientes a la operación?</p>
 </div>
 
@@ -697,16 +704,30 @@ que, si <span class="math inline">\(q=0.95\)</span>, queda
 [0,1-0.025^{1/n}].
 \]</span>
 En nuestro caso, <span class="math inline">\(n=20\)</span>, da el intervalo [0,0.1684]. Por lo tanto, estimamos con un 95% de confianza que menos del 16.84% de los pacientes operados con esta técnica nueva desarrollan complicaciones importantes en las 24 horas siguientes a la operación.</p>
+<p>Con R, hubiéramos entrado</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="intervalos-de-confianza.html#cb54-1"></a><span class="kw">library</span>(epitools)</span>
+<span id="cb54-2"><a href="intervalos-de-confianza.html#cb54-2"></a><span class="kw">binom.exact</span>(<span class="dv">0</span>,<span class="dv">20</span>)</span></code></pre></div>
+<pre><code>##   x  n proportion lower     upper conf.level
+## 1 0 20          0     0 0.1684335       0.95</code></pre>
+<p>El intervalo que se obtiene tiene como extremo inferior el valor <code>lower</code> y extremo superior el valor <code>upper</code>.</p>
 <p>Cuando se tiene que calcular “a mano” un intervalo de confianza del 95% para una probabilidad <span class="math inline">\(p_X\)</span> a partir de una muestra aleatoria simple donde no ha habido ningún éxito, a menudo se usa la regla siguiente:</p>
 <blockquote>
 <p><strong>Regla del 3:</strong> Cuando en una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de una variable aleatoria de Bernoulli de parámetro <span class="math inline">\(p_X\)</span> no encontramos ningún éxito, un IC-95% para <span class="math inline">\(p_X\)</span> va, aproximadamente, de 0 a <span class="math inline">\(3/n\)</span>.</p>
 </blockquote>
 <p>Con esta regla, en nuestro ejemplo con <span class="math inline">\(n=20\)</span> obtendríamos el intervalo [0,3/20]=[0,0.15], no muy lejos del [0,0.1684] que hemos obtenido.</p>
 <p>Para ver como la regla del 3 aproxima el intervalo de Clopper-Pearson, el gráfico siguiente muestra los valores <span class="math inline">\(3/n\)</span> y el extremo superior del IC-95% de Clopper-Pearson a partir de una muestra de tamaño <span class="math inline">\(n\)</span> con 0 éxitos:</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-438-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>Si la muestra hubiera sido mayor, pongamos de 50 pacientes y de nuevo 0 complicaciones graves, podríamos usar el método de Wilson. Podéis comprobar con algo de paciencia que da [0,0.0713]. El método de Clopper-Pearson da en este caso [0,0.0711] y la regla del 3 da [0,0.06].</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-441-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Si la muestra hubiera sido mayor, pongamos de 50 pacientes y de nuevo 0 complicaciones graves, podríamos usar el método de Wilson. Calculémoslo con R:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="intervalos-de-confianza.html#cb56-1"></a><span class="kw">binom.wilson</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span></code></pre></div>
+<pre><code>##   x  n proportion lower     upper conf.level
+## 1 0 50          0     0 0.0713476       0.95</code></pre>
+<p>Da el intervalo [0,0.0713]. El método de Clopper-Pearson da en este caso</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="intervalos-de-confianza.html#cb58-1"></a><span class="kw">binom.exact</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span></code></pre></div>
+<pre><code>##   x  n proportion lower      upper conf.level
+## 1 0 50          0     0 0.07112174       0.95</code></pre>
+<p>y la regla del 3 da [0,0.06].</p>
 <p>El gráfico siguiente muestra los valores <span class="math inline">\(3/n\)</span> y los extremos superiores de los IC-95% de Clopper-Pearson y de Wilson a partir de una muestra de tamaño <span class="math inline">\(n\)</span> (<span class="math inline">\(n\geq 40\)</span> para los intervalos de confianza de Wilson) con 0 éxitos:</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-439-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-444-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Los extremos superiores de los intervalos de Clopper-Pearson y Wilson se superponen en este último gráfico.</p>
 
 <div class="rmdcaution">
@@ -715,7 +736,7 @@ Aunque la muestra de pacientes hubiera sido enorme, yo qué sé, de 30000 pacien
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-441" class="example"><strong>Ejemplo 13.5  </strong></span>En un ensayo de un tratamiento de quimioterapia, en una muestra de 100 pacientes tratados, 25 desarrollaron cáncer testicular secundario. ¿Cuál es un IC-95% para la proporción de pacientes tratados con esta quimioterapia que desarrollan cáncer testicular.</p>
+<p><span id="exm:unnamed-chunk-446" class="example"><strong>Ejemplo 13.5  </strong></span>En un ensayo de un tratamiento de quimioterapia, en una muestra de 100 pacientes tratados, 25 desarrollaron cáncer testicular secundario. ¿Cuál es un IC-95% para la proporción de pacientes tratados con esta quimioterapia que desarrollan cáncer testicular.</p>
 </div>
 
 <p>En este caso podemos usar los tres métodos.</p>
@@ -724,16 +745,29 @@ Aunque la muestra de pacientes hubiera sido enorme, yo qué sé, de 30000 pacien
 <li>Wilson, porque <span class="math inline">\(n=100\geq 40\)</span>.</li>
 <li>Laplace, porque <span class="math inline">\(n\geq 100\)</span>, <span class="math inline">\(S=25\geq 10\)</span> y <span class="math inline">\(n-S=75\geq 10\)</span>.</li>
 </ul>
-<p>Vamos a aplicar la fórmula de Laplace, que es la única que es sensato calcular a mano (y es la que os recomendamos usar si podéis). Tenemos que <span class="math inline">\(\widehat{p}_{X}=25/100=0.25\)</span> y <span class="math inline">\(z_{0.975}=1.96\)</span>. Da:
+<p>Vamos a aplicar a mano la fórmula de Laplace, que es la única que es sensato calcular a mano (y es la que os recomendamos usar si podéis). Tenemos que <span class="math inline">\(\widehat{p}_{X}=25/100=0.25\)</span> y <span class="math inline">\(z_{0.975}=1.96\)</span>. Da:
 <span class="math display">\[
 0.25\pm 1.96\sqrt{\frac{0.25\cdot 0.75}{100}}=0.25\pm 0.085\Rightarrow [0.165, 0.335]
 \]</span>
 Concluimos, con un nivel de confianza del 95%, que entre aproximadamente un 16.5% y un 33.5% de los pacientes tratados con esta quimioterapia desarrollan cáncer testicular. En este caso podríamos decir que estimamos, con un nivel de confianza del 95%, que el porcentaje de pacientes tratados con esta quimioterapia que desarrollan cáncer testicular es del 25% más menos 8.5 puntos porcentuales.</p>
 <p>Por si os interesan:</p>
 <ul>
-<li>El intervalo de Clopper-Pearson da [0.169, 0.347]</li>
-<li>El intervalo de Wilson da [0.175, 0.343]</li>
+<li>El intervalo de Clopper-Pearson da</li>
 </ul>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="intervalos-de-confianza.html#cb60-1"></a><span class="kw">binom.exact</span>(<span class="dv">25</span>,<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##    x   n proportion     lower     upper conf.level
+## 1 25 100       0.25 0.1687797 0.3465525       0.95</code></pre>
+<ul>
+<li>El intervalo de Wilson da</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="intervalos-de-confianza.html#cb62-1"></a><span class="kw">binom.wilson</span>(<span class="dv">25</span>,<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##    x   n proportion     lower     upper conf.level
+## 1 25 100       0.25 0.1754521 0.3430446       0.95</code></pre>
+<p>Ya que estamos, calculamos el intervalo de Laplace con R:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="intervalos-de-confianza.html#cb64-1"></a><span class="kw">binom.approx</span>(<span class="dv">25</span>,<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##    x   n proportion     lower     upper conf.level
+## 1 25 100       0.25 0.1651311 0.3348689       0.95</code></pre>
+<p>Da lo mismo que a mano.</p>
 <p>Como podéis ver, los tres dan muy parecidos, con diferencias en los extremos de un punto porcentual.</p>
 </div>
 <div id="cálculo-del-tamaño-de-la-muestra-para-fijar-el-error" class="section level4 unnumbered">
@@ -746,7 +780,7 @@ Fijaos en que el intervalo de confianza de Laplace es <span class="math inline">
 <p>Una típica pregunta al diseñar un estudio es ¿de qué tamaño he de tomar la muestra para garantizar que el margen de error en la estimación sea como máximo un valor dado <span class="math inline">\(M_{max}\)</span>?
 En el caso del intervalo de Laplace para una proporción, podemos dar un tamaño <span class="math inline">\(n\)</span> que garantice un error máximo dado <span class="math inline">\(M_{max}\)</span> valga lo que valga <span class="math inline">\(\widehat{p}_{X}\in [0,1]\)</span>.</p>
 <p>Fijaos en que la función <span class="math inline">\(y=p(1-p)\)</span>, con <span class="math inline">\(p\in [0,1]\)</span>, es una parábola cóncava con vértice en su punto <span class="math inline">\(p=0.5\)</span>.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-442-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-450-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Por lo tanto, <span class="math inline">\(y=p(1-p)\)</span> toma su valor máximo en <span class="math inline">\(p=0.5\)</span>. Así, pues
 <span class="math display">\[
 \widehat{p}_{X} (1-\widehat{p}_{X})\leq 0.5(1-0.5)=0.5^2
@@ -774,7 +808,7 @@ n\geq \left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}
 <p>En resumen:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-443" class="theorem"><strong>Teorema 13.5  </strong></span>Si
+<p><span id="thm:unnamed-chunk-451" class="theorem"><strong>Teorema 13.5  </strong></span>Si
 <span class="math display">\[
 n\geq \left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}\right)^2,
 \]</span>
@@ -783,7 +817,7 @@ el margen de error del intervalo de Laplace calculado con una muestra de tamaño
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-444" class="example"><strong>Ejemplo 13.6  </strong></span>¿Cuál es el menor tamaño de una muestra que nos garantice un margen de error de como máximo 0.05 al estimar una proporción <span class="math inline">\(p_X\)</span> usando un intervalo de confianza de Laplace del 95%?</p>
+<p><span id="exm:unnamed-chunk-452" class="example"><strong>Ejemplo 13.6  </strong></span>¿Cuál es el menor tamaño de una muestra que nos garantice un margen de error de como máximo 0.05 al estimar una proporción <span class="math inline">\(p_X\)</span> usando un intervalo de confianza de Laplace del 95%?</p>
 </div>
 
 <p>Por el teorema anterior, para garantizar un margen de error de 0.05 al calcular un IC-95% para una proporción <span class="math inline">\(p_X\)</span> usando la fórmula de Laplace, tenemos que usar una muestra de tamaño <span class="math inline">\(n\)</span> tal que
@@ -820,7 +854,7 @@ n\geq \frac{Nz_{(q+1)/2}^2}{4(N-1)M_{max}^2+z_{(q+1)/2}^2}
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-446" class="example"><strong>Ejemplo 13.7  </strong></span>En una muestra aleatoria de 727 estudiantes diferentes de la UIB (<span class="math inline">\(N=12000\)</span>), 557 afirmaron haber cometido plagio en algún trabajo durante sus estudios. ¿Cuál sería un intervalo de confianza del 95% para la proporción <span class="math inline">\(p_X\)</span> de estudiantes de la UIB que han cometido plagio en algún trabajo?</p>
+<p><span id="exm:unnamed-chunk-454" class="example"><strong>Ejemplo 13.7  </strong></span>En una muestra aleatoria de 727 estudiantes diferentes de la UIB (<span class="math inline">\(N=12000\)</span>), 557 afirmaron haber cometido plagio en algún trabajo durante sus estudios. ¿Cuál sería un intervalo de confianza del 95% para la proporción <span class="math inline">\(p_X\)</span> de estudiantes de la UIB que han cometido plagio en algún trabajo?</p>
 </div>
 
 <p>Una muestra de 727 estudiantes diferentes es muy grande respecto del total de estudiantes de la UIB, por lo cual conviene usar la fórmula de Laplace con el factor de población finita:
@@ -833,7 +867,7 @@ donde <span class="math inline">\(\widehat{p}_{X}=557/727=0.766\)</span>, <span 
 0.766\pm 1.96\sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}12000-727}{12000-1}}\Rightarrow [0.736, 0.796]
 \]</span>
 Estimamos con un nivel de confianza del 95% que entre un 73.6% y un 79.6% de los estudiantes de la UIB han cometido plagio en algún trabajo.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-447"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-455"></span>
 <img src="INREMDN_files/figure-html/plagiuib.png" alt="https://diari.uib.cat/digitalAssets/125/125740_1_reportatge.pdf" width="80%" />
 <p class="caption">
 Figura 13.1: <a href="https://diari.uib.cat/digitalAssets/125/125740_1_reportatge.pdf" class="uri">https://diari.uib.cat/digitalAssets/125/125740_1_reportatge.pdf</a>
@@ -859,7 +893,7 @@ Figura 13.1: <a href="https://diari.uib.cat/digitalAssets/125/125740_1_reportatg
 Notad que <span class="math inline">\(n_1 \widehat{p}_1 +n_2 \widehat{p}_2\)</span> es el número total de éxitos y <span class="math inline">\(n_1 (1-\widehat{p}_1) +n_2( 1-\widehat{p}_2)\)</span> el número total de fracasos en las dos muestras.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-448" class="example"><strong>Ejemplo 13.8  </strong></span>En un <a href="https://www.medrxiv.org/content/10.1101/2020.10.19.20214940v1">estudio francés</a> sobre la efectividad de la hidroxicloroquina en el tratamiento de la COVID-19 leve o moderada en personas de edad avanzada, participaron 247 pacientes de este grupo de riesgo. Se dividieron al azar en dos grupos de 124 y 123 sujetos. Los del primer grupo fueron tratados con hidroxicloroquina y los del segundo grupo, con un placebo. Se anotó en cada grupo cuántos fallecieron o necesitaron intubación en los 14 días siguientes al inicio del tratamiento (lo resumiremos en “desenlace negativo”). En el grupo tratado con hidroxicloroquina hubo 9 desenlaces negativos y en el grupo del placebo, 8.</p>
+<p><span id="exm:unnamed-chunk-456" class="example"><strong>Ejemplo 13.8  </strong></span>En un <a href="https://www.medrxiv.org/content/10.1101/2020.10.19.20214940v1">estudio francés</a> sobre la efectividad de la hidroxicloroquina en el tratamiento de la COVID-19 leve o moderada en personas de edad avanzada, participaron 247 pacientes de este grupo de riesgo. Se dividieron al azar en dos grupos de 124 y 123 sujetos. Los del primer grupo fueron tratados con hidroxicloroquina y los del segundo grupo, con un placebo. Se anotó en cada grupo cuántos fallecieron o necesitaron intubación en los 14 días siguientes al inicio del tratamiento (lo resumiremos en “desenlace negativo”). En el grupo tratado con hidroxicloroquina hubo 9 desenlaces negativos y en el grupo del placebo, 8.</p>
 </div>
 
 <p>Llamemos <span class="math inline">\(p_1\)</span> a la probabilidad de que un paciente de edad avanzada con COVID-19 leve o moderada tratado con placebo tenga un desenlace negativo, y <span class="math inline">\(p_2\)</span> a la correspondiente probabilidad para los tratados con hidroxicloroquina. Queremos calcular un IC-95% para la RAR de desenlace negativo con hidroxicloroquina comparado con placebo, es decir, para la diferencia <span class="math inline">\(p_1-p_2\)</span>.</p>
