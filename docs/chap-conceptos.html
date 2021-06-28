@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-06-19" />
+<meta name="date" content="2021-06-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -154,21 +154,44 @@
 <li><p><strong>Población objetivo</strong>: un conjunto de sujetos con una o varias características sobre las que deseamos obtener información.</p></li>
 <li><p><strong>Muestra</strong>: el grupo de los sujetos concretos en los que medimos las características de interés.</p></li>
 </ul>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
+<img src="INREMDN_files/figure-html/samplingcast.png" alt="Población *versus* muestra" width="60%" />
+<p class="caption">
+Figura 3.1: Población <em>versus</em> muestra
+</p>
+</div>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-52" class="example"><strong>Ejemplo 3.1  </strong></span>Vosotros sois una muestra de muchas poblaciones:</p>
+<p><span id="exm:unnamed-chunk-53" class="example"><strong>Ejemplo 3.1  </strong></span>Una serie de 10 lanzamientos de una moneda equilibrada concreta es una muestra de la población de “los posibles lanzamientos de monedas equilibradas”.</p>
+</div>
+
+<div class="example">
+<p><span id="exm:caldo" class="example"><strong>Ejemplo 3.2  </strong></span>Si queremos saber si un caldo nos ha quedado soso, no nos lo bebemos todo, porque entonces nos quedaríamos sin caldo y ya no valdría la pena saber si está soso. Lo que hacemos es probar solo una cucharada. El caldo es la población, la cucharada la muestra.</p>
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-54" class="example"><strong>Ejemplo 3.3  </strong></span>¿Y vosotros qué sois: una población o una muestra? Pues depende:</p>
 <ul>
-<li>“Los estudiantes de primer curso de Medicina en España”</li>
-<li>“Los estudiantes de la UIB de este curso”</li>
-<li>“Los jóvenes europeos”</li>
-<li>“Los mamíferos bípedos”</li>
-<li>…</li>
+<li><p>Sois una población cuando lo que nos interesa es saber algo sobre <strong>vosotros</strong> y solo vosotros.</p></li>
+<li><p>Sois una muestra si a partir de información sobre vosotros miramos de inferir información sobre <strong>un grupo más grande de sujetos</strong></p></li>
+<li><p>Sobre Los estudiantes de primer curso de Medicina en España</p></li>
+<li><p>Sobre los estudiantes de la UIB de este curso</p></li>
+<li><p>Sobre los jóvenes europeos</p></li>
+<li><p>Sobre los mamíferos bípedos</p></li>
+<li><p>Sobre …</p></li>
 </ul>
 </div>
 
-<div class="example">
-<p><span id="exm:unnamed-chunk-53" class="example"><strong>Ejemplo 3.2  </strong></span>Una serie de 10 lanzamientos de una moneda equilibrada concreta es una muestra de la población de “los posibles lanzamientos de monedas equilibradas”.</p>
+<div class="rmdrecordau">
+Procurad tener siempre presente que, por mucho cuidado que pongamos en obtener una muestra de una población, numca será más que una aproximación imperfecta de esta.
 </div>
+<p>Si podemos medir todos los individuos de la población objetivo, no nos hace falta usar estadística inferencial para intentar adivinar lo que queremos saber sobre la población: lo medimos sobre todo el mundo y ya está. Pero lo más normal es que no podamos medir todos los individuos de la población.</p>
+<ul>
+<li><p>La población puede ser demasiado grande. Por ejemplo, si queremos calcular la altura media de los europeos que hoy tienen 18 años, es prácticamente imposible medirlos todos.</p></li>
+<li><p>Como ya hemos comentado, la población puede ser <strong>virtual</strong> en el sentido de que puede contener miembros que en este momento ni existan.</p></li>
+<li><p>Puede ser que para obtener la información de un sujeto lo tengamos que sacrificar. En este caso, para medir toda la población la tendríamos que exterminar.</p></li>
+<li><p>Puede ser simplemente que sea difícil acceder a toda la población: por ejemplo, los estudiantes de la UIB son relativamente pocos, unos 12000, pero sería complicado conseguir medirlos todos.</p></li>
+</ul>
 <p>A la hora de determinar la validez de un estudio, es muy importante comparar la población objetivo con la:</p>
 <ul>
 <li><strong>Población muestreada</strong>: el conjunto de sujetos (<strong>unidades de observación</strong>, en el sentido de la sección anterior) del que se extrae la muestra.</li>
@@ -176,13 +199,13 @@
 <div class="figure" style="text-align: center"><span id="fig:muestra"></span>
 <img src="INREMDN_files/figure-html/muestra.png" alt="Población objetivo, población muestrada y muestra." width="80%" />
 <p class="caption">
-Figura 3.1: Población objetivo, población muestrada y muestra.
+Figura 3.2: Población objetivo, población muestrada y muestra.
 </p>
 </div>
 <p>En la mayoría de las ocasiones, la población muestreada será un subconjunto de la población objetivo definido por una serie de restricciones, pero puede no serlo: pensad, por ejemplo, en los estudios ecológicos, donde la población objetivo son individuos y la población muestreada son grupos de individuos.</p>
 
 <div class="example">
-<p><span id="exm:tuberculosisrusia" class="example"><strong>Ejemplo 3.3  </strong></span>Dad un vistazo al artículo <a href="https://www.bmj.com/content/332/7533/85.short">“Risk factors for pulmonary tuberculosis in Russia: case-control study”</a>
+<p><span id="exm:tuberculosisrusia" class="example"><strong>Ejemplo 3.4  </strong></span>Dad un vistazo al artículo <a href="https://www.bmj.com/content/332/7533/85.short">“Risk factors for pulmonary tuberculosis in Russia: case-control study”</a>
 (R. Coker <em>et al</em>, <em>British Medical Journal</em> 332 (2006), pp. 85-87). Su objetivo es “Determinar los factores de riesgo para la tuberculosis pulmonar en Rusia”. Por lo tanto:</p>
 </div>
 <ul>
@@ -198,24 +221,24 @@ Figura 3.1: Población objetivo, población muestrada y muestra.
 </ul>
 
 <div class="example">
-<p><span id="exm:Hola" class="example"><strong>Ejemplo 3.4  </strong></span>Para conocer la opinión de sus lectores sobre la familia real española, una conocida revista del corazón propuso una encuesta en línea en su web y analizó las respuestas. En este <strong>estudio transversal</strong>:</p>
+<p><span id="exm:Hola" class="example"><strong>Ejemplo 3.5  </strong></span>Para conocer la opinión de sus lectores sobre la familia real española, una conocida revista del corazón propuso una encuesta en línea en su web y analizó las respuestas. En este <strong>estudio transversal</strong>:</p>
 </div>
 <ul>
 <li>La <strong>población objetivo</strong> es la formada por “los lectores de esta revista”.</li>
 <li>La <strong>población muestreada</strong> es la formada por los lectores actuales de esta revista con acceso a Internet.</li>
 <li>La <strong>muestra</strong> son los miles de personas concretas que voluntariamente respondieron la encuesta.</li>
 </ul>
-<p>En el Ejemplo <a href="chap-conceptos.html#exm:tuberculosisrusia">3.3</a>, puede que la población muestreada no fuera representativa de <strong>toda</strong> Rusia. Los habitantes de una de las ciudades más pobladas de Rusia, a unos 1500 km al sudeste de Moscú, ¿son representativos de los habitantes de una aldea perdida en mitad de la nada siberiana? Pues no lo sabemos, pero creemos que no. Además, la muestra de casos tampoco representa el colectivo de tuberculosos de Samara, puesto que solo se reclutaron los que reunían las condiciones para un tratamiento concreto (los tuberculosos con frotis bucal negativo a veces no se incluyen en un programa DOTS).</p>
-<p>En el Ejemplo <a href="chap-conceptos.html#exm:Hola">3.4</a> está más claro que la población muestreada no es representativa de la población objetivo: seguramente excluye, por ejemplo, los lectores ancianos o los de zonas rurales con acceso difícil a Internet. Por otro lado, la muestra es aún más restrictiva, ya que los participantes fueron voluntarios, y sus características pueden ser diferentes de las de los lectores que prefirieron no opinar sobre este tema (nunca se sabe si el CNI vigila…) o de las de los lectores que nunca responden encuestas.</p>
+<p>En el Ejemplo <a href="chap-conceptos.html#exm:tuberculosisrusia">3.4</a>, puede que la población muestreada no fuera representativa de <strong>toda</strong> Rusia. Los habitantes de una de las ciudades más pobladas de Rusia, a unos 1500 km al sudeste de Moscú, ¿son representativos de los habitantes de una aldea perdida en mitad de la nada siberiana? Pues no lo sabemos, pero creemos que no. Además, la muestra de casos tampoco representa el colectivo de tuberculosos de Samara, puesto que solo se reclutaron los que reunían las condiciones para un tratamiento concreto (los tuberculosos con frotis bucal negativo a veces no se incluyen en un programa DOTS).</p>
+<p>En el Ejemplo <a href="chap-conceptos.html#exm:Hola">3.5</a> está más claro que la población muestreada no es representativa de la población objetivo: seguramente excluye, por ejemplo, los lectores ancianos o los de zonas rurales con acceso difícil a Internet. Por otro lado, la muestra es aún más restrictiva, ya que los participantes fueron voluntarios, y sus características pueden ser diferentes de las de los lectores que prefirieron no opinar sobre este tema (nunca se sabe si el CNI vigila…) o de las de los lectores que nunca responden encuestas.</p>
 <p>Si la población muestreada no es representativa de la población objetivo, los resultados del estudio no tienen por qué poderse generalizar a esta última: diremos entonces que se ha dado un <strong>sesgo de falta de representatividad</strong>. Hablaremos sobre sesgos en la Sección <a href="chap-conceptos.html#sec:sesgos">3.4</a>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-54" class="example"><strong>Ejemplo 3.5  </strong></span>Al escogeros a vosotros como una muestra de la población de estudiantes de primer curso de Medicina, podríamos entender como población muestreada, por ejemplo, la de “los estudiantes que este año académico cursan primer curso de Medicina en una universidad española”. Seguramente esta población muestreada tiene características muy diferentes de las de los estudiantes que hace 40 años cursaron primer curso de Medicina en una universidad española, o de las de los estudiantes que este año académico cursan primer curso de Medicina en una universidad estadounidense.</p>
+<p><span id="exm:unnamed-chunk-56" class="example"><strong>Ejemplo 3.6  </strong></span>Al escogeros a vosotros como una muestra de la población de estudiantes de primer curso de Medicina, podríamos entender como población muestreada, por ejemplo, la de “los estudiantes que este año académico cursan primer curso de Medicina en una universidad española”. Seguramente esta población muestreada tiene características muy diferentes de las de los estudiantes que hace 40 años cursaron primer curso de Medicina en una universidad española, o de las de los estudiantes que este año académico cursan primer curso de Medicina en una universidad estadounidense.</p>
 </div>
 <p>Un estudio médico toma información sobre una muestra de individuos y la generaliza a una población objetivo. Si nos ha interesado leerlo, seguramente será porque su población objetivo contiene, o al menos está relacionada con, la población que nos interesa a nosotros. Pero la muestra habrá sido tomada de una población muestreada que no tiene por qué coincidir con nuestra población de interés. Es muy importante poder decidir entonces si las conclusiones a las que se llega en el estudio se pueden aplicar o no a nuestra población. No es el objetivo de este curso el que podáis tomar esta decisión, ya que no va de estadística sino de la experiencia médica que aún os falta. Pero sí que al menos seáis conscientes de que un resultado estimado para una población puede no ser extrapolable a otra población.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-55" class="example"><strong>Ejemplo 3.6  </strong></span>En el estudio <a href="https://link.springer.com/article/10.1186/s40560-020-00466-z">“D-dimer as a biomarker for disease severity and mortality in COVID-19 patients: a case control study”</a>(Y. Yao <em>et al</em>, <em>Journal of Intensive Care</em> 8:49 (2020)) se compararon diversas características clínicas, analíticas y radiológicas entre los pacientes que fallecieron (17 en total) y los que no fallecieron (231) en un grupo de pacientes de COVID-19 tratados en el hospital Renmin de la Universidad de Wuhan. Su objetivo era determinar qué características aumentaban el riesgo de fallecimiento entre los enfermos de COVID-19.</p>
+<p><span id="exm:unnamed-chunk-57" class="example"><strong>Ejemplo 3.7  </strong></span>En el estudio <a href="https://link.springer.com/article/10.1186/s40560-020-00466-z">“D-dimer as a biomarker for disease severity and mortality in COVID-19 patients: a case control study”</a>(Y. Yao <em>et al</em>, <em>Journal of Intensive Care</em> 8:49 (2020)) se compararon diversas características clínicas, analíticas y radiológicas entre los pacientes que fallecieron (17 en total) y los que no fallecieron (231) en un grupo de pacientes de COVID-19 tratados en el hospital Renmin de la Universidad de Wuhan. Su objetivo era determinar qué características aumentaban el riesgo de fallecimiento entre los enfermos de COVID-19.</p>
 <p>Se encontró una asociación estadísticamente significativa entre tener un nivel de dímero D en sangre muy alto, superior a 2 mg/l, y un aumento en el riesgo de <a href="https://es.wikipedia.org/wiki/Exitus"><em>exitus</em></a>. Querríamos decidir si esta asociación también es válida para nuestros pacientes.</p>
 </div>
 <p>¿Cuál es el problema? Pues que la población objetivo del estudio es la de todos los enfermos de COVID-19, pero según el artículo la población muestreada fue la de “pacientes con al menos dos síntomas de COVID-19 y PCR positiva tratados en ese hospital concreto de Wuhan”. Así que de entrada, los infectados con un solo síntoma y los asintomáticos quedan excluidos. Además, habría que valorar si la población asignada a ese hospital se parece o no a la balear. Por ejemplo, la tasa de letalidad de la COVID-19 entre el grupo de pacientes examinados fue del 6.85%, mientras que en las Baleares en esa misma época era de alrededor del 2.4%, aunque este dato refiere al total de infectados, incluyendo los asintomáticos. También habría que valorar si la asociación observada se debe a algún confundidor. Por ejemplo, la edad media de los sujetos de la muestra con niveles elevados de dímero D era significativamente más alta que la de los que tenían un nivel normal, y la COVID-19 es más letal entre los ancianos. ¿Será la edad un factor de confusión en este estudio?</p>
@@ -231,32 +254,45 @@ Figura 3.1: Población objetivo, población muestrada y muestra.
 <p>En un estudio estadístico inferencial, se toma una <strong>muestra</strong> de individuos de una <strong>población</strong> y se estiman algunas características de la población a partir de las de la muestra. Para que esto tenga sentido, es necesario que la muestra sea razonablemente <strong>representativa</strong> de la población. Pero, claro, sin conocer las características de la población, no podemos saber si una muestra es representativa o no.</p>
 <p>Para salir de este <em>impasse</em>, la solución comúnmente aceptada es tomar una muestra <strong>aleatoria</strong>, es decir, escogiendo sus sujetos de alguna manera al azar. Al hacerlo así:</p>
 <ul>
-<li><p>Se evitan preferencias en la elección, por lo que es más probable que la muestra sea representativa de la población (pero, naturalmente, no está garantizado: por pura mala suerte nos puede salir una muestra súper rara, es lo que tiene el azar).</p></li>
-<li><p>Se pueden usar técnicas estadísticas que permitirán acotar errores en la estimación y su probabilidad; por ejemplo, la probabilidad de que nuestra muestra sea súper rara en algún sentido concreto.</p></li>
+<li>Se evitan preferencias en la elección, por lo que es más probable que la muestra sea representativa de la población Naturalmente, esto no está garantizado: por pura mala suerte nos puede salir una muestra súper rara, es lo que tiene el azar.
+Pero al menos hemos hecho “lo que todo el mundo considera que es lo que hay que hacer” para intentar que sea representativa.</li>
 </ul>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-59"></span>
+<img src="INREMDN_files/figure-html/randomgen.png" alt=" http://dilbert.com/strip/2001-10-25" width="80%" />
+<p class="caption">
+Figura 3.3:  <a href="http://dilbert.com/strip/2001-10-25" class="uri">http://dilbert.com/strip/2001-10-25</a>
+</p>
+</div>
+<ul>
+<li>Se pueden usar técnicas estadísticas que permiten acotar errores en la estimación y su probabilidad; por ejemplo, la probabilidad de que nuestra muestra sea súper rara en algún sentido concreto.</li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-60" class="example"><strong>Ejemplo 3.8  </strong></span>Para probar el caldo, antes de tomar una cucharada lo removemos bien. De este modo esperamos que las moléculas del caldo se organicen de manera aleatoria dentro de la olla y que la cucharada que tomemos sea representativa del caldo.</p>
+</div>
 <p>Existen muchos métodos de <strong>muestreo</strong>. A continuación describimos algunos de forma breve.</p>
 <div id="sec:mas" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Muestreo aleatorio con y sin reposición</h3>
 <p>El <strong>muestreo aleatorio</strong> consiste en seleccionar una muestra de la población de manera que todas las muestras del mismo tamaño sean <strong>equiprobables</strong>; es decir, que si fijamos el número de individuos de la muestra, cualquier conjunto de ese número de individuos tenga la misma probabilidad de ser seleccionado.</p>
-<p>Hay dos tipos básicos de muestreo aleatorio que vale la pena distinguir: <strong>con</strong> y <strong>sin reposición</strong>. Para ilustrarlos, supongamos que disponemos de una urna con 100 bolas numeradas del 1 al 100, de la que queremos extraer una muestra de 15 bolas. La Figura <a href="chap-conceptos.html#fig:base">3.2</a> representa dicha urna.</p>
+<p>Hay que distinguir entre dos tipos de muestreo aleatorio: <strong>con</strong> y <strong>sin reposición</strong>. Para ilustrarlos, supongamos que disponemos de una urna con 100 bolas numeradas del 1 al 100, de la que queremos extraer una muestra de 15 bolas. La Figura <a href="chap-conceptos.html#fig:base">3.4</a> representa dicha urna.</p>
 <div class="figure" style="text-align: center"><span id="fig:base"></span>
 <img src="INREMDN_files/figure-html/basev.png" alt="Una urna de 100 bolas." width="80%" />
 <p class="caption">
-Figura 3.2: Una urna de 100 bolas.
+Figura 3.4: Una urna de 100 bolas.
 </p>
 </div>
-<p>Una manera de hacerlo sería repetir 15 veces el proceso de sacar una bola de la urna, anotar su número y devolverla a la urna. El tipo de muestra obtenida de esta manera recibe el nombre de <strong>muestra aleatoria con reposición</strong>, o <strong>muestra aleatoria simple</strong>. Observad que con este procedimiento una misma bola puede aparecer varias veces en una muestra, y que todos los subconjuntos de 15 bolas “con posibles repeticiones” tienen la misma probabilidad de obtenerse. Un posible resultado serían las bolas azules de la Figura <a href="chap-conceptos.html#fig:simple">3.3</a>; la bola azul más oscuro ha sido escogida dos veces en la muestra.</p>
+<p>Una manera de hacerlo sería repetir 15 veces el proceso de sacar una bola de la urna, anotar su número y devolverla a la urna. El tipo de muestra obtenida de esta manera recibe el nombre de <strong>muestra aleatoria con reposición</strong>, o <strong>muestra aleatoria simple</strong>. Observad que con este procedimiento una misma bola puede aparecer varias veces en una muestra, y que todos los subconjuntos de 15 bolas “con posibles repeticiones” tienen la misma probabilidad de obtenerse. Un posible resultado serían las bolas azules de la Figura <a href="chap-conceptos.html#fig:simple">3.5</a>; la bola azul más oscuro ha sido escogida dos veces en la muestra.</p>
 <div class="figure" style="text-align: center"><span id="fig:simple"></span>
 <img src="INREMDN_files/figure-html/simplev.png" alt="Una muestra aleatoria simple." width="80%" />
 <p class="caption">
-Figura 3.3: Una muestra aleatoria simple.
+Figura 3.5: Una muestra aleatoria simple.
 </p>
 </div>
-<p>Otra manera de extraer nuestra muestra sería repetir 15 veces el proceso de sacar una bola de la urna pero ahora sin devolverla. Esto es equivalente a extraer de golpe 15 bolas de la urna. Estas muestras no tienen bolas repetidas, y cualquier selección de 15 bolas diferentes tiene la misma probabilidad de ser la obtenida. En este caso se habla de una <strong>muestra aleatoria sin reposición</strong>. Un posible resultado serían las bolas azules de la Figura <a href="chap-conceptos.html#fig:sinrep">3.4</a>.</p>
+<p>Otra manera de extraer nuestra muestra sería repetir 15 veces el proceso de sacar una bola de la urna pero ahora sin devolverla. Esto es equivalente a extraer de golpe 15 bolas de la urna. Estas muestras no tienen bolas repetidas, y cualquier selección de 15 bolas diferentes tiene la misma probabilidad de ser la obtenida. En este caso se habla de una <strong>muestra aleatoria sin reposición</strong>. Un posible resultado serían las bolas azules de la Figura <a href="chap-conceptos.html#fig:sinrep">3.6</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:sinrep"></span>
 <img src="INREMDN_files/figure-html/sinrepv.png" alt="Una muestra aleatoria sin reposición." width="80%" />
 <p class="caption">
-Figura 3.4: Una muestra aleatoria sin reposición.
+Figura 3.6: Una muestra aleatoria sin reposición.
 </p>
 </div>
 <p>Cuando <strong>el tamaño de la población es muy grande en relación al de la muestra</strong>, como suele suceder en medicina, la probabilidad de que haya repeticiones en una muestra aleatoria simple es muy pequeña. Por ejemplo:</p>
@@ -265,57 +301,59 @@ Figura 3.4: Una muestra aleatoria sin reposición.
 <li><p>Si escogemos 100 estudiantes de la UIB (que tiene alrededor de 12000 estudiantes) al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de 0.339: en algo más de 1 de cada 3 muestras de 100 estudiantes de la UIB elegidos al azar permitiendo repeticiones habría alguna repetición.</p>
 <p>En cambio, si escogemos <strong>10</strong> estudiantes de la UIB al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo ya es de 0.004.</p></li>
 </ul>
-<p>Esto nos permite entender que, cuando la población es mucho más grande que la muestra, los muestreos aleatorios con y sin reposición son equivalentes en el sentido siguiente: puesto que si la población es muy, muy grande, un muestreo con reposición daría casi seguro una muestra con todos sus elementos diferentes, podemos tomar directamente la muestra sin reposición y aceptar que permitíamos repeticiones, pero que no se han dado, y que por tanto la muestra es simple.</p>
+
+<div class="rmdnote">
+Ya daremos el detalle de cómo se calculan todas estas probabilidades en el Tema <a href="#chap:probst"><strong>??</strong></a>.
+</div>
+<p>Esto nos permite considerar que, cuando la población es mucho más grande que la muestra, los muestreos aleatorios con y sin reposición son <strong>equivalentes</strong> en el sentido siguiente: puesto que si la población es muy, muy grande, una muestra aleatoria con reposición tendría casi seguro todos los elementos diferentes, podemos tomar directamente la muestra sin reposición y aceptar que permitíamos repeticiones, pero que no se han dado y que por tanto la muestra es simple.</p>
 <ul>
 <li><p>Una muestra aleatoria de 100 individuos de las Baleares diferentes, o de 10 estudiantes diferentes de la UIB, puede pasar perfectamente por una muestra tomada permitiendo repeticiones, porque aunque las permitiéramos, solo obtendríamos alguna repetición en una de cada 250 ocasiones.</p></li>
 <li><p>Pero en cambio ya es difícil de creer que una muestra aleatoria de 100 estudiantes diferentes de la UIB haya sido tomada permitiendo repeticiones, porque en una de cada tres muestras tomadas permitiendo repeticiones nos saldría alguna repetición.</p></li>
 </ul>
-<p>El muestreo aleatorio simple es el <em>estándard de excelencia</em> entre los métodos de muestreo, y la mayoría de los resultados que explicaremos en este curso presuponen que la muestra ha sido tomada aleatoria con reposición. Pero casi nunca es factible hacerlo.</p>
-<p>Para poder tomar una muestra aleatoria de una población en el sentido de este apartado, con o sin reposición, es necesario disponer de una lista completa de todos sus individuos para poder sortear a quién vamos a seleccionar. Esto no siempre es posible. ¿Alguien tiene la lista completa de, pongamos, todos los diabéticos de España? ¿Que incluya los que no saben que lo son? Por lo tanto, en la vida real no siempre podemos tomar muestras aleatorias en este sentido.</p>
+<p>El muestreo aleatorio simple es el <em>estándard de excelencia</em> entre los métodos de muestreo, y la mayoría de los resultados que explicaremos en este curso presuponen que la muestra ha sido tomada aleatoria con reposición. Pero casi nunca es factible hacerlo. El motivo es que para poder tomar una muestra aleatoria de una población en el sentido de este apartado, con o sin reposición, es necesario disponer de una lista completa de todos sus individuos para poder sortear a quién vamos a seleccionar. Esto no siempre es posible. ¿Alguien tiene la lista completa de, pongamos, todos los diabéticos de España? ¿Que incluya los que no saben que lo son? Por lo tanto, en la vida real no siempre podemos tomar muestras aleatorias en este sentido.</p>
 </div>
 <div id="sec:sist" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Muestreo sistemático</h3>
-<p>Una manera muy sencilla de obtener una muestra de una población cuando disponemos de una lista ordenada de sus individuos y nos da pereza efectuar un sorteo es tomarlos a intervalos constantes: uno de cada cinco individuos, uno de cada diez… Podemos añadir un componente aleatorio escogiendo al azar el primer individuo que elegimos, y a partir del cual empezamos a contar. A esta técnica se la llama <strong>muestreo sistemático</strong> o <strong>a intervalos</strong>, <strong>aleatorio</strong> si además el primer sujeto se escoge de manera aleatoria.</p>
+<p>Una manera muy sencilla de obtener una muestra de una población cuando disponemos de una lista ordenada de sus individuos y nos da pereza efectuar un sorteo es tomarlos a intervalos constantes: uno de cada cinco individuos, uno de cada diez… Podemos añadir un componente aleatorio escogiendo al azar el primer individuo que elegimos, y a partir del cual empezamos a contar. A esta técnica se la llama <strong>muestreo sistemático</strong> o <strong>a intervalos</strong>, añadiendo el adjetivo <strong>aleatorio</strong> si además el primer sujeto se escoge de manera aleatoria.</p>
 <p>Así, por ejemplo, si de una clase de 100 estudiantes quisiéramos escoger una muestra de 10, podríamos elegir un estudiante al azar, y a partir de él, por orden alfabético, elegir el décimo estudiante, el vigésimo, el trigésimo, etc.; si al llegar al final de la lista de clase no hubiéramos completado la muestra, volveríamos al principio de la misma.</p>
-<p>La Figura <a href="chap-conceptos.html#fig:sist">3.5</a> describe una muestra aleatoria sistemática de 15 bolas de nuestra urna de 100 bolas: hemos empezado a escoger por la bola roja oscura, que ha sido elegida al azar, y a partir de ella hemos tomado las bolas a intervalos de 7, volviendo al principio cuando hemos llegado al final de la lista numerada.</p>
+<p>La Figura <a href="chap-conceptos.html#fig:sist">3.7</a> describe una muestra aleatoria sistemática de 15 bolas de nuestra urna de 100 bolas: hemos empezado a escoger por la bola roja oscura, que ha sido elegida al azar, y a partir de ella hemos tomado las bolas a intervalos de 7, volviendo al principio cuando hemos llegado al final de la lista numerada.</p>
 <div class="figure" style="text-align: center"><span id="fig:sist"></span>
 <img src="INREMDN_files/figure-html/sistv.png" alt="Una muestra aleatoria sistemática." width="80%" />
 <p class="caption">
-Figura 3.5: Una muestra aleatoria sistemática.
+Figura 3.7: Una muestra aleatoria sistemática.
 </p>
 </div>
-<p>Cuando no disponemos de una lista de toda la población pero sí que tenemos una manera de acceder de manera ordenada a sujetos de la misma (por ejemplo, enfermos que acuden a un hospital), podemos realizar un muestreo sistemático tomando los sujetos a intervalos constantes a medida que los encontramos y hasta completar el tamaño deseado de la muestra. Por ejemplo, para escoger una muestra de 10 pacientes que hayan acudido a Urgencias por traumatismos en la cabeza, podríamos escoger pacientes a intervalos regulares de entre los que acudieran a Urgencias por este motivo hasta llegar a los 10.
-En situaciones en las que la lista de individuos de la población se va generando de forma “ordenada”, por ejemplo por grupos (en días laborables, a Urgencias por las mañanas van predominantemente adultos y por las tardes niños), recorrer la lista a intervalos regulares garantiza la representatividad de cada grupo.</p>
+<p>Cuando no disponemos de una lista de toda la población pero sí que tenemos una manera de acceder de manera ordenada a sujetos de la misma (por ejemplo, enfermos que acuden a un hospital), podemos realizar un muestreo sistemático tomando los sujetos a intervalos constantes a medida que los encontramos y hasta completar el tamaño deseado de la muestra. Por ejemplo, para escoger una muestra de 10 pacientes que hayan acudido a Urgencias por traumatismos en la cabeza, podríamos escoger pacientes a intervalos regulares de entre los que acudieran a Urgencias por este motivo hasta llegar a los 10.</p>
 </div>
 <div id="sec:estr" class="section level3" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> Muestreo aleatorio estratificado</h3>
-<p>Este método de muestreo se utiliza cuando la población está clasificada en <strong>estratos</strong> que son de interés para la propiedad estudiada. Estos estratos serán grupos de individuos definidos por una característica concreta, de manera que individuos del mismo estrato tengan esa característica en común (los estratos sean <strong>homogéneos</strong> internamente) y individuos de estratos diferentes tengan esa característica diferente (los estratos sean <strong>heterogéneos</strong> externamente). Por ejemplo: sexos, franjas de edad, provincias, casos y controles…</p>
+<p>Este método de muestreo se utiliza cuando la población está clasificada en <strong>estratos</strong> que son de interés para la propiedad que se estudia. Estos estratos serán grupos de individuos definidos por una característica concreta, de manera que individuos del mismo estrato tengan esa característica en común (los estratos sean <strong>homogéneos</strong> internamente) y individuos de estratos diferentes tengan esa característica diferente (los estratos sean <strong>heterogéneos</strong> externamente). Por ejemplo: sexos, franjas de edad, provincias, casos y controles…</p>
 <p>En este caso, se toma una muestra aleatoria de un tamaño prefijado de cada estrato (en el sentido de la Sección <a href="chap-conceptos.html#sec:mas">3.3.1</a>) y se unen en una muestra global. A este proceso se le llama <strong>muestreo aleatorio estratificado</strong>.</p>
 <p>Por lo que refiere a los tamaños de las muestras de cada estrato, se suele optar por una de las dos estrategias siguientes:</p>
 <ul>
 <li><p>Imponer que la composición por estratos de la muestra global mantenga las proporciones de la población original, de manera que el tamaño de la muestra de cada estrato represente el mismo porcentaje del total de la muestra que el estrato correspondiente en la población completa.</p></li>
 <li><p>Tomar los tamaños de manera que los estratos que representen una fracción muy pequeña de la población (tan pequeña que no esperaríamos que tuvieran representación en una muestra aleatoria <strong>transversal</strong> de la población, es decir, tomada del total de la población sin tener en cuenta su composición en estratos) tengan una representación en la muestra mucho mayor que la que les tocaría.</p></li>
 </ul>
-<p>Por ejemplo, los estratos podrían ser grupos de edad y podríamos tomar la muestra de cada grupo de edad de tamaño proporcional a la fracción que representa dicho grupo de edad en la población total. O podrían ser los sexos y procuraríamos que nuestra muestra estuviera formada por un 50% de hombres y un 50% de mujeres. O, en las Islas Baleares, los estratos podrían ser las islas, y entonces podríamos imponer que el número de representantes de cada isla en la muestra fuera proporcional a su población relativa dentro del conjunto total de la comunidad autónoma, o podríamos escoger la misma cantidad de individuos de cada isla, independientemente de su población.</p>
+<p>Por ejemplo, los estratos podrían ser grupos de edad y podríamos tomar la muestra de cada grupo de edad de tamaño proporcional a la fracción que representa dicho grupo de edad en la población total. O podrían ser los sexos y procuraríamos que nuestra muestra estuviera formada por un 50% de hombres y un 50% de mujeres. O, en las Islas Baleares, los estratos podrían ser las islas, y entonces podríamos imponer que el número de representantes de cada isla en la muestra fuera proporcional a su población relativa dentro del conjunto total de la comunidad autónoma, o podríamos tomar la misma cantidad de individuos de cada isla, independientemente de su población.</p>
 
 <div class="rmdnote">
-Cuando en un estudio de casos y controles escogemos un grupo de casos y uno de controles de tamaños prefijados, o cuando en un estudio de cohorte escogemos un grupo de expuestos y uno de no expuestos de tamaños prefijados, se trata de un muestreo estratificado, aunque no siempre será aleatorio.
+Cuando en un estudio de casos y controles escogemos un grupo de casos y uno de controles de tamaños prefijados, o cuando en un estudio de cohorte escogemos un grupo de expuestos y uno de no expuestos de tamaños prefijados, se trata de una muestra estratificado, aunque no siempre será aleatoria.
 </div>
-<p>Por continuar con nuestra urna de 100 bolas, supongamos que contiene 40 bolas de un color y 60 de otro color según muestra la Figura <a href="chap-conceptos.html#fig:estratprevi">3.6</a>.</p>
+<p>Por continuar con nuestra urna de 100 bolas, supongamos que contiene 40 bolas de un color y 60 de otro color según muestra la Figura <a href="chap-conceptos.html#fig:estratprevi">3.8</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:estratprevi"></span>
 <img src="INREMDN_files/figure-html/estratprevi.png" alt="Nuestra urna ahora tiene dos  estratos." width="80%" />
 <p class="caption">
-Figura 3.6: Nuestra urna ahora tiene dos estratos.
+Figura 3.8: Nuestra urna ahora tiene dos estratos.
 </p>
 </div>
-<p>Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como estratos los dos colores e imponiendo que la muestra refleje la composición de la urna, tomaríamos una muestra aleatoria de 6 bolas del primer color y una muestra aleatoria de 9 bolas del segundo color. De esta manera, los porcentajes de colores en la muestra serían los mismos que en la urna. La Figura <a href="chap-conceptos.html#fig:estrat">3.7</a> describe una muestra obtenida de esta manera.</p>
+<p>Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como estratos los dos colores e imponiendo que la muestra refleje la composición de la urna, tomaríamos una muestra aleatoria de 6 bolas del primer color y una muestra aleatoria de 9 bolas del segundo color. De esta manera, los porcentajes de colores en la muestra serían los mismos que en la urna. La Figura <a href="chap-conceptos.html#fig:estrat">3.9</a> describe una muestra obtenida de esta manera.</p>
 <div class="figure" style="text-align: center"><span id="fig:estrat"></span>
 <img src="INREMDN_files/figure-html/estrat.png" alt="Una muestra aleatoria estratificada." width="80%" />
 <p class="caption">
-Figura 3.7: Una muestra aleatoria estratificada.
+Figura 3.9: Una muestra aleatoria estratificada.
 </p>
 </div>
-<p>La ventaja del muestreo aleatorio estratificado respecto del transversal es que, como el investigador obtiene una muestra de cada estrato de la población del tamaño que desee:</p>
+<p>La ventaja del muestreo aleatorio estratificado respecto del transversal es que, como el investigador escoge una muestra de cada estrato de la población del tamaño que considera adecuado:</p>
 <ul>
 <li><p>Permite estimar la información de interés para cada estrato por separado, como si se tratara de estudios independientes.</p></li>
 <li><p>Permite estimar la información sobre subpoblaciones minoritarias que en una muestra aleatoria transversal aparecerían subrepresentadas.</p></li>
@@ -331,21 +369,21 @@ Figura 3.7: Una muestra aleatoria estratificada.
 </div>
 <div id="sec:mcluster" class="section level3" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Muestreo por conglomerados</h3>
-<p>El proceso de obtener una muestra aleatoria en algunos casos es caro o difícil, incluso aunque dispongamos de la lista completa de la población. Imaginad que quisiéramos estudiar la prevalencia y gravedad de la miopía entre los estudiantes de Primaria de las Baleares. Para ello tendríamos que seleccionar una muestra representativa de esta población de escolares. Seguramente, con algo de esfuerzo, podríamos disponer de su lista completa para este curso y por lo tanto podríamos tomar una muestra aleatoria, pero entonces acceder a las niñas y niños que la formasen seguramente significaría contactar con unos pocos alumnos de muchos centros de primaria, lo que volvería el proceso lento y costoso. Y eso si consiguiéramos la lista completa de alumnos.</p>
-<p>Una alternativa posible sería, en vez de elegir una muestra aleatoria de todos los estudiantes de Primaria, escoger primero al azar unas pocas aulas de primaria de colegios de las Baleares, a las que llamamos en este contexto <strong>conglomerados</strong> o <strong>clústers</strong>, y formar entonces nuestra muestra con todos los alumnos de estas aulas. Estaréis de acuerdo en que es mucho más sencillo disponer de la lista completa de estudiantes de unas pocas aulas que conseguir la lista completa de todos los estudiantes de todos los colegios, y mucho más barato ir a unos pocos colegios concretos que ir a todos los colegios de las Islas a entrevistar a unos pocos estudiantes en cada centro.</p>
+<p>El proceso de obtener una muestra aleatoria en algunos casos es caro o difícil, incluso aunque dispongamos de la lista completa de la población. Imaginad que quisiéramos estudiar la prevalencia y gravedad de la miopía entre los estudiantes de Primaria de las Baleares. Para ello tendríamos que seleccionar una muestra representativa de esta población de escolares. Seguramente, con algo de esfuerzo, podríamos disponer de su lista completa para este curso y por lo tanto podríamos tomar una muestra aleatoria, pero entonces acceder a las niñas y niños que la formasen seguramente significaría visitar muchos centros de primaria para entrevistar unos pocos alumnos de cada uno. Esto volvería el proceso lento y costoso. Y eso si consiguiéramos la lista completa de alumnos.</p>
+<p>Una alternativa posible sería, en vez de elegir una muestra aleatoria de todos los estudiantes de Primaria, escoger primero al azar unas pocas aulas de primaria de colegios de las Baleares, a las que llamamos en este contexto <strong>conglomerados</strong> o <strong>clústers</strong>, y formar entonces nuestra muestra con todos los alumnos de estas aulas. Estaréis de acuerdo en que es mucho más fácil disponer de la lista completa de estudiantes de unas pocas aulas que conseguir la lista completa de todos los estudiantes de la Comunidad, y mucho más cómodo ir a unos pocos colegios a entrevistar grupos enteros que ir a muchos colegios a entrevistar a unos pocos estudiantes en cada uno.</p>
 <p>En un <strong>muestreo aleatorio por conglomerados</strong> o <strong>clústers</strong>, tenemos la población repartida en pequeños grupos, los clústers, y lo que hacemos es elegir al azar una muestra de clústers y tomar todos los individuos de los clústers elegidos.</p>
-<p>Volviendo de nuevo a nuestra urna, supongamos que sus 100 bolas se agrupan en 20 conglomerados de 5 bolas cada uno según las franjas verticales de la Figura <a href="chap-conceptos.html#fig:clustprevi">3.8</a> (donde mantenemos la clasificación en dos colores para poder comparar el resultado del muestreo por conglomerados con el estratificado).</p>
+<p>Volviendo de nuevo a nuestra urna, supongamos que sus 100 bolas se agrupan en 20 conglomerados de 5 bolas cada uno según las franjas verticales de la Figura <a href="chap-conceptos.html#fig:clustprevi">3.10</a> (donde mantenemos la clasificación en dos colores para poder comparar el resultado del muestreo por conglomerados con el estratificado).</p>
 <div class="figure" style="text-align: center"><span id="fig:clustprevi"></span>
 <img src="INREMDN_files/figure-html/clusterprevi.png" alt="Nuestra urna ahora tiene 2 estratos y 20 clústers." width="80%" />
 <p class="caption">
-Figura 3.8: Nuestra urna ahora tiene 2 estratos y 20 clústers.
+Figura 3.10: Nuestra urna ahora tiene 2 estratos y 20 clústers.
 </p>
 </div>
-<p>Para obtener una muestra aleatoria por conglomerados de tamaño 15, escogeríamos al azar 3 conglomerados y la muestra estaría formada por todas sus bolas. La Figura <a href="chap-conceptos.html#fig:clust">3.9</a> describe una muestra obtenida de esta manera: los conglomerados escogidos están marcados en azul.</p>
+<p>Para obtener una muestra aleatoria por conglomerados de tamaño 15, escogeríamos al azar 3 conglomerados y la muestra estaría formada por todas sus bolas. La Figura <a href="chap-conceptos.html#fig:clust">3.11</a> describe una muestra obtenida de esta manera: los conglomerados escogidos están marcados en azul.</p>
 <div class="figure" style="text-align: center"><span id="fig:clust"></span>
 <img src="INREMDN_files/figure-html/cluster.png" alt="Una muestra aleatoria por conglomerados." width="80%" />
 <p class="caption">
-Figura 3.9: Una muestra aleatoria por conglomerados.
+Figura 3.11: Una muestra aleatoria por conglomerados.
 </p>
 </div>
 <p>A menudo una vez elegidos los clústers no se toman todos los sujetos de los mismos, sino una muestra aleatoria de cada uno. Esto ya sería un ejemplo de muestreo <strong>polietápico</strong> (Sección <a href="chap-conceptos.html#sec:poli">3.3.6</a>).</p>
@@ -361,8 +399,8 @@ Figura 3.9: Una muestra aleatoria por conglomerados.
 </ul></li>
 <li><p><strong>Muestreo por conglomerados</strong>:</p>
 <ul>
-<li><p>Los clústers forman una clasificación de los sujetos de la población en grupos pequeños de individuos definidos por una característica que en principio es irrelevante en el estudio estadístico. Por ejemplo, la manzana donde viven o el pediatra al que están asignados.</p></li>
-<li><p>Se escogen algunos clústers y se incluyen en la muestra todos sus miembros.</p></li>
+<li><p>Los conglomerados forman una clasificación de los sujetos de la población en grupos pequeños de individuos definidos por una característica que en principio es irrelevante en el estudio estadístico. Por ejemplo, la manzana donde viven o el médico de familia al que están asignados.</p></li>
+<li><p>Se escogen algunos conglomerados y se incluyen en la muestra todos sus miembros.</p></li>
 </ul></li>
 </ul>
 </div>
@@ -370,12 +408,12 @@ Figura 3.9: Una muestra aleatoria por conglomerados.
 <div id="sec:oport" class="section level3" number="3.3.5">
 <h3><span class="header-section-number">3.3.5</span> Muestreos no aleatorios</h3>
 <p>Cuando la selección de la muestra no es aleatoria, se habla de <strong>muestreo no aleatorio</strong>. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles. Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, solo se tiene en cuenta las respuestas de los estudiantes que voluntariamente rellenan la encuesta de opinión, que de ninguna manera forman una muestra aleatoria: el perfil del estudiante que contesta voluntariamente una encuesta de este tipo es muy específico y no viene determinado por el azar. En este caso se trataría de una <strong>muestra auto-seleccionada</strong>.</p>
-<p>Otro tipo de muestras no aleatorias son las <strong>oportunistas</strong>. Este es el caso, por ejemplo, si para estimar la opinión que de un profesor tienen los alumnos de una asignatura se visita un día la clase y se pasa la encuesta a los estudiantes que ese día asistieron a clase. De nuevo, puede que los alumnos presentes no sean representativos del alumnado de la asignatura (pueden ser los más aplicados, o los que no tienen la gripe, o los no repetidores).</p>
-<p>La Figura <a href="chap-conceptos.html#fig:oport">3.10</a> describe una muestra oportunista de nuestra urna: sus 15 primeras bolas.</p>
+<p>Otro tipo de muestras no aleatorias son las <strong>oportunistas</strong>. Este es el caso, por ejemplo, si para estimar la opinión que de un profesor tienen los alumnos de una asignatura se visita un día la clase y se pasa la encuesta a los estudiantes que ese día asistieron a clase. De nuevo, puede que los alumnos presentes no sean representativos del alumnado de la asignatura (pueden ser los más aplicados, o los menos enfermizos, o los no repetidores).</p>
+<p>La Figura <a href="chap-conceptos.html#fig:oport">3.12</a> describe una muestra oportunista de nuestra urna: sus 15 primeras bolas.</p>
 <div class="figure" style="text-align: center"><span id="fig:oport"></span>
 <img src="INREMDN_files/figure-html/oport.png" alt="Una muestra oportunista." width="80%" />
 <p class="caption">
-Figura 3.10: Una muestra oportunista.
+Figura 3.12: Una muestra oportunista.
 </p>
 </div>
 <p><strong>Las técnicas de estadística inferencial no se pueden aplicar a muestras no aleatorias</strong>. Pero normalmente solo podemos conseguir muestras no aleatorias. En este caso, lo que se suele hacer es describir en detalle las características de la muestra para justificar que, pese a no ser aleatoria, es razonablemente representativa de la población y podría pasar por aleatoria. Por ejemplo, la muestra oportunista anterior de nuestra urna no es de ninguna manera representativa de su contenido por lo que refiere al color de las bolas.</p>
@@ -386,11 +424,11 @@ Para conocer la opinión de los estudiantes de Medicina españoles sobre un tema
 </div>
 <div id="sec:poli" class="section level3" number="3.3.6">
 <h3><span class="header-section-number">3.3.6</span> Muestreo polietápico</h3>
-<p>En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes estaba formada por todos los individuos de las aulas elegidas. Otra opción podría haber sido, tras seleccionar la muestra aleatoria de clústers, tomar de alguna manera una muestra aleatoria de cada uno de ellos. Por ejemplo, algunos estudios poblacionales a nivel estatal se realizan solamente en algunas provincias escogidas aleatoriamente, en las que luego se encuesta una muestra aleatoria de habitantes. Este sería un ejemplo de <strong>muestreo polietápico</strong>, en el que la muestra no se obtiene en un solo paso, sino mediante diversas elecciones sucesivas. La Figura <a href="chap-conceptos.html#fig:poli">3.11</a> muestra un ejemplo sencillo de muestreo polietápico de nuestra urna: hemos elegido al azar 5 conglomerados (marcados en azul) y de cada uno de ellos hemos elegido 3 bolas al azar sin reposición.</p>
+<p>En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes estaba formada por todos los individuos de las aulas elegidas. Otra opción podría haber sido, tras seleccionar la muestra aleatoria de aulas, tomar de alguna manera una muestra aleatoria de cada una. Otro ejemplo: algunos estudios poblacionales a nivel estatal se realizan solamente en algunas provincias escogidas aleatoriamente, en las que luego se encuesta una muestra aleatoria de habitantes. Este sería un ejemplo de <strong>muestreo polietápico</strong>, en el que la muestra no se obtiene en un solo paso, sino mediante diversas elecciones sucesivas. La Figura <a href="chap-conceptos.html#fig:poli">3.13</a> muestra un ejemplo sencillo de muestreo polietápico de nuestra urna: hemos elegido al azar 5 conglomerados (marcados en azul) y de cada uno de ellos hemos elegido 3 bolas al azar sin reposición.</p>
 <div class="figure" style="text-align: center"><span id="fig:poli"></span>
 <img src="INREMDN_files/figure-html/poli.png" alt="Una muestra polietápica." width="80%" />
 <p class="caption">
-Figura 3.11: Una muestra polietápica.
+Figura 3.13: Una muestra polietápica.
 </p>
 </div>
 <p>Veamos algunos ejemplos más. Recordad el estudio CORSAIB del Ejemplo <a href="chap-estudios.html#exm:corsaib">2.16</a>. Vamos a detallar algo más el proceso mediante el cual se eligieron los participantes:</p>
@@ -398,14 +436,14 @@ Figura 3.11: Una muestra polietápica.
 <li><p>Se dividieron las Baleares en 14 sectores geográficos. Se ofreció la participación a los médicos de familia para conseguir que colaborasen 3-4 médicos por sector, hasta llegar a los 50 médicos.</p></li>
 <li><p>De la población adscrita a cada médico participante se obtuvo una muestra aleatoria de 40 individuos.</p></li>
 </ol>
-<p>Como veis, el muestreo tuvo dos etapas. En la primera se seleccionaron clústers mediante un muestreo no aleatorio estratificado: los estratos fueron los 14 sectores geográficos, los clústers elegidos estaban formados por los grupos de pacientes adscritos a los médicos de familia que voluntariamente participaron en el estudio. La segunda etapa fue un muestreo aleatorio dentro de cada clúster.</p>
+<p>Como veis, el muestreo tuvo dos etapas. En la primera se seleccionaron clústers mediante un muestreo no aleatorio estratificado: los estratos fueron los 14 sectores geográficos, los clústers elegidos estaban formados por los grupos de pacientes adscritos a los médicos de familia que voluntariamente participaron en el estudio. La segunda etapa fue un muestreo aleatorio sin reposición dentro de cada clúster.</p>
 <p>Veamos otro ejemplo más complicado. En el estudio <a href="https://www.scielo.br/pdf/jped/v82n2/en_v82n2a08.pdf">“Factors associated with risk of low folate intake among adolescents”</a> (M. Vitolo <em>et al</em>, <em>Jornal de Pediatria</em> 82 (2006), pp. 121–126)
 los investigadores tenían que tomar una muestra de adolescentes de San Leopoldo (Brasil). Para ello:</p>
 <ol style="list-style-type: decimal">
 <li>En primer lugar, escogieron mediante un muestreo aleatorio sistemático varias secciones censales de las 40 que tiene la ciudad.</li>
 <li>A continuación, escogieron al azar varias manzanas de cada una de estas secciones censales y una esquina de cada manzana.</li>
-<li>Luego, se eligieron direcciones de cada manzana de manera sistemática: una de cada tres en sentido horario a partir de la esquina seleccionada.</li>
-<li>Finalmente, se invitó a participar en el estudio a todos los habitantes de 10 a 19 años en las casas o fincas seleccionadas. El total eligible de adolescentes fueron 810, de los que consintieron a participar en el estudio 722.</li>
+<li>Luego, eligieron direcciones de cada manzana de manera sistemática: una de cada tres en sentido horario a partir de la esquina seleccionada.</li>
+<li>Finalmente, se invitó a participar en el estudio a todos los habitantes de 10 a 19 años en las casas o fincas seleccionadas. El total eligible de adolescentes fueron 810, de los que aceptaron participar 722.</li>
 </ol>
 <p>En este proceso, se realizaron: un muestreo sistemático (las secciones censales), dos muestreos aleatorios sin reposición (las manzanas y las esquinas), otro muestreo sistemático (las direcciones) y un muestreo no aleatorio (los voluntarios).</p>
 <p>Un último ejemplo. Recordad el estudio sobre enfermedades y mes de nacimiento del Ejemplo <a href="chap-estudios.html#exm:quesada">2.17</a>, donde “se escogió al azar una muestra de 29,478 españoles”. En realidad, <strong>no</strong> se tomó una lista de toda la población española a 1 de enero de 2017 y se escogió al azar de manera equiprobable una conjunto de 29,478 personas, sino que se usó la muestra de la <em>Encuesta Nacional de Salud</em> de ese año, que se elige de la manera polietápica siguiente (podéis consultar <a href="https://www.ine.es/metodologia/t15/t153041917.pdf">aquí</a> la metodología en detalle):</p>
@@ -441,10 +479,10 @@ los investigadores tenían que tomar una muestra de adolescentes de San Leopoldo
 <li><p><strong>Sesgo de supervivencia</strong>: Cuando se toma una muestra de pacientes vivos de una enfermedad con una alta tasa de mortalidad. En este caso, es muy probable que la muestra incluya más enfermos que hayan sobrevivido más de lo esperado a la enfermedad, y estos no tienen por qué ser representativos de la población general de enfermos de esta enfermedad.</p></li>
 </ol></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-62"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
 <img src="http://es.xkcd.com/site_media/strips/survivorship_bias.png" alt="&quot;Sesgo de supervivencia&quot; (https://xkcd.com/1827/ (CC-BI-NC 2.5))"  />
 <p class="caption">
-Figura 3.12: “Sesgo de supervivencia” (<a href="https://xkcd.com/1827/" class="uri">https://xkcd.com/1827/</a> (CC-BI-NC 2.5))
+Figura 3.14: “Sesgo de supervivencia” (<a href="https://xkcd.com/1827/" class="uri">https://xkcd.com/1827/</a> (CC-BI-NC 2.5))
 </p>
 </div>
 <ol start="2" style="list-style-type: decimal">
@@ -468,7 +506,7 @@ Figura 3.12: “Sesgo de supervivencia” (<a href="https://xkcd.com/1827/" clas
 <p>Hay muchos otros tipos de sesgos. No es importante saber sus nombres, de hecho ni tan solo de los que hemos dado aquí. Lo importante es aplicar el sentido común al leer la Metodología de un estudio para entender qué procesos podrían haber desviado los datos recogidos y cómo estos sesgos afectan las conclusiones del estudio.</p>
 
 <div class="example">
-<p><span id="exm:Hola2" class="example"><strong>Ejemplo 3.7  </strong></span>Volvamos al Ejemplo <a href="chap-conceptos.html#exm:Hola">3.4</a>, en el que explicábamos el caso de una conocida revista del corazón que, para conocer la opinión de sus lectores sobre la familia real española, propuso una encuesta en línea en su web. ¿Qué sesgos se pudieron dar?</p>
+<p><span id="exm:Hola2" class="example"><strong>Ejemplo 3.9  </strong></span>Volvamos al Ejemplo <a href="chap-conceptos.html#exm:Hola">3.5</a>, en el que explicábamos el caso de una conocida revista del corazón que, para conocer la opinión de sus lectores sobre la familia real española, propuso una encuesta en línea en su web. ¿Qué sesgos se pudieron dar?</p>
 </div>
 <p><strong>(1.a)</strong> ¿Sesgo de falta de representatividad? Sí, claro. Los voluntarios que rellenan encuestas en Internet no tienen por qué ser representativos del total de lectores de la revista.</p>
 <p><strong>(1.b)</strong> ¿Sesgo de selección diferencial? No, porque no se eligieron dos grupos.</p>
@@ -485,20 +523,20 @@ No hace falta ser tan burdo a la hora de amañar un cuestionario. En una encuest
 <div class="figure" style="text-align: center"><span id="fig:felipe6"></span>
 <img src="INREMDN_files/figure-html/felipe6.png" alt="¿El País marcándose un Ryanair con Felipe VI? Gráfico publicado por El País  el 30/08/2020; referencia: https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html" width="80%" />
 <p class="caption">
-Figura 3.13: ¿El País marcándose un Ryanair con Felipe VI? Gráfico publicado por El País el 30/08/2020; referencia: <a href="https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html" class="uri">https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html</a>
+Figura 3.15: ¿El País marcándose un Ryanair con Felipe VI? Gráfico publicado por El País el 30/08/2020; referencia: <a href="https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html" class="uri">https://elpais.com/espana/2020-08-29/los-espanoles-rechazan-la-marcha-de-juan-carlos-i-a-emiratos-arabes.html</a>
 </p>
 </div>
 <p><strong>(3)</strong> ¿Confusión? Dado que, por así decirlo, se trataba de un estudio transversal de prevalencia, sin intentar estimar relaciones de causa-efecto, no tiene sentido preguntarse por la existencia de confundidores.</p>
 <p>Otra cosa sería si se hubiera pretendido estudiar qué características hacen que se opine mejor o peor sobre la familia real española. Entonces sí que podrían entrar en juego confundidores. Para no meternos en berenjenales, no vamos a describirlos.</p>
 
 <div class="rmdexercici">
-<p>En un famoso <a href="https://www.nejm.org/doi/full/10.1056/NEJM198103123041102">estudio publicado en 1981</a> sobre la asociación entre consumo de café y cáncer de páncreas, se tomó un grupo formado por todos los pacientes diagnosticados de cáncer de páncreas entre 1974 y 1979 en once hospitales. Luego, para cada uno de estos casos, se pidió al médico que lo había diagnosticado que eligiera de entre sus pacientes hospitalizados más o menos al mismo tiempo uno o dos controles de características similares pero sin cáncer de páncreas. En total participaron 369 casos y 644 controles. A todos los participantes se les pidió información sobre su consumo de tabaco, alcohol, te y café. Por lo que refiere al café, se observó que los sujetos sin cáncer de páncreas de la muestra consumían menos café que los sujetos con cáncer, como podéis ver en la Figura <a href="chap-conceptos.html#fig:macmahon">3.14</a>.</p>
+<p>En un famoso <a href="https://www.nejm.org/doi/full/10.1056/NEJM198103123041102">estudio publicado en 1981</a> sobre la asociación entre consumo de café y cáncer de páncreas, se tomó un grupo formado por todos los pacientes diagnosticados de cáncer de páncreas entre 1974 y 1979 en once hospitales. Luego, para cada uno de estos casos, se pidió al médico que lo había diagnosticado que eligiera de entre sus pacientes hospitalizados más o menos al mismo tiempo uno o dos controles de características similares pero sin cáncer de páncreas. En total participaron 369 casos y 644 controles. A todos los participantes se les pidió información sobre su consumo de tabaco, alcohol, te y café. Por lo que refiere al café, se observó que los sujetos sin cáncer de páncreas de la muestra consumían menos café que los sujetos con cáncer, como podéis ver en la Figura <a href="chap-conceptos.html#fig:macmahon">3.16</a>.</p>
 ¿Creéis que el consumo de café entre los controles es representativo de la población sin cáncer de páncreas? (Va, una pista: La mayoría de los casos de cáncer de páncreas son diagnosticados por digestólogos.)
 </div>
 <div class="figure" style="text-align: center"><span id="fig:macmahon"></span>
 <img src="INREMDN_files/figure-html/macmahon-1.png" alt="Proporciones de sujetos que tomaban diferentes números de tazas diarias de café en la muestra analizada por B. MacMahon *et al*, &quot;Coffee and cancer of the pancreas&quot;." width="480" />
 <p class="caption">
-Figura 3.14: Proporciones de sujetos que tomaban diferentes números de tazas diarias de café en la muestra analizada por B. MacMahon <em>et al</em>, “Coffee and cancer of the pancreas”.
+Figura 3.16: Proporciones de sujetos que tomaban diferentes números de tazas diarias de café en la muestra analizada por B. MacMahon <em>et al</em>, “Coffee and cancer of the pancreas”.
 </p>
 </div>
 
