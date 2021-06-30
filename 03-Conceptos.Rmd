@@ -15,6 +15,21 @@ En un estudio estadístico, la **unidad de observación** es, para entendernos, 
 
 En un estudio inferencial, queremos deducir (**inferir**) información sobre una **población** a partir de una **muestra** de la misma. 
 
+
+
+
+```{r, echo=FALSE,out.width="60%",fig.cap="Población *versus* muestra"}
+knitr::include_graphics("INREMDN_files/figure-html/samplingcast.png")
+```
+
+
+```{example, caldo}
+Si queremos saber si un caldo nos ha quedado soso, no nos lo bebemos todo, porque entonces nos quedaríamos sin caldo y ya no valdría la pena saber si está soso. Lo que hacemos es probar solo una cucharada. El caldo es la población, la cucharada la muestra. A partir del sabor de la cucharada, "estimamos" cómo nos ha quedado el caldo. 
+
+
+````
+
+
 En general, una **población** es simplemente un conjunto de individuos u objetos (genéricamente, de **sujetos**) sobre los que queremos conocer alguna información. Esta población puede estar perfectamente definida en un lugar y tiempo: por ejemplo, los empadronados en Mallorca a día de hoy. Pero normalmente su definición será difusa. Si, por ejemplo, queremos estimar algo sobre "los españoles mayores de 65 años", ¿de quiénes estamos hablando exactamente? ¿De los que están vivos justo ahora? ¿De todos los que ha  habido en España desde su fundación? ¿Incluimos los que aún no han nacido?
 
 Tranquilos, no nos vamos a romper mucho la cabeza con esto. Pero al menos tenéis que ser conscientes de que una población puede contener sujetos que en realidad no existen ni hayan existido ni vayan a existir, sino simplemente que "podrían existir". Y en medicina especialmente, cuando queremos estimar si un tratamiento será efectivo para tratar una cierta enfermedad... incluyendo los casos que aún no han contraído la enfermedad. Hablaremos entonces de una población **virtual** (en otros lugares la califican de población **metafórica**).
@@ -44,10 +59,6 @@ Hasta ahora hemos hablado de la población, a menudo virtual, sobre la que quere
 * **Muestra**:  el grupo de los sujetos concretos en los que medimos las características de interés.
 
 
-```{r, echo=FALSE,out.width="60%",fig.cap="Población *versus* muestra"}
-knitr::include_graphics("INREMDN_files/figure-html/samplingcast.png")
-```
-
 
 
 ```{example}
@@ -56,25 +67,19 @@ Una serie de 10 lanzamientos de una moneda equilibrada concreta es una muestra d
 
 ```
 
-```{example, caldo}
-Si queremos saber si un caldo nos ha quedado soso, no nos lo bebemos todo, porque entonces nos quedaríamos sin caldo y ya no valdría la pena saber si está soso. Lo que hacemos es probar solo una cucharada. El caldo es la población, la cucharada la muestra. 
-
-
-````
-
 
 ```{example}
 ¿Y vosotros qué sois: una población o una muestra? Pues depende:
 
 * Sois una población cuando lo que nos interesa es saber algo sobre **vosotros** y solo vosotros. 
 
-* Sois una muestra si a partir de información sobre vosotros miramos de inferir información sobre **un grupo más grande de sujetos**
+* Sois una muestra si a partir de información sobre vosotros miramos de inferir información sobre **un grupo más grande de sujetos**:
   
-* Sobre Los estudiantes de primer curso de Medicina en España
-* Sobre los estudiantes de la UIB de este curso
-* Sobre los jóvenes europeos
-* Sobre los mamíferos bípedos
-* Sobre ...
+    * Sobre los estudiantes de primer curso de Medicina en España
+    * Sobre los estudiantes de la UIB de este curso
+    * Sobre los jóvenes europeos
+    * Sobre los mamíferos bípedos
+    * Sobre ...
 
 
 ```
@@ -136,7 +141,7 @@ Para conocer la opinión de sus lectores sobre la familia real española, una co
 ````
 
 * La **población objetivo** es la formada por "los lectores de esta revista".
-* La **población muestreada** es la formada por los lectores actuales de esta revista con acceso a Internet. 
+* La **población muestreada** es la formada por los lectores  de esta revista con acceso a Internet el año en que se realizó la encuesta. 
 * La **muestra** son los miles de personas concretas que voluntariamente respondieron la encuesta.
 
 En el Ejemplo \@ref(exm:tuberculosisrusia), puede que la población muestreada no fuera representativa de **toda** Rusia. Los habitantes de una de las ciudades más pobladas de Rusia, a unos 1500 km al sudeste de Moscú, ¿son representativos de los habitantes de una aldea perdida en mitad de la nada siberiana? Pues no lo sabemos, pero creemos que no. Además, la muestra de casos tampoco representa el colectivo de tuberculosos de Samara, puesto que solo se reclutaron los que reunían las condiciones para un tratamiento concreto (los tuberculosos con frotis bucal negativo a veces no se incluyen en un programa DOTS).
@@ -155,17 +160,17 @@ Un estudio médico toma información sobre una muestra de individuos y la genera
 
 
 ```{example}
-En el estudio ["D-dimer as a biomarker for disease severity and mortality in COVID-19 patients: a case control study"](https://link.springer.com/article/10.1186/s40560-020-00466-z)(Y. Yao *et al*, *Journal of Intensive Care*  8:49 (2020)) se compararon diversas características clínicas, analíticas y radiológicas entre los pacientes que fallecieron (17 en total) y los que no fallecieron (231) en un grupo de pacientes de COVID-19 tratados en el hospital Renmin de la Universidad de Wuhan. Su objetivo era determinar qué características aumentaban el riesgo de fallecimiento entre los enfermos de COVID-19. 
+En el estudio ["D-dimer as a biomarker for disease severity and mortality in COVID-19 patients: a case control study"](https://link.springer.com/article/10.1186/s40560-020-00466-z)(Y. Yao *et al*, *Journal of Intensive Care*  8:49 (2020)) se compararon diversas características clínicas, analíticas y radiológicas entre los pacientes que fallecieron (17 en total) y los que no fallecieron (231) en un grupo de pacientes de COVID-19 tratados en el hospital Renmin de la Universidad de Wuhan. Su objetivo era determinar qué características aumentaban el riesgo de defunción entre los enfermos de COVID-19. 
 
 Se encontró una asociación estadísticamente significativa entre  tener un nivel de dímero D en sangre muy alto, superior a 2 mg/l, y un aumento en el riesgo de [*exitus*](https://es.wikipedia.org/wiki/Exitus). Querríamos decidir si esta asociación también es válida para nuestros pacientes.
 
 
 ```
 
-¿Cuál es el problema? Pues que la población objetivo  del estudio es la de todos los enfermos de COVID-19, pero según el artículo la población muestreada fue la de "pacientes con al menos dos síntomas de COVID-19 y PCR positiva tratados en ese hospital concreto de Wuhan". Así que de entrada, los infectados con un solo síntoma y los asintomáticos quedan excluidos. Además, habría que valorar si la población asignada a ese hospital se parece o no a la balear. Por ejemplo, la tasa de letalidad de la COVID-19 entre el grupo de pacientes examinados fue del 6.85%, mientras que en las Baleares en esa misma época era de alrededor del 2.4%, aunque este  dato refiere al total de infectados, incluyendo los asintomáticos. También habría que valorar si la asociación observada se debe a algún confundidor. Por ejemplo, la edad media de los sujetos de la muestra con niveles elevados de dímero D era significativamente más alta que la de los que tenían un nivel normal, y la COVID-19 es más letal entre los ancianos. ¿Será la edad un factor de confusión en este estudio?   
+¿Cuál es el problema? Pues que la población objetivo  del estudio es la de todos los enfermos de COVID-19, pero según el artículo la población muestreada fue la de "pacientes con al menos dos síntomas de COVID-19 y PCR positiva tratados en ese hospital concreto de Wuhan". Así que de entrada, los infectados con un solo síntoma quedan excluidos, por muy grave que sea ese síntoma. Además, habría que valorar si la población asignada a ese hospital se parece o no a la balear. Por ejemplo, la tasa de letalidad de la COVID-19 entre el grupo de pacientes examinados fue del 6.85%, mientras que en las Baleares en esa misma época era de alrededor del 2.4%, aunque este  dato refiere al total de infectados, incluyendo los asintomáticos. También habría que valorar si la asociación observada se debe a algún confundidor. Por ejemplo, la edad media de los sujetos de la muestra con niveles elevados de dímero D era  más alta que la de los que tenían un nivel normal, y la COVID-19 es más letal entre los ancianos. ¿Será la edad un factor de confusión en este estudio?   
 
 ```{block2,type="rmdexercici"}
-En el artículo ["Tuberculosis treatment survival of HIV positive TB patients on directly observed treatment short-course in Southern Ethiopia: A retrospective cohort study"](https://bmcresnotes.biomedcentral.com/articles/10.1186/1756-0500-5-682) (D. Shaweno, *BMC Research Notes* 5:682 (2012)) se quiso estudiar si  la infección por VIH afecta la supervivencia a corto plazo de pacientes con tuberculosis (TB). Para ello, se consideraron todos los pacientes que habían participado en un estudio previo: se trataba de pacientes diagnosticados de TB durante el periodo 2006-2010 a los que se prescribió un tratamiento concreto de quimioterapia de 8 meses de duración y que además pasaron un test de VIH en el momento del diagnóstico positivo de TB. De este grupo de pacientes,  se escogieron al azar un subgrupo de 370 VIH-positivos y otro de 370 VIH-negativos, y se anotó el número de pacientes de cada subgrupo que murieron durante el curso del tratamiento de 8 meses. La conclusión fue que la tasa de mortalidad entre los paciente de TB VIH-positivos es mayor que entre los que son VIH-negativos.
+En el artículo ["Tuberculosis treatment survival of HIV positive TB patients on directly observed treatment short-course in Southern Ethiopia: A retrospective cohort study"](https://bmcresnotes.biomedcentral.com/articles/10.1186/1756-0500-5-682) (D. Shaweno, *BMC Research Notes* 5:682 (2012)) se quiso estudiar si  la infección por VIH afecta la supervivencia a corto plazo de pacientes con tuberculosis (TB). Para ello, se consideraron todos los pacientes que habían participado en un estudio previo: se trataba de pacientes diagnosticados de TB durante el periodo 2006-2010 a los que se prescribió un tratamiento concreto de quimioterapia de 8 meses de duración y que además pasaron un test de VIH en el momento del diagnóstico positivo de TB. De este grupo de pacientes,  se escogieron al azar un subgrupo de 370 VIH-positivos y otro de 370 VIH-negativos, y se anotó el número de pacientes de cada subgrupo que fallecieron  durante los 8 meses que duraba el tratamiento. La conclusión fue que la tasa de mortalidad entre los paciente de TB VIH-positivos es mayor que entre los que son VIH-negativos.
 
 
 *(a)* ¿Cuáles son la población objetivo, la población muestreada y la muestra? 
@@ -191,7 +196,7 @@ Pero al menos hemos hecho "lo que todo el mundo considera que es lo que hay que 
 knitr::include_graphics("INREMDN_files/figure-html/randomgen.png")
 ```
 
-* Se pueden usar técnicas estadísticas que  permiten acotar errores en la estimación y su probabilidad; por ejemplo, la probabilidad de que nuestra muestra sea súper rara en algún sentido concreto.
+* Se pueden usar técnicas estadísticas que  permiten acotar errores en la estimación y su probabilidad; por ejemplo, que permite calcular la probabilidad de que nuestra muestra sea súper rara en algún sentido concreto.
 
 ```{example}
 Para probar el caldo, antes de tomar una cucharada lo removemos bien. De este modo esperamos que las moléculas del caldo se organicen de manera aleatoria dentro de la olla y que la cucharada que tomemos sea representativa del caldo.
@@ -275,10 +280,17 @@ Por lo que refiere a los tamaños de las muestras de cada estrato, se suele opta
 
 * Tomar los tamaños de manera que los estratos que representen una fracción muy pequeña de la población (tan pequeña que no esperaríamos que tuvieran representación en una muestra aleatoria  **transversal** de la población, es decir, tomada del total de la población sin tener en cuenta su composición en estratos) tengan una representación en la muestra mucho mayor que la que les tocaría. 
 
-Por ejemplo, los estratos podrían ser grupos de edad y podríamos tomar la muestra de cada grupo de edad de tamaño proporcional a la fracción que representa dicho grupo de edad en la población total. O podrían ser los sexos y procuraríamos que nuestra muestra estuviera formada por un 50% de hombres y un 50% de mujeres. O, en las Islas Baleares, los estratos podrían ser las islas, y entonces podríamos  imponer que el número de representantes de cada isla en la muestra fuera proporcional a su población relativa dentro del conjunto total de la comunidad autónoma, o podríamos tomar la misma cantidad de individuos de cada isla, independientemente de su población.
+
+```{r, echo=FALSE,fig.cap="Muestra transversal *versus* estratificada", out.width="60%"}
+knitr::include_graphics("INREMDN_files/figure-html/estratvstrans.png")
+```
+
+Por ejemplo, los estratos podrían ser grupos de edad y podríamos tomar la muestra de cada grupo de edad de tamaño proporcional a la fracción que representa dicho grupo de edad en la población total. O podrían ser los sexos y procuraríamos que nuestra muestra estuviera formada por un 50% de hombres y un 50% de mujeres. O, en las Islas Baleares, los estratos podrían ser las islas, y entonces podríamos  imponer que el número de representantes de cada isla en la muestra fuera proporcional a su población relativa dentro del conjunto total de la Comunidad Autónoma, o podríamos tomar la misma cantidad de individuos de cada isla, independientemente de su población.
+
+
 
 ```{block2,type="rmdnote"}
-Cuando en un estudio de casos y controles escogemos un grupo de casos y uno de controles de tamaños prefijados, o  cuando en un estudio de cohorte escogemos un grupo de expuestos y uno de no expuestos de tamaños prefijados, se trata de una muestra estratificado, aunque no siempre será aleatoria.
+Cuando en un estudio de casos y controles escogemos un grupo de casos y uno de controles de tamaños prefijados, o  cuando en un estudio de cohorte escogemos un grupo de expuestos y uno de no expuestos de tamaños prefijados, se trata de una muestra estratificada, aunque no siempre será aleatoria.
 ```
 
 Por continuar con nuestra urna de 100 bolas, supongamos que contiene 40 bolas de un color y 60 de otro color según muestra la Figura \@ref(fig:estratprevi).
@@ -295,13 +307,15 @@ Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como es
 knitr::include_graphics("INREMDN_files/figure-html/estrat.png")
 ```
  
+ 
+ 
 La ventaja del muestreo aleatorio estratificado respecto del transversal es que, como el investigador escoge una muestra de cada estrato de la población del tamaño que  considera adecuado:
 
 * Permite estimar la información de interés para cada estrato por separado, como si se tratara de  estudios independientes. 
 
 * Permite estimar la información sobre subpoblaciones minoritarias que en una muestra aleatoria transversal aparecerían  subrepresentadas.
 
-En todo caso, el muestreo por estratos solo es necesario si esperamos que las características que queremos estudiar varíen según el estrato. Por ejemplo, si queremos tomar una muestra para estimar la altura media de los españoles adultos y no creemos que la altura de un español adulto dependa de su provincia de origen, no hay ninguna necesidad de esforzarse en tomar una muestra de cada provincia de manera que todas las provincias estén representadas adecuadamente en la muestra.
+En todo caso, el muestreo por estratos solo es necesario si esperamos que las características que queremos estudiar varíen según el estrato. Por ejemplo, si queremos tomar una muestra para estimar la altura media de los españoles adultos y no creemos que la altura de un español adulto dependa de su provincia de origen, no hay ninguna necesidad de esforzarse en tomar una muestra de cada provincia de manera que todas estén representadas adecuadamente en la muestra.
 
 Observad que el muestreo aleatorio por estratos tiene el mismo inconveniente que el muestreo aleatorio de la Sección  \@ref(sec:mas): es necesario disponer de una lista completa de  los individuos de cada estrato para poder sortearlos.
 
@@ -357,15 +371,15 @@ Revisemos la diferencia entre el muestreo estratificado y el muestreo por conglo
 
 * **Muestreo por conglomerados**:
 
-    * Los conglomerados forman una clasificación de los sujetos de la población en grupos pequeños de individuos definidos por una característica que en principio es irrelevante en el estudio estadístico. Por ejemplo, la manzana donde viven o el médico de familia al que están asignados.
+    * Los conglomerados forman una clasificación de los sujetos de la población en grupos pequeños definidos por una característica que en principio es irrelevante en el estudio estadístico. Por ejemplo, la manzana donde viven o el médico de familia al que están asignados.
 
-    * Se escogen algunos conglomerados y se incluyen en la muestra todos sus miembros.
+    * Se escogen algunos conglomerados y se forma la muestra con todos sus miembros.
 
 ```
 
 ### Muestreos no aleatorios   {#sec:oport}
 
-Cuando la selección de la muestra no es aleatoria, se habla de  **muestreo no aleatorio**. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles.  Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, solo se tiene en cuenta las respuestas de los estudiantes que voluntariamente  rellenan la encuesta de opinión,  que de ninguna manera forman una  muestra aleatoria: el perfil del estudiante que contesta voluntariamente una encuesta de este tipo es muy específico y no viene determinado por el azar. En este caso se trataría de una **muestra auto-seleccionada**. 
+Cuando la selección de la muestra no es aleatoria, se habla de  **muestreo no aleatorio**. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles.  Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, solo se tiene en cuenta las respuestas de los estudiantes que voluntariamente  rellenan la encuesta de opinión,  que de ninguna manera forman una  muestra aleatoria: el perfil del estudiante que responde voluntariamente una encuesta de este tipo es muy específico y no viene determinado por el azar. En este caso se trataría de una **muestra auto-seleccionada**. 
 
 Otro tipo de muestras no aleatorias son las **oportunistas**. Este es el caso, por ejemplo, si para estimar la opinión que de un profesor tienen los alumnos de una asignatura se visita un día la clase y se pasa la encuesta a los estudiantes que ese día asistieron a clase. De nuevo, puede que los alumnos presentes no sean representativos del alumnado de la asignatura (pueden ser los más aplicados, o los menos enfermizos, o los no repetidores). 
 
@@ -385,7 +399,9 @@ Para conocer la opinión de los estudiantes de Medicina españoles sobre un tema
 
 ### Muestreo polietápico {#sec:poli}
 
-En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes estaba formada por todos los individuos de las aulas elegidas. Otra opción podría haber sido, tras seleccionar la muestra aleatoria de aulas, tomar de alguna manera una muestra aleatoria de cada una. Otro ejemplo: algunos estudios poblacionales a nivel estatal se realizan solamente en algunas provincias escogidas aleatoriamente, en las que luego se encuesta una muestra aleatoria de habitantes. Este sería un ejemplo de **muestreo polietápico**, en el que la muestra no se obtiene en un solo paso, sino mediante diversas elecciones sucesivas. La Figura \@ref(fig:poli) muestra un ejemplo sencillo de muestreo polietápico de nuestra urna: hemos elegido al azar 5 conglomerados (marcados en azul) y de cada uno de ellos hemos elegido 3 bolas al azar sin reposición.
+En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes estaba formada por todos los de los grupos elegidos. Otra opción podría haber sido, tras seleccionar la muestra aleatoria de grupos, entrevistar solo una muestra aleatoria de estudiantes de cada uno. Otro ejemplo: algunos estudios poblacionales a nivel estatal se realizan solamente en algunas provincias escogidas aleatoriamente, en las que luego se encuesta una muestra aleatoria de habitantes. Los dos son ejemplos de **muestreos polietápicos**, en los que la muestra no se obtiene en un solo paso, sino mediante diversas elecciones sucesivas. 
+
+La Figura \@ref(fig:poli) muestra un ejemplo sencillo de muestreo polietápico de nuestra urna: hemos elegido al azar 5 conglomerados (marcados en azul) y de cada uno de ellos hemos elegido 3 bolas al azar sin reposición.
 
 
 ```{r, echo=FALSE, label=poli,fig.cap="Una muestra polietápica.", out.width="80%"}
@@ -423,7 +439,7 @@ Un último ejemplo. Recordad el estudio sobre enfermedades y mes de nacimiento d
 
 Fijaos que, en (2), se toma una muestra aleatoria estratificada de secciones censales: los estratos son las combinaciones de comunidad autónoma y tipo de municipio.
 
-Existen otros tipos de muestreo, solo hemos explicado los más comunes. En cualquier caso, lo importante es recordar que el estudio estadístico que se realice  tiene que adaptarse al tipo de muestreo usado. Por ejemplo, no se pueden usar las mismas técnicas para analizar una muestra aleatoria simple que una muestra estratificada o una muestra por conglomerados.  En este curso estudiaremos las propiedades de las diferentes técnicas de estimación casi exclusivamente para el caso de  **muestreo aleatorio simple**, es decir, al azar y con reposición, o al azar sin reposición si la población es muy grande comparada con la muestra.
+Existen otros tipos de muestreo, solo hemos explicado los más comunes. En cualquier caso, lo importante es recordar que el estudio estadístico que se realice  tiene que adaptarse al tipo de muestreo usado. Por ejemplo, no se pueden usar las mismas técnicas para analizar una muestra aleatoria simple que una muestra estratificada o una muestra por conglomerados.  En este curso nos ocuparemos casi exclusivamente del  **muestreo aleatorio simple**, es decir, al azar y con reposición, o al azar sin reposición si la población es muy grande comparada con la muestra.
 
 
 ```{block2,type="rmdexercici"}
@@ -439,9 +455,9 @@ Explicad en detalle cómo obtendríais esta muestra de diabéticos; el procedimi
 
 Un **sesgo** es cualquier tipo de error sistemático en el diseño o la ejecución de un estudio que afecte a los datos recogidos y esto pueda perjudicar la corrección de las conclusiones obtenidas. Por ejemplo, si en un estudio transversal sobre hipertensión usamos un esfigmomanómetro que sistemáticamente mide una presión arterial más alta que la real, se produce un sesgo que hará que se detecte una prevalencia mayor de hipertensos que la real. 
 
-Los errores que pueden dar lugar a sesgos no se han de confundir con el error aleatorio inherente a las mediciones. Por ejemplo, los debidos a la medición imprecisa del esfigmomanómetro, que solo mide la tensión hasta una cierta precisión, o a la variación natural de la presión arterial en un individuo a lo largo del día. La estadística nos proporciona herramientas para tratar el error aleatorio, pero las fuentes de sesgo se han de eliminar al diseñar el estudio o   detectarlas al leer un estudio para valorar la validez de sus conclusiones.
+Los errores que pueden dar lugar a sesgos no se han de confundir con el error aleatorio inherente a las mediciones. Por ejemplo, los errores de medición debidos a la imprecisión del esfigmomanómetro, que mide la tensión redondeando a mm Hg, o a la variación natural de la presión arterial en un individuo a lo largo del día. La estadística nos proporciona herramientas para tratar el error aleatorio, pero las fuentes de sesgo se han de eliminar al diseñar el estudio o   detectarlas al leer un estudio para valorar la validez de sus conclusiones.
 
-Muchos autores han producido [listas larguísimas de tipos de sesgos](https://catalogofbias.org/biases/) que muestran la creatividad de los humanos a la hora de fastidiarla y de poner  nombres a las diferentes maneras de fastidiarla.  Aquí solo vamos a introducir algunos de los más comunes. [En este *url*](https://www.scientific-european-federation-osteopaths.org/los-sesgos/) encontraréis una lista algo más larga, aunque no exhaustiva,  muy bien explicada y en castellano.
+Muchos autores han producido [listas larguísimas de tipos de sesgos](https://catalogofbias.org/biases/) que muestran la creatividad de los humanos a la hora de fastidiarla y de poner  nombres a las diferentes maneras de fastidiarla.  Aquí solo vamos a introducir algunos de los más comunes. [En este *url*](https://www.scientific-european-federation-osteopaths.org/los-sesgos/) encontraréis una lista algo más larga, aunque tampoco es exhaustiva.
 
 1. **Sesgo de selección**: Se produce cuando la muestra seleccionada no es representativa de la población objetivo. Por poner un ejemplo exagerado, sería el caso si quisiéramos saber la incidencia del cáncer de ovario en una comunidad y para ello tomáramos una muestra de solo hombres. 
 
@@ -458,10 +474,12 @@ Muchos autores han producido [listas larguísimas de tipos de sesgos](https://ca
            Siguiendo con el ejemplo de la influencia de algunos factores de riesgo en una enfermedad que en principio no conlleve hospitalización, se daría si tomáramos los casos entre pacientes hospitalizados por otras causas y los controles entre pacientes no hospitalizados. 
 
 
-     c. **Sesgo de supervivencia**: Cuando se toma una muestra de pacientes vivos de una enfermedad con una alta tasa de mortalidad. En este caso, es muy probable que la muestra incluya más enfermos que hayan sobrevivido más de lo esperado a la enfermedad, y estos no tienen por qué ser representativos de la población general de enfermos de esta enfermedad.
+     c. **Sesgo de supervivencia**: Cuando se toma una muestra de pacientes vivos de una enfermedad con una alta tasa de mortalidad. En este caso, es muy probable que la muestra incluya una proporción muy elevada de enfermos que hayan sobrevivido más de lo normal, y estos no tienen por qué ser representativos del colectivo de enfermos de esta enfermedad.
      
+     
+         A veces se usa el término **sesgo de supervivencia** para describir casos como el de la Fig. \@ref(fig:sesgosup): cuando solo se consideran los sujetos que han tenido éxito en algún proceso con una tasa muy baja de éxitos (es el "a mí me ha funcionado" de los anuncios de remedios milagrosos e increíbles).
 
-```{r, echo=FALSE,fig.cap="\"Sesgo de supervivencia\" (https://xkcd.com/1827/ (CC-BI-NC 2.5))"}
+```{r sesgosup, echo=FALSE,fig.cap="\"Sesgo de supervivencia\" (https://xkcd.com/1827/ (CC-BI-NC 2.5))",out.width="60%"}
 library(linguisticsdown)
 include_graphics2("http://es.xkcd.com/site_media/strips/survivorship_bias.png")
 ```
@@ -474,22 +492,18 @@ include_graphics2("http://es.xkcd.com/site_media/strips/survivorship_bias.png")
      a. **Sesgo de recuerdo diferencial**: Es un caso particular del anterior. En estudios de casos y controles en los que recojamos la información sobre exposición por medio de encuestas, los casos tienen mayor tendencia a recordar su exposición a circunstancias que ellos asocien a la enfermedad que los controles. 
 
 
-     c. **Sesgo de procedimiento**: Cuando el clínico analiza de manera diferente un grupo que otro.
-     
-         Se daría, por ejemplo, en un ensayo clínico si se llevara a cabo un seguimiento  más frecuente a los que toman un nuevo tratamiento que a los controles, por si presentan efectos secundarios inesperados.
+     c. **Sesgo de procedimiento**: Cuando el clínico analiza de manera diferente un grupo que otro. Se daría, por ejemplo, en un ensayo clínico si se llevara a cabo un seguimiento  más frecuente a los que toman un nuevo tratamiento que a los controles, por si presentan efectos secundarios inesperados.
 
      d. **Sesgo de detección**: Cuando se usan varios métodos con diferente sensibilidad para detectar una enfermedad o una exposición. Este sesgo también puede ser **diferencial** si los diferentes métodos se usan sobre grupos diferentes.
      
-         Se daría un sesgo de detección, por ejemplo, si para saber si los sujetos de una muestra han tomado un medicamento, a algunos se les pasa una encuesta y a otros se les consulta su historial clínico. Sería diferencial si, además, los primeros fueran los participantes sanos y los segundos los enfermos.
+         A modo de ejemplo, se daría un sesgo de detección si para saber si los sujetos de una muestra han tomado un medicamento, a algunos se les pasa una encuesta y a otros se les consulta el historial clínico. Sería diferencial si, además, por ejemplo, los primeros fueran los participantes sanos y los segundos los enfermos.
 
      d. **Sesgo de atención**: Cuando los participantes en un estudio alteran su comportamiento porque saben que participan en un estudio (a veces se le llama [**efecto Hawthorne**](https://es.wikipedia.org/wiki/Efecto_Hawthorne)). 
      
-          Se podría dar, por ejemplo, en un estudio sobre el efecto del ejercicio físico en la salud si los sujetos del grupo de intervención (a los que se ha asignado el hacer ejercicio físico) deciden tomar otros nuevos hábitos saludables porque saben que se les ha asignado al grupo "saludable".  El "efecto Hawthorne" refiere al nombre de una fábrica en el que se realizó un estudio sobre qué condiciones aumentaban la productividad, y todos los grupos aumentaron su productividad durante el seguimiento, seguramente por el efecto "motivador" de ser observados porque  una vez terminó el estudio volvieron a su productividad normal. 
+          Se podría dar, por ejemplo, en un estudio sobre el efecto del ejercicio físico en la salud si los sujetos del grupo de intervención (a los que se ha asignado el hacer ejercicio físico) deciden tomar otros nuevos hábitos saludables porque saben que se les ha asignado al grupo "saludable".  El "efecto Hawthorne" refiere al nombre de una fábrica en el que se realizó un estudio sobre qué condiciones aumentaban la productividad, y todos los grupos aumentaron su productividad durante el seguimiento. Se concluyó que este aumento se debió al efecto "motivador" de ser observados porque  una vez terminó el estudio volvieron todos a su productividad normal. 
           
 
-    e. **Sesgo de error instrumental**: Cuando los instrumentos usados para medir alguna característica son defectuosos. 
-    
-        Sería el caso, por ejemplo, del esfigmomanómetro del primer párrafo.
+    e. **Sesgo de error instrumental**: Cuando los instrumentos usados para medir alguna característica son defectuosos.  Sería el caso, por ejemplo, del esfigmomanómetro del primer párrafo de esta sección.
 
 3. **Confusión**. Se da cuando el efecto de la exposición a un riesgo A  se confunde con el de la exposición a otro factor B (el **confundidor**) que está asociado a la exposición a A y que es el verdadero causante del desenlace  X que estamos estudiando.
 
@@ -497,10 +511,10 @@ include_graphics2("http://es.xkcd.com/site_media/strips/survivorship_bias.png")
     
     Hemos incluido la confusión en la lista de sesgos, pero su naturaleza es diferente de los anteriores. Un sesgo es un error sistemático en la recolección de datos, mientras que no tener en cuenta los posibles confundidores es un error que se puede cometer en la interpretación de los resultados. 
 
-Hay muchos otros tipos de sesgos. No es importante saber sus nombres, de hecho ni tan solo de los que hemos dado aquí. Lo importante es aplicar el sentido común al leer la Metodología de un estudio para entender qué procesos podrían haber desviado los datos recogidos y cómo estos sesgos afectan las conclusiones del estudio.
+Hay muchos otros tipos de sesgos. No es importante en este curso saber sus nombres, de hecho ni tan siquiera de los que hemos dado aquí. Lo importante es aplicar el sentido común al leer la Metodología de un estudio para entender qué procesos podrían haber desviado los datos recogidos y cómo estos sesgos afectan las conclusiones del estudio.
 
 ```{example,Hola2}
-Volvamos al Ejemplo \@ref(exm:Hola), en el que explicábamos el caso de una conocida revista del corazón que, para conocer la opinión de sus lectores sobre la familia real española,  propuso una encuesta en línea en su web. ¿Qué sesgos se pudieron dar?
+Volvamos al Ejemplo \@ref(exm:Hola), en el que explicábamos el caso de una revista del corazón que, para conocer la opinión de sus lectores sobre la familia real española,  propuso una encuesta en línea en su web. ¿Qué sesgos se pudieron dar?
   
   
 ```
@@ -515,7 +529,7 @@ Volvamos al Ejemplo \@ref(exm:Hola), en el que explicábamos el caso de una cono
 
 **(2.b)** ¿Sesgo de recuerdo diferencial? De nuevo, no, porque no se eligieron dos grupos.
 
-**(2.c,d)** ¿Sesgo de procedimiento o de selección? No, por el mismo motivo
+**(2.c,d)** ¿Sesgo de procedimiento o de detección? No, por el mismo motivo
      
 **(2.e)**  ¿Sesgo de atención? No, porque no se hizo un seguimiento a los participantes, por lo que si cambiaron su comportamiento, no afectó al resultado de la encuesta. 
 
@@ -531,9 +545,7 @@ knitr::include_graphics("INREMDN_files/figure-html/felipe6.png")
 ```
 
 
-**(3)** ¿Confusión? Dado que, por así decirlo, se trataba de un estudio transversal de prevalencia, sin intentar estimar relaciones de causa-efecto, no tiene sentido preguntarse por la existencia de confundidores.
-
-Otra cosa sería si se hubiera pretendido estudiar qué características hacen que se opine mejor o peor sobre la familia real española. Entonces sí que podrían entrar en juego confundidores. Para no meternos en berenjenales, no vamos a describirlos.
+**(3)** ¿Confusión? Dado que, por así decirlo, se trataba de un estudio transversal de prevalencia, sin intentar estimar relaciones de causa-efecto, no tiene sentido preguntarse por la existencia de confundidores. Otra cosa sería si se hubiera pretendido estudiar qué características hacen que se opine mejor o peor sobre la familia real española. Entonces sí que podrían entrar en juego confundidores. Para no meternos en berenjenales, no vamos a describirlos.
 
 
 
@@ -554,18 +566,19 @@ barplot(TT,names=c("0","1-2","3-4","5+"),legend.text=TRUE,beside=TRUE,args.legen
 ```
 
 ```{block2,type="rmdexercici"}
-En un [estudio llevado a cabo en Sidney en su verano de 1989-90](https://ajph.aphapublications.org/doi/abs/10.2105/AJPH.83.12.1701) (*American Journal of Public Health* 83 (1993), pp. 1701-1706)  se quiso  determinar la asociación entre nadar en playas contaminadas y sufrir enfermedades infecciosas agudas. Para ello se visitaron durante varios días de verano doce playas de los alrededores de Sidney y se invitó a participar en el estudio a varios individuos en cada ocasión. Se excluyeron individuos que hubieran nadado o que hubieran sufrido alguna enfermedad infecciosa en algún momento durante los 7 días anteriores. A los que aceptaron participar en el estudio, se les llamó por teléfono al día siguiente para pedirles si habían nadado o no el día anterior y se les volvió a llamar al cabo de una semana para pedirles si habían sufrido alguna enfermedad infecciosa desde el día de playa. Si no contestaron a la primera llamada ya no se realizó la segunda llamada. En total se enroló 3989 sujetos, pero solo atendieron las dos llamadas 2968 de ellos. Por otro lado, se midió el nivel de contaminación del agua de las playas los días que se reclutaron bañistas en el estudio. El resultado fue un incremento del 33% del riesgo de sufrir una enfermedad  infecciosa  entre los que nadaron en aguas contaminadas respecto de los que nadaron en aguas no contaminadas, y de un 116% respecto de los que no nadaron.
+En un [estudio llevado a cabo en Sidney en su verano de 1989-90](https://ajph.aphapublications.org/doi/abs/10.2105/AJPH.83.12.1701) (*American Journal of Public Health* 83 (1993), pp. 1701-1706)  se quiso  determinar la asociación entre nadar en playas contaminadas y sufrir enfermedades infecciosas agudas. Para ello se visitaron durante varios días de verano doce playas de los alrededores de Sidney y se invitó a participar en el estudio a varios individuos en cada ocasión. Se excluyeron individuos que hubieran nadado o que hubieran sufrido alguna enfermedad infecciosa en algún momento durante los 7 días anteriores. A los que aceptaron participar en el estudio, se les llamó por teléfono al día siguiente para pedirles si habían nadado o no el día anterior y se les volvió a llamar al cabo de una semana para pedirles si habían sufrido alguna enfermedad infecciosa desde el día de playa. Si no contestaron a la primera llamada ya no se realizó la segunda llamada. En total se reclutaron 3989 sujetos, pero solo atendieron las dos llamadas 2968. Por otro lado, se midió el nivel de contaminación del agua de las playas los días que se reclutaron bañistas en el estudio. El resultado fue que la proporción de sujetos que sufrieron alguna enfermedad  infecciosa 
+entre los que nadaron en aguas contaminadas fue un 33% mayor que entre los que nadaron en aguas no contaminadas, y  un 116% mayor que entre los que no nadaron.
 
 *(a)* ¿De qué tipo de estudio creéis que se trata?  Justificad vuestra respuesta.
 
-*(b)* ¿Qué sesgos se pudieron dar debido a la manera como se reclutaron los participantes o a la manera como se recogieron los datos? ¿Cómo se podrían  evitar?
+*(b)* ¿Qué sesgos se pudieron dar? ¿Cómo se podrían  evitar?
 
 ```
 
 
 ## Test 
 
-**(1)** En una población se quiere determinar la prevalencia de pediculosis en niños menores de 12 años. Para ello se divide la población en barrios y en cada uno de ellos se toma una muestra aleatoria cuyo tamaño idóneo ha sido previamente determinado. El tipo de muestreo utilizado ha sido:	
+**(1)** En una población se quiere determinar la prevalencia de pediculosis en niños menores de 12 años. Para ello se divide la población en barrios y en cada uno de ellos se toma una muestra aleatoria de tamaño previamente determinado. ¿De qué tipo de muestreo se trata?	
 
 1. Muestreo aleatorio simple.
 1. Muestreo aleatorio estratificado.
@@ -582,7 +595,7 @@ En un [estudio llevado a cabo en Sidney en su verano de 1989-90](https://ajph.ap
 1. Polietápico: estratificado de los centros de salud y sistemático de los pacientes.
 1. Polietápico: estratificado de los centros de salud y aleatorio simple de los pacientes.
 
-**(3)** Se ha sugerido que las mujeres que usan anticonceptivos orales acuden a revisiones ginecológicas más a menudo que las que no. Si en un estudio de cohorte se encontrara una asociación entre el uso de de anticonceptivos orales y alguna enfermedad, ¿a qué tipo de sesgo se podría deber?
+**(3)** Se ha sugerido que las mujeres que usan anticonceptivos orales acuden a revisiones ginecológicas más a menudo que las que no. Si en un estudio de cohorte retrospectivo se encontrara una asociación entre el uso de anticonceptivos orales y alguna enfermedad ginecológica, ¿a qué tipo de sesgo se podría deber?
 
 1. Sesgo de falta de representatividad.
 1. Sesgo de recuerdo.
