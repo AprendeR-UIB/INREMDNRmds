@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lección 4 Probabilidades elementales: Las mates {chap:probst} | Bioestadística (Medicina UIB)</title>
+  <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lección 4 Probabilidades elementales: Las mates {chap:probst} | Bioestadística (Medicina UIB)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lección 4 Probabilidades elementales: Las mates {chap:probst} | Bioestadística (Medicina UIB)" />
+  
+  <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2021-07-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-conceptos.html"/>
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">INREMDN</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="part"><span><b>Tema I: Introducción a los estudios médicos y la estadística</b></span></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="chap-estudios.html"><a href="chap-estudios.html"><i class="fa fa-check"></i><b>2</b> Estudios médicos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-estudios.html"><a href="chap-estudios.html#sec:pasos"><i class="fa fa-check"></i><b>2.1</b> Pasos de un estudio médico</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-estudios.html"><a href="chap-estudios.html#algunos-calificativos-para-los-estudios-médicos"><i class="fa fa-check"></i><b>2.2</b> Algunos calificativos para los estudios médicos</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-estudios.html"><a href="chap-estudios.html#estudios-descriptivos"><i class="fa fa-check"></i><b>2.3</b> Estudios descriptivos</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-estudios.html"><a href="chap-estudios.html#sec:cyc"><i class="fa fa-check"></i><b>2.4</b> Estudios de casos y controles</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-estudios.html"><a href="chap-estudios.html#estudios-de-cohorte"><i class="fa fa-check"></i><b>2.5</b> Estudios de cohorte</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-estudios.html"><a href="chap-estudios.html#estudios-transversales"><i class="fa fa-check"></i><b>2.6</b> Estudios transversales</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-estudios.html"><a href="chap-estudios.html#sec:ecol"><i class="fa fa-check"></i><b>2.7</b> Estudios ecológicos</a></li>
+<li class="chapter" data-level="2.8" data-path="chap-estudios.html"><a href="chap-estudios.html#ensayos-clínicos"><i class="fa fa-check"></i><b>2.8</b> Ensayos clínicos</a></li>
+<li class="chapter" data-level="2.9" data-path="chap-estudios.html"><a href="chap-estudios.html#a-modo-de-resumen"><i class="fa fa-check"></i><b>2.9</b> A modo de resumen</a></li>
+<li class="chapter" data-level="2.10" data-path="chap-estudios.html"><a href="chap-estudios.html#revisiones-sistemáticas-y-metaanálisis"><i class="fa fa-check"></i><b>2.10</b> Revisiones sistemáticas y metaanálisis</a></li>
+<li class="chapter" data-level="2.11" data-path="chap-estudios.html"><a href="chap-estudios.html#bonus-track-unos-criterios-de-causalidad"><i class="fa fa-check"></i><b>2.11</b> (Bonus track) Unos criterios de causalidad</a></li>
+<li class="chapter" data-level="2.12" data-path="chap-estudios.html"><a href="chap-estudios.html#bonus-track-preguntas-clínicas-en-formato-pico"><i class="fa fa-check"></i><b>2.12</b> (Bonus track) Preguntas clínicas en formato PICO</a></li>
+<li class="chapter" data-level="2.13" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>2.13</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-conceptos.html"><a href="chap-conceptos.html"><i class="fa fa-check"></i><b>3</b> Algunos conceptos básicos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-conceptos.html"><a href="chap-conceptos.html#unidad-de-observación"><i class="fa fa-check"></i><b>3.1</b> Unidad de observación</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-conceptos.html"><a href="chap-conceptos.html#población-y-muestra"><i class="fa fa-check"></i><b>3.2</b> Población y muestra</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:muestreo"><i class="fa fa-check"></i><b>3.3</b> Tipos básicos de muestreo</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:mas"><i class="fa fa-check"></i><b>3.3.1</b> Muestreo aleatorio con y sin reposición</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:sist"><i class="fa fa-check"></i><b>3.3.2</b> Muestreo sistemático</a></li>
+<li class="chapter" data-level="3.3.3" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:estr"><i class="fa fa-check"></i><b>3.3.3</b> Muestreo aleatorio estratificado</a></li>
+<li class="chapter" data-level="3.3.4" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:mcluster"><i class="fa fa-check"></i><b>3.3.4</b> Muestreo por conglomerados</a></li>
+<li class="chapter" data-level="3.3.5" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:oport"><i class="fa fa-check"></i><b>3.3.5</b> Muestreos no aleatorios</a></li>
+<li class="chapter" data-level="3.3.6" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:poli"><i class="fa fa-check"></i><b>3.3.6</b> Muestreo polietápico</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:sesgos"><i class="fa fa-check"></i><b>3.4</b> Sesgos</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>3.5</b> Test</a></li>
+</ul></li>
+<li class="part"><span><b>Tema II: Probabilidades</b></span></li>
+<li class="chapter" data-level="4" data-path="probabilidades-elementales-las-mates-chapprobst.html"><a href="probabilidades-elementales-las-mates-chapprobst.html"><i class="fa fa-check"></i><b>4</b> Probabilidades elementales: Las mates {chap:probst}</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="probabilidades-elementales-las-mates-chapprobst.html"><a href="probabilidades-elementales-las-mates-chapprobst.html#álgebra-de-conjuntos"><i class="fa fa-check"></i><b>4.1</b> Álgebra de conjuntos</a></li>
+<li class="chapter" data-level="4.2" data-path="probabilidades-elementales-las-mates-chapprobst.html"><a href="probabilidades-elementales-las-mates-chapprobst.html#algunas-fórmulas-básicas"><i class="fa fa-check"></i><b>4.2</b> Algunas fórmulas básicas</a></li>
+<li class="chapter" data-level="4.3" data-path="probabilidades-elementales-las-mates-chapprobst.html"><a href="probabilidades-elementales-las-mates-chapprobst.html#odds"><i class="fa fa-check"></i><b>4.3</b> Odds</a></li>
+<li class="chapter" data-level="4.4" data-path="probabilidades-elementales-las-mates-chapprobst.html"><a href="probabilidades-elementales-las-mates-chapprobst.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>4.4</b> Probabilidad condicionada</a></li>
+<li class="chapter" data-level="4.5" data-path="probabilidades-elementales-las-mates-chapprobst.html"><a href="probabilidades-elementales-las-mates-chapprobst.html#sucesos-independientes"><i class="fa fa-check"></i><b>4.5</b> Sucesos independientes</a></li>
+<li class="chapter" data-level="4.6" data-path="probabilidades-elementales-las-mates-chapprobst.html"><a href="probabilidades-elementales-las-mates-chapprobst.html#probabilidad-total"><i class="fa fa-check"></i><b>4.6</b> Probabilidad total</a></li>
+<li class="chapter" data-level="4.7" data-path="probabilidades-elementales-las-mates-chapprobst.html"><a href="probabilidades-elementales-las-mates-chapprobst.html#fórmula-de-bayes"><i class="fa fa-check"></i><b>4.7</b> Fórmula de Bayes</a></li>
+<li class="chapter" data-level="4.8" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>4.8</b> Test</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioestadística (Medicina UIB)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="probabilidades-elementales-las-mates-chapprobst" class="section level1" number="4">
+<h1><span class="header-section-number">Lección 4</span> Probabilidades elementales: Las mates {chap:probst}</h1>
+<p>La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso vamos a definir la <strong>probabilidad de un suceso</strong> como la <strong>proporción</strong> (la <strong>fracción</strong>, el <strong>porcentaje</strong>) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. Esta proporción mide de manera intuitiva la probabilidad de que si escogemos al azar un sujeto de la población, se dé en él el suceso (y de hecho coincide con esta probabilidad, para la definición formal de probabilidad que aquí no veremos).</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-71" class="example"><strong>Ejemplo 4.1  </strong></span>La probabilidad de que al lanzar una moneda al aire salga cara es la proporción de la población (virtual y prácticamente infinita) de lanzamientos de esta moneda en los que sale cara.</p>
+</div>
+<p>En casos MUY sencillos, cuando <strong>todos los resultados posibles tienen la misma probabilidad</strong>, esta proporción coincide con la fracción de veces en que se da este suceso en el conjunto de resultados posibles y por lo tanto se puede calcular con la famosa <strong>regla de Laplace</strong>:
+<span class="math display">\[
+\text{Probabilidad}=\frac{\text{Casos favorables}}{\text{Casos posibles}}
+\]</span></p>
+<p>Por ejemplo:</p>
+<ul>
+<li><p>La probabilidad de que salga cara al lanzar una moneda equilibrada al aire es 1/2 (casos favorables, 1; casos posibles, 2; los dos resultados tienen la misma probabilidad por definición de moneda equilibrada).</p></li>
+<li><p>Pero la probabilidad de que un hijo sea varón no es 1/2, aunque solo haya dos sexos anatómicos. Es la proporción de hijos varones en el total de todos los hijos, que se estima en alrededor del 51.22%.</p></li>
+<li><p>O más exageradamente, la probabilidad de que una mujer de entre 17 y 27 años sea miope no es 1/2, aunque solo haya dos resultados posibles: ser miope y no serlo. Esta probabilidad es la proporción de miopes en la población formada por todas las mujeres de esa franja de edad, que, en España en 2018, se estimaba en un 65.4% según un <a href="http://visionyvida.org/informe-prevalencia-de-la-miopia-en-los-jovenes-en-espana-2018/">informe de la Asociación Visión y Vida</a>.</p></li>
+</ul>
+
+<div class="rmdromans">
+<p>Si lanzamos al aire dos veces seguidas una moneda equilibrada, ¿cuál es la probabilidad de que salga alguna cara?</p>
+<p>Según el enciclopedista y matemático <a href="https://es.wikipedia.org/wiki/Jean_le_Rond_d%27Alembert">J. d’Alembert</a> es 2/3. Su argumento era el siguiente. Si en el primer lanzamiento sale cara, ya tenemos una cara. Si sale cruz, volvemos a lanzar otra vez y miramos si sale cara o cruz. Por lo tanto, hay solo 3 resultados posibles: cara en el primer lanzamiento; cruz en el primer lanzamiento y cara en el segundo; cruz en ambos lanzamientos. De estos tres “casos posibles”, solo en los 2 primeros sale alguna cara. Casos favorables partido por casos posibles: 2/3.</p>
+¿Es correcto este argumento?
+</div>
+<p>La teoría matemática de las probabilidades es la que nos permite valorar lo exacta que es una estimación de un valor para una población a partir de una muestra. Por ejemplo, supongamos que elegimos al azar un grupo de 50 estudiantes de la UIB y observamos que 33 sufren de miopía. A partir de este dato, vamos a estimar que un 66% de los estudiantes de la UIB son miopes. ¿Hasta qué punto nos podemos fiar de esta estimación? La teoría de las probabilidades nos permitirá calcular la probabilidad de acertar con esta estimación más o menos un margen de error fijado.</p>
+<div id="álgebra-de-conjuntos" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Álgebra de conjuntos</h2>
+<p>Vamos a repasar muy rápidamente las notaciones y las propiedades de las operaciones de conjuntos, para poder usar este lenguaje en lo que sigue.</p>
+<p>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> subconjuntos (en el contexto de la teoría de probabilidades, se los llama <strong>sucesos</strong>) de un conjunto <span class="math inline">\(\Omega\)</span> (nuestra <strong>población</strong> o, en el lenguaje de la teoría de probabilidades, el <strong>espacio muestral</strong>).</p>
+<ul>
+<li><p><span class="math inline">\(A\cup B\)</span> es la <strong>unión</strong> de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>: el conjunto formado por los elementos que pertenecen a <span class="math inline">\(A\)</span> o a <span class="math inline">\(B\)</span> (o a ambos).</p>
+<p>Corresponde a la <strong>disjunción</strong> del lenguaje natural.</p></li>
+</ul>
+
+<div class="rmdimportant">
+En este curso la disjunción “o” nunca va a ser exclusiva, salvo cuando digamos explícitamente que lo es.
+</div>
+<ul>
+<li><p><span class="math inline">\(A \cap B\)</span> es la <strong>intersección</strong> de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>: el conjunto formado por los elementos que pertenecen simultáneamente a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>.</p>
+<p>Corresponde a la <strong>conjunción</strong> del lenguaje natural.</p></li>
+<li><p><span class="math inline">\(A^c\)</span> es el <strong>complementario</strong> de <span class="math inline">\(A\)</span>: el conjunto formado por los elementos de <span class="math inline">\(\Omega\)</span> que no pertenecen a <span class="math inline">\(A\)</span>.</p>
+<p>Corresponde a la <strong>negación</strong> del lenguaje natural.</p></li>
+<li><p><span class="math inline">\(A-B=A \cap B^c\)</span> es la <strong>diferencia</strong> “<span class="math inline">\(A\)</span> menos <span class="math inline">\(B\)</span>”: el conjunto formado por los elementos de <span class="math inline">\(A\)</span> que no pertenecen a <span class="math inline">\(B\)</span>.</p>
+<p>Por lo tanto, <span class="math inline">\(A^c=\Omega-A\)</span>.</p></li>
+<li><p>Diremos que <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son <strong>disjuntos</strong>, o <strong>incompatibles</strong>, cuando <span class="math inline">\(A\cap B=\emptyset\)</span>, donde <span class="math inline">\(\emptyset\)</span> es el <strong>conjunto vacío</strong>, el conjunto que no tiene elementos.</p></li>
+<li><p>Diremos que <span class="math inline">\(A\)</span> está <strong>contenido</strong>, o <strong>incluido</strong>, en <span class="math inline">\(B\)</span>, y lo denotaremos por <span class="math inline">\(A\subseteq B\)</span>, cuando todo elemento de <span class="math inline">\(A\)</span> pertenece a <span class="math inline">\(B\)</span>. Para denotar que <span class="math inline">\(A\)</span> está <strong>estrictamente contenido</strong> en <span class="math inline">\(B\)</span> usaremos <span class="math inline">\(A\subsetneq B\)</span>.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-74" class="example"><strong>Ejemplo 4.2  </strong></span>Consideremos la población <span class="math inline">\(\Omega\)</span> formada por los estudiantes de una clase, y sean <span class="math inline">\(A\)</span> el subconjunto formado por la mujeres de esa clase y <span class="math inline">\(B\)</span> el subconjunto formado por los estudiantes de esa clase que llevan gafas.</p>
+</div>
+<p>Entonces:</p>
+<ul>
+<li><p><span class="math inline">\(A\cup B\)</span> es el conjunto de los estudiantes de la clase que son mujeres o llevan gafas.</p></li>
+<li><p><span class="math inline">\(A \cap B\)</span> es el conjunto de los estudiantes de la clase que son mujeres y llevan gafas, es decir, las mujeres de la clase que llevan gafas.</p></li>
+<li><p><span class="math inline">\(A^c\)</span> es el conjunto de los estudiantes de la clase que no son mujeres, es decir los hombres de la clase.</p></li>
+<li><p><span class="math inline">\(B^c\)</span> es el conjunto de los estudiantes de la clase que no llevan gafas.</p></li>
+<li><p><span class="math inline">\(A-B\)</span> es el conjunto de las mujeres de la clase que no llevan gafas.</p></li>
+<li><p><span class="math inline">\(B-A\)</span> es el conjunto de los estudiantes de la clase que llevan gafas y no son mujeres, es decir, los hombres de la clase que llevan gafas.</p></li>
+<li><p><span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> serán disjuntos (llevar gafas y ser mujer será incompatible en esta clase) si no hay ninguna mujer en la clase que lleve gafas.</p></li>
+<li><p><span class="math inline">\(A\subseteq B\)</span> será verdad si todas las mujeres de la clase llevan gafas.</p></li>
+<li><p><span class="math inline">\(B\subseteq A\)</span> será verdad si todos los estudiantes de la clase que llevan gafas son mujeres.</p></li>
+</ul>
+<p>Las propiedades de estas operaciones son las siguientes, y se corresponden a las propiedades de las conjunciones, disjunciones y negaciones en el lenguaje natural.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>La unión y la intersección son <strong>conmutativas</strong>: <span class="math inline">\(A\cup B=B\cup A\)</span> y <span class="math inline">\(A\cap B=B\cap A\)</span>.</p></li>
+<li><p>La unión y la intersección son <strong>asociativas</strong>: <span class="math inline">\(A\cup(B\cup C)=(A\cup B)\cup C\)</span> y <span class="math inline">\(A\cap(B\cap C)=(A\cap B) \cap C\)</span>.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
+<img src="INREMDN_files/figure-html/assocunio.png" alt="Propiedad asociativa de la unión." width="80%" />
+<p class="caption">
+Figura 4.1: Propiedad asociativa de la unión.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
+<img src="INREMDN_files/figure-html/assocint.png" alt="Propiedad asociativa de la intersección." width="80%" />
+<p class="caption">
+Figura 4.2: Propiedad asociativa de la intersección.
+</p>
+</div>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>La unión y la intersección son <strong>distributivas</strong>: <span class="math inline">\(A\cap(B\cup C)=(A\cap B)\cup (A\cap C)\)</span> y <span class="math inline">\(A\cup(B\cap C)=(A\cup B)\cap (A\cup C)\)</span>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
+<img src="INREMDN_files/figure-html/distr1BD.png" alt="Propiedad distributiva de la unión respecto de la intersección." width="80%" />
+<p class="caption">
+Figura 4.3: Propiedad distributiva de la unión respecto de la intersección.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-78"></span>
+<img src="INREMDN_files/figure-html/distr2BD.png" alt="Propiedad distributiva de la intersección respecto de la unión." width="80%" />
+<p class="caption">
+Figura 4.4: Propiedad distributiva de la intersección respecto de la unión.
+</p>
+</div>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><p>Propiedad del <strong>doble complementario</strong>: <span class="math inline">\((A^c)^c=A\)</span>.</p>
+<p>Corresponde al hecho de que, en el lenguaje natural, “No es verdad que no lleve gafas” significa lo mismo que “Lleva gafas”.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-79"></span>
+<img src="INREMDN_files/figure-html/dcBD.png" alt="Propiedad del doble complementario." width="80%" />
+<p class="caption">
+Figura 4.5: Propiedad del doble complementario.
+</p>
+</div>
+<ol start="5" style="list-style-type: lower-alpha">
+<li><p><strong>Leyes de De Morgan</strong>: <span class="math inline">\((A\cup B)^c=A^c \cap B^c\)</span> y <span class="math inline">\((A\cap B)^c=A^c\cup B^c\)</span>.</p>
+<p>La primera corresponde al hecho de que, en el lenguaje natural, lo contrario de “Ser mujer o llevar gafas” es “No ser mujer <strong>Y</strong> no llevar gafas”. La segunda corresponde al hecho de que, en el lenguaje natural, lo contrario de “Ser mujer y llevar gafas” es “No ser mujer <strong>O</strong> no llevar gafas”.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-80"></span>
+<img src="INREMDN_files/figure-html/dM1BD.png" alt="Primera ley de de Morgan." width="80%" />
+<p class="caption">
+Figura 4.6: Primera ley de de Morgan.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-81"></span>
+<img src="INREMDN_files/figure-html/dM2BD.png" alt="Segunda ley de de Morgan." width="80%" />
+<p class="caption">
+Figura 4.7: Segunda ley de de Morgan.
+</p>
+</div>
+<p>El hecho de que la unión y la intersección sean asociativas y conmutativas nos permite escribir expresiones del estilo de
+<span class="math display">\[
+A_1\cap A_2\cap \cdots \cap A_n,\qquad A_1\cup A_2\cup \cdots \cup A_n
+\]</span>
+para indicar, respectivamente, la intersección o la unión de los sucesos <span class="math inline">\(A_1,\ldots,A_n\)</span> agrupándolos como queramos y en el orden que queramos.</p>
+</div>
+<div id="algunas-fórmulas-básicas" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Algunas fórmulas básicas</h2>
+<p>Hemos definido la probabilidad <span class="math inline">\(P(A)\)</span> de un subconjunto (suceso) <span class="math inline">\(A\)</span> de una población (espacio muestral) <span class="math inline">\(\Omega\)</span> como la fracción de los sujetos de <span class="math inline">\(\Omega\)</span> que pertenecen a <span class="math inline">\(A\)</span>. A partir de esta definición se deducen, por puro conteo, las propiedades siguientes:</p>
+<ol style="list-style-type: decimal">
+<li><p>Para todo suceso <span class="math inline">\(A\)</span>, <span class="math inline">\(0\leqslant P(A)\leqslant 1\)</span>.</p>
+<p>Un subconjunto <span class="math inline">\(A\)</span> de <span class="math inline">\(\Omega\)</span> no puede representar ni una fracción negativa ni una fracción mayor que 1 de los sujetos de <span class="math inline">\(\Omega\)</span>.</p></li>
+<li><p><span class="math inline">\(P(\Omega)=1\)</span> y <span class="math inline">\(P(\emptyset)=0\)</span> (recordad que <span class="math inline">\(\emptyset\)</span> es el conjunto vacío).</p></li>
+<li><p>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son dos sucesos disjuntos, entonces <span class="math inline">\(P(A\cup B)=P(A)+P(B)\)</span>.</p>
+<p>Si no hay ningún sujeto que pertenezca simultáneamente a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>, entonces el número de sujetos que pertenecen a <span class="math inline">\(A\)</span> o a <span class="math inline">\(B\)</span> es la suma de los que pertenecen a <span class="math inline">\(A\)</span> y de los que pertenecen a <span class="math inline">\(B\)</span>. Entonces, dividiendo por el número total de individuos de la población <span class="math inline">\(\Omega\)</span> (su <strong>cardinal</strong>), obtenemos que la fracción de los sujetos que pertenecen a <span class="math inline">\(A\)</span> o a <span class="math inline">\(B\)</span> es la suma de las fracciones de los que pertenecen a <span class="math inline">\(A\)</span> y de los que pertenecen a <span class="math inline">\(B\)</span>.</p></li>
+<li><p>Más en general, si <span class="math inline">\(A_1,A_2,\ldots,A_n\)</span> son sucesos disjuntos dos a dos, entonces
+<span class="math display">\[
+P(A_1\cup A_2\cup \cdots \cup A_n)=P(A_1)+P(A_2)+\cdots +P(A_n).
+\]</span></p></li>
+<li><p><span class="math inline">\(P(A-B)=P(A)-P(A\cap B)\)</span>.</p>
+<p>El número de sujetos que pertenecen a <span class="math inline">\(A\)</span> pero no a <span class="math inline">\(B\)</span> se obtiene restando del total de sujetos de <span class="math inline">\(A\)</span> los que pertenecen simultáneamente a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>. Dividiendo por el número total de individuos de la población, obtenemos la correspondiente igualdad de proporciones.</p></li>
+</ol>
+
+<div class="rmdcorbes">
+Formalmente, como <span class="math inline">\(A-B\)</span> y <span class="math inline">\(A\cap B\)</span> son disjuntos (ya que ningún elemento de <span class="math inline">\(A-B\)</span> pertenece a <span class="math inline">\(B\)</span> y todos los elementos de <span class="math inline">\(A\cap B\)</span> pertenecen a <span class="math inline">\(B\)</span>), la propiedad (3) nos dice que
+<span class="math display">\[
+P((A-B)\cup (A\cap B))=P(A-B)+P(A\cap B).
+\]</span>
+Por otro lado, <span class="math inline">\((A-B)\cup (A\cap B)=A\)</span> porque <span class="math inline">\(A\)</span> es la unión del conjunto de sus elementos que no pertenecen a <span class="math inline">\(B\)</span> y del conjunto de sus elementos que sí pertenecen a <span class="math inline">\(B\)</span> (Figura <a href="probabilidades-elementales-las-mates-chapprobst.html#fig:AmenysB">4.8</a>).
+</div>
+
+<div class="rmdcaution">
+¡Ojo! En general, es falso que <span class="math inline">\(P(A-B)=P(A)-P(B)\)</span>. Si en una población hay un 50% de mujeres y un 60% de miopes, y un 35% del total son mujeres miopes, las mujeres no miopes son un 15% del total de la población, no un -10%, ¿verdad?
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li><p><span class="math inline">\(P(A^c)=1-P(A)\)</span>.</p>
+<p>Es decir, la fracción de los sujetos que no pertenecen a <span class="math inline">\(A\)</span> es 1 menos la fracción de los que sí pertenecen a <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(A\subseteq B\)</span>, entonces <span class="math inline">\(P(A)\leqslant P(B)\)</span>. Si <span class="math inline">\(A\)</span> está contenido en <span class="math inline">\(B\)</span>, la fracción de los sujetos que pertenecen a <span class="math inline">\(A\)</span> es más pequeña que la de los que pertenecen a <span class="math inline">\(B\)</span>.</p></li>
+<li><p><span class="math inline">\(P(A\cup B)=P(A)+P(B)-P(A \cap B)\)</span>.</p>
+<p>Si queréis contar cuántos sujetos hay en <span class="math inline">\(A\cup B\)</span>, tenéis que añadir a los de <span class="math inline">\(A\)</span> los de <span class="math inline">\(B-A\)</span> (mirad la Figura <a href="probabilidades-elementales-las-mates-chapprobst.html#fig:AmenysB">4.8</a>). Dividiendo por el total de la población para pasar a proporciones, esto nos dice que
+<span class="math display">\[
+P(A\cup B)=P(A)+P(B-A)=P(A)+P(B)-P(A \cap B)
+\]</span>
+donde la segunda igualdad se debe a (5).</p>
+<p>Por ejemplo, si en una población hay un 50% de mujeres y un 60% de miopes, y un 35% del total son mujeres miopes, las personas que son mujeres o miopes (recordad, o ambas cosas) forman un 75% de la población: al 50% de mujeres hay que sumarle el 25% de miopes que no son mujeres.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:AmenysB"></span>
+<img src="INREMDN_files/figure-html/A-B.png" alt="Descomposición de la unión en tres conjuntos disjuntos." width="50%" />
+<p class="caption">
+Figura 4.8: Descomposición de la unión en tres conjuntos disjuntos.
+</p>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li>Otra manera de escribir la ecuación anterior es
+<span class="math display">\[
+P(A\cap B)=P(A)+P(B)-P(A \cup B)
+\]</span></li>
+</ol>
+
+<div class="rmdcaution">
+<p>En general, es falso que <span class="math inline">\(P(A\cap B)=P(A)\cdot P(B)\)</span>. Por ejemplo, en la población con un 50% de mujeres, un 60% de miopes y un 35% de mujeres miopes que hemos usado antes, 0.6·0.5 no es igual a 0.35.</p>
+Más adelante veremos cuándo esta igualdad es verdadera.
+</div>
+
+<div class="example">
+<p><span id="exm:VIHherpes1" class="example"><strong>Ejemplo 4.3  </strong></span>Supongamos que el 0.1% de todos los donantes de sangre da positivo en el test de VIH, y el 1% da positivo en el test de herpes simple (VHS). El 0.05% da positivo en ambos tests.</p>
+<p>¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en al menos uno de los dos tests? ¿Y la de que un donante escogido al azar dé positivo en VHS pero no en VIH?</p>
+</div>
+<p>Vamos a poner nombres a los sucesos involucrados en estas preguntas:</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span>: Dar positivo en VIH. Sabemos que <span class="math inline">\(P(A)=0.001\)</span>.</p></li>
+<li><p><span class="math inline">\(B\)</span>: Dar positivo en VHS. Sabemos que <span class="math inline">\(P(B)=0.01\)</span>.</p></li>
+<li><p><span class="math inline">\(A\cap B\)</span>: Dar positivo en los dos. Sabemos que <span class="math inline">\(P(A\cap B)=0.0005\)</span>.</p></li>
+<li><p><span class="math inline">\(A\cup B\)</span>: Dar positivo en al menos uno de los dos. Es lo que queremos calcular en la primera pregunta.</p>
+<p>Por la propiedad (8):
+<span class="math display">\[
+P(A \cup B) =P(A)+P(B)-P(A\cap B)=0.001+0.01-0.0005=0.0105
+\]</span>
+La probabilidad de que un donante escogido al azar dé positivo en al menos uno de los dos tests es del 1.05%.</p></li>
+<li><p><span class="math inline">\(B-A\)</span>: Dar positivo en VHS pero no en VIH. Es lo que queremos calcular en la segunda pregunta.</p>
+<p>Por la propiedad (5),
+<span class="math display">\[
+P(B-A)=P(B)-P(A\cap B)=0.01-0.0005=0.0095
+\]</span>
+La probabilidad de que un donante escogido al azar dé positivo en VHS pero no en VIH es del 0.95%.</p></li>
+</ul>
+<p>Otra manera de calcular estas probabilidades sin necesidad de recordar fórmulas sería:</p>
+<ul>
+<li><p>Tomar como referencia una población de un tamaño concreto.</p></li>
+<li><p>Calcular en esta población cuántos individuos pertenecen a <span class="math inline">\(A\cap B\)</span> (dan positivo en ambos tests), cuántos a <span class="math inline">\(A-B\)</span> (positivos en VIH pero no en VHS), cuántos a <span class="math inline">\(B-A\)</span> (positivos en VHS pero no en VIH) y cuántos a <span class="math inline">\(A^c\cap B^c\)</span> (negativo en ambos tests) y a partir de ahí calcular todo lo que queramos.</p></li>
+</ul>
+<p>A este método se le suele llamar <strong>método de frecuencias naturales</strong> (“la cuenta de la vieja” no suena lo suficientemente científico), y así lo llamaremos nosotros. Pongámoslo en práctica en nuestro caso:</p>
+<ol style="list-style-type: decimal">
+<li><p>Vamos a tomar una población de referencia de 10,000 donantes</p>
+<p>¿Por qué este número? Veamos, fijaos en que la proporción de sujetos en <span class="math inline">\(A\cap B\)</span> es del 0.05%, es decir, 0.0005, y para facilitar los cálculos nos gustaría que todos los números que nos salieran fueran enteros, para no liarnos con decimales. Como 0.0005·10000=5, parece que 10,000 nos va a valer.</p></li>
+<li><p>Los sujetos de <span class="math inline">\(A\)</span> son el 0.1% de la población: 10</p></li>
+<li><p>Los sujetos de <span class="math inline">\(B\)</span> son el 1% de la población: 100</p></li>
+<li><p>Los sujetos de <span class="math inline">\(A\cap B\)</span> son el 0.05% de la población: 5</p></li>
+<li><p>Entonces, los sujetos de <span class="math inline">\(A-B\)</span> serán los de <span class="math inline">\(A\)</span> menos los de <span class="math inline">\(A\cap B\)</span>: 5</p></li>
+<li><p>Y los sujetos de <span class="math inline">\(B-A\)</span> serán los de <span class="math inline">\(B\)</span> menos los de <span class="math inline">\(A\cap B\)</span>: 95</p></li>
+<li><p>Por ahora ya tenemos: 5 sujetos positivos en VIH y en VHS; 5 positivos en VIH y negativos en VHS; y 95 positivos en VHS y negativos en VIH. En total, 105 sujetos. El resto serán negativos tanto en VIH como en VHS.</p></li>
+<li><p>Por lo tanto, los sujetos de <span class="math inline">\(A^c\cap B^c\)</span> serán 10000-105=9895.</p></li>
+</ol>
+<p>Obtenemos la tabla de frecuencias siguiente:
+<span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; A\ (\text{VIH}+) &amp; A^c \ (\text{VIH}-)  &amp; \text{Total} \\ \hline
+B\ (\text{VHS}+) &amp;  5  &amp;  95  &amp;   100 \\ \hline
+B^c\ (\text{VHS}-) &amp;  5  &amp;   9895  &amp;   9900 \\ \hline 
+\text{Total} &amp; 10&amp; 9990 &amp; 10000  \\ 
+\end{array}
+\]</span></p>
+<p>Y ahora, cambiando “probabilidad” por “proporción”, ya podemos calcular lo que queramos.</p>
+<ul>
+<li><p>¿Cuál es la proporción de sujetos que dan positivo en algún test?</p>
+<p>Hay 105 sujetos en la tabla que dan positivo en algún test: los 5 positivos en VIH y negativos en VHS, los 95 positivos en VHS y negativos en VIH y los 5 positivos en VIH y en VHS simultáneamente. Por lo tanto, su proporción es de 105/10000=0.0105.</p></li>
+<li><p>¿Cuál es la proporción de sujetos que dan positivo en VHS pero no en VIH?</p>
+<p>Hay 95 sujetos en la tabla que dan positivo en VHS y negativo en VIH, por lo que su proporción es de 95/10000=0.0095.</p></li>
+</ul>
+
+<div class="rmdexercici">
+<p>Seguimos en la situación anterior: el 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes, y el 0.05% da positivo en los dos tests.</p>
+¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en un solo test?
+</div>
+
+<div class="rmdexercici">
+<p>Supongamos ahora que el 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes y el 1.07% da positivo en al menos uno de los dos tests.</p>
+¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en ambos tests? ¿Y la de que dé positivo en un solo test?
+</div>
+
+<div class="rmdexercici">
+<p>Y supongamos ahora que el 0.1% de todos los donantes de sangre da positivo en el test de VIH, el 1% da positivo en el test de herpes y el 1.2% da positivo en al menos uno de los dos tests.</p>
+¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en ambos tests? ¿Y la de que dé positivo en un solo test?
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
+<img src="INREMDN_files/figure-html/batmanprobs.png" alt="¡Cuidado con lo que respondéis!" width="50%" />
+<p class="caption">
+Figura 4.9: ¡Cuidado con lo que respondéis!
+</p>
+</div>
+
+<div class="example">
+<span id="exm:repes" class="example"><strong>Ejemplo 4.4  </strong></span>En la Sección <a href="chap-conceptos.html#sec:mas">3.3.1</a> hemos dado las probabilidades de que se escoja más de una vez algún individuo en algunas situaciones. Por ejemplo, si escogemos 100 individuos de las Baleares (suponiendo que su población es de 1,150,000 habitantes) al azar permitiendo repeticiones. ¿Cómo se calculan estas probabilidades?
+</div>
+<p>Vamos a suponer que escogemos los individuos uno tras otro. El plan va a ser calcular primero la probabilidad <span class="math inline">\(p\)</span> de que todos los individuos de la muestra sean diferentes. Entonces, la probabilidad de que salga al menos uno repetido será <span class="math inline">\(1-p\)</span>.</p>
+<p>Como, en el muestreo aleatorio simple, todos los grupos de 100 baleares (con posibles repeticiones) tienen la misma probabilidad de ser elegidos, podemos usar la fórmula de Laplace “casos favorables partido por casos posibles” para calcular <span class="math inline">\(p\)</span>. Solo hay que identificar cuántos casos favorables y cuántos casos posibles hay.</p>
+<ul>
+<li><p><em>Casos favorables</em>. ¿De cuántas maneras podemos elegir 100 baleares, uno tras otro, de manera que todos sean diferentes?</p>
+<ul>
+<li>El primero puede ser cualquiera: hay 1,150,000 posibilidades.</li>
+<li>Una vez hemos elegido el primero, como el segundo ha de ser diferente, puede ser cualquiera de los 1,149,999 restantes.</li>
+<li>Una vez hemos elegido los dos primeros, como el tercero ha de ser diferente de ellos, lo podemos escoger de los 1,149,998 restantes.</li>
+<li>En general, cuando hemos elegido <em>n</em> sujetos, el siguiente puede ser cualquiera de los 1,150,000-<em>n</em> restantes.</li>
+<li>Y así, cuando hemos elegido los 99 primeros, para el último, el centésimo, tenemos 1,150,000-99=1,149,991 posibilidades.</li>
+</ul></li>
+</ul>
+<p>Por lo tanto hay
+<span class="math display">\[
+1150000\times 1149999\times 1149998\times \cdots\times 1149991
+\]</span>
+posibles elecciones de 100 baleares <strong>diferentes</strong>.</p>
+<ul>
+<li><p><em>Casos posibles</em>. ¿De cuántas maneras podemos elegir 100 baleares, uno tras otro, sin ninguna restricción?</p>
+<ul>
+<li>El primero puede ser cualquiera: hay 1,150,000 posibilidades.</li>
+<li>Una vez hemos elegido el primero, como el segundo puede ser cualquiera, de nuevo tenemos 1,150,000 posibilidades para él.</li>
+<li>Una vez hemos elegido los dos primeros, como el tercero puede ser cualquiera, seguimos teniendo 1,150,000 posibilidades.</li>
+<li>En general, cuando hemos elegido <em>n</em> sujetos, para el siguiente volvemos a tener 1,150,000 posibilidades.</li>
+</ul></li>
+</ul>
+<p>Por lo tanto hay
+<span class="math display">\[
+\overbrace{1150000\times 1150000\times 1150000\times \cdots\times 1150000}^{100}=1150000^{100}
+\]</span>
+posibles elecciones de 100 baleares sin ninguna restricción.</p>
+<p>Por la fórmula de Laplace, la probabilidad <span class="math inline">\(p\)</span> de que al elegir al azar 100 baleares nos salgan todos diferentes es
+<span class="math display">\[
+p=\frac{1150000\times 1149999\times\cdots\times 1149991}{1150000^{100}}
+\]</span>
+y, finalmente, la probabilidad de que al elegir al azar 100 baleares nos salga alguno repetido es
+<span class="math display">\[
+1-p=1-\frac{1150000\times 1149999\times\cdots\times 1149991}{1150000^{100}}
+\]</span>
+Naturalmente, os va a costar calcular este número con una calculadora científica sencilla, pero para eso están los ordenadores. Da 0.0042952.</p>
+<p>Comprobad que las otras probabilidades de repeticiones anunciadas en la lección anterior son correctas.</p>
+</div>
+<div id="odds" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Odds</h2>
+<p>En algunos contextos, las probabilidades se presentan en forma de <strong>odds</strong> (la traducción más común en castellano es <a href="https://es.wikipedia.org/wiki/Apuesta_deportiva#Momios_o_Cuotas_Deportivas"><strong>momios</strong></a>, pero se usan otras: posibilidades, oportunidades, ocasiones…). Las <strong>odds</strong> de un suceso <span class="math inline">\(A\)</span> son
+<span class="math display">\[
+\text{Odds}(A)=\frac{P(A)}{P(A^c)}=\frac{P(A)}{1-P(A)}.
+\]</span>
+Nos dicen cuántas veces es más probable <span class="math inline">\(A\)</span> que “no <span class="math inline">\(A\)</span>”.</p>
+<div class="figure" style="text-align: center"><span id="fig:catmummies"></span>
+<img src="INREMDN_files/figure-html/catmummies.png" alt="Momios de gatitos en el British Museum (fotografía de M. Sánchez)." width="50%" />
+<p class="caption">
+Figura 4.10: Momios de gatitos en el British Museum (fotografía de M. Sánchez).
+</p>
+</div>
+<p>Si <span class="math inline">\(\text{Odds}(A)=q\)</span>, significa que <strong>por cada vez que ocurre “no <span class="math inline">\(A\)</span>”, ocurre <span class="math inline">\(q\)</span> veces <span class="math inline">\(A\)</span></strong>. Por ejemplo, si las <em>odds</em> de suspender una asignatura son 2/3, significa que:</p>
+<ul>
+<li>Por cada estudiante que aprueba, hay 2/3 de estudiante que suspenden.</li>
+<li>Por cada 3 estudiantes que aprueban, hay 2 que suspenden.</li>
+<li>De cada 5 estudiantes, 3 aprueban y 2 suspenden.</li>
+<li>2 de cada 5 estudiantes suspenden.</li>
+<li>La <strong>probabilidad</strong> de suspender es de un 40%.</li>
+</ul>
+
+<div class="rmdnote">
+A veces, que unas <em>odds</em> valgan <span class="math inline">\(a/b\)</span> se expresa diciendo que son <span class="math inline">\(a\!:\!b\)</span>, y se lee “<span class="math inline">\(a\)</span> a <span class="math inline">\(b\)</span>”. Por ejemplo, las <em>odds</em> de suspender anteriores son 2:3, es decir, 2 a 3.
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-91" class="example"><strong>Ejemplo 4.5  </strong></span>Algunos ejemplos de <em>odds</em> a partir de probabilidades:</p>
+<ul>
+<li>Si <span class="math inline">\(P(A)=0.2\)</span>, <span class="math inline">\(\text{Odds}(A)=0.2/0.8=0.25\)</span>.</li>
+<li>Si <span class="math inline">\(P(A)=0\)</span>, <span class="math inline">\(\text{Odds}(A)=0\)</span>.</li>
+<li>Si <span class="math inline">\(P(A)=0.5\)</span>, <span class="math inline">\(\text{Odds}(A)=1\)</span>.</li>
+<li>Si <span class="math inline">\(P(A)=1\)</span>, <span class="math inline">\(\text{Odds}(A)=\infty\)</span>.</li>
+</ul>
+</div>
+<p>Como son un cociente de dos probabilidades, las <em>odds</em> de un suceso son siempre mayores o iguales que 0 y pueden tomar cualquier valor entre 0 e <span class="math inline">\(\infty\)</span>.</p>
+
+<div class="rmdexercici">
+<p>Si lanzamos un dado equilibrado de 10 caras numeradas del 0 al 9:</p>
+<ol style="list-style-type: decimal">
+<li><p>¿Qué valen las <em>odds</em> de sacar un 3?</p></li>
+<li><p>¿Qué valen las <em>odds</em> de sacar un múltiplo de 3?</p>
+</div></li>
+</ol>
+<p>Si sabemos las <em>odds</em> de <span class="math inline">\(A\)</span>, podemos calcular la probabilidad <span class="math inline">\(P(A)\)</span>:
+<span class="math display">\[
+\begin{array}{rl}
+\text{Odds}(A)=\dfrac{P(A)}{1-P(A)}\!\!\!\! &amp; \Longrightarrow \text{Odds}(A)-\text{Odds}(A)P(A)=P(A)\\ 
+&amp; \Longrightarrow P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}
+\end{array}
+\]</span></p>
+<p>Por lo tanto, dos sucesos tienen la misma probabilidad si, y solo si, tienen las mismas <em>odds</em>.</p>
+<p>Observad que la función
+<span class="math display">\[
+y=\frac{x}{1+x}
+\]</span>
+es creciente en <span class="math inline">\(x\)</span>:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-93"></span>
+<img src="INREMDN_files/figure-html/unnamed-chunk-93-1.png" alt="Gráfica de la curva y=x/(1+x)." width="480" />
+<p class="caption">
+Figura 4.11: Gráfica de la curva y=x/(1+x).
+</p>
+</div>
+<p>Por lo tanto
+<span class="math display">\[
+\text{Odds}(A)&gt;\text{Odds}(B)\Longleftrightarrow P(A)&gt;P(B)
+\]</span>
+Es decir, <span class="math inline">\(A\)</span> es más probable que <span class="math inline">\(B\)</span> si, y solo si, las <em>odds</em> de <span class="math inline">\(A\)</span> son mayores que las de <span class="math inline">\(B\)</span>.</p>
+<p>Como veremos en la Sección <a href="#sec:riesgosCyC"><strong>??</strong></a>, la manera correcta de presentar los resultados en los estudios de casos y controles es en forma de <em>odds ratios</em>. La <strong>odds ratio</strong> (<strong>razón de momios</strong>, de oportunidades…) de dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> es el cociente de sus <em>odds</em>:
+<span class="math display">\[
+\text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}
+\]</span>
+Es decir, <span class="math inline">\(\text{OR}(A,B)\)</span> nos dice cuántas veces son mayores (o menores) las <em>odds</em> de <span class="math inline">\(A\)</span> que las de <span class="math inline">\(B\)</span>. Su valor es difícil de interpretar en términos de probabilidades excepto por lo que refiere a su relación con 1:</p>
+<ul>
+<li><p><span class="math inline">\(\text{OR}(A,B)=1\Longleftrightarrow \text{Odds}(A)=\text{Odds}(B) \Longleftrightarrow P(A)=P(B)\)</span></p></li>
+<li><p><span class="math inline">\(\text{OR}(A,B)&gt;1\Longleftrightarrow \text{Odds}(A)&gt;\text{Odds}(B) \Longleftrightarrow P(A)&gt;P(B)\)</span></p></li>
+<li><p><span class="math inline">\(\text{OR}(A,B)&lt;1\Longleftrightarrow \text{Odds}(A)&lt;\text{Odds}(B) \Longleftrightarrow P(A)&lt;P(B)\)</span></p></li>
+</ul>
+<p>Pero, por ejemplo
+<span class="math display">\[
+\text{OR}(A,B)=2 \Longleftrightarrow \text{Odds}(A)= 2\cdot \text{Odds}(B) \hspace{1.2ex}
+\not\hspace{-1.2ex}\Longleftrightarrow P(A)=
+2\cdot P(B)
+\]</span></p>
+
+<div class="rmdcorbes">
+En general, si <span class="math inline">\(\text{OR}(A,B)=q\)</span>, es decir, <span class="math inline">\(\text{Odds}(A)=q\cdot\text{Odds}(B)\)</span>, entonces
+<span class="math display">\[
+\begin{array}{l}
+P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}=\dfrac{q\cdot\text{Odds}(B)}{1+q\cdot\text{Odds}(B)}\\
+\qquad =\dfrac{q\cdot\frac{ P(B)}{1-P(B)}}{1+q\cdot\frac{P(B)}{1-P(B)}}=\dfrac{q\cdot  P(B)}{1-P(B)+q\cdot P(B)}\\
+\qquad=\dfrac{q\cdot P(B)}{1+(q-1)P(B)}
+\end{array}
+\]</span>
+y por lo tanto la relación entre <span class="math inline">\(P(A)\)</span> y <span class="math inline">\(P(B)\)</span> es complicada.
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-95" class="example"><strong>Ejemplo 4.6  </strong></span>En un <a href="https://www.gastrojournal.org/article/S0016-5085(20)30490-X/fulltext">estudio de casos y controles reciente</a> (Y. Nobel <em>et al</em>, <em>Gastroenterology</em> 159 (2020), pp. 373-375) se afirma que</p>
+</div>
+<blockquote>
+<p>“la presencia de síntomas gastrointestinales se asoció a un incremento del 70% en el riesgo de dar positivo [en el test de COVID-19]: odds ratio, 1.7.”</p>
+</blockquote>
+<p>¿Qué significa esto? Que la <em>odds ratio</em> valga 1.7 significa que las <em>odds</em> de dar positivo en COVID-19 si se tienen síntomas gastrointestinales son 1.7 veces las de dar positivo si no se tienen síntomas gastrointestinales, es decir un 70% mayores. Pero fijaos que estamos hablando de las <em>odds</em>, no del <strong>riesgo</strong> entendido en sentido de <strong>probabilidad</strong>. No tiene por qué ser cierto que la probabilidad de dar positivo en COVID-19 si se tienen síntomas gastrointestinales sea un 70% mayor que si no se tienen síntomas gastrointestinales.</p>
+<p>En este estudio concreto, se obtuvo la tabla de frecuencias siguiente (SG abrevia “síntomas gastrointestinales”)
+<span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; \text{COVID-19 } + &amp; \text{COVID-19 } - &amp; \text{Total}\\ \hline
+\text{SG Sí} &amp; 97&amp;	63 &amp; 160\\\hline
+\text{SG No}  &amp; 181 &amp;	175 &amp; 356\\\hline
+\text{Total} &amp; 278 &amp; 238 &amp;  316
+\end{array}
+\]</span></p>
+<p>Por lo tanto, la proporción de COVID-19 positivos entre los que tuvieron síntomas gastrointestinales fue 97/160=0.606 y la proporción de COVID-19 positivos entre los que no tuvieron síntomas gastrointestinales fue 181/356=0.508. Como 0.606/0.508=0.19, la primera es un 19% mayor que la segunda, no un 70% mayor.</p>
+<p>Veamos las <em>odds</em>. Las de ser COVID-19 positivo entre los que tuvieron síntomas gastrointestinales son
+<span class="math display">\[
+\frac{97/160}{63/160}=1.54
+\]</span>
+Las de ser COVID-19 positivo entre los que no tuvieron síntomas gastrointestinales son
+<span class="math display">\[
+\frac{181/356}{175/356}=1.03
+\]</span>
+La <em>odds ratio</em> es, entonces 1.54/1.03=1.495.</p>
+
+<div class="rmdromans">
+¿Pero no habíamos dicho que la <em>odds ratio</em> les había salido 1.7?
+</div>
+<p>Bueno, sí, hemos mentido. Lo que les da 1.7 es la “odds ratio ajustada”, que no hemos definido y de la que con suerte hablaremos a final de curso.</p>
+
+<div class="rmdexercici">
+<ol style="list-style-type: decimal">
+<li><p>¿Qué valen las <em>odds</em> de sacar 3 caras en 3 lanzamientos de una moneda equilibrada?</p></li>
+<li><p>Si un suceso pasa 2 veces de cada 10 veces que puede pasar, ¿qué valen sus <em>odds</em>?</p></li>
+<li><p>Si las <em>odds</em> de <span class="math inline">\(A\)</span> son 1/2, ¿qué vale <span class="math inline">\(P(A)\)</span>?</p></li>
+<li><p>Si <span class="math inline">\(\text{OR}(A,B)=0.5\)</span> y <span class="math inline">\(P(A)=1/2\)</span>, ¿qué vale <span class="math inline">\(P(B)\)</span>?</p></li>
+<li><p>Sí <span class="math inline">\(\text{OR}(A,B)=0.5\)</span> y <span class="math inline">\(P(A)=3/4\)</span>, ¿qué vale <span class="math inline">\(P(B)\)</span>?</p>
+</div></li>
+</ol>
+</div>
+<div id="probabilidad-condicionada" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Probabilidad condicionada</h2>
+<p>Dados dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, con <span class="math inline">\(P(A)&gt;0\)</span>, la <strong>probabilidad de <span class="math inline">\(B\)</span> condicionada a <span class="math inline">\(A\)</span></strong> es
+<span class="math display">\[
+P(B|A)=\frac{P(A\cap B)}{P(A)}
+\]</span></p>
+<p>Este valor representa la fracción de los sujetos de <span class="math inline">\(A\)</span> que pertenecen a <span class="math inline">\(B\)</span>; es decir, es la probabilidad de que si ocurre <span class="math inline">\(A\)</span>, entonces también ocurra <span class="math inline">\(B\)</span>.</p>
+
+<div class="rmdnote">
+Supongamos que en una población <span class="math inline">\(\Omega\)</span> de <span class="math inline">\(N\)</span> individuos hay <span class="math inline">\(M_A\)</span> que pertenecen a <span class="math inline">\(A\)</span>, y que entre estos hay <span class="math inline">\(M_{\textit{AB}}\)</span> que también pertenecen a <span class="math inline">\(B\)</span>. Entonces, la fracción de sujetos de <span class="math inline">\(A\)</span> que pertenecen a <span class="math inline">\(B\)</span> es
+<span class="math display">\[
+\frac{M_{\textit{AB}}}{M_A}=\frac{M_{\textit{AB}}/N}{M_A/N}.
+\]</span>
+En la fracción de la derecha, el numerador <span class="math inline">\(M_{\textit{AB}}/N\)</span> es la proporción de sujetos de <span class="math inline">\(\Omega\)</span> que pertenecen a <span class="math inline">\(A\cap B\)</span>, es decir, <span class="math inline">\(P(A\cap B)\)</span>, y el denominador <span class="math inline">\(M_A/N\)</span> es la proporción de sujetos de <span class="math inline">\(\Omega\)</span> que pertenecen a <span class="math inline">\(A\)</span>, es decir <span class="math inline">\(P(A)\)</span>.
+</div>
+
+<div class="example">
+<p><span id="exm:mujergafas" class="example"><strong>Ejemplo 4.7  </strong></span>Supongamos que en una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. La tabla de frecuencias correspondiente es</p>
+</div>
+<p><span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; \text{Gafas} &amp; \text{No gafas} &amp; \text{Total}\\ \hline
+\text{Mujeres} &amp; 18 &amp;12  &amp; 30\\ \hline
+\text{Hombres} &amp; 15 &amp; 5 &amp; 20 \\ \hline
+\text{Total} &amp; 33 &amp; 17 &amp;  50 \\ 
+\end{array}
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li>¿Cuál es la probabilidad de que un estudiante sea mujer?</li>
+</ol>
+<p>Como hay 30 mujeres de un total de 50 estudiantes, esta probabilidad es 30/50=0.6</p>
+<ol start="2" style="list-style-type: decimal">
+<li>¿Cuál es la probabilidad de que un estudiante lleve gafas?</li>
+</ol>
+<p>Como hay 33 estudiantes con gafas de un total de 50 estudiantes, esta probabilidad es 33/50=0.66</p>
+<ol start="3" style="list-style-type: decimal">
+<li>¿Cuál es la probabilidad de que un estudiante sea mujer y lleve gafas?</li>
+</ol>
+<p>Como la probabilidad de ser mujer es 0.6 y la probabilidad de llevar gafas es 0.66, la probabilidad de ser mujer y llevar gafas es el producto: 0.6·0.66=0.396.</p>
+
+<div class="rmderror">
+<strong>¡No!</strong> En general, la probabilidad de la intersección NO es el producto de las probabilidades.
+</div>
+<p>Volvamos a intentarlo. Como hay 18 mujeres que llevan gafas de un total de 50 estudiantes, esta probabilidad es 18/50=0.36</p>
+<ol start="4" style="list-style-type: decimal">
+<li>¿Cuál es la probabilidad de que una mujer lleve gafas?</li>
+</ol>
+<p>Como hay 18 mujeres que llevan gafas de un total de 30 mujeres, esta probabilidad es 18/30=0.6. Fijaos que este valor es igual a
+<span class="math display">\[
+P(\text{gafas}|\text{mujer})=\frac{P(\text{mujer y gafas})}{P(\text{mujer})}=\frac{18/50}{30/50}=\frac{18}{30}
+\]</span></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Escogemos un estudiante al azar. ¿Cuál es la probabilidad de que si es mujer, entonces lleve gafas?</li>
+</ol>
+<p>Es la misma pregunta que la anterior, por lo que la respuesta es la misma: 18/30=0.6.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>¿Cuál es la probabilidad de que un estudiante que lleve gafas sea mujer?</li>
+</ol>
+<p>Como hay 18 mujeres que llevan gafas de un total de 33 estudiantes que lleven gafas, esta probabilidad es 18/33=0.545. Fijaos, de nuevo, que este valor es igual a
+<span class="math display">\[
+P(\text{mujer}|\text{gafas})=\frac{P(\text{mujer y gafas})}{P(\text{gafas})}=\frac{18/50}{33/50}=\frac{18}{33}
+\]</span></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Escogemos un estudiante al azar. ¿Cuál es la probabilidad de si lleva gafas, entonces sea mujer?</li>
+</ol>
+<p>Es la misma pregunta que la anterior, por lo que la respuesta es la misma: 18/33.</p>
+
+<div class="rmdimportant">
+<p>No confundáis:</p>
+<ul>
+<li><p><span class="math inline">\(P(B)\)</span>: La probabilidad de que un individuo de la población global <span class="math inline">\(\Omega\)</span> pertenezca a <span class="math inline">\(B\)</span>.</p>
+<p>Por ejemplo, si <span class="math inline">\(B\)</span> es “llevar gafas”, <span class="math inline">\(P(B)\)</span> es la probabilidad de que una persona lleve gafas. La población en la que calculamos probabilidades es la de todas las personas.</p></li>
+<li><p><span class="math inline">\(P(B|A)\)</span>: Probabilidad de que un individuo de <span class="math inline">\(A\)</span> pertenezca a <span class="math inline">\(B\)</span>.</p>
+<p>Por ejemplo, si además <span class="math inline">\(A\)</span> es “ser mujer”, <span class="math inline">\(P(B|A)\)</span> es la probabilidad de que una <strong>mujer</strong> lleve gafas. La población en la que calculamos probabilidades es la de las <strong>mujeres</strong>.</p></li>
+<li><p><span class="math inline">\(P(A|B)\)</span>: Probabilidad de que un individuo de <span class="math inline">\(B\)</span> pertenezca a <span class="math inline">\(A\)</span>.</p>
+<p>Por ejemplo, con las notaciones anteriores, <span class="math inline">\(P(A|B)\)</span> es la probabilidad de que una persona que lleva gafas sea mujer. La población en la que calculamos probabilidades es la de <strong>las personas que llevan gafas</strong>.</p></li>
+<li><p><span class="math inline">\(P(B\cap A)\)</span>: Probabilidad de que un individuo de la población global pertenezca simultáneamente a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>.</p>
+<p>Por ejemplo, con las notaciones anteriores, <span class="math inline">\(P(A\cap B)\)</span> es la probabilidad de que una persona <strong>sea mujer y lleve gafas</strong>. La población en la que calculamos probabilidades vuelve a ser la de todas las personas.</p>
+</div></li>
+</ul>
+
+<div class="rmdexercici">
+<p>En una universidad, los alumnos se distribuyen de la manera siguiente por tipos de estudios y sexos:
+<span class="math display">\[
+\begin{array}{r|c|c|c|c|c}
+\text{Estudio} &amp; \text{Ciencias} &amp; \text{Derecho} &amp; \text{Educación} &amp; \text{Otros} &amp;  \text{Total}\\ \hline
+\text{Hombres} &amp; 1200 &amp; 1300 &amp;  300 &amp; 2000 &amp; 4800\\ \hline
+\text{Mujeres} &amp; 1400 &amp; 600 &amp; 1600 &amp; 1600 &amp; 5200\\ \hline
+\text{Total} &amp; 2600  &amp;1900 &amp; 1900 &amp;  3600 &amp; 10000\\  
+\end{array}
+\]</span></p>
+<p>Si escojo un estudiante al azar, ¿cuál es la probabilidad de que:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Sea hombre o mujer?</li>
+<li>Sea mujer?</li>
+<li>Esté matriculado en Ciencias?</li>
+<li>No esté matriculado en Ciencias?</li>
+<li>Sea mujer o esté matriculado en Derecho?</li>
+<li>Sea mujer y esté matriculada en Derecho?</li>
+<li>Sea mujer pero no esté matriculada en Derecho?</li>
+<li>Si está matriculado en Educación, sea mujer?</li>
+<li>Si es mujer, esté matriculada en Educación?</li>
+<li>Si es mujer, no esté matriculada en Educación?</li>
+<li>Si no es mujer, esté matriculado en Educación?</li>
+</ol>
+</div>
+<p>La probabilidad condicionada a <span class="math inline">\(A\)</span>, <span class="math inline">\(P(-|A)\)</span>, es una probabilidad “de verdad”, simplemente hemos cambiado la población de <span class="math inline">\(\Omega\)</span> a <span class="math inline">\(A\)</span>. Es decir, en vez de trabajar con proporciones de la población total <span class="math inline">\(\Omega\)</span>, trabajamos con proporciones de la subpoblación definida por los sujetos de <span class="math inline">\(A\)</span>. Por lo tanto, <span class="math inline">\(P(-|A)\)</span> satisface todas las propiedades de las probabilidades. Por ejemplo, se cumple que:</p>
+<ul>
+<li><span class="math inline">\(P(B^c|A)=1-P(B|A)\)</span></li>
+<li><span class="math inline">\(P(C-B|A)=P(C|A)-P(B\cap C|A)\)</span></li>
+<li><span class="math inline">\(P(B\cup C|A)=P(B|A)+P(C|A)-P(B\cap C|A)\)</span></li>
+</ul>
+
+<div class="rmdcaution">
+<p>Pero si en <span class="math inline">\(P(B|A)\)</span> fijamos la <span class="math inline">\(B\)</span> y permitimos que <span class="math inline">\(A\)</span> varíe (es decir, si fijamos el suceso que nos interesa y variamos la población en la que calcularemos su probabilidad), ya no se cumplen las propiedades de las probabilidades. Por ejemplo, en general:</p>
+<ul>
+<li><p><span class="math inline">\(P(B|A^c)\neq 1-P(B|A)\)</span></p>
+<p>No podéis esperar que la proporción de hombres que llevan gafas sea 1 menos la proporción de mujeres que llevan gafas, ¿verdad?</p></li>
+<li><p><span class="math inline">\(P(B|A_1\cup A_2)\neq P(B|A_1)+P(B|A_2)-P(B|A_1\cap A_2)\)</span></p></li>
+</ul>
+<strong>Ejercicio</strong>: Comprobadlo en el Ejercicio anterior.
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-103" class="example"><strong>Ejemplo 4.8  </strong></span>Supongamos que un 15% de los adultos son hipertensos, un 25% de los adultos creen que son hipertensos, y un 9% de los adultos son hipertensos y creen que lo son.</p>
+<ul>
+<li><p>Si un adulto cree que es hipertenso, ¿cuál es la probabilidad de que lo sea?</p></li>
+<li><p>Si un adulto es hipertenso, ¿cuál es la probabilidad de que crea que lo es?</p></li>
+<li><p>Si un adulto no cree que sea hipertenso, ¿cuál es la probabilidad de que sí lo sea?</p>
+</div></li>
+</ul>
+<p>Pongamos nombres a los sucesos involucrados en estas preguntas:</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span>: Ser hipertenso; <span class="math inline">\(P(A)=0.15\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span>: Creer ser hipertenso; <span class="math inline">\(P(B)=0.25\)</span></p></li>
+<li><p><span class="math inline">\(A\cap B\)</span>: Ser hipertenso y creerlo; <span class="math inline">\(P(A \cap B)=0.09\)</span></p></li>
+</ul>
+<p>En la primera pregunta nos piden la probabilidad de <span class="math inline">\(A\)</span> condicionada a <span class="math inline">\(B\)</span>:
+<span class="math display">\[
+P(A|B)=\frac{P(A\cap B)}{P(B)}=\dfrac{0.09}{0.25}=0.36
+\]</span>
+Si un adulto cree ser hipertenso, su probabilidad de que lo sea es del 36%.</p>
+<p>En la segunda pregunta nos piden la probabilidad de <span class="math inline">\(B\)</span> condicionada a <span class="math inline">\(A\)</span>:
+<span class="math display">\[
+P(B|A) =\frac{P(A\cap B)}{P(A)}=\frac{0.09}{0.15}=0.6
+\]</span>
+Si un adulto es hipertenso, su probabilidad de que crea que lo es es del 60%.</p>
+<p>Y en la tercera pregunta nos piden la probabilidad de <span class="math inline">\(A\)</span> condicionada a <span class="math inline">\(B^c\)</span>:
+<span class="math display">\[
+P(A|B^c) =\frac{P(A\cap B^c)}{P(B^c)}=\frac{P(A)-P(A\cap B)}{1-P(B)}=\frac{0.06}{0.75}=0.08
+\]</span>
+Si un adulto no cree ser hipertenso, su probabilidad de que sí serlo es del 8%.</p>
+
+<div class="rmdexercici">
+Calculad las probabilidades anteriores mediante el método de las frecuencias naturales.
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-105" class="example"><strong>Ejemplo 4.9  </strong></span>Un test para el VIH da positivo en un 99% de los casos en los que el virus está presente. En una población con el 0.5% de infectados por VIH:</p>
+<ul>
+<li><p>¿Cuál es la probabilidad de que si hacemos el test a un infectado, dé positivo?</p></li>
+<li><p>¿Cuál es la probabilidad de que hagamos el test a un infectado y dé positivo?</p>
+</div></li>
+</ul>
+<p>La respuesta a la primera pregunta nos la dan en el enunciado: “el test da positivo en un 99% de los casos en los que el virus está presente”, por lo que “la probabilidad de que si hacemos el test a un infectado, dé positivo” es 0.99.</p>
+<p>Pero la segunda pregunta no pide lo mismo que la primera, sino la probabilidad de que pasen dos cosas: que hagamos el test a un infectado <strong>Y</strong> que dé positivo. Es la probabilidad de una intersección.</p>
+<p>Pongamos nombres:</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span>: Estar infectado; <span class="math inline">\(P(A)=0.005\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span>: Dar positivo. De este suceso, sabemos solo la probabilidad condicionada <span class="math inline">\(P(B|A)=0.99\)</span></p></li>
+<li><p><span class="math inline">\(A\cap B\)</span>: Estar infectado y dar positivo. Es el suceso del que nos piden la probabilidad.
+<span class="math display">\[
+P(A|B)=\frac{P(A \cap B)}{P(B)}\Longrightarrow  P(A \cap B)=P(A|B)\cdot P(B)=0.005\cdot 0.99=0.00495
+\]</span></p></li>
+</ul>
+<p>La probabilidad de que, al hacer el test a un individuo al azar, dé positivo y esté infectado es del 0.0495%.</p>
+
+<div class="example">
+<p><span id="exm:triola" class="example"><strong>Ejemplo 4.10  </strong></span>Un cardiólogo nos contó una vez que la mitad de los enfermos que acudían a su consulta por supuestos problemas de corazón tenían en realidad estrés, y dos tercios, depresión. Nosotros vamos a suponer ahora que sólo un 15% de estos enfermos no sufrían ninguna de estas dos condiciones.</p>
+<ul>
+<li>¿Cuál es la probabilidad de que un enfermo de estos sufra estrés si sufre depresión?</li>
+<li>¿Cuál es la probabilidad de que un enfermo de estos <strong>no</strong> sufra estrés si <strong>no</strong> sufre depresión?</li>
+</ul>
+</div>
+<p>Esta vez vamos a usar primero el método de frecuencias naturales. Vamos a suponer que tenemos una población de referencia de 300 personas que acuden al cardiólogo.</p>
+<ul>
+<li>De ellas, 150 sufren estrés y las otras 150 no.</li>
+<li>Dos tercios, es decir, 200 sufren depresión y 100 no.</li>
+<li>Hay un 15% de la población, es decir, 45 sujetos que no sufren ninguna de las dos condiciones. Por lo tanto:
+<ul>
+<li>De los 150 que no sufren estrés, 45 tampoco sufren depresión y los otros 105 sí.</li>
+<li>De los 100 que no sufren depresión, 45 tampoco sufren estrés y los otros 55 sí.</li>
+</ul></li>
+<li>Ya tenemos 45 pacientes sin estrés ni depresión, 105 con depresión pero sin estrés y 55 con estrés pero sin depresión, en total 205 pacientes. Los otros 95, del total de 300, tendrán ambas enfermedades.</li>
+</ul>
+<p>Obtenemos la tabla de frecuencias siguiente:
+<span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; \text{Depresión} &amp; \text{No depresión} &amp; \text{Total}\\ \hline
+\text{Estrés} &amp; 95 &amp; 55 &amp; 150 \\ \hline
+\text{No estrés} &amp; 105 &amp; 45 &amp; 150 \\ \hline
+\text{Total} &amp;  200 &amp; 100 &amp; 300\\ 
+\end{array}
+\]</span>
+Y ahora:</p>
+<ul>
+<li><p>Como hay 200 pacientes con depresión, de los cuales 95 tienen también estrés, la proporción de pacientes con depresión que sufren estrés es 95/200=0.475. Un 47.5% de los pacientes que tienen depresión, también tienen estrés.</p></li>
+<li><p>Como hay 100 pacientes sin depresión, de los cuales 45 no tienen estrés, la proporción de pacientes sin depresión que tampoco sufren estrés es 45/100=0.45. Un 45% de los pacientes que no tienen depresión, tampoco tienen estrés</p></li>
+</ul>
+<p>¿Cómo lo hubiéramos resuelto usando las propiedades de probabilidades? Pongamos nombres:</p>
+<ul>
+<li><p><span class="math inline">\(E\)</span>: Tener estrés; <span class="math inline">\(P(E)=0.5\)</span></p></li>
+<li><p><span class="math inline">\(D\)</span>: Tener depresión; <span class="math inline">\(P(D)=2/3\)</span></p></li>
+<li><p><span class="math inline">\(E^c \cap D^c\)</span>: No tener ni estrés ni depresión; <span class="math inline">\(P(E^c\cap D^c)=0.15\)</span></p></li>
+</ul>
+Con estas notaciones, en la primera pregunta nos piden
+<span class="math display">\[
+P(E|D)=\dfrac{P(E\cap D)}{P(D)}
+\]</span>
+Para calcularla, necesitamos saber <span class="math inline">\(P(E\cap D)\)</span>. Para calcularla, usamos:
+<span class="math display">\[
+P(E\cap D)=P(E)P(D)=0.5\cdot \frac{2}{3}=0.3333
+\]</span>
+
+<div class="rmderror">
+<strong>¡Que no!</strong> ¡Que la probabilidad de la intersección NO es en general igual al producto de las probabilidades!
+</div>
+<p>Habrá que currárselo algo más:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(P((E\cup D)^c)=P(E^c\cap D^c)=0.15\)</span>, por lo tanto <span class="math inline">\(P(E\cup D)=1-P((E\cup D)^c)=0.85\)</span></p></li>
+<li><p><span class="math inline">\(P(E\cap D)=P(E)+P(D)-P(E\cup D)=0.5+2/3-0.85=0.31667\)</span></p></li>
+</ol>
+<p>Ahora sí, finalmente, <span class="math inline">\(P(E|D)=P(E\cap D)/P(D)=0.31667/0.66667=0.475\)</span></p>
+<p>En la segunda pregunta nos piden
+<span class="math display">\[
+P(E^c|D^c)=\dfrac{P(E^c\cap D^c)}{P(D^c)}
+\]</span>
+y esta probabilidad la podemos calcular directamente, porque sabemos que <span class="math inline">\(P(E^c\cap D^c)=0.15\)</span> y <span class="math inline">\(P(D^c)=1-P(D)=1-2/3=1/3\)</span>, por lo que <span class="math inline">\(P(E^c|D^c)=P(E^c\cap D^c)/P(D^c)=0.15/(1/3)=0.45\)</span>.</p>
+
+<div class="rmdexercici">
+En la situación del ejemplo anterior, ¿cuál es la probabilidad de que un enfermo de estos sufra depresión si sufre estrés? ¿Y cuál la de que un enfermo de estos <strong>no</strong> sufra depresión si <strong>no</strong> sufre estrés?
+</div>
+<p>Las <em>odds</em> y las <em>odds ratios</em> también pueden ser <strong>condicionadas</strong>.</p>
+<ul>
+<li><p>Las <strong><em>odds</em> de <span class="math inline">\(B\)</span> entre los sujetos de <span class="math inline">\(A\)</span></strong> (o las <em>odds</em> de <span class="math inline">\(B\)</span> <strong>condicionadas</strong> a <span class="math inline">\(A\)</span>) son
+<span class="math display">\[
+\text{Odds}(B|A)=\frac{P(B|A)}{P(B^c|A)}
+\]</span>
+Mide cuántas veces es más (o menos) probable <span class="math inline">\(B\)</span> que “no <span class="math inline">\(B\)</span>” entre los sujetos de <span class="math inline">\(A\)</span>.</p></li>
+<li><p>La <strong><em>odds ratio</em> de <span class="math inline">\(B\)</span> relativa a <span class="math inline">\(A\)</span></strong> es
+<span class="math display">\[
+\text{OR}(B|A)=\frac{\text{Odds}(B|A)}{\text{Odds}(B|A^c)}
+\]</span>
+Mide cuántas veces son mayores (o menores) las <em>odds</em> de <span class="math inline">\(B\)</span> entre los sujetos de <span class="math inline">\(A\)</span> que las <em>odds</em> de <span class="math inline">\(B\)</span> entre los sujetos de fuera de <span class="math inline">\(A\)</span>.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-108" class="example"><strong>Ejemplo 4.11  </strong></span>Volvamos a la situación del Ejemplo <a href="probabilidades-elementales-las-mates-chapprobst.html#exm:triola">4.10</a>. Si, entre los pacientes de nuestro amigo cardiólogo, llamamos <span class="math inline">\(E\)</span> al suceso “Tener estrés” y <span class="math inline">\(D\)</span> al suceso “Tener depresión”, habíamos calculado que <span class="math inline">\(P(E|D)=0.475\)</span> y <span class="math inline">\(P(E^c|D^c)=0.45\)</span>. Si habéis hecho el ejercicio que hemos propuesto tras el ejemplo habréis calculado <span class="math inline">\(P(D|E)=0.6334\)</span> y <span class="math inline">\(P(D^c|E^c)=0.3\)</span>.</p>
+<p>Entonces:</p>
+</div>
+<ul>
+<li><p>Las <em>odds</em> de tener estrés entre los pacientes que tienen depresión son
+<span class="math display">\[
+\text{Odds}(E|D)=\frac{P(E|D)}{P(E^c|D)}=\frac{0.475}{0.525}=0.905
+\]</span></p>
+<p>Entre los pacientes con depresión, la probabilidad de tener estrés es 0.905 veces la de no tenerlo, es decir, un 9.5% menor.</p></li>
+</ul>
+
+<div class="rmdcaution">
+Por favor, no digáis que “la probabilidad de tener estrés es 0.905 veces <strong>mayor</strong> que la de no tenerlo”.
+</div>
+<ul>
+<li><p>Las <em>odds</em> de tener estrés entre los pacientes que no tienen depresión son
+<span class="math display">\[
+\text{Odds}(E|D^c)=\frac{P(E|D^c)}{P(E^c|D^c)}=\frac{0.55}{0.45}=1.22
+\]</span></p>
+<p>Entre los pacientes sin depresión, la probabilidad de tener estrés es 1.22 veces la de no tenerlo, es decir, un 22% mayor.</p></li>
+<li><p>Las <em>odds</em> de tener depresión entre los pacientes que tienen estrés son
+<span class="math display">\[
+\text{Odds}(D|E)=\frac{P(D|E)}{P(D^c|E)}=\frac{0.6334}{0.3666}=1.73
+\]</span></p>
+<p>Entre los pacientes con estrés, la probabilidad de tener depresión es 1.73 veces la de no tenerla, es decir, un 73% mayor.</p></li>
+<li><p>Las <em>odds</em> de tener depresión entre los pacientes que no tienen estrés son
+<span class="math display">\[
+\text{Odds}(D|E^c)=\frac{P(D|E^c)}{P(D^c|E^c)}=\frac{0.7}{0.3}=2.33
+\]</span></p>
+<p>Entre los pacientes sin estrés, la probabilidad de tener depresión es 2.33 veces la de no tenerla, es decir, un 133% mayor.</p></li>
+<li><p>La <em>odds ratio</em> de tener estrés relativa a tener depresión es
+<span class="math display">\[
+\text{OR}(E|D)=\frac{\text{Odds}(E|D)}{\text{Odds}(E|D^c)}=\frac{0.905}{1.222}=0.74
+\]</span></p>
+<p>Las <em>odds</em> de tener estrés entre los que tienen depresión son 0.74 veces las de tener estrés entre los que no tienen depresión, es decir, un 26% menores.</p></li>
+<li><p>La <em>odds ratio</em> de tener depresión relativa a tener estrés es
+<span class="math display">\[
+\text{OR}(D|E)=\frac{\text{Odds}(D|E)}{\text{Odds}(D|E^c)}=\frac{1.73}{2.33}=0.74
+\]</span></p>
+<p>Las <em>odds</em> de tener depresión entre los que tienen estrés son 0.74 veces las de tener depresión entre los que no tienen estrés, es decir, de nuevo un 26% menores.</p></li>
+</ul>
+
+<div class="rmdromans">
+La <em>odds ratio</em> de tener estrés relativa a tener depresión ha dado lo mismo que la <em>odds ratio</em> de tener depresión relativa a tener estrés. ¿Casualidad? No.
+</div>
+<p>El teorema siguiente va a ser muy útil en los estudios de casos y controles.</p>
+
+<div class="theorem">
+<p><span id="thm:ORrelativa" class="theorem"><strong>Teorema 4.1  </strong></span>Dados dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, <span class="math inline">\(\text{OR}(A|B)=\text{OR}(B|A)\)</span>.</p>
+</div>
+
+<div class="rmdcorbes">
+Se trata de ir operando astutamente:
+<span class="math display">\[
+\begin{array}{l}
+\text{OR}(B|A)\!\!\!\!\! &amp;= \dfrac{\text{Odds}(B|A)}{\text{Odds}(B|A^c)}\\
+&amp; = \dfrac{P(B|A)/P(B^c|A)}{P(B|A^c)/P(B^c|A^c)}\\
+&amp;=\dfrac{P(B|A)\cdot P(B^c|A^c)}{P(B^c|A)\cdot P(B|A^c)}\\
+&amp; =\dfrac{P(B|A)\cdot P(B^c|A^c)\cdot P(A)\cdot P(A^c)}{P(B^c|A)\cdot P(B|A^c)\cdot P(A)\cdot P(A^c)}\\
+&amp; =\dfrac{P(B\cap A)\cdot P(B^c\cap A^c)}{P(B^c\cap A)\cdot P(B\cap A^c)}\\
+&amp; =\dfrac{P(A|B)\cdot P(A^c|B^c)\cdot P(B)\cdot P(B^c)}{P(A|B^c)\cdot P(A^c|B)\cdot P(B)\cdot P(B^c)}\\
+&amp; =\dfrac{P(A|B)\cdot P(A^c|B)}{P(A|B^c)\cdot P(A^c|B)}\\
+&amp;=\dfrac{P(A|B)/P(A^c|B)}{P(A|B^c)/P(A^c|B^c)}\\
+&amp; = \dfrac{\text{Odds}(A|B)}{\text{Odds}(A|B^c)}=\text{OR}(A|B)
+\end{array}
+\]</span>
+</div>
+</div>
+<div id="sucesos-independientes" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Sucesos independientes</h2>
+<p>Dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> (ambos de probabilidad no 0) son <strong>independientes</strong> cuando <span class="math inline">\(P(B|A)=P(B)\)</span>. Es decir:</p>
+<ul>
+<li>Cuando el pertenecer a <span class="math inline">\(A\)</span> no modifica la probabilidad de pertenecer a <span class="math inline">\(B\)</span>.</li>
+<li>Cuando que ocurra <span class="math inline">\(A\)</span> no modifica la probabilidad de que ocurra <span class="math inline">\(B\)</span>.</li>
+<li>Cuando la proporción de sujetos de <span class="math inline">\(B\)</span> dentro de <span class="math inline">\(A\)</span> es la misma que dentro del total de la población.</li>
+</ul>
+<p>En esta definición los papeles de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son intercambiables, como muestra el resultado siguiente que, además, da una caracterización alternativa muy importante.</p>
+
+<div class="proposition">
+<p><span id="prp:indep" class="proposition"><strong>Proposition 4.1  </strong></span>Dados dos sucesos <span class="math inline">\(A,B\)</span>, ambos de probabilidad ni 0 ni 1, las cinco condiciones siguientes son equivalentes:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(P(A \cap B)=P(A)\cdot P(B)\)</span></li>
+<li><span class="math inline">\(P(B|A)=P(B)\)</span></li>
+<li><span class="math inline">\(P(A|B)=P(A)\)</span></li>
+<li><span class="math inline">\(P(B|A)=P(B|A^c)\)</span></li>
+<li><span class="math inline">\(P(A|B)=P(A|B^c)\)</span>
+</div></li>
+</ol>
+
+<div class="rmdcorbes">
+En efecto, fijaos en que, por la definición de probabilidad condicionada,
+<span class="math display">\[
+\begin{array}{l}
+\mathbf{P(B|A)=P(B)} \Longleftrightarrow \dfrac{P(A\cap B)}{P(A)}=P(B)\\ \qquad \Longleftrightarrow
+\mathbf{P(A\cap B)=P(A)\cdot P(B)}
+\\ \qquad \Longleftrightarrow \dfrac{P(A\cap B)}{P(B)}=P(A)\\ \qquad \Longleftrightarrow
+\mathbf{P(A|B)=P(A)}
+\end{array}
+\]</span>
+Esto demuestra (a) <span class="math inline">\(\Leftrightarrow\)</span> (b) <span class="math inline">\(\Leftrightarrow\)</span> (c).
+Por otro lado
+<span class="math display">\[
+\begin{array}{l}
+\mathbf{P(B|A)=P(B|A^c)}\Longleftrightarrow \dfrac{P(A\cap B)}{P(A)}=\dfrac{P(A^c\cap B)}{P(A^c)}\\ \qquad \Longleftrightarrow
+P(A\cap B)P(A^c)=P(A^c\cap B)P(A)=P(B-A)P(A)\\ \qquad \Longleftrightarrow
+P(A\cap B)(1-P(A))=(P(B)-P(A\cap B))P(A)\\ \qquad \Longleftrightarrow
+P(A\cap B)-P(A\cap B)P(A)=P(B)P(A)-P(A\cap B)P(A)\\ \qquad \Longleftrightarrow
+\mathbf{P(A\cap B)=P(B)P(A)}
+\end{array}
+\]</span>
+lo que demuestra (a) <span class="math inline">\(\Leftrightarrow\)</span> (d). La equivalencia (a) <span class="math inline">\(\Leftrightarrow\)</span> (e) se demuestra intercambiando los papeles de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> en la equivalencia (a) <span class="math inline">\(\Leftrightarrow\)</span> (d).
+</div>
+<p>Es decir, las afirmaciones siguientes son equivalentes entre si, y corresponden a lo que definimos como que <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> sean <strong>independientes</strong>:</p>
+<ul>
+<li><p>La proporción de sujetos de <span class="math inline">\(B\)</span> dentro de <span class="math inline">\(A\)</span> es la misma que dentro del total de la población.</p></li>
+<li><p>La proporción de sujetos de <span class="math inline">\(B\)</span> dentro de <span class="math inline">\(A\)</span> es la misma que dentro del complementario de <span class="math inline">\(A\)</span></p></li>
+<li><p>La proporción de sujetos de <span class="math inline">\(A\)</span> dentro de <span class="math inline">\(B\)</span> es la misma que dentro del total de la población.</p></li>
+<li><p>La proporción de sujetos de <span class="math inline">\(A\)</span> dentro de <span class="math inline">\(B\)</span> es la misma que dentro del complementario de <span class="math inline">\(B\)</span>.</p></li>
+</ul>
+<p>A partir del resultado anterior, se deduce fácilmente que las condiciones siguientes son equivalentes:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son independientes.</li>
+<li><span class="math inline">\(A^c\)</span> y <span class="math inline">\(B\)</span> son independientes.</li>
+<li><span class="math inline">\(A\)</span> y <span class="math inline">\(B^c\)</span> son independientes.</li>
+<li><span class="math inline">\(A^c\)</span> y <span class="math inline">\(B^c\)</span> son independientes.</li>
+</ol>
+<p>Es razonable. Decir que la probabilidad de que pase <span class="math inline">\(A\)</span> no depende del hecho de que pase <span class="math inline">\(B\)</span> (<span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> independientes) o no, es lo mismo que decir que la probabilidad de que pase <span class="math inline">\(A\)</span> no depende de que no pase <span class="math inline">\(B\)</span> o sí pase (<span class="math inline">\(A\)</span> y <span class="math inline">\(B^c\)</span> independientes). Y si la probabilidad de que pase <span class="math inline">\(A\)</span> no depende de que pase <span class="math inline">\(B\)</span> o no, la probabilidad de que no pase <span class="math inline">\(A\)</span> tampoco depende de que pase <span class="math inline">\(B\)</span> o no.</p>
+
+<div class="rmdnote">
+Hemos dado la definición de independencia para sucesos de probabilidad no nula. Para cubrir todos los casos, un suceso de probabilidad 0 se considera siempre independiente de cualquier otro. Es razonable, porque si <span class="math inline">\(P(A)=0\)</span>, entonces, como <span class="math inline">\(A\cap B\subseteq A\)</span>, también <span class="math inline">\(P(A\cap B)=0\)</span> para cualquier suceso <span class="math inline">\(B\)</span>, y se cumple entonces que <span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span>.
+</div>
+<p>Más en general, dada una familia de sucesos <span class="math inline">\(A_1,\ldots,A_n\)</span>, diremos que son <strong>independientes</strong> cuando, para todo subconjunto de índices <span class="math inline">\(\{i_1,\ldots,i_k\}\subseteq \{1,2,\ldots,n\}\)</span> se tiene que
+<span class="math display">\[
+P(A_{i_1}\cap\cdots \cap A_{i_k})=P(A_{i_1})\cdots P(A_{i_k})
+\]</span></p>
+
+<div class="rmdimportant">
+La fórmula <span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span> que tanto os gusta solo es válida cuando <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son independientes.
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-115" class="example"><strong>Ejemplo 4.12  </strong></span>En los EEUU, un 33% de la población es hipertensa. Supongamos que escogemos al azar un estadounidense y le hacemos lanzar una moneda equilibrada. ¿Cuál es la probabilidad de que sea hipertenso y saque cara?</p>
+</div>
+<p>Consideremos los sucesos:</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span>: Que el estadounidense sea hipertenso; <span class="math inline">\(P(A)=0.33\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span>: Que saque cara; <span class="math inline">\(P(B)=0.5\)</span></p></li>
+</ul>
+<p>La probabilidad que queremos calcular es <span class="math inline">\(P(A\cap B)\)</span>: la probabilidad de que el sujeto sea hipertenso y saque cara.</p>
+<p>Naturalmente, ser hipertenso y sacar cara son sucesos independientes. La probabilidad de que salga cara no tiene nada que ver con la tensión arterial de quien la lanza. Por lo tanto
+<span class="math display">\[
+P(A\cap B)=P(A)\cdot P(B)=0.33\cdot 0.5=0.165
+\]</span>
+La probabilidad de que el estadounidense escogido al azar sea hipertenso y saque cara es del 16.5%.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-116" class="example"><strong>Ejemplo 4.13  </strong></span>En los EEUU, el 36.5% de la población adulta es obesa, el 33% es hipertensa, y el 49.5% es obesa o hipertensa (datos del Centro de Control de Enfermedades, CDC, 2014). ¿Son la obesidad y la hipertensión sucesos independientes?</p>
+</div>
+<p>Consideremos los sucesos:</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span>: Que un estadounidense adulto sea obeso; <span class="math inline">\(P(A)=0.365\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span>: Que un estadounidense adulto sea hipertenso; <span class="math inline">\(P(B)=0.33\)</span></p></li>
+</ul>
+<p>Queremos saber si <span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span>. Para ello tenemos que calcular <span class="math inline">\(P(A\cap B)\)</span> a partir de los datos que tenemos:
+<span class="math display">\[
+P(A \cap B)  =P(A)+P(B)-P(A\cup B)=0.365+0.33-0.495=0.2
+\]</span></p>
+<p>Por otro lado, <span class="math inline">\(P(A)\cdot P(B)= 0.365\cdot 0.33=0.12\)</span></p>
+<p>Por lo tanto, son sucesos dependientes. De hecho, <span class="math inline">\(P(B|A)=0.2/0.365=0.55&gt; 0.33=P(B)\)</span>: la probabilidad de ser hipertenso entre los obesos es mayor que en el global de la población estadounidense.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-117" class="example"><strong>Ejemplo 4.14  </strong></span>Un cierto test da positivo en un 10% de los individuos que no tienen una determinada enfermedad. Si a un individuo sano se le realizan dos tests independientes, ¿cuál es la probabilidad de que <strong>ambos</strong> den positivo? ¿Y la de que <strong>alguno</strong> dé positivo?</p>
+</div>
+<p>Consideremos los sucesos:</p>
+<ul>
+<li><span class="math inline">\(A_1\)</span>: El primer test da positivo sobre un individuo sano</li>
+<li><span class="math inline">\(A_2\)</span>: El segundo test da positivo sobre un individuo sano</li>
+</ul>
+<p>Sabemos que <span class="math inline">\(P(A_1)=P(A_2)=0.1\)</span> y que, como las dos repeticiones del test son independientes, los sucesos <span class="math inline">\(A_1\)</span> y <span class="math inline">\(A_2\)</span> son independientes.</p>
+<p>La probabilidad que los dos den positivo es
+<span class="math display">\[
+P(A_1\cap A_2) =P(A_1)\cdot P(A_2)  =0.1\cdot 0.1=0.01
+\]</span></p>
+<p>La probabilidad que alguno dé positivo es
+<span class="math display">\[
+\begin{array}{rl}
+P(A_1\cup A_2)\!\!\!\! &amp; =P(A_1)+P(A_2)-P(A_1\cap A_2)\\
+&amp; = 0.1+0.1-0.01=0.19
+\end{array}
+\]</span></p>
+
+<div class="rmdexercici">
+Tenemos dos tests, A y B, para una determinada enfermedad. Sobre los individuos que tienen dicha enfermedad, el test A da positivo en un 95% de las ocasiones y el test B da positivo en un 90% de las ocasiones.
+Si a un individuo enfermo se le realizan los dos tests de manera independiente, ¿cuál es la probabilidad de que alguno dé positivo?
+</div>
+</div>
+<div id="probabilidad-total" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Probabilidad total</h2>
+<p>Volvamos a un ejercicio de la Lección <a href="chap-conceptos.html#chap:conceptos">3</a>, aunque ligeramente modificado.</p>
+
+<div class="example">
+<p><span id="exm:TPT1" class="example"><strong>Ejemplo 4.15  </strong></span>Tenemos una población clasificada en dos subpoblaciones, A y B; por ejemplo, expuestos y no expuestos a un factor de riesgo. La subpoblación A representa un 20% de la población y la B el 80% restante. Un 50% de la subpoblación A y un 5% de la subpoblación B presentan una cierta característica X; por ejemplo, desarrollan una enfermedad.</p>
+¿Qué proporción de la población presenta dicha característica X?
+</div>
+<p><img src="INREMDN_files/figure-html/TPT.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Esta pregunta la podemos resolver fácilmente mediante el método de frecuencias naturales. Supongamos que nuestra población de referencia es de 1000 individuos. Entonces:</p>
+<ul>
+<li><p>200 serán de la subpoblación A, de los cuales la mitad, 100 tendrán la característica X y los otros 100 no.</p></li>
+<li><p>800 serán de la subpoblación B, de los cuales el 5%, 40 tendrán la característica X y los otros 760 no.</p></li>
+</ul>
+<p>Obtenemos la tabla de frecuencias siguiente:
+<span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; A &amp; B &amp; \text{Total}\\\hline
+X &amp;100 &amp; 40 &amp;140\\ \hline
+\text{No }X &amp;100 &amp; 760 &amp;860\\\hline
+\text{Total} &amp;200 &amp; 800 &amp; 1000
+\end{array}
+\]</span>
+Entonces la fracción de los sujetos del total de la población con la característica X es 140/1000, un 14%.</p>
+<p>¿Cómo podríamos usar las propiedades de las probabilidades para calcular este valor? Pues simplemente teniendo en cuenta que, como los sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, definidos por las correspondientes subpoblaciones, son disjuntos y recubren toda la población, tenemos que
+<span class="math display">\[
+X=(X\cap A)\cup (X\cap B),\quad (X\cap A)\cap (X\cap B)=\emptyset
+\]</span>
+y por lo tanto
+<span class="math display">\[
+P(X)=P(X\cap A)+P(X\cap B)=P(X|A)P(A)+P(X|B)P(B).
+\]</span></p>
+<p>Como <span class="math inline">\(P(A)=0.2\)</span>, <span class="math inline">\(P(B)=0.8\)</span>, <span class="math inline">\(P(X|A)=0.5\)</span> y <span class="math inline">\(P(X|B)=0.05\)</span></p>
+<p><span class="math display">\[
+P(X)=0.5\cdot 0.2+0.05\cdot 0.8=0.14.
+\]</span></p>
+<p>El ejemplo anterior es una aplicación del <strong>Teorema de la probabilidad total</strong> siguiente:</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-120" class="theorem"><strong>Teorema 4.2  </strong></span>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(X\)</span> son dos sucesos y <span class="math inline">\(0&lt;P(A)&lt;1\)</span>,
+<span class="math display">\[
+P(X)= P(X\cap A) +P(X\cap A^c)=P(A)\cdot P(X|A)+ P(A^c)\cdot P(X|A^c)
+\]</span>
+</div>
+<p>Algunos de vosotros habréis usado en Bachillerato un diagrama de árbol como el siguiente para representar este teorema:</p>
+<p><img src="INREMDN_files/figure-html/arbreTPT.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Luego se calcula la probabilidad de cada “hoja” del árbol como el producto de las probabilidades del camino que llega a ella desde <span class="math inline">\(\Omega\)</span> y se calcula como <span class="math inline">\(P(X)\)</span> la suma de las probabilidades de las hojas cuyo suceso contiene “<span class="math inline">\(\cap X\)</span>”.</p>
+<p>En el ejemplo anterior, este diagrama es</p>
+<p><img src="INREMDN_files/figure-html/arbreTPTex.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Más en general, llamaremos una <strong>partición</strong> (o <strong>estratificación</strong>, <strong>clasificación</strong>) de una población <span class="math inline">\(\Omega\)</span> a una familia (finita) de sucesos <span class="math inline">\(A_1,\ldots,A_n\)</span> tales que</p>
+<ol style="list-style-type: decimal">
+<li>Recubren todo <span class="math inline">\(\Omega\)</span>: <span class="math inline">\(\Omega=A_1\cup\cdots\cup A_n\)</span>.</li>
+<li>Dos a dos son disjuntos: Para cada <span class="math inline">\(i,j\in\{1,\ldots,n\}\)</span>, si <span class="math inline">\(i\neq j\)</span>, se tiene que <span class="math inline">\(A_i\cap A_j=\emptyset\)</span>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:partición"></span>
+<img src="INREMDN_files/figure-html/particio.png" alt="Una partición." width="80%" />
+<p class="caption">
+Figura 4.12: Una partición.
+</p>
+</div>
+<p>Por ejemplo, los sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> del Ejemplo <a href="probabilidades-elementales-las-mates-chapprobst.html#exm:TPT1">4.15</a> forman una partición de la población considerada.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-121" class="theorem"><strong>Teorema 4.3  </strong></span>Sea <span class="math inline">\(A_1\)</span>, …, <span class="math inline">\(A_n\)</span> una partición de la población tal que <span class="math inline">\(P(A_1)\)</span>, …, <span class="math inline">\(P(A_n)\)</span> son todas diferentes de 0. Para todo suceso <span class="math inline">\(X\)</span>,
+<span class="math display">\[
+  \begin{array}{rl}
+P(X)\!\!\!\! &amp; = P(X\cap A_1) +\cdots+P(X\cap A_n)\\ &amp; =P(A_1)\cdot P(X|A_1)+\cdots+ P(A_n)\cdot P(X|A_n)
+\end{array}
+\]</span>
+</div>
+
+<div class="rmdnote">
+Si al ir a aplicar el teorema de la probabilidad total os encontráis con alguna probabilidad <span class="math inline">\(P(A_i)=0\)</span>, tomad <span class="math inline">\(P(A_i)P(X|A_i)=0\)</span> en la suma de la derecha.
+</div>
+
+<div class="example">
+<p><span id="exm:VIH995prev" class="example"><strong>Ejemplo 4.16  </strong></span>Un test para el VIH da positivo un 99% de los casos en los que el virus está presente y en un 5% de los casos en los que el virus no está presente. En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo escogido al azar dé positivo?</p>
+</div>
+<p>En primer lugar vamos a usar el teorema de la probabilidad total para calcular esta probabilidad. Sean los sucesos:</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span>: Que un individuo esté infectado de VIH; <span class="math inline">\(P(A)=0.005\)</span>.</p></li>
+<li><p><span class="math inline">\(X\)</span>: Que un individuo dé positivo en el test. Sabemos que <span class="math inline">\(P(X|A)=0.99\)</span> y <span class="math inline">\(P(X|A^c)= 0.05\)</span>.</p></li>
+</ul>
+<p>Entonces
+<span class="math display">\[
+\begin{array}{rl}
+P(X) \!\!\!\!   &amp;  =P(A)\cdot P(X|A)+P(A^c)\cdot P(X|A^c) \\
+&amp;=0.005\cdot 0.99+0.995\cdot 0.05=0.0547
+\end{array}
+\]</span></p>
+<p>Usemos ahora la técnica de frecuencias naturales. Tomemos una población de referencia de 100,000 individuos.</p>
+<ul>
+<li><p>Un 0.05% están infectados: 500 infectados y 99500 no infectados.</p></li>
+<li><p>En un 99% de los infectados el test da positivo, son 495. En los 5 restantes da negativo.</p></li>
+<li><p>En un 5% de los no infectados da positivo, son 4975. En los 94525 restantes da negativo.</p></li>
+</ul>
+<p>La tabla de frecuencias resultante es</p>
+<p><span class="math display">\[
+\begin{array}{l|c|c|c}
+&amp; \text{Test }+ &amp; \text{Test }- &amp; \text{Total}\\
+\hline
+\text{VIH }+ &amp; 495 &amp; 5 &amp; 500\\ \hline
+\text{VIH }- &amp; 4975&amp; 94525 &amp; 99500\\\hline
+\text{Total} &amp;5470 &amp; 94530&amp;  100000
+\end{array}
+\]</span></p>
+<p>La proporción de personas en las que el test da positivo es 5470/100000=0.0547.</p>
+
+<div class="rmdexercici">
+En el estudio de Rotterdam del Ejemplo <a href="chap-estudios.html#exm:EPCOCoh">2.13</a>, un 21.7% de la cohorte inicial eran fumadores, un 43% habían sido fumadores pero ya no lo eran, y un 35.3% nunca habían fumado. En el primer grupo, un 26% desarrolló EPOC durante el seguimiento; entre el segundo grupo, un 13.6%, y en el tercero, un 6.4%. Vamos a llamar “fumador” a un sujeto de la cohorte que o fumaba al principio del estudio, o había fumado anteriormente pero lo había dejado. ¿Qué fracción de estos fumadores desarrolló EPOC?
+</div>
+<p>El teorema de la probabilidad total se usa de manera implícita en el cálculo de <strong>tasas ajustadas</strong>:</p>
+<ul>
+<li>Se divide una población en estratos (sexo, grupos étnicos, franjas de edad…).</li>
+<li>Se calcula la proporción de algo en cada estrato.</li>
+<li>Se deduce la proporción de ese algo en una población que tuviera una composición estándar de esos estratos.</li>
+</ul>
+<p>Por ejemplo:</p>
+<ol style="list-style-type: decimal">
+<li><p>Se calcula la tasa de mortalidad de una enfermedad por franjas de edad en España.</p></li>
+<li><p>Se toma como composición estándar en franjas de edad la media de la Unión Europea.</p></li>
+<li><p>Se deduce la tasa de mortalidad de esa enfermedad en una población cuya composición en franjas de edad fuera la media europea y en la que la tasa de mortalidad en cada franja de edad fuera la española.</p></li>
+</ol>
+<p>Calculando estas tasas ajustadas para todos los paíes de la UE, se pueden comparar sus tasas de mortalidad evitando el factor de confusión que podría representar la edad.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-124" class="example"><strong>Ejemplo 4.17  </strong></span>Una cierta enfermedad tiene en China una tasa de mortalidad del 0.1% entre los menores de 15 años, del 0.3% entre las personas de 15 a 64 años y de un 0.7% entre los mayores de 65 años. En la Unión Europea, un 15.5% de la población es menor de 15 años, un 65.4% tiene entre 15 y 64 años, y un 19.1% tiene 65 años o más. En China, estas proporciones son del 17.6%, 71.2% y 11.2%, respectivamente</p>
+<p>¿Cuál es la tasa de mortalidad de esta enfermedad en China? ¿Cuál sería la tasa de mortalidad de esta enfermedad ajustada a la distribución de edades de la Unión Europea?</p>
+</div>
+<p>Pongamos nombres a los sucesos de interés:</p>
+<ul>
+<li><p><span class="math inline">\(M\)</span>: Morir de la enfermedad</p></li>
+<li><p><span class="math inline">\(C_1\)</span>: Tener menos de 15 años en China; <span class="math inline">\(P(C_1)=0.176\)</span></p></li>
+<li><p><span class="math inline">\(C_2\)</span>: Tener entre 15 y 64 años en China; <span class="math inline">\(P(C_2)=0.712\)</span></p></li>
+<li><p><span class="math inline">\(C_3\)</span>: Tener 65 años o más en China; <span class="math inline">\(P(C_3)=0.112\)</span></p></li>
+<li><p><span class="math inline">\(E_1\)</span>: Tener menos de 15 años en Europa; <span class="math inline">\(P(E_1)=0.115\)</span></p></li>
+<li><p><span class="math inline">\(E_2\)</span>: Tener entre 15 y 64 años en Europa; <span class="math inline">\(P(E_2)=0.654\)</span></p></li>
+<li><p><span class="math inline">\(E_3\)</span>: Tener 65 años o más en Europa; <span class="math inline">\(P(E_3)=0.191\)</span></p></li>
+</ul>
+<p>Tenemos que <span class="math inline">\(P(M|C_1)=0.001\)</span>, <span class="math inline">\(P(M|C_2)=0.003\)</span> y <span class="math inline">\(P(M|C_3)=0.007\)</span>.</p>
+<p>Por el teorema de la probabilidad total, la tasa de mortalidad en China es
+<span class="math display">\[
+\begin{array}{rl}
+P(M)\!\!\!\! &amp;=P(M|C_1)\cdot P(C_1)+P(M|C_2)\cdot P(C_2)+P(M|C_3)\cdot P(C_3)\\
+&amp; =0.001\cdot 0.176+0.003\cdot 0.712+0.007\cdot 0.112=0.0031
+\end{array}
+\]</span>
+O sea, del 0.31%.</p>
+<p>La tasa de mortalidad de esta enfermedad ajustada a la distribución de edades de la Unión Europea, <span class="math inline">\(\mathit{TA}\)</span>, sería la probabilidad de <span class="math inline">\(M\)</span> en una población en la que cada franja de edad tuviera probabilidad como en Europa, <span class="math inline">\(P(E_i)\)</span>, y la tasa de mortalidad en cada franja de edad fuera como la de China, <span class="math inline">\(P(M|C_i)\)</span>:</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathit{TA}\!\!\!\!  &amp; =P(M|C_1)\cdot P(E_1)+P(M|C_2)\cdot P(E_2)+P(M|C_3)\cdot P(E_3)\\
+&amp; =0.001\cdot 0.115+0.003\cdot 0.654+0.007\cdot 0.191=0.0034
+\end{array}
+\]</span>
+Es decir, esta tasa de mortalidad ajustada es del 0.34%. Es un poco mayor que la “real” en China. Es razonable: vemos que la tasa de mortalidad crece con la edad, y China tiene una mayor proporción de niños y una menor proporción de ancianos que Europa.</p>
+
+<div class="rmdexercici">
+<p>Supongamos que en los Emiratos Árabes, donde hay 256 hombres por cada 100 mujeres (en serio, datos del <a href="https://www.cia.gov/library/publications/the-world-factbook/geos/print_ae.html">CIA Woldfact</a>), un 1% de los hombres y un 2% de las mujeres sufren de una determinada enfermedad.</p>
+<p><em>(b)</em> ¿Cuál es la prevalencia de esta enfermedad en esta población?</p>
+<em>(c)</em> ¿Cuál es la prevalencia de esta enfermedad ajustada a una población con un 50% de cada sexo?
+</div>
+
+<div class="rmdcaution">
+¿Os habéis fijado en que la CIA da la composición por sexos de la población mediante <em>odds</em> (hombres por mujer), no mediante proporciones (hombres por habitante)?
+</div>
+</div>
+<div id="fórmula-de-bayes" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Fórmula de Bayes</h2>
+<p>A menudo conocemos las probabilidades condicionadas en una dirección pero las que nos interesa saber son precisamente las probabilidades condicionadas en la dirección opuesta. Por ejemplo:</p>
+<ul>
+<li><p>En un estudio de casos y controles hemos estimado las probabilidades de que individuos sanos y enfermos hayan estado expuestos al factor de riesgo, pero lo que queremos es estimar las probabilidades de que individuos expuestos y no expuestos enfermen.</p></li>
+<li><p>Podemos conocer las proporciones de individuos sanos y enfermos que dan positivo en un test diagnóstico, pero lo interesante es la probabilidad de estar enfermo si das positivo en el test (o de estar sano si das negativo).</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:cancerpitpres" class="example"><strong>Ejemplo 4.18  </strong></span>Una mujer de 45 años da positivo en una mamografía anual de cribado. Si una mujer tiene cáncer de mama, la probabilidad de dar positivo en dicha prueba es del 99%, y si no lo tiene, esta probabilidad es aún del 9%. Os pide cuáles son sus probabilidades de tener cáncer de mama. ¿Qué contestaríais?</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Casi seguro, lo siento mucho</p></li>
+<li><p>Del orden de un 50%</p></li>
+<li><p>Del orden de un 10%</p></li>
+<li><p>Tranquila, del orden de un 1%</p></li>
+<li><p>Casi seguro de que no, del orden de un 0.1%</p></li>
+<li><p>¡Señora, yo estudié medicina, no matemáticas!</p></li>
+</ol>
+</div>
+<p>Las preguntas de este tipo no pueden responderse sin alguna información extra. Por ejemplo, la probabilidad global de haber estado expuestos al riesgo o la prevalencia de la enfermedad en el ejemplo de los estudios de casos y controles, o la prevalencia de la enfermedad o la proporción global de positivos en el ejemplo del test diagnóstico.</p>
+
+<div class="example">
+<p><span id="exm:cancerpitpres2" class="example"><strong>Ejemplo 4.19  </strong></span>Volved a la pregunta del Ejemplo <a href="probabilidades-elementales-las-mates-chapprobst.html#exm:cancerpitpres">4.18</a>. ¿Y si os decimos que la prevalencia del cáncer de mama entre las mujeres españolas es de alrededor del 0.5%? (Según el informe <a href="https://seom.org/seomcms/images/stories/recursos/Cifras_del_cancer_2020.pdf">“Las cifras del cáncer en España 2020”</a> de la Sociedad Española de Oncología Médica, la prevalencia del cáncer de mama en España en el período 2013-2018 fue de 130,000 casos de cáncer de mama entre los cerca de 24,000,000 de mujeres españolas.)</p>
+</div>
+<p>Este tipo de cuestiones se resuelve fácilmente por el método de frecuencias naturales.</p>
+
+<div class="example">
+<p><span id="exm:cancerpitpres3" class="example"><strong>Ejemplo 4.20  </strong></span>Volvamos a la pregunta de los dos ejemplos anteriores, pero para no hacer <em>spoilers</em>, vamos a resolverla con otro números. Vamos a suponer que la probabilidad de dar positivo en la mamografía si se tiene cáncer es del 90% y si no se tiene, del 10%, y que la prevalencia del cáncer de mama es del 1%.</p>
+</div>
+<p>Tomamos una población de referencia de 100,000 mujeres y calculamos la tabla de frecuencias en esta población correspondiente a la situación planteada.</p>
+<ul>
+<li><p>Un 1% de la población tiene cáncer de mama: 1,000 mujeres. Las 99,000 restantes, no.</p></li>
+<li><p>De las 1,000 mujeres con cáncer de mama, un 90% dan positivo en la mamografía: 900. Las 100 restantes, dan negativo</p></li>
+<li><p>De las 99,000 mujeres sin cáncer de mama, un 10% dan positivo en la mamografía: 9,900. Las 89,100 restantes dan negativo.</p></li>
+</ul>
+<p>La tabla de frecuencias resultante (donde “Test” indica la mamografía) es</p>
+<p><span class="math display">\[
+\begin{array}{l|c|c|c}
+&amp; \text{Test }+ &amp; \text{Test }- &amp; \text{Total}\\
+\hline
+\text{Cáncer Sí} &amp; 900 &amp; 100 &amp; 1000\\ \hline
+\text{Cáncer No} &amp; 9900&amp; 89100 &amp; 99000\\\hline
+\text{Total} &amp;10800 &amp; 89200&amp;  100000
+\end{array}
+\]</span></p>
+<p>Entonces, la proporción de mujeres con cáncer de mama entre las que dan positivo en la mamografía es de 900/10800= 0.0833: un 8.33%.</p>
+<p>La <strong>fórmula de Bayes</strong> siguiente permite resolver este tipo de problemas.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-127" class="theorem"><strong>Teorema 4.4  </strong></span>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos sucesos. Si <span class="math inline">\(P(A),P(B)&gt;0\)</span>, entonces
+<span class="math display">\[
+P(A|B) =\dfrac{P(A)\cdot P(B|A)}{P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c)}
+\]</span>
+</div>
+<p>Esta fórmula se obtiene de
+<span class="math display">\[
+P(A|B) =\dfrac{P(A \cap B)}{P(B)}
+\]</span>
+donde
+<span class="math display">\[
+P(A \cap B)=P(A)\cdot P(B|A)
+\]</span>
+y, por el teorema de la probabilidad total,
+<span class="math display">\[
+P(B)=P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c).
+\]</span></p>
+
+<div class="rmdcaution">
+Hasta donde sabemos, la fórmula de Bayes es la única fórmula “abstracta” que de vez en cuando aparece en alguna pregunta del MIR.
+</div>
+
+<div class="example">
+<span id="exm:cancerpitpres4" class="example"><strong>Ejemplo 4.21  </strong></span>Con los números del Ejemplo <a href="probabilidades-elementales-las-mates-chapprobst.html#exm:cancerpitpres3">4.20</a>, si llamamos <span class="math inline">\(C\)</span> al suceso “Tener cáncer de mama” y <span class="math inline">\(M\)</span> al suceso “Dar positivo en la mamografía”, tenemos que <span class="math inline">\(P(C)=0.01\)</span>, <span class="math inline">\(P(M|C)=0.9\)</span> y <span class="math inline">\(P(M|C^c)=0.1\)</span>, y por lo tanto
+<span class="math display">\[
+\begin{array}{rl}
+P(C|M)\!\!\!\! &amp; =\dfrac{P(C)\cdot P(M|C)}{P(C)\cdot P(M|C)+P(C^c)\cdot P(M|C^c)}\\
+&amp; =\dfrac{0.01\cdot 0.9}{0.01\cdot 0.9+0.99\cdot 0.1}=0.0833
+\end{array}
+\]</span>
+</div>
+<p>Más en general, si <span class="math inline">\(A_1,A_2,\ldots,A_n\)</span> es una partición de <span class="math inline">\(\Omega\)</span> y <span class="math inline">\(X\)</span> un suceso y todos estos sucesos tienen probabilidad no nula, entonces
+<span class="math display">\[
+P(A_i|X) =\dfrac{P(A_i)\cdot P(X|A_i)}{P(A_1)\cdot P(X|A_1)+\cdots+P(A_n)\cdot P(X|A_n)}
+\]</span></p>
+
+<div class="example">
+<p><span id="exm:VIH995" class="example"><strong>Ejemplo 4.22  </strong></span>Volvemos a la situación del Ejemplo <a href="probabilidades-elementales-las-mates-chapprobst.html#exm:VIH995prev">4.16</a>. Tenemos un test para el VIH que da positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente.</p>
+<p>En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado? ¿Y cuál és la probabilidad de que un individuo que haya dado <strong>negativo</strong> en el test <strong>no</strong> esté infectado?</p>
+</div>
+<p>Si llamamos <span class="math inline">\(A\)</span> al suceso “Estar infectado por VIH” y <span class="math inline">\(B\)</span> al suceso “Dar positivo en el test”, entonces:</p>
+<ul>
+<li>La probabilidad de que un individuo que dé positivo en el test esté infectado es</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{rl}
+P(A|B)\!\!\!\! &amp; =\dfrac{P(B|A)\cdot P(A)}{P(B|A)\cdot P(A)+P(B|A^c)\cdot P(A^c)}\\
+&amp;=\dfrac{0.99\cdot 0.005}{0.005\cdot 0.99+0.995\cdot 0.05}=0.09
+\end{array}
+\]</span></p>
+<ul>
+<li>La probabilidad de que un individuo que dé negativo en el test no esté infectado es</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{rl} 
+P(A^c|B^c)\!\!\!\!&amp; =\dfrac{P(B^c|A^c)\cdot P(A^c)}{P(B^c|A)\cdot P(A)+P(B^c|A^c)\cdot P(A^c)}\\
+&amp; =\dfrac{0.95\cdot 0.995}{0.01\cdot 0.005+0.95\cdot 0.995}=0.99995
+\end{array}
+\]</span></p>
+
+<div class="rmdexercici">
+<p>Un test de detección precoz de una enfermedad da positivo el 97.5% de las veces en que existe la enfermedad, y un 12% de las veces en que no existe la enfermedad. La probabilidad de que un individuo escogido al azar tenga esta enfermedad es de un 2%.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>¿Cuál es la probabilidad de que un individuo escogido al azar dé positivo en el test?</p></li>
+<li><p>¿Cuál es la probabilidad de que un individuo escogido al azar tenga la enfermedad y dé positivo en el test?</p></li>
+<li><p>¿Cuál es la probabilidad de que un individuo que dé positivo en el test, tenga esta enfermedad?</p></li>
+<li><p>El dar positivo en el test y el tener la enfermedad, ¿son sucesos independientes?</p></li>
+</ol>
+</div>
+<p>Terminemos con un ejemplo donde no podemos aplicar la fórmula de Bayes.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-130" class="example"><strong>Ejemplo 4.23  </strong></span>Un test diseñado para diagnosticar una determinada enfermedad da positivo el 94% de las veces en las que existe la enfermedad, y un 4% de las veces en las que no existe la enfermedad. A partir de un estudio masivo se estima que un 15% de la población da positivo en el test. ¿Cuál sería la prevalencia de la enfermedad?</p>
+</div>
+<p>Fijaos en que si llamamos <span class="math inline">\(E\)</span> al suceso “Tener la enfermedad” y <span class="math inline">\(T\)</span> al suceso “Dar positivo en el test”, los datos que tenemos son <span class="math inline">\(P(T)\)</span>, <span class="math inline">\(P(T|E)\)</span> y <span class="math inline">\(P(T|E^c)\)</span>, y queremos saber <span class="math inline">\(P(E)\)</span>.</p>
+<p>Vamos a usar la técnica de frecuencias naturales. Tomamos una población de referencia de 100,000 individuos. De ellos, un 15%, 15,000, dan positivo en el test, y los 85,000 restantes, negativo.</p>
+<p>Llamemos <span class="math inline">\(x\)</span> al número de enfermos, de manera que <span class="math inline">\(100000-x\)</span> es el número de sanos. Sabemos que un 94% de los enfermos y un 4% de los sanos dan positivo. Por lo tanto, el número de positivos será igual al 94% de <span class="math inline">\(x\)</span> más el 4% de <span class="math inline">\(100000-x\)</span>:
+<span class="math display">\[
+15000=0.94x+0.04(100000-x)=0.9x+4000\Longrightarrow x=\frac{11000}{0.9}=12222.22
+\]</span>
+Por lo tanto, la prevalencia de la enfermedad es 12222.22/100000=0.1222: un 12.22%.</p>
+
+<div class="rmdnote">
+En realidad, si llamamos <span class="math inline">\(E\)</span> al suceso “estar enfermo” y <span class="math inline">\(+\)</span> al suceso “dar positivo”, lo que hemos hecho ha sido aplicar el Teorema de la Probabilidad Total con <span class="math inline">\(P(E)\)</span> como incógnita:
+<span class="math display">\[
+  \begin{array}{rl}
+0.15\!\!\!\!\! &amp; =P(+)=P(+|E)P(E)+(P+|E^c)P(E^c)\\
+&amp; =0.94 P(E)+0.04(1-P(E))
+\end{array}
+\]</span>
+y despejamos <span class="math inline">\(P(E)\)</span>.
+</div>
+</div>
+<div id="test" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Test</h2>
+<p><strong>(1)</strong> Sean <span class="math inline">\(A\)</span> el suceso “Ser alérgico a los gatos” y <span class="math inline">\(B\)</span> el suceso “Ser asmático”. La probabilidad de que un alérgico a los gatos sea asmático es del 63%. ¿Cuál de las expresiones matemáticas siguientes expresa esta afirmación?</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(P(A|B)=0.63\)</span></li>
+<li><span class="math inline">\(P(B|A)=0.63\)</span></li>
+<li><span class="math inline">\(P(A\cap B)=0.63\)</span></li>
+<li><span class="math inline">\(P(A\cup B)=0.63\)</span></li>
+<li>Ninguna de las anteriores.</li>
+</ol>
+<p><strong>(2)</strong> Supongamos que la probabilidad de que un individuo de una comunidad tenga una determinada enfermedad es de 0.23. ¿Cuál o cuáles de las afirmaciones siguientes son verdaderas?</p>
+<ol style="list-style-type: decimal">
+<li>Cada vez que tomemos 100 individuos al azar de esta comunidad, exactamente 23 tendrán esta enfermedad.</li>
+<li>Si observamos muchos individuos de esta comunidad, esperamos encontrar un 2.3% de individuos con esta enfermedad.</li>
+<li>Si observamos muchos individuos de esta comunidad, esperamos encontrar un 23% de individuos con esta enfermedad.</li>
+<li>Si tomamos una muestra suficientemente grande al azar de esta comunidad, encontraremos exactamente 23 individuos con esta enfermedad.</li>
+</ol>
+<p><strong>(3)</strong> Si un 40% de los pacientes que tienen alguna enfermedad sobreviven un año y, de los supervivientes, un 30% muere antes de cinco años, ¿cuál es la probabilidad de que un paciente sobreviva a dicha enfermedad más de cinco años?</p>
+<ol style="list-style-type: decimal">
+<li>0.33</li>
+<li>0.10</li>
+<li>0.12</li>
+<li>0.30</li>
+<li>0.28</li>
+</ol>
+<p><strong>(4)</strong> Si nos dicen que en una determinada población infantil, un 36% han tenido la varicela, un 80%, paperas, y un 70%, el sarampión, ¿cuál o cuáles de las afirmaciones siguientes sobre esta población seguro que son falsas?</p>
+<ol style="list-style-type: decimal">
+<li>Nos mienten, porque la suma de estos tres porcentajes es mayor que el 100%</li>
+<li>Un 40% de esta población ha pasado las tres enfermedades</li>
+<li>Un 15% de esta población han pasado la varicela y las paperas</li>
+<li>Un 25% de esta población han pasado la varicela y las paperas</li>
+<li>Un 50% de los que han pasado el sarampión, han tenido las paperas</li>
+<li>Un 75% de los que han pasado el sarampión, han tenido las paperas</li>
+<li>Ninguno de los que han tenido las paperas y el sarampión también ha pasado la varicela</li>
+<li>Todos los que han tenido las paperas y el sarampión también ha pasado la varicela</li>
+</ol>
+<p><strong>(6)</strong> La <em>odds ratio</em> de tener asma relativa a tener gato es 0.7. ¿Cuál o cuáles de las afirmaciones siguientes se deducen de este hecho?</p>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de tener asma si se tiene un gato es 0.7 veces la de tener asma si no se tiene un gato.</li>
+<li>La probabilidad de tener asma si se tiene un gato es menor que si no se tiene un gato.</li>
+<li>La probabilidad de tener asma si se tiene un gato es mayor que si no se tiene un gato.</li>
+<li>Las <em>odds</em> de tener asma si se tiene un gato son 7:10.</li>
+<li>La <em>odds ratio</em> de tener gato relativa a tener asma también es 0.7.</li>
+<li>Ninguna de las afirmaciones anteriores se puede deducir de la <em>odds ratio</em> que hemos dado.</li>
+</ol>
+
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-conceptos.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

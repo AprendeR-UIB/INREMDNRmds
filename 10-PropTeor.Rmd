@@ -1,6 +1,6 @@
 # (PART\*) Tema II: Probabilidades  {-}
 
-# Probabilidades elementales: Las mates {chap:probst}
+# Probabilidades elementales: Las mates {#chap:probst}
 
 La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso. En este curso vamos a definir  la **probabilidad de un suceso** como la **proporción** (la **fracción**, el **porcentaje**) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. Esta proporción mide de manera intuitiva  la probabilidad de que si escogemos al azar un sujeto de la población, se dé en él el suceso (y de hecho coincide con esta probabilidad, para la definición formal de probabilidad que aquí no veremos).
 
@@ -10,14 +10,10 @@ La probabilidad de que al lanzar una moneda al aire salga cara es la proporción
 
 ```
 
-**En casos MUY sencillos**, esta proporción coincide con la fracción de veces en que se da este suceso en el conjunto de resultados posibles y por lo tanto se puede calcular con la famosa **regla de Laplace**:
+En casos MUY sencillos, cuando **todos los resultados posibles tienen la misma probabilidad**, esta proporción coincide con la fracción de veces en que se da este suceso en el conjunto de resultados posibles y por lo tanto se puede calcular con la famosa **regla de Laplace**:
 $$
 \text{Probabilidad}=\frac{\text{Casos favorables}}{\text{Casos posibles}}
 $$
-
-```{block2,type="rmdcaution"}
-Esta fórmula solo es verdadera cuando **todos los resultados posibles tienen la misma probabilidad**. 
-```
 
 Por ejemplo:
 
@@ -66,6 +62,8 @@ En este curso la disjunción "o" nunca va a ser exclusiva, salvo cuando digamos 
      Corresponde a la **negación**  del lenguaje natural.
 
 * $A-B=A \cap B^c$ es  la  **diferencia** "$A$ menos $B$":  el conjunto formado por los elementos de $A$ que no pertenecen a $B$.
+
+    Por lo tanto, $A^c=\Omega-A$.
 
 * Diremos que $A$ y $B$ son **disjuntos**, o **incompatibles**, cuando $A\cap B=\emptyset$, donde $\emptyset$ es el **conjunto vacío**, el conjunto que no tiene elementos.
 
@@ -157,7 +155,7 @@ para indicar, respectivamente, la intersección o la unión de los sucesos $A_1,
 
 Hemos definido la probabilidad $P(A)$ de un subconjunto (suceso) $A$ de una población (espacio muestral) $\Omega$ como la fracción de los sujetos de $\Omega$ que pertenecen a $A$.  A partir de esta definición se deducen, por puro conteo, las propiedades siguientes:
 
-1. Para todo suceso $A$, $0\leq P(A)\leq 1$.
+1. Para todo suceso $A$, $0\leqslant P(A)\leqslant 1$.
 
     Un subconjunto $A$ de $\Omega$ no puede representar ni una fracción negativa ni una fracción mayor que 1 de los sujetos de $\Omega$.
 
@@ -194,7 +192,7 @@ $$
 
     Es decir, la fracción de los sujetos que no pertenecen a $A$ es 1 menos la fracción de los que sí pertenecen a $A$.
 
-7. Si $A\subseteq B$, entonces $P(A)\leq P(B)$ (si $A$ está contenido en $B$, la  fracción de los sujetos que  pertenecen a $A$ es más pequeña que la  de los que  pertenecen a $B$).
+7. Si $A\subseteq B$, entonces $P(A)\leqslant P(B)$. Si $A$ está contenido en $B$, la  fracción de los sujetos que  pertenecen a $A$ es más pequeña que la  de los que  pertenecen a $B$.
 
 
 8. $P(A\cup B)=P(A)+P(B)-P(A \cap B)$.
@@ -297,7 +295,7 @@ Y ahora, cambiando "probabilidad" por "proporción", ya podemos calcular lo que 
 
 * ¿Cuál es la proporción de sujetos que dan positivo en algún test?
 
-    Hay 105 sujetos en la tabla que dan positivo en algún test, por lo que su proporción es de 105/10000=0.0105.
+    Hay 105 sujetos en la tabla que dan positivo en algún test: los 10 positivos en VIH y los 95 positivos en VHS y negativos en VIH. Por lo tanto,  su proporción es de 105/10000=0.0105.
 
 
 * ¿Cuál es la proporción de sujetos que dan positivo en VHS pero no en VIH?
@@ -328,24 +326,66 @@ Y supongamos ahora que el 0.1% de todos los donantes de sangre da positivo en el
 ```
 
 
-```{r  echo=FALSE, out.width="50%"}
+```{r  echo=FALSE, out.width="50%",fig.cap="¡Cuidado con lo que respondéis!"}
 knitr::include_graphics("INREMDN_files/figure-html/batmanprobs.png")
 ```
 
-<!--
-```{block2,type="rmdexercici"}
-En la Sección \@ref(sec:mas) hemos dado las probabilidades de que se escoja más de una vez algún individuo en las situaciones siguientes:
 
-a. Si escogemos 100 individuos de las Baleares (suponiendo que su población es de 1,150,000 habitantes) al azar permitiendo repeticiones.
-
-a. Si escogemos 100 estudiantes de la UIB (suponiendo que su población es de 12000 estudiantes) al azar permitiendo repeticiones.
-
-a. Si escogemos 10 estudiantes de la UIB al azar permitiendo repeticiones.
-
-Comprobad que los valores que hemos dado son correctos.
-
+```{example, repes}
+En la Sección \@ref(sec:mas) hemos dado las probabilidades de que se escoja más de una vez algún individuo en algunas situaciones. Por ejemplo, si escogemos 100 individuos de las Baleares (suponiendo que su población es de 1,150,000 habitantes) al azar permitiendo repeticiones. ¿Cómo se calculan estas probabilidades?
+  
+  
 ```
--->
+
+Vamos a suponer que escogemos los individuos uno tras otro. El plan va a ser calcular primero la probabilidad $p$ de que todos los individuos de la muestra sean diferentes. Entonces, la probabilidad de que salga al menos uno repetido será $1-p$.
+
+Como, en el muestreo aleatorio simple, todos los grupos de 100 baleares (con posibles repeticiones) tienen la misma probabilidad de ser elegidos, podemos usar la fórmula de Laplace "casos favorables partido por casos posibles" para calcular $p$. Solo hay que identificar cuántos casos favorables y cuántos casos posibles hay.
+
+* *Casos favorables*. ¿De cuántas maneras podemos elegir 100 baleares, uno tras otro, de manera que todos sean diferentes? 
+
+    * El primero puede ser cualquiera: hay 1,150,000 posibilidades.
+    * Una vez hemos elegido el primero, como el segundo ha de ser diferente, puede ser cualquiera de los 1,149,999 restantes.
+    * Una vez hemos elegido los dos primeros, como el tercero ha de ser diferente de ellos, lo podemos escoger de los 1,149,998 restantes.
+    * En general, cuando hemos elegido *n* sujetos, el siguiente puede ser cualquiera de los 1,150,000-*n* restantes.
+    * Y así, cuando hemos elegido los 99 primeros, para el último, el centésimo, tenemos 1,150,000-99=1,149,901 posibilidades.
+    
+Por lo tanto hay 
+$$
+1150000\times 1149999\times 1149998\times \cdots\times 1149901
+$$
+posibles elecciones de 100 baleares **diferentes**.
+
+
+* *Casos posibles*. ¿De cuántas maneras podemos elegir 100 baleares, uno tras otro, sin ninguna restricción? 
+
+    * El primero puede ser cualquiera: hay 1,150,000 posibilidades.
+    * Una vez hemos elegido el primero, como el segundo puede ser cualquiera, de nuevo tenemos 1,150,000 posibilidades para él.
+    * Una vez hemos elegido los dos primeros, como el tercero puede ser cualquiera, seguimos teniendo 1,150,000 posibilidades.
+    * En general, cuando hemos elegido *n* sujetos, para el siguiente volvemos a tener 1,150,000 posibilidades.
+    
+Por lo tanto hay 
+$$
+\overbrace{1150000\times 1150000\times 1150000\times \cdots\times 1150000}^{100}=1150000^{100}
+$$
+posibles elecciones de 100 baleares sin ninguna restricción.
+
+Por la fórmula de Laplace, la probabilidad $p$ de que al elegir al azar 100 baleares nos salgan todos diferentes es
+$$
+p=\frac{1150000\times 1149999\times\cdots\times 1149901}{1150000^{100}}
+$$
+y, finalmente, la probabilidad de que al elegir al azar 100 baleares nos salga alguno repetido es
+$$
+1-p=1-\frac{1150000\times 1149999\times\cdots\times 1149901}{1150000^{100}}
+$$
+Naturalmente, os va a costar calcular este número con una calculadora científica sencilla, pero para eso están los ordenadores. Da `r pbirthday(100,1150000)`.
+
+```{block2,tipe="rmdexercici"}
+Comprobad que las otras probabilidades de repeticiones anunciadas en la lección anterior son correctas.
+```
+
+
+
+
 
 ## Odds
 
@@ -366,11 +406,11 @@ Si $\text{Odds}(A)=q$, significa que **por cada vez que ocurre "no $A$", ocurre 
 * Por cada estudiante que aprueba, hay 2/3 de estudiante que suspenden.
 * Por cada 3 estudiantes que aprueban, hay 2 que suspenden.
 * De cada 5 estudiantes, 3 aprueban y 2  suspenden.
-* 2 de cada 5 estudiantes suspenden
+* 2 de cada 5 estudiantes suspenden.
 * La **probabilidad** de suspender es de un 40%.
 
 ```{block2,type="rmdnote"}
-A veces, que unas *odds* valgan $a/b$ se expresa diciendo que son $a:b$, y se lee "$a$ a $b$". Por ejemplo, las *odds* de suspender anteriores son 2:3, es decir, 2 a 3.
+A veces, que unas *odds* valgan $a/b$ se expresa diciendo que son $a\!:\!b$, y se lee "$a$ a $b$". Por ejemplo, las *odds* de suspender anteriores son 2:3, es decir, 2 a 3.
 ```
 
 ```{example} 
@@ -421,7 +461,7 @@ $$
 $$
 Es decir, $A$ es más probable que $B$ si, y solo si, las *odds* de $A$ son mayores que las de $B$.
 
-Como veremos en la Sección \@ref(sec:riesgosCyC), la manera correcta de presentar en los estudios de casos y controles cuánto más probable es un desenlace si se ha estado expuesto a un factor de riesgo que si no, es por medio de una *odds ratio*. La  **odds ratio** (**razón de momios**, de oportunidades...) de dos sucesos $A$ y $B$ es el cociente de sus *odds*:
+Como veremos en la Sección \@ref(sec:riesgosCyC), la manera correcta de presentar los resultados en los estudios de casos y controles es en forma de *odds ratios*. La  **odds ratio** (**razón de momios**, de oportunidades...) de dos sucesos $A$ y $B$ es el cociente de sus *odds*:
 $$
 \text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}
 $$
@@ -461,7 +501,7 @@ En un [estudio de casos y controles reciente](https://www.gastrojournal.org/arti
 > "la presencia de síntomas gastrointestinales se asoció a un incremento del 70% en el riesgo de dar positivo [en el test de COVID-19]:  odds ratio, 1.7."
 
 
-¿Qué significa esto? Que la *odds ratio* valga 1.7 significa que las *odds* de dar positivo en COVID-19 si se tienen síntomas gastrointestinales son 1.7 veces las de dar positivo si no se tienen síntomas gastrointestinales, es decir un 70% mayores. Pero fijaos que estamos hablando de las *odds*, no del **riesgo** entendido en sentido de **probabilidad**: no tiene por qué ser cierto que la probabilidad de dar positivo en COVID-19 si se tienen síntomas gastrointestinales  sea un 70% mayor que si no se tienen síntomas gastrointestinales.
+¿Qué significa esto? Que la *odds ratio* valga 1.7 significa que las *odds* de dar positivo en COVID-19 si se tienen síntomas gastrointestinales son 1.7 veces las de dar positivo si no se tienen síntomas gastrointestinales, es decir un 70% mayores. Pero fijaos que estamos hablando de las *odds*, no del **riesgo** entendido en sentido de **probabilidad**. No tiene por qué ser cierto que la probabilidad de dar positivo en COVID-19 si se tienen síntomas gastrointestinales  sea un 70% mayor que si no se tienen síntomas gastrointestinales.
 
 En este estudio concreto, se obtuvo la tabla de frecuencias siguiente (SG abrevia "síntomas gastrointestinales")
 $$
@@ -473,7 +513,7 @@ $$
 \end{array}
 $$
 
-Por lo tanto, la proporción de COVID-19 positivos entre los que tuvieron síntomas gastrointestinales fue 97/160=0.61 y   la proporción de COVID-19 positivos entre los que no tuvieron síntomas gastrointestinales fue 181/356=0.51. La primera es un 19% mayor que la segunda, no un 70% mayor.
+Por lo tanto, la proporción de COVID-19 positivos entre los que tuvieron síntomas gastrointestinales fue 97/160=0.606 y   la proporción de COVID-19 positivos entre los que no tuvieron síntomas gastrointestinales fue 181/356=0.508. Como 0.606/0.508=0.19, la primera es un 19% mayor que la segunda, no un 70% mayor.
 
 Veamos las *odds*. Las de ser COVID-19 positivo entre los que tuvieron síntomas gastrointestinales son
 $$
@@ -483,7 +523,7 @@ Las de ser COVID-19 positivo entre los que no tuvieron síntomas gastrointestina
 $$
 \frac{181/356}{175/356}=1.03
 $$
-La *odds ratio* es, entonces 1.54/1.03=1.5. 
+La *odds ratio* es, entonces 1.54/1.03=1.495. 
 
 ```{block2,type="rmdromans"}
 ¿Pero no habíamos dicho que la *odds ratio* les había salido 1.7? 
@@ -516,7 +556,7 @@ $$
 Este valor  representa la fracción  de los sujetos de $A$ que pertenecen a  $B$; es decir,  es la probabilidad de que si ocurre $A$, entonces también ocurra $B$.
 
 ```{block2,type="rmdnote"}
-Supongamos que en una población de $N$ individuos hay $M_A$ que pertenecen a $A$, y que entre estos hay $M_{\textit{AB}}$ que también pertenecen a $B$. Entonces, la fracción de sujetos de $A$ que pertenecen a $B$ es 
+Supongamos que en una población $\Omega$ de $N$ individuos hay $M_A$ que pertenecen a $A$, y que entre estos hay $M_{\textit{AB}}$ que también pertenecen a $B$. Entonces, la fracción de sujetos de $A$ que pertenecen a $B$ es 
 $$
 \frac{M_{\textit{AB}}}{M_A}=\frac{M_{\textit{AB}}/N}{M_A/N}.
 $$
@@ -590,11 +630,11 @@ No confundáis:
 
 * $P(B)$: La probabilidad de que un individuo de la población global $\Omega$ pertenezca a $B$.
 
-     Por ejemplo, si $B$ es "llevar gafas", $P(B)$ es la probabilidad de que una persona escogida al azar lleve gafas. La población en la que calculamos probabilidades es la de todas las personas.
+     Por ejemplo, si $B$ es "llevar gafas", $P(B)$ es la probabilidad de que una persona  lleve gafas. La población en la que calculamos probabilidades es la de todas las personas.
 
 * $P(B|A)$: Probabilidad de que un individuo de $A$ pertenezca a $B$.
 
-     Por ejemplo, si además $A$ es "ser mujer", $P(B|A)$ es la probabilidad de que una **mujer**  escogida al azar lleve gafas. La población en la que calculamos probabilidades es la de las **mujeres**.
+     Por ejemplo, si además $A$ es "ser mujer", $P(B|A)$ es la probabilidad de que una **mujer**  lleve gafas. La población en la que calculamos probabilidades es la de las **mujeres**.
      
 * $P(A|B)$: Probabilidad de que un individuo de $B$ pertenezca a $A$.
 
@@ -602,7 +642,7 @@ No confundáis:
 
 * $P(B\cap A)$: Probabilidad de que un individuo de la población global pertenezca simultáneamente a $A$ y a $B$.
       
-     Por ejemplo, con las notaciones anteriores, $P(A\cap B)$ es la probabilidad de que una persona   escogida al azar **sea mujer y lleve gafas**. La población en la que calculamos probabilidades vuelve a ser  la de todas las personas.
+     Por ejemplo, con las notaciones anteriores, $P(A\cap B)$ es la probabilidad de que una persona   **sea mujer y lleve gafas**. La población en la que calculamos probabilidades vuelve a ser  la de todas las personas.
 ```
 
 
@@ -629,7 +669,7 @@ a. Sea mujer pero no esté matriculada en Derecho?
 a. Si está matriculado en Educación, sea mujer?
 a. Si es mujer, esté matriculada en Educación?
 a. Si es mujer, no esté matriculada en Educación?
-a. Si es hombre, esté matriculado en Educación?
+a. Si no es mujer, esté matriculado en Educación?
 
 ```
 
@@ -644,6 +684,9 @@ La probabilidad condicionada a $A$, $P(-|A)$, es una probabilidad "de verdad", s
 Pero si en $P(B|A)$ fijamos la $B$ y permitimos que $A$ varíe (es decir, si fijamos el suceso que nos interesa y variamos la población en la que calcularemos su probabilidad), ya no se cumplen las propiedades de las probabilidades. Por ejemplo, en general:
 
 * $P(B|A^c)\neq 1-P(B|A)$
+  
+  No podéis esperar que la proporción de hombres que llevan gafas sea 1 menos la proporción de mujeres que llevan gafas, ¿verdad?
+  
 * $P(B|A_1\cup A_2)\neq P(B|A_1)+P(B|A_2)-P(B|A_1\cap A_2)$
 
 **Ejercicio**: Comprobadlo en el Ejercicio anterior.
@@ -652,7 +695,9 @@ Pero si en $P(B|A)$ fijamos la $B$ y permitimos que $A$ varíe (es decir, si fij
 ```{example}
 Supongamos que un 15% de los adultos son hipertensos, un 25% de los adultos creen que son hipertensos, y un 9% de los adultos son hipertensos y creen que lo son.
 
-Si un adulto cree que es hipertenso, ¿cuál es la probabilidad de que lo sea? Y si un adulto es hipertenso, ¿cuál es la probabilidad de que crea que lo es?
+* Si un adulto cree que es hipertenso, ¿cuál es la probabilidad de que lo sea? 
+* Si un adulto es hipertenso, ¿cuál es la probabilidad de que crea que lo es? 
+* Si un adulto no cree que sea hipertenso, ¿cuál es la probabilidad de que sí lo sea?
   
   
 ```
@@ -665,18 +710,33 @@ Pongamos nombres a los sucesos involucrados en estas preguntas:
 
 * $A\cap B$: Ser hipertenso y creerlo; $P(A \cap B)=0.09$
 
-En la primera pregunta nos piden la probabilidad de que, si un adulto cree ser hipertenso, sea hipertenso, es decir, la probabilidad de $A$ condicionada a $B$:
+En la primera pregunta nos piden la probabilidad  de $A$ condicionada a $B$:
 $$
 P(A|B)=\frac{P(A\cap B)}{P(B)}=\dfrac{0.09}{0.25}=0.36
 $$
 Si un adulto cree ser hipertenso, su probabilidad de que lo sea es del 36%.
 
 
-En la segunda pregunta nos piden la probabilidad de que, si un adulto  es hipertenso,  crea ser hipertenso, es decir, la probabilidad de $B$ condicionada a $A$:
+En la segunda pregunta nos piden la probabilidad  de $B$ condicionada a $A$:
 $$
 P(B|A) =\frac{P(A\cap B)}{P(A)}=\frac{0.09}{0.15}=0.6
 $$
 Si un adulto es hipertenso, su probabilidad de que crea que lo es es del 60%.
+
+Y en la tercera pregunta nos piden la probabilidad de $A$ condicionada a $B^c$:
+$$
+P(A|B^c) =\frac{P(A\cap B^c)}{P(B^c)}=\frac{P(A)-P(A\cap B)}{1-P(B)}=\frac{0.06}{0.75}=0.08
+$$
+Si un adulto no cree ser hipertenso, su probabilidad de que sí serlo es del 8%.
+
+```{block2,type="rmdnote"}
+Fijaos en que $P(A|B^c)\neq P(A|B)$, como anunciábamos que en general sucede.
+```
+
+```{block2,type="rmdexercici"}
+Calculad las probabilidades anteriores mediante el método de las frecuencias naturales.
+```
+
 
 ```{example}
 Un test para el VIH da positivo en un 99% de los casos en los que el virus está presente. En una población con el 0.5% de infectados por VIH:
@@ -710,7 +770,8 @@ La probabilidad de que, al hacer el test a un individuo al azar, dé positivo y 
 ```{example, triola}
 Un cardiólogo nos contó una vez que la mitad de los enfermos que acudían a su consulta por supuestos problemas de corazón tenían en realidad estrés, y dos tercios, depresión. Nosotros vamos a suponer ahora que sólo un 15% de estos enfermos no sufrían ninguna de estas dos condiciones. 
 
-¿Cuál es la probabilidad de que un enfermo de estos sufra estrés si sufre depresión? ¿Cuál es la probabilidad de que un enfermo de estos **no** sufra estrés si **no** sufre depresión?
+* ¿Cuál es la probabilidad de que un enfermo de estos sufra estrés si sufre depresión? 
+* ¿Cuál es la probabilidad de que un enfermo de estos **no** sufra estrés si **no** sufre depresión?
 
 ```
 
@@ -806,7 +867,7 @@ $$
 \text{Odds}(E|D)=\frac{P(E|D)}{P(E^c|D)}=\frac{0.475}{0.525}=0.905
 $$
 
-    Entre los pacientes con depresión, la probabilidad de tener estrés es 0.905 veces la de no tenerlo.
+    Entre los pacientes con depresión, la probabilidad de tener estrés es 0.905 veces la de no tenerlo, es decir, un 9.5% menor.
 
 ```{block2,type="rmdcaution"}
 Por favor, no digáis que "la probabilidad de tener estrés es 0.905 veces **mayor** que la de no tenerlo".
@@ -818,7 +879,7 @@ $$
 \text{Odds}(E|D^c)=\frac{P(E|D^c)}{P(E^c|D^c)}=\frac{0.55}{0.45}=1.22
 $$
 
-    Entre los pacientes sin depresión, la probabilidad de tener estrés es 1.22 veces la de no tenerlo.
+    Entre los pacientes sin depresión, la probabilidad de tener estrés es 1.22 veces la de no tenerlo, es decir, un 22% mayor.
 
 * Las *odds* de tener depresión entre los pacientes que tienen estrés son
 $$
@@ -865,7 +926,7 @@ Dados dos sucesos $A$ y $B$, $\text{OR}(A|B)=\text{OR}(B|A)$.
 
 
 ```{block2,type="rmdcorbes"}
-En efecto
+Se trata de ir operando astutamente:
 $$
 \begin{array}{l}
 \text{OR}(B|A)\!\!\!\!\! &= \dfrac{\text{Odds}(B|A)}{\text{Odds}(B|A^c)}\\
@@ -893,7 +954,7 @@ Dos sucesos $A$ y $B$ (ambos de probabilidad no 0) son  **independientes** cuand
 En esta definición los papeles de $A$ y $B$ son intercambiables, como muestra el resultado siguiente que, además, da una caracterización alternativa muy importante.
 
 ```{proposition,indep}
-Dados dos sucesos $A,B$, ambos de probabilidad no 0, las cinco condiciones siguientes son equivalentes:
+Dados dos sucesos $A,B$, ambos de probabilidad ni 0 ni 1, las cinco condiciones siguientes son equivalentes:
   
 a. $P(A \cap B)=P(A)\cdot P(B)$
 b. $P(B|A)=P(B)$
@@ -945,15 +1006,15 @@ A partir del resultado anterior, se deduce fácilmente que las condiciones sigui
 
 Es razonable. Decir que la probabilidad de que pase $A$ no depende del hecho de que pase $B$ ($A$ y $B$ independientes) o no, es lo mismo que decir que la probabilidad de que pase $A$ no depende de que no pase $B$ o sí pase  ($A$ y $B^c$ independientes). Y si la probabilidad de que pase $A$ no depende de  que pase $B$ o no, la probabilidad de que no pase $A$ tampoco depende de que pase $B$ o no.
 
+```{block2,type="rmdnote"}
+Hemos dado la definición de independencia para sucesos de probabilidad no nula. Para cubrir todos los casos, un suceso de probabilidad 0 se considera siempre independiente de cualquier otro. Es razonable, porque si $P(A)=0$, entonces, como $A\cap B\subseteq A$, también $P(A\cap B)=0$ para cualquier suceso $B$, y se cumple entonces que $P(A\cap B)=P(A)P(B)$.
+```
+
 Más en general, dada una familia de sucesos $A_1,\ldots,A_n$, diremos que son **independientes** cuando, para todo subconjunto de índices $\{i_1,\ldots,i_k\}\subseteq \{1,2,\ldots,n\}$ se tiene que
 $$
 P(A_{i_1}\cap\cdots \cap A_{i_k})=P(A_{i_1})\cdots P(A_{i_k})
 $$
 
-
-```{block2,type="rmdnote"}
-Hemos dado la definición de independencia para sucesos de probabilidad no nula. Para cubrir todos los casos, un suceso de probabilidad 0 se considera siempre independiente de cualquier otro. Es razonable, porque si $P(A)=0$, entonces, como $A\cap B\subseteq A$, también $P(A\cap B)=0$ para cualquier suceso $B$, y se cumple entonces que $P(A\cap B)=P(A)P(B)$.
-```
 
 
 ```{block2,type="rmdimportant"}
@@ -1003,8 +1064,7 @@ Por otro lado, $P(A)\cdot P(B)= 0.365\cdot 0.33=0.12$
 Por lo tanto, son sucesos dependientes. De hecho, $P(B|A)=0.2/0.365=0.55> 0.33=P(B)$: la probabilidad de ser hipertenso entre los obesos es mayor que en el global de  la población estadounidense.
 
 ```{example}
-Un cierto test da positivo en un 10% de los individuos que no tienen una determinada enfermedad. Si a un individuo sano se le realizan dos tests independientes, ¿auál es la probabilidad de que **ambos** den positivo?
-¿Y la de que **alguno** dé positivo?
+Un cierto test da positivo en un 10% de los individuos que no tienen una determinada enfermedad. Si a un individuo sano se le realizan dos tests independientes, ¿cuál es la probabilidad de que **ambos** den positivo? ¿Y la de que **alguno** dé positivo?
   
   
 ```
@@ -1031,7 +1091,7 @@ $$
 
 ```{block2,type="rmdexercici"}
 Tenemos dos tests, A y B, para una determinada enfermedad. Sobre los individuos que tienen dicha enfermedad, el test A da positivo en un 95% de las ocasiones y el test B da positivo en un 90% de las ocasiones. 
-Si a un individuo sano se le realizan los dos tests de manera  independiente, ¿cuál es la probabilidad de que alguno dé positivo?
+Si a un individuo enfermo se le realizan los dos tests de manera  independiente, ¿cuál es la probabilidad de que alguno dé positivo?
 ```
 
 
@@ -1149,8 +1209,10 @@ En primer lugar vamos a usar el teorema de la probabilidad total para calcular e
 
 Entonces
 $$
-P(X)  =P(A)\cdot P(X|A)+P(A^c)\cdot P(X|A^c) 
-=0.005\cdot 0.99+0.995\cdot 0.05=0.0547
+\begin{array}{rl}
+P(X) \!\!\!\!   &  =P(A)\cdot P(X|A)+P(A^c)\cdot P(X|A^c) \\
+&=0.005\cdot 0.99+0.995\cdot 0.05=0.0547
+\end{array}
 $$
 
 Usemos ahora la técnica de frecuencias naturales. Tomemos una población de referencia de 100,000 individuos. 
@@ -1187,7 +1249,7 @@ El teorema de la probabilidad total se usa de manera implícita en el cálculo d
 
 * Se divide una población en estratos  (sexo, grupos étnicos,  franjas de edad...).
 * Se calcula la proporción de algo en cada estrato.
-* Se calcula la proporción de ese algo en una población que tuviera una composición estándar de esos estratos.
+* Se deduce la proporción de ese algo en una población que tuviera una composición estándar de esos estratos.
 
 Por ejemplo:
 
@@ -1195,9 +1257,9 @@ Por ejemplo:
 
 1. Se toma como composición estándar en franjas de edad la media de la Unión Europea.
 
-1. Se calcula la tasa de mortalidad de esa enfermedad en una población cuya composición en franjas de edad fuera la media europea y en la que la tasa de mortalidad en cada franja de edad fuera la española. 
+1. Se deduce la tasa de mortalidad de esa enfermedad en una población cuya composición en franjas de edad fuera la media europea y en la que la tasa de mortalidad en cada franja de edad fuera la española. 
 
-Calculando estas tasas ajustadas para todos los paíes de la UE,  se pueden comparar sus tasas de mortalidad evitando el factor de confusión que podría representar la edad.
+Calculando estas tasas ajustadas para todos los países de la UE,  se pueden comparar sus tasas de mortalidad evitando el factor de confusión que podría representar la edad.
 
 ```{example}
 Una cierta enfermedad tiene en China una tasa de mortalidad del 0.1% entre los menores de 15 años, del 0.3% entre las personas de 15 a 64  años  y de un 0.7% entre los mayores de 65 años. En la Unión Europea, un 15.5% de la población es menor de 15 años, un 65.4% tiene entre 15 y 64 años, y un 19.1% tiene 65 años o más.  En China, estas proporciones son del 17.6%, 	71.2% y	11.2%, respectivamente
@@ -1241,7 +1303,7 @@ La tasa de mortalidad de esta enfermedad ajustada a la distribución de edades d
 
 $$
 \begin{array}{rl}
-\mathit{TA} & =P(M|C_1)\cdot P(E_1)+P(M|C_2)\cdot P(E_2)+P(M|C_3)\cdot P(E_3)\\
+\mathit{TA}\!\!\!\!  & =P(M|C_1)\cdot P(E_1)+P(M|C_2)\cdot P(E_2)+P(M|C_3)\cdot P(E_3)\\
 & =0.001\cdot 0.115+0.003\cdot 0.654+0.007\cdot 0.191=`r round(0.001* 0.115+0.003* 0.654+0.007* 0.191,4)`
 \end{array}
 $$
@@ -1263,7 +1325,7 @@ Supongamos que en los Emiratos Árabes, donde hay 256 hombres por cada 100 mujer
 ## Fórmula de Bayes
 
 
-A menudo conocemos las probabilidades condicionadas en un(0.5a dirección pero las que nos interesa saber son precisamente las condicionadas en la dirección opuesta. Por ejemplo:
+A menudo conocemos las probabilidades condicionadas en una dirección pero las que nos interesa saber son precisamente las probabilidades condicionadas en la dirección opuesta. Por ejemplo:
 
 * En un estudio de casos y controles hemos estimado las probabilidades de que individuos sanos y enfermos hayan estado expuestos al factor de riesgo, pero lo que queremos es estimar las probabilidades de que individuos expuestos y no expuestos enfermen.
 
@@ -1288,7 +1350,7 @@ a. ¡Señora, yo estudié medicina, no matemáticas!
 
 ```
 
-Los problemas de este tipo no pueden resolverse sin alguna información extra. Por ejemplo, la probabilidad global de haber estado expuestos al riesgo o la prevalencia de la enfermedad en el ejemplo de los estudios de casos y controles, o la prevalencia de la enfermedad o la proporción global de positivos en el ejemplo del test diagnóstico. 
+Las preguntas de este tipo no pueden responderse sin alguna información extra. Por ejemplo, la probabilidad global de haber estado expuestos al riesgo o la prevalencia de la enfermedad en el ejemplo de los estudios de casos y controles, o la prevalencia de la enfermedad o la proporción global de positivos en el ejemplo del test diagnóstico. 
 
 ```{example, cancerpitpres2}
 Volved a la pregunta del Ejemplo \@ref(exm:cancerpitpres). ¿Y si os decimos que la prevalencia del cáncer de mama entre las mujeres españolas es de alrededor del 0.5%? (Según el informe ["Las cifras del cáncer en España 2020"](https://seom.org/seomcms/images/stories/recursos/Cifras_del_cancer_2020.pdf) de la Sociedad Española de Oncología Médica, la prevalencia del cáncer de mama en España en el período 2013-2018 fue de 130,000 casos de cáncer de mama entre los cerca de 24,000,000 de mujeres españolas.)
@@ -1296,7 +1358,7 @@ Volved a la pregunta del Ejemplo \@ref(exm:cancerpitpres). ¿Y si os decimos que
 
 ```
 
-Este tipo de problemas se resuelve fácilmente por el método de frecuencias naturales.
+Este tipo de cuestiones se resuelve fácilmente por el método de frecuencias naturales.
 
 ```{example, cancerpitpres3}
 Volvamos a la pregunta de los dos ejemplos anteriores, pero para no hacer *spoilers*, vamos a resolverla con otro números. Vamos a suponer que la probabilidad de dar positivo en la mamografía si se tiene cáncer es del 90%  y si no se tiene, del 10%, y que la prevalencia del cáncer de mama es del 1%.
@@ -1348,6 +1410,11 @@ $$
 P(B)=P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c).
 $$
 
+
+```{block2,type="rmdcaution"}
+Hasta donde sabemos, la fórmula de Bayes es la única fórmula "abstracta" que de vez en cuando aparece en alguna pregunta del MIR.
+```
+
 ```{example, cancerpitpres4}
 Con los números del Ejemplo \@ref(exm:cancerpitpres3), si llamamos $C$ al suceso "Tener cáncer de mama" y $M$ al suceso "Dar positivo en la mamografía", tenemos que $P(C)=0.01$, $P(M|C)=0.9$ y $P(M|C^c)=0.1$, y por lo tanto
 $$
@@ -1364,9 +1431,9 @@ P(A_i|X) =\dfrac{P(A_i)\cdot P(X|A_i)}{P(A_1)\cdot P(X|A_1)+\cdots+P(A_n)\cdot P
 $$
 
 ```{example,VIH995}
-Volvemos a la situación del Ejemplo \@ref(exm:VIH995prev). Tenemos un test para el VIH da positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente. 
+Volvemos a la situación del Ejemplo \@ref(exm:VIH995prev). Tenemos un test para el VIH que  da positivo en un 99% de las personas en las que el virus está presente y en un 5% de las personas en las que el virus no está presente. 
 
-En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado? ¿Y cuál sería la probabilidad de que un individuo que hubiera dado **negativo** en el test **no** estuviera infectado?
+En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado? ¿Y cuál es la probabilidad de que un individuo que haya dado **negativo** en el test **no** esté infectado?
   
   
 ```
@@ -1453,7 +1520,7 @@ y despejamos $P(E)$.
 1. $P(A\cup B)=0.63$
 1. Ninguna de las anteriores.
 
-**(2)** Supongamos que la probabilidad de que un individuo de una comunidad tenga una determinada enfermedad es de 0.23. ¿Cuáles de las afirmaciones siguientes son verdaderas?
+**(2)** Supongamos que la probabilidad de que un individuo de una comunidad tenga una determinada enfermedad es de 0.23. ¿Cuál o cuáles de las afirmaciones siguientes son verdaderas?
 
 1. Cada vez que tomemos 100 individuos al azar de esta comunidad, exactamente 23 tendrán esta enfermedad.
 1. Si  observamos muchos individuos de esta comunidad, esperamos encontrar un 2.3% de  individuos con esta enfermedad.
@@ -1470,18 +1537,18 @@ y despejamos $P(E)$.
 1. 0.28 
 
 
-**(4)** Si nos dicen que en una determinada población infantil, un 36% han tenido la varicela, un 80%, paperas, y un 70%, el sarampión, ¿cuáles de las afirmaciones siguientes sobre esta población seguro que son falsas?
+**(4)** Si nos dicen que en una determinada población infantil, un 36% han tenido la varicela, un 80%, paperas, y un 70%, el sarampión, ¿cuál o cuáles de las afirmaciones siguientes sobre esta población seguro que son falsas?
 
 1. Nos mienten, porque la suma de estos tres porcentajes es mayor que el 100%
 1. Un 40% de esta población ha pasado las tres enfermedades
-1. Un 15% de esta población han pasado las varicela y las paperas
-1. Un 25% de esta población han pasado las varicela y las paperas
-1. Un 50% de los que han pasado el sarampión, han tenido la paperas
-1. Un 75% de los que han pasado el sarampión, han tenido la paperas
+1. Un 15% de esta población han pasado la varicela y las paperas
+1. Un 25% de esta población han pasado la varicela y las paperas
+1. Un 50% de los que han pasado el sarampión, han tenido las paperas
+1. Un 75% de los que han pasado el sarampión, han tenido las paperas
 1. Ninguno de los que han tenido las paperas y el sarampión también ha pasado la varicela
 1. Todos los que han tenido las paperas y el sarampión también ha pasado la varicela
 
-**(6)** La *odds ratio* de tener asma relativa a tener gato  es 0.7. ¿Cuáles de las afirmaciones siguientes se deducen de este hecho?
+**(6)** La *odds ratio* de tener asma relativa a tener gato  es 0.7. ¿Cuál o cuáles de las afirmaciones siguientes se deducen de este hecho?
 
 1. La probabilidad de tener asma si se tiene un gato es 0.7 veces la de tener asma si no se tiene un gato.
 1. La probabilidad de tener asma si se tiene un gato es menor que si no se tiene un gato.
