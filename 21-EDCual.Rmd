@@ -1,4 +1,4 @@
-# Descripción de datos cualitativos
+# Descripción de datos cualitativos {#chap:edcual}
 
 Los **datos cualitativos** corresponden a observaciones sobre cualidades de un objeto o individuo, tales como su  especie o su sexo, que pueden ser iguales o diferentes y no admiten ningún otro tipo de comparación significativa: por ejemplo, datos para los que no tenga ningún sentido preguntarse si uno es más grande que otro, ni efectuar operaciones aritméticas con ellos, aunque estén representados por números. Llamaremos  **niveles** a los diferentes valores que puede tomar una variable cualitativa; por ejemplo, los dos niveles de una variable "Sexo"  serían "Macho" y "Hembra", o sinónimos.
 
@@ -48,7 +48,7 @@ kable(DF,
 ```{block2,type="rmdnote"}
 El término **moda** y los adjetivos **unimodal**, **bimodal**, etc. también se usan en variables poblacionales: dada una variable poblacional cualitativa, su **moda** es el nivel  más frecuente en el total de la población, cuando existe.
 
-Pero en este caso poblacional, decimos que la variable es **unimodal** cuando hay un nivel que es *mucho más frecuente* que el resto, no basta con que haya uno más frecuente. De manera similar, **bimodal** no significa que la mayor frecuencia de un nivel en la población se dé en dos niveles que empaten exactamente, sino que hay dos niveles con frecuencias parecidas y mucho mayores que el resto. 
+Pero en el caso poblacional, decimos que la variable es **unimodal** cuando hay un nivel que es *mucho más frecuente* que el resto, no basta con que haya uno más frecuente. De manera similar, **bimodal** no significa que la mayor frecuencia de un nivel en la población se dé en dos niveles que empaten exactamente, sino que hay dos niveles con frecuencias parecidas y mucho mayores que el resto. 
 
 Por ejemplo, supongamos que tenemos una variable poblacional que puede tomar 4 valores excluyentes: A, B, C, D.
 
@@ -68,7 +68,7 @@ Sexo_Ger=c("Mujer","Mujer","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Hom
 barplot(table(Sexo_Ger),col=c("light blue","pink"))
 ```
 
-Su el diagrama de barras de frecuencias relativas es:
+Su diagrama de barras de frecuencias relativas es:
 
 ```{r,echo=FALSE}
 barplot(prop.table(table(Sexo_Ger)),col=c("light blue","pink"))
@@ -83,7 +83,7 @@ pie(table(Sexo_Ger),col=c("light blue","pink"))
 ```
 
 
-Pese a su popularidad, es poco recomendable usar diagramas circulares cuando se manejan más de dos niveles, porque a veces es difícil, a simple vista, comprender las relaciones entre las frecuencias que representan.  Para convencerse, basta comparar los diagramas de barras y los diagramas circulares de la Figura siguiente,  extraída de la [entrada sobre diagramas circulares de la *Wikipedia*](http://en.wikipedia.org/wiki/Pie_chart):
+Pese a su popularidad, es poco recomendable usar diagramas circulares cuando se manejan más de dos niveles, porque a veces es difícil, a simple vista, comprender las relaciones entre las frecuencias que representan.  Para convencerse, basta comparar los diagramas de barras y los diagramas circulares de la figura siguiente,  importada de la [entrada sobre diagramas circulares de la *Wikipedia*](http://en.wikipedia.org/wiki/Pie_chart):
 
 
 ```{r,echo=FALSE, out.width="75%"}
@@ -304,7 +304,7 @@ barplot(c(4,1,1,4,3,7),names=c("Hombre-\n Alzheimer","Hombre-\n Otros","Hombre-\
 
 
 
-El usar barras apiladas o yuxtapuestas en un diagrama de barras bidimensional ya va más a gusto de cada uno: en los diagramas de barras apiladas es más fácil comparar las frecuencias de los niveles de la variable principal,en los diagramas de barras yuxtapuestas es más fácil comparar la distribución de los niveles de la variable secundaria dentro de cada nivel de la variable principal. 
+El usar barras apiladas o yuxtapuestas en un diagrama de barras bidimensional ya va más a gusto de cada uno: en los diagramas de barras apiladas es más fácil comparar las frecuencias de los niveles de la variable principal, en los diagramas de barras yuxtapuestas es más fácil comparar la distribución de los niveles de la variable secundaria dentro de cada nivel de la variable principal. 
 
 
 ## Diagramas de mosaico
@@ -322,27 +322,12 @@ mosaicplot(table(DFGer),col=c("pink","lightblue"),main="")
 
 ### Problemas {-}
 
-**(1)** En un estudio transversal sobre 145 sujetos, 75 hombres y  70 mujeres, 
-40 hombres y 20 mujeres presentaron una determinada enfermedad. Representad estos datos en un diagrama de barras bidimensional de frecuencias relativas que muestre las proporciones de enfermos y sanos en cada sexo.
+**1.** En un estudio transversal en el que se analizó 75 hombres y  70 mujeres,  40 hombres y 20 mujeres presentaron una determinada enfermedad. 
 
-**(2)** Considerad la tabla siguiente de frecuencias absolutas:
+a. Representad estos datos en un diagrama de barras bidimensional de frecuencias relativas que muestre las proporciones de enfermos y sanos en cada sexo.
 
-$$
-\begin{array}{lc}
-&\hphantom{YY}\textbf{Propiedad X} \\
-\begin{array}{l}
-\textbf{Propiedad Y}
-\end{array}
-&\!\!\!\!\!
-\begin{array}{r |c|c|}
- &\text{Sí} & \text{No}  \\ \hline
-  \text{Sí} & 56 & 35\\
-  \text{No} & 28 & 90\\ 
-\end{array}
-\end{array}
-$$
+b. ¿Qué vale la frecuencia relativa de los hombres entre los participantes que no presentaron la enfermedad? 
 
-¿Cuál es la frecuencia relativa de los individuos con Propiedad X entre los que NO  tienen la propiedad Y?
 
 ### Test {-}
 

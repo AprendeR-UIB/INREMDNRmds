@@ -1,4 +1,4 @@
-# Descripción de datos ordinales 
+# Descripción de datos ordinales  {#chap:edord}
 
 Los **datos ordinales** son parecidos a los cualitativos, en el sentido de que son cualidades de objetos o individuos. Su diferencia con los datos cualitativos está en que las características que expresan los datos ordinales tienen un orden natural que permite **acumular**  observaciones, es decir, contar cuántas hay por debajo de cada nivel. Un caso frecuente son las escalas tipo *Likert*, que se usan para expresar el nivel de acuerdo o desacuerdo con una afirmación mediante respuestas cerradas.
 
@@ -49,7 +49,7 @@ En esta lista hay 6 *S*, 7 *A*, 4 *N* y 3 *E*: éstas serían las frecuencias ab
 * Hay 17 estudiantes que han obtenido *N* o menos (6 *S*, 7 *A* y 4 *N*): la frecuencia absoluta de *N* es 4 y su frecuencia acumulada es 17.
 * Hay 20 estudiantes que han obtenido *E* o menos (todos): la frecuencia absoluta de *E* es 3 y su frecuencia acumulada es 20.
 
-La **frecuencia relativa acumulada**  de cada calificación es la fracción del total de estudiantes que representa su frecuencia absoluta acumulada. Por ejemplo, la frecuencia relativa acumulada de notables es la proporción de estudiantes que han sacado  un notable o menos, y, por lo tanto, es igual a la frecuencia absoluta acumulada de *N* dividida por el número total de estudiantes: 17/20=0.85.  También se puede obtener "acumulando" las frecuencias relativas de las calificaciones menores o iguales que *N*: como hay un 30% de *S* (6 de 20), un 35% de *A* (7 de 20) y un 20% de *N* (4 de 20), la frecuencia relativa acumulada de *N* es un 85%, es decir 0.85.
+La **frecuencia relativa acumulada**  de cada calificación es la fracción del total de estudiantes que representa su frecuencia absoluta acumulada. Por ejemplo, la frecuencia relativa acumulada de notables es la proporción de estudiantes que han sacado  un notable o menos, y, por lo tanto, es igual a la frecuencia absoluta acumulada de *N* dividida por el número total de estudiantes: 17/20=0.85.  También se puede obtener "acumulando" las frecuencias relativas de las calificaciones menores o iguales que *N*: como hay un 30% de *S* (6 de 20), un 35% de *A* (7 de 20) y un 20% de *N* (4 de 20), la frecuencia relativa acumulada de *N* es 0.3+0.35+0.2=0.85, és decir, un 85%.
 
 
 Así pues, las frecuencias relativas acumuladas de las calificaciones en esta muestra son:
@@ -142,19 +142,19 @@ barplot(table(COVIDacum,dnn=list("COVID-19")), cex.names=0.75)
 * Un diagrama de barras de sus frecuencias relativas acumuladas:
 
 ```{r,echo=FALSE}
-barplot(prop.table(table(COVIDacum,dnn=list("COVID-19"))),  cex.names=0.75, ylim=c(0,1))
+barplot(cumsum(prop.table(table(COVID,dnn=list("COVID-19")))),  cex.names=0.75, ylim=c(0,1))
 ```
 
 * Su tabla de frecuencias relativas acumuladas dentro de cada nivel de demencia senil:
 
 ```{r,echo=FALSE}
-kable(t(apply(prop.table(table(DFGer[,c(2,4)])), MARGIN=1, FUN=cumsum)))
+kable(t(apply(prop.table(table(DFGer[,c(2,4)]),margin=1), MARGIN=1, FUN=cumsum)))
 ```
 
 * El diagrama de barras yuxtapuestas de esta  última tabla:
 
 ```{r,echo=FALSE}
-Tabla=apply(prop.table(table(DFGer[,c(2,4)])), MARGIN=1, FUN=cumsum)
+Tabla=apply(prop.table(table(DFGer[,c(2,4)]),margin=1), MARGIN=1, FUN=cumsum)
 barplot(Tabla, beside=TRUE, legend=TRUE,args.legend=list(x="topleft",cex=0.5))
 ```
 
@@ -163,13 +163,13 @@ barplot(Tabla, beside=TRUE, legend=TRUE,args.legend=list(x="topleft",cex=0.5))
 
 ### Problemas {-}
 
-**(1)** Calculad la tabla bidimensional de frecuencias relativas acumuladas de los niveles de gravedad de la COVID-19 en cada sexo, y representad esta tabla por medio de un diagrama de barras yuxtapuestas adecuado.
+**1.** Calculad la tabla bidimensional de frecuencias relativas acumuladas de los niveles de gravedad de la COVID-19 en cada sexo, y representad esta tabla por medio de un diagrama de barras yuxtapuestas adecuado.
 
-**(2)** En el estudio del Ejercicio 1 de la Lección \@ref(chap:edqual), entre los 60 enfermos hubo 12  de 40 años o menos, 3  entre 41 y 50 años, 15  entre 51 y 60 años y 30 de más de 60 años, mientras que los que no presentaron la enfermedad fueron, en estas franjas de edad, 29, 21, 17 y 18, respectivamente. Dad:
+**2.** En el estudio del Problema 1 de la Lección \@ref(chap:edcual), entre los 60 enfermos hubo 12  de 40 años o menos, 3  entre 41 y 50 años, 15  entre 51 y 60 años y 30 de más de 60 años, mientras que los que no presentaron la enfermedad fueron, en estas franjas de edad, 29, 21, 17 y 18, respectivamente. Dad:
 
-1. Un diagrama de barras bidimensional que muestre las frecuencias relativas de las diferentes franjas de edad en enfermos y en sanos.
+a. Un diagrama de barras bidimensional que muestre las frecuencias relativas de las diferentes franjas de edad en enfermos y en sanos.
 
-2. Un diagrama de barras bidimensional que muestre las frecuencias relativas acumuladas de las diferentes franjas de edad en enfermos y en sanos.
+b. Un diagrama de barras bidimensional que muestre las frecuencias relativas acumuladas de las diferentes franjas de edad en enfermos y en sanos.
 
 
 ### Test {-}
