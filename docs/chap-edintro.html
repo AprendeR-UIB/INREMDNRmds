@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Bioestadística (Medicina UIB)</title>
+  <title>Lección 6 Tipos de datos | Bioestadística (Medicina UIB)</title>
   <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Bioestadística (Medicina UIB)" />
+  <meta property="og:title" content="Lección 6 Tipos de datos | Bioestadística (Medicina UIB)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Bioestadística (Medicina UIB)" />
+  <meta name="twitter:title" content="Lección 6 Tipos de datos | Bioestadística (Medicina UIB)" />
   
   <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introducción.html"/>
+<link rel="prev" href="probabilidades-elementales-aplicaciones-en-medicina.html"/>
+<link rel="next" href="chap-edcual.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -200,63 +200,283 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Bioestadística (Medicina UIB)</h1>
-<p class="date"><em>2021-07-22</em></p>
-</div>
-<div id="presentación" class="section level1 unnumbered">
-<h1>Presentación</h1>
-<p>Esto es una edición en línea de los apuntes de <em>Introducción a la Investigación en Salud y Bioestadística</em> del grado de Medicina de la UIB. Este trabajo se publica bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Atribución-No Comercial-SinDerivados 4.0</a></p>
-<p>Estos apuntes están permanentemente en construcción. En la lista siguiente iremos anunciando las actualizaciones:</p>
-<ul>
-<li>2021-09-15:</li>
-</ul>
-<p>El libro está escrito en <em>R Markdown</em>, usando <em>RStudio</em> como editor de textos y el paquete <strong>bookdown</strong> para convertir los ficheros <em>markdown</em> en un libro.</p>
-<p><strong>Significado de algunas cajas</strong>:</p>
-
-<div class="rmdimportant">
-Material muy importante.
-</div>
+<div id="chap:edintro" class="section level1" number="6">
+<h1><span class="header-section-number">Lección 6</span> Tipos de datos</h1>
+<p>En las lecciones que siguen explicamos algunas técnicas básicas de estadística descriptiva. Estas técnicas consistirán en una serie de valores y gráficos que nos permitirán resumir y explorar un conjunto de datos, con el objetivo final de entenderlos lo mejor posible.</p>
+<p>Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (<strong>variables</strong>) de una serie de individuos.
+Almacenamos estos datos en <strong>tablas de datos</strong> como la Tabla <a href="chap-edintro.html#tab:tabla1">6.1</a>, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge las características que hemos anotado de estos niños: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5).</p>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tabla1">Tabla 6.1: </span>Una pequeña tabla de datos sobre niños
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Nombre
+</th>
+<th style="text-align:right;">
+Altura
+</th>
+<th style="text-align:right;">
+Hermanos
+</th>
+<th style="text-align:left;">
+Cabello
+</th>
+<th style="text-align:left;">
+Refrescos semanales
+</th>
+<th style="text-align:right;">
+Satisfacción App
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Marta
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+rubio
+</td>
+<td style="text-align:left;">
+2-3
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Laura
+</td>
+<td style="text-align:right;">
+132
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+negro
+</td>
+<td style="text-align:left;">
+2-3
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Xavier
+</td>
+<td style="text-align:right;">
+138
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+negro
+</td>
+<td style="text-align:left;">
+0-1
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Joan
+</td>
+<td style="text-align:right;">
+141
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+castaño
+</td>
+<td style="text-align:left;">
+4-5
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+Maria
+</td>
+<td style="text-align:right;">
+134
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+rojo
+</td>
+<td style="text-align:left;">
+0-1
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+Maria
+</td>
+<td style="text-align:right;">
+136
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+castaño
+</td>
+<td style="text-align:left;">
+6 o más
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
 
 <div class="rmdcaution">
-¡Cuidado!
+<p>En este curso vamos a “sobrecargar” el término <strong>variable</strong>, en el sentido de que tendrá dos significados diferentes que esperamos que podáis distinguir según el contexto:</p>
+<ul>
+<li><p>Por un lado, llamaremos <strong>variable</strong> a una característica que puede tomar diferentes valores sobre diferentes individuos; cuando tenga este sentido, a veces le añadiremos el adjetivo <strong>poblacional</strong>. Por ejemplo, la altura de las personas (de todo el mundo, de un país, de una ciudad…) es una variable poblacional.</p></li>
+<li><p>Por otro lado, también llamaremos una <strong>variable</strong> a un vector formado por los valores de una variable poblacional sobre los sujetos de una muestra. Por ejemplo, las alturas de los niños recogidas en la Tabla <a href="chap-edintro.html#tab:tabla1">6.1</a> forman una variable en este sentido.</p></li>
+</ul>
 </div>
+<p>Los tipos básicos de datos que consideramos en este curso son los siguientes:</p>
+<ul>
+<li><p>Datos <strong>cualitativos</strong>. Son los que expresan una cualidad del individuo, tales como el sexo anatómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual, <a href="https://twitter.com/GEldeanita/status/1297826424309649408">sestosexual</a>…), tipos de cáncer (de mama, de colon, de próstata…)…
+Si solo pueden tomar dos valores (“Sí” o “No”, “Macho” o “Hembra”…) los llamamos <strong>dicotómicos</strong> y si pueden tomar más de dos valores, <strong>politómicos</strong> o <strong>multicotómicos</strong>, dependiendo de lo que queramos complicar el adjetivo. A los posibles valores que puede tomar un tipo de datos cualitativo se les suele llamar <strong>niveles</strong>.</p>
+<p>Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación.</p></li>
+<li><p>Datos <strong>ordinales</strong>. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, …) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: por eso son datos cualitativos y no ordinales. También se suele llamar a los posibles valores que puede tomar un tipo de datos ordinal sus <strong>niveles</strong>.</p></li>
+<li><p>Datos <strong>cuantitativos</strong>. Son datos que se refieren a medidas que sean números genuinos, con los que tenga sentido operar, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos:</p>
+<ul>
+<li><p><strong>Discretos</strong>: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital…</p></li>
+<li><p><strong>Continuos</strong>: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo…</p></li>
+</ul></li>
+</ul>
 
-<div class="rmdexercici">
-Ejercicio.
+<div class="example">
+<p><span id="exm:unnamed-chunk-181" class="example"><strong>Ejemplo 6.1  </strong></span>En la Tabla <a href="chap-edintro.html#tab:tabla1">6.1</a>:</p>
+<ul>
+<li>La variable “Nombre” es cualitativa.</li>
+<li>La variable “Altura” es cuantitativa continua.</li>
+<li>La variable “Hermanos” es cuantitativa discreta.</li>
+<li>La variable “Cabello” es cualitativa.</li>
+<li>La variable “Refrescos semanales” es ordinal.</li>
+<li>La variable “Satisfacción App” también es ordinal.</li>
+</ul>
 </div>
+<p>Dos puntos relevantes a tener en cuenta:</p>
+<ul>
+<li><p><strong>No todo número es un dato cuantitativo.</strong> Solo los consideramos cuantitativos cuando son números genuinos, “de verdad”. Por ejemplo, si pedimos a un paciente que califique su dolor con un número natural de 0 a 10, no es un dato cuantitativo, sino ordinal:</p>
+<ul>
+<li><p>No es una medida precisa del dolor; no son números “de verdad”, sino abreviaturas de “Nada”, “Un poquito”,…, “Matadme”.</p></li>
+<li><p>Tener dolor 6 no significa “tener el doble de dolor” que tener dolor 3 (si lo significara, ¿cuál sería el valor correspondiente “al doble de dolor” que 7?). En cambio, una persona con 6 hermanos sí que tiene el doble de hermanos que si tuviera 3.</p></li>
+<li><p>No tiene sentido sumarlos u operarlos en general. Por ejemplo, si yo tengo dolor de nivel 6 y tú tienes dolor de nivel 5, entre los dos no tenemos dolor de nivel 11. En cambio, si yo tengo 6 hermanos y tú 5, entre los dos sí que tenemos 11 hermanos.</p></li>
+</ul>
+<p>Este es justamente el caso de la variable “Satisfacción App” de la tabla anterior. Pese a que sus valores son números, el único contenido real que tienen es su orden: a la María que toma muchos refrescos le ha gustado la app bastante más que a la María que apenas toma refrescos.</p></li>
+<li><p><strong>La distinción discreto-continuo es puramente teórica</strong>. En realidad, todo dato es discreto porque no podemos medir nada con precisión infinita, pero las herramientas matemáticas “continuas” (derivadas, integrales, etc.) son mucho más potentes que las discretas, por lo que siempre que tenga sentido, es conveniente considerar una variable como continua.</p>
+<p>Observad, por ejemplo, la diferencia entre la altura, pongamos que medida en cm y redondeada a unidades como en la tabla anterior, y el número de hermanos. Ambos se presentan como números naturales, pero los números de hermanos no admiten mayor precisión, mientras que las alturas las podríamos medir, con los aparatos adecuados, en mm, en µm, en nm…. Como además las herramientas para tratar datos continuos son mucho más potentes, vamos a considerar las alturas como datos continuos, mientras que los números de hermanos no hay más remedio que tratarlos como discretos.</p>
+<p>En concreto, <strong>es conveniente considerar en la práctica como datos continuos aquellos que dan lugar números naturales muy grandes</strong>, como por ejemplo los números de glóbulos rojos en un litro de sangre, de bases nucléicas en un genoma, o de personas de un país: la diferencia entre diez millones, diez millones uno, diez millones dos… puede considerarse como continua: de hecho, si tomamos el millón como unidad, la diferencia está en la séptima cifra decimal.</p></li>
+</ul>
 
-<div class="rmdcorbes">
-Detalles matemáticos que os pueden interesar, pero que podéis obviar sin ningún problema.
+<div class="rmdnote">
+Hemos dicho que la variable “Cabello” es cualitativa. En principio, el color de los cabellos no tiene ningún orden “natural”, sobre todo si incluimos los tintes. Pero si en un estudio definimos un orden claro para esta variable (por ejemplo, por la longitud de onda correspondiente) y este orden es relevante en nuestro estudio, habrá que considerarla una variable ordinal.
 </div>
 
 <div class="rmdnote">
-Comentario que queremos enfatizar.
+La variable “Refrescos semanales” es de un tipo de datos ordinales muy concreto que a veces se califican de <strong>cuantitativos agrupados</strong>: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable que mide el número preciso de refrescos semanales). Volveremos sobre este tipo de datos en la Sección <a href="descripción-de-datos-cuantitativos.html#sec:estagrup">9.9</a>.
 </div>
-
-<div class="rmdrecordau">
-Comentario que queremos que recordéis
+<p>El análisis, tanto descriptivo como inferencial, de un conjunto de datos es diferente según su tipo. Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades.</p>
+<div id="ejercicios" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Ejercicios</h2>
+<div id="problemas" class="section level3 unnumbered">
+<h3>Problemas</h3>
+<p><strong>1.</strong> ¿De qué tipo de datos son?:</p>
+<ul>
+<li><p>La presión arterial sistólica.</p></li>
+<li><p>El estatus marital.</p></li>
+<li><p>El nivel de gravedad de una enfermedad.</p></li>
+<li><p>El número de ingresos hospitalarios a través de urgencias a lo largo de un día.</p></li>
+<li><p>El nivel de incomodidad de los pacientes sometidos a un tratamiento (debido a sus efectos secundarios).</p></li>
+<li><p>El número de mujeres entre los alumnos de una clase.</p></li>
+<li><p>La proporción de mujeres entre los alumnos de una clase.</p></li>
+<li><p>El grupo sanguíneo (A, B, AB, 0).</p></li>
+<li><p>El número de pulsaciones por minuto.</p></li>
+<li><p>El ser alcohólico (sí o no).</p></li>
+<li><p>El nivel de alcoholismo (crónico, agudo, esporádico, neutro).</p></li>
+<li><p>La concentración de alcohol en sangre (en g/ml).</p></li>
+</ul>
 </div>
+<div id="test" class="section level3 unnumbered">
+<h3>Test</h3>
+<p><strong>(1)</strong> Se realiza un estudio sobre lesiones en extremidades en infantes. Una de las variables estudiadas es la extremidad lesionada. ¿De qué tipo de datos es esta variable?</p>
+<ol style="list-style-type: decimal">
+<li>Cualitativos dicotómicos.</li>
+<li>Cualitativos politómicos.</li>
+<li>Ordinales.</li>
+<li>Cuantitativos discretos.</li>
+<li>Cuantitativos continuos.</li>
+</ol>
+<p><strong>(2)</strong> Los diferentes estadios de un cáncer se indican con un número del 0 al 4. Este valor, ¿de qué tipo de dato se trata?</p>
+<ol style="list-style-type: decimal">
+<li>Cualitativo dicotómico.</li>
+<li>Cualitativo politómico.</li>
+<li>Ordinal.</li>
+<li>Cuantitativo discreto.</li>
+<li>Cuantitativo continuo.</li>
+</ol>
 
-<div class="rmdromans">
-Cuestión en la que queremos que caigáis en la cuenta.
 </div>
-
-<div class="rmderrorpetit">
-Acabamos de matar un gatito
 </div>
-
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="probabilidades-elementales-aplicaciones-en-medicina.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-edcual.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

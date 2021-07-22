@@ -58,7 +58,7 @@ La única diferencia entre estas tablas y diagramas de barras y los de las lecci
 
 Como los datos cuantitativos son números reales y tienen el significado de números reales, podemos operar con ellos. Esto nos aporta una multitud de **estadísticos**, expresiones matemáticas que, aplicadas a un vector de datos cuantitativos, producen un valor que expresa alguna característica del mismo.
 
-Suposngamos de ahora en adelante que tenemos una muestra formada por $n$ números, que denotaremos $x_1,\ldots,x_n$.
+Supongamos de ahora en adelante que tenemos una muestra formada por $n$ números, que denotaremos $x_1,\ldots,x_n$.
 
 En primer lugar tenemos los **estadísticos de tendencia central**, que dan un valor representativo del conjunto de datos de la variable; los más importantes son:
 
@@ -72,7 +72,7 @@ $$
 
 * La **mediana** $Q_{0.5}$, que representa el valor central en la lista ordenada de observaciones y se define formalmente de la manera siguiente. Si denotamos por
 $$
-x_{(1)}\leq x_{(2)}\leq \cdots \leq x_{(n)}
+x_{(1)}\leqslant x_{(2)}\leqslant \cdots \leqslant x_{(n)}
 $$
 los datos de la variable cuantitativa ordenados de menor a mayor:
 
@@ -170,11 +170,12 @@ Es importante observar que, como ilustran los ejemplos y el chiste anteriores:
 
 * La moda es el valor más repetido, pero puede ser poco representativa 
 
-* La media es poco robusta, en el sentido de que los valores extremos pueden afectarla mucho, pero matemáticamente es más tratable
+* La media es poco robusta, en el sentido de que los valores extremos pueden afectarla mucho
 
-* La mediana es muy robusta, en el sentido de que los valores extremos la afectan poco, pero  es difícil de manejar matemáticamente
+* La mediana es muy robusta, en el sentido de que los valores extremos la afectan poco
 
 ```
+
 
 
 
@@ -206,7 +207,7 @@ Las **medidas de posición** dividen la variable en unas determinadas proporcion
 
 Dada una proporción $0<p<1$, el **cuantil de orden $p$** de una variable cuantitativa, que denotaremos por $Q_p$, es  el valor más pequeño tal que su frecuencia relativa acumulada es mayor o igual que $p$. En otras palabras, si tenemos un conjunto de números $x_1, \ldots, x_n$ y los ordenamos de menor a mayor,
 $$
-x_{(1)}\leq x_{(2)}\leq \cdots \leq x_{(n)},
+x_{(1)}\leqslant x_{(2)}\leqslant \cdots \leqslant x_{(n)},
 $$
 entonces $Q_p$ es el primer valor $x_{(i)}$ de esta lista ordenada que deja a su izquierda (incluyéndolo a él) como mínimo la fracción $p$ de los datos, es decir,  $p\cdot n$ datos.
 
@@ -230,7 +231,7 @@ Entonces:
 
 * El cuantil de orden 0.2, $Q_{0.2}$, es el primer elemento en esta lista ordenada que es mayor o igual que, como mínimo, el 20% de los datos. Como el 20% de 20 es 4, $Q_{0.2}$ es el cuarto elemento de la lista ordenada: `r Valor[4]`.
 
-* El cuantil de orden 0.75, $Q_{0.75}$, es el primer elemento en esta lista ordenada que es  mayor o igual que, como mínimo, el 75% de los datos. Como el 75% de 20 es 15, $Q_{0.75}$ es el décimoquinto elemento de la lista ordenada: `r Valor[15]`.
+* El cuantil de orden 0.75, $Q_{0.75}$, es el primer elemento en esta lista ordenada que es  mayor o igual que, como mínimo, el 75% de los datos. Como el 75% de 20 es 15, $Q_{0.75}$ es el decimoquinto elemento de la lista ordenada: `r Valor[15]`.
 
 * El cuantil de orden 1/3, $Q_{1/3}$, es el primer elemento en esta lista ordenada que es  mayor o igual que, como mínimo, un tercio de los datos. Como un tercio de 20 es 6.66 y pico, $Q_{1/3}$ es el *séptimo* elemento de la lista ordenada: `r Valor[7]`. Fijaos en que 6/20=0.3, y por lo tanto el sexto elemento de la lista deja a su izquierda solo el 30% de la muestra, no el 33.33...%. Necesitamos el séptimo elemento para llegar al tercio, aunque entonces nos pasemos. 
 
@@ -239,7 +240,7 @@ Los cuantiles se calculan a partir de los valores ordenados de la muestra, tenie
 ```
 
 ```{block2,type="rmdnote"}
-En realidad, la definición que hemos dado  de cuantil es "orientativa": no hay una regla única para calcular cuantiles de una muestra (*salvo la mediana*), de manera que se han propuesto varios métodos que pueden dar  resultados diferentes; podéis consultar nueve de estos métodos en la  [entrada sobre cuantiles de la  Wikipedia en inglés](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample). La razón de esta diversidad es que el objetivo final del cálculo de cuantiles puede no ser solo encontrar el primer valor cuya frecuencia relativa acumulada en el conjunto de datos sea mayor o igual que $p$, sino también estimar qué vale este valor para el total de la población.
+En realidad, la definición que hemos dado  de cuantil es "orientativa": no hay una regla única para calcular cuantiles de una muestra (*salvo la mediana*), de manera que se han propuesto varios métodos que pueden dar  resultados diferentes; podéis consultar nueve de estos métodos en la  [entrada sobre cuantiles de la  Wikipedia en inglés](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample). La razón de esta diversidad es que el objetivo final del cálculo de un cuantil puede no ser solo dar el primer valor cuya frecuencia relativa acumulada en el conjunto de datos sea mayor o igual que $p$, sino también estimar qué vale este valor para el total de la población.
 
 ¿Qué haremos nosotros?
 
@@ -274,11 +275,11 @@ Aquí tenéis una muestra de 14 niveles de glucosa medidos en niños en ayunas:
   
 Calculad su:
 
-* Moda: 
-* Media: 
-* Mediana:
-* Primer y tercer cuartiles: 
-* Porcentaje de elementos de la muestra que caen dentro del intervalo intercuartílico:
+* Moda
+* Media
+* Mediana
+* Primer y tercer cuartiles
+* Porcentaje de elementos de la muestra que caen dentro del intervalo intercuartílico
   
 ```
 
@@ -306,10 +307,6 @@ $$
 
 * La  **desviación típica muestral**: la raíz cuadrada positiva  de la varianza muestral: $\tilde{s}_x=+\sqrt{\tilde{s}_x^2}$.
 
-```{block2,type="rmdimportant"}
-Cuando queramos recalcar que estamos hablando de las versiones no muestrales de la varianza y la desviación típica,  les añadiremos el adjetivo **verdaderas**.
-```
-
 * El **coeficiente de variación**: la proporción de la media que representa la desviación típica (se usa solo para conjuntos de datos positivos): $CV_x=s_x/\overline{x}$
 
 * La **desviación media respecto de la mediana**: la media aritmética de los valores absolutos de las diferencias entre los datos $x_i$ y su mediana $Q_{0.5}$:
@@ -328,11 +325,11 @@ Calculemos todos estos valores para nuestra variable "Hijos"
 
 * Su máximo es 8 y su mínimo 0, por lo tanto su **recorrido** es 8
 * Ya hemos calculado en la sección anterior su intervalo intercuartílico, que es [1,4], por lo que su **rango intercuartílico** es 3.
-* Como su media es 2.55, su **varianza verdadera** es
+* Como su media es 2.55, su **varianza** es
 $$
 s^2_x=\frac{(4-2.55)^2+(1-2.55)^2+(8-2.55)^2+\cdots+(3-2.55)^2}{20}=4.8475
 $$
-*  Su **desviación típica verdadera** es
+*  Su **desviación típica** es
 $$
 s_x=\sqrt{4.8475}=2.202
 $$
@@ -358,7 +355,7 @@ MDM_x=\frac{|4-2|+|1-2|+|8-2|+\cdots+|3-2|}{20}=1.75
 $$
 
 ```{block2,type="rmdnote"}
-La diferencia entre la varianza verdadera y la muestral, aparte de la tilde $\widetilde{\ }$ en el símbolo de la muestral, está simplemente en el denominador, que es $n$ para la verdadera y $n-1$ para la muestral. Por lo tanto, se puede pasar de una a otra simplemente cambiando el denominador:
+La diferencia entre la varianza  y la varianza muestral, aparte de la tilde $\widetilde{\ }$ en el símbolo de la muestral, es el denominador, que es $n$ para la primera y $n-1$ para la segunda. Por lo tanto, se puede pasar de una a otra simplemente cambiando el denominador:
 $$
 \widetilde{s}^2_x=\frac{n}{n-1}\cdot s^2_x.
 $$
@@ -369,12 +366,12 @@ $$
 ```
 
 ```{block2,type="rmdromans"}
-¿Por qué definimos la varianza verdadera y la varianza muestral? ¿No bastaría con una, si además se pasa de una a otra con una simple transformación lineal? ¿No es ya la vida suficientemente complicada como para añadir definiciones innecesarias?
+¿Por qué introducimos la varianza y la varianza muestral? ¿No bastaría con una, si además se pasa de una a otra con una simple transformación lineal? ¿No es ya la vida lo suficientemente complicada como para añadir definiciones innecesarias?
 ```
   
-El motivo de distinguir entre la varianza verdadera y la muestral es su posible aplicación en la estimación de la varianza de la variable poblacional:
+El motivo de distinguir entre la varianza  y la varianza muestral es su  aplicación en la estimación de la varianza de la variable poblacional:
   
-* Por un lado, es natural medir la variabilidad de un conjunto de datos cuantitativos mediante su varianza *verdadera*, definida como la media de las distancias (al cuadrado) de los datos a su valor promedio. 
+* Por un lado, es natural medir la variabilidad de un conjunto de datos cuantitativos mediante su varianza "a secas", definida como la media de las distancias (al cuadrado) de los datos a su valor promedio. 
 
     Por lo tanto, si nuestro objetivo final es puramente la descripción de nuestro conjunto de datos, usar la varianza verdadera es lo correcto.
     
@@ -383,18 +380,20 @@ El motivo de distinguir entre la varianza verdadera y la muestral es su posible 
     Pues bien, como veremos más adelante, resulta que la varianza verdadera de una muestra tiende a dar valores más pequeños que la varianza real de la población, mientras que  la varianza muestral  tiende a dar valores alrededor de la varianza real  de la población. Por lo tanto, si nuestro objetivo es estimar la varianza de la variable poblacional, lo correcto es  usar la varianza muestral.
 
 
-Por otro lado, para muestras grandes, la diferencia no es importante: si $n$ es grande, dividir por $n$ o por $n-1$ no significa una gran diferencia, y  sobre todo si tenemos en cuenta que se trata de estimar la varianza de la población, no de calcularla exactamente.
+* De todas formas, para muestras grandes, la diferencia no es importante: si $n$ es grande, dividir por $n$ o por $n-1$ no significa una gran diferencia, y  sobre todo si tenemos en cuenta que se trata de estimar la varianza de la población, no de calcularla exactamente.
 
 ```{block2,type="rmdromans"}
- ¿Y por qué definimos la varianza y desviación típica, si ambas medidas dan una información equivalente, siendo la segunda la raíz cuadrada de la primera? 
+ ¿Y por qué definimos la varianza y desviación típica, si ambas medidas dan una información equivalente, ya que la segunda es la raíz cuadrada de la primera? 
   
-El motivo es que si los elementos de una variable cuantitativa tienen unidades (metros, años, individuos por metro cuadrado...),  su varianza (sea "verdadera" o muestral) tiene estas unidades al cuadrado; por ejemplo, si los $x_i$ son años, los valores de  $s_x^2$ y $\tilde{s}_x^2$ representan años al cuadrado. En cambio, las desviaciones típicas tienen las mismas unidades que los datos, por lo que se pueden comparar con ellos, y de ahí su utilidad. 
+El motivo es que si los elementos de una variable cuantitativa tienen unidades (metros, años, individuos por metro cuadrado...),  sus varianzas ("a secas" y muestral) tienen estas unidades al cuadrado; por ejemplo, si los $x_i$ son años, los valores de  $s_x^2$ y $\tilde{s}_x^2$ representan años al cuadrado. En cambio, las desviaciones típicas tienen las mismas unidades que los datos, por lo que se pueden comparar con ellos, y de ahí su utilidad. 
+
 ```
 
 ```{block2,type="rmdnote"}
 ¿Y el coeficiente de variación? ¿Cuándo conviene usarlo?
 
-Si queremos comparar la dispersión de dos variables con datos de la misma naturaleza, por ejemplo alturas, pero medidos en unidades diferentes, por ejemplo en metros y en centímetros, no es correcto usar medidas como la varianza o la desviación típica que dependan de las unidades. En este caso es más recomendable usar el coeficiente de variación $CV_x$. Mirad el ejemplo siguiente.
+Si queremos comparar la dispersión de dos variables con datos de la misma naturaleza, por ejemplo alturas, pero medidos en unidades diferentes, por ejemplo una en metros y la otra en centímetros, no es correcto usar medidas como la varianza o la desviación típica que dependan de las unidades. En este caso es más recomendable usar el coeficiente de variación $CV_x$. Mirad el ejemplo siguiente.
+
 ```
 
 ```{example}
@@ -436,17 +435,16 @@ $$
 
 La varianza tiene las propiedades matemáticas siguientes:
 
-* $s_x^2\geq 0$, porque es una suma de cuadrados de numeros reales.
+* $s_x^2\geqslant 0$, porque es una suma de cuadrados de números reales.
 
-* Si $s_x^2=0$, todos los sumandos $(x_i-\overline{x})^2$ son 0 y, por lo tanto, todos los datos son iguales  a su media. En particular, $s_x^2=0$ significa que todos los datos son iguales. La implicación al revés también es cierta:
-si todos los datos son iguales, su media es igual a este mismo valor común, y por lo tanto todos los sumandos $(x_i-\overline{x})^2$ son 0.
+* Si $s_x^2=0$, todos los sumandos $(x_i-\overline{x})^2$ son 0 y, por lo tanto, todos los datos son iguales  a su media.  La implicación al revés también es cierta: si todos los datos son iguales, su media es igual a este mismo valor común, y por lo tanto todos los sumandos $(x_i-\overline{x})^2$ son 0. Así pues, **$s_x^2=0$ significa que todos los datos son iguales**.
 
 
-* A partir de la fórmula dada para $s_x^2$ y operando astutamente se obtiene la fórmula siguiente, que puede ser útil:
+* A partir de la fórmula dada para $s_x^2$ y operando astutamente se obtiene la fórmula siguiente, que os puede ser útil:
 $$
-s_x^2= \frac{\sum_{i=1}^n x_i^2}{n}-\overline{x}^2,
+s_x^2= \frac{\sum_{i=1}^n x_i^2}{n}-\overline{x}^2
 $$
-Es decir, *la varianza* (*verdadera*) *es la media de los cuadrados de los datos, menos el cuadrado de la media de los datos.* 
+Es decir, *la varianza es la media de los cuadrados de los datos, menos el cuadrado de la media de los datos.* 
 
 
 
@@ -461,13 +459,13 @@ Seguimos con nuestra muestra de 14 niveles de glucosa medidos en niños en ayuna
   
 Calculad su:
 
-* Recorrido:
-* IQR:
-* Varianza:
-* Desviación típica:
-* Varianza muestral:
-* Desviación típica muestral:
-* Coeficiente de variación:
+* Recorrido
+* IQR
+* Varianza
+* Desviación típica
+* Varianza muestral
+* Desviación típica muestral
+* Coeficiente de variación
 
 ¿Qué varianza y desviación típica calcula vuestra calculadora?
 
@@ -490,7 +488,7 @@ x=c(56, 60, 62, 63, 63, 65, 65, 66, 66, 66, 66, 68, 70, 72)
 stripchart(x,vertical=TRUE,method="stack",pch=19,offset=0.75)
 ```
 
-Los diagramas de puntos solo son útiles cuando tenemos pocos valores en la muestra, de manera que valga la pena verlos todos. Cuando la muestra es grande, pongamos de 20 o más numeros, se suelen reemplazar por  un  tipo de gráfico que resume algunos  estadísticos de la muestra llamado  un **diagrama de caja** (*boxplot*). La estructura básica de un diagrama de caja es la que muestra la Figura \@ref(fig:bosplotgen).
+Los diagramas de puntos solo son útiles cuando tenemos pocos valores en la muestra, de manera que valga la pena verlos todos. Cuando la muestra es grande, pongamos de 20 o más números, se suelen reemplazar por  un  tipo de gráfico que resume algunos  estadísticos de la muestra llamado  un **diagrama de caja** (*boxplot*). La estructura básica de un diagrama de caja es la que muestra la Figura \@ref(fig:bosplotgen).
 
 
 ```{r bosplotgen,echo=FALSE, fig.cap="Un diagrama de caja genérico"}
@@ -514,7 +512,7 @@ En este gráfico:
     
     Los bigotes marcan el intervalo donde "deberían caer" todos los valores de la muestra. 
 
-* Si hay datos más allá de los bigotes, se llaman **valores atípicos**, o *outliers*, y se marcan como puntos aislados. 
+* Si hay datos más allá de los bigotes, se llaman **valores atípicos** o **anómalos**, *outliers* en inglés, y se marcan como puntos aislados. 
 
 
 ```{example,glucosabp}
@@ -524,7 +522,7 @@ Vamos a dibujar el diagrama de caja de los 14 niveles de glucosa usados en ejerc
  
 ```  
 
-* Tenemos que $Q_{0.25}=63$, $Q_{0.5}=65.5$ y $Q_{0.75}=66$. Esto nos define la caja central
+* Tenemos que $Q_{0.25}=63$, $Q_{0.5}=65.5$ y $Q_{0.75}=66$. Esto nos define la caja central.
 
 * $b_{inf}$ será el primer valor de la muestra ordenada que es mayor o igual que $63- 1.5\cdot 3=58.5$. Es el 60.
 
@@ -551,6 +549,11 @@ points(rep(1,7),c(0,1,2,3,4,6,8),col="red",pch=20)
 points(rep(1.02,6),c(0,1,2,3,4,6),col="red",pch=20)
 points(rep(1.04,5),c(0,1,2,3,4),col="red",pch=20)
 points(rep(1.06,2),c(1,2),col="red",pch=20)
+```
+
+
+```{block2,type="rmdcaution"}
+En los gráficos anteriores hemos superpuesto el diagrama de puntos al diagrama de caja para ayudar a comprender cómo se construye este último, pero en la vida real esto no se hace: se da un gráfico u otro, nunca los dos.
 ```
 
 ## Histogramas
@@ -583,11 +586,11 @@ alturas1=factor(alturas,levels=1.55+0.01*(0:17))
 barplot(table(alturas1))
 ```
 
-Ahora vamos a agrupar estas alturas en intervalos de 5cm. Como el valor mínimo de la muestra es 1.55 y el máximo es 1.82, vamos a tomar las clases 1.55-1.59, 1.60-1.64, 1.65-1.69,1.70-1.74,1.75-1.79, 1.80-1.84. Dibujemos el diagrama de barras de las frecuencias absolutas de estas clases sin dejar espacios entre las barras, obtenemos el **histograma** siguiente:
+Ahora vamos a agrupar estas alturas en intervalos de 5cm. Como el valor mínimo de la muestra es 1.55 y el máximo es 1.82, vamos a tomar las clases 1.55-1.59, 1.60-1.64, 1.65-1.69,1.70-1.74,1.75-1.79, 1.80-1.84. Dibujando el diagrama de barras de las frecuencias absolutas de estas clases sin dejar espacios entre las barras, obtenemos el **histograma** siguiente:
 
 
 ```{r echo=FALSE,fig.width=6,out.width="60%"}
-hist(alturas,breaks=1.55+0.05*(0:6),right=FALSE)
+hist(alturas,breaks=1.55+0.05*(0:6),right=FALSE,main="",xlab="Altura",ylab="Frecuencia")
 ```
 
 
@@ -605,12 +608,13 @@ El gráfico siguiente es un histograma de un conjunto de 188 notas finales de un
 knitr::include_graphics("INREMDN_files/figure-html/histnotas1.png")
 ```
 
-En este histograma, hemos tomado las clases [0,1), [1,2),...,[9,10]. Si en cambio hubiéramos tomado las clases [0,5) (suspenso), [5,7) (aprobado), [7,9) (notable) y [9,10] (sobresaliente), el histograma tendría que ser como el siguiente, donde ya no podemos marcar las alturas en el eje de ordenadas (la altura de la barra de notables es mayor que la de los suspensos, pero su frecuencia es menor):
+En este histograma, hemos tomado las clases [0,1), [1,2),...,[9,10]. Si en cambio hubiéramos tomado las clases [0,5) (suspenso), [5,7) (aprobado), [7,9) (notable) y [9,10] (sobresaliente), el histograma sería el siguiente: 
 
 ```{r histnotas2,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/histnotas2.png")
 ```
 
+Aquí no tiene sentido marcar las frecuencias en el eje de ordenadas, porque, por ejemplo, la altura de la barra de notables es mayor que la de los suspensos, pero su frecuencia es menor. Por este motivo las hemos indicado dentro de las barras.
 
 Suponemos que estaréis de acuerdo en que es más fácil entender la distribución de las notas con el primer histograma que con el segundo. Como el objetivo de un gráfico ha de ser ayudar a comprender un conjunto de datos, casi siempre es más conveniente usar clases de la misma amplitud a la hora de dibujar histogramas, y solo las usaremos de diferentes amplitudes cuando no haya más remedio.
 
@@ -677,7 +681,8 @@ Frecuencia=c(3,3,16,33,23,22,13,5,2)
 Frecrel=round(Frecuencia/120,3)
 Densidad=round(Frecrel/10,4)
 DF=data.frame(Clase,Frecuencia,Frecrel,Densidad)
-kable(DF,names=c("Clase","Frec. absoluta","Frec. relativa","Densidad"))%>%
+names(DF)=c("Clase","Frec. absoluta","Frec. relativa","Densidad")
+kable(DF)%>%
   kable_styling(full_width = F)
 ```
 y el histograma de frecuencias relativas a que dan lugar es
@@ -742,7 +747,7 @@ Aquí tenéis los tiempos (en horas) de los ganadores de la maratón de Nueva Yo
   
 <p style="text-align:center">2.08, 2.12, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.13, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.15, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.18, 2.18, 2.18, 2.18, 2.18, 2.18, 2.18, 2.20, 2.20, 2.23, 2.32, 2.35, 2.37, 2.37, 2.38, 2.38, 2.38, 2.38, 2.40, 2.40, 2.40, 2.40, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42, 2.42,  2.42, 2.43, 2.43, 2.45, 2.45, 2.45, 2.45, 2.45, 2.45, 2.47, 2.47, 2.47, 2.47, 2.47, 2.47, 2.47, 2.47, 2.48, 2.50, 2.50, 2.52, 2.53, 2.65, 2.72, 2.77, 2.92, 2.95, 3.12, 3.13</p>
 
-Dibujad su histograma usando 6 clases de amplitud 0.2, empezando en 2 horas, y su diagrama de caja. ¿Qué observáis en cada uno de ellos que no podéis observar en el otro?
+Dibujad su histograma usando 6 clases de amplitud 0.2, empezando en 2 horas, y su diagrama de caja. ¿Qué observáis en cada uno de ellos que no podáis observar en el otro? ¿Cuál de los dos os parece más informativo?
   
 ```
 
@@ -763,7 +768,7 @@ $$
 \beta_2=\frac{1}{s_x^4}\cdot \frac{\sum_{i=1}^n (x_i-\overline{x})^4}{n}-3
 $$
 
-Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la **asimetría** de la variable. Para definir esta característica, lo más práctico es dibujar un histograma de la variable y considerar el eje de simetría pasando por la media. Llamaremos **colas** a los trozos del histograma a ambos lados de este eje de simetría. Entonces:
+Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la **asimetría** de la variable. Para definir esta característica, lo más práctico es dibujar un histograma de la variable y considerar el eje de simetría pasando por la *media*. Llamaremos **colas** a los trozos del histograma a ambos lados de este eje de simetría. Entonces:
 
 * La variable es **simétrica** si ambas colas son similares, como en los dos gráficos siguientes:
 ```{r histssim,echo=FALSE}
@@ -807,8 +812,8 @@ muestra es asimétrica a la derecha, pero solo lo "suele ser": con un poco de im
 Pues bien, el coeficiente de asimetría $\gamma_1$ indica el tipo de asimetría de la variable:
 
 * Cuando $\gamma_1\approx 0$, la distribución de los datos es simétrica
-* Cuando $\gamma_1< 0$, la variable es asimétrica negativa, es decir, a la izquierda
-* Cuando $\gamma_1> 0$, la variable es asimétrica positiva, es decir, a la derecha
+* Cuando $\gamma_1< 0$, la variable es asimétrica negativa, con cola a la izquierda
+* Cuando $\gamma_1> 0$, la variable es asimétrica positiva, con cola a la derecha
 
 La mejor manera de decidir la asimetría de una variable es por medio de un histograma, aunque a menudo también se puede ver en un diagrama de caja, como muestran los gráficos siguientes:
 
@@ -828,9 +833,11 @@ knitr::include_graphics("INREMDN_files/figure-html/histvsbpdreta.png")
 ```
 
 ```{block2,type="rmdimportant"}
-Usar la media y la desviación típica (o la varianza) para describir el "valor central" de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma recuerda la forma de una campana de Gauss (Figura \@ref(fig:Gauss)); es decir, por ejemplo, no cuando tiene forma de U. Cuando el histograma es simétrico y con una forma parecida a auna campana de Gauss, el intervalo $\overline{x}\pm s_x$ suele contener aproximadamente unos 2/3 de los datos de la muestra.
+Usar la media y la desviación típica (o la varianza) para describir el "valor central" de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma recuerda la forma de una campana de Gauss (Figura \@ref(fig:Gauss)); es decir, por ejemplo, no cuando tiene forma de U. Cuando el histograma es simétrico y con una forma parecida a 
+una campana de Gauss, el intervalo $\overline{x}\pm s_x$ suele contener aproximadamente unos 2/3 de los datos de la muestra.
 
 Pero para variables muy asimétricas o simétricas en forma de U es mejor usar la mediana y el intervalo intercuartílico. Recordad que este último contiene aproximadamente el 50% de la muestra.
+
 ```
 
 ```{r Gauss,echo=FALSE,fig.cap="Una campana de Gauss"}
@@ -897,11 +904,11 @@ knitr::include_graphics("INREMDN_files/figure-html/Plati.png")
 
 No vamos a insistir en este coeficiente ni en el apuntamiento de las variables.
 
-## Estadísticos sobre datos agrupados 
+## Estadísticos sobre datos agrupados {#sec:estagrup}
 
 En nuestro lenguaje cotidiano, solemos **agrupar** datos cuantitativos sin que seamos conscientes de ello. Cuando decimos, por ejemplo, que la edad de alguien es de 18 años, no queremos decir que nació justo hoy hace 18 años, sino que ya ha cumplido los 18 años, pero aún no ha cumplido los 19; es decir, que agrupamos todas las edades que caen dentro del intervalo [18,19) en una misma clase, que llamamos "18 años". Del mismo modo, que alguien mida 1.72 no significa que esta sea su altura exacta, con la precisión del grueso de un cabello, sino que su altura pertenece a un intervalo de valores en torno a 1.72 metros que identificamos con "1.72". Bajo  la calificación de "aprobado" agrupamos todas las notas mayores o iguales que 5 y menores que 7. Y estamos seguros de que se os ocurren otros ejemplos. 
 
-Muy a menudo, los datos cuantitativos se recogen directamente agrupados, como por ejemplo franjas salariales o el número de hermanos en la tabla de datos \@ref(tab:tabla1). Y aunque las clases definan una variable ordinal, es muy probable que nos interese interpretarlas como eso: clases resultado de agrupar datos cuantitativos. Su representación gráfica adecuada es claramente un histograma, pero ¿cómo podemos calcular los estadísticos? Está claro que de manera exacta es imposible si no conocemos los datos **brutos**,  sin agrupar. Pero podemos intentar aproximarlos.
+Muy a menudo, los datos cuantitativos se recogen directamente agrupados, como por ejemplo franjas salariales o el número de refrescos semanales en la tabla de datos \@ref(tab:tabla1). Aunque estas clases definan un conjunto de datos ordinales (les llamábamos **cuantitativos agrupados** en una Nota al final de la Lección \@ref(chap:edintro)) es muy probable que nos interese interpretarlas como eso: clases resultado de agrupar datos cuantitativos. Su representación gráfica adecuada es claramente un histograma, pero ¿cómo podemos calcular los estadísticos? Está claro que de manera exacta es imposible si no conocemos los datos **brutos**,  sin agrupar. Pero podemos intentar aproximarlos.
 
 * Substituimos la moda por la **clase modal**: la clase de mayor frecuencia.
 * Para calcular la media, la varianza, etc., para cada clase tomamos su punto medio, al que en este contexto llamaremos su **marca de clase**, y entenderemos que nuestra muestra está formada, para cada clase, por tantas copias de su marca como la frecuencia de la clase.
@@ -945,9 +952,9 @@ kable(DF)%>%
 ```
 
 
-En primer lugar buscamos en qué clase ha de caer (qué clase contendría el valor que separa las dos mitades de la muestra): lo llamaremos el  **intervalo crítico para la mediana**. En nuestro ejemplo, será la primera clase cuya frecuencia relativa acumulada sea mayor o igual que 0.5. Se trata del intervalo [120,130).
+En primer lugar buscamos en qué clase cae la mediana, es decir, qué clase contiene el valor que separa las dos mitades de la muestra: la llamaremos el  **intervalo crítico para la mediana**. En nuestro ejemplo, será la primera clase cuya frecuencia relativa acumulada sea mayor o igual que 0.5. Se trata del intervalo [120,130).
 
-Sean  $[L_c, L_{c+1})$ este intervalo crítico, $N_{c-1}$, la frecuencia absoluta acumulada del intervalo anterior al crítico (si el intervalo crítico es el primero, tomamos $N_{c-1}=0$), y $N_c$, la frecuencia absoluta acumulada del intervalo crítico. Entonces, lo que hacemos es unir con una recta los puntos $(L_c,N_{c-1})$ y $(L_{c+1},N_c)$ y aproximar  la mediana por medio de la abscisa $M$ del punto sobre esta recta cuya ordenada es $n/2$ (véase la Figura \@ref(fig:medianagrup)). La fórmula concreta, por si no os acordáis, es
+Sean  $[L_c, L_{c+1})$ este intervalo crítico, $N_{c-1}$, la frecuencia absoluta acumulada del intervalo anterior al crítico (si el intervalo crítico es el primero, tomamos $N_{c-1}=0$), y $N_c$, la frecuencia absoluta acumulada del intervalo crítico. Entonces, lo que hacemos es unir con una recta los puntos $(L_c,N_{c-1})$ y $(L_{c+1},N_c)$ y aproximar  la mediana por medio de la abscisa $M$ del punto sobre esta recta cuya ordenada es $n/2$ (véase la Figura \@ref(fig:medianagrup)). La fórmula concreta  para $M$, por si no os acordáis de la ecuación de una recta por dos puntos, es
 $$
 M=L_{c}+\frac{L_{c+1}-L_{c}}{N_c-N_{c-1}}\cdot \Big(\frac{n}{2}- N_{c-1}\Big).
 $$
@@ -1028,17 +1035,17 @@ Se trata de una serie temporal. Su gráfico de dispersión es
 plot(Día,Defunciones,type="o",pch=20)
 ```
 
-A menudo nos interesará describir por medio de un valor la **asociación**  (propensión a variar conjuntamente) de dos variables cuantitativas medidas sobre una misma muestra de individuos: por ejemplo, medir la tendencia del nivel de colesterol a crecer con la tensión arterial media en la tabla del Ejemplo \@ref(exm:tensionscatter). 
+A menudo nos interesará describir por medio de un valor la **asociación**  (propensión a variar conjuntamente) de dos variables cuantitativas medidas sobre una misma muestra de individuos: por ejemplo, valorar la tendencia del nivel de colesterol a crecer con la tensión arterial media en la tabla del Ejemplo \@ref(exm:tensionscatter). 
 
-El estadístico que más se usa con este fin es la **covarianza**. Su definición, para los vectores $x=(x_1,\ldots,x_n)$ e $y=(y_1,\ldots,y_n)$, de medias $\overline{x}$ y $\overline{y}$, respectivamente, es
+Uno de los estadísticos  más usados con este fin es la **covarianza**. Su definición, para los vectores $x=(x_1,\ldots,x_n)$ e $y=(y_1,\ldots,y_n)$, de medias $\overline{x}$ y $\overline{y}$, respectivamente, es
 $$
-s_{x,y}=\frac{1}{n}\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})
+s_{x,y}=\frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n}
 $$
 
 
 
 ```{block2,type="rmdcaution"}
-También hay una versión **muestral**, dividiendo por $n-1$ en lugar de $n$, que es la que calculan la mayoría de los paquetes estadísticos. El motivo es el mismo que ya explicamos con ocasión de la varianza: la covarianza muestral estima mejor la covarianza de las variables poblacionales que la "verdadera".
+También hay una versión **muestral**, dividiendo por $n-1$ en lugar de $n$, que es la que calculan la mayoría de los paquetes estadísticos. El motivo es el mismo que ya explicamos con ocasión de la varianza: la covarianza muestral estima mejor la covarianza de las variables poblacionales que la versión "a secas".
 ```
 
 ```{block2,type="rmdimportant"}
@@ -1091,9 +1098,9 @@ Del hecho que esta covarianza sea positiva deducimos que, en esta muestra, la te
 
 
 
-Ahora bien, el valor de la covarianza es difícil de interpretar más allá de su signo. Por ejemplo, si la covarianza de las variables Tensión y Colesterol en otra muestra de individuos fuera mayor que la que hemos obtenido en la muestra anterior, eso no tendría por qué significar que la tendencia al crecimiento conjunto de estas dos variables en la nueva muestra fuera mayor que en la nuestra. Por ello, a menudo se usa una versión normalizada de la covarianza, la correlación de Pearson, cuyo valor tiene una interpretación sencilla.
+Ahora bien, el valor de la covarianza es difícil de interpretar más allá de su signo. Por ejemplo, si la covarianza de las variables Tensión y Colesterol en otra muestra de individuos fuera mayor que la que hemos obtenido en la muestra anterior, eso no tendría por qué significar que la tendencia al crecimiento conjunto de estas dos variables en la nueva muestra fuera más acentuada que en la nuestra. Por ello, a menudo se usa una versión normalizada de la covarianza, la correlación de Pearson, cuyo valor tiene una interpretación sencilla.
 
-La **correlación de Pearson** de dos vectores de datos $x$ e $y$ de la misma longitud se define como su covarianza dividida por el producto de las desviaciones típicas:
+La **correlación de Pearson** de dos vectores de datos $x$ e $y$ de la misma longitud se define como su covarianza dividida por el producto de sus desviaciones típicas:
 $$
 r_{x,y}=\frac{s_{x,y}}{s_xs_y}
 $$
@@ -1108,7 +1115,7 @@ correlación de Pearson tiene el mismo significado que el de la covarianza:
 Pero la correlación de Pearson lleva más información que la covarianza, porque 
 **mide la relación lineal entre los dos vectores**, en el sentido de las propiedades siguientes:
 
-* Se tiene que $-1\leq r_{x,y}\leq 1$.
+* Se tiene que $-1\leqslant r_{x,y}\leqslant 1$.
 
 * Cuanto más cerca está $r_{x,y}$ de -1 o 1, más se aproximan los puntos $(x_i,y_i)$ a estar sobre una recta, que será creciente si $r_{x,y}>0$ y decreciente si $r_{x,y}<0$.
 
@@ -1120,8 +1127,8 @@ Pero la correlación de Pearson lleva más información que la covarianza, porqu
 Seguimos con la tabla de tensiones arteriales medias y niveles de colesterol del Ejemplo \@ref(exm:tensionscatter). Ya hemos obtenido su covarianza, $s_{\text{Tensión},\text{Colesterol}}=110.9164$. Sus desviaciones típicas son
 $$
 \begin{array}{l}
-s_{\text{Tensión}}=\sqrt{\dfrac{(105.7-119.32)^2+(117.4-119.32)^2+(131.9-119.32)^2+\cdots+(113.4-119.32)^2}{10}}=8.616\\
-s_{\text{Colesterol}}=\sqrt{\dfrac{(169.3-201.48)^2+(191.7-201.48)^2+(202.6-201.48)^2+\cdots+(185.3-201.48)^2}{10}}=18.84
+s_{\text{Tensión}}=\sqrt{\dfrac{(105.7-119.32)^2+(117.4-119.32)^2+\cdots+(113.4-119.32)^2}{10}}=8.616\\
+s_{\text{Colesterol}}=\sqrt{\dfrac{(169.3-201.48)^2+(191.7-201.48)^2+\cdots+(185.3-201.48)^2}{10}}=18.84
 \end{array}
 $$
 por lo que su correlación de Pearson es
@@ -1205,7 +1212,7 @@ par(mfrow=c(1,1))
 
 
 
-Como hemos visto, la correlación de Pearson mide la dependencia lineal entre dos variables cuantitativas. Otras medidas de correlación miden otros tipos de dependencia. La alternativa más popula a la correlación de Pearson es la **correlación de Spearman**, $r_S$, que mide la concordancia en el orden de los individuos según sus valores en las dos variables medidas. Se calcula, *grosso modo*, de la manera siguiente:
+Como hemos visto, la correlación de Pearson mide la dependencia lineal entre dos variables cuantitativas. Otras medidas de correlación miden otros tipos de dependencia. La alternativa más popular a la correlación de Pearson es la **correlación de Spearman**, $r_S$, que mide la concordancia en el orden de los individuos según sus valores en las dos variables medidas. Se calcula, *grosso modo*, de la manera siguiente:
 
 * A cada individuo de la muestra le asignamos su posición (su **rango**) según el orden creciente de los valores $x_i$.
 
@@ -1239,8 +1246,8 @@ La correlación de Spearman de las dos variables será la correlación de Pearso
 ```{block2,type="rmdnote"}
 Una nota técnica, para los completistas. ¿Qué pasa, al calcular los rangos, si hay valores repetidos?  Pues que se les asigna el mismo rango calculado de la manera siguiente: 
 
-1. En primer lugar, a cada individuo de la muestra le asignamos su posición según el orden creciente de los valores $x_i$ y, en caso de igualdad de estos valores,  según su orden de aparición en la tabla de datos.
-1. Entonces, para cada valor del vector, se asigna a todos los individuos cuyo valor $x$ es ese valor la media de sus posiciones.
+1. En primer lugar, a cada individuo de la muestra le asignamos un "rango provisional": su posición según el orden creciente de los valores $x_i$ y, en caso de igualdad de estos valores,  según su orden de aparición en la tabla de datos.
+1. Entonces, para cada valor del vector, se asigna como rango "definitivo" a todos los individuos cuyo valor $x$ es ese valor la media de sus posiciones.
 
 ```
 
@@ -1258,7 +1265,7 @@ kable(data.frame(Individuo,x))%>%
   kable_styling(full_width = F)
 ```
 
-Empezamos asignando posiciones a los individuos según el orden de su $x$ y en caso de empate de arriba abajo:
+Empezamos asignando rangos provisionales a los individuos, ordenándolos según su valor de $x$ y en caso de empate de arriba abajo:
 
 ```{r,echo=FALSE}
 Individuo=1:8
@@ -1268,11 +1275,11 @@ kable(data.frame(Individuo,x,Posición))%>%
   kable_styling(full_width = F)
 ```
 
-Pasamos a asignar rangos:
+Pasamos a asignar los rangos definitivos:
 
 * A los tres individuos cuya $x$ es 1 les asignamos como rango (1+2+3)/3=2.
 * A los dos individuos cuya $x$ es 2 les asignamos como rango (4+5)/2=4.5.
-* Al individuo cuya $x$ es 3 les asignamos como rango 6.
+* Al único individuo cuya $x$ es 3 le asignamos como rango definitivo su rango provisional: 6.
 * A los dos individuos cuya $x$ es 4 les asignamos como rango (7+8)/2=7.5.
 
 ```{r,echo=FALSE}
@@ -1315,7 +1322,7 @@ Y ahora vamos a dibujarlo con ambos ejes en escala logarítmica (lo llamaremos u
 plot(Día,Morts,xlab="Días desde 16/03/2020",ylab="Defunciones acumuladas",type="o",pch=20,log="xy")
 ```
 
-Un buen motivo para dibujar un gráfico en escala semilogarítmica o doble logarítmica puede ser la necesidad de representar simultáneamente varias variables de rangos muy dferentes. Por ejemplo, considerad la figura siguiente:
+Un buen motivo para dibujar un gráfico en escala semilogarítmica o doble logarítmica puede ser la necesidad de representar simultáneamente varias variables de rangos muy diferentes. Por ejemplo, considerad la figura siguiente:
 
 ```{r,echo=FALSE,fig.width=10,out.width="75%"}
 knitr::include_graphics("INREMDN_files/figure-html/h1n1.png")
@@ -1337,109 +1344,29 @@ El gráfico semilogarítmico permite apreciar mejor el descenso en la mortalidad
 
 ### Problemas {-}
 
-**(1)** Considerad el diagrama siguiente, que muestra los perímetros braquiales derechos de 120 mujeres.
+**1.** Considerad el diagrama siguiente, que muestra los perímetros braquiales derechos de 120 mujeres.
 
 ```{r braquial,echo=FALSE}
 knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
 ```
 
-*(A)* ¿Qué tipo de gráfico es?
+a. ¿Qué tipo de gráfico es?
 
- 
-1. Un diagrama de barras.
+b. ¿Qué tipo de datos es el perímetro braquial?
 
-1. Un diagrama de caja.
+c. ¿Cuál es la clase modal?
 
-1.  Un diagrama de mosaico.
+d. ¿Cómo describirías la asimetría de la muestra?
 
-1.  Un histograma.
+e. ¿En qué clase cae la mediana de la muestra?
 
+f. ¿Qué estimas que vale la mediana?
 
+g. ¿En qué clase cae el primer cuartil de la muestra?
 
+h. ¿Qué estimas que vale el primer cuartil?
 
-
-*(B)* ¿Qué tipo de variable es el perímetro braquial?}
-
- 
-1. Nominal.
-
-1.  Ordinal.
-
-1.  Cuantitativa discreta.
-
-1. Cuantitativa continua.
-
-
-
-*(C)* ¿Cuál es la clase modal?}
-
- 
-1. 220--240.
-
-1.  240--260.
-
-1.  260--280.
-
-1. 280--300.
-
-1. No lo podemos saber a partir del gráfico.
-
-
-
-
-*(D)* ¿Cómo describiríais la asimetría de la muestra?
-
- 
-1. Simétrica.
-
-1.  Asimétrica a la izquierda.
-
-1.  Asimétrica a la derecha.
-
-1. Simétrica en forma de U. 
-
-
-*(E)* ¿En qué clase cae la mediana de la muestra?
-
- 
-1. 220--240.
-
-1.  240--260.
-
-1.  260--280.
-
-1. 280--300.
-
-1. No lo podemos saber a partir del gráfico.
-
-
-
-*(F)* ¿En qué clase cae el primer cuartil de la muestra?
-
- 
-1. 220--240.
-
-1.  240--260.
-
-1.  260--280.
-
-1. 280--300.
-
-1. No lo podemos saber a partir del gráfico.
-
-
-*(G)* ¿En qué clase estimáis que cae la media de la muestra?
- 
-1. 220-240.
-
-1.  240-260.
-
-1.  260-280.
-
-1. 280-300.
-
-1. 300-320.
-
+i. ¿Qué estimas que vale la media?
 
 
 
@@ -1462,10 +1389,10 @@ knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
 
 *(2)* Un estudio describe los diagnósticos de ingresados en un servicio de urgencias durante una semana que requirieron hospitalización. Estos valores fueron:
 
-* 6 admisiones por apendicitis aguda 
-* 7 admisiones por colecistitis aguda (infección de la vesícula biliar)
-* 12 admisiones por enfermedad de úlcera péptica  (úlceras de estómago)
-* 4 admisiones por gastritis  (inflamación del revestimiento del estómago)
+1. 6 admisiones por apendicitis aguda 
+1. 7 admisiones por colecistitis aguda (infección de la vesícula biliar)
+1. 12 admisiones por enfermedad de úlcera péptica  (úlceras de estómago)
+1. 4 admisiones por gastritis  (inflamación del revestimiento del estómago)
 
 ¿Cuál de los siguientes estadísticos es el más apropiado para resumir la tendencia central de estos diagnósticos?
 
@@ -1480,7 +1407,7 @@ knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
 
 1.  La muestra seguramente sea asimétrica con cola a la izquierda. 
 1.  La muestra seguramente sea asimétrica con cola a la derecha.
-1.  No tenemos ninguna información sobre el tipo de simetría o asimetría de la muestra
+1.  No tenemos ninguna indicación sobre el tipo de simetría o asimetría de la muestra
 1.  Más del 50% de los valores son menores que la media.
 1. Más del 50% de los valores son mayores que la media. 
 1. Ninguna de las respuestas anteriores es correcta.
@@ -1496,7 +1423,7 @@ knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
 1. En realidad, todas las respuestas anteriores aportan información nueva sobre los resultados del examen.
 
 
-*(5)* La desviación típica de un conjunto de datos, ¿puede ser negativa?
+*(5)* La desviación típica de un conjunto de datos, ¿puede ser <0?
 
 1. Sí
 1. No
@@ -1504,11 +1431,11 @@ knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
 *(6)* ¿Qué es el recorrido de un conjunto de datos?
 
 
-1. La distancia entre la mediana y la media.
-1. La distancia entre la media y el máximo.
-1. La distancia entre el mínimo y el máximo. 
-1. La distancia entre la mediana y el máximo.
-1. La distancia entre los cuartiles primero y tercero.
+1. La diferencia entre la mediana y la media.
+1. El número de datos.
+1. La diferencia entre el mayor dato y el menor 
+1. La diferencia entre el último dato recogido y el primero.
+1. La distancia entre el tercer cuartil  y el  primero.
 
 
 *(7)* ¿Cuáles de los siguientes estadísticos cambian siempre que se cambia un solo valor en el conjunto de datos? Marca todas las respuestas correctas.
@@ -1535,24 +1462,35 @@ knitr::include_graphics("INREMDN_files/figure-html/braquial.png")
 
 *(9)* Una correlación de Pearson $r=-0.4$ entre dos variables $X$ e $Y$ medidas sobre una misma muestra de individuos indica (marca una sola respuesta):
 
-1. Un aumento de $X$ va acompañado de un aumento de $Y$, y la relación es fuerte
-1. Un aumento de $X$ va acompañado de un aumento de $Y$, y la relación es moderada
-1. Un aumento de $X$ va acompañado de una disminución de $Y$, y la relación es fuerte
-1. Un aumento de $X$ va acompañado de una disminución de $Y$, y la relación es moderada
+1. Un aumento de $X$ va acompañado de un aumento de $Y$, y la relación lineal es fuerte
+1. Un aumento de $X$ va acompañado de un aumento de $Y$, y la relación lineal es moderada
+1. Un aumento de $X$ va acompañado de una disminución de $Y$, y la relación lineal es fuerte
+1. Un aumento de $X$ va acompañado de una disminución de $Y$, y la relación lineal es moderada
 1.  Las variables $X$ e $Y$ son independientes sobre la muestra
 
 *(10)* Un diagrama de dispersión de  dos variables $X$ e $Y$ medidas sobre una misma muestra de individuos sirve para mostrar (marca una sola respuesta):
 
 1. La relación entre las varianzas de estos dos conjuntos de datos
-1. La frecuencia con que cada dato aparece en ambas variables
+1. La frecuencia con la que cada dato aparece en ambas variables
 1. Las medias de los dos conjuntos de datos
 1. Los valores de $Y$ en función de los valores de $X$ 
 1. Las frecuencias relativas de los datos que caen dentro de las diferentes clases
 
-*(11)* En los 10 nacimientos que tuvieron lugar en un hospital en un día determinado, se apuntó el peso del recien nacido ($X$) y la edad de la madre ($Y$). Curiosamente, todos los bebés pesaron lo mismo: 2.6 kg. ¿Cuál fue la correlación de Pearson $r$ entre los pesos y las edades?
+*(11)* En los 10 nacimientos que tuvieron lugar en un hospital en un día determinado, se apuntó el peso del recién nacido ($X$) y la edad de la madre ($Y$). Curiosamente, todos los bebés pesaron lo mismo: 2.6 kg. ¿Cuál fue la correlación de Pearson $r$ entre los pesos y las edades?
 
 1. 1
 1. 0  
 1. 2.6
 1. 0.26
 1. Imposible saberlo, sin conocer las edades de las madres
+
+*(12)* ¿Qué valores puede tomar la correlación de Pearson de dos vectores?
+
+1. Cualquier valor real
+1. Cualquier valor real mayor o igual que 0
+1. Cualquier valor real entre -1 i 1 
+1. Cualquier valor real entre 0 i 1
+1. Solamente los valores 0, -1 i 1
+1. Ninguna de las respuestas anteriores es correcta.
+
+
