@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lección 2 Intervalos de confianza | INREMDN.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lección 2 Intervalos de confianza | INREMDN.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lección 2 Intervalos de confianza | INREMDN.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="distribuciones-muestrales.html"/>
+<link rel="next" href="contrastes-de-hipótesis.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">INREMDN</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html"><i class="fa fa-check"></i><b>1</b> Distribuciones muestrales</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#estimadores"><i class="fa fa-check"></i><b>1.1</b> Estimadores</a></li>
+<li class="chapter" data-level="1.2" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-media-muestral"><i class="fa fa-check"></i><b>1.2</b> La media muestral</a></li>
+<li class="chapter" data-level="1.3" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-proporción-muestral"><i class="fa fa-check"></i><b>1.3</b> La proporción muestral</a></li>
+<li class="chapter" data-level="1.4" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-varianza-muestral"><i class="fa fa-check"></i><b>1.4</b> La varianza muestral</a></li>
+<li class="chapter" data-level="1.5" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-distribución-t-de-student"><i class="fa fa-check"></i><b>1.5</b> La distribución t de Student</a></li>
+<li class="chapter" data-level="1.6" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#test"><i class="fa fa-check"></i><b>1.6</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-IC.html"><a href="chap-IC.html"><i class="fa fa-check"></i><b>2</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-IC.html"><a href="chap-IC.html#definiciones-básicas"><i class="fa fa-check"></i><b>2.1</b> Definiciones básicas</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-IC.html"><a href="chap-IC.html#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><i class="fa fa-check"></i><b>2.2</b> Un ejemplo: IC-95% para la media de una variable aleatoria normal</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-IC.html"><a href="chap-IC.html#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><i class="fa fa-check"></i><b>2.3</b> Intervalo de confianza para la media basado en la t de Student</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-IC.html"><a href="chap-IC.html#intervalos-de-confianza-para-proporciones"><i class="fa fa-check"></i><b>2.4</b> Intervalos de confianza para proporciones</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-IC.html"><a href="chap-IC.html#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><i class="fa fa-check"></i><b>2.5</b> Un intervalo de confianza para la diferencia de proporciones</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-IC.html"><a href="chap-IC.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>2.6</b> Intervalos de confianza para diferencias de medias</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-IC.html"><a href="chap-IC.html#test-1"><i class="fa fa-check"></i><b>2.7</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>3</b> Contrastes de hipótesis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#hipótesis-nula-y-alternativa"><i class="fa fa-check"></i><b>3.1</b> Hipótesis nula y alternativa</a></li>
+<li class="chapter" data-level="3.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:moneda"><i class="fa fa-check"></i><b>3.2</b> Un ejemplo</a></li>
+<li class="chapter" data-level="3.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:pval"><i class="fa fa-check"></i><b>3.3</b> El p-valor</a></li>
+<li class="chapter" data-level="3.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#tipo-de-errores"><i class="fa fa-check"></i><b>3.4</b> Tipo de errores</a></li>
+<li class="chapter" data-level="3.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:exttest"><i class="fa fa-check"></i><b>3.5</b> Ejemplo: El test t</a></li>
+<li class="chapter" data-level="3.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#recapitulación"><i class="fa fa-check"></i><b>3.6</b> Recapitulación</a>
+<ul>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#intervalo-de-confianza-de-un-contraste"><i class="fa fa-check"></i>Intervalo de confianza de un contraste</a></li>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#la-potencia"><i class="fa fa-check"></i>La potencia</a></li>
+<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#el-riesgo-de-falso-positivo"><i class="fa fa-check"></i>El riesgo de falso positivo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#test-2"><i class="fa fa-check"></i><b>3.7</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="contrastes-de-hipótesis-uni-y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni-y-biparamétricos.html"><i class="fa fa-check"></i><b>4</b> Contrastes de hipótesis uni- y biparamétricos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="contrastes-de-hipótesis-uni-y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni-y-biparamétricos.html#contrastes-para-medias"><i class="fa fa-check"></i><b>4.1</b> Contrastes para medias</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="contrastes-de-hipótesis-uni-y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni-y-biparamétricos.html#test-t-para-una-media"><i class="fa fa-check"></i><b>4.1.1</b> Test t para una media</a></li>
+<li class="chapter" data-level="4.1.2" data-path="contrastes-de-hipótesis-uni-y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni-y-biparamétricos.html#tests-t-para-dos-medias"><i class="fa fa-check"></i><b>4.1.2</b> Tests t para dos medias</a></li>
+<li class="chapter" data-level="4.1.3" data-path="contrastes-de-hipótesis-uni-y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni-y-biparamétricos.html#tests-no-paramétricos"><i class="fa fa-check"></i><b>4.1.3</b> Tests no paramétricos</a></li>
+<li class="chapter" data-level="4.1.4" data-path="contrastes-de-hipótesis-uni-y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni-y-biparamétricos.html#ejemplos"><i class="fa fa-check"></i><b>4.1.4</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="contrastes-de-hipótesis-uni-y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni-y-biparamétricos.html#contrastes-de-varianzas"><i class="fa fa-check"></i><b>4.2</b> Contrastes de varianzas</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:IC" class="section level1" number="2">
+<h1><span class="header-section-number">Lección 2</span> Intervalos de confianza</h1>
+<p>Los estimadores de la lección anterior nos permiten estimar el valor de una característica de una población, pero no nos indican el error que cometemos con esta estimación. En la práctica, lo que se suele hacer es complementar la <strong>estimación puntual</strong> llevada a cabo aplicando un estimador a una muestra con un intervalo que indique la precisión de dicha estimación. Esta precisión va a depender:</p>
+<ul>
+<li><p>De la variabilidad del estimador: cuánta menos variabilidad tenga, más precisa será la estimación. Normalmente, la variabilidad del estimador crece con la desviación típica de la variable poblacional y decrece con el tamaño de las muestras.</p></li>
+<li><p>Del <strong>nivel de confianza</strong>, o de <strong>seguridad</strong>, deseado para la estimación: cómo de seguros queremos estar de que la estimación es correcta.</p></li>
+</ul>
+<p><img src="INREMDN_files/figure-html/Garfield.png" width="80%" style="display: block; margin: auto;" /></p>
+<div id="definiciones-básicas" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Definiciones básicas</h2>
+<p>Un <strong>intervalo de confianza del Q%</strong> (para abreviar, un <strong>IC-Q%</strong>) de un parámetro poblacional es un intervalo obtenido aplicando a una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> una fórmula que satisface la propiedad siguiente:</p>
+<blockquote>
+<p>El intervalo obtenido contiene el valor del parámetro poblacional <strong>el Q% de las veces</strong> que aplicamos la fórmula a muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span> tomadas al azar.</p>
+</blockquote>
+<p>Tener una <strong>confianza del Q%</strong> significa pues que usamos una fórmula que <strong>acierta el Q% de las veces que la aplicamos</strong>. Pero asumimos que en un (100-Q)% de las veces da un intervalo que no contiene el valor del parámetro poblacional, <strong>y no sabemos cuándo sí y cuándo no</strong>. De manera que solo podemos tener una cierta confianza, fruto del optimismo, de que esta fórmula con nuestra muestra acierta.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-44" class="example"><strong>Ejemplo 2.1  </strong></span>En un experimento medimos el porcentaje de aumento de alcohol en sangre a 40 personas después de tomar 4 cañas de cerveza. En el Ejemplo <a href="chap-IC.html#exm:alcohol1">2.3</a> calcularemos con los datos obtenidos en este experimento un IC-95% para el porcentaje de aumento medio de alcohol en sangre de una persona después de beber 4 cañas de cerveza. Obtendremos el intervalo [40.53, 41.87].</p>
+</div>
+<p>Esto significará que <strong>tenemos un 95% de seguridad</strong> en que el aumento medio de alcohol en sangre de una persona después de beber 4 cañas de cerveza está entre el 40.53% y el 41.87%, porque este intervalo lo habremos calculado con una fórmula que el 95% de las veces que la aplicamos a muestras aleatorias de 40 personas da un intervalo que contiene la media poblacional que queremos estimar. Nosotros somos optimistas y “confiamos” estar dentro de este 95% de aciertos.</p>
+<p>A menudo esto lo escribiremos diciendo que:</p>
+<blockquote>
+<p>Hay un 95% de probabilidad de que el intervalo [40.53, 41.87] contenga el valor real del aumento medio de alcohol en sangre de una persona después de beber 4 cañas de cerveza.</p>
+</blockquote>
+<p>Pero hay que entender lo que dice esta frase:</p>
+<ul>
+<li><p>Por definición, un 95% de los intervalos de confianza del 95% para el aumento medio de alcohol etc. contienen el valor real de este aumento medio.</p></li>
+<li><p>[40.53, 41.87] es <strong>un</strong> intervalo de confianza del 95% para el aumento medio de alcohol etc., obtenido a partir de una muestra aleatoria.</p></li>
+<li><p>Entonces, [40.53, 41.87] tiene una probabilidad del 95% de contener el valor real del aumento medio de alcohol etc. en el mismo sentido que si un 95% de las personas tienen una determinada característica, y cojo una persona al azar, esta persona tiene un 95% de probabilidad de tener esa característica.</p></li>
+</ul>
+
+<div class="rmdcaution">
+<p>No confundáis:</p>
+<ul>
+<li><p><strong>Intervalo de referencia del Q% para una variable aleatoria</strong>: Intervalo que contiene <strong>el valor de la variable aleatoria en un individuo</strong> con probabilidad Q%.</p></li>
+<li><p><strong>Intervalo de confianza del Q% para un parámetro</strong>: Intervalo que contiene <strong>el valor poblacional del parámetro de la variable aleatoria</strong> “con probabilidad” Q%, en el sentido de que lo hemos calculado con una fórmula que da un intervalo que contiene el parámetro el Q% de las veces que la aplicamos a una muestra aleatoria.</p></li>
+<li><p><strong>Intervalo de referencia del Q% para un estimador</strong>: Intervalo que contiene <strong>el valor del estimador sobre una muestra aleatoria</strong> con probabilidad Q%.</p></li>
+</ul>
+</div>
+<p>Por ejemplo:</p>
+<ul>
+<li><p>Si decimos que un <strong>intervalo de referencia del 95%</strong> para la concentración de una proteína en suero en individuos sanos medida en g/dl es [11,16], esto significa</p>
+<ul>
+<li>que un 95% de los individuos sanos tienen una concentración de esta proteína en suero entre 11 y 16 g/dl</li>
+</ul>
+<p>es decir,</p>
+<ul>
+<li>que si escogemos al azar un individuo sano, la probabilidad de que su concentración de esta proteína en suero esté entre 11 y 16 g/dl es del 95%.</li>
+</ul></li>
+<li><p>Si decimos que un <strong>intervalo de confianza del 95%</strong> para la concentración media de una proteína en suero en individuos sanos medida en g/dl es [11,16], esto significa</p>
+<ul>
+<li><p>que este intervalo tiene un 95% de probabilidad de contener la concentración media de esta proteína en suero en individuos sanos medida en g/dl,</p>
+<p>en el sentido de que lo hemos obtenido aplicando a una muestra aleatoria de concentraciones de esta proteína en suero en individuos sanos una fórmula que da un intervalo que contiene la media poblacional un 95% de las veces que la aplicamos a muestras aleatorias del mismo tamaño que la nuestra.</p></li>
+</ul></li>
+<li><p>Si decimos que el 95% de las muestras de 100 concentraciones de una determinada proteína en suero en individuos sanos tienen la media muestral entre 11 y 16 g/dl, esto es un <strong>intervalo de referencia del 95% para la media muestral</strong> de muestras de tamaño 100, no un intervalo de confianza para la concentración media poblacional ni un intervalo de referencia para el valor de la concentración en un individuo.</p></li>
+</ul>
+
+<div class="rmdcaution">
+<p>A menudo calcularéis un intervalo de confianza del Q% para un cierto parámetro <span class="math inline">\(\theta\)</span> de una población, os dará <span class="math inline">\([a,b]\)</span>, y con el poco rigor con el que a veces os expresáis, os será igual decir</p>
+<blockquote>
+<p>“el valor real de <span class="math inline">\(\theta\)</span> tiene una probabilidad del Q% de pertenecer a <span class="math inline">\([a,b]\)</span>”</p>
+</blockquote>
+<p>que</p>
+<blockquote>
+<p>“<span class="math inline">\([a,b]\)</span> tiene una probabilidad del Q% de contener el valor real de <span class="math inline">\(\theta\)</span>”</p>
+</blockquote>
+<p>Pero estas dos frases no dicen exactamente lo mismo, y de hecho la primera es falsa y la segunda la interpretamos como verdadera. Fijaos en que, en la primera frase hablamos de la probabilidad de que a <span class="math inline">\(\theta\)</span> le pase algo, y en la segunda de que a <span class="math inline">\([a,b]\)</span> le pase algo.</p>
+<p>La primera frase dice que <span class="math inline">\(\theta\)</span> varía y un Q% de sus valores pertenece a <span class="math inline">\([a,b]\)</span>. Esto es falso. “El valor real de <span class="math inline">\(\theta\)</span>” es un número que no varía. Para nuestra población vale algo concreto, desconocido pero concreto, que pertenecerá o no al intervalo <span class="math inline">\([a,b]\)</span>.</p>
+<p>La segunda frase en cambio se puede entender de la manera siguiente. El intervalo <span class="math inline">\([a,b]\)</span> forma parte de toda la población de intervalos de confianza del Q% para <span class="math inline">\(\theta\)</span> calculados a partir de muestras aleatorias simples de nuestra población. Un Q% de estos intervalos contiene el valor real de <span class="math inline">\(\theta\)</span>. Por lo tanto, podemos decir que nuestro intervalo <span class="math inline">\([a,b]\)</span> tiene una probabilidad del Q% de contener el valor real de <span class="math inline">\(\theta\)</span>. Esta interpretación es correcta.</p>
+</div>
+
+<div class="rmdrecordau">
+Aunque lo mejor es no mezclar probabilidad con confianza, y decir simplemente que tenéis un 95% de confianza, o un 95% de seguridad, en que <span class="math inline">\([a,b]\)</span> contiene el valor real de <span class="math inline">\(\theta\)</span>. Así no os pilláis los dedos.
+</div>
+<p>Que un IC-Q% para un parámetro <span class="math inline">\(\theta\)</span> sea <span class="math inline">\([a,b]\)</span> sirve:</p>
+<ul>
+<li><p>Para estimar <span class="math inline">\(\theta\)</span> con este margen de confianza: Estamos bastante seguros de que el valor poblacional de <span class="math inline">\(\theta\)</span> está entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> (porque la fórmula usada acierta a menudo).</p></li>
+<li><p>Para descartar, con este margen de confianza, que <span class="math inline">\(\theta\)</span> valga cualquier valor concreto fuera de <span class="math inline">\([a,b]\)</span>: Estamos bastante seguros de que el valor real de <span class="math inline">\(\theta\)</span> no está ni por debajo de <span class="math inline">\(a\)</span> ni por encima de <span class="math inline">\(b\)</span> y por tanto de que es diferente de cualquier valor menor que <span class="math inline">\(a\)</span> o mayor que <span class="math inline">\(b\)</span>.</p></li>
+</ul>
+<p>Por ejemplo: si un IC-95% para la prevalencia <span class="math inline">\(p\)</span> de una determinada enfermedad en una población va de 0.025 a 0.047:</p>
+<ul>
+<li><p>Estamos muy (“un 95%”) seguros de que <span class="math inline">\(p\in [0.025,0.047]\)</span> (porque la fórmula usada para calcular este intervalo acierta en un 95% de las veces).</p></li>
+<li><p>Estamos muy (“un 95%”) seguros de que <span class="math inline">\(p\neq 0.05\)</span> (porque 0.05 no pertenece al intervalo donde estamos muy seguros de que cae el valor real de <span class="math inline">\(p\)</span>).</p></li>
+<li><p>Pero no estamos muy seguros de que <span class="math inline">\(p=0.03\)</span>, por mucho que <span class="math inline">\(0.03\in [0.025,0.047]\)</span>: estamos muy seguros de que <span class="math inline">\(p\)</span> está entre 0.025 y 0.047, pero no tenemos ninguna seguridad de que valga un valor concreto entre estos límites, solo de que está entre estos límites.</p></li>
+</ul>
+<p>Hay dos tipos de métodos básicos de cálculo de intervalos de confianza a partir de una muestra aleatoria:</p>
+<ul>
+<li><p><strong>Paramétricos</strong>: Usando alguna fórmula basada en la distribución muestral del estimador. Se basan en teoremas y solo tiene sentido usarlos si la variable aleatoria y la muestra aleatoria satisfacen (aproximadamente) las hipótesis de los teoremas.</p></li>
+<li><p><strong>No paramétricos</strong>. Los otros. El más popular, y nuestro favorito, es el <strong>bootstrap</strong>:</p>
+<ul>
+<li>De nuestra muestra, tomamos al azar muchas (miles de) muestras aleatorias simples (permitiendo repeticiones) del mismo tamaño que nuestra muestra.</li>
+<li>Calculamos el estimador para cada una de estas muestras.</li>
+<li>Usamos el vector de resultados para estimar un intervalo de confianza. Por ejemplo, tomamos como IC-95% el intervalo entre los cuantiles 0.025 y 0.975 de este vector.</li>
+</ul>
+<p>El <strong>bootstrap</strong> se puede usar siempre y funciona bien si la muestra es aleatoria, pero se basa en un proceso aleatorio y por lo tanto cada ejecución sobre una misma muestra puede dar un intervalo diferente.</p></li>
+</ul>
+
+<div class="rmdnote">
+El <strong>bootstrap</strong> es una herramienta muy poderosa para calcular intervalos de confianza y, en general, para estimar la distribución muestral de un estadístico. Tanto, que en la práctica ya empieza a sustituir los métodos paramétricos. Pero no hace milagros: si la muestra es pequeña o muy poco representativa de la población, un intervalo de confianza calculado con el bootstrap sirve de tan poco como uno calculado con un método paramétrico.
+</div>
+</div>
+<div id="un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Un ejemplo: IC-95% para la media de una variable aleatoria normal</h2>
+<p>Una de las fórmulas más conocidas para intervalos de confianza es la siguiente:</p>
+
+<div class="rmdimportant">
+Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span> y tenemos una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span>, media muestral <span class="math inline">\(\overline{X}\)</span> y varianza muestral <span class="math inline">\(\widetilde{S}^2_X\)</span>, un IC-95% para <span class="math inline">\(\mu\)</span> es
+<span class="math display">\[
+\Bigg[\overline{X}-t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}+t_{n-1,0.975}\cdot\frac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
+\]</span>
+donde <span class="math inline">\(t_{n-1,0.975}\)</span> denota el 0.975-cuantil de la distribución t de Student <span class="math inline">\(t_{n-1}\)</span>. Este intervalo lo escribiremos
+<span class="math display">\[
+\overline{X}\pm t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
+\]</span>
+para recalcar que estamos estimando <span class="math inline">\(\mu\)</span> por medio de <span class="math inline">\(\overline{X}\)</span> más menos un cierto error.
+</div>
+
+<div class="rmdcaution">
+A algunos de vosotros os habrán explicado en Bachillerato, o encontraréis en libros que consultéis, una fórmula para el IC-95% para <span class="math inline">\(\mu\)</span> similar a esta, pero cambiando la <span class="math inline">\(\widetilde{S}_X\)</span> por <span class="math inline">\(\sigma\)</span> y el <span class="math inline">\(t_{n-1,0.975}\)</span> por <span class="math inline">\(z_{0.975}\)</span>, el 0.975-cuantil de la normal estándar. Esta otra fórmula solo se puede usar si se conoce la desviación típica poblacional <span class="math inline">\(\sigma\)</span>, lo que, en la práctica, nunca pasará. Por lo tanto, por favor, olvidadla.
+</div>
+<p>Vamos a explicar de dónde sale esta fórmula, puesto que es un paradigma de cómo se obtienen la mayoría de las fórmulas paramétricas para intervalos de confianza. Quien se la quiera tomar como dogma de fe, que salte directamente al Ejemplo <a href="chap-IC.html#exm:experimentot">2.2</a>.</p>
+<p>Supongamos pues que <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span> y que tenemos una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span>, media muestral <span class="math inline">\(\overline{X}\)</span> y varianza muestral <span class="math inline">\(\widetilde{S}^2_X\)</span>. En esta situación, sabemos que
+<span class="math display">\[
+T=\frac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}
+\]</span>
+tiene distribución t de Student con <span class="math inline">\(n-1\)</span> grados de libertad, <span class="math inline">\(t_{n-1}\)</span>.</p>
+<p>Si podemos encontrar <span class="math inline">\(A,B\in \mathbb{R}\)</span> tales que
+<span class="math display">\[
+P(A\leqslant T\leqslant B)=0.95,
+\]</span>
+entonces:
+<span class="math display">\[
+\begin{array}{rl}
+0.95\!\!\!\! &amp; =P\Bigg(A\leqslant\dfrac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}\leqslant B\Bigg)\\[2ex]
+&amp; =P\Bigg(A\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant\overline{X}-\mu \leqslant B\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)\\[2ex]
+&amp; =P\Bigg(-\overline{X}+A\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant-\mu \leqslant-\overline{X}+B\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)\\[2ex]
+&amp; =P\Bigg(\overline{X}-B\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant\mu \leqslant\overline{X}-A\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)
+\end{array}
+\]</span></p>
+<p>Como <span class="math inline">\(P(A\leqslant T\leqslant B)=0.95\)</span> significa que para el 95% de las muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span> el valor de <span class="math inline">\(T\)</span> está entre <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>,
+<span class="math display">\[
+P\Bigg(\overline{X}-B\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\leqslant\mu \leqslant\overline{X}-A\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\Bigg)=0.95
+\]</span>
+significará que para el 95% de las muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span> la <span class="math inline">\(\mu\)</span> cae dentro del intervalo
+<span class="math display">\[
+\Bigg[\overline{X}-B\cdot \frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}-A\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
+\]</span>
+Por lo tanto, ¡esto será un IC-95% para <span class="math inline">\(\mu\)</span>!</p>
+<p>Nos falta encontrar los <span class="math inline">\(A,B\)</span> tales que <span class="math inline">\(P(A\leqslant T\leqslant B)=0.95\)</span>. Para encontrarlos, usaremos <strong>cuantiles de la distribución de <span class="math inline">\(T\)</span></strong>. Recordemos que, por definición de cuantil,
+<span class="math display">\[
+P(T\leqslant t_{n-1,0.975})=0.975
+\]</span>
+y por la simetría de la <span class="math inline">\(t\)</span> de Student,
+<span class="math display">\[
+P(T\leqslant-t_{n-1,0.975})=P(T\geqslant t_{n-1,0.975})=0.025
+\]</span>
+Por tanto:
+<span class="math display">\[
+\begin{array}{l}
+P(-t_{n-1,0.975}\leqslant T\leqslant t_{n-1,0.975})\\
+\quad =P(T\leqslant t_{n-1,0.975})-P(T\leqslant-t_{n-1,0.975})\\
+\quad =0.975-0.025=0.95
+\end{array}
+\]</span></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-51-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Así pues, podemos tomar
+<span class="math display">\[
+A=-t_{n-1,0.975},\quad B=t_{n-1,0.975}
+\]</span>
+y obtenemos el IC-95% para <span class="math inline">\(\mu\)</span> anunciado:
+<span class="math display">\[
+\Bigg[\overline{X}-t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}+t_{n-1,0.975}\cdot\frac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
+\]</span></p>
+
+<div class="example">
+<p><span id="exm:experimentot" class="example"><strong>Ejemplo 2.2  </strong></span>Hagamos un experimento para ver que, efectivamente, esta fórmula “acierta”, en el sentido de que el intervalo que produce contiene la <span class="math inline">\(\mu\)</span>, alrededor del 95% de las veces. En el bloque de código de R siguiente:</p>
+</div>
+<ul>
+<li><p>Generamos al azar una <code>Población</code> de 10<sup>7</sup> “individuos” que siguen una ley normal estándar y calculamos la media <code>mu</code> de esta población.</p></li>
+<li><p>Definimos una función <code>IC</code> que calcula el IC-95% para la media <span class="math inline">\(\mu\)</span> con la fórmula anterior.</p></li>
+<li><p>Tomamos, al azar, 200 muestras aleatorias simples de tamaño 50 de nuestra población y les aplicamos esta función. Obtenemos una matriz <code>M</code> de 200 columnas formadas por los dos extremos de los intervalos (el inferior en la primera fila y el superior en la segunda fila).</p></li>
+<li><p>Dibujamos los intervalos de confianza en un gráfico, donde aparecerán en gris los que contienen el valor “poblacional” de <code>mu</code> y en rojo los que no lo contienen. La recta vertical marca el valor de <code>mu</code>.</p></li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chap-IC.html#cb7-1" aria-hidden="true" tabindex="-1"></a>Población<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">7</span>)</span>
+<span id="cb7-2"><a href="chap-IC.html#cb7-2" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">mean</span>(Población)</span>
+<span id="cb7-3"><a href="chap-IC.html#cb7-3" aria-hidden="true" tabindex="-1"></a>mu</span></code></pre></div>
+<pre><code>## [1] 0.0002423589</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="chap-IC.html#cb9-1" aria-hidden="true" tabindex="-1"></a>IC<span class="ot">=</span><span class="cf">function</span>(x){</span>
+<span id="cb9-2"><a href="chap-IC.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  n<span class="ot">=</span><span class="fu">length</span>(x)</span>
+<span id="cb9-3"><a href="chap-IC.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x)<span class="sc">+</span><span class="fu">qt</span>(<span class="fl">0.975</span>,n<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)}</span>
+<span id="cb9-4"><a href="chap-IC.html#cb9-4" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">replicate</span>(<span class="dv">200</span>,<span class="fu">IC</span>(<span class="fu">sample</span>(Población,<span class="dv">50</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)))</span>
+<span id="cb9-5"><a href="chap-IC.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span>,<span class="at">type=</span><span class="st">&quot;n&quot;</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.8</span>,<span class="fl">0.8</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>),</span>
+<span id="cb9-6"><a href="chap-IC.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab=</span><span class="st">&quot;Valores&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Repeticiones&quot;</span>, <span class="at">main=</span><span class="st">&quot;200 IC-95%&quot;</span>)</span>
+<span id="cb9-7"><a href="chap-IC.html#cb9-7" aria-hidden="true" tabindex="-1"></a>seg.int<span class="ot">=</span><span class="cf">function</span>(i){color<span class="ot">=</span><span class="st">&quot;grey&quot;</span>;</span>
+<span id="cb9-8"><a href="chap-IC.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>((mu<span class="sc">&lt;</span>M[<span class="dv">1</span>,i]) <span class="sc">|</span> (mu<span class="sc">&gt;</span>M[<span class="dv">2</span>,i])){color<span class="ot">=</span><span class="st">&quot;red&quot;</span>}</span>
+<span id="cb9-9"><a href="chap-IC.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">segments</span>(M[<span class="dv">1</span>,i],i,M[<span class="dv">2</span>,i],i,<span class="at">col=</span>color,<span class="at">lwd=</span><span class="dv">2</span>)}</span>
+<span id="cb9-10"><a href="chap-IC.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>,<span class="at">FUN=</span>seg.int)</span>
+<span id="cb9-11"><a href="chap-IC.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>mu,<span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Si contáis los intervalos rojos, veréis que hemos fallado 11 veces y por lo tanto hemos acertado 189 veces, es decir, en un 94.5% de los intervalos. Es aproximadamente lo que esperábamos. Si lo probáis en casa, ejecutando el código de R que hemos dado, obtendréis otros resultados, a veces mejores, a veces peores. Es lo que tiene la aleatoriedad. (Si queréis obtener exactamente nuestro gráfico, justo antes de <code>Población=rnorm(10^7)</code> ejecutad <code>set.seed(1200)</code>.)</p>
+<p>Queremos remarcar que, en nuestra simulación, de los 200 IC-95% que hemos calculado, 11 no han contenido el valor real de <span class="math inline">\(\mu\)</span>. Un intervalo de confianza no siempre acierta.</p>
+
+<div class="rmdcaution">
+De media, un IC-Q% <strong>NO contiene el valor real del parámetro en un (100-Q)%</strong> de las ocasiones.
+</div>
+<p>Por ejemplo, de media, un 5% de las veces que calculemos un IC-95%, el parámetro poblacional no pertenecerá al intervalo obtenido.</p>
+<p>Por lo tanto, si calculamos <span class="math inline">\(n\)</span> IC-95% sobre muestras aleatorias simples independientes, el número de veces que el intervalo resultante no contendrá el parámetro poblacional seguirá una distribución binomial <span class="math inline">\(B(n,0.05)\)</span>. El gráfico siguiente representa el valor de <span class="math inline">\(P(X\geqslant 1)\)</span> para una variable aleatoria <span class="math inline">\(X\)</span> de tipo <span class="math inline">\(B(n,0.05)\)</span>, para <span class="math inline">\(n=0,...,100\)</span>, y por lo tanto la probabilidad de que si calculamos <span class="math inline">\(n\)</span> IC-95% sobre muestras aleatorias simples independientes, al menos uno de ellos no contenga el parámetro poblacional deseado.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Esto es un problema grave en artículos científicos donde se calculen intervalos de confianza para muchos parámetros. De media, 1 de cada 20 IC-95% que se calculan es erróneo. Y no se puede hacer nada al respecto, forma parte de la definición.</p>
+
+<div class="example">
+<p><span id="exm:alcohol1" class="example"><strong>Ejemplo 2.3  </strong></span>Volvamos al experimento en el que medimos el porcentaje de aumento de alcohol en sangre a 40 personas después de tomar 4 cañas de cerveza. La media y la desviación típica muestral de estos porcentajes de incremento fueron
+<span class="math display">\[
+\overline{x}=41.2,\quad \widetilde{s}=2.1.
+\]</span></p>
+</div>
+<p>Para calcular un IC-95% para el porcentaje medio de aumento de alcohol en sangre después de tomar 4 cañas de cerveza, <span class="math inline">\(\mu\)</span> para abreviar, supondremos que la variable aleatoria de interés (de la que queremos estimar la media) <span class="math inline">\(X\)</span>, que es “Tomamos una persona y le medimos el porcentaje de aumento de alcohol en sangre después de tomar 4 cañas de cerveza”, es <strong>normal</strong> y que la muestra que hemos tomado de esta variable es <strong>aleatoria simple</strong>.</p>
+<p>Entonces, como <span class="math inline">\(t_{n-1,0.975}\)</span>=<code>qt(0.975,39)</code>=2.0227, un IC-95% para <span class="math inline">\(\mu\)</span> es
+<span class="math display">\[
+41.2\pm 2.0227\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67\Rightarrow [40.53, 41.87]
+\]</span></p>
+<p>Por lo tanto, estimamos con un 95% de confianza que el porcentaje medio de aumento de alcohol en sangre después de tomar 4 cañas de cerveza está entre el 40.5% y el 41.9%, o que es del 41.2% más menos 0.7 puntos porcentuales.</p>
+<p>Para calcular el intervalo anterior hemos supuesto que la variable poblacional “Porcentaje de aumento de alcohol en sangre después de tomar 4 cañas de cerveza” sigue una distribución normal. ¿Y si no fuera normal?</p>
+<ul>
+<li><p>En este caso, como el tamaño de la muestra <span class="math inline">\(n=40\)</span> es lo bastante grande como para poder invocar el Teorema Central del Límite, el Teorema <a href="chap-IC.html#thm:ICmu">2.2</a> de la próxima sección nos dice que el intervalo obtenido sigue siendo (aproximadamente) un intervalo de confianza del 95% para <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(n\)</span> fuera pequeño y <span class="math inline">\(X\)</span> muy diferente de una normal, no se puede usar esta fórmula y habría que buscarse la vida (por ejemplo, usar el método bootstrap).</p></li>
+</ul>
+<p>También hemos supuesto que era una muestra aleatoria simple. ¿Y si no lo es?</p>
+<ul>
+<li><p>Si es aleatoria, como la población sobre la que tenemos definida nuestra variable aleatoria, las personas que pueden tomar 4 cañas de cerveza, es muy grande, a efectos prácticos la podemos considerar simple.</p></li>
+<li><p>Pero seguro que no es aleatoria, sino oportunista. En este caso, no hemos sacado 40 personas por sorteo de la lista de toda la población mundial, ni siquiera de la de Mallorca, sino que hemos buscado voluntarios. Entonces, no podemos hacer nada para salvar la fórmula, y su validez depende de si la muestra de personas usada puede pasar por aleatoria o no.</p></li>
+</ul>
+</div>
+<div id="intervalo-de-confianza-para-la-media-basado-en-la-t-de-student" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Intervalo de confianza para la media basado en la t de Student</h2>
+
+<div class="rmdcaution">
+A partir de ahora, para evitar ambigüedades, en las fórmulas expresaremos el nivel de confianza de los intervalos en tanto por uno, no en tanto por ciento; es decir, como una proporción en vez de como un porcentaje. Por lo tanto, hablaremos de <strong>intervalos de confianza de nivel de confianza <span class="math inline">\(q\)</span></strong> (<strong>IC-<span class="math inline">\(q\)</span></strong>), con <span class="math inline">\(q\)</span> entre 0 y 1, en vez de intervalos de confianza del Q% con Q=100q. Con estas notaciones, por ejemplo, los intervalos de confianza del 95% serán intervalos de confianza de nivel de confianza 0.95.
+</div>
+<p>El mismo argumento de la sección anterior, cambiando 0.95 por <span class="math inline">\(q\)</span>, da:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-59" class="theorem"><strong>Teorema 2.1  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span> y tomamos una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span>, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(\mu\)</span> es
+<span class="math display">\[
+\overline{X}\pm t_{n-1,(1+q)/2}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
+\]</span></p>
+</div>
+<p>La fórmula de la sección anterior es un caso particular de esta, porque en los IC-0.95, <span class="math inline">\(q=0.95\)</span> y por lo tanto <span class="math inline">\((1+q)/2=1.95/2=0.975\)</span>.</p>
+<p>Usando el Teorema Central del Límite y algunas aproximaciones, tenemos el siguiente resultado:</p>
+
+<div class="theorem">
+<p><span id="thm:ICmu" class="theorem"><strong>Teorema 2.2  </strong></span>Si <span class="math inline">\(X\)</span> es una variable aleatoria cualquiera de media poblacional <span class="math inline">\(\mu\)</span> y tomamos una muestra aleatoria simple de <span class="math inline">\(X\)</span> de tamaño <span class="math inline">\(n\)</span> grande (digamos, de 40 o más elementos), entonces, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(\mu\)</span> es aproximadamente
+<span class="math display">\[
+\overline{X}\pm t_{n-1,(1+q)/2}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
+\]</span></p>
+</div>
+<p>La aproximación del teorema anterior es mejor cuanto mayor sea <span class="math inline">\(n\)</span> o cuanto más próxima a una normal sea la variable poblacional <span class="math inline">\(X\)</span>.</p>
+<p>En resumen:</p>
+
+<div class="rmdimportant">
+Podemos usar la fórmula para el IC-<span class="math inline">\(q\)</span> para la media poblacional basada en la t de Student
+<span class="math display">\[
+\overline{X}\pm t_{n-1,(1+q)/2}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
+\]</span>
+si la variable poblacional es normal o si la muestra aleatoria simple es grande.
+</div>
+<p>Observad que la estructura del IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(\mu\)</span> dado por esta fórmula es</p>
+<blockquote>
+<p>estimador <span class="math inline">\(\pm\)</span> (<span class="math inline">\(\frac{1+q}{2}\)</span>-cuantil de la distr. muestral)<span class="math inline">\(\times\)</span>(error típico de la muestra)</p>
+</blockquote>
+<p>Esta estructura es muy típica (pero no universal: no creáis que todos los intervalos de confianza paramétricos tienen esta forma) y cumple que:</p>
+<ul>
+<li><p>El intervalo de confianza está centrado en la estimación puntual.</p></li>
+<li><p>La “probabilidad de equivocarnos” se reparte por igual a los dos lados del intervalo: en una fracción <span class="math inline">\((1-q)/2\)</span> de las veces que apliquemos la fórmula, el valor real del parámetro estará a la izquierda del extremo inferior y en otra fracción <span class="math inline">\((1-q)/2\)</span> de estas ocasiones estará a la derecha del extremo superior.</p></li>
+</ul>
+
+<div class="rmdimportant">
+Para una misma muestra y una misma fórmula (paramétrica) para calcular el intervalo de confianza, si el nivel de confianza crece, el intervalo se ensancha.
+</div>
+<p>Esto es general, <strong>para todos los intervalos de confianza paramétricos</strong>. La idea intuitiva es que, para estar más seguros de que un intervalo contiene un valor, el intervalo tiene que ser más ancho. En un intervalo de confianza con la estructura descrita hace un momento, el motivo matemático es que a mayor <span class="math inline">\(q\)</span>, mayor <span class="math inline">\((1+q)/2\)</span>-cuantil de la distribución muestral.</p>
+<p>Por ejemplo, en el Ejemplo <a href="chap-IC.html#exm:alcohol1">2.3</a>, teníamos <span class="math inline">\(n=40\)</span>, <span class="math inline">\(\overline{x}=41.2\)</span> y <span class="math inline">\(\widetilde{s}=2.1\)</span>:</p>
+<ul>
+<li><p>El IC-95% tiene <span class="math inline">\(q=0.95\)</span>, por lo tanto <span class="math inline">\(t_{n-1,(1+q)/2}=t_{39,0.975}=2.02\)</span>, y daba
+<span class="math display">\[
+41.2\pm 2.02\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67
+\]</span></p></li>
+<li><p>El IC-99% tiene <span class="math inline">\(q=0.99\)</span>, por lo tanto <span class="math inline">\(t_{n-1,(1+q)/2}=t_{39,0.995}=2.71\)</span>, y da
+<span class="math display">\[
+41.2\pm 2.71\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.9
+\]</span>
+más ancho</p></li>
+<li><p>Pero si cambiamos de muestra (o de fórmula, si hay más de una) para calcular el intervalo de confianza, puede pasar cualquier cosa.</p></li>
+</ul>
+</div>
+<div id="intervalos-de-confianza-para-proporciones" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Intervalos de confianza para proporciones</h2>
+<p>Supongamos que tenemos una variable Bernoulli <span class="math inline">\(X\)</span> con probabilidad poblacional de éxito <span class="math inline">\(p_X\)</span> desconocida. Queremos calcular un intervalo de confianza para <span class="math inline">\(p_X\)</span>. Para hacerlo, tomamos una muestra aleatoria simple de <span class="math inline">\(X\)</span> de tamaño <span class="math inline">\(n\)</span>, con número de éxitos <span class="math inline">\(S\)</span> y por tanto proporción muestral de éxitos <span class="math inline">\(\widehat{p}_{X}=S/n\)</span>.</p>
+<p>Explicaremos tres métodos para calcular este intervalo de confianza: el método de Clopper-Pearson, el de Wilson y el de Laplace.</p>
+<div id="método-exacto-de-clopper-pearson" class="section level4 unnumbered">
+<h4>Método “exacto” de Clopper-Pearson</h4>
+<p>Este método se basa en que el número de éxitos <span class="math inline">\(S\)</span> en muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> tiene una distribución conocida: es binomial <span class="math inline">\(B(n,p_X)\)</span>. Razonando de manera similar a cómo obteníamos el intervalo para <span class="math inline">\(\mu\)</span> basado en la t de Student se llega a una fórmula de un intervalo de confianza para <span class="math inline">\(p_X\)</span> que os vamos a ahorrar, ya que <strong>nunca</strong> se aplica “a mano”.</p>
+<p>Este método tiene la ventaja de que se puede usar siempre, independientemente del tamaño de la muestra, y es “exacto” porque se basa en la distribución exacta de <span class="math inline">\(S\)</span>. Pero tiene algunos inconvenientes:</p>
+<ul>
+<li>Como los números de éxitos en muestras de tamaño fijo avanzan a saltos (0, 1, 2, 3,…), suele dar intervalos de confianza más anchos de lo necesario.</li>
+<li>Los intervalos que produce no son de la forma “probabilidad muestral <span class="math inline">\(\pm\)</span> algo”.</li>
+<li>Se necesita un ordenador para calcularlo, no basta una calculadora.</li>
+</ul>
+<p>Con R, se calcula con la función <code>binom.exact</code> del paquete <strong>epitools</strong>. Su sintaxis es</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="chap-IC.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.exact</span>(x,n,conf.level)</span></code></pre></div>
+<p>donde <code>x</code> y <code>n</code> representan, respectivamente, el número de éxitos y el tamaño de la muestra, y <code>conf.level</code> es <span class="math inline">\(q\)</span>, el nivel de confianza en tanto por uno. El valor por defecto de <code>conf.level</code> es 0.95, por lo que no hace falta especificarlo si queréis calcular un IC-95%.</p>
+</div>
+<div id="método-aproximado-de-wilson" class="section level4 unnumbered">
+<h4>Método aproximado de Wilson</h4>
+<p>Supongamos ahora que tomamos una muestra aleatoria simple de <span class="math inline">\(X\)</span> de tamaño <span class="math inline">\(n\)</span> grande, pongamos <span class="math inline">\(n\geqslant 40\)</span>, y proporción muestral de éxitos <span class="math inline">\(\widehat{p}_{X}\)</span>. En estas condiciones, por el Teorema Central del Límite, sabemos que la distribución de
+<span class="math display">\[
+Z=\dfrac{\widehat{p}_{X}-p_X}
+{\sqrt{\frac{p_X(1-p_X)}{n}}}
+\]</span>
+es aproximadamente la de una <span class="math inline">\(N(0,1)\)</span>. Por lo tanto
+<span class="math display">\[
+P\Big(-z_{(1+q)/2}\leqslant\dfrac{\widehat{p}_{X}-p_X}
+{\sqrt{\frac{p_X(1-p_X)}{n}}}\leqslant z_{(1+q)/2}\Big)\approx q
+\]</span></p>
+<p>Despejando <span class="math inline">\(p_X\)</span> como en el cálculo del IC-95% para la <span class="math inline">\(\mu\)</span> usando la t de Student, obtenemos el resultado siguiente (que no hay que saber, tranquilos):</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-63" class="theorem"><strong>Teorema 2.3  </strong></span>Si <span class="math inline">\(n\)</span> es grande, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(p_X\)</span> es aproximadamente:
+<span class="math display">\[
+\frac{\widehat{p}_{X}+\frac{z_{(1+q)/{2}}^2}{2n}}{1+\frac{z_{(1+q)/{2}}^2}{n}}\pm \frac{z_{(1+q)/{2}}\sqrt{\frac{\widehat{p}_{X}(1-\widehat{p}_{X})}{n}+\frac{z_{(1+q)/{2}}^2}{4n^2}}}{1+\frac{z_{(1+q)/{2}}^2}{n}}
+\]</span></p>
+</div>
+<p>Podéis calcular este intervalo con la función <code>binom.wilson</code> del paquete <strong>epitools</strong>. Su sintaxis es</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="chap-IC.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.wilson</span>(x,n,conf.level)</span></code></pre></div>
+<p>con los mismos parámetros que <code>binom.exact</code>.</p>
+<p>Fijaos en que:</p>
+<ul>
+<li>Este método no se puede usar con muestras de cualquier tamaño, han de ser lo bastante grandes como para poder invocar el Teorema Central del Límite.</li>
+<li>El centro del intervalo no es <span class="math inline">\(\widehat{p}_X\)</span>.</li>
+<li>Se basa en la aproximación a la normal dada por el Teorema Central del Límite, y por lo tanto el intervalo resultante es un intervalo de confianza “aproximado”, no exacto como el de Clopper-Pearson. Esto no es un gran problema, porque total, la muestra usada seguramente tampoco será aleatoria simple.</li>
+</ul>
+</div>
+<div id="fórmula-de-laplace" class="section level4 unnumbered">
+<h4>Fórmula de Laplace</h4>
+<p>Supongamos finalmente que tomamos una muestra aleatoria simple de <span class="math inline">\(X\)</span> de tamaño <span class="math inline">\(n\)</span> todavía más grande y que el valor de <span class="math inline">\(\widehat{p}_{X}\)</span> no es muy próximo ni a 0 ni a 1. Para fijar unas condiciones que suelen ser suficientes, supongamos que:</p>
+<ul>
+<li><span class="math inline">\(n\geqslant 100\)</span>.</li>
+<li>Tanto el número de éxitos, <span class="math inline">\(S\)</span>, como el número de fracasos, <span class="math inline">\(n-S\)</span>, en la muestra son <span class="math inline">\(\geqslant 10\)</span>.</li>
+</ul>
+<p>En este caso, en la fórmula del intervalo de Wilson los términos <span class="math inline">\(z_{(1+q)/{2}}^2/n\)</span> son despreciablemente pequeños comparados con los otros. Si los igualamos a 0, obtenemos la fórmula siguiente:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-65" class="theorem"><strong>Teorema 2.4  </strong></span>En las condiciones explicadas, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(p_X\)</span> es aproximadamente
+<span class="math display">\[
+\widehat{p}_{X}\pm z_{(q+1)/2}\sqrt{\frac{\widehat{p}_{X}
+(1-\widehat{p}_{X})}{n}}
+\]</span></p>
+</div>
+<p>Esta fórmula es la más popular, y forma parte de la “cultura general” de un científico. De hecho, tiene más de 200 años y precede en más de 100 años a los otros dos métodos. Además, tiene la forma familiar “estimador <span class="math inline">\(\pm\)</span> cuantil<span class="math inline">\(\times\)</span>error típico”.</p>
+<p>Podéis calcular este intervalo con la función <code>binom.approx</code> del paquete <strong>epitools</strong>. Su sintaxis es la misma que la de <code>binom.exact</code> y <code>binom.wilson</code>.</p>
+
+<div class="rmdmercifulgod">
+<p>Os tenéis que saber la fórmula de Laplace, no hay que saber las fórmulas de los otros dos métodos. Pero sí cuándo se pueden usar y cuándo no.</p>
+</div>
+
+<div class="rmdromans">
+<p>Cuando podemos calcular más de un intervalo de confianza para <span class="math inline">\(p_X\)</span>, ¿cuál calculamos?</p>
+<p>De entrada hay que advertir que si podemos calcular más de un intervalo, seguramente los que podamos calcular darán resultados muy parecidos. Además, recordad que las tres fórmulas solo nos dan “un nivel de confianza <span class="math inline">\(q\)</span>” si se aplican a muestras aleatorias simples, y nuestras muestras casi siempre serán oportunistas, en cuyo caso, si nos ponemos tiquismiquis, no podemos aplicar ninguna.</p>
+Solo un consejo: Si podéis usar la fórmula de Laplace, usadla. Todo el mundo lo conoce, forma parte de la cultura general del científico, y da un intervalo centrado en la proporción muestral.
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-68" class="example"><strong>Ejemplo 2.4  </strong></span>En una muestra de 20 pacientes operados de cáncer de próstata con una nueva técnica, ninguno desarrolló complicaciones importantes en las 24 horas siguientes a la operación.
+¿Cuál sería un IC-95% para la proporción de pacientes operados con esta técnica nueva que desarrollan complicaciones importantes en las 24 horas siguientes a la operación?</p>
+</div>
+<p>Para calcularlo solo podemos usar el método de Clopper-Pearson, y este es uno de los pocos casos en que este intervalo tiene una expresión analítica sencilla. Si en una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de una variable <span class="math inline">\(Be(p_X)\)</span> obtenemos 0 éxitos, el IC-<span class="math inline">\(q\)</span> de Clopper-Pearson para <span class="math inline">\(p_X\)</span> es
+<span class="math display">\[
+\Big[0,1-\Big(\frac{1-q}{2}\Big)^{1/n}\Big]
+\]</span>
+que, si <span class="math inline">\(q=0.95\)</span>, queda
+<span class="math display">\[
+[0,1-0.025^{1/n}].
+\]</span>
+En nuestro caso, <span class="math inline">\(n=20\)</span>, da el intervalo [0,0.1684]. Por lo tanto, estimamos con un 95% de confianza que menos del 16.84% de los pacientes operados con esta técnica nueva desarrollan complicaciones importantes en las 24 horas siguientes a la operación.</p>
+<p>Con R, hubiéramos entrado</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chap-IC.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epitools)</span>
+<span id="cb12-2"><a href="chap-IC.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.exact</span>(<span class="dv">0</span>,<span class="dv">20</span>)</span></code></pre></div>
+<pre><code>##   x  n proportion lower     upper conf.level
+## 1 0 20          0     0 0.1684335       0.95</code></pre>
+<p>El intervalo que se obtiene tiene como extremo inferior el valor <code>lower</code> y extremo superior el valor <code>upper</code>.</p>
+<p>Cuando se tiene que calcular “a mano” un intervalo de confianza del 95% para una probabilidad <span class="math inline">\(p_X\)</span> a partir de una muestra aleatoria simple donde no ha habido ningún éxito, a menudo se usa la regla siguiente:</p>
+<blockquote>
+<p><strong>Regla del 3:</strong> Cuando en una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de una variable aleatoria de Bernoulli de parámetro <span class="math inline">\(p_X\)</span> no encontramos ningún éxito, un IC-95% para <span class="math inline">\(p_X\)</span> va, aproximadamente, de 0 a <span class="math inline">\(3/n\)</span>.</p>
+</blockquote>
+<p>Con esta regla, en nuestro ejemplo con <span class="math inline">\(n=20\)</span> obtendríamos el intervalo [0,3/20]=[0,0.15], no muy lejos del [0,0.1684] que hemos obtenido.</p>
+<p>Para ver como la regla del 3 aproxima el intervalo de Clopper-Pearson, el gráfico siguiente muestra los valores <span class="math inline">\(3/n\)</span> y el extremo superior del IC-95% de Clopper-Pearson a partir de una muestra de tamaño <span class="math inline">\(n\)</span> con 0 éxitos:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-70-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Si la muestra hubiera sido mayor, pongamos de 50 pacientes y de nuevo 0 complicaciones graves, podríamos usar el método de Wilson. Calculémoslo con R:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="chap-IC.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.wilson</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span></code></pre></div>
+<pre><code>##   x  n proportion lower     upper conf.level
+## 1 0 50          0     0 0.0713476       0.95</code></pre>
+<p>Da el intervalo [0,0.0713]. El método de Clopper-Pearson da en este caso</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chap-IC.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.exact</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span></code></pre></div>
+<pre><code>##   x  n proportion lower      upper conf.level
+## 1 0 50          0     0 0.07112174       0.95</code></pre>
+<p>y la regla del 3 da [0,0.06].</p>
+<p>El gráfico siguiente muestra los valores <span class="math inline">\(3/n\)</span> y los extremos superiores de los IC-95% de Clopper-Pearson y de Wilson a partir de una muestra de tamaño <span class="math inline">\(n\)</span> (<span class="math inline">\(n\geqslant 40\)</span> para los intervalos de confianza de Wilson) con 0 éxitos:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-73-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Los extremos superiores de los intervalos de Clopper-Pearson y Wilson se superponen en este último gráfico.</p>
+
+<div class="rmdcaution">
+Aunque la muestra de pacientes hubiera sido enorme, yo qué sé, de 30000 pacientes, con 0 casos de complicaciones graves no se puede usar la fórmula de Laplace. De hecho, si la aplicáis con 0 éxitos obtenéis el interval [0,0]. Comprobadlo.
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-75" class="example"><strong>Ejemplo 2.5  </strong></span>En un ensayo de un tratamiento de quimioterapia, en una muestra de 100 pacientes tratados, 25 desarrollaron cáncer testicular secundario. ¿Cuál es un IC-95% para la proporción de pacientes tratados con esta quimioterapia que desarrollan cáncer testicular.</p>
+</div>
+<p>En este caso podemos usar los tres métodos.</p>
+<ul>
+<li>Clopper-Pearson, porque se puede usar siempre.</li>
+<li>Wilson, porque <span class="math inline">\(n=100\geqslant 40\)</span>.</li>
+<li>Laplace, porque <span class="math inline">\(n\geqslant 100\)</span>, <span class="math inline">\(S=25\geqslant 10\)</span> y <span class="math inline">\(n-S=75\geqslant 10\)</span>.</li>
+</ul>
+<p>Vamos a aplicar a mano la fórmula de Laplace, que es la única que es sensato calcular a mano (y es la que os recomendamos usar si podéis). Tenemos que <span class="math inline">\(\widehat{p}_{X}=25/100=0.25\)</span> y <span class="math inline">\(z_{0.975}=1.96\)</span>. Da:
+<span class="math display">\[
+0.25\pm 1.96\sqrt{\frac{0.25\cdot 0.75}{100}}=0.25\pm 0.085\Rightarrow [0.165, 0.335]
+\]</span>
+Concluimos, con un nivel de confianza del 95%, que entre aproximadamente un 16.5% y un 33.5% de los pacientes tratados con esta quimioterapia desarrollan cáncer testicular. En este caso podríamos decir que estimamos, con un nivel de confianza del 95%, que el porcentaje de pacientes tratados con esta quimioterapia que desarrollan cáncer testicular es del 25% más menos 8.5 puntos porcentuales.</p>
+<p>Por si os interesan:</p>
+<ul>
+<li>El intervalo de Clopper-Pearson da</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="chap-IC.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.exact</span>(<span class="dv">25</span>,<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##    x   n proportion     lower     upper conf.level
+## 1 25 100       0.25 0.1687797 0.3465525       0.95</code></pre>
+<ul>
+<li>El intervalo de Wilson da</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="chap-IC.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.wilson</span>(<span class="dv">25</span>,<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##    x   n proportion     lower     upper conf.level
+## 1 25 100       0.25 0.1754521 0.3430446       0.95</code></pre>
+<p>Ya que estamos, calculamos el intervalo de Laplace con R:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="chap-IC.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.approx</span>(<span class="dv">25</span>,<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##    x   n proportion     lower     upper conf.level
+## 1 25 100       0.25 0.1651311 0.3348689       0.95</code></pre>
+<p>Da lo mismo que a mano.</p>
+<p>Como podéis ver, los tres dan muy parecidos, con diferencias en los extremos de un punto porcentual.</p>
+</div>
+<div id="cálculo-del-tamaño-de-la-muestra-para-fijar-el-error" class="section level4 unnumbered">
+<h4>Cálculo del tamaño de la muestra para fijar el error</h4>
+<p>Llamaremos <strong>margen de error</strong> (o <strong>error</strong>, <strong>precisión</strong>…) del intervalo de confianza de Laplace a la mitad de su amplitud, es decir, a lo que sumamos y restamos a la proporción muestral para obtenerlo:
+<span class="math display">\[
+M= z_{(q+1)/2} \sqrt{\frac{\widehat{p}_{X} (1-\widehat{p}_{X})}{n}}
+\]</span>
+Fijaos en que el intervalo de confianza de Laplace es <span class="math inline">\(\widehat{p}_X\pm M\)</span> y por lo tanto, si contiene el valor real de <span class="math inline">\(p_X\)</span>, el error <span class="math inline">\(|\widehat{p}_X-p_X|\)</span> que cometemos cuando decimos que el valor de <span class="math inline">\(p_X\)</span> es <span class="math inline">\(\widehat{p}_X\)</span> es como máximo este <span class="math inline">\(M\)</span>.</p>
+<p>Una típica pregunta al diseñar un estudio es ¿de qué tamaño he de tomar la muestra para garantizar que el margen de error en la estimación sea como máximo un valor dado <span class="math inline">\(M_{max}\)</span>?
+En el caso del intervalo de Laplace para una proporción, podemos dar un tamaño <span class="math inline">\(n\)</span> que garantice un error máximo dado <span class="math inline">\(M_{max}\)</span> valga lo que valga <span class="math inline">\(\widehat{p}_{X}\in [0,1]\)</span>.</p>
+<p>Fijaos en que la función <span class="math inline">\(y=p(1-p)\)</span>, con <span class="math inline">\(p\in [0,1]\)</span>, es una parábola cóncava con vértice en su punto <span class="math inline">\(p=0.5\)</span>.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-79-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Por lo tanto, <span class="math inline">\(y=p(1-p)\)</span> toma su valor máximo en <span class="math inline">\(p=0.5\)</span>. Así, pues
+<span class="math display">\[
+\widehat{p}_{X} (1-\widehat{p}_{X})\leqslant 0.5(1-0.5)=0.5^2
+\]</span>
+y por lo tanto
+<span class="math display">\[
+\begin{array}{l}
+\displaystyle M=z_{(q+1)/2} \sqrt{\frac{\widehat{p}_{X} (1-\widehat{p}_{X})}{n}}\\
+\qquad\displaystyle 
+\leqslant z_{(q+1)/2}\sqrt{\frac{0.5^2}{n}}=\frac{0.5z_{(q+1)/2}}{\sqrt{n}}=\frac{z_{(q+1)/2}}{2\sqrt{n}}
+\end{array}
+\]</span></p>
+<p>Concluimos que si tomamos <span class="math inline">\(n\)</span> tal que
+<span class="math display">\[
+\frac{z_{(q+1)/2}}{2\sqrt{n}}\leqslant M_{max}
+\]</span>
+entonces seguro que <span class="math inline">\(M\leqslant M_{max}\)</span>, valga lo que valga <span class="math inline">\(\widehat{p}_{X}\)</span>.</p>
+<p>Por consiguiente, lo que haremos será calcular la <span class="math inline">\(n\)</span> para obtener un margen de error como máximo <span class="math inline">\(M_{max}\)</span> en el <strong>caso más desfavorable</strong> (o <strong>en el peor de los casos</strong>): cuando el intervalo da lo más ancho posible, es decir, suponiendo que <span class="math inline">\(\widehat{p}_{X}=0.5\)</span>:
+<span class="math display">\[
+M_{max}\geqslant\frac{z_{(q+1)/2}}{2\sqrt{n}}
+\Rightarrow
+n\geqslant\left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}
+\right)^2
+\]</span></p>
+<p>En resumen:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-80" class="theorem"><strong>Teorema 2.5  </strong></span>Si
+<span class="math display">\[
+n\geqslant\left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}\right)^2,
+\]</span>
+el margen de error del intervalo de Laplace calculado con una muestra de tamaño <span class="math inline">\(n\)</span> será como máximo <span class="math inline">\(M_{max}\)</span>.</p>
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-81" class="example"><strong>Ejemplo 2.6  </strong></span>¿Cuál es el menor tamaño de una muestra que nos garantice un margen de error de como máximo 0.05 al estimar una proporción <span class="math inline">\(p_X\)</span> usando un intervalo de confianza de Laplace del 95%?</p>
+</div>
+<p>Por el teorema anterior, para garantizar un margen de error de 0.05 al calcular un IC-95% para una proporción <span class="math inline">\(p_X\)</span> usando la fórmula de Laplace, tenemos que usar una muestra de tamaño <span class="math inline">\(n\)</span> tal que
+<span class="math display">\[
+n\geqslant\Bigg(\frac{z_{(1+q)/2}}{2M_{max}}\Bigg)^2=\Bigg(\frac{1.96}{0.1}\Bigg)^2=384.16
+\]</span></p>
+<p>El menor tamaño que satisface esta condición es <span class="math inline">\(n=385\)</span>.</p>
+
+<div class="rmdcaution">
+La respuesta correcta no es 384, por mucho que 384.16 se redondee a 384. Fijaos en que 384 no es más grande que 384.16.
+</div>
+<p>Observad tres cosas:</p>
+<ul>
+<li><p>El valor de <span class="math inline">\(n\)</span> solo depende del margen de error deseado y del nivel de confianza, no de la naturaleza del estudio.</p></li>
+<li><p>Tal y como hemos encontrado la <span class="math inline">\(n\)</span>, estamos seguros de que si tomamos una muestra como mínimo de este tamaño, el margen de error del intervalo de confianza de Laplace será como máximo <span class="math inline">\(M_{max}\)</span>, sea cual sea la muestra. ¡Es de las pocas veces que podemos estar seguros de algo en estadística!</p></li>
+<li><p>El teorema anterior es para el intervalo de Laplace, pero la <span class="math inline">\(n\)</span> seguramente os saldrá muy grande y en este caso el intervalo de Laplace aproxima muy bien los otros dos intervalos si la proporción muestral luego no os sale muy extrema.</p></li>
+</ul>
+</div>
+<div id="poblaciones-finitas" class="section level4 unnumbered">
+<h4>“Poblaciones finitas”</h4>
+<p>En esta sección hasta ahora hemos usado muestras aleatorias simples. Ya sabemos que si tomamos muestras aleatorias sin reposición y la población es mucho más grande que el tamaño <span class="math inline">\(n\)</span> de las muestras, las fórmulas que hemos dado siguen funcionando (aproximadamente) bien. Pero, ¿qué pasa si tomamos una muestra aleatoria sin reposición y la población no es mucho más grande que la muestra?</p>
+<p>Por un lado, hay métodos tipo el de Clopper-Pearson que usan que el número de éxitos en muestras aleatorias sin reposición sigue una distribución hipergeométrica, pero son aun más complicados que el de Clopper-Pearson. Lo que se hace cuando se puede es usar la fórmula de Laplace teniendo en cuenta el <strong>factor de población finita</strong>:</p>
+<ul>
+<li><p>Si <span class="math inline">\(X\)</span> una variable aleatoria de Bernoulli <span class="math inline">\(Be(p_X)\)</span> definida sobre una población de tamaño <span class="math inline">\(N\)</span> y tomamos una muestra aleatoria sin reposición de <span class="math inline">\(X\)</span>, con <span class="math inline">\(n\geqslant 100\)</span> y números de éxitos y fracasos <span class="math inline">\(\geqslant 10\)</span>, un intervalo de confianza de nivel de confianza <span class="math inline">\(q\)</span> para <span class="math inline">\(p_X\)</span> es, aproximadamente,
+<span class="math display">\[
+\widehat{p}_{X}\pm z_{(q+1)/2}\sqrt{\frac{\widehat{p}_{X}
+(1-\widehat{p}_{X})}{n}}\sqrt{\frac{\vphantom{(}N-n}{N-1}}
+\]</span></p></li>
+<li><p>En las condiciones del punto anterior, para obtener un intervalo de confianza de nivel de confianza <span class="math inline">\(q\)</span> para <span class="math inline">\(p_X\)</span> con un margen de error <span class="math inline">\(M_{max}\)</span> en el caso más desfavorable (<span class="math inline">\(\widehat{p}_X=0.5\)</span>) habrá que tomar una muestra de tamaño
+<span class="math display">\[
+n\geqslant\frac{Nz_{(q+1)/2}^2}{4(N-1)M_{max}^2+z_{(q+1)/2}^2}
+\]</span></p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-83" class="example"><strong>Ejemplo 2.7  </strong></span>En una muestra aleatoria de 727 estudiantes diferentes de la UIB (<span class="math inline">\(N=12000\)</span>), 557 afirmaron haber cometido plagio en algún trabajo durante sus estudios. ¿Cuál sería un intervalo de confianza del 95% para la proporción <span class="math inline">\(p_X\)</span> de estudiantes de la UIB que han cometido plagio en algún trabajo?</p>
+</div>
+<p>Una muestra de 727 estudiantes diferentes es muy grande respecto del total de estudiantes de la UIB, por lo cual conviene usar la fórmula de Laplace con el factor de población finita:
+<span class="math display">\[
+\widehat{p}_{X}\pm z_{(q+1)/2}\sqrt{\frac{\widehat{p}_{X}
+(1-\widehat{p}_{X})}{n}}\sqrt{\frac{\vphantom{(}N-n}{N-1}}
+\]</span>
+donde <span class="math inline">\(\widehat{p}_{X}=557/727=0.766\)</span>, <span class="math inline">\(z_{(q+1)/2}=1.96\)</span>, <span class="math inline">\(n=727\)</span> y <span class="math inline">\(N=12000\)</span>: da
+<span class="math display">\[
+0.766\pm 1.96\sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}12000-727}{12000-1}}\Rightarrow [0.736, 0.796]
+\]</span>
+Estimamos con un nivel de confianza del 95% que entre un 73.6% y un 79.6% de los estudiantes de la UIB han cometido plagio en algún trabajo.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
+<img src="INREMDN_files/figure-html/plagiuib.png" alt="https://diari.uib.cat/digitalAssets/125/125740_1_reportatge.pdf" width="80%" />
+<p class="caption">
+Figura 2.1: <a href="https://diari.uib.cat/digitalAssets/125/125740_1_reportatge.pdf" class="uri">https://diari.uib.cat/digitalAssets/125/125740_1_reportatge.pdf</a>
+</p>
+</div>
+</div>
+</div>
+<div id="un-intervalo-de-confianza-para-la-diferencia-de-proporciones" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Un intervalo de confianza para la diferencia de proporciones</h2>
+<p>Sean <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> dos variables Bernoulli de probabilidades poblacionales de éxito <span class="math inline">\(p_1\)</span> y <span class="math inline">\(p_2\)</span>, respectivamente. Supongamos que queremos calcular un IC-<span class="math inline">\(q\)</span> para la diferencia de estas probabilidades, <span class="math inline">\(p_1-p_2\)</span>. Para ello, tomamos dos muestras <strong>independientes</strong>, una de cada variable:</p>
+<ul>
+<li>Una muestra aleatoria simple de tamaño <span class="math inline">\(n_1\)</span> de <span class="math inline">\(X_1\)</span>, de proporción muestral <span class="math inline">\(\widehat{p}_1\)</span>.</li>
+<li>Una muestra aleatoria simple de tamaño <span class="math inline">\(n_2\)</span> de <span class="math inline">\(X_2\)</span>, de proporción muestral <span class="math inline">\(\widehat{p}_2\)</span>.</li>
+</ul>
+<p>Si las dos muestras son grandes, pongamos cada una de 50 o más sujetos, y las proporciones muestrales no son muy cercanas a 0 o a 1 (para fijar ideas, que en cada muestra haya como mínimo 5 éxitos y 5 fracasos), un IC-<span class="math inline">\(q\)</span> para la diferencia <span class="math inline">\(p_1-p_2\)</span> es, aproximadamente,
+<span class="math display">\[
+\widehat{p}_1-\widehat{p}_2 \pm z_{(q+1)/2}\cdot
+\sqrt{\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\cdot \frac{n_1 (1-\widehat{p}_1) +n_2( 1-\widehat{p}_2)}{n_1
++n_2}\cdot \Big(\frac{1}{n_1}+\frac{1}{n_2}
+\Big)}
+\]</span>
+Notad que <span class="math inline">\(n_1 \widehat{p}_1 +n_2 \widehat{p}_2\)</span> es el número total de éxitos y <span class="math inline">\(n_1 (1-\widehat{p}_1) +n_2( 1-\widehat{p}_2)\)</span> el número total de fracasos en las dos muestras.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-85" class="example"><strong>Ejemplo 2.8  </strong></span>En un <a href="https://www.medrxiv.org/content/10.1101/2020.10.19.20214940v1">estudio francés</a> sobre la efectividad de la hidroxicloroquina en el tratamiento de la COVID-19 leve o moderada en personas de edad avanzada, participaron 247 pacientes de este grupo de riesgo. Se dividieron al azar en dos grupos de 124 y 123 sujetos. Los del primer grupo fueron tratados con hidroxicloroquina y los del segundo grupo, con un placebo. Se anotó en cada grupo cuántos fallecieron o necesitaron intubación en los 14 días siguientes al inicio del tratamiento (lo resumiremos en “desenlace negativo”). En el grupo tratado con hidroxicloroquina hubo 9 desenlaces negativos y en el grupo del placebo, 8.</p>
+</div>
+<p>Llamemos <span class="math inline">\(p_1\)</span> a la probabilidad de que un paciente de edad avanzada con COVID-19 leve o moderada tratado con placebo tenga un desenlace negativo, y <span class="math inline">\(p_2\)</span> a la correspondiente probabilidad para los tratados con hidroxicloroquina. Queremos calcular un IC-95% para la RAR de desenlace negativo con hidroxicloroquina comparado con placebo, es decir, para la diferencia <span class="math inline">\(p_1-p_2\)</span>.</p>
+<p>Las variables de interés son:</p>
+<ul>
+<li><p><span class="math inline">\(X_1\)</span>: Tomamos un paciente de edad avanzada con COVID-19 leve o moderada, lo tratamos con placebo y miramos si tiene un desenlace negativo; es Bernoulli <span class="math inline">\(Be(p_1)\)</span>.</p></li>
+<li><p><span class="math inline">\(X_2\)</span>: Tomamos un paciente de edad avanzada con COVID-19 leve o moderada, lo tratamos con hidroxicloroquina y miramos si tiene un desenlace negativo; es Bernoulli <span class="math inline">\(Be(p_2)\)</span>.</p></li>
+</ul>
+<p>Hemos tomado una muestra de <span class="math inline">\(X_1\)</span> de tamaño <span class="math inline">\(n_1=123\)</span> y ha tenido 8 éxitos, de manera que su proporción muestral ha sido <span class="math inline">\(\widehat{p}_1=8/123=0.06504\)</span>, y hemos tomado una muestra de <span class="math inline">\(X_2\)</span> de tamaño <span class="math inline">\(n_2=124\)</span> y ha tenido 9 éxitos, de manera que su proporción muestral ha sido <span class="math inline">\(\widehat{p}_2=9/124=0.07258\)</span>. El número total de éxitos (es decir, de desenlaces negativos) ha sido <span class="math inline">\(8+9=17\)</span> y el de fracasos <span class="math inline">\(247-17=230\)</span>. Las dos muestras son independientes, ya que hemos asignado al azar los sujetos a uno u otro grupo.</p>
+<p>Suponiendo que las muestras puedan pasar por aleatorias, estamos en condiciones de aplicar la fórmula anterior. Obtenemos
+<span class="math display">\[
+\begin{array}{l}
+\displaystyle 0.06504-0.07258 \pm 1.96\cdot
+\sqrt{\frac{17}{247}\cdot \frac{230}{247}\cdot \Big(\frac{1}{123}+\frac{1}{124}
+\Big)}\\
+\qquad\qquad =-0.00754\pm 0.06314\Rightarrow [-0.0707,  0.0556]
+\end{array}
+\]</span>
+Así pues, estimamos con un 95% de confianza que la RAR de desenlace negativo con hidroxicloroquina entre estos pacientes está entre -0.0707 y 0.0556. Es decir, estimamos con una confianza del 95% que el efecto de administrar hidroxicloroquina está entre el aumento en 7.1 puntos porcentuales del riesgo de desenlace negativo y su disminución en 5.6 puntos porcentuales. En particular, no podemos descartar ni que su uso empeore el pronóstico del paciente ni que lo mejore.</p>
+</div>
+<div id="intervalos-de-confianza-para-diferencias-de-medias" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Intervalos de confianza para diferencias de medias</h2>
+<p>Sean <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> dos variables de medias <span class="math inline">\(\mu_1\)</span> y <span class="math inline">\(\mu_2\)</span>, respectivamente.
+Supongamos que queremos calcular un IC-<span class="math inline">\(q\)</span> para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span>.
+Para ello, tomamos:</p>
+<ul>
+<li>Una muestra aleatoria simple de tamaño <span class="math inline">\(n_1\)</span> de <span class="math inline">\(X_1\)</span>, de media muestral <span class="math inline">\(\overline{X}_1\)</span>.</li>
+<li>Una muestra aleatoria simple de tamaño <span class="math inline">\(n_2\)</span> de <span class="math inline">\(X_2\)</span>, de media muestral <span class="math inline">\(\overline{X}_2\)</span>.</li>
+</ul>
+<p>Si <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son aproximadamente normales o si las muestras usadas son grandes (de nuevo, digamos, <strong>ambas</strong> de tamaño como mínimo 40), entonces podemos usar un método paramétrico basado en una distribución t de Student, que da un intervalo centrado en la diferencia de medias muestrales, de la forma
+<span class="math display">\[
+\overline{X}_1-\overline{X}_2\pm t_{\nu,(q+1)/2}\times\text{error típico}
+\]</span></p>
+<p>Pero el número de grados de libertad <span class="math inline">\(\nu\)</span> a usar en el cuantil y el error típico van a depender de dos factores.</p>
+<p>Por un lado, de que las muestras sean <strong>independientes</strong> (hemos medido <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> sobre dos muestras obtenidas de manera independiente la una de la otra) o <strong>emparejadas</strong> (hemos medido <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> sobre los individuos de una misma muestra o hay un emparejamiento natural entre los sujetos de las dos muestras; en particular, si las muestras son emparejadas ha de pasar que <span class="math inline">\(n_1=n_2\)</span>).</p>
+<p>Y si las muestras son independientes, la fórmula a usar depende de si las varianzas de <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son iguales o diferentes. (¿Y cómo podemos saber si son iguales o diferentes? No os perdáis las próximas lecciones.)</p>
+<p>Os damos las fórmulas por si algún día tenéis que calcular uno a mano. No hace falta saberlas, solo recordar que la fórmula concreta a usar depende de estas condiciones. Supongamos, pues, que <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son aproximadamente normales o que <span class="math inline">\(n_1,n_2\geqslant 40\)</span>. Entonces:</p>
+<ul>
+<li>Si las muestras son emparejadas y <span class="math inline">\(n_1=n_2=n\)</span>, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(\mu_1-\mu_2\)</span> es
+<span class="math display">\[
+\overline{X}_1-\overline{X}_2\pm t_{n-1,(q+1)/2}\cdot \frac{\widetilde{S}_D}{\sqrt{n}}
+\]</span>
+donde <span class="math inline">\(\widetilde{S}_D\)</span> es la desviación típica muestral de las diferencias <span class="math inline">\(X_1-X_2\)</span> sobre las parejas de la muestra.</li>
+</ul>
+
+<div class="rmdnote">
+Esta fórmula es simplemente la traducción de la fórmula basada en la t de Student del IC-<span class="math inline">\(q\)</span>, aplicada a estimar la media <span class="math inline">\(\mu_1-\mu_2\)</span> de la variable <span class="math inline">\(X_1-X_2\)</span> a partir de una muestra de valores de esta diferencia.
+</div>
+<ul>
+<li><p>Si las muestras son independientes y <span class="math inline">\(\sigma_{X_1}^2=\sigma_{X_2}^2\)</span>, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(\mu_1-\mu_2\)</span> es
+<span class="math display">\[
+\overline{X}_1-\overline{X}_2\pm t_{n_1+n_2-2,(q+1)/2} \sqrt{\Big(\frac{1}{n_1}+\frac{1}{n_2}\Big)\cdot 
+\frac{(n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2}
+{n_1+n_2-2}}
+\]</span>
+donde <span class="math inline">\(\widetilde{S}_1^2\)</span> y <span class="math inline">\(\widetilde{S}_2^2\)</span> son las varianzas muestrales de las muestras de <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>, respectivamente.</p></li>
+<li><p>Si las muestras son independientes y <span class="math inline">\(\sigma_{X_1}^2\neq \sigma_{X_2}^2\)</span>, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(\mu_1-\mu_2\)</span> es
+<span class="math display">\[
+\overline{X}_1-\overline{X}_2\pm t_{\nu,(q+1)/2}\cdot\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}
+\]</span>
+donde, de nuevo, <span class="math inline">\(\widetilde{S}_1^2\)</span> y <span class="math inline">\(\widetilde{S}_2^2\)</span> son las varianzas muestrales de las muestras de <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>, respectivamente, y ahora el número de grados de libertad que tenemos que usar al calcular el cuantil es
+<span class="math display">\[
+\nu=\frac{\displaystyle \left( \frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}\right)^2}{\displaystyle \frac{1}{n_1-1}\left(\frac{\widetilde{S}_1^2}{n_1}\right)^2+\frac{1}{n_2-1}\left(\frac{\widetilde{S}_2^2}{n_2}\right)^2}
+\]</span></p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:tempsIC" class="example"><strong>Ejemplo 2.9  </strong></span>Queremos calcular un intervalo de confianza del 95% para la diferencia en la temperatura media de los hombres y las mujeres. Para ello, usamos unos datos recogidos por P.A. Mackowiak, S. S. Wasserman y M.M. Levine en un <a href="https://jamanetwork.com/journals/jama/article-abstract/400116">estudio de 1992</a>, en el que tomaron la temperatura a 114 hombres y 116 mujeres; las muestras de ambos sexos fueron independientes una de la otra.</p>
+</div>
+<p>Pongamos algunos nombres. Las variables aleatorias de interés son:</p>
+<ul>
+<li><span class="math inline">\(X_h\)</span>: “Tomamos un hombre y le tomamos la temperatura, en grados C”, de media <span class="math inline">\(\mu_h\)</span> y desviación típica <span class="math inline">\(\sigma_h\)</span>.</li>
+<li><span class="math inline">\(X_m\)</span>: “Tomamos una mujer y le tomamos la temperatura, en grados C”,de media <span class="math inline">\(\mu_m\)</span> y desviación típica <span class="math inline">\(\sigma_m\)</span>.</li>
+</ul>
+<p>Vamos a calcular un IC-95% para <span class="math inline">\(\mu_h-\mu_m\)</span>. Como ambas muestras son grandes, vamos a usar una fórmula basada en la t de Student. Hemos calculado los datos siguientes:</p>
+<ul>
+<li>Para la muestra de <span class="math inline">\(X_h\)</span>, su tamaño es <span class="math inline">\(n_h=114\)</span>, su media muestral es <span class="math inline">\(\overline{X}_h=36.75\)</span> y su varianza muestral es <span class="math inline">\(\widetilde{S}_h^2=0.228\)</span>.</li>
+<li>Para la muestra de <span class="math inline">\(X_m\)</span>, su tamaño es <span class="math inline">\(n_m=116\)</span>, su media muestral es <span class="math inline">\(\overline{X}_m=36.9\)</span> y su varianza muestral es <span class="math inline">\(\widetilde{S}_m^2=0.191\)</span>.</li>
+</ul>
+<p>Para calcular el IC-95%, necesitamos saber si <span class="math inline">\(\sigma_h^2=\sigma_m^2\)</span> o <span class="math inline">\(\sigma_h^2\neq \sigma_m^2\)</span>. Vamos a suponer que <span class="math inline">\(\sigma_h^2=\sigma_m^2\)</span>, es decir, que las temperaturas de las mujeres son “igual de variadas” que las de los hombres, básicamente porque no vemos ningún motivo para que no sea así (bueno, y porque en una próxima lección veremos cómo decidir, con una cierta probabilidad de equivocarnos, si dos desviaciones típicas poblacionales son iguales o diferentes, y en concreto concluiremos que, en este caso, <span class="math inline">\(\sigma_h^2=\sigma_m^2\)</span>).</p>
+<p>Así que hemos de usar la fórmula para muestras independientes y varianzas iguales:
+<span class="math display">\[
+\overline{X}_h-\overline{X}_m\pm t_{n_h+n_m-2,0.975} \sqrt{\Big(\frac{1}{n_h}+\frac{1}{n_m}\Big)\cdot 
+\frac{(n_h-1)\widetilde{S}_h^2+(n_m-1)\widetilde{S}_m^2}
+{n_h+n_m-2}}
+\]</span></p>
+<p>donde <span class="math inline">\(t_{n_h+n_m-2,0.975}=t_{228,0.975}=1.97\)</span>. Da
+<span class="math display">\[
+\begin{array}{l}
+\displaystyle 36.75-36.9\pm 1.97 \sqrt{\Big(\frac{1}{114}+\frac{1}{116}\Big)\cdot 
+\frac{113\cdot 0.228+115\cdot 0.191}
+{228}}\\ 
+\qquad \displaystyle = -0.15\pm 0.06\Longrightarrow [-0.21,-0.09]
+\end{array}
+\]</span>
+Estimamos con un 95% de confianza que la temperatura media de los hombres es entre una y dos décimas de grado C más baja que la de las mujeres.</p>
+</div>
+<div id="test-1" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Test</h2>
+<p><strong>(1)</strong> Un intervalo de confianza del 99% para la concentración de un determinado metabolito en sangre es [10,12]. De acuerdo con esto, esperamos encontrar fuera de este intervalo:</p>
+<ol style="list-style-type: decimal">
+<li>Un 1% de las concentraciones medias de todas las muestras de cualquier tamaño</li>
+<li>Un 1% de las concentraciones medias de las muestras grandes (con <span class="math inline">\(n\geqslant 40\)</span>)</li>
+<li>Un 99% de las concentraciones medias de todas las muestras de cualquier tamaño</li>
+<li>Un 1% de todas las concentraciones en la población</li>
+<li>Un 99% de todas las concentraciones en la población</li>
+<li>Ninguna de las anteriores respuestas es correcta.</li>
+</ol>
+<p><strong>(2)</strong> Para estimar una cierta media poblacional con un nivel de confianza 0.95, hemos usado una muestra de 100 individuos y un método paramétrico y hemos obtenido un IC-95% con un margen de error de 0.02. Si usamos una muestra de 200 individuos y la misma fórmula para calcular el IC, estamos seguros de que (marca todas las afirmaciones correctas):</p>
+<ol style="list-style-type: decimal">
+<li>El IC-95% obtenido tendrá un margen de error <span class="math inline">\(&lt;0.02\)</span></li>
+<li>El IC-95% obtenido tendrá un margen de error <span class="math inline">\(&gt;0.02\)</span></li>
+<li>Si calculamos un IC-99%, su margen de error será <span class="math inline">\(&gt;0.02\)</span></li>
+<li>Si calculamos un IC-90%, su margen de error será <span class="math inline">\(&gt;0.02\)</span></li>
+<li>Ninguna de las otras afirmaciones es correcta</li>
+</ol>
+<p><strong>(3)</strong> Para calcular un IC de nivel de confianza <span class="math inline">\(q\)</span> para la media poblacional <span class="math inline">\(\mu\)</span> de un cierto parámetro con la fórmula basada en la t de Student, hemos tomado una muestra aleatoria simple de 100 individuos con <span class="math inline">\(\overline{x}=2\)</span> y <span class="math inline">\(\widetilde{s}_X^2=0.8\)</span>. Si ahora usamos otra muestra aleatoria simple de 100 individuos y obtenemos <span class="math inline">\(\overline{x}=3\)</span> y <span class="math inline">\(\widetilde{s}_X^2=0.6\)</span>, ¿cómo será el IC-<span class="math inline">\(q\)</span> que obtengamos?</p>
+<ol style="list-style-type: decimal">
+<li>Igual de ancho que el anterior.</li>
+<li>Más estrecho que el anterior.</li>
+<li>Más ancho que el anterior.</li>
+<li>No podemos saber si el nuevo IC será más ancho, más estrecho o igual de ancho que el anterior.</li>
+</ol>
+<p><strong>(4)</strong> Un artículo de una revista científica informa de que el intervalo de confianza del 95% del nivel medio de colesterolemia en los adultos atendidos en un Centro de Salud es 192-208. Se aceptó que la variable tenía una distribución normal y el número de pacientes estudiados fue de 100. ¿Cuáles de las siguientes afirmaciones son verdaderas?</p>
+<ol style="list-style-type: decimal">
+<li>Es muy probable que el nivel medio poblacional esté comprendido entre 192 y 208.</li>
+<li>Si se repitiera el estudio muchas veces, en un 95% de ellas se obtendría una media muestral comprendida entre 192 y 208.</li>
+<li>El 95% de los adultos de la población tiene un nivel de colesterolemia comprendido entre 192 y 208.</li>
+<li>La media muestral encontrada en el estudio es de 200.</li>
+<li>La desviación típica muestral encontrada en el estudio ha sido aproximadamente 40 o 41.</li>
+<li>Ninguna de las anteriores respuestas es correcta.</li>
+</ol>
+<p><strong>(5)</strong> Un intervalo de confianza del 95% para la media estimado a partir de una muestra (marca las afirmaciones correctas):</p>
+<ol style="list-style-type: decimal">
+<li>Es un intervalo en el cual, a largo plazo, caen el 95% de las observaciones.</li>
+<li>Es una manera de expresar la precisión de la estimación de la media.</li>
+<li>Es un intervalo que se ha calculado con una fórmula para que incluya la media muestral en el 95% de las ocasiones que la apliquemos a muestras.</li>
+<li>Es un intervalo que se ha calculado con una fórmula para que incluya la media de la población en el 95% de las
+ocasiones que la apliquemos a muestras.<br />
+</li>
+<li>Es una manera de expresar la variabilidad de un conjunto de observaciones.</li>
+</ol>
+<p><strong>(6)</strong> Para estimar una cierta proporción con un nivel de confianza 0.95, hemos usado una muestra de 100 individuos y uno de los métodos paramétricos explicados en el curso y hemos obtenido un IC-95% con un margen de error de 0.02.¿Cuáles de las afirmaciones siguientes son verdaderas?</p>
+<ol style="list-style-type: decimal">
+<li>Si calculamos un IC-99% con la misma muestra y el mismo método, su margen de error será <span class="math inline">\(\geqslant\)</span> 0.02</li>
+<li>Si calculamos un IC-99% con la misma muestra y el mismo método, su margen de error será <span class="math inline">\(\leqslant\)</span> 0.02</li>
+<li>Si calculamos un IC-90% con la misma muestra y el mismo método, su margen de error será <span class="math inline">\(\geqslant\)</span> 0.02</li>
+<li>Si calculamos un IC-90% con la misma muestra y el mismo método, su margen de error será <span class="math inline">\(\leqslant\)</span> 0.02</li>
+<li>Ninguna de las otras afirmaciones es seguro que sea verdadera</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distribuciones-muestrales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="contrastes-de-hipótesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
