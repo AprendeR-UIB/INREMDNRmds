@@ -4,26 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lección 9 Descripción de datos cuantitativos | Bioestadística (Medicina UIB)</title>
-  <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <title>Lección 9 Descripción de datos cuantitativos | INREMDN.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lección 9 Descripción de datos cuantitativos | Bioestadística (Medicina UIB)" />
+  <meta property="og:title" content="Lección 9 Descripción de datos cuantitativos | INREMDN.knit" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
-  <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
+  
+  
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lección 9 Descripción de datos cuantitativos | Bioestadística (Medicina UIB)" />
+  <meta name="twitter:title" content="Lección 9 Descripción de datos cuantitativos | INREMDN.knit" />
   
-  <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  
   
 
 
 
-<meta name="date" content="2021-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,8 +30,8 @@
   
   
 <link rel="prev" href="chap-edord.html"/>
-
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<link rel="next" href="variables-aleatorias-discretas.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,9 +49,76 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -104,7 +170,7 @@
 <li class="chapter" data-level="3.3.6" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:poli"><i class="fa fa-check"></i><b>3.3.6</b> Muestreo polietápico</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="chap-conceptos.html"><a href="chap-conceptos.html#sec:sesgos"><i class="fa fa-check"></i><b>3.4</b> Sesgos</a></li>
-<li class="chapter" data-level="3.5" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>3.5</b> Test</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-conceptos.html"><a href="chap-conceptos.html#test-1"><i class="fa fa-check"></i><b>3.5</b> Test</a></li>
 </ul></li>
 <li class="part"><span><b>Tema II: Probabilidades</b></span></li>
 <li class="chapter" data-level="4" data-path="chap-probst.html"><a href="chap-probst.html"><i class="fa fa-check"></i><b>4</b> Probabilidades elementales: Las mates</a>
@@ -116,7 +182,7 @@
 <li class="chapter" data-level="4.5" data-path="chap-probst.html"><a href="chap-probst.html#sucesos-independientes"><i class="fa fa-check"></i><b>4.5</b> Sucesos independientes</a></li>
 <li class="chapter" data-level="4.6" data-path="chap-probst.html"><a href="chap-probst.html#probabilidad-total"><i class="fa fa-check"></i><b>4.6</b> Probabilidad total</a></li>
 <li class="chapter" data-level="4.7" data-path="chap-probst.html"><a href="chap-probst.html#fórmula-de-bayes"><i class="fa fa-check"></i><b>4.7</b> Fórmula de Bayes</a></li>
-<li class="chapter" data-level="4.8" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>4.8</b> Test</a></li>
+<li class="chapter" data-level="4.8" data-path="chap-probst.html"><a href="chap-probst.html#test-2"><i class="fa fa-check"></i><b>4.8</b> Test</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html"><i class="fa fa-check"></i><b>5</b> Probabilidades elementales: Aplicaciones en medicina</a>
 <ul>
@@ -131,7 +197,7 @@
 <li class="chapter" data-level="5.2.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:riesgosCyC"><i class="fa fa-check"></i><b>5.2.2</b> <em>Odds ratios</em></a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#tratamientos"><i class="fa fa-check"></i><b>5.3</b> Tratamientos</a></li>
-<li class="chapter" data-level="5.4" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i><b>5.4</b> Test</a></li>
+<li class="chapter" data-level="5.4" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#test-3"><i class="fa fa-check"></i><b>5.4</b> Test</a></li>
 </ul></li>
 <li class="part"><span><b>Tema II: Estadística descriptiva</b></span></li>
 <li class="chapter" data-level="6" data-path="chap-edintro.html"><a href="chap-edintro.html"><i class="fa fa-check"></i><b>6</b> Tipos de datos</a>
@@ -139,7 +205,7 @@
 <li class="chapter" data-level="6.1" data-path="chap-edintro.html"><a href="chap-edintro.html#ejercicios"><i class="fa fa-check"></i><b>6.1</b> Ejercicios</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-edintro.html"><a href="chap-edintro.html#problemas"><i class="fa fa-check"></i>Problemas</a></li>
-<li class="chapter" data-level="" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i>Test</a></li>
+<li class="chapter" data-level="" data-path="chap-edintro.html"><a href="chap-edintro.html#test-4"><i class="fa fa-check"></i>Test</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="chap-edcual.html"><a href="chap-edcual.html"><i class="fa fa-check"></i><b>7</b> Descripción de datos cualitativos</a>
@@ -149,19 +215,19 @@
 <li class="chapter" data-level="7.3" data-path="chap-edcual.html"><a href="chap-edcual.html#tablas-de-frecuencias-multidimensionales"><i class="fa fa-check"></i><b>7.3</b> Tablas de frecuencias multidimensionales</a></li>
 <li class="chapter" data-level="7.4" data-path="chap-edcual.html"><a href="chap-edcual.html#diagramas-de-barras-bidimensionales"><i class="fa fa-check"></i><b>7.4</b> Diagramas de barras bidimensionales</a></li>
 <li class="chapter" data-level="7.5" data-path="chap-edcual.html"><a href="chap-edcual.html#diagramas-de-mosaico"><i class="fa fa-check"></i><b>7.5</b> Diagramas de mosaico</a></li>
-<li class="chapter" data-level="7.6" data-path="chap-edintro.html"><a href="chap-edintro.html#ejercicios"><i class="fa fa-check"></i><b>7.6</b> Ejercicios</a>
+<li class="chapter" data-level="7.6" data-path="chap-edcual.html"><a href="chap-edcual.html#ejercicios-1"><i class="fa fa-check"></i><b>7.6</b> Ejercicios</a>
 <ul>
-<li class="chapter" data-level="" data-path="chap-edintro.html"><a href="chap-edintro.html#problemas"><i class="fa fa-check"></i>Problemas</a></li>
-<li class="chapter" data-level="" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i>Test</a></li>
+<li class="chapter" data-level="" data-path="chap-edcual.html"><a href="chap-edcual.html#problemas-1"><i class="fa fa-check"></i>Problemas</a></li>
+<li class="chapter" data-level="" data-path="chap-edcual.html"><a href="chap-edcual.html#test-5"><i class="fa fa-check"></i>Test</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chap-edord.html"><a href="chap-edord.html"><i class="fa fa-check"></i><b>8</b> Descripción de datos ordinales</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="chap-edord.html"><a href="chap-edord.html#frecuencias-y-diagramas-de-barras"><i class="fa fa-check"></i><b>8.1</b> Frecuencias y diagramas de barras</a></li>
-<li class="chapter" data-level="8.2" data-path="chap-edintro.html"><a href="chap-edintro.html#ejercicios"><i class="fa fa-check"></i><b>8.2</b> Ejercicios</a>
+<li class="chapter" data-level="8.2" data-path="chap-edord.html"><a href="chap-edord.html#ejercicios-2"><i class="fa fa-check"></i><b>8.2</b> Ejercicios</a>
 <ul>
-<li class="chapter" data-level="" data-path="chap-edintro.html"><a href="chap-edintro.html#problemas"><i class="fa fa-check"></i>Problemas</a></li>
-<li class="chapter" data-level="" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i>Test</a></li>
+<li class="chapter" data-level="" data-path="chap-edord.html"><a href="chap-edord.html#problemas-2"><i class="fa fa-check"></i>Problemas</a></li>
+<li class="chapter" data-level="" data-path="chap-edord.html"><a href="chap-edord.html#test-6"><i class="fa fa-check"></i>Test</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html"><i class="fa fa-check"></i><b>9</b> Descripción de datos cuantitativos</a>
@@ -177,11 +243,46 @@
 <li class="chapter" data-level="9.9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#sec:estagrup"><i class="fa fa-check"></i><b>9.9</b> Estadísticos sobre datos agrupados</a></li>
 <li class="chapter" data-level="9.10" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#datos-cuantitativos-bivariantes"><i class="fa fa-check"></i><b>9.10</b> Datos cuantitativos bivariantes</a></li>
 <li class="chapter" data-level="9.11" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#gráficos-en-escala-logarítmica"><i class="fa fa-check"></i><b>9.11</b> Gráficos en escala logarítmica</a></li>
-<li class="chapter" data-level="9.12" data-path="chap-edintro.html"><a href="chap-edintro.html#ejercicios"><i class="fa fa-check"></i><b>9.12</b> Ejercicios</a>
+<li class="chapter" data-level="9.12" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#ejercicios-3"><i class="fa fa-check"></i><b>9.12</b> Ejercicios</a>
 <ul>
-<li class="chapter" data-level="" data-path="chap-edintro.html"><a href="chap-edintro.html#problemas"><i class="fa fa-check"></i>Problemas</a></li>
-<li class="chapter" data-level="" data-path="chap-estudios.html"><a href="chap-estudios.html#test"><i class="fa fa-check"></i>Test</a></li>
+<li class="chapter" data-level="" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#problemas-3"><i class="fa fa-check"></i>Problemas</a></li>
+<li class="chapter" data-level="" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#test-7"><i class="fa fa-check"></i>Test</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>10</b> Variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#generalidades-sobre-variables-aleatorias"><i class="fa fa-check"></i><b>10.1</b> Generalidades sobre variables aleatorias</a></li>
+<li class="chapter" data-level="10.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>10.2</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="10.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>10.3</b> Esperanza</a></li>
+<li class="chapter" data-level="10.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>10.4</b> Varianza y desviación típica</a></li>
+<li class="chapter" data-level="10.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>10.5</b> Cuantiles</a></li>
+<li class="chapter" data-level="10.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>10.6</b> Familias importantes de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>10.6.1</b> Variables aleatorias binomiales</a></li>
+<li class="chapter" data-level="10.6.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>10.6.2</b> Variables aleatorias hipergeométricas</a></li>
+<li class="chapter" data-level="10.6.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variable-aleatorias-de-poisson"><i class="fa fa-check"></i><b>10.6.3</b> Variable aleatorias de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-8"><i class="fa fa-check"></i><b>10.7</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>11</b> Variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#densidad-y-distribución-1"><i class="fa fa-check"></i><b>11.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="11.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>11.2</b> Esperanza, varianza, cuantiles…</a></li>
+<li class="chapter" data-level="11.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#sec:normal"><i class="fa fa-check"></i><b>11.3</b> Variables aleatorias normales</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#propiedades-básicas"><i class="fa fa-check"></i><b>11.3.1</b> Propiedades básicas</a></li>
+<li class="chapter" data-level="11.3.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#intervalos-de-referencia"><i class="fa fa-check"></i><b>11.3.2</b> Intervalos de referencia</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#test-9"><i class="fa fa-check"></i><b>11.4</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html"><i class="fa fa-check"></i><b>12</b> Distribuciones muestrales</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#estimadores"><i class="fa fa-check"></i><b>12.1</b> Estimadores</a></li>
+<li class="chapter" data-level="12.2" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-media-muestral"><i class="fa fa-check"></i><b>12.2</b> La media muestral</a></li>
+<li class="chapter" data-level="12.3" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-proporción-muestral"><i class="fa fa-check"></i><b>12.3</b> La proporción muestral</a></li>
+<li class="chapter" data-level="12.4" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-varianza-muestral"><i class="fa fa-check"></i><b>12.4</b> La varianza muestral</a></li>
+<li class="chapter" data-level="12.5" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#la-distribución-t-de-student"><i class="fa fa-check"></i><b>12.5</b> La distribución t de Student</a></li>
+<li class="chapter" data-level="12.6" data-path="distribuciones-muestrales.html"><a href="distribuciones-muestrales.html#test-10"><i class="fa fa-check"></i><b>12.6</b> Test</a></li>
 </ul></li>
 </ul>
 
@@ -192,7 +293,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioestadística (Medicina UIB)</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -1657,7 +1758,7 @@ Hay que ir con cuidado con la desviación típica y la desviación típica muest
 <img src="INREMDN_files/figure-html/unnamed-chunk-247-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Los diagramas de puntos solo son útiles cuando tenemos pocos valores en la muestra, de manera que valga la pena verlos todos. Cuando la muestra es grande, pongamos de 20 o más números, se suelen reemplazar por un tipo de gráfico que resume algunos estadísticos de la muestra llamado un <strong>diagrama de caja</strong> (<em>boxplot</em>). La estructura básica de un diagrama de caja es la que muestra la Figura <a href="descripción-de-datos-cuantitativos.html#fig:bosplotgen">9.2</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:bosplotgen"></span>
-<img src="INREMDN_files/figure-html/boxplotgen.png" alt="Un diagrama de caja genérico" width="525" />
+<img src="INREMDN_files/figure-html/boxplotgen.png" alt="Un diagrama de caja genérico"  />
 <p class="caption">
 Figura 9.2: Un diagrama de caja genérico
 </p>
@@ -1732,9 +1833,9 @@ En realidad, en un histograma lo que representa la frecuencia de la clase es sie
 <div class="example">
 <span id="exm:histnotas" class="example"><strong>Ejemplo 9.12  </strong></span>El gráfico siguiente es un histograma de un conjunto de 188 notas finales de una asignatura:
 </div>
-<p><img src="INREMDN_files/figure-html/histnotas1.png" width="426" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/histnotas1.png" style="display: block; margin: auto;" /></p>
 <p>En este histograma, hemos tomado las clases [0,1), [1,2),…,[9,10]. Si en cambio hubiéramos tomado las clases [0,5) (suspenso), [5,7) (aprobado), [7,9) (notable) y [9,10] (sobresaliente), el histograma sería el siguiente:</p>
-<p><img src="INREMDN_files/figure-html/histnotas2.png" width="422" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/histnotas2.png" style="display: block; margin: auto;" /></p>
 <p>Aquí no tiene sentido marcar las frecuencias en el eje de ordenadas, porque, por ejemplo, la altura de la barra de notables es mayor que la de los suspensos, pero su frecuencia es menor. Por este motivo las hemos indicado dentro de las barras.</p>
 <p>Suponemos que estaréis de acuerdo en que es más fácil entender la distribución de las notas con el primer histograma que con el segundo. Como el objetivo de un gráfico ha de ser ayudar a comprender un conjunto de datos, casi siempre es más conveniente usar clases de la misma amplitud a la hora de dibujar histogramas, y solo las usaremos de diferentes amplitudes cuando no haya más remedio.</p>
 <p>Ahora bien, el número de clases ya depende de los intereses del investigador; números de clases diferentes muestran efectos diferentes. Una posible regla general para decidir el número de clases que normalmente da buenos resultados es tomar alrededor de <span class="math inline">\(\sqrt{n}\)</span> clases (donde <span class="math inline">\(n\)</span> indica el tamaño de la muestra) pero no menos de 5 clases ni más de 15.</p>
@@ -1798,7 +1899,7 @@ Frecuencia
 </tbody>
 </table>
 <p>obtenemos el histograma</p>
-<p><img src="INREMDN_files/figure-html/tensio2.png" width="522" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/tensio2.png" style="display: block; margin: auto;" /></p>
 Si tomamos 9 clases, con las frecuencias
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1887,7 +1988,7 @@ Frecuencia
 </tbody>
 </table>
 <p>obtenemos el histograma</p>
-<p><img src="INREMDN_files/figure-html/tensio3.png" width="522" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/tensio3.png" style="display: block; margin: auto;" /></p>
 Y si tomamos 15 clases, con las frecuencias
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -2040,9 +2141,9 @@ Frecuencia
 </tbody>
 </table>
 <p>obtenemos el histograma</p>
-<p><img src="INREMDN_files/figure-html/tensio4.png" width="522" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/tensio4.png" style="display: block; margin: auto;" /></p>
 <p>En este último histograma, con más resolución, podemos observar dos picos que en los otros no aparecen.</p>
-<p>Como hemos comentado, los histogramas también pueden ser de frecuencias relativas: en este caso, tanto si todas las clases tienen la misma amplitud como si no <strong>las alturas de las cajas han de ser los valores tales que el área de la barra sea la frecuencia relativa de la clase</strong>. A estas alturas se les llama las <strong>densidades</strong> de las clases. Es decir, la frecuencia relativa de cada clase es la amplitud de la clase por su densidad. De esta manera, la suma de las áreas de las barras será 1. Como también ya hemos comentado, veremos la justificación de esta convención en el próximo tema, sobre Variables Aleatorias.</p>
+<p>Como hemos comentado, los histogramas también pueden ser de frecuencias relativas: en este caso, tanto si todas las clases tienen la misma amplitud como si no <strong>las alturas de las cajas han de ser los valores tales que el área de la barra sea la frecuencia relativa de la clase</strong>. Estas alturas son las <strong>densidades</strong> de las clases. Es decir, la frecuencia relativa de cada clase es la amplitud de la clase por su densidad. De esta manera, la suma de las áreas de las barras será 1. Como también ya hemos comentado, veremos la justificación de esta convención en el próximo tema, sobre Variables Aleatorias.</p>
 Así, en el ejemplo anterior para 9 clases, las frecuencias relativas y las densidades serían
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -2191,17 +2292,17 @@ Densidad
 </tbody>
 </table>
 <p>y el histograma de frecuencias relativas a que dan lugar es</p>
-<p><img src="INREMDN_files/figure-html/tensio5.png" width="521" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/tensio5.png" style="display: block; margin: auto;" /></p>
 <p>Recordad que, en un histograma correcto, si las clases tienen amplitud diferente, las alturas de las barras han de ser las que den como áreas de las barras las frecuencias (absolutas o relativas) de las clases.</p>
 
 <div class="example">
 <p><span id="exm:unnamed-chunk-260" class="example"><strong>Ejemplo 9.14  </strong></span>El gráfico siguiente, extraído <a href="https://www.sciencedirect.com/science/article/abs/pii/S0140673611606934">“Iodine status of UK schoolgirls: a cross-sectional survey”</a> (M. Vanderpump <em>et al</em>, <em>The Lancet</em> 377 (2011), pp. 2007–2012), representa las proporciones de colegialas británicas en una muestra que tuvieron diferentes concentraciones de yodo en la orina. Es un diagrama de barras, no un histograma.</p>
 </div>
-<p><img src="INREMDN_files/figure-html/urine3.png" width="556" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/urine3.png" style="display: block; margin: auto;" /></p>
 <p>A primera vista, parecería que la distribución de estas concentraciones de yodo es bastante simétrica. Pero observad que las clases no tienen la misma amplitud. El histograma de frecuencias relativas correcto con estas clases es el siguiente, donde observamos lo que llamaremos una <strong>cola a la derecha</strong>:</p>
-<p><img src="INREMDN_files/figure-html/urine4.png" width="525" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/urine4.png" style="display: block; margin: auto;" /></p>
 <p>El histograma sería más fácil de interpretar si las clases tuvieran todas la misma amplitud:</p>
-<p><img src="INREMDN_files/figure-html/urine5.png" width="525" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/urine5.png" style="display: block; margin: auto;" /></p>
 <p>En este último histograma vemos claramente que el conjunto de datos no es de ninguna manera simétrico.</p>
 </div>
 <div id="polígonos-de-frecuencias" class="section level2" number="9.7">
@@ -2212,11 +2313,11 @@ Densidad
 <li><p>Unimos puntos consecutivos mediante segmentos</p></li>
 </ul>
 <p>A modo de ejemplo, recordemos el histograma de un conjunto de notas del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:histnotas">9.12</a>, agrupadas en 10 clases:</p>
-<p><img src="INREMDN_files/figure-html/histnotas11.png" width="450" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/histnotas11.png" style="display: block; margin: auto;" /></p>
 <p>Su polígono de frecuencias es:
-<img src="INREMDN_files/figure-html/polfrec1.png" width="450" style="display: block; margin: auto;" /></p>
+<img src="INREMDN_files/figure-html/polfrec1.png" style="display: block; margin: auto;" /></p>
 <p>Los polígonos de frecuencias son útiles para representar simultáneamente varios histogramas:</p>
-<p><img src="INREMDN_files/figure-html/polfrec2.png" width="450" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/polfrec2.png" style="display: block; margin: auto;" /></p>
 
 <div class="rmdexercici">
 <p>Aquí tenéis los tiempos (en horas) de los ganadores de la maratón de Nueva York (categorías masculina y femenina) de 1970 a 2015, ordenados de menor a mayor:</p>
@@ -2243,15 +2344,15 @@ Dibujad su histograma usando 6 clases de amplitud 0.2, empezando en 2 horas, y s
 <p>Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la <strong>asimetría</strong> de la variable. Para definir esta característica, lo más práctico es dibujar un histograma de la variable y considerar el eje de simetría pasando por la <em>media</em>. Llamaremos <strong>colas</strong> a los trozos del histograma a ambos lados de este eje de simetría. Entonces:</p>
 <ul>
 <li><p>La variable es <strong>simétrica</strong> si ambas colas son similares, como en los dos gráficos siguientes:
-<img src="INREMDN_files/figure-html/asimcentr.png" width="428" style="display: block; margin: auto;" /><img src="INREMDN_files/figure-html/asimcentrU.png" width="413" style="display: block; margin: auto;" /></p>
+<img src="INREMDN_files/figure-html/asimcentr.png" style="display: block; margin: auto;" /><img src="INREMDN_files/figure-html/asimcentrU.png" style="display: block; margin: auto;" /></p>
 <p>Esta última diremos que <strong>tiene forma de U</strong>, por motivos obvios.</p></li>
 <li><p>La variable presenta una <strong>asimetría negativa</strong> o <strong>a la izquierda</strong> cuando la cola de la izquierda es más larga que la de la derecha, en el sentido de que hay más valores más alejados de la media por la izquierda que por la derecha. En este caso se suele decir que la variable <strong>tiene una cola a la izquierda</strong> (aunque con la definición que hemos dado la variable siempre tiene una cola a cada lado).</p></li>
 </ul>
-<p><img src="INREMDN_files/figure-html/asimdreta.png" width="413" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/asimdreta.png" style="display: block; margin: auto;" /></p>
 <ul>
 <li>La variable presenta una <strong>asimetría positiva</strong> o <strong>a la derecha</strong> cuando la cola de la derecha es más larga que la de la izquierda, en el sentido de que hay más valores más alejados de la media por la derecha que por la izquierda. En este caso también diremos que la variable <strong>tiene una cola a la derecha</strong>.</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/asimesquerra.png" width="413" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/asimesquerra.png" style="display: block; margin: auto;" /></p>
 <p>Habréis observado que en los histogramas anteriores hemos dibujado las líneas verticales sobre la media y la mediana.</p>
 <ul>
 <li><p>En una variable simétrica, la simetría hace que la media y la mediana sean aproximadamente iguales</p></li>
@@ -2272,11 +2373,11 @@ muestra es asimétrica a la derecha, pero solo lo “suele ser”: con un poco d
 <p>La mejor manera de decidir la asimetría de una variable es por medio de un histograma, aunque a menudo también se puede ver en un diagrama de caja, como muestran los gráficos siguientes:</p>
 <ul>
 <li><p>Un histograma y diagrama de caja de una variable simétrica:
-<img src="INREMDN_files/figure-html/histvsbpsim.png" width="494" style="display: block; margin: auto;" /></p></li>
+<img src="INREMDN_files/figure-html/histvsbpsim.png" style="display: block; margin: auto;" /></p></li>
 <li><p>Un histograma y diagrama de caja de una variable asimétrica a la izquierda:
-<img src="INREMDN_files/figure-html/histvsbpesq.png" width="494" style="display: block; margin: auto;" /></p></li>
+<img src="INREMDN_files/figure-html/histvsbpesq.png" style="display: block; margin: auto;" /></p></li>
 <li><p>Un histograma y diagrama de caja de una variable asimétrica a la derecha:
-<img src="INREMDN_files/figure-html/histvsbpdreta.png" width="494" style="display: block; margin: auto;" /></p></li>
+<img src="INREMDN_files/figure-html/histvsbpdreta.png" style="display: block; margin: auto;" /></p></li>
 </ul>
 
 <div class="rmdimportant">
@@ -2294,13 +2395,13 @@ Figura 9.3: Una campana de Gauss
 <div class="example">
 <span id="exm:unnamed-chunk-266" class="example"><strong>Ejemplo 9.15  </strong></span>Considerad la variable (asimétrica a la derecha) que tiene el histograma siguiente:
 </div>
-<p><img src="INREMDN_files/figure-html/asim.png" width="525" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/asim.png" style="display: block; margin: auto;" /></p>
 <p>Resulta que su media es <span class="math inline">\(\overline{x}=3.1\)</span> y su desviación típica es <span class="math inline">\(s_x=2.5\)</span>, y que el intervalo <span class="math inline">\([\overline{x}-s_x,\overline{x}+s_x]\)</span> contiene un 84% de la muestra. Su mediana es <span class="math inline">\(Q_{0.5}=2.3\)</span>, a la izquierda de la media, y su intervalo intercuartílico <span class="math inline">\(IQI\)</span> es [1.3,4.2]. Por cierto, su coeficiente de asimetría es <span class="math inline">\(\gamma_1=1.7\)</span>, lo que es consistente con su cola a la derecha.</p>
 <p>Considerad ahora la variable simétrica siguiente:</p>
-<p><img src="INREMDN_files/figure-html/sim.png" width="525" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/sim.png" style="display: block; margin: auto;" /></p>
 <p>Resulta que su media es <span class="math inline">\(\overline{x}=2.9\)</span> y su desviación típica es <span class="math inline">\(s_x=1.1\)</span>, y que el intervalo <span class="math inline">\([\overline{x}-s_x,\overline{x}+s_x]\)</span> contiene un 64% de la muestra. Su mediana es <span class="math inline">\(Q_{0.5}=3\)</span>, muy cercana a su media, y su <span class="math inline">\(IQI\)</span> es [2.2, 3.7]. Su coeficiente de asimetría es <span class="math inline">\(\gamma_1=-0.03\)</span>, lo que es consistente con su simetría.</p>
 <p>Considerad finalmente la variable siguiente, que es simétrica pero en forma de U:</p>
-<p><img src="INREMDN_files/figure-html/usim.png" width="525" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/usim.png" style="display: block; margin: auto;" /></p>
 <p>Resulta que su media es <span class="math inline">\(\overline{x}=3.9\)</span> y su desviación típica es <span class="math inline">\(s_x=2.2\)</span>, pero el intervalo <span class="math inline">\([\overline{x}-s_x,\overline{x}+s_x]\)</span> contiene solo el 52% de la muestra. Su mediana es también <span class="math inline">\(Q_{0.5}=3.9\)</span> y su <span class="math inline">\(IQI\)</span> es [1.8,5.9]. Su coeficiente de asimetría es <span class="math inline">\(\gamma_1=0.0007\)</span>.</p>
 
 <div class="rmdnote">
@@ -2311,21 +2412,21 @@ Por ejemplo, si recordáis el gráfico de la distribución de los salarios anual
 <ul>
 <li>Cuando el histograma se parece al de una campana de Gauss (diremos que la variable es <strong>mesocúrtica</strong>), <span class="math inline">\(\beta_2\approx 0\)</span>.</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/Meso.png" width="418" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/Meso.png" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Cuando el histograma es más puntiagudo que una campana de Gauss (diremos que la variable es <strong>leptocúrtica</strong>), <span class="math inline">\(\beta_2&gt; 0\)</span>.</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/Lepto.png" width="412" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/Lepto.png" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Cuando el histograma es más achatado que una campana de Gauss (diremos que la variable es <strong>platicúrtica</strong>), <span class="math inline">\(\beta_2&lt; 0\)</span>.</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/Plati.png" width="428" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/Plati.png" style="display: block; margin: auto;" /></p>
 <p>No vamos a insistir en este coeficiente ni en el apuntamiento de las variables.</p>
 </div>
 <div id="sec:estagrup" class="section level2" number="9.9">
 <h2><span class="header-section-number">9.9</span> Estadísticos sobre datos agrupados</h2>
 <p>En nuestro lenguaje cotidiano, solemos <strong>agrupar</strong> datos cuantitativos sin que seamos conscientes de ello. Cuando decimos, por ejemplo, que la edad de alguien es de 18 años, no queremos decir que nació justo hoy hace 18 años, sino que ya ha cumplido los 18 años, pero aún no ha cumplido los 19; es decir, que agrupamos todas las edades que caen dentro del intervalo [18,19) en una misma clase, que llamamos “18 años”. Del mismo modo, que alguien mida 1.72 no significa que esta sea su altura exacta, con la precisión del grueso de un cabello, sino que su altura pertenece a un intervalo de valores en torno a 1.72 metros que identificamos con “1.72”. Bajo la calificación de “aprobado” agrupamos todas las notas mayores o iguales que 5 y menores que 7. Y estamos seguros de que se os ocurren otros ejemplos.</p>
-<p>Muy a menudo, los datos cuantitativos se recogen directamente agrupados, como por ejemplo franjas salariales o el número de refrescos semanales en la tabla de datos <a href="chap-edintro.html#tab:tabla1">6.1</a>. Aunque estas clases definan un conjunto de datos ordinales (les llamábamos <strong>cuantitativos agrupados</strong> en una Nota al final de la Lección <a href="chap-edintro.html#chap:edintro">6</a>) es muy probable que nos interese interpretarlas como eso: clases resultado de agrupar datos cuantitativos. Su representación gráfica adecuada es claramente un histograma, pero ¿cómo podemos calcular los estadísticos? Está claro que de manera exacta es imposible si no conocemos los datos <strong>brutos</strong>, sin agrupar. Pero podemos intentar aproximarlos.</p>
+<p>Muy a menudo, los datos cuantitativos se recogen directamente agrupados, como por ejemplo franjas salariales o el número de refrescos semanales en la tabla de datos <a href="chap-edintro.html#tab:tabla1">6.1</a>. Aunque estas clases definan un conjunto de datos ordinales (los llamábamos <strong>cuantitativos agrupados</strong> en una Nota al final de la Lección <a href="chap-edintro.html#chap:edintro">6</a>) es muy probable que nos interese interpretarlas como eso: clases resultado de agrupar datos cuantitativos. Su representación gráfica adecuada es claramente un histograma, pero ¿cómo podemos calcular los estadísticos? Está claro que de manera exacta es imposible si no conocemos los datos <strong>brutos</strong>, sin agrupar. Pero podemos intentar aproximarlos.</p>
 <ul>
 <li>Substituimos la moda por la <strong>clase modal</strong>: la clase de mayor frecuencia.</li>
 <li>Para calcular la media, la varianza, etc., para cada clase tomamos su punto medio, al que en este contexto llamaremos su <strong>marca de clase</strong>, y entenderemos que nuestra muestra está formada, para cada clase, por tantas copias de su marca como la frecuencia de la clase.</li>
@@ -2912,7 +3013,7 @@ Observad que la covarianza de un vector consigo mismo es su varianza: <span clas
 <li>La covarianza es <strong>positiva</strong> cuando <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> satisfacen la condición siguiente: si una de las dos variables crece, la otra también tiende a crecer; es decir, si <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline">\(y_j\)</span> tiende a ser mayor que <span class="math inline">\(y_i\)</span>.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-277"></span>
-<img src="INREMDN_files/figure-html/covpos.png" alt="Covarianza positiva" width="316" />
+<img src="INREMDN_files/figure-html/covpos.png" alt="Covarianza positiva"  />
 <p class="caption">
 Figura 9.5: Covarianza positiva
 </p>
@@ -2921,7 +3022,7 @@ Figura 9.5: Covarianza positiva
 <li>La covarianza es <strong>negativa</strong> cuando <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> satisfacen la condición siguiente: si una de las dos variables crece, la otra tiende a decrecer; es decir, si <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline">\(y_j\)</span> tiende a ser menor que <span class="math inline">\(y_i\)</span>.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-278"></span>
-<img src="INREMDN_files/figure-html/covneq.png" alt="Covarianza negativa" width="316" />
+<img src="INREMDN_files/figure-html/covneq.png" alt="Covarianza negativa"  />
 <p class="caption">
 Figura 9.6: Covarianza negativa
 </p>
@@ -2930,7 +3031,7 @@ Figura 9.6: Covarianza negativa
 <li>Si la covarianza es muy cercana a 0, es porque no hay una tendencia clara al crecimiento o decrecimiento de <span class="math inline">\(y_i\)</span> en función del de <span class="math inline">\(x_i\)</span>.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-279"></span>
-<img src="INREMDN_files/figure-html/cov0.png" alt="Covarianza 0" width="318" />
+<img src="INREMDN_files/figure-html/cov0.png" alt="Covarianza 0"  />
 <p class="caption">
 Figura 9.7: Covarianza 0
 </p>
@@ -3613,12 +3714,12 @@ Figura 9.12: Gráfico en escala doble logarítmica
 <p><img src="INREMDN_files/figure-html/loglog3.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>El gráfico semilogarítmico permite apreciar mejor el descenso en la mortalidad a partir de mediados de los años cuarenta, con la introducción de la penicilina.</p>
 </div>
-<div id="ejercicios" class="section level2" number="9.12">
+<div id="ejercicios-3" class="section level2" number="9.12">
 <h2><span class="header-section-number">9.12</span> Ejercicios</h2>
-<div id="problemas" class="section level3 unnumbered">
+<div id="problemas-3" class="section level3 unnumbered">
 <h3>Problemas</h3>
 <p><strong>1.</strong> Considerad el diagrama siguiente, que muestra los perímetros braquiales derechos de 120 mujeres.</p>
-<p><img src="INREMDN_files/figure-html/braquial.png" width="525" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/braquial.png" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>¿Qué tipo de gráfico es?</p></li>
 <li><p>¿Qué tipo de datos es el perímetro braquial?</p></li>
@@ -3631,7 +3732,7 @@ Figura 9.12: Gráfico en escala doble logarítmica
 <li><p>¿Qué estimas que vale la media?</p></li>
 </ol>
 </div>
-<div id="test" class="section level3 unnumbered">
+<div id="test-7" class="section level3 unnumbered">
 <h3>Test</h3>
 <p><em>(1)</em> En una asignatura de la UIB hay un 40% de matriculados de Palma, un 35% de matriculados del resto de Mallorca y un 25% de matriculados de fuera de Mallorca. En la encuesta donde los estudiantes anotaron su procedencia, “Palma” estaba identificado con un 1, “el resto de Mallorca” con un 2 y “fuera de Mallorca” con un 3 ¿Cuáles de las afirmaciones siguientes son correctas? Marca todas las correctas.</p>
 <ol style="list-style-type: decimal">
@@ -3744,19 +3845,13 @@ Figura 9.12: Gráfico en escala doble logarítmica
 </div>
 </div>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="chap-edord.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="chap-edord.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="variables-aleatorias-discretas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -3779,6 +3874,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
