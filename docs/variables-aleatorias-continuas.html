@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lección 11 Variables aleatorias continuas | Bioestadística (Medicina UIB)</title>
+  <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lección 11 Variables aleatorias continuas | Bioestadística (Medicina UIB)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lección 11 Variables aleatorias continuas | Bioestadística (Medicina UIB)" />
+  
+  <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2021-10-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="variables-aleatorias-discretas.html"/>
+<link rel="next" href="estimadores.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">INREMDN</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="part"><span><b>Tema I: Introducción a los estudios médicos y la estadística</b></span></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="estudios-médicos.html"><a href="estudios-médicos.html"><i class="fa fa-check"></i><b>2</b> Estudios médicos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="estudios-médicos.html"><a href="estudios-médicos.html#sec:pasos"><i class="fa fa-check"></i><b>2.1</b> Pasos de un estudio médico</a></li>
+<li class="chapter" data-level="2.2" data-path="estudios-médicos.html"><a href="estudios-médicos.html#algunos-calificativos-para-los-estudios-médicos"><i class="fa fa-check"></i><b>2.2</b> Algunos calificativos para los estudios médicos</a></li>
+<li class="chapter" data-level="2.3" data-path="estudios-médicos.html"><a href="estudios-médicos.html#estudios-descriptivos"><i class="fa fa-check"></i><b>2.3</b> Estudios descriptivos</a></li>
+<li class="chapter" data-level="2.4" data-path="estudios-médicos.html"><a href="estudios-médicos.html#sec:cyc"><i class="fa fa-check"></i><b>2.4</b> Estudios de casos y controles</a></li>
+<li class="chapter" data-level="2.5" data-path="estudios-médicos.html"><a href="estudios-médicos.html#estudios-de-cohorte"><i class="fa fa-check"></i><b>2.5</b> Estudios de cohorte</a></li>
+<li class="chapter" data-level="2.6" data-path="estudios-médicos.html"><a href="estudios-médicos.html#estudios-transversales"><i class="fa fa-check"></i><b>2.6</b> Estudios transversales</a></li>
+<li class="chapter" data-level="2.7" data-path="estudios-médicos.html"><a href="estudios-médicos.html#sec:ecol"><i class="fa fa-check"></i><b>2.7</b> Estudios ecológicos</a></li>
+<li class="chapter" data-level="2.8" data-path="estudios-médicos.html"><a href="estudios-médicos.html#ensayos-clínicos"><i class="fa fa-check"></i><b>2.8</b> Ensayos clínicos</a></li>
+<li class="chapter" data-level="2.9" data-path="estudios-médicos.html"><a href="estudios-médicos.html#a-modo-de-resumen"><i class="fa fa-check"></i><b>2.9</b> A modo de resumen</a></li>
+<li class="chapter" data-level="2.10" data-path="estudios-médicos.html"><a href="estudios-médicos.html#revisiones-sistemáticas-y-metaanálisis"><i class="fa fa-check"></i><b>2.10</b> Revisiones sistemáticas y metaanálisis</a></li>
+<li class="chapter" data-level="2.11" data-path="estudios-médicos.html"><a href="estudios-médicos.html#bonus-track-unos-criterios-de-causalidad"><i class="fa fa-check"></i><b>2.11</b> (Bonus track) Unos criterios de causalidad</a></li>
+<li class="chapter" data-level="2.12" data-path="estudios-médicos.html"><a href="estudios-médicos.html#bonus-track-preguntas-clínicas-en-formato-pico"><i class="fa fa-check"></i><b>2.12</b> (Bonus track) Preguntas clínicas en formato PICO</a></li>
+<li class="chapter" data-level="2.13" data-path="estudios-médicos.html"><a href="estudios-médicos.html#test"><i class="fa fa-check"></i><b>2.13</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html"><i class="fa fa-check"></i><b>3</b> Algunos conceptos básicos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#unidad-de-observación"><i class="fa fa-check"></i><b>3.1</b> Unidad de observación</a></li>
+<li class="chapter" data-level="3.2" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#población-y-muestra"><i class="fa fa-check"></i><b>3.2</b> Población y muestra</a></li>
+<li class="chapter" data-level="3.3" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:muestreo"><i class="fa fa-check"></i><b>3.3</b> Tipos básicos de muestreo</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:mas"><i class="fa fa-check"></i><b>3.3.1</b> Muestreo aleatorio con y sin reposición</a></li>
+<li class="chapter" data-level="3.3.2" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:sist"><i class="fa fa-check"></i><b>3.3.2</b> Muestreo sistemático</a></li>
+<li class="chapter" data-level="3.3.3" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:estr"><i class="fa fa-check"></i><b>3.3.3</b> Muestreo aleatorio estratificado</a></li>
+<li class="chapter" data-level="3.3.4" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:mcluster"><i class="fa fa-check"></i><b>3.3.4</b> Muestreo por conglomerados</a></li>
+<li class="chapter" data-level="3.3.5" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:oport"><i class="fa fa-check"></i><b>3.3.5</b> Muestreos no aleatorios</a></li>
+<li class="chapter" data-level="3.3.6" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:poli"><i class="fa fa-check"></i><b>3.3.6</b> Muestreo polietápico</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:sesgos"><i class="fa fa-check"></i><b>3.4</b> Sesgos</a></li>
+<li class="chapter" data-level="3.5" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#test-1"><i class="fa fa-check"></i><b>3.5</b> Test</a></li>
+</ul></li>
+<li class="part"><span><b>Tema II: Probabilidades</b></span></li>
+<li class="chapter" data-level="4" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html"><i class="fa fa-check"></i><b>4</b> Probabilidades elementales: Las mates</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#álgebra-de-conjuntos"><i class="fa fa-check"></i><b>4.1</b> Álgebra de conjuntos</a></li>
+<li class="chapter" data-level="4.2" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#algunas-fórmulas-básicas"><i class="fa fa-check"></i><b>4.2</b> Algunas fórmulas básicas</a></li>
+<li class="chapter" data-level="4.3" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#odds"><i class="fa fa-check"></i><b>4.3</b> Odds</a></li>
+<li class="chapter" data-level="4.4" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>4.4</b> Probabilidad condicionada</a></li>
+<li class="chapter" data-level="4.5" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#sucesos-independientes"><i class="fa fa-check"></i><b>4.5</b> Sucesos independientes</a></li>
+<li class="chapter" data-level="4.6" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#probabilidad-total"><i class="fa fa-check"></i><b>4.6</b> Probabilidad total</a></li>
+<li class="chapter" data-level="4.7" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#fórmula-de-bayes"><i class="fa fa-check"></i><b>4.7</b> Fórmula de Bayes</a></li>
+<li class="chapter" data-level="4.8" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#test-2"><i class="fa fa-check"></i><b>4.8</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html"><i class="fa fa-check"></i><b>5</b> Probabilidades elementales: Aplicaciones en medicina</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#pruebas-diagnósticas"><i class="fa fa-check"></i><b>5.1</b> Pruebas diagnósticas</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sensibilidad-especificidad-valores-predictivos-etc."><i class="fa fa-check"></i><b>5.1.1</b> Sensibilidad, especificidad, valores predictivos etc.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#curvas-roc"><i class="fa fa-check"></i><b>5.1.2</b> Curvas ROC</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:probaplic2"><i class="fa fa-check"></i><b>5.2</b> Riesgos</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:riesgosRR"><i class="fa fa-check"></i><b>5.2.1</b> Riesgos relativos y absolutos</a></li>
+<li class="chapter" data-level="5.2.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:riesgosCyC"><i class="fa fa-check"></i><b>5.2.2</b> <em>Odds ratios</em></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#tratamientos"><i class="fa fa-check"></i><b>5.3</b> Tratamientos</a></li>
+<li class="chapter" data-level="5.4" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#test-3"><i class="fa fa-check"></i><b>5.4</b> Test</a></li>
+</ul></li>
+<li class="part"><span><b>Tema II: Estadística descriptiva</b></span></li>
+<li class="chapter" data-level="6" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>6</b> Tipos de datos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#test-4"><i class="fa fa-check"></i><b>6.1</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html"><i class="fa fa-check"></i><b>7</b> Descripción de datos cualitativos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#sec:frecs"><i class="fa fa-check"></i><b>7.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="7.2" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#gráficos"><i class="fa fa-check"></i><b>7.2</b> Gráficos</a></li>
+<li class="chapter" data-level="7.3" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#tablas-de-frecuencias-multidimensionales"><i class="fa fa-check"></i><b>7.3</b> Tablas de frecuencias multidimensionales</a></li>
+<li class="chapter" data-level="7.4" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#sec:barrasbidim"><i class="fa fa-check"></i><b>7.4</b> Diagramas de barras bidimensionales</a></li>
+<li class="chapter" data-level="7.5" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#diagramas-de-mosaico"><i class="fa fa-check"></i><b>7.5</b> Diagramas de mosaico</a></li>
+<li class="chapter" data-level="7.6" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#test-5"><i class="fa fa-check"></i><b>7.6</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html"><i class="fa fa-check"></i><b>8</b> Descripción de datos ordinales</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#frecuencias-y-diagramas-de-barras"><i class="fa fa-check"></i><b>8.1</b> Frecuencias y diagramas de barras</a></li>
+<li class="chapter" data-level="8.2" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#test-6"><i class="fa fa-check"></i><b>8.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html"><i class="fa fa-check"></i><b>9</b> Descripción de datos cuantitativos</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#frecuencias"><i class="fa fa-check"></i><b>9.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="9.2" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>9.2</b> Medidas de tendencia central</a></li>
+<li class="chapter" data-level="9.3" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-posición"><i class="fa fa-check"></i><b>9.3</b> Medidas de posición</a></li>
+<li class="chapter" data-level="9.4" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>9.4</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="9.5" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#diagramas-de-puntos-y-de-caja"><i class="fa fa-check"></i><b>9.5</b> Diagramas de puntos y de caja</a></li>
+<li class="chapter" data-level="9.6" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#histogramas"><i class="fa fa-check"></i><b>9.6</b> Histogramas</a></li>
+<li class="chapter" data-level="9.7" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#polígonos-de-frecuencias"><i class="fa fa-check"></i><b>9.7</b> Polígonos de frecuencias</a></li>
+<li class="chapter" data-level="9.8" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#asimetría-y-curtosis"><i class="fa fa-check"></i><b>9.8</b> Asimetría y curtosis</a></li>
+<li class="chapter" data-level="9.9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#sec:estagrup"><i class="fa fa-check"></i><b>9.9</b> Estadísticos sobre datos agrupados</a></li>
+<li class="chapter" data-level="9.10" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#datos-cuantitativos-bivariantes"><i class="fa fa-check"></i><b>9.10</b> Datos cuantitativos bivariantes</a></li>
+<li class="chapter" data-level="9.11" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#gráficos-en-escala-logarítmica"><i class="fa fa-check"></i><b>9.11</b> Gráficos en escala logarítmica</a></li>
+<li class="chapter" data-level="9.12" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#test-7"><i class="fa fa-check"></i><b>9.12</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>10</b> Variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>10.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="10.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>10.2</b> Esperanza</a></li>
+<li class="chapter" data-level="10.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>10.3</b> Varianza y desviación típica</a></li>
+<li class="chapter" data-level="10.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>10.4</b> Cuantiles</a></li>
+<li class="chapter" data-level="10.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>10.5</b> Familias importantes de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>10.5.1</b> Variables aleatorias binomiales</a></li>
+<li class="chapter" data-level="10.5.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>10.5.2</b> Variables aleatorias hipergeométricas</a></li>
+<li class="chapter" data-level="10.5.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-de-poisson"><i class="fa fa-check"></i><b>10.5.3</b> Variables aleatorias de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-8"><i class="fa fa-check"></i><b>10.6</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>11</b> Variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#densidad-y-distribución-1"><i class="fa fa-check"></i><b>11.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="11.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>11.2</b> Esperanza, varianza, cuantiles…</a></li>
+<li class="chapter" data-level="11.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#sec:normal"><i class="fa fa-check"></i><b>11.3</b> Variables aleatorias normales</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#propiedades-básicas"><i class="fa fa-check"></i><b>11.3.1</b> Propiedades básicas</a></li>
+<li class="chapter" data-level="11.3.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#intervalos-de-referencia"><i class="fa fa-check"></i><b>11.3.2</b> Intervalos de referencia</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#test-9"><i class="fa fa-check"></i><b>11.4</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimadores.html"><a href="estimadores.html"><i class="fa fa-check"></i><b>12</b> Estimadores</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="estimadores.html"><a href="estimadores.html#la-media-muestral"><i class="fa fa-check"></i><b>12.1</b> La media muestral</a></li>
+<li class="chapter" data-level="12.2" data-path="estimadores.html"><a href="estimadores.html#la-proporción-muestral"><i class="fa fa-check"></i><b>12.2</b> La proporción muestral</a></li>
+<li class="chapter" data-level="12.3" data-path="estimadores.html"><a href="estimadores.html#la-varianza-muestral"><i class="fa fa-check"></i><b>12.3</b> La varianza muestral</a></li>
+<li class="chapter" data-level="12.4" data-path="estimadores.html"><a href="estimadores.html#la-distribución-t-de-student"><i class="fa fa-check"></i><b>12.4</b> La distribución t de Student</a></li>
+<li class="chapter" data-level="12.5" data-path="estimadores.html"><a href="estimadores.html#test-10"><i class="fa fa-check"></i><b>12.5</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html"><i class="fa fa-check"></i><b>13</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#definiciones-básicas"><i class="fa fa-check"></i><b>13.1</b> Definiciones básicas</a></li>
+<li class="chapter" data-level="13.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><i class="fa fa-check"></i><b>13.2</b> Un ejemplo: IC-95% para la media de una variable aleatoria normal</a></li>
+<li class="chapter" data-level="13.3" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><i class="fa fa-check"></i><b>13.3</b> Intervalo de confianza para la media basado en la t de Student</a></li>
+<li class="chapter" data-level="13.4" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-proporciones"><i class="fa fa-check"></i><b>13.4</b> Intervalos de confianza para proporciones</a></li>
+<li class="chapter" data-level="13.5" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#bonus-track-otros-intervalos-de-confianza"><i class="fa fa-check"></i><b>13.5</b> (Bonus track) Otros intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><i class="fa fa-check"></i><b>13.5.1</b> Un intervalo de confianza para la diferencia de proporciones</a></li>
+<li class="chapter" data-level="13.5.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>13.5.2</b> Intervalos de confianza para diferencias de medias</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#test-11"><i class="fa fa-check"></i><b>13.6</b> Test</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioestadística (Medicina UIB)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="variables-aleatorias-continuas" class="section level1" number="11">
+<h1><span class="header-section-number">Lección 11</span> Variables aleatorias continuas</h1>
+<p>Recordad que una variable aleatoria <strong>continua</strong> toma valores continuos. Por ejemplo:</p>
+<ul>
+<li>Peso de una persona</li>
+<li>Nivel de colesterol en sangre</li>
+<li>Diámetro de un tumor</li>
+</ul>
+<p>En este curso vamos a restringirnos a variables aleatorias continuas <span class="math inline">\(X: \Omega\to \mathbb{R}\)</span> que satisfacen la siguiente propiedad extra: su <strong>función de distribución</strong>
+<span class="math display">\[
+\begin{array}{rcl}
+F_X: \mathbb{R} &amp; \to &amp; [0,1]\\
+x &amp;\mapsto &amp;P(X\leqslant x)
+\end{array}
+\]</span>
+es continua. Todas las variables aleatorias continuas que os puedan interesar en algún momento van a cumplir esta propiedad, así que no perdemos nada imponiéndola. ¿Y qué ganamos? Pues que podemos usar todas las técnicas matemáticas aplicables a funciones continuas para estudiar <span class="math inline">\(F_X\)</span>.</p>
+<p>Por ejemplo, nuestras variables continuas verifican la propiedad siguientes:</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-376" class="theorem"><strong>Teorema 11.1  </strong></span>Si <span class="math inline">\(X\)</span> es una variable aleatoria continua, la probabilidad de que tome cada valor concreto es 0:
+<span class="math display">\[
+P(X=a)=0 \text{ para todo $a\in \mathbb{R}$}.
+\]</span>
+</div>
+
+<div class="rmdcorbes">
+Por si pasa por aquí alguien que necesite una demostración:
+<span class="math display">\[
+\begin{array}{l}
+\displaystyle P(X=a) = P(X\leqslant a)-P(X&lt;a)=P(X\leqslant a)-P\Big(\bigcup_{n\geqslant 1} \Big(X\leqslant a-\frac{1}{n}\Big)\Big)\\
+\displaystyle \qquad= P(X\leqslant a)-\lim_{n\geqslant 1}P\Big(X\leqslant a-\frac{1}{n}\Big)\\
+\displaystyle \qquad= F_X(a)-\lim_{n\geqslant 1}F_X\Big(a-\frac{1}{n}\Big)=0
+\end{array}
+\]</span>
+porque <span class="math inline">\(F_X\)</span> es continua.
+</div>
+<p>En particular, para una variable aleatoria continua:</p>
+<blockquote>
+<p><strong>Probabilidad 0 no significa imposible.</strong></p>
+</blockquote>
+<p>Cada valor de <span class="math inline">\(X\)</span> tiene probabilidad 0, pero cuando tomamos un sujeto, tendrá algún valor de <span class="math inline">\(X\)</span>, ¿no?. Por lo tanto, su valor de <span class="math inline">\(X\)</span> es posible, aunque tenga probabilidad 0.</p>
+<p>De <span class="math inline">\(P(X=a)=0\)</span> se deduce que la probabilidad de un suceso definido con una desigualdad es exactamente la misma que la del suceso correspondiente definido con una desigualdad estricta. En particular, contrariamente a lo que pasaba en las variables aleatorias discretas, para una variable aleatoria continua siempre tenemos que
+<span class="math display">\[
+P(X\leqslant a)=P(X&lt;a)
+\]</span>
+porque
+<span class="math display">\[
+P(X\leqslant a)=P(X&lt;a)+P(X=a)=P(X&lt;a)+0=P(X&lt;a).
+\]</span></p>
+<p>De manera similar:</p>
+<ul>
+<li><span class="math inline">\(P(X\geqslant a)=P(X&gt; a)+P(X=a)=P(X&gt; a)\)</span></li>
+<li><span class="math inline">\(P(a\leqslant X\leqslant b)=P(a&lt;X&lt;b)+P(X=a)+P(X=b)\)</span> <span class="math inline">\(=P(a&lt;X&lt;b)\)</span></li>
+</ul>
+<div id="densidad-y-distribución-1" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Densidad y distribución</h2>
+<p>Sea <span class="math inline">\(X\)</span> una variable aleatoria continua. Como ya hemos dicho, su <strong>función de distribución</strong> <span class="math inline">\(F_X\)</span> se sigue definiendo como
+<span class="math display">\[
+x\mapsto F_X(x)=P(X\leqslant x)
+\]</span></p>
+<p>Pero puesto que tenemos que <span class="math inline">\(P(X=x)=0\)</span>, ahora no podemos definir la función de densidad de <span class="math inline">\(X\)</span> como <span class="math inline">\(f_X(x)=P(X=x)\)</span>. ¿Qué podemos hacer?</p>
+<p>Recordad que, en las variables aleatorias discretas
+<span class="math display">\[
+F_X(a)=\sum_{x\leqslant a} f_X(x)
+\]</span></p>
+<p>En el contexto de matemáticas “continuas”, la suma <span class="math inline">\(\sum\)</span> se traduce en la integral <span class="math inline">\(\int\)</span>. Se define entonces la <strong>función de densidad</strong> de una variable aleatoria continua <span class="math inline">\(X\)</span> como la función <span class="math inline">\(f_X:\mathbb{R}\to \mathbb{R}\)</span> tal que:</p>
+<ul>
+<li><p><span class="math inline">\(f_X(x)\geqslant 0\)</span>, para todo <span class="math inline">\(x\in \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle F_X(a)=\int_{-\infty}^a f_{X}(x)\, dx\)</span> para todo <span class="math inline">\(a\in \mathbb{R}\)</span>.</p></li>
+</ul>
+<p><img src="INREMDN_files/figure-html/dontpanic.png" width="30%" style="display: block; margin: auto;" /></p>
+<p>Recordad (o aprended por primera vez) que la integral tiene una interpretación sencilla en términos de áreas. En concreto, dados <span class="math inline">\(a\in \mathbb{R}\)</span> y una función <span class="math inline">\(f(x)\)</span>, la integral
+<span class="math display">\[
+\int_{-\infty}^a f(x)\, dx
+\]</span>
+es igual al área de la región a la izquierda de la recta vertical <span class="math inline">\(x=a\)</span> comprendida entre la curva <span class="math inline">\(y=f(x)\)</span> y el eje de abscisas <span class="math inline">\(y=0\)</span>. Por lo tanto, la función de densidad <span class="math inline">\(f_X\)</span> de <span class="math inline">\(X\)</span> es la función positiva tal que para todo <span class="math inline">\(a\in \mathbb{R}\)</span>, <span class="math inline">\(F_X(a)\)</span> es igual al <strong>área bajo la curva</strong> <span class="math inline">\(y=f_X(x)\)</span> (entre esta curva y el eje de abscisas) a la izquierda de <span class="math inline">\(x=a\)</span>.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-379-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>¿Cuál es la idea intuitiva que hay detrás de esta definición de densidad? Suponed que dibujamos histogramas de frecuencias relativas de los valores de <span class="math inline">\(X\)</span> sobre toda la población. Como estamos hablando de toda la población, la frecuencia relativa de cada clase es la proporción de individuos de la población cuyo valor de <span class="math inline">\(X\)</span> pertenece a esta clase: es decir, la <strong>probabilidad</strong> de que <span class="math inline">\(X\)</span> caiga dentro de la clase.</p>
+<p>Recordad que, en un histograma de frecuencias relativas:</p>
+<ul>
+<li>La frecuencia relativa (ahora, la <strong>probabilidad</strong>) de cada clase es el área de su barra, es decir, el ancho de la clase por la altura de la barra.</li>
+<li>Llamamos a la altura de una barra la <strong>densidad</strong> de la clase.</li>
+<li>Si <span class="math inline">\(a\)</span> es un extremo de una clase, la frecuencia relativa acumulada hasta <span class="math inline">\(a\)</span> (la <strong>probabilidad</strong> de que <span class="math inline">\(X\leqslant a\)</span>) es la suma de las áreas de las barras a la izquierda de <span class="math inline">\(a\)</span>.</li>
+</ul>
+<p>Si dibujamos los histogramas de <span class="math inline">\(X\)</span> tomando clases cada vez más estrechas, sus polígonos de frecuencias (en rojo) tienden a dibujar una curva:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-380-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Cuando el ancho de las clases tiende a 0, obtenemos una curva que es el límite de estos polígonos de frecuencias:
+<img src="INREMDN_files/figure-html/unnamed-chunk-381-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>En el límite, la probabilidad de que <span class="math inline">\(X\leqslant a\)</span> será el límite de las sumas de las áreas de las barras a la izquierda de <span class="math inline">\(a\)</span>, y por tanto el área a la izquierda de <span class="math inline">\(a\)</span> bajo esta curva límite. Esto nos dice que esta curva es precisamente la función de densidad <span class="math inline">\(y=f_X(x)\)</span>.</p>
+
+<div class="rmdimportant">
+La <strong>función de densidad</strong> <span class="math inline">\(f_X\)</span> de una variable aleatoria continua <span class="math inline">\(X\)</span> es la función límite de los polígonos de frecuencias de histogramas de <span class="math inline">\(X\)</span> cuando el ancho de las clases tiende a 0.
+</div>
+<p>Veamos algunas propiedades que se deducen de que <span class="math inline">\(F_X(a)=P(X\leqslant a)\)</span> sea igual al <strong>área bajo la curva</strong> <span class="math inline">\(y=f_X(x)\)</span> a la izquierda de <span class="math inline">\(x=a\)</span>:</p>
+<ul>
+<li>Como <span class="math inline">\(P(X&lt;\infty)=P(\Omega)=1\)</span>, <strong>el área total bajo la curva <span class="math inline">\(y=f_X(x)\)</span> es 1.</strong></li>
+</ul>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-383-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><span class="math inline">\(P(a\leqslant X\leqslant b)=P(X\leqslant b)-P(X&lt;a)\)</span> es el área bajo la curva <span class="math inline">\(y=f_X(x)\)</span> a la izquierda de <span class="math inline">\(x=b\)</span> <strong>menos</strong> el área bajo la curva <span class="math inline">\(y=f_X(x)\)</span> a la izquierda de <span class="math inline">\(x=a\)</span>, es decir, <strong><span class="math inline">\(P(a\leqslant X\leqslant b)\)</span> es igual al área bajo la curva <span class="math inline">\(y=f_X(x)\)</span> entre <span class="math inline">\(x=a\)</span> y <span class="math inline">\(x=b\)</span>.</strong></li>
+</ul>
+<p><img src="INREMDN_files/figure-html/entreaib.png" width="60%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Si <span class="math inline">\(\varepsilon&gt;0\)</span> es muy, muy pequeño, el área bajo <span class="math inline">\(y=f_X(x)\)</span> entre <span class="math inline">\(a-\varepsilon\)</span> y <span class="math inline">\(a+\varepsilon\)</span> es aproximadamente igual a la del rectángulo de base el intervalo <span class="math inline">\([a-\varepsilon,a+\varepsilon]\)</span> y altura <span class="math inline">\(f_X(a)\)</span>, que vale <span class="math inline">\(2\varepsilon\cdot f_X(a)\)</span> (ved la Figura <a href="variables-aleatorias-continuas.html#fig:epsilon">11.1</a>). Es decir,
+<span class="math display">\[
+P(a-\varepsilon\leqslant X\leqslant a+\varepsilon)\approx 2\varepsilon\cdot f_X(a).
+\]</span></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:epsilon"></span>
+<img src="INREMDN_files/figure-html/density.png" alt="El área bajo la curva alrededor de $a$ es aproximadamente igual a la del rectángulo de altura $f_X(a)$" width="60%" />
+<p class="caption">
+Figura 11.1: El área bajo la curva alrededor de <span class="math inline">\(a\)</span> es aproximadamente igual a la del rectángulo de altura <span class="math inline">\(f_X(a)\)</span>
+</p>
+</div>
+<p>Por lo tanto <span class="math inline">\(f_X(a)\)</span> nos da una indicación de la probabilidad de que <span class="math inline">\(X\)</span> valga aproximadamente <span class="math inline">\(a\)</span> (pero <strong>no es</strong> <span class="math inline">\(P(X=a)\)</span>, que vale 0). Es decir, por ejemplo, si <span class="math inline">\(f_X(a)=0.1\)</span> y <span class="math inline">\(f_X(b)=0.5\)</span>, <strong>la probabilidad de que <span class="math inline">\(X\)</span> tome un valor muy cercano a <span class="math inline">\(b\)</span> es 5 veces mayor que la probabilidad de que tome un valor muy cercano a <span class="math inline">\(a\)</span></strong>.</p>
+
+<div class="rmdrecordau">
+Pero <span class="math inline">\(P(X=a)=P(X=b)=0\)</span>, así que, por favor, evitad decir que “la probabilidad de que <span class="math inline">\(X\)</span> valga <span class="math inline">\(b\)</span> es 5 veces <strong>mayor</strong> que la probabilidad de que valga <span class="math inline">\(a\)</span>”. Sí, ya sabemos que <span class="math inline">\(5\cdot 0=0\)</span>, pero la frase es engañosa.
+</div>
+<p>Unas consideraciones finales:</p>
+<ul>
+<li>Lo hemos dicho en la definición, y lo hemos usado implícitamente en toda la sección, pero lo volvemos a repetir: <span class="math inline">\(f_X(x)\geqslant 0\)</span> para todo <span class="math inline">\(x\in \mathbb{R}\)</span>.</li>
+</ul>
+
+<div class="rmdnote">
+En realidad, que <span class="math inline">\(f_X(x)\)</span> sea <span class="math inline">\(\geqslant 0\)</span> para todo <span class="math inline">\(x\in \mathbb{R}\)</span> es consecuencia de que <span class="math inline">\(F_X\)</span> sea positiva y creciente (recordad que las funciones de distribución son siempre crecientes, porque si <span class="math inline">\(x&lt;y\)</span>, <span class="math inline">\(F_X(x)=P(X\leqslant x)\leqslant P(X\leqslant y)=F_X(y)\)</span>) y coincida con <span class="math inline">\(\int_{-\infty}^x f_X(x)\,dx\)</span>.
+</div>
+<ul>
+<li><span class="math inline">\(f_X(x)\)</span> no es una probabilidad, y por lo tanto puede ser mayor que 1. Por ejemplo, el gráfico siguiente muestra la densidad de una variable normal <span class="math inline">\(N(0,0.01)\)</span> (véase la Sección <a href="variables-aleatorias-continuas.html#sec:normal">11.3</a>), que llega a valer casi 40.</li>
+</ul>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-387-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>La función de densidad <span class="math inline">\(f_X\)</span> no tiene por qué ser continua, aunque la función de distribución <span class="math inline">\(F_X\)</span> lo sea.</li>
+</ul>
+</div>
+<div id="esperanza-varianza-cuantiles" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Esperanza, varianza, cuantiles…</h2>
+<p>La esperanza y la varianza de una variable aleatoria continua <span class="math inline">\(X\)</span>, con función de densidad <span class="math inline">\(f_X\)</span>, se definen como en el caso discreto, substituyendo la suma <span class="math inline">\(\sum_{x\in D_x}\)</span> por una integral.</p>
+<p>La <strong>media</strong>, o <strong>esperanza</strong> (<strong>valor medio</strong>, <strong>valor esperado</strong>…), de <span class="math inline">\(X\)</span> es
+<span class="math display">\[
+E(X)=\int_{-\infty}^{\infty}x \cdot f_{X}(x)\, dx
+\]</span>
+Es decir, es el área comprendida entre el eje de abscisas y la curva <span class="math inline">\(y=xf_X(x)\)</span>.
+Como en el caso discreto, también la denotaremos a veces por <span class="math inline">\(\mu_X\)</span>.</p>
+<p>Este valor tiene la misma interpretación que en el caso discreto:</p>
+<ul>
+<li><p>Representa el valor medio de <span class="math inline">\(X\)</span> sobre el total de la población.</p></li>
+<li><p>Es (con probabilidad 1) el límite de la media aritmética de los valores de <span class="math inline">\(X\)</span> sobre muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, cuando <span class="math inline">\(n\to \infty\)</span>.</p></li>
+</ul>
+<p>Si <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span> es una función continua,
+la <strong>esperanza</strong> de <span class="math inline">\(g(X)\)</span> es
+<span class="math display">\[
+E(g(X))=\int_{-\infty}^{+\infty} g(x) f_X(x)dx
+\]</span></p>
+<p>La <strong>varianza</strong> de <span class="math inline">\(X\)</span> es
+<span class="math display">\[
+\sigma(X)^2=E((X-\mu_X)^2)
+\]</span>
+y se puede demostrar que es igual a
+<span class="math display">\[
+\sigma(X)^2=E(X^2)-\mu_X^2
+\]</span>
+También se escribe <span class="math inline">\(\sigma_X^2\)</span>.</p>
+<p>La <strong>desviación típica</strong> de <span class="math inline">\(X\)</span> es
+<span class="math display">\[
+\sigma(X)=+\sqrt{\sigma(X)^2}
+\]</span>
+y también se escribe <span class="math inline">\(\sigma_X\)</span>.</p>
+<p>Como en el caso discreto, la varianza y la desviación típica miden la variabilidad de los resultados de <span class="math inline">\(X\)</span> respecto de su valor medio.</p>
+<p>Estos parámetros de <span class="math inline">\(X\)</span> tienen las <strong>mismas propiedades</strong> en el caso continuo que en el discreto. Las recordamos:</p>
+<ul>
+<li><p>Si <span class="math inline">\(b\)</span> es una variable aleatoria constante, <span class="math inline">\(E(b)=b\)</span> y <span class="math inline">\(\sigma(b)^2=0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\sigma(X)^2=0\)</span>, <span class="math inline">\(X\)</span> es constante.</p></li>
+</ul>
+
+<div class="rmdnote">
+Y por supuesto, si <span class="math inline">\(X\)</span> solo puede tomar un valor, ya no es continua, sino discreta. Por lo tanto, por convenio, de ahora en adelante supondremos que <strong>nuestras variables aleatorias continuas siempre tienen varianza no nula</strong>.
+</div>
+<ul>
+<li><p>Si <span class="math inline">\(X_1,\ldots,X_n\)</span> son variables aleatorias y <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>,
+<span class="math display">\[
+E(a_1X_1+\cdots+a_nX_n+b)=a_1E(X_1)+\cdots+a_nE(X_n)+b
+\]</span>
+En particular:</p>
+<ul>
+<li><p><span class="math inline">\(E(a X+b)=a E(X)+b\)</span>.</p></li>
+<li><p><span class="math inline">\(E(X+Y)=E(X)+E(Y)\)</span>.</p></li>
+</ul></li>
+<li><p>Si <span class="math inline">\(X\leqslant Y\)</span>, entonces <span class="math inline">\(E(X)\leqslant E(Y)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a,b\in \mathbb{R}\)</span>, <span class="math inline">\(\sigma(aX+b)^2=a^2 \sigma(X)^2\)</span> y <span class="math inline">\(\sigma(aX+b)=|a|\cdot \sigma(X)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(X,Y\)</span> son <strong>independientes</strong>, <span class="math inline">\(\sigma(X+Y)^2=\sigma(X)^2+\sigma(Y)^2\)</span>. Si no, en principio no.</p></li>
+<li><p>Si <span class="math inline">\(X_1,\ldots,X_n\)</span> son variables aleatorias <strong>independientes</strong> y <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>,
+<span class="math display">\[
+\begin{array}{l}
+\sigma(a_1X_1+\cdots+a_nX_n+b)^2=a_1^2\cdot\sigma(X_1)^2+\cdots+a_n^2\cdot\sigma(X_n)^2\\
+\sigma(a_1X_1+\cdots+a_nX_n+b)=\sqrt{a_1^2\cdot\sigma(X_1)^2+\cdots+a_n^2\cdot\sigma(X_n)^2}
+\end{array}
+\]</span>
+Si no son independientes, estas igualdades pueden ser falsas.</p></li>
+</ul>
+<p>Dado <span class="math inline">\(p\)</span> entre 0 y 1, el <strong>cuantil de orden <span class="math inline">\(p\)</span></strong> (o <strong><span class="math inline">\(p\)</span>-cuantil</strong>) de una variable aleatoria continua <span class="math inline">\(X\)</span> es el menor valor <span class="math inline">\(x_p\in \mathbb{R}\)</span> tal que
+<span class="math display">\[
+F_X(x_p)=P(X\leqslant x_p)=p
+\]</span></p>
+
+<div class="rmdcorbes">
+Fijaos en que como <span class="math inline">\(F_X(x)\)</span> tiende a 0 (la probabilidad del conjunto vacío) cuando <span class="math inline">\(x\to -\infty\)</span> y tiende a 1 (la probabilidad de todo <span class="math inline">\(\mathbb{R}\)</span>) cuando <span class="math inline">\(x\to +\infty\)</span> y es continua, por el Teorema del Valor medio de las funciones continuas (que dice, básicamente, que las funciones continuas no dan saltos) toma todos los valores entre 0 y 1 y por lo tanto dado cualquier <span class="math inline">\(p\)</span> entre 0 y 1 existe algún <span class="math inline">\(x\)</span> tal que <span class="math inline">\(F_X(x)=p\)</span>.
+</div>
+<p>La <strong>mediana</strong> de <span class="math inline">\(X\)</span> es su 0.5-cuantil, los <strong>primer</strong> y <strong>tercer cuartiles</strong> son su 0.25-cuantil y su 0.75-cuantil, etc.</p>
+</div>
+<div id="sec:normal" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Variables aleatorias normales</h2>
+<p>Una variable aleatoria continua <span class="math inline">\(X\)</span> es <strong>normal</strong> (o <strong>tiene distribución normal</strong>) de parámetros
+<span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> (es <span class="math inline">\(N(\mu,\sigma)\)</span>, para abreviar) cuando su función de densidad es
+<span class="math display">\[
+f_{X}(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{{-(x-\mu)^2}/{2\sigma^{2}}} \mbox{
+para todo } x\in \mathbb{R}
+\]</span></p>
+<p>Naturalmente, no os tenéis que saber esta fórmula.</p>
+<p><img src="INREMDN_files/figure-html/censored.png" width="35%" style="display: block; margin: auto;" /></p>
+<p>Pero sí que tenéis que saber que:</p>
+<ul>
+<li><p>Una variable aleatoria normal <span class="math inline">\(X\)</span> es continua, y por lo tanto <span class="math inline">\(P(X=x)=0\)</span>, <span class="math inline">\(P(X\leqslant x)=P(X&lt;x)\)</span> etc.</p></li>
+<li><p>Si <span class="math inline">\(X\)</span> es normal <span class="math inline">\(N(\mu,\sigma)\)</span>, su valor esperado es <span class="math inline">\(E(X)=\mu\)</span> y su desviación típica es <span class="math inline">\(\sigma_X=\sigma\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(X\)</span> es normal, su función de distribución <span class="math inline">\(F_X\)</span> es <strong>inyectiva y creciente</strong>: si <span class="math inline">\(x&lt;y\)</span>, <span class="math inline">\(F_X(x)&lt;F_X(y)\)</span>.</p></li>
+</ul>
+<p>Una variable aleatoria normal es <strong>típica</strong> (o <strong>estándar</strong>) cuando es <span class="math inline">\(N(0,1)\)</span>. Usaremos normalmente <span class="math inline">\(Z\)</span> para denotar una variable normal estándar. Si <span class="math inline">\(Z\)</span> es una normal estándar, <span class="math inline">\(E(Z)=0\)</span> y <span class="math inline">\(\sigma(Z)=1\)</span>.</p>
+<p>La gráfica de la densidad de una variable aleatoria normal es la famosa <strong>campana de Gauss</strong>:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-391-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>La distribución normal es una distribución teórica, no la encontraréis exacta en la vida real. Y pese a su nombre, no es más “normal” que otras distribuciones continuas.</p>
+<p><img src="INREMDN_files/figure-html/paranormal.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>Pero es muy importante, debido a que muchas distribuciones de la vida real son aproximadamente normales porque:</p>
+<blockquote>
+<p>Toda variable aleatoria que consista en tomar <span class="math inline">\(n\)</span> medidas independientes de una o varias variables aleatorias y sumarlas, tiene distribución aproximadamente normal <strong>cuando <span class="math inline">\(n\)</span> es muy grande</strong>, aunque las variables aleatorias de partida no sean normales.</p>
+</blockquote>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-393" class="example"><strong>Ejemplo 11.1  </strong></span>Una variable binomial <span class="math inline">\(B(n,p)\)</span> se obtiene tomando <span class="math inline">\(n\)</span> medidas independientes de una variable Bernoulli <span class="math inline">\(Be(p)\)</span> y sumando los resultados. Por lo tanto, por la “regla” anterior, una <span class="math inline">\(B(n,p)\)</span> tendría que ser aproximadamente normal si <span class="math inline">\(n\)</span> es grande. Pues sí, si <span class="math inline">\(n\)</span> es grande (pongamos mayor que 40, aunque si <span class="math inline">\(p\)</span> está muy cerca de 0 o 1 el tamaño de las muestras tiene que ser mayor), la distribución de una variable <span class="math inline">\(X\)</span> binomial <span class="math inline">\(B(n,p)\)</span> se acerca mucho a la de una normal <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>, donde, recordad que si <span class="math inline">\(X\)</span> es <span class="math inline">\(B(n,p)\)</span>, entonces <span class="math inline">\(\mu_X=np\)</span> y <span class="math inline">\(\sigma_X=\sqrt{np(1-p)}\)</span>.</p>
+</div>
+<p>Por ejemplo, el gráfico siguiente compara las funciones de distribución de una binomial <span class="math inline">\(B(40,0.3)\)</span> y una normal <span class="math inline">\(N(40\cdot 0.3,\sqrt{40\cdot 0.3\cdot 0.7})\)</span>.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-394-1.png" width="50%" style="display: block; margin: auto;" /></p>
+
+<div class="rmdrecordau">
+En los próximos temas utilizaremos a menudo que una variable <span class="math inline">\(B(n,p)\)</span> con <span class="math inline">\(n\)</span> es grande es aproximadamente <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>.
+</div>
+<p>Para calcular probabilidades de una <span class="math inline">\(N(\mu,\sigma)\)</span>, hay que calcular las integrales a mano.</p>
+<p><img src="INREMDN_files/figure-html/emorisa.png" width="20%" style="display: block; margin: auto;" /></p>
+<p>O podéis usar R o alguna aplicación para móvil o tablet. Para R, la normal es <code>norm</code>. Así, por ejemplo, si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(1,2)\)</span></p>
+<ul>
+<li><span class="math inline">\(P(X\leqslant 1.5)\)</span> es</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="variables-aleatorias-continuas.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5987063</code></pre>
+<ul>
+<li>El 0.4-cuantil de <span class="math inline">\(X\)</span>, es decir, el valor <span class="math inline">\(q\)</span> tal que <span class="math inline">\(P(X\leqslant q)=0.4\)</span> es</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="variables-aleatorias-continuas.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.4</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.4933058</code></pre>
+<ul>
+<li><span class="math inline">\(P(X=1.5)\)</span> es</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="variables-aleatorias-continuas.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.1933341</code></pre>
+
+<div class="rmderror">
+¡No! Como <span class="math inline">\(X\)</span> es continua, <span class="math inline">\(P(X=1.5)=0\)</span>. Lo que os da <code>dnorm(1.5,1,2)</code> es el valor de la función de densidad de <span class="math inline">\(X\)</span> en 1.5.
+</div>
+<p>Si la normal es estándar, no hace falta entrar la <span class="math inline">\(\mu=0\)</span> y la <span class="math inline">\(\sigma=1\)</span>. Así, si
+<span class="math inline">\(Z\)</span> es <span class="math inline">\(N(0,1)\)</span></p>
+<ul>
+<li><span class="math inline">\(P(Z\leqslant 1.5)\)</span> es</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="variables-aleatorias-continuas.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9331928</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="variables-aleatorias-continuas.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9331928</code></pre>
+<ul>
+<li>Su 0.95-cuantil es</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="variables-aleatorias-continuas.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## [1] 1.644854</code></pre>
+
+<div class="example">
+<p><span id="exm:exhiperhipo" class="example"><strong>Ejemplo 11.2  </strong></span>La presión sistólica, medida en mm Hg, se distribuye como una variable normal con valor medio <span class="math inline">\(\mu\)</span> y desviación típica <span class="math inline">\(\sigma\)</span> que dependen del sexo y la edad. Para la franja de edad 16-24 años, estos valores son:</p>
+<ul>
+<li>Para hombres, <span class="math inline">\(\mu=124\)</span> y <span class="math inline">\(\sigma=13.7\)</span></li>
+<li>Para mujeres, <span class="math inline">\(\mu=117\)</span> y <span class="math inline">\(\sigma=13.7\)</span></li>
+</ul>
+<p>El modelo de hipertensión-hipotensión aceptado es el descrito en la Figura <a href="variables-aleatorias-continuas.html#fig:hiperhipo">11.2</a>. Queremos calcular los límites de cada clase para cada sexo en este grupo de edad.</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hiperhipo"></span>
+<img src="INREMDN_files/figure-html/hiperhipo.png" alt="Modelo de hipertensión-hipotensión." width="80%" />
+<p class="caption">
+Figura 11.2: Modelo de hipertensión-hipotensión.
+</p>
+</div>
+<p>Veamos:</p>
+<ul>
+<li>El límite superior del grupo de hipotensión será el valor que deja a la izquierda un 5% de las tensiones: el 0.05-cuantil de la distribución.</li>
+<li>El límite superior del grupo de riesgo de hipotensión será el valor que deja a la izquierda un 10% de las tensiones: el 0.1-cuantil de la distribución.</li>
+<li>El límite inferior del grupo de riesgo de hipertensión será el valor que deja a la izquierda un 90% de las tensiones: el 0.9-cuantil de la distribución.</li>
+<li>El límite inferior del grupo de hipertensión será el valor que deja a la izquierda un 95% de las tensiones: el 0.95-cuantil de la distribución.</li>
+</ul>
+<p>En los hombres, la tensión sistólica es una variable aleatoria <span class="math inline">\(N(124,13.7)\)</span>. Podemos usar R o una aplicación para calcular estos cuantiles. Con R:</p>
+<ul>
+<li>El 0.05-cuantil es</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="variables-aleatorias-continuas.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>,<span class="dv">124</span>,<span class="fl">13.7</span>)</span></code></pre></div>
+<pre><code>## [1] 101.4655</code></pre>
+<ul>
+<li>El 0.1-cuantil es</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="variables-aleatorias-continuas.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.1</span>,<span class="dv">124</span>,<span class="fl">13.7</span>)</span></code></pre></div>
+<pre><code>## [1] 106.4427</code></pre>
+<ul>
+<li>El 0.9-cuantil es</li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="variables-aleatorias-continuas.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.9</span>,<span class="dv">124</span>,<span class="fl">13.7</span>)</span></code></pre></div>
+<pre><code>## [1] 141.5573</code></pre>
+<ul>
+<li>El 0.95-cuantil es</li>
+</ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="variables-aleatorias-continuas.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="dv">124</span>,<span class="fl">13.7</span>)</span></code></pre></div>
+<pre><code>## [1] 146.5345</code></pre>
+<p>En resumen, para los hombres de 16 a 24 años:
+<span class="math display">\[
+\begin{array}{|ll|}
+\hline
+\text{Grupo} &amp; \text{Intervalo}\\ \hline
+\text{Hipotenso} &amp; &lt;101.5\\
+\text{Prehipotenso} &amp; 101.5\text{ a }106.4\\
+\text{Normotenso} &amp; 106.4\text{ a }141.6\\
+\text{Prehipertenso} &amp; 141.6\text{ a }146.5\\
+\text{Hipertenso} &amp; &gt; 146.5\\ \hline
+\end{array}
+\]</span></p>
+
+<div class="rmdexercici">
+Calculad estos límites para las mujeres de 16 a 24 años.
+</div>
+<div id="propiedades-básicas" class="section level3" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Propiedades básicas</h3>
+<p>Una de las propiedades clave de la distribución normal es su simetría:</p>
+
+<div class="rmdimportant">
+Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, su densidad <span class="math inline">\(f_X\)</span> es simétrica respecto de <span class="math inline">\(\mu\)</span>, es decir,
+<span class="math display">\[
+f_{X}(\mu-x)=f_{X}(\mu+x),
+\]</span>
+y tiene el máximo en <span class="math inline">\(x=\mu\)</span>. Decimos entonces que <span class="math inline">\(\mu\)</span> es la <strong>moda</strong> de <span class="math inline">\(X\)</span>.
+</div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-409-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<div class="rmdnote">
+Recordad que no tiene sentido definir la moda de una variable continua <span class="math inline">\(X\)</span> como el valor <span class="math inline">\(x_0\)</span> tal que <span class="math inline">\(P(X=x_0)\)</span> sea máximo, porque <span class="math inline">\(P(X=x)=0\)</span> para todo <span class="math inline">\(x\in \mathbb{R}\)</span>. Se define entonces la <strong>moda</strong> de una variable continua <span class="math inline">\(X\)</span> como el valor (o los valores) <span class="math inline">\(x_0\)</span> tal que <span class="math inline">\(f_X(x_0)\)</span> es máximo. Por lo tanto, como <span class="math inline">\(f_X(x_0)\)</span> mide la probabilidad de que <span class="math inline">\(X\)</span> valga aproximadamente <span class="math inline">\(x_0\)</span>, tenemos que la moda de <span class="math inline">\(X\)</span> es el valor cerca del cual es más probable que caiga el valor de <span class="math inline">\(X\)</span>.
+</div>
+<p>En particular, si <span class="math inline">\(Z\)</span> es <span class="math inline">\(N(0,1)\)</span>, entonces <span class="math inline">\(f_Z\)</span> es simétrica alrededor de 0, es decir, <span class="math inline">\(f_{Z}(-x)=f_{Z}(x)\)</span>, y la moda de <span class="math inline">\(Z\)</span> es <span class="math inline">\(x=0\)</span>.</p>
+<p>Recordad que la función de distribución de una variable aleatoria continua <span class="math inline">\(X\)</span>,
+<span class="math display">\[
+F_X(x)=P(X\leqslant x)
+\]</span>
+es el área comprendida entre la densidad <span class="math inline">\(y=f_X(x)\)</span> y el eje de abscisas a la izquierda de <span class="math inline">\(x\)</span>.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-411-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Entonces, la simetría de <span class="math inline">\(f_X\)</span> hace que, para todo <span class="math inline">\(x\geqslant 0\)</span>, las áreas a la izquierda de <span class="math inline">\(\mu-x\)</span> y a la derecha de <span class="math inline">\(\mu+x\)</span> sean iguales.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-412-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Es decir,
+<span class="math display">\[
+P(X\leqslant \mu-x)=P(X\geqslant \mu+x)=1-P(X\leqslant \mu+x)
+\]</span></p>
+<p>En particular (tomando <span class="math inline">\(x=0\)</span>)
+<span class="math display">\[
+P(X\leqslant \mu)=1-P(X\leqslant \mu)\Rightarrow P(X\leqslant \mu)=0.5
+\]</span>
+y por lo tanto, <span class="math inline">\(\mu\)</span> es también la <strong>mediana</strong> de <span class="math inline">\(X\)</span>.</p>
+
+<div class="rmdimportant">
+Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, <span class="math inline">\(\mu\)</span> es la media, la mediana y la moda de <span class="math inline">\(X\)</span>.
+</div>
+<p>En el caso concreto de la normal estándar <span class="math inline">\(Z\)</span>, para cualquier <span class="math inline">\(z\geqslant 0\)</span> se tiene que las áreas a la izquierda de <span class="math inline">\(-z\)</span> y a la derecha de <span class="math inline">\(z\)</span> son iguales
+<span class="math display">\[
+P(Z\leqslant -z)=P(Z\geqslant z)=1-P(Z\leqslant z)
+\]</span>
+y la mediana de <span class="math inline">\(Z\)</span> es 0.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-414-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<div class="rmdnote">
+<p>Ahora que sabemos más cosas de la normal, en el Ejemplo <a href="variables-aleatorias-continuas.html#exm:exhiperhipo">11.2</a> nos hubiéramos podido ahorrar la mitad del trabajo. Llamemos <span class="math inline">\(X\)</span> a la variable aleatoria que nos da la presión arterial, en mm Hg, de un hombre de entre 16 y 24 años. Nos dicen que <span class="math inline">\(X\)</span> es <span class="math inline">\(N(124,13.7)\)</span>.</p>
+<p>Por la simetría de <span class="math inline">\(X\)</span> alrededor de <span class="math inline">\(\mu=124\)</span>, si escribimos el 0.05-cuantil como <span class="math inline">\(124-x\)</span>, entonces <span class="math inline">\(P(X\geqslant 124+x)=P(X\leqslant 124-x)=0.05\)</span> y por lo tanto <span class="math inline">\(P(X\leqslant 124+x)=1-P(X\geqslant 124+x)=0.95\)</span>, es decir, <span class="math inline">\(124+x\)</span> será el 0.95-cuantil de <span class="math inline">\(X\)</span>.</p>
+<p>El 0.05-cuantil ha sido 101.5. Escribiendo <span class="math inline">\(101.5=124-x\)</span>, obtenemos <span class="math inline">\(x=22.5\)</span>. Por lo tanto, el 0.95-cuantil tiene que ser <span class="math inline">\(124+22.5=146.5\)</span>.</p>
+<p>Lo mismo pasa con el 0.9-cuantil y el 0.1-cuantil, razonadlo y comprobadlo.</p>
+</div>
+
+<div class="rmdrecordau">
+El argumento que hemos desarrollado en la nota anterior muestra en general que si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span> y su <span class="math inline">\(q\)</span>-cuantil es <span class="math inline">\(\mu-x\)</span>, entonces su <span class="math inline">\((1-q)\)</span>-cuantil es <span class="math inline">\(\mu+x\)</span>.
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-417"></span>
+<img src="INREMDN_files/figure-html/unnamed-chunk-417-1.png" alt="Quantils gratis!" width="80%" />
+<p class="caption">
+Figura 11.3: Quantils gratis!
+</p>
+</div>
+<p>Si <span class="math inline">\(\mu\)</span> crece, desplaza a la derecha el máximo de la densidad, y con él toda la curva.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-418-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Si <span class="math inline">\(\sigma\)</span> crece, la curva se aplana: al aumentar la desviación típica, los valores se dispersan y se alejan más del valor medio.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-419-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>El gráfico siguiente muestra el efecto combinado:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-420-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Denotaremos por <span class="math inline">\(z_q\)</span> el <strong><span class="math inline">\(q\)</span>-cuantil</strong> de una variable normal estándar <span class="math inline">\(Z\)</span>. Es decir, <span class="math inline">\(z_q\)</span> es el valor tal que <span class="math inline">\(P(Z\leqslant z_q)=q\)</span>.</p>
+<p>Aparte de que <span class="math inline">\(z_{0.5}=0\)</span> (la mediana de <span class="math inline">\(Z\)</span> es 0), hay dos cuantiles más de la normal estándar <span class="math inline">\(Z\)</span> que os conviene recordar:</p>
+<ul>
+<li><p><span class="math inline">\(z_{0.95}=1.64\)</span>; es decir, <span class="math inline">\(P(Z\leqslant 1.64)=0.95\)</span> y por lo tanto <span class="math inline">\(P(Z\leqslant -1.64)=P(Z\geqslant 1.64)=0.05\)</span> y
+<span class="math display">\[
+P(-1.64\leqslant Z\leqslant 1.64)=0.9.
+\]</span></p></li>
+<li><p><span class="math inline">\(z_{0.975}=1.96\)</span>; es decir, <span class="math inline">\(P(Z\leqslant 1.96)=0.975\)</span> y por lo tanto <span class="math inline">\(P(Z\leqslant -1.96)=P(Z\geqslant 1.96)=0.025\)</span> y
+<span class="math display">\[
+P(-1.96\leqslant Z\leqslant 1.96)=0.95.
+\]</span></p></li>
+</ul>
+
+<div class="rmdmercifulgod">
+Muy a menudo el valor 1.96 de <span class="math inline">\(z_{0.975}\)</span> se aproxima por 2. Tenéis permiso para hacerlo cuando no dispongáis de medios (R, aplis de móvil) para calcular cuantiles o cuando tengáis que hacer algún cálculo “a ojo” que involucre este cuantil.
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-422" class="example"><strong>Ejemplo 11.3  </strong></span>Supongamos que la concentración de un cierto metabolito es una variable aleatoria de distribución normal, pero cuyos parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> dependen de si la medimos en personas sanas o en personas con una cierta enfermedad. Sean:</p>
+</div>
+<ul>
+<li><p><span class="math inline">\(X_E\)</span> la variable aleatoria “Tomo una persona enferma y mido su concentración de este metabolito”, y supongamos que es <span class="math inline">\(N(\mu_E, \sigma_E)\)</span>.</p></li>
+<li><p><span class="math inline">\(X_S\)</span> la variable aleatoria “Tomo una persona sana y mido su concentración de este metabolito”, y supongamos que es <span class="math inline">\(N(\mu_S, \sigma_S)\)</span>.</p></li>
+<li><p>Supongamos, para fijar ideas, que <span class="math inline">\(\mu_E&gt;\mu_S\)</span>: la concentración media de este metabolito en los enfermos es más alta que en las personas sanas.</p></li>
+</ul>
+<p>Podríamos usar como prueba diagnóstica de la enfermedad la concentración del metabolito. Para cada valor de referencia <span class="math inline">\(x_0\)</span>, nuestra prueba dará:</p>
+<ul>
+<li><p><strong>Positivo</strong>, si la concentración es mayor o igual que <span class="math inline">\(x_0\)</span>.</p></li>
+<li><p><strong>Negativo</strong>, si la concentración es menor que <span class="math inline">\(x_0\)</span>.</p></li>
+</ul>
+<p>Entonces:</p>
+<ul>
+<li><p>La <strong>sensibilidad</strong> de esta prueba es
+<span class="math display">\[
+P(+|E)  =P(X_E\geqslant x_0)=1-P(X_E&lt; x_0)=1-F_{X_E}(x_0)
+\]</span></p></li>
+<li><p>Su <strong>especificidad</strong> es
+<span class="math display">\[
+P(-|S)=P(X_S&lt; x_0)=F_{X_S}(x_0)
+\]</span></p></li>
+<li><p>Su <strong>tasa de falsos positivos</strong> es
+<span class="math display">\[
+P(+|S)=P(X_S\geqslant  x_0)=1-F_{X_S}(x_0)
+\]</span></p></li>
+</ul>
+<p>Al variar <span class="math inline">\(x_0\)</span>, tenemos valores diferentes de la sensibilidad y la tasa de falsos positivos. Entonces, podemos dibujar su curva ROC y escoger el umbral con algún criterio o valorar su capacidad diagnóstica global con su AUC.</p>
+<p>Por ejemplo, imaginad que la densidad de <span class="math inline">\(X_E\)</span> es la línea discontinua del gráfico de la izquierda de la figura siguiente y la de <span class="math inline">\(X_S\)</span> la línea continua. Ambas son normales y <span class="math inline">\(\mu_E&gt;\mu_S\)</span>, porque el pico de la densidad de <span class="math inline">\(X_E\)</span> está a la derecha del de <span class="math inline">\(X_S\)</span>.</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-423-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Si para cada <span class="math inline">\(x\)</span> dibujamos los puntos <span class="math inline">\((1-F_{X_S}(x),1-F_{X_E}(x))\)</span>, obtenemos la curva ROC de la derecha de dicha figura.</p>
+<p>Una de las propiedades de la distribución normal que nos facilitan mucho la vida es que <strong>toda combinación lineal de variables aleatorias normales independientes es normal</strong>. En concreto, tenemos los resultados siguientes:</p>
+
+<div class="theorem">
+<p><span id="thm:comblinnormals" class="theorem"><strong>Teorema 11.2  </strong></span>Sea <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu,\sigma)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Para todos <span class="math inline">\(a,b\in \mathbb{R}\)</span>, <span class="math inline">\(aX+b\)</span> es <span class="math inline">\(N(a\mu+b,|a|\cdot\sigma)\)</span>.</p></li>
+<li><p>En particular, la <strong>tipificada</strong> de <span class="math inline">\(X\)</span>
+<span class="math display">\[
+Z=\dfrac{X-\mu}{\sigma}
+\]</span>
+es <span class="math inline">\(N(0,1)\)</span>.</p>
+</div></li>
+</ol>
+<p>Más en general:</p>
+
+<div class="theorem">
+<span id="thm:comblinnormals2" class="theorem"><strong>Teorema 11.3  </strong></span>Si <span class="math inline">\(X_1,\ldots,X_n\)</span> son variables aleatorias normales <strong>independientes</strong>, cada <span class="math inline">\(X_i\)</span> de tipo <span class="math inline">\(N(\mu_i,\sigma_i)\)</span>, y <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, entonces
+<span class="math inline">\(a_1X_1+\cdots +a_nX_n+b\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span> con
+<span class="math display">\[
+\mu=a_1\mu_1+\cdots +a_n\mu_n+b,\ 
+\sigma=\sqrt{a_1^2\sigma^2_1+\cdots +a_n^2\sigma^2_n}
+\]</span>
+</div>
+
+<div class="rmdnote">
+Que toda combinación lineal de variables normales vuelva a ser del mismo tipo, es decir, normal, es una propiedad muy útil de las variables normales que pocas familias de distribuciones comparten. Por ejemplo, si <span class="math inline">\(X\)</span> es una variable binomial <span class="math inline">\(B(n,p)\)</span> con <span class="math inline">\(p\neq 0\)</span>, la variable <span class="math inline">\(2X\)</span> no es binomial, porque solo toma valores pares, mientras que una variable binomial <span class="math inline">\(B(m,q)\)</span> ha de poder tomar todos los valores entre 0 y <span class="math inline">\(m\)</span>.
+</div>
+<p>Las probabilidades de la normal tipificada determinan las de la normal original, porque si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>:
+<span class="math display">\[
+\begin{array}{rl}
+P(a\leqslant X\leqslant b)\!\!\!\!\! &amp; \displaystyle  =P\Big( \frac{a-\mu}{\sigma}\leqslant \frac{X-\mu}{\sigma}\leqslant \frac{b-\mu}{\sigma}\Big)\\ &amp; \displaystyle =P\Big(\frac{a-\mu}{\sigma}\leqslant Z\leqslant \frac{b-\mu}{\sigma}\Big)
+\end{array}
+\]</span>
+Esto sirve para deducir fórmulas, y vuestros padres lo usaban para calcular probabilidades (con tablas de probabilidades de la normal estándar); ahora es más cómodo usar una aplicación del móvil.</p>
+</div>
+<div id="intervalos-de-referencia" class="section level3" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> Intervalos de referencia</h3>
+<p>Un <strong>intervalo de referencia</strong> del <span class="math inline">\(Q\%\)</span> para una variable aleatoria <span class="math inline">\(X\)</span> es un intervalo <span class="math inline">\([a,b]\)</span> tal que
+<span class="math display">\[
+P(a\leqslant X\leqslant b)=Q/100.
+\]</span>
+Es decir, un intervalo de referencia del <span class="math inline">\(Q\%\)</span> para <span class="math inline">\(X\)</span> es un intervalo que contiene los valores de <span class="math inline">\(X\)</span> del <span class="math inline">\(Q\%\)</span> de los sujetos de la población.</p>
+<p>Por ejemplo, hemos visto en la sección anterior que [-1.64,1.64] y [-1.96,1.96] son intervalos de referencia del 90% y del 95%, respectivamente, para una variable normal estándar <span class="math inline">\(Z\)</span>. Y en el Ejemplo <a href="variables-aleatorias-continuas.html#exm:exhiperhipo">11.2</a> hemos visto que un intervalo de referencia del 90% para la presión sistólica de los hombres de 16 a 24 años, medida en mm Hg, es [101.5,146.5].</p>
+<p>Los más comunes son los intervalos de referencia del 95%, que satisfacen que
+<span class="math display">\[
+P(a\leqslant X\leqslant b)=0.95
+\]</span>
+y son los, que por ejemplo, os dan como valores de referencia en las analíticas:</p>
+<p><img src="INREMDN_files/figure-html/analit.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<div class="rmdnote">
+Cuando se habla de un <strong>intervalo de referencia</strong> sin dar la probabilidad, se sobreentiende siempre que es el intervalo de referencia del 95%. Un 5% de la población cae fuera del intervalo de referencia del 95%.
+</div>
+<p>Cuando <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, estos intervalos de referencia se toman siempre <strong>centrados en la media</strong> <span class="math inline">\(\mu\)</span>, es decir, de la forma <span class="math inline">\([\mu-\text{algo},\mu+\text{algo}]\)</span>. Para calcularlos se usa el resultado siguiente:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-427" class="theorem"><strong>Teorema 11.4  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, un intervalo de referencia del <span class="math inline">\(Q\%\)</span> para <span class="math inline">\(X\)</span> es
+<span class="math display">\[
+[\mu- z_{(1+q)/2}\cdot \sigma, \mu+ z_{(1+q)/2}\cdot \sigma]
+\]</span>
+donde <span class="math inline">\(q=Q/100\)</span> y <span class="math inline">\(z_{(1+q)/2}\)</span> denota el <span class="math inline">\((1+q)/2\)</span>-cuantil de la normal estándar <span class="math inline">\(Z\)</span>. Se suele escribir
+<span class="math display">\[
+\mu\pm z_{(1+q)/2}\cdot \sigma.
+\]</span></p>
+</div>
+
+<div class="rmdcorbes">
+<p>En efecto:
+<span class="math display">\[
+\begin{array}{l}
+P(\mu-x\leqslant X\leqslant \mu+x)=q\\
+\qquad \Longleftrightarrow \displaystyle P\Big(\frac{\mu-x-\mu}{\sigma}\leqslant \frac{X-\mu}{\sigma}\leqslant \frac{\mu+x-\mu}{\sigma}\Big)=q\\
+\qquad \Longleftrightarrow \displaystyle P(-x/{\sigma}\leqslant Z\leqslant {x}/{\sigma})=q\\
+\qquad \Longleftrightarrow \displaystyle P(Z\leqslant {x}/{\sigma})-P(Z\leqslant -{x}/{\sigma})=q\\
+\qquad \Longleftrightarrow \displaystyle P(Z\leqslant {x}/{\sigma})-P(Z\geqslant {x}/{\sigma})=q\\
+\qquad \text{(por la simetría de $f_Z$ alrededor de 0)}\\
+\qquad \Longleftrightarrow \displaystyle P(Z\leqslant {x}/{\sigma})-(1-P(Z\leqslant {x}/{\sigma}))=q\\
+\qquad \Longleftrightarrow \displaystyle 2P(Z\leqslant {x}/{\sigma})=q+1\\
+\qquad \Longleftrightarrow P(Z\leqslant {x}/{\sigma})=(1+q)/2\\
+\qquad \Longleftrightarrow x/\sigma=
+z_{(1+q)/2}\\
+\qquad \Longleftrightarrow x=z_{(1+q)/2}\cdot \sigma
+\end{array}
+\]</span></p>
+</div>
+<p>Si <span class="math inline">\(q=0.95\)</span>, entonces <span class="math inline">\((1+q)/2=0.975\)</span> y <span class="math inline">\(z_{0.975}=1.96\)</span>. Por lo tanto, el intervalo de referencia del 95% para una variable <span class="math inline">\(X\)</span> normal <span class="math inline">\(N(\mu,\sigma)\)</span> es
+<span class="math display">\[
+\mu\pm 1.96\sigma.
+\]</span>
+Y como este 1.96 a menudo se aproxima por 2, el intervalo de referencia del 95% se simplifica a
+<span class="math display">\[
+\mu\pm 2\sigma.
+\]</span>
+Esto dice, básicamente, que</p>
+<blockquote>
+<p>si una población sigue una distribución normal <span class="math inline">\(N(\mu,\sigma)\)</span>, un 95% de sus individuos tienen su valor de <span class="math inline">\(X\)</span> a distancia como máximo <span class="math inline">\(2\sigma\)</span> (“a dos sigmas”) de <span class="math inline">\(\mu\)</span>.</p>
+</blockquote>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-429" class="example"><strong>Ejemplo 11.4  </strong></span>Según la OMS, las alturas (en cm) de las mujeres europeas de 18 años siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál es el intervalo de alturas centrado en la media que contiene a la mitad las europeas de 18 años?</p>
+</div>
+<p>Fijaos en que, si llamamos <span class="math inline">\(X\)</span> a la variable aleatoria “Tomo una mujer europea de 18 años y mido su altura en cm”, lo que queremos saber es el intervalo centrado en su media, 163.1, tal que la probabilidad de que la altura de una europea de 18 años escogida al azar pertenezca a este intervalo sea 0.5. Es decir, el intervalo de referencia del 50% para <span class="math inline">\(X\)</span>.</p>
+<p>Nos dicen que <span class="math inline">\(X\)</span> es <span class="math inline">\(N(163.1,18.53)\)</span>. Si <span class="math inline">\(q=0.5\)</span>, entonces <span class="math inline">\((1+q)/2=0.75\)</span> y podemos calcular con R o una aplicación el 0.75-cuantil de una normal estándar. Da <span class="math inline">\(z_{0.75}=0.6745\)</span>.</p>
+<p>Por lo tanto, es el intervalo <span class="math inline">\(163.1\pm 0.6745\cdot 18.53\)</span>. Redondeando a mm, <span class="math inline">\([150.6, 175.6]\)</span>. Esto nos dice que la mitad de las mujeres europeas de 18 años miden entre 150.6 y 175.6.</p>
+<p>El <strong>z-score</strong> (<strong>z-valor</strong>, <strong>z-puntuación</strong>, <strong>z-puntaje</strong>…) de un valor <span class="math inline">\(x_0\in \mathbb{R}\)</span> respecto de una distribución <span class="math inline">\(N(\mu,\sigma)\)</span> es
+<span class="math display">\[
+\frac{x_0-\mu}{\sigma}
+\]</span></p>
+<p>Es decir, el z-score de <span class="math inline">\(x_0\)</span> es el resultado de “tipificar” <span class="math inline">\(x_0\)</span> en el sentido del Teorema <a href="variables-aleatorias-continuas.html#thm:comblinnormals">11.2</a>.2.</p>
+<p>Si la variable poblacional es normal, cuanto mayor es el valor absoluto del z-score de <span class="math inline">\(x_0\)</span>, más “raro” es <span class="math inline">\(x_0\)</span>; el signo nos dice si es más grande o más pequeño que el valor esperado <span class="math inline">\(\mu\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-430" class="example"><strong>Ejemplo 11.5  </strong></span>Recordad que, según la OMS, las alturas de las mujeres europeas de 18 años siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál sería el z-score de una jugadora de baloncesto de 18 años que midiera 191 cm?</p>
+</div>
+<p>Sería
+<span class="math display">\[ 
+\frac{191-163.1}{18.53}=1.5
+\]</span></p>
+<p>Esto se suele leer diciendo que la altura de esta jugadora está <em>1.5 sigmas por encima de la media</em>.</p>
+</div>
+</div>
+<div id="test-9" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> Test</h2>
+<p><strong>(1)</strong> Sea <span class="math inline">\(X\)</span> una variable aleatoria continua de función de densidad:
+<span class="math display">\[
+f_X(x)=\left\{\begin{array}{ll}
+0 &amp; \mbox{si $x&lt;0$}\\
+\frac{2\sqrt{2}}{\sqrt{\pi}} e^{-2x^2} &amp; \mbox{si $x\geqslant 0$}
+\end{array}
+\right.
+\]</span>
+¿Es cierto que <span class="math inline">\(P(X=1)=2\sqrt{2}e^{-2}/\sqrt{\pi}\)</span>?</p>
+<ol style="list-style-type: decimal">
+<li>Sí</li>
+<li>No: en realidad <span class="math inline">\(P(X=1)=\int_{-\infty}^1 \frac{2\sqrt{2}}{\sqrt{\pi}} e^{-2x^2}\,dx\)</span> pero no sé calcular esta integral, o sí sé calcularla, pero me da pereza hacerlo.</li>
+<li>Esto no es la función de densidad de una variable aleatoria continua, porque no es una función continua (en el 0 salta de 0 a <span class="math inline">\(2\sqrt{2}/\sqrt{\pi}\)</span>)</li>
+<li>Todas las otras respuestas son incorrectas</li>
+</ol>
+<p><strong>(2)</strong> <span class="math inline">\(X\)</span> una variable aleatoria continua de media <span class="math inline">\(\mu\)</span>. ¿Qué vale <span class="math inline">\(P(X=\mu)\)</span>?</p>
+<ol style="list-style-type: decimal">
+<li>0.5</li>
+<li><span class="math inline">\(\mu\)</span></li>
+<li>0</li>
+<li>Depende de la variable aleatoria</li>
+<li>Todas las otras respuestas son falsas</li>
+</ol>
+<p><strong>(3)</strong> <span class="math inline">\(X\)</span> una variable aleatoria continua de moda <span class="math inline">\(M\)</span>. ¿Qué vale <span class="math inline">\(P(X=M)\)</span>?</p>
+<ol style="list-style-type: decimal">
+<li>1</li>
+<li>0.5</li>
+<li>0</li>
+<li>Depende de la variable aleatoria, pero es estrictamente mayor que cualquier otro valor de <span class="math inline">\(P(X=x)\)</span></li>
+<li>Depende de la variable aleatoria, pero es el valor máximo de la función de densidad de <span class="math inline">\(X\)</span>.</li>
+<li>Todas las otras respuestas son falsas</li>
+</ol>
+<p><strong>(4)</strong> En una variable aleatoria discreta, su función de densidad (marca una única respuesta):</p>
+<ol style="list-style-type: decimal">
+<li>Es tal que su integral desde <span class="math inline">\(-\infty\)</span> es la función de distribución.</li>
+<li>Mide lo denso que es su dominio.</li>
+<li>Aplicada a un par de números reales, nos da la probabilidad de obtener valores dentro del intervalo definido por dichos números.</li>
+<li>Aplicada a un número real, nos da da la probabilidad de obtener dicho número.</li>
+<li>Aplicada a un número real, nos da la probabilidad de obtener un valor menor o igual que dicho número.</li>
+</ol>
+<p><strong>(5)</strong> Sea <span class="math inline">\(Z\)</span> una variable aleatoria normal estándar. Marca las afirmaciones verdaderas.</p>
+<ol style="list-style-type: decimal">
+<li>Es asimétrica a la izquierda.</li>
+<li>Su media es 1.</li>
+<li>Su desviación típica es 0.</li>
+<li>Su varianza es 1.</li>
+<li>Su mediana es 0.</li>
+</ol>
+<p><strong>(6)</strong> Sea <span class="math inline">\(X\)</span> una variable aleatoria <span class="math inline">\(N(\mu,\sigma)\)</span> y <span class="math inline">\(f_X\)</span> su función de densidad. ¿Qué vale el área entre la curva <span class="math inline">\(y=f_X(x)\)</span> y el eje de abscisas?</p>
+<ol style="list-style-type: decimal">
+<li>0</li>
+<li><span class="math inline">\(\mu\)</span></li>
+<li><span class="math inline">\(\sigma\)</span></li>
+<li>1<br />
+</li>
+<li>Todas las otras respuestas son falsas</li>
+</ol>
+<p><strong>(7)</strong> Sea <span class="math inline">\(X\)</span> una variable aleatoria <span class="math inline">\(N(\mu,\sigma)\)</span> y <span class="math inline">\(f_X\)</span> su función de densidad. ¿Cuál de las afirmaciones siguientes es correcta?</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mu\)</span> es la media de <span class="math inline">\(X\)</span>, pero no su mediana</li>
+<li><span class="math inline">\(\mu\)</span> es la media y la mediana de <span class="math inline">\(X\)</span>, pero no su moda</li>
+<li><span class="math inline">\(\mu\)</span> es la media, la mediana y la moda de <span class="math inline">\(X\)</span>, pero no es verdad que <span class="math inline">\(P(X=\mu)&gt;P(X=a)\)</span> para todo <span class="math inline">\(a\neq \mu\)</span><br />
+</li>
+<li><span class="math inline">\(\mu\)</span> es la media, la mediana y la moda de <span class="math inline">\(X\)</span> y <span class="math inline">\(P(X=\mu)&gt;P(X=a)\)</span> para todo <span class="math inline">\(a\neq \mu\)</span></li>
+</ol>
+<p><strong>(8)</strong> ¿Qué distribución es la más adecuada para modelar el número anual de fallecimientos entre enfermos de cáncer tratados con una determinada quimioterapia? Marca una única respuesta.</p>
+<ol style="list-style-type: decimal">
+<li>Normal</li>
+<li>Binomial</li>
+<li>Poisson</li>
+<li>Uniforme acotada (todos los números de fallecimientos entre 0 y el número <span class="math inline">\(N\)</span> de enfermos de cáncer tratados con esta quimioterapia tienen la misma probabilidad)</li>
+</ol>
+<p><strong>(9)</strong> El FME (Flujo Máximo de Espiración) de las chicas de 11 años sigue una distribución aproximadamente normal de media 300 l/min y desviación típica 20 l/min. Marca las afirmaciones verdaderas:</p>
+<ol style="list-style-type: decimal">
+<li>Aproximadamente la mitad de las chicas de 11 años tienen un FME entre 280 l/min y 320 l/min.</li>
+<li>Alrededor del 95% de las chicas de 11 años tienen un FME entre 280 l/min y 320 l/min.</li>
+<li>Alrededor del 95% de las chicas de 11 años tienen un FME entre 260 l/min y 340 l/min.</li>
+<li>Alrededor del 5% de las chicas de 11 años tienen un FME inferior a 260 l/min.</li>
+<li>Ninguna chica de 11 años tiene FME superior a 360 l/min.</li>
+</ol>
+<p><strong>(10)</strong> En una muestra aleatoria extraída de población sana se encuentra que una variable bioquímica tiene media 90 y desviación típica 10. Si tomamos una muestra de individuos sanos ¿es razonable esperar que aproximadamente el 95% de ellos tengan un valor de esa variable comprendido entre 70 y 110? (marca todas las respuestas correctas):</p>
+<ol style="list-style-type: decimal">
+<li>Sí, siempre.</li>
+<li>No, nunca.</li>
+<li>Si la variable tiene distribución normal, entonces sí.</li>
+<li>Si la muestra es muy grande, entonces sí.</li>
+<li>Si la variable tiene distribución normal y la muestra es muy grande, entonces sí.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="variables-aleatorias-discretas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimadores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

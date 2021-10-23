@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lección 8 Descripción de datos ordinales | Bioestadística (Medicina UIB)</title>
+  <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lección 8 Descripción de datos ordinales | Bioestadística (Medicina UIB)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lección 8 Descripción de datos ordinales | Bioestadística (Medicina UIB)" />
+  
+  <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2021-10-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="descripción-de-datos-cualitativos.html"/>
+<link rel="next" href="descripción-de-datos-cuantitativos.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">INREMDN</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="part"><span><b>Tema I: Introducción a los estudios médicos y la estadística</b></span></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="estudios-médicos.html"><a href="estudios-médicos.html"><i class="fa fa-check"></i><b>2</b> Estudios médicos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="estudios-médicos.html"><a href="estudios-médicos.html#sec:pasos"><i class="fa fa-check"></i><b>2.1</b> Pasos de un estudio médico</a></li>
+<li class="chapter" data-level="2.2" data-path="estudios-médicos.html"><a href="estudios-médicos.html#algunos-calificativos-para-los-estudios-médicos"><i class="fa fa-check"></i><b>2.2</b> Algunos calificativos para los estudios médicos</a></li>
+<li class="chapter" data-level="2.3" data-path="estudios-médicos.html"><a href="estudios-médicos.html#estudios-descriptivos"><i class="fa fa-check"></i><b>2.3</b> Estudios descriptivos</a></li>
+<li class="chapter" data-level="2.4" data-path="estudios-médicos.html"><a href="estudios-médicos.html#sec:cyc"><i class="fa fa-check"></i><b>2.4</b> Estudios de casos y controles</a></li>
+<li class="chapter" data-level="2.5" data-path="estudios-médicos.html"><a href="estudios-médicos.html#estudios-de-cohorte"><i class="fa fa-check"></i><b>2.5</b> Estudios de cohorte</a></li>
+<li class="chapter" data-level="2.6" data-path="estudios-médicos.html"><a href="estudios-médicos.html#estudios-transversales"><i class="fa fa-check"></i><b>2.6</b> Estudios transversales</a></li>
+<li class="chapter" data-level="2.7" data-path="estudios-médicos.html"><a href="estudios-médicos.html#sec:ecol"><i class="fa fa-check"></i><b>2.7</b> Estudios ecológicos</a></li>
+<li class="chapter" data-level="2.8" data-path="estudios-médicos.html"><a href="estudios-médicos.html#ensayos-clínicos"><i class="fa fa-check"></i><b>2.8</b> Ensayos clínicos</a></li>
+<li class="chapter" data-level="2.9" data-path="estudios-médicos.html"><a href="estudios-médicos.html#a-modo-de-resumen"><i class="fa fa-check"></i><b>2.9</b> A modo de resumen</a></li>
+<li class="chapter" data-level="2.10" data-path="estudios-médicos.html"><a href="estudios-médicos.html#revisiones-sistemáticas-y-metaanálisis"><i class="fa fa-check"></i><b>2.10</b> Revisiones sistemáticas y metaanálisis</a></li>
+<li class="chapter" data-level="2.11" data-path="estudios-médicos.html"><a href="estudios-médicos.html#bonus-track-unos-criterios-de-causalidad"><i class="fa fa-check"></i><b>2.11</b> (Bonus track) Unos criterios de causalidad</a></li>
+<li class="chapter" data-level="2.12" data-path="estudios-médicos.html"><a href="estudios-médicos.html#bonus-track-preguntas-clínicas-en-formato-pico"><i class="fa fa-check"></i><b>2.12</b> (Bonus track) Preguntas clínicas en formato PICO</a></li>
+<li class="chapter" data-level="2.13" data-path="estudios-médicos.html"><a href="estudios-médicos.html#test"><i class="fa fa-check"></i><b>2.13</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html"><i class="fa fa-check"></i><b>3</b> Algunos conceptos básicos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#unidad-de-observación"><i class="fa fa-check"></i><b>3.1</b> Unidad de observación</a></li>
+<li class="chapter" data-level="3.2" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#población-y-muestra"><i class="fa fa-check"></i><b>3.2</b> Población y muestra</a></li>
+<li class="chapter" data-level="3.3" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:muestreo"><i class="fa fa-check"></i><b>3.3</b> Tipos básicos de muestreo</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:mas"><i class="fa fa-check"></i><b>3.3.1</b> Muestreo aleatorio con y sin reposición</a></li>
+<li class="chapter" data-level="3.3.2" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:sist"><i class="fa fa-check"></i><b>3.3.2</b> Muestreo sistemático</a></li>
+<li class="chapter" data-level="3.3.3" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:estr"><i class="fa fa-check"></i><b>3.3.3</b> Muestreo aleatorio estratificado</a></li>
+<li class="chapter" data-level="3.3.4" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:mcluster"><i class="fa fa-check"></i><b>3.3.4</b> Muestreo por conglomerados</a></li>
+<li class="chapter" data-level="3.3.5" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:oport"><i class="fa fa-check"></i><b>3.3.5</b> Muestreos no aleatorios</a></li>
+<li class="chapter" data-level="3.3.6" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:poli"><i class="fa fa-check"></i><b>3.3.6</b> Muestreo polietápico</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:sesgos"><i class="fa fa-check"></i><b>3.4</b> Sesgos</a></li>
+<li class="chapter" data-level="3.5" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#test-1"><i class="fa fa-check"></i><b>3.5</b> Test</a></li>
+</ul></li>
+<li class="part"><span><b>Tema II: Probabilidades</b></span></li>
+<li class="chapter" data-level="4" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html"><i class="fa fa-check"></i><b>4</b> Probabilidades elementales: Las mates</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#álgebra-de-conjuntos"><i class="fa fa-check"></i><b>4.1</b> Álgebra de conjuntos</a></li>
+<li class="chapter" data-level="4.2" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#algunas-fórmulas-básicas"><i class="fa fa-check"></i><b>4.2</b> Algunas fórmulas básicas</a></li>
+<li class="chapter" data-level="4.3" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#odds"><i class="fa fa-check"></i><b>4.3</b> Odds</a></li>
+<li class="chapter" data-level="4.4" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>4.4</b> Probabilidad condicionada</a></li>
+<li class="chapter" data-level="4.5" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#sucesos-independientes"><i class="fa fa-check"></i><b>4.5</b> Sucesos independientes</a></li>
+<li class="chapter" data-level="4.6" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#probabilidad-total"><i class="fa fa-check"></i><b>4.6</b> Probabilidad total</a></li>
+<li class="chapter" data-level="4.7" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#fórmula-de-bayes"><i class="fa fa-check"></i><b>4.7</b> Fórmula de Bayes</a></li>
+<li class="chapter" data-level="4.8" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#test-2"><i class="fa fa-check"></i><b>4.8</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html"><i class="fa fa-check"></i><b>5</b> Probabilidades elementales: Aplicaciones en medicina</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#pruebas-diagnósticas"><i class="fa fa-check"></i><b>5.1</b> Pruebas diagnósticas</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sensibilidad-especificidad-valores-predictivos-etc."><i class="fa fa-check"></i><b>5.1.1</b> Sensibilidad, especificidad, valores predictivos etc.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#curvas-roc"><i class="fa fa-check"></i><b>5.1.2</b> Curvas ROC</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:probaplic2"><i class="fa fa-check"></i><b>5.2</b> Riesgos</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:riesgosRR"><i class="fa fa-check"></i><b>5.2.1</b> Riesgos relativos y absolutos</a></li>
+<li class="chapter" data-level="5.2.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:riesgosCyC"><i class="fa fa-check"></i><b>5.2.2</b> <em>Odds ratios</em></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#tratamientos"><i class="fa fa-check"></i><b>5.3</b> Tratamientos</a></li>
+<li class="chapter" data-level="5.4" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#test-3"><i class="fa fa-check"></i><b>5.4</b> Test</a></li>
+</ul></li>
+<li class="part"><span><b>Tema II: Estadística descriptiva</b></span></li>
+<li class="chapter" data-level="6" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>6</b> Tipos de datos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#test-4"><i class="fa fa-check"></i><b>6.1</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html"><i class="fa fa-check"></i><b>7</b> Descripción de datos cualitativos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#sec:frecs"><i class="fa fa-check"></i><b>7.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="7.2" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#gráficos"><i class="fa fa-check"></i><b>7.2</b> Gráficos</a></li>
+<li class="chapter" data-level="7.3" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#tablas-de-frecuencias-multidimensionales"><i class="fa fa-check"></i><b>7.3</b> Tablas de frecuencias multidimensionales</a></li>
+<li class="chapter" data-level="7.4" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#sec:barrasbidim"><i class="fa fa-check"></i><b>7.4</b> Diagramas de barras bidimensionales</a></li>
+<li class="chapter" data-level="7.5" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#diagramas-de-mosaico"><i class="fa fa-check"></i><b>7.5</b> Diagramas de mosaico</a></li>
+<li class="chapter" data-level="7.6" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#test-5"><i class="fa fa-check"></i><b>7.6</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html"><i class="fa fa-check"></i><b>8</b> Descripción de datos ordinales</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#frecuencias-y-diagramas-de-barras"><i class="fa fa-check"></i><b>8.1</b> Frecuencias y diagramas de barras</a></li>
+<li class="chapter" data-level="8.2" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#test-6"><i class="fa fa-check"></i><b>8.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html"><i class="fa fa-check"></i><b>9</b> Descripción de datos cuantitativos</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#frecuencias"><i class="fa fa-check"></i><b>9.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="9.2" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>9.2</b> Medidas de tendencia central</a></li>
+<li class="chapter" data-level="9.3" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-posición"><i class="fa fa-check"></i><b>9.3</b> Medidas de posición</a></li>
+<li class="chapter" data-level="9.4" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>9.4</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="9.5" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#diagramas-de-puntos-y-de-caja"><i class="fa fa-check"></i><b>9.5</b> Diagramas de puntos y de caja</a></li>
+<li class="chapter" data-level="9.6" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#histogramas"><i class="fa fa-check"></i><b>9.6</b> Histogramas</a></li>
+<li class="chapter" data-level="9.7" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#polígonos-de-frecuencias"><i class="fa fa-check"></i><b>9.7</b> Polígonos de frecuencias</a></li>
+<li class="chapter" data-level="9.8" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#asimetría-y-curtosis"><i class="fa fa-check"></i><b>9.8</b> Asimetría y curtosis</a></li>
+<li class="chapter" data-level="9.9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#sec:estagrup"><i class="fa fa-check"></i><b>9.9</b> Estadísticos sobre datos agrupados</a></li>
+<li class="chapter" data-level="9.10" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#datos-cuantitativos-bivariantes"><i class="fa fa-check"></i><b>9.10</b> Datos cuantitativos bivariantes</a></li>
+<li class="chapter" data-level="9.11" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#gráficos-en-escala-logarítmica"><i class="fa fa-check"></i><b>9.11</b> Gráficos en escala logarítmica</a></li>
+<li class="chapter" data-level="9.12" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#test-7"><i class="fa fa-check"></i><b>9.12</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>10</b> Variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>10.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="10.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>10.2</b> Esperanza</a></li>
+<li class="chapter" data-level="10.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>10.3</b> Varianza y desviación típica</a></li>
+<li class="chapter" data-level="10.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>10.4</b> Cuantiles</a></li>
+<li class="chapter" data-level="10.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>10.5</b> Familias importantes de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>10.5.1</b> Variables aleatorias binomiales</a></li>
+<li class="chapter" data-level="10.5.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>10.5.2</b> Variables aleatorias hipergeométricas</a></li>
+<li class="chapter" data-level="10.5.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-de-poisson"><i class="fa fa-check"></i><b>10.5.3</b> Variables aleatorias de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-8"><i class="fa fa-check"></i><b>10.6</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>11</b> Variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#densidad-y-distribución-1"><i class="fa fa-check"></i><b>11.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="11.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>11.2</b> Esperanza, varianza, cuantiles…</a></li>
+<li class="chapter" data-level="11.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#sec:normal"><i class="fa fa-check"></i><b>11.3</b> Variables aleatorias normales</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#propiedades-básicas"><i class="fa fa-check"></i><b>11.3.1</b> Propiedades básicas</a></li>
+<li class="chapter" data-level="11.3.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#intervalos-de-referencia"><i class="fa fa-check"></i><b>11.3.2</b> Intervalos de referencia</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#test-9"><i class="fa fa-check"></i><b>11.4</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimadores.html"><a href="estimadores.html"><i class="fa fa-check"></i><b>12</b> Estimadores</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="estimadores.html"><a href="estimadores.html#la-media-muestral"><i class="fa fa-check"></i><b>12.1</b> La media muestral</a></li>
+<li class="chapter" data-level="12.2" data-path="estimadores.html"><a href="estimadores.html#la-proporción-muestral"><i class="fa fa-check"></i><b>12.2</b> La proporción muestral</a></li>
+<li class="chapter" data-level="12.3" data-path="estimadores.html"><a href="estimadores.html#la-varianza-muestral"><i class="fa fa-check"></i><b>12.3</b> La varianza muestral</a></li>
+<li class="chapter" data-level="12.4" data-path="estimadores.html"><a href="estimadores.html#la-distribución-t-de-student"><i class="fa fa-check"></i><b>12.4</b> La distribución t de Student</a></li>
+<li class="chapter" data-level="12.5" data-path="estimadores.html"><a href="estimadores.html#test-10"><i class="fa fa-check"></i><b>12.5</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html"><i class="fa fa-check"></i><b>13</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#definiciones-básicas"><i class="fa fa-check"></i><b>13.1</b> Definiciones básicas</a></li>
+<li class="chapter" data-level="13.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><i class="fa fa-check"></i><b>13.2</b> Un ejemplo: IC-95% para la media de una variable aleatoria normal</a></li>
+<li class="chapter" data-level="13.3" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><i class="fa fa-check"></i><b>13.3</b> Intervalo de confianza para la media basado en la t de Student</a></li>
+<li class="chapter" data-level="13.4" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-proporciones"><i class="fa fa-check"></i><b>13.4</b> Intervalos de confianza para proporciones</a></li>
+<li class="chapter" data-level="13.5" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#bonus-track-otros-intervalos-de-confianza"><i class="fa fa-check"></i><b>13.5</b> (Bonus track) Otros intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><i class="fa fa-check"></i><b>13.5.1</b> Un intervalo de confianza para la diferencia de proporciones</a></li>
+<li class="chapter" data-level="13.5.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>13.5.2</b> Intervalos de confianza para diferencias de medias</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#test-11"><i class="fa fa-check"></i><b>13.6</b> Test</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioestadística (Medicina UIB)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="descripción-de-datos-ordinales" class="section level1" number="8">
+<h1><span class="header-section-number">Lección 8</span> Descripción de datos ordinales</h1>
+<p>Los <strong>datos ordinales</strong> son parecidos a los cualitativos, en el sentido de que son cualidades de objetos o individuos. Su diferencia con los datos cualitativos está en que las características que expresan los datos ordinales tienen un orden natural que permite <strong>acumular</strong> observaciones, es decir, contar cuántas hay por debajo de cada nivel. Un caso frecuente son las escalas tipo <em>Likert</em>, que se usan para expresar el nivel de acuerdo o desacuerdo con una afirmación mediante respuestas cerradas.</p>
+
+<div class="example">
+<p><span id="exm:likert" class="example"><strong>Ejemplo 8.1  </strong></span>En una encuesta sobre la actitud de personal sanitario frente al dolor (M. E. Zanolin <em>et al</em>, “A questionnaire to evaluate the knowledge and attitudes of health care providers on pain”, <em>Journal of pain and symptom management</em> 33 (2007), pp. 727-736), se pidió el grado de conformidad con afirmaciones como:</p>
+<ul>
+<li><p>Como los narcóticos pueden causar depresión respiratoria, no se han de usar en pacientes pediátricos.</p></li>
+<li><p>Es útil dar de entrada un placebo al paciente que se queja de dolor para saber si realmente siente dolor.</p></li>
+</ul>
+<p>según la escala Likert siguiente:</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Nivel
+</th>
+<th style="text-align:left;">
+Significado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Muy en desacuerdo
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+En desacuerdo
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Neutral
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+De acuerdo
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Muy de acuerdo
+</td>
+</tr>
+</tbody>
+</table>
+<p>Las respuestas a este tipo de cuestionarios son números, pero no son datos cuantitativos, sino ordinales: meras abreviaturas de los diferentes grados de conformidad.</p>
+<p>Para más información sobre escalas Likert, podéis consultar <a href="http://es.wikipedia.org/wiki/Escalas_Likert">la correspondiente entrada de la Wikipedia</a>.</p>
+<div id="frecuencias-y-diagramas-de-barras" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Frecuencias y diagramas de barras</h2>
+<p>Cuando trabajamos con datos ordinales, el orden de los niveles de los datos permite calcular no sólo las frecuencias absolutas y relativas que veíamos en la lección anterior, y que para variables ordinales se definen del mismo modo, sino también frecuencias <strong>acumuladas</strong>. Es decir, no sólo podemos contar cuántas veces hemos observado un cierto nivel, sino también cuántas veces hemos observado un nivel menor o igual que él. Por lo tanto, su descripción estadística es la misma que para datos cualitativos, más:</p>
+<ul>
+<li><p><strong>Frecuencias absolutas acumuladas</strong>: El número de veces que aparece en la muestra un nivel menor o igual que el considerado.</p></li>
+<li><p><strong>Frecuencias relativas acumuladas</strong>: La fracción del total de la muestra que representan los niveles menores o iguales que el considerado.</p></li>
+</ul>
+<p>De nuevo, estas frecuencias acumuladas se pueden recoger en una <strong>tabla</strong> y representar en forma de <strong>diagrama de barras</strong> (con los niveles ordenados en orden creciente).</p>
+
+<div class="example">
+<span id="exm:ex1701bis" class="example"><strong>Ejemplo 8.2  </strong></span>Tenemos una muestra de 20 estudiantes de quienes sabemos la calificación que han sacado en un examen. Clasificamos estas calificaciones en Suspenso (<em>S</em>), Aprobado (<em>A</em>), Notable (<em>N</em>) y Sobresaliente (<em>E</em>) y consideramos su orden natural <em>S</em> &lt; <em>A</em> &lt; <em>N</em> &lt; <em>E</em>. Las calificaciones que han obtenido son las siguientes:
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="descripción-de-datos-ordinales.html#cb17-1" aria-hidden="true" tabindex="-1"></a>N, A, A, S, S, A, N, E, A, A, S, S, S, A, E, N, N, E, S, A</span></code></pre></div>
+<p>En esta lista hay 6 <em>S</em>, 7 <em>A</em>, 4 <em>N</em> y 3 <em>E</em>: éstas serían las frecuencias absolutas de las calificaciones en esta muestra de estudiantes. Por lo que se refiere a sus <strong>frecuencias absolutas acumuladas</strong>:</p>
+<ul>
+<li>Hay 6 estudiantes que han obtenido <em>S</em> o menos: la frecuencia acumulada de <em>S</em> es 6.</li>
+<li>Hay 13 estudiantes que han obtenido <em>A</em> o menos (6 <em>S</em> y 7 <em>A</em>): la frecuencia acumulada de <em>A</em> es 13.</li>
+<li>Hay 17 estudiantes que han obtenido <em>N</em> o menos (6 <em>S</em>, 7 <em>A</em> y 4 <em>N</em>): la frecuencia acumulada de <em>N</em> es 17.</li>
+<li>Hay 20 estudiantes que han obtenido <em>E</em> o menos (todos): la frecuencia acumulada de <em>E</em> es 20.</li>
+</ul>
+<p>La <strong>frecuencia relativa acumulada</strong> de cada calificación es la fracción del total de estudiantes que representa su frecuencia absoluta acumulada. Por ejemplo, la frecuencia relativa acumulada de notables es la proporción de estudiantes que han sacado un notable o menos, y, por lo tanto, es igual a la frecuencia absoluta acumulada de <em>N</em> dividida por el número total de estudiantes: 17/20=0.85. También se puede obtener “acumulando” las frecuencias relativas de las calificaciones menores o iguales que <em>N</em>: como hay un 30% de <em>S</em> (6 de 20), un 35% de <em>A</em> (7 de 20) y un 20% de <em>N</em> (4 de 20), la frecuencia relativa acumulada de <em>N</em> es 0.3+0.35+0.2=0.85, es decir, un 85%.</p>
+<p>Así pues, las frecuencias relativas acumuladas de las calificaciones en esta muestra son:</p>
+<ul>
+<li>Frecuencia relativa acumulada de <em>S</em>: 6/20=0.3.</li>
+<li>Frecuencia relativa acumulada de <em>A</em>: 13/20=0.65.</li>
+<li>Frecuencia relativa acumulada de <em>N</em>: 17/20=0.85.</li>
+<li>Frecuencia relativa acumulada de <em>E</em>: 20/20=1.</li>
+</ul>
+<p>Resumimos todos estos valores en la tabla siguiente:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Frecuencia absoluta
+</th>
+<th style="text-align:right;">
+Frecuencia relativa
+</th>
+<th style="text-align:left;">
+Porcentaje
+</th>
+<th style="text-align:right;">
+Frecuencia absoluta acumulada
+</th>
+<th style="text-align:right;">
+Frecuencia relativa acumulada
+</th>
+<th style="text-align:left;">
+Porcentaje acumulado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Suspenso
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+<td style="text-align:left;">
+30%
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+<td style="text-align:left;">
+30%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aprobado
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+<td style="text-align:left;">
+35%
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+0.65
+</td>
+<td style="text-align:left;">
+65%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Notable
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:left;">
+20%
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:left;">
+85%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sobresaliente
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.15
+</td>
+<td style="text-align:left;">
+15%
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+100%
+</td>
+</tr>
+</tbody>
+</table>
+
+<div class="example">
+<p><span id="exm:sexoger3" class="example"><strong>Ejemplo 8.3  </strong></span>Todos los ancianos recogidos en la tabla de datos del Ejemplo <a href="descripción-de-datos-cualitativos.html#exm:sexoger2">7.2</a> fueron diagnosticados con COVID-19 entre marzo y mayo de 2020. Vamos a ampliar dicha tabla de datos con información sobre la gravedad de su enfermedad, clasificada en cuatro niveles: Asintomática, Leve, Hospitalización (si requirió hospitalización pero no en UCI) y UCI. Consideraremos esta variable como ordinal, con sus niveles ordenados de esta manera.</p>
+</div>
+<p>La tabla de datos ampliada es la siguiente:</p>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tablager3">Tabla 8.1: </span>Tabla de datos de pacientes de residencias geriátricas
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Sexo
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Demencia Senil
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Cáncer de mama
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+COVID-19
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+Sí
+</td>
+<td style="text-align:left;">
+UCI
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Asintomática
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:left;">
+Sí
+</td>
+<td style="text-align:left;">
+Hospitalización
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+UCI
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:left;">
+Sí
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Hospitalización
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Asintomática
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Sí
+</td>
+<td style="text-align:left;">
+Asintomática
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Hospitalización
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+Mujer
+</td>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Hospitalización
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20
+</td>
+<td style="text-align:left;">
+Hombre
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Leve
+</td>
+</tr>
+</tbody>
+</table>
+<p>Entonces:</p>
+<ul>
+<li>La tabla de frecuencias absolutas de la variable <em>COVID-19</em> es:
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+COVID-19
+</th>
+<th style="text-align:right;">
+Frecs.
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Asintomática
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leve
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hospitalización
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UCI
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table></li>
+<li>Su tabla de frecuencias relativas:
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+COVID-19
+</th>
+<th style="text-align:right;">
+Frecs.
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Asintomática
+</td>
+<td style="text-align:right;">
+0.15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leve
+</td>
+<td style="text-align:right;">
+0.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hospitalización
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UCI
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+</tr>
+</tbody>
+</table></li>
+<li>Su tabla de frecuencias absolutas acumuladas:
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+COVID-19
+</th>
+<th style="text-align:right;">
+Frecs. Acum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Asintomática
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leve
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hospitalización
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UCI
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table></li>
+<li>Su tabla de frecuencias relativas acumuladas:
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+COVID-19
+</th>
+<th style="text-align:right;">
+Frecs. Acum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Asintomática
+</td>
+<td style="text-align:right;">
+0.15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leve
+</td>
+<td style="text-align:right;">
+0.70
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hospitalización
+</td>
+<td style="text-align:right;">
+0.90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UCI
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+</tbody>
+</table></li>
+<li>Su diagrama de barras de frecuencias absolutas acumuladas:</li>
+</ul>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-239-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Su diagrama de barras de frecuencias relativas acumuladas:</li>
+</ul>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-240-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>La tabla bidimensional de frecuencias absolutas de las variables Demencia Senil y COVID-19:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Asintomática
+</th>
+<th style="text-align:right;">
+Leve
+</th>
+<th style="text-align:right;">
+Hospitalización
+</th>
+<th style="text-align:right;">
+UCI
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Su tabla de frecuencias relativas acumuladas dentro de cada nivel de demencia senil:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Asintomática
+</th>
+<th style="text-align:right;">
+Leve
+</th>
+<th style="text-align:right;">
+Hospitalización
+</th>
+<th style="text-align:right;">
+UCI
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Alzheimer
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.625
+</td>
+<td style="text-align:right;">
+0.875
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Otros
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:right;">
+0.750
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:right;">
+0.750
+</td>
+<td style="text-align:right;">
+0.875
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>El diagrama de barras yuxtapuestas de esta última tabla:</li>
+</ul>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-243-1.png" width="50%" style="display: block; margin: auto;" /></p>
+
+<div class="rmdexercici">
+Calculad la tabla bidimensional de frecuencias relativas acumuladas de los niveles de gravedad de la COVID-19 en cada sexo, y representad esta tabla por medio de un diagrama de barras yuxtapuestas adecuado.
+</div>
+
+<div class="rmdexercici">
+<p>En el estudio del ejercicio al final de la Sección <a href="descripción-de-datos-cualitativos.html#sec:barrasbidim">7.4</a>, entre los 60 enfermos hubo 12 de 40 años o menos, 3 entre 41 y 50 años, 15 entre 51 y 60 años y 30 de más de 60 años, mientras que los que no presentaron la enfermedad fueron, en estas franjas de edad, 29, 21, 17 y 18, respectivamente. Dad:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Un diagrama de barras bidimensional que muestre las frecuencias relativas de las diferentes franjas de edad en enfermos y en sanos.</p></li>
+<li><p>Un diagrama de barras bidimensional que muestre las frecuencias relativas acumuladas de las diferentes franjas de edad en enfermos y en sanos.</p></li>
+</ol>
+</div>
+</div>
+<div id="test-6" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Test</h2>
+<p><strong>(1)</strong> ¿Cuál es el valor con mayor frecuencia relativa acumulada en un conjunto de datos ordinales?</p>
+<ol style="list-style-type: decimal">
+<li>La moda del conjunto de datos.</li>
+<li>El relativamente más frecuente.</li>
+<li>El primer dato obtenido.<br />
+</li>
+<li>El último dato obtenido.<br />
+</li>
+<li>El mayor dato obtenido.</li>
+<li>Ninguna de las respuestas anteriores es correcta.</li>
+</ol>
+<p><strong>(2)</strong> A lo largo de un año se atendieron lesiones en la enfermería de un centro de secundaria con la siguiente distribución de gravedad: 26 muy leves, 28 leves, 15 moderadas, 8 graves y 3 muy graves. ¿Cuál es la frecuencia relativa acumulada del nivel de gravedad “Moderada”?</p>
+<ol style="list-style-type: decimal">
+<li>0.1875</li>
+<li>0.8625</li>
+<li>0.325</li>
+<li>0.2174</li>
+<li>0.69</li>
+<li>Ninguna de las anteriores.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="descripción-de-datos-cualitativos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="descripción-de-datos-cuantitativos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
