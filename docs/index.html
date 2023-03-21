@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Bioestadística (Medicina UIB)</title>
   <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Bioestadística (Medicina UIB)" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
   <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
@@ -21,9 +20,10 @@
   <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
   
 
+<meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2021-12-12" />
+<meta name="date" content="2023-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,6 @@
   
 
 <link rel="next" href="introducción.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -151,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="estudios-médicos.html"><a href="estudios-médicos.html#ensayos-clínicos"><i class="fa fa-check"></i><b>2.8</b> Ensayos clínicos</a></li>
 <li class="chapter" data-level="2.9" data-path="estudios-médicos.html"><a href="estudios-médicos.html#a-modo-de-resumen"><i class="fa fa-check"></i><b>2.9</b> A modo de resumen</a></li>
 <li class="chapter" data-level="2.10" data-path="estudios-médicos.html"><a href="estudios-médicos.html#revisiones-sistemáticas-y-metaanálisis"><i class="fa fa-check"></i><b>2.10</b> Revisiones sistemáticas y metaanálisis</a></li>
-<li class="chapter" data-level="2.11" data-path="estudios-médicos.html"><a href="estudios-médicos.html#bonus-track-unos-criterios-de-causalidad"><i class="fa fa-check"></i><b>2.11</b> (Bonus track) Unos criterios de causalidad</a></li>
+<li class="chapter" data-level="2.11" data-path="estudios-médicos.html"><a href="estudios-médicos.html#sec:causalidad"><i class="fa fa-check"></i><b>2.11</b> (Bonus track) Unos criterios de causalidad</a></li>
 <li class="chapter" data-level="2.12" data-path="estudios-médicos.html"><a href="estudios-médicos.html#bonus-track-preguntas-clínicas-en-formato-pico"><i class="fa fa-check"></i><b>2.12</b> (Bonus track) Preguntas clínicas en formato PICO</a></li>
 <li class="chapter" data-level="2.13" data-path="estudios-médicos.html"><a href="estudios-médicos.html#test"><i class="fa fa-check"></i><b>2.13</b> Test</a></li>
 </ul></li>
@@ -170,106 +170,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#sec:sesgos"><i class="fa fa-check"></i><b>3.4</b> Sesgos</a></li>
 <li class="chapter" data-level="3.5" data-path="algunos-conceptos-básicos.html"><a href="algunos-conceptos-básicos.html#test-1"><i class="fa fa-check"></i><b>3.5</b> Test</a></li>
-</ul></li>
-<li class="part"><span><b>Tema II: Probabilidades</b></span></li>
-<li class="chapter" data-level="4" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html"><i class="fa fa-check"></i><b>4</b> Probabilidades elementales: Las mates</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#álgebra-de-conjuntos"><i class="fa fa-check"></i><b>4.1</b> Álgebra de conjuntos</a></li>
-<li class="chapter" data-level="4.2" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#algunas-fórmulas-básicas"><i class="fa fa-check"></i><b>4.2</b> Algunas fórmulas básicas</a></li>
-<li class="chapter" data-level="4.3" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#odds"><i class="fa fa-check"></i><b>4.3</b> Odds</a></li>
-<li class="chapter" data-level="4.4" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>4.4</b> Probabilidad condicionada</a></li>
-<li class="chapter" data-level="4.5" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#sucesos-independientes"><i class="fa fa-check"></i><b>4.5</b> Sucesos independientes</a></li>
-<li class="chapter" data-level="4.6" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#probabilidad-total"><i class="fa fa-check"></i><b>4.6</b> Probabilidad total</a></li>
-<li class="chapter" data-level="4.7" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#fórmula-de-bayes"><i class="fa fa-check"></i><b>4.7</b> Fórmula de Bayes</a></li>
-<li class="chapter" data-level="4.8" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#test-2"><i class="fa fa-check"></i><b>4.8</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html"><i class="fa fa-check"></i><b>5</b> Probabilidades elementales: Aplicaciones en medicina</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#pruebas-diagnósticas"><i class="fa fa-check"></i><b>5.1</b> Pruebas diagnósticas</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sensibilidad-especificidad-valores-predictivos-etc."><i class="fa fa-check"></i><b>5.1.1</b> Sensibilidad, especificidad, valores predictivos etc.</a></li>
-<li class="chapter" data-level="5.1.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#curvas-roc"><i class="fa fa-check"></i><b>5.1.2</b> Curvas ROC</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:probaplic2"><i class="fa fa-check"></i><b>5.2</b> Riesgos</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:riesgosRR"><i class="fa fa-check"></i><b>5.2.1</b> Riesgos relativos y absolutos</a></li>
-<li class="chapter" data-level="5.2.2" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#sec:riesgosCyC"><i class="fa fa-check"></i><b>5.2.2</b> <em>Odds ratios</em></a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#tratamientos"><i class="fa fa-check"></i><b>5.3</b> Tratamientos</a></li>
-<li class="chapter" data-level="5.4" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#test-3"><i class="fa fa-check"></i><b>5.4</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>6</b> Variables aleatorias discretas</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>6.1</b> Densidad y distribución</a></li>
-<li class="chapter" data-level="6.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>6.2</b> Esperanza</a></li>
-<li class="chapter" data-level="6.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>6.3</b> Varianza y desviación típica</a></li>
-<li class="chapter" data-level="6.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>6.4</b> Cuantiles</a></li>
-<li class="chapter" data-level="6.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>6.5</b> Familias importantes de variables aleatorias discretas</a>
-<ul>
-<li class="chapter" data-level="6.5.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>6.5.1</b> Variables aleatorias binomiales</a></li>
-<li class="chapter" data-level="6.5.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>6.5.2</b> Variables aleatorias hipergeométricas</a></li>
-<li class="chapter" data-level="6.5.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-de-poisson"><i class="fa fa-check"></i><b>6.5.3</b> Variables aleatorias de Poisson</a></li>
-</ul></li>
-<li class="chapter" data-level="6.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-4"><i class="fa fa-check"></i><b>6.6</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>7</b> Variables aleatorias continuas</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#densidad-y-distribución-1"><i class="fa fa-check"></i><b>7.1</b> Densidad y distribución</a></li>
-<li class="chapter" data-level="7.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>7.2</b> Esperanza, varianza, cuantiles…</a></li>
-<li class="chapter" data-level="7.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#sec:normal"><i class="fa fa-check"></i><b>7.3</b> Variables aleatorias normales</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#propiedades-básicas"><i class="fa fa-check"></i><b>7.3.1</b> Propiedades básicas</a></li>
-<li class="chapter" data-level="7.3.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#intervalos-de-referencia"><i class="fa fa-check"></i><b>7.3.2</b> Intervalos de referencia</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#test-5"><i class="fa fa-check"></i><b>7.4</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="estimadores.html"><a href="estimadores.html"><i class="fa fa-check"></i><b>8</b> Estimadores</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="estimadores.html"><a href="estimadores.html#la-media-muestral"><i class="fa fa-check"></i><b>8.1</b> La media muestral</a></li>
-<li class="chapter" data-level="8.2" data-path="estimadores.html"><a href="estimadores.html#la-proporción-muestral"><i class="fa fa-check"></i><b>8.2</b> La proporción muestral</a></li>
-<li class="chapter" data-level="8.3" data-path="estimadores.html"><a href="estimadores.html#la-varianza-muestral"><i class="fa fa-check"></i><b>8.3</b> La varianza muestral</a></li>
-<li class="chapter" data-level="8.4" data-path="estimadores.html"><a href="estimadores.html#la-distribución-t-de-student"><i class="fa fa-check"></i><b>8.4</b> La distribución t de Student</a></li>
-<li class="chapter" data-level="8.5" data-path="estimadores.html"><a href="estimadores.html#test-6"><i class="fa fa-check"></i><b>8.5</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html"><i class="fa fa-check"></i><b>9</b> Intervalos de confianza</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#definiciones-básicas"><i class="fa fa-check"></i><b>9.1</b> Definiciones básicas</a></li>
-<li class="chapter" data-level="9.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><i class="fa fa-check"></i><b>9.2</b> Un ejemplo: IC-95% para la media de una variable aleatoria normal</a></li>
-<li class="chapter" data-level="9.3" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><i class="fa fa-check"></i><b>9.3</b> Intervalo de confianza para la media basado en la t de Student</a></li>
-<li class="chapter" data-level="9.4" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-proporciones"><i class="fa fa-check"></i><b>9.4</b> Intervalos de confianza para proporciones</a></li>
-<li class="chapter" data-level="9.5" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#bonus-track-otros-intervalos-de-confianza"><i class="fa fa-check"></i><b>9.5</b> (Bonus track) Otros intervalos de confianza</a>
-<ul>
-<li class="chapter" data-level="9.5.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><i class="fa fa-check"></i><b>9.5.1</b> Un intervalo de confianza para la diferencia de proporciones</a></li>
-<li class="chapter" data-level="9.5.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>9.5.2</b> Intervalos de confianza para diferencias de medias</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#test-7"><i class="fa fa-check"></i><b>9.6</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>10</b> Contrastes de hipótesis</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#hipótesis-nula-y-alternativa"><i class="fa fa-check"></i><b>10.1</b> Hipótesis nula y alternativa</a></li>
-<li class="chapter" data-level="10.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:moneda"><i class="fa fa-check"></i><b>10.2</b> Un ejemplo</a></li>
-<li class="chapter" data-level="10.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:pval"><i class="fa fa-check"></i><b>10.3</b> El p-valor</a></li>
-<li class="chapter" data-level="10.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#tipo-de-errores"><i class="fa fa-check"></i><b>10.4</b> Tipo de errores</a></li>
-<li class="chapter" data-level="10.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:exttest"><i class="fa fa-check"></i><b>10.5</b> Ejemplo: El test t</a></li>
-<li class="chapter" data-level="10.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#recapitulación"><i class="fa fa-check"></i><b>10.6</b> Recapitulación</a>
-<ul>
-<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#intervalo-de-confianza-de-un-contraste"><i class="fa fa-check"></i>Intervalo de confianza de un contraste</a></li>
-<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#la-potencia"><i class="fa fa-check"></i>La potencia</a></li>
-<li><a href="contrastes-de-hipótesis.html#resultados-estadísticamente-significativos-versus-resultados-clínicamente-significativos">Resultados estadísticamente significativos <em>versus</em> resultados clínicamente significativos</a></li>
-<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#bonus-track-el-riesgo-de-falso-positivo"><i class="fa fa-check"></i>(Bonus track) El riesgo de falso positivo</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#test-8"><i class="fa fa-check"></i><b>10.7</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html"><i class="fa fa-check"></i><b>11</b> Contrastes de hipótesis uni- y biparamétricos</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-para-medias"><i class="fa fa-check"></i><b>11.1</b> Contrastes para medias</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#test-t-para-una-media"><i class="fa fa-check"></i><b>11.1.1</b> Test t para una media</a></li>
-<li class="chapter" data-level="11.1.2" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#tests-t-para-dos-medias"><i class="fa fa-check"></i><b>11.1.2</b> Tests t para dos medias</a></li>
-<li class="chapter" data-level="11.1.3" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#tests-no-paramétricos"><i class="fa fa-check"></i><b>11.1.3</b> Tests no paramétricos</a></li>
-<li class="chapter" data-level="11.1.4" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#ejemplos"><i class="fa fa-check"></i><b>11.1.4</b> Ejemplos</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-de-varianzas"><i class="fa fa-check"></i><b>11.2</b> Contrastes de varianzas</a></li>
 </ul></li>
 </ul>
 
@@ -290,18 +190,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Bioestadística (Medicina UIB)</h1>
-<p class="date"><em>2021-12-12</em></p>
+<p class="author"><em>Irene García, Francesc Rosselló</em></p>
+<p class="date"><em>2023-03-21</em></p>
 </div>
-<div id="presentación" class="section level1 unnumbered">
-<h1>Presentación</h1>
-<p>Esto es una edición en línea de los apuntes de <em>Introducción a la Investigación en Salud y Bioestadística</em> del grado de Medicina de la UIB. Este trabajo se publica bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Atribución-No Comercial-SinDerivados 4.0</a></p>
-<p>Estos apuntes están permanentemente en construcción. En la lista siguiente iremos anunciando las actualizaciones:</p>
-<ul>
-<li>2021-11-29: Modificada la organización de los apuntes en dos partes; subida la (según el nuevo contador) lección 14.</li>
-<li>2021-10-20: Subida la lección 13.</li>
-<li>2021-09-15: Subidas las lecciones 1 a 12.</li>
-</ul>
-<p>El libro está escrito en <em>R Markdown</em>, usando <em>RStudio</em> como editor de textos y el paquete <strong>bookdown</strong> para convertir los ficheros <em>markdown</em> en un libro.</p>
+<div id="presentación" class="section level1 unnumbered hasAnchor">
+<h1>Presentación<a href="index.html#presentación" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Esto es una edición en línea de los apuntes de <em>Introducción a la Investigación en Salud y Bioestadística</em> del grado de Medicina de la UIB. El libro está escrito en <em>R Markdown</em>, usando <em>RStudio</em> como editor de textos y el paquete <strong>bookdown</strong> para convertir los ficheros <em>markdown</em> en un libro. Este trabajo se publica bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Atribución-No Comercial-SinDerivados 4.0</a>.</p>
 <p><strong>Significado de algunas cajas</strong>:</p>
 
 <div class="rmdimportant">
@@ -407,7 +301,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

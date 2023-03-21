@@ -1,5 +1,6 @@
 --- 
 title: "Bioestadística (Medicina UIB)"
+author: "Irene García, Francesc Rosselló"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
@@ -18,6 +19,7 @@ description: "Apunts Bioestadística per a Medicina bookdown::gitbook."
 
 
 ```{r global_options,  include=FALSE}
+rm(list = ls())
 library(knitr)
 library(kableExtra)
 library(pander)
@@ -31,7 +33,7 @@ knitr::opts_chunk$set(
   echo=TRUE, 
   warning=FALSE, 
   message=FALSE,
-  cache=TRUE
+  cache=FALSE
 #  tidy.opts=list(width.cutoff=60),
 #  tidy=TRUE
 )
@@ -43,23 +45,11 @@ gctorture(FALSE)
 
 ```{r,  include=FALSE}
 par(cex.main=0.9,cex.axis=0.8,cex.lab=0.8)
+set.seed(2022)
 ```
 
-Esto es una edición en línea de los apuntes de *Introducción a la Investigación en Salud y Bioestadística* del grado de Medicina de la UIB. Este trabajo se publica bajo licencia [Atribución-No Comercial-SinDerivados 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
- 
-Estos apuntes están permanentemente en construcción. En la lista siguiente iremos anunciando las actualizaciones:
+Esto es una edición en línea de los apuntes de *Introducción a la Investigación en Salud y Bioestadística* del grado de Medicina de la UIB. El libro está escrito en *R Markdown*, usando *RStudio* como editor de textos y el paquete **bookdown** para convertir los ficheros *markdown* en un libro. Este trabajo se publica bajo licencia [Atribución-No Comercial-SinDerivados 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
-
-
-```{r, include=FALSE, echo=FALSE, out.width="40%"}
-knitr::include_graphics("INREMDN_files/figure-html/picard-facepalm.png")
-```
-
-* 2021-11-29: Modificada la organización de los apuntes en dos partes; subida la (según el nuevo contador) lección 14.
-* 2021-10-20: Subida la lección 13.
-* 2021-09-15: Subidas las lecciones 1 a 12.
-
-El libro está escrito en *R Markdown*, usando *RStudio* como editor de textos y el paquete **bookdown** para convertir los ficheros *markdown* en un libro.
 
 
 **Significado de algunas cajas**:
