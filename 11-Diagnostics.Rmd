@@ -9,11 +9,11 @@ En medicina, las probabilidades (recordad, las proporciones de sujetos de una po
 * **Tasa** de algo: Sinónimo de la "proporción" o la "fracción" de ese algo en algún "total" (por ejemplo, en una población durante un período de tiempo). Así:
 
     
-    * Al hablar de incidencia, a veces se usa el término **tasa de incidencia** de una enfermedad para indicar la proporción de casos nuevos de esa enfermedad en una población (sana) en un cierto periodo de tiempo, y por lo tanto es la probabilidad de que un individuo sano  coja esa enfermedad durante ese período.
+    * Al hablar de incidencia, a veces se usa el término **tasa de incidencia** de una enfermedad para indicar la proporción de casos nuevos de esa enfermedad en una población (sana) en un periodo determinado de tiempo, y por lo tanto es la probabilidad de que un individuo sano  coja esa enfermedad durante ese período.
 
     * La **tasa de mortalidad** de una enfermedad es la proporción de individuos de una población que mueren a causa de esa enfermedad en un período determinado de tiempo, y por tanto la probabilidad de que un individuo de esa población muera por esa enfermedad en ese período.
     
-    * La **tasa de letalidad** de una enfermedad es la proporción de enfermos (de esa enfermedad, se entiende) en una población que mueren a causa de esa enfermedad en un período determinado de tiempo, y por tanto la probabilidad de que un enfermo muera por esa enfermedad en ese período. 
+    * La **tasa de letalidad** de una enfermedad es la proporción de enfermos (de esa enfermedad) en una población que mueren a causa de esa enfermedad en un período determinado de tiempo, y por tanto la probabilidad de que un enfermo muera por esa enfermedad en ese período. 
     
 ```{block2,type="rmdnote"}
 La tasa de letalidad es la tasa de mortalidad **condicionada** a tener la enfermedad.
@@ -31,14 +31,14 @@ En el artículo ["Incidencia, prevalencia y mortalidad del cáncer renal en Espa
 
 En todos los casos se trata de estimaciones de  probabilidades. Se estima que:
 
-* La probabilidad de que un hombre sano enfermara de cáncer de riñón en 1998 fue de 11.92/100000=0.0001192 y en 2022 será de 0.000157.
+* La probabilidad de que un hombre sano enfermara de cáncer de riñón en 1998 fue de 11.92/100000=0.0001192 y en 2022 iba a ser de 0.000157.
 
-* La probabilidad de que un hombre tuviera cáncer de riñón en 1998 fue de  0.00072842  y  en 2022 será  de 0.0009447.
+* La probabilidad de que un hombre tuviera cáncer de riñón en 1998 fue de  0.00072842  y  en 2022 iba a ser   de 0.0009447.
 
-* La probabilidad de que un hombre muriera de cáncer de riñón en 1998 fue de  0.0000577  y  en 2022 será  de 0.0000729.
+* La probabilidad de que un hombre muriera de cáncer de riñón en 1998 fue de  0.0000577  y  en 2022 iba a ser   de 0.0000729.
     
 ```{block2,type="rmdexercici"}
-Leído en el [MallorcaDiario.com](https://www.mallorcadiario.com/mortalidad-coronavirus-baleares-tasa): "La tasa de mortalidad a causa del COVID-19 en Baleares fue del 1.06 por ciento frente al 2.17 por ciento a nivel nacional [...]. En el caso de personas mayores de 74, la tasa de mortalidad de Baleares (12.74 por ciento) está casi diez puntos porcentuales por debajo que la media nacional de personas de a misma edad, que llegó hasta el 22.34 por ciento."
+Leído en el [MallorcaDiario.com](https://www.mallorcadiario.com/mortalidad-coronavirus-baleares-tasa): "La tasa de mortalidad a causa del COVID-19 en Baleares fue del 1.06 por ciento frente al 2.17 por ciento a nivel nacional [...]. En el caso de personas mayores de 74, la tasa de mortalidad de Baleares (12.74 por ciento) está casi diez puntos porcentuales por debajo que la media nacional de personas de la misma edad, que llegó hasta el 22.34 por ciento."
 
 ¿De qué están hablando realmente, de la tasa de mortalidad de la COVID-19 o de su tasa de letalidad?
 ```
@@ -49,7 +49,7 @@ Leído en el [MallorcaDiario.com](https://www.mallorcadiario.com/mortalidad-coro
 ## Pruebas diagnósticas
 
 
-Una **prueba diagnóstica** es cualquier tecnología que pueda servir para detectar un signo que se relacione con la patología de interés. Por ejemplo, un test de embarazo, una determinación del nivel de un marcador tumoral, una prueba para detectar la presencia de un virus o una bacteria en el organismo, etc.
+Una **prueba diagnóstica** es cualquier proceso que se use para detectar en un individuo la presencia de una cierta condición, usualmente una patología. Por ejemplo, un test de embarazo, una determinación del nivel de un marcador tumoral, una prueba para detectar la presencia de un virus o una bacteria en el organismo, seleccionar unas cartas del tarot, etc.
 
 En la práctica, se suelen distinguir dos tipos de pruebas diagnósticas, de las que se esperan capacidades diagnósticas diferentes:
 
@@ -71,6 +71,11 @@ Por desgracia, casi nunca se tiene una prueba diagnóstica cien por cien segura 
 ```{r elcomercio, echo=FALSE, out.width="60%", fig.cap="Noticia aparecida en  El Comercio el 8/01/2018: https://www.elcomercio.es/asturias/preso-dado-muerto-20180108012648-ntvo.html."}
 knitr::include_graphics("INREMDN_files/figure-html/lazaro1.png")
 ```
+
+```{block2,type="rmdnote"}
+En medicina, se llama **patognómico** (etimológicamente, que permite saber (gnomónico) que se tiene una enfermedad (patos)) a un síntoma que implique con total seguridad que se tiene la enfermedad, es decir, a una prueba diagnóstica tal que todos los que dan positivo están enfermos. Pero cuidado: un síntoma patognómico garantiza la enfermedad, pero se puede tener la enfermedad sin presentar el síntoma patognómico. 
+```
+
 
 ### Sensibilidad, especificidad, valores predictivos etc.
 
@@ -110,7 +115,7 @@ $$
 $$
 Por ejemplo, el pobre preso dado por muerto sería un falso positivo en una prueba diagnóstica de muerte (positivo si estás muerto) y un falso negativo en una prueba diagnóstica de vida  (positivo si estás vivo).
 
-Entonces, para una prueba diagnóstica:
+Dada una prueba diagnóstica:
 
 * Su **sensibilidad** es la probabilidad de que dé positivo sobre un individuo enfermo. Es decir, $P(+|E)$.
 
@@ -155,7 +160,7 @@ Recordad el Ejemplo \@ref(exm:VIH995), en el que teníamos un test para el VIH q
 ```
  
 
-Algunas definiciones más. Para una prueba diagnóstica:
+Algunas definiciones más. Dada una prueba diagnóstica:
 
 * Su **valor predictivo positivo** (**VPP**)  es la probabilidad de que, si da positivo, el individuo esté enfermo. Es decir, $P(E|+)$.
 
@@ -188,7 +193,7 @@ $$
 $$
 
 ```{example, antiendomisio}
-En el artículo ["Sensibilidad y especificidad de los exámenes de anticuerpos antigliadina y antiendomisio"](http://www.scielo.edu.uy/scielo.php?pid=S1688-12492002000200003&script=sci_arttext&tlng=en) (W. Lozano *et al*, *Archivos de Pediatría del Uruguay* 73 (2002), pp. 69-73) se estimaron la sensibilidad y la especificidad de las dos técnicas analíticas mencionadas en su título para  diagnosticar la enfermedad celíaca en niños.  Para ello se tomaron un grupo de 50 niños celíacos y un grupo de control de 15 niños no celíacos y se les aplicaron dichas pruebas diagnósticas. En el artículo se incluye la tabla que copiamos en la Figura \@ref(fig:espe2), donde los niños se clasificaron en celíacos y no celíacos mediante el diagnóstico de referencia, una biopsia de intestino delgado.
+En el artículo ["Sensibilidad y especificidad de los exámenes de anticuerpos antigliadina y antiendomisio"](http://www.scielo.edu.uy/scielo.php?pid=S1688-12492002000200003&script=sci_arttext&tlng=en) (W. Lozano *et al*, *Archivos de Pediatría del Uruguay* 73 (2002), pp. 69-73) se estimaron la sensibilidad y la especificidad de las dos técnicas analíticas mencionadas en su título para  diagnosticar la enfermedad celíaca en niños.  Para ello se tomaron un grupo de 50 niños celíacos y un grupo de control de 15 niños no celíacos y se les aplicaron dichas pruebas diagnósticas. La clasificación en celíacos y no celíacos se llevó a cabo mediante el diagnóstico de referencia, una biopsia de intestino delgado. En el artículo se incluye la tabla que copiamos en la Figura \@ref(fig:espe2).
 
 *(a)* ¿Qué estimamos que valen la especificidad y la sensibilidad de cada una de las dos pruebas de anticuerpos estudiadas?
   
@@ -390,22 +395,28 @@ Una nueva prueba de diagnóstico rápido de una enfermedad rara, de una prevalen
 
 Vamos a añadir algunos términos más sobre probabilidades relacionados con una prueba diagnóstica:
 
+* Su **tasa de positividad** es la probabilidad $P(+)$ de que dé positivo, es decir, la proporción de sujetos de la población total en los que da positivo. Por el Teorema de la probabilidad total, esta tasa de positividad es
+$$
+P(+)=P(+|E)\cdot P(E)+P(+|S)\cdot P(S)
+$$
+y por lo tanto depende de la prevalencia de la enfermedad.  
+
 * Su **exactitud** (**global**) es la probabilidad de acertar el diagnóstico, es decir, la proporción de sujetos de la población total en los que el diagnóstico acierta: $P(E\cap +)+P(S\cap -)$.
 
-    Fijaos en que esta exactitud es igual a $P(+|E)\cdot P(E)+P(-|S)\cdot P(S)$ y por lo tanto depende de la prevalencia de la enfermedad.  
+    Fijaos en que esta exactitud es igual a $P(+|E)\cdot P(E)+P(-|S)\cdot P(S)$ y por lo tanto también depende de la prevalencia de la enfermedad.  
     
 ```{block2,type="rmdcaution"}
 La exactitud **no es** $P(+|E)+P(-|S)$ ni $P(E|+)+P(S|-)$. Estas sumas no son la proporción de nada.
 ```
 
-* Su **cociente de verosimilitud** (*likelihood ratio*, en inglés) **positivo**, $\text{LR}(+)$, es cuántas veces es más probable  un diagnóstico positivo sobre  un enfermo  que sobre un sano. Es decir
+* Su **razón de verosimilitud** (*likelihood ratio*, en inglés) **positiva**, $\text{LR}(+)$, es cuántas veces es más probable  un diagnóstico positivo sobre  un enfermo  que sobre un sano. Es decir
 $$
 \text{LR}(+)=\dfrac{P(+|E)}{P(+|S)}=\dfrac{\text{sensibilidad}}{1-\text{especificidad}}
 $$
-     Un valor de $\text{LR}(+)$ por encima de 10 se toma como indicador de buen potencial diagnóstico para detectar la enfermedad. Por el contrario, un valor de $\text{LR}(+)$ cercano a 1 indica una prueba inútil: si dar positivo sobre un enfermo tiene aproximadamente la misma probabilidad que sobre un sano, los sucesos $+$ y $E$ son aproximadamente independientes.
+     Un valor de $\text{LR}(+)$ por encima de 10 se toma como indicador de buen potencial diagnóstico para detectar la enfermedad. Por el contrario, un valor de $\text{LR}(+)$ cercano a 1 indica una prueba inútil: si dar positivo sobre un enfermo tiene más o menos la misma probabilidad que sobre un sano, los sucesos $+$ y $E$ son aproximadamente independientes.
      
 ```{block2,type="rmdcaution"}
-No confundáis el cociente de verosimilitud positivo $\text{LR}(+)$ con las *odds* de dar positivo entre los enfermos
+No confundáis la razón de verosimilitud positiva $\text{LR}(+)$ con las *odds* de dar positivo entre los enfermos
 $$
 \text{Odds}(+|E)= \dfrac{P(+|E)}{P(-|E)}
 $$
@@ -417,7 +428,7 @@ $$
 ```
      
 
-* Su **cociente de verosimilitud negativo**, $\text{LR}(-)$, es cuántas veces es más probable  un diagnóstico negativo sobre un enfermo  que sobre un sano. Es decir
+* Su **razón de verosimilitud negativa**, $\text{LR}(-)$, es cuántas veces es más probable  un diagnóstico negativo sobre un enfermo  que sobre un sano. Es decir
 $$
 \text{LR}(-)=\dfrac{P(-|E)}{P(-|S)}=\dfrac{1-\text{sensibilidad}}{\text{especificidad}}
 $$
@@ -438,6 +449,15 @@ Volviendo al Ejemplo \@ref(exm:antiendomisio), habíamos obtenido que:
 
 Entonces:
 
+* Su **tasa de positividad** en Uruguay es 
+$$
+\begin{array}{rl}
+P(+)\!\!\!\!\! & =P(+|E)\cdot P(E)+P(+|S)\cdot P(S)\\
+& =0.94\cdot \dfrac{1}{64}+\dfrac{1}{15}\cdot \dfrac{63}{64}=0.0803
+\end{array}
+$$
+    Un 8.03% de los niños uruguayos dan positivo en el   test AAE.
+
 * Su **exactitud** en Uruguay es  
 $$
 \begin{array}{rl}
@@ -447,11 +467,11 @@ P(E\cap +)+P(S\cap -)\!\!\!\!\! & =P(+|E)\cdot P(E)+P(-|S)\cdot P(S)\\
 $$
     La  prueba de anticuerpos antiendomisio acierta en un 93.34% de los niños uruguayos.
 
-* Su **cociente de verosimilitud positivo** es
+* Su **razón de verosimilitud positiva** es
 $$
 \text{LR}(+)=\dfrac{P(+|E)}{P(+|S)}=\frac{0.94}{1/15}=14.1
 $$
-    y su **cociente de verosimilitud negativo** es
+    y su **razón de verosimilitud negativa** es
 $$
 \text{LR}(-)=\dfrac{P(-|E)}{P(-|S)}=\frac{0.06}{14/15}=0.064
 $$
@@ -514,14 +534,14 @@ Sospechamos que un paciente tiene tuberculosis, y decidimos hacerle  un test PCR
 
 *(b)* Por la sintomatología que presenta y la prevalencia local de la tuberculosis, asignáis *a priori* a vuestro paciente una probabilidad del 40% de tener tuberculosis. Para esta probabilidad de tener la enfermedad, calculad el VPP y el VPN de esta prueba.
 
-*(c)* ¿Cuáles eran las *odds* de tener tuberculosis que le asignabais a este enfermo antes de realizar la prueba? Si da positivo en el test PCR, ¿cuáles son las *odds* de tener tuberculosis que le asignáis tras dicho positivo? Traducidlas a una probabilidad.
+*(c)* ¿Cuáles eran las *odds* de tener tuberculosis que le asignabais a este enfermo antes de realizar la prueba? Si da positivo en el test PCR, ¿cuáles son las *odds* de tener tuberculosis que le asignáis tras dicho positivo? Traducidlas a una probabilidad. ¿Coincide con el VPP del apartado anterior? ¿Debería?
 
 ```
 
 
 
 ```{block2,type="rmdromans"}
-¿Nueve palabras para describir aspectos de una prueba diagnóstica? Pues preparaos, que vienen curvas. Literalmente. Lo sentimos, una parte importante de esta asignatura es aprender el vocabulario que se usa al aplicar estadística en medicina. Ya lo dice el autor de Reglas Médicas, la medicina es un idioma. 
+¿Nueve palabras para describir aspectos de una prueba diagnóstica? Pues preparaos, que vienen curvas. Literalmente. Lo sentimos, una parte importante de esta asignatura es aprender el vocabulario que se usa al aplicar estadística en medicina. Ya lo dice el autor de Reglas Médicas: 
 ```
 
 
@@ -597,7 +617,7 @@ Vamos a dibujar una curva ROC. El artículo ["Age-specific reference ranges for 
 knitr::include_graphics("INREMDN_files/figure-html/tablapsaglobal.png")
 ```
 
-La curva ROC se obtiene uniendo puntos de la forma (1-especificidad,sensibilidad). Vamos a calcular estos puntos para la subpoblación de hombres blancos entre 50 y 59 años, que es la que más nos preocupa. Vamos a añadir el nivel PSA 0: como todo el mundo va a dar positivo, tendrá sensibilidad 1 y especificidad 0.
+La curva ROC se obtiene uniendo puntos de la forma (1-especificidad,sensibilidad). Vamos a calcular estos puntos para la subpoblación de hombres blancos entre 50 y 59 años. Vamos a añadir el nivel PSA 0: como todo el mundo va a dar positivo, tendrá sensibilidad 1 y especificidad 0.
 
 $$
 \begin{array}{c|ccc}
@@ -621,7 +641,7 @@ $$
 \end{array}
 $$
 
-La Figura \@ref(fig:ROCama1) muestra la curva ROC que corresponde a estos valores. En ella los puntos aparecen de izquierda a derecha en orden ascendente en la tabla, es decir en orden descendente del umbral de PSA. Para ayudar a comprender mejor el gráfico, al lado de cada punto hemos anotado el valor de PSA al que corresponde y hemos estirado verticalmente el gráfico para que se puedan leer los valores de corte altos en la esquina inferior izquierda de la curva.
+La Figura \@ref(fig:ROCama1) muestra la curva ROC que corresponde a estos valores. En ella los puntos aparecen de izquierda a derecha en orden ascendente en la tabla, es decir en orden descendente del umbral de PSA. Para ayudar a comprender mejor el gráfico, al lado de cada punto hemos anotado el valor de PSA al que corresponde y hemos estirado verticalmente el gráfico para que se puedan leer los valores de corte altos en la esquina inferior izquierda.
 
 ```{r ROCama1,echo=FALSE,out.width="75%",fig.cap="Curva ROC de los niveles de PSA entre 0 y 15 como diagnóstico del cáncer de próstata en hombres blancos de 50 a 59 años.",fig.asp=1.5}
 X=matrix(c(1,1,
@@ -648,7 +668,7 @@ text(X[,1]+0.02,X[,2],col="red",cex=0.5,labels=0:15)
 
 
 ```{block2,type="rmdimportant"}
-La curva ROC representa la sensibilidad de la prueba en función de su tasa de falsos positivos. Es decir, si asumimos  una cierta tasa de falsos positivos $x$, el punto de la curva ROC en la vertical de $x$ nos da la sensibilidad que obtendremos. La curva ROC no representa la sensibilidad en función del valor de corte.
+La curva ROC **no** representa la sensibilidad de la prueba en función del valor de corte. Lo que representa la curva ROC es la sensibilidad en función de la tasa de falsos positivos. Es decir, para cada tasa de falsos positivos $x$, el punto de la curva ROC en la vertical de $x$ nos da la sensibilidad que obtendremos tomando como umbral el valor para el que la tasa de falsos positivos es $x$. 
 ```
 
 
@@ -656,7 +676,10 @@ Una de las aplicaciones de la curva ROC es ayudar a decidir qué valor de corte 
 $$
 P(+_{v_o}|E)+P(-_{v_o}|S)=\text{sensibilidad}_{v_o}+\text{especificidad}_{v_o}
 $$
-sea máxima (esta suma menos 1 tiene nombre: es el **índice de Youden** del test definido por el valor de corte $v_0$). Recordemos que, para cada punto de la curva ROC,
+sea máxima. Esta suma menos 1 tiene nombre: es el **índice de Youden** del test definido por el valor de corte $v_0$.
+
+
+Recordemos que, para cada punto de la curva ROC,
 
 * Su distancia al eje vertical izquierdo $x=0$ es 1 menos la especificidad.
 
@@ -720,7 +743,7 @@ knitr::include_graphics("INREMDN_files/figure-html/roc3.png")
 ```
 
 
-La **capacidad discriminatoria global** de una prueba diagnóstica se mide con su **Área Bajo la Curva ROC** (abreviada **AUC**, de *area under the curve*,  en inglés). Este valor es, como su nombre indica, el área comprendida entre la curva ROC y el eje de abscisas $y=0$ entre $x=0$ y $x=1$. Representa el **valor promedio de la sensibilidad** para todos los valores de corte de la prueba 
+La **capacidad discriminatoria global** de una prueba diagnóstica se mide con su **Área Bajo la Curva ROC** (abreviada **AUC**, de *area under the curve*,  en inglés). Este valor es, como su nombre indica, el área comprendida entre la curva ROC y el eje de abscisas $y=0$ entre $x=0$ y $x=1$. Representa el **valor promedio de la sensibilidad** para todos los valores de corte de la prueba.
 
 ```{block2,type="rmdcorbes"}
 Los que visteis integrales en Matemáticas II del Bachillerato tendríais que recordar que esta área se obtiene integrando entre 0 y 1 la función que define la curva, y que la integral dividida por la longitud de la base, que en este caso es 1, es el valor promedio de la función sobre el intervalo. Por lo tanto, para ser precisos, el AUC es el **valor promedio de la sensibilidad como función de la tasa de falsos positivos**, pero tampoco importa hilar tan fino.
@@ -751,18 +774,6 @@ knitr::include_graphics("INREMDN_files/figure-html/rocnavarra.png")
 ```
 
 
-```{block2,type="rmdexercici"}
-Hablando de vocabulario, en el MIR 2017 pidieron lo siguiente. Un signo **patognomónico** supone:	
-
-1. Una sensibilidad del 100%.
-1. Un área bajo la curva (AUC) de 1.
-1. Un valor predictivo positivo del 100%. 
-1. Un elevado número de falsos positivos.
-
-¡Lo que hay que saber para ser médico! (**Pista**: Viene de *pathos*, enfermedad, como en "patología", y *gnomonicos*, "que permite decidir, discerner").
-
-```
-
 
 
 ## Riesgos {#sec:probaplic2}
@@ -771,7 +782,7 @@ Como ya hemos comentado, en estudios médicos las probabilidades también aparec
 
 * El **desenlace**, que para simplificar identificaremos con **enfermedad**: $E$ será el suceso "estar enfermo" y $S$ "estar sano", de manera que $S=E^c$.
 
-* Su **exposición** a un factor de **R**iesgo: $R$ será el suceso "estar (o haber estado) expuesto al factor de riesgo" y $R^c$ su complementario.
+* Su **exposición** a un factor de **R**iesgo: $R$ será el suceso "haber estado expuesto al factor de riesgo" y $R^c$ su complementario.
 
 Podemos clasificar los sujetos de la población según estos dos pares de sucesos complementarios: 
 
@@ -789,7 +800,7 @@ R^c & \text{No expuestos} & \text{No expuestos} \\[-0.5ex]
 $$
 
 ```{block2,type="rmdnote"}
-Fijaos en que incluso las pruebas diagnósticas se podrían interpretar en términos de exposición y desenlace: el factor de riesgo sería estar enfermo, el desenlace dar positivo en el test. Pero el lenguaje sobre riesgos va a ser muy diferente del de las pruebas diagnósticas, y además es muy lioso que la enfermedad sea la exposición. Así que preferimos no mezclar y vamos a considerar las pruebas diagnósticas y los estudios de asociación entre una exposición y un desenlace como temas completamente diferentes.
+Fijaos en que incluso las pruebas diagnósticas se podrían interpretar en términos de exposición y desenlace: el factor de riesgo sería estar enfermo, el desenlace dar positivo en el test. Pero el lenguaje sobre riesgos va a ser muy diferente del de las pruebas diagnósticas, y además es muy lioso que la enfermedad sea la exposición. Así que preferimos no mezclar y vamos a considerar las pruebas diagnósticas y los estudios de asociación entre una exposición y un desenlace como situaciones completamente diferentes.
 ```
 
 Vamos a llamar:
@@ -845,16 +856,42 @@ $$
 
 Entonces:
 
-* RA=0.178-0.064=0.114: el ser fumador aumenta la probabilidad de contraer EPOC en 0.114.
-
 * RR=0.178/0.064=2.78: el ser fumador multiplica por 2.78 la probabilidad de contraer EPOC, es decir la incrementa un 178%.
+
+* RA=0.178-0.064=0.114: el ser fumador aumenta la probabilidad de contraer EPOC en 0.114. Como 0.114=11.4%, el ser fumador aumenta la probabilidad de contraer EPOC en un 11.4%.
+
+  
+```{block2,type="rmderror"}    
+¿Cómo puede un riesgo ser,  al mismo tiempo, un 178% mayor y un 11.4% mayor que el otro?
+  
+Lo de que "aumenta un 11.4%" es incorrecto. Si el RA es 0.114, el riesgo de EPOC entre los fumadores  **no es un 11.4% mayor que entre los no fumadores**.
+
+Que fuera un 11.4% mayor significaría que
+$$
+P(E|R)=P(E|R^c)+0.114\cdot P(E|R^c)
+$$
+pero en nuestro caso lo que tenemos es
+$$
+P(E|R)=P(E|R^c)+0.114.
+$$
+No es lo mismo.
+
+```
+    
+
+
+```{block2,type="rmdimportant"}
+¡Cuidado con cómo os expresáis! El riesgo de EPOC entre los no fumadores es del 6.4% y entre los fumadores es del 17.8%. Por lo tanto, el riesgo entre los fumadores es **11.4 puntos porcentuales mayor** que entre los no fumadores. Los RA se expresan en puntos porcentuales.
+
+
+```
 
 * El NND en este contexto sería el número de no fumadores que tendrían que empezar a fumar para añadir 1 caso de EPOC al número esperado de casos.
 ¿Cómo podemos calcularlo? 
 
-     Veamos, estimamos que, de media, de cada 1000 personas no fumadoras, 64 contraen EPOC, y de cada 1000 personas fumadoras, 178 contraen EPOC. Por lo tanto, si tomáramos 1000 personas no fumadoras y las hiciéramos fumar, el número esperado de casos de EPOC subiría de 64 a 178. Es decir, el número de casos **adicionales** de EPOC sería de 114. Fijaos en que estos casos de EPOC son los aportados por el fumar, ya que de las 178 personas fumadoras  que tendrían EPOC entre estas 1000, 64 habrían tenido EPOC aunque no fumaran.
+     Veamos, estimamos que, de media, de cada 1000 personas no fumadoras, 64 contraen EPOC, y de cada 1000 personas fumadoras, 178 contraen EPOC. Por lo tanto, si tomáramos 1000 personas no fumadoras y las hiciéramos fumar, el número esperado de casos de EPOC subiría de 64 a 178. Es decir, el número esperado de casos **adicionales** de EPOC sería de 114. Fijaos en que estos casos de EPOC son los aportados por el fumar, ya que de las 178 personas fumadoras  que tendrían EPOC entre estas 1000, 64 habrían tenido EPOC aunque no fumaran.
 
-    Tenemos por tanto que si 1000 no fumadores empiezan a fumar, esperamos 114 casos adicionales de EPOC. ¿Cuántos no fumadores tendrían que empezar a fumar para que esperáramos tener 1 caso adicional de EPOC? Haced la proporción. Si 1000  no fumadores que empiezan a fumar dan 114 casos adicionales de EPOC, el número NND de no fumadores que han de empezar a fumar para obtener 1 caso extra de EPOC es
+    Tenemos por tanto que si 1000 no fumadores empiezan a fumar, esperamos 114 casos adicionales de EPOC. ¿Cuántos no fumadores tendrían que empezar a fumar para que esperáramos tener 1 caso adicional de EPOC? Haced la proporción. Si 1000  no fumadores que empiezan a fumar dan lugar a 114 casos adicionales de EPOC, el número NND de no fumadores que han de empezar a fumar para obtener 1 caso extra de EPOC es
 $$
 \left.\begin{array}{ccc}
 1000 & \longleftrightarrow & 114\\ \mathit{NND} & \longleftrightarrow & 1
@@ -873,12 +910,12 @@ Recordad que cuando estimamos estos riesgos en un estudio observacional, solo se
 
 
 ```{example,sepsis1}
-En el estudio ["Exposición prolongada a antibióticos y riesgo de sepsis tardía (ST) en neonatos de 1000 a <1500 g: estudio de cohorte"](https://www.medigraphic.com/pdfs/gaceta/gm-2015/gm153d.pdf) (E. Briones *et al*, *Gaceta Médica de México* 151 (2015), pp. 306-12) se  tomó una cohorte de **expuestos** formada 49 recién nacidos de bajo peso y con infección perinatal que fueron tratados con antibióticos desde  su primer día y durante más de 5 días. Como cohorte **no expuesta** se tomó un grupo de 49 niños en la misma situación, pero con una duración del tratamiento de antibióticos de ≤ 5 días. Tanto unos como otros no tenían síntomas de sepsis al iniciar el tratamiento. Se les realizó un seguimiento para detectar la aparición de sepsis a partir del quinto día de vida (será lo que llamaremos sepsis tardía, ST, para abreviar).
+En el estudio ["Exposición prolongada a antibióticos y riesgo de sepsis tardía (ST) en neonatos de 1000 a <1500 g: estudio de cohorte"](https://www.medigraphic.com/pdfs/gaceta/gm-2015/gm153d.pdf) (E. Briones *et al*, *Gaceta Médica de México* 151 (2015), pp. 306-12) se  tomó una cohorte de **expuestos** formada 49 recién nacidos de bajo peso y con infección perinatal que fueron tratados con antibióticos desde  su primer día y durante más de 5 días. Como cohorte **no expuesta** se tomó un grupo de 49 niños en la misma situación, pero con una duración del tratamiento de antibióticos que no superó los 5 días. Tanto unos como otros no tenían síntomas de sepsis al iniciar el tratamiento. Se les realizó un seguimiento para detectar la aparición de sepsis a partir del quinto día de vida (será lo que llamaremos sepsis tardía, ST, para abreviar).
 
 
 ```
 
-Nuestra población de interés son recién nacidos de bajo peso con infección perinatal. Denotemos por $R$ el suceso "estar expuesto", es decir, recibir el tratamiento de antibióticos durante 5 o más días, y por $E$ el suceso "enfermar", es decir, desarrollar ST. En este estudio se obtuvo la tabla de frecuencias siguiente:
+Nuestra población de interés son recién nacidos de bajo peso con infección perinatal. Denotemos por $R$ el suceso "estar expuesto", es decir, recibir el tratamiento de antibióticos durante más de 5 días, y por $E$ el suceso "enfermar", es decir, desarrollar ST. En este estudio se obtuvo la tabla de frecuencias siguiente:
 $$
 \begin{array}{c|cc|c}
  & E & E^c & \text{Total}\\ \hline
@@ -897,39 +934,30 @@ P(E|R^c)=\frac{4}{49}=0.082
 $$
 Entonces:
 
+* $RA=\dfrac{32}{49}-\dfrac{4}{49}=\dfrac{28}{49}=0.571$.
+
+    El tratamiento con antibióticos durante más de 5 días aumenta en un 57.1%  el riesgo de ST.
+  
+```{block2,type="rmderror"}    
+¡Que no! **Aumenta 57.1 puntos porcentuales.**
+```
+   
+
 * $RR= \dfrac{32/49}{4/49}=8$.
     
     Entre los neonatos de bajo peso, el tratamiento con antibióticos durante más de 5 días  **multiplica por 8** el riesgo de ST, es decir, lo aumenta en un 700%.
 
-* $RA=\dfrac{32}{49}-\dfrac{4}{49}=\dfrac{28}{49}=0.571$.
 
-    El tratamiento con antibióticos durante más de 5 días aumenta en un 57.1%  el riesgo de ST.
-    
-```{block2,type="rmderror"}    
-¿Cómo puede un riesgo ser,  al mismo tiempo, un 700% mayor y un 57.1% mayor que el otro?
   
-Lo de que "aumente un 57.1%" es incorrecto. Si el RA es 0.571, el riesgo de ST entre los expuestos  **no es un 57.1% mayor que entre los no expuestos**.
-```
-    
-
-
-```{block2,type="rmdimportant"}
-¡Cuidado con cómo os expresáis! El riesgo de ST entre los no expuestos es del 8.2% y entre los expuestos es del 65.3%. Por lo tanto, el riesgo entre los expuestos es **57.1 puntos porcentuales mayor** que entre los no expuestos. No un 57.1% mayor.
-
-Que fuera un 57.1% mayor significaría que
-$$
-P(E|R)=P(E|R^c)+0.571\cdot P(E|R^c)
-$$
-pero en nuestro caso lo que tenemos es
-$$
-P(E|R)=P(E|R^c)+0.571.
-$$
-No es lo mismo.
-```
 
 * Falta el NND. De media, de cada 100 neonatos de bajo peso tratados con antibióticos ≤ 5 días, 8.2 sufren ST, y de cada 100 neonatos de bajo peso tratados con antibióticos > 5 días, 65.3 sufren ST. Por lo tanto, si tomamos 100 neonatos de bajo peso y en vez de tratarlos ≤ 5 días con antibiótico los tratamos > 5 días, el número esperado de casos de ST sube de 8.2 a 65.3. Es decir, si "exponemos" 100 niños, esperamos 57.1 casos de ST adicionales. 
 
-    Por lo tanto, para esperar 1 caso de ST adicional hay que "exponer" 100/57.1=1.75 recién nacidos. Este es el NND requerido: el número de neonatos de bajo peso que tendríamos que pasar de tratar  5 días o menos con antibióticos a tratarlos más de 5 días para tener un caso de ST adicional, en el sentido de que no se daría si no se los cambiara de tratamiento.
+    Por lo tanto, para esperar 1 caso de ST adicional hay que "exponer" 100/57.1=1.75 recién nacidos. Este es el NND requerido: el número de neonatos de bajo peso con infección perinatal que tendríamos que pasar de tratar  5 días o menos con antibióticos a tratarlos más de 5 días para tener un caso de ST adicional, en el sentido de que no se daría si no se les alargara el tratamiento.
+    
+```{block2,type="rmdnote"}
+De nuevo, seguramente alargar el tatamiento con antibióticos no es la **causa** de la sepsis tardía, sino que la causa es más bien la gravedad o persistencia de la infección que hacen necesario alargar el tratamiento. Pero lo que hemos estudiado es la relación entre la ST y la duración del tratamiento, y así tenemos que interpretar el NND.
+```
+
 
 ```{block2,type="rmdimportant"}
 Por si no habéis caído en la cuenta:
@@ -996,7 +1024,7 @@ La página ["Terapia hormonal en la menopausia y el riesgo de padecer cáncer"](
 
 * Las mujeres sometidas a terapia de reemplazo hormonal reducen su riesgo de cáncer colorectal a 10 años vista en un 50%. 
 
-* Las mujeres sometidas a terapia de reemplazo hormonal aumentan su riesgo de cáncer de mama en los próximos 10 años en 0.8 puntos porcentuales (8 de cada 1000).
+* Las mujeres sometidas a terapia de reemplazo hormonal aumentan su riesgo de cáncer de mama en los  10 años posteriores en 0.8 puntos porcentuales (8 de cada 1000).
 
 Parece que, en el cómputo global, la terapia de reemplazo hormonal previene los casos de cáncer, ¿verdad? Baja el riesgo de uno en un 50% y sube el riesgo de otro 0.8 puntos porcentuales. Pero no. 
 
@@ -1057,7 +1085,7 @@ Pongamos estos números en perspectiva:
 
 * El riesgo de TV durante o inmediatamente después del embarazo se estima en Europa de 71/100,000 (según el [*UpToDate* "Deep vein thrombosis in pregnancy: Epidemiology, pathogenesis, and diagnosis"](\url{http://www.uptodate.com/contents/deep-vein-thrombosis-in-pregnancy-epidemiology-pathogenesis-and-diagnosis)). Es decir, el riesgo de sufrir TV asociado a un embarazo es un 35% mayor que el de tenerla ese mismo año tomando los anticonceptivos de 3^a^ generación.   
 
-* El riesgo de TV durante los 42 días posteriores a un aborto inducido es de 30/100,000 abortos. Si hacéis la proporción, veréis que  el riesgo de sufrir una TV una mujer que tome anticonceptivos de 3^a^ generación durante un periodo de 42 días es de 6/100,000.
+* El riesgo de TV durante los 42 días posteriores a un aborto inducido es de 30/100,000 abortos. Si hacéis la proporción, veréis que  el riesgo de que una mujer que tome anticonceptivos de 3^a^ generación sufra una TV durante un periodo dado de 42 días  es de 6/100,000.
 
 Por lo tanto, el aumento de embarazos y abortos por miedo al riesgo de TV si se tomaba un anticonceptivo de 3^a^ generación de hecho aumentó  el riesgo de TV en la población femenina. 
 
@@ -1130,7 +1158,7 @@ En resumen, en un estudio de casos y controles en el que los números de casos y
 
 * Si $P(E)$ es muy pequeña, se tiene que $OR\approx RR$. 
   
-En todo caso, recordad    que si la muestra de sujetos usados en un estudio de casos y controles es representativa de la población, por ejemplo porque hemos tomado una muestra transversal y considerado como casos los enfermos que hemos encontrado y como cohortes los sanos, entonces no hace falta que nos compliquemos tanto la vida.  Podemos estimar con nuestra muestra $P(E)$, $P(R|E)$ y $P(R|E^c)$ y usando la fórmula de Bayes podemos obtener $P(E|R)$ y $P(E|R^c)$ y con ellos los riesgos absoluto y  relativo. 
+En todo caso, recordad    que si la muestra de sujetos usados en un estudio de casos y controles es representativa de la población, por ejemplo porque hemos tomado una muestra transversal y considerado como casos los enfermos que hemos encontrado y como controles los sanos, entonces no hace falta que nos compliquemos tanto la vida. Basándonos en esta muestra  podemos estimar  $P(E|R)$ y $P(E|R^c)$ y con ellas los RA y RR. 
 
 Dado que siempre es más sencillo entender un riesgo relativo que una *odds ratio*, **lo adecuado es calcular el RR siempre que se pueda, y solo calcular la OR cuando no haya más remedio.** Pero en los artículos científicos podéis encontrar de todo.
 
@@ -1178,7 +1206,7 @@ $$
  \end{array}
 $$
 
-El grupo de casos y controles se tomó con una composición específica, tres controles por caso, por lo que no podemos estimar riesgos de la enfermedad (resistencia de la  *P. aeruginosa*) en función de la exposición. No hay más remedio que calcular *odds ratios*. Para ello tenemos que extraer una tabla de frecuencias de expuestos y no expuestos entre sanos y controles. Lo haremos para la nutrición parenteral, dejamos como **ejercicio** calcularla para  haber tomado meropenem.
+El grupo de casos y controles se tomó con una composición específica, tres controles por caso, por lo que no podemos estimar riesgos de la enfermedad (resistencia de la  *P. aeruginosa*) en función de la exposición. No hay más remedio que calcular *odds ratios*. Para ello tenemos que extraer una tabla de frecuencias de expuestos y no expuestos entre sanos y controles. Lo haremos para la nutrición parenteral, dejamos como **ejercicio** calcularla para  el meropenem.
 
 
 La tabla de frecuencias para la nutrición parenteral es
@@ -1271,12 +1299,12 @@ Tenemos entonces las mismas tasas de riesgo que la sección anterior:
 
 Para compararlas, podemos dividirlas o restarlas. 
 
-*  **Riesgo relativo**, **RR**:  El cociente entre las probabilidades de desenlace negativo entre los tratados y entre los no tratados 
+*  **Riesgo relativo**, **RR**:  El cociente entre las probabilidades de desenlace negativo de los tratados y entre los no tratados 
 $$
 RR=\dfrac{P(E|T)}{P(E|T^c)}.
 $$
 
-*  **Reducción absoluta del riesgo**, **RAR**: La diferencia entre las probabilidades de desenlace positivo entre los tratados y entre los no tratados, que coincide con la diferencia entre las probabilidades de desenlace negativo entre los no tratados y entre los tratados:  
+*  **Reducción absoluta del riesgo**, **RAR**: La diferencia entre las probabilidades de desenlace positivo de los tratados y  los no tratados, que coincide con la diferencia entre las probabilidades de desenlace negativo de los no tratados y  los tratados:  
 $$
 \begin{array}{rl}
 RAR\!\!\!\! & =P(E^c|T)-P(E^c|T^c)\\
@@ -1288,21 +1316,21 @@ $$
 
 En el contexto de los tratamientos a veces se usa el cociente siguiente como alternativa al RR:
 
-*  **Reducción relativa del riesgo, RRR**: La fracción de la probabilidad de desenlace negativo entre los no tratados que representa la reducción absoluta del riesgo 
+*  **Reducción relativa del riesgo, RRR**: La fracción de la probabilidad de desenlace negativo de los no tratados que representa la reducción absoluta del riesgo 
 $$
 RRR=\dfrac{P(E|T^c)-P(E|T)}{P(E|T^c)}=1-RR.
 $$
 
 Además en el contexto de los tratamientos se usa, en vez del NND, el número siguiente:
 
-* **Número necesario para tratar** (**NNT**): número de pacientes que deberían empezar a recibir el tratamiento $T$ (en lugar del control $T^c$) para que, de media, un paciente **adicional** recibiera el beneficio (pasara de $E$ a $E^c$).
+* **Número necesario para tratar** (**NNT**): El número de pacientes que deberían empezar a recibir el tratamiento $T$ (en lugar del control $T^c$) para que, de media, un paciente **adicional** recibiera el beneficio (pasara de $E$ a $E^c$).
 
 Veamos un ejemplo concreto de NNT, para ayudar a entenderlo.
 
 ```{example}
-Imaginad la situación en la que con el tratamiento se cura el 30% de los enfermos y sin el tratamiento solo se cura el 10%. Es decir, $P(E|T)=0.7$ y $P(E|T^c)=0.9$. ¿A cuántos pacientes tendríamos que empezar a tratar, de media, para que se curara 1 paciente adicional (que no se curaría sin el tratamiento)?
+Imaginad la situación en la que con el tratamiento se cura el 30% de los enfermos y sin el tratamiento solo se cura el 10%. Es decir, $P(E|T)=0.7$ y $P(E|T^c)=0.9$. ¿A cuántos pacientes tendríamos que tratar de media para que se curara 1 paciente adicional (es decir, que no se curaría sin el tratamiento)?
      
-De media, por cada 100 pacientes, si los dejamos sin tratar se curan 10 y si los tratamos se curan 30. Por lo tanto, por cada 100 pacientes que pasamos de no tratados a tratados, se añaden de media 20 pacientes al conjunto de los curados. Es decir, cada 100 pacientes que tratamos significan,  de media, 20 curados adicionales (que se suman a los que se curarían sin necesidad de tratamiento). ¿Cuántos hemos de tratar para que tengamos 1 curado adicional?   Si 100 pacientes tratados dan 20 curados adicionales, el número NNT de pacientes tratados para obtener 1 curado extra es
+De media, por cada 100 pacientes, si los dejamos sin tratar se curan 10 y si los tratamos se curan 30. Por lo tanto, por cada 100 pacientes que tratamos, se añaden de media 20 pacientes al conjunto de los curados. Es decir, cada 100 pacientes que tratamos dan lugar,  de media, a 20 curados adicionales (que se suman a los que se curarían sin necesidad de tratamiento). ¿Cuántos hemos de tratar para que tengamos 1 curado adicional?   Si 100 pacientes tratados dan 20 curados adicionales, el número NNT de pacientes tratados para obtener 1 curado extra es
 $$
 NNT=\frac{100}{20}=5
 $$
@@ -1310,6 +1338,8 @@ $$
 ```
   
 El mismo argumento que para el NND y que el dado en el ejemplo anterior, prueba la siguiente igualdad:
+
+
 ```{theorem}  
 $NNT=1/RAR$.
 
@@ -1345,10 +1375,10 @@ Calculad los RR, RAR, RRR y NNT y explicad su significado.
 **Spoiler**: Si llamamos $E$ a desarrollar alguna enfermedad coronaria y $T$ a tomar gemfibrozil durante 5 años,
 
 * $P(E|T)=0.027$ y $P(E|T^c)=0.041$
-* RR=0.66. La administración de gemfibrozil reduce en un 34% el riesgo de enfermedad cardíaca.
-* RAR=0.014. La administración de gemfibrozil reduce en 1.4 puntos porcentuales el riesgo de enfermedad cardíaca.
-* RRR=0.34. La administración de gemfibrozil reduce en un 34% el riesgo  de enfermedad cardíaca.
-* NNT=71. De media, por cada 71 pacientes que tratamos con gemfibrozil evitamos 1 enfermedad cardíaca.
+* RR=0.66. La administración de gemfibrozil reduce en un 34% el riesgo de enfermedad coronaria.
+* RAR=0.014. La administración de gemfibrozil reduce en 1.4 puntos porcentuales el riesgo de enfermedad coronaria.
+* RRR=0.34. La administración de gemfibrozil reduce en un 34% el riesgo  de enfermedad coronaria.
+* NNT=71. De media, por cada 71 pacientes que tratamos con gemfibrozil evitamos 1 enfermedad coronaria.
 
 ```{example}
 En el estudio ["Completeness of reporting trial results: effect on physicians' willingness to prescribe."](https://www.sciencedirect.com/science/article/pii/S0140673694924074)(M.  Bobbio *et al*,  *The Lancet* 343 (1994), pp. 1209-1211) se explicó a 148 médicos los resultados que se habían obtenido en unos ensayos clínicos similares (controlados con placebo) sobre 4 tratamientos  para que decidieran para cada uno de ellos si lo recetarían para reducir el colesterol. Se les dijo que:
@@ -1561,4 +1591,13 @@ durante 5 años para evitar, de media, una muerte?
 1.  50 
 1.  1
 
+
+**(12)** En la lección hemos hablado de síntomas patognómicos. ¿Qué implica un síntoma patognómico? Marca todas las respuestas verdaderas.
+
+1. Una sensibilidad del 100%.
+1. Una especificidad del 100%.
+1. Un área bajo la curva (AUC) de 1.
+1. Un valor predictivo positivo del 100%. 
+1. Un valor predictivo negativo del 100%. 
+1. Una tasa de falsos positivos del 100%.
 

@@ -2,13 +2,13 @@
 
 
 
-# Tipos de datos
+# Tipos de datos {#sec:tiposdatos}
 
-En las lecciones que siguen  explicamos algunas técnicas básicas de estadística descriptiva. Estas técnicas consistirán en una serie de valores y gráficos que nos permitirán resumir y explorar un conjunto de datos, con el objetivo final de entenderlos lo mejor posible. 
+En las lecciones que siguen  explicamos algunas técnicas básicas de estadística descriptiva. Estas técnicas consistirán en una serie de valores y gráficos que nos permitirán resumir y explorar un conjunto de datos, con el objetivo final de entenderlos o describirlos lo mejor posible. 
 
 
 Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (**variables**) de una serie de individuos.
-Almacenamos estos datos en **tablas de datos** como la Tabla \@ref(tab:tabla1), donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5).  
+Almacenamos estos datos en **tablas de datos** como la Tabla \@ref(tab:tabla1), donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5).  
 
 ```{r,echo=FALSE,label=tabla1}
 DF=data.frame(Nombre=c("Marta","Laura","Xavier","Joan","Maria","Maria"),
@@ -37,8 +37,8 @@ En este curso vamos a "sobrecargar" el término **variable**, en el sentido de q
 
 Los tipos básicos de datos que consideramos en este curso son los siguientes:
 
-* Datos **cualitativos**. Son los que expresan una cualidad del individuo, tales como el sexo anatómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay,  bisexual, transexual, intersexual, asexual,  [sestosexual](https://twitter.com/GEldeanita/status/1297826424309649408)...),  tipos de cáncer (de mama, de colon, de próstata...)... 
-Si solo pueden tomar dos valores ("Sí" o "No",  "Macho" o  "Hembra"...) los llamamos **dicotómicos** y si pueden tomar más de dos valores, **politómicos** o **multicotómicos**, dependiendo de lo que queramos complicar el adjetivo. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar **niveles**.
+* Datos **cualitativos**. Son los que expresan una cualidad del individuo,  como por ejemplo el sexo anatómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay,  bisexual, transexual, intersexual, asexual,  [sestosexual](https://twitter.com/GEldeanita/status/1297826424309649408)...),  tipos de cáncer (de mama, de colon, de próstata...)... 
+Si solo pueden tomar dos valores ("Sí" o "No",  "Macho" o  "Hembra"...) los llamamos **binarios** o **dicotómicos** y si pueden tomar más de dos valores, **politómicos** o **multicotómicos**, dependiendo de lo que queramos complicar los adjetivose. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar **niveles**.
 
     Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación.
 
@@ -95,7 +95,7 @@ Hemos dicho que la variable "Cabello" es cualitativa. En principio, el color de 
 ```
 
 ```{block2,type="rmdnote"}
-La variable  "Refrescos semanales" es de un tipo de datos ordinales muy concreto que a veces se califican de **cuantitativos agrupados**: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable que mide el número preciso de refrescos semanales). Volveremos sobre este tipo de datos en la Sección \@ref(sec:estagrup).
+La variable  "Refrescos semanales" es de un tipo de datos ordinales muy concreto que a veces se califican de **cuantitativos agrupados**: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable discreta que mide el número preciso de refrescos semanales). Volveremos sobre este tipo de datos en la Sección \@ref(sec:estagrup).
 ```
 
 El análisis, tanto descriptivo como inferencial, de un conjunto de  datos es  diferente según su tipo. Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades. 
@@ -115,7 +115,7 @@ El análisis, tanto descriptivo como inferencial, de un conjunto de  datos es  d
 * El ser alcohólico (sí o no).
 * El nivel de alcoholismo (crónico, agudo, esporádico, neutro).
 * La concentración de alcohol en sangre (en g/ml).
-````
+```
 
 ## Test
 
