@@ -207,7 +207,7 @@ F_X(x) & =P(X\leqslant x)=P(X=0\text{ o }X=1\text{ o }X=2)\\ &  =f_X(0)+f_X(1)+f
         $$
 
 
-    * Si $3\leqslant x$, seguro que obtenemos un número de caras $\leqslant x$ y por lo tanto $F_X(x)=P(X\leqslant x)=1$.
+    * Si $x\geqslant 3$, seguro que obtenemos un número de caras $\leqslant x$ y por lo tanto $F_X(x)=P(X\leqslant x)=1$.
 
     Así pues, la función $F_X$ es  la función
 $$
@@ -296,9 +296,9 @@ E(X)=\sum_{x\in D_X} x\cdot f_X(x)
 $$
 A veces también la denotaremos por $\mu_X$.
 
-La interpretación natural de $E(X)$ es que es **la media de los valores de la  variable $X$ en el total de la población $\Omega$**. En efecto, como $P(X=x)$ es la proporción de los sujetos de  $\Omega$ en los que $X$ vale $x$, entonces 
+La interpretación natural de $E(X)$ es que es **la media de los valores de la  variable $X$ en el total de la población $\Omega$**. En efecto, como $f_X(x)=P(X=x)$ es la proporción de los sujetos de  $\Omega$ en los que $X$ vale $x$, entonces 
 $$
-E(X)=\sum_{x\in D_X} x\cdot P(X=x)
+E(X)=\sum_{x\in D_X} x\cdot f_X(x)
 $$
 es el promedio del valor de $X$ sobre todos los elementos de $\Omega$. Comparadlo con el ejemplo siguiente.
 
@@ -324,7 +324,11 @@ $$
 
 Aparte de su interpretación como "el promedio de $X$ en el total de la población", $E(X)$ es también el **valor esperado de $X$**, en el sentido siguiente:
   
-> Suponed que tomamos una muestra aleatoria de $n$ sujetos de la población, medimos $X$ sobre ellos y calculamos la media aritmética de los $n$ valores obtenidos. Entonces, cuando el tamaño $n$ de la muestra tiende a $\infty$, esta media aritmética tiende a valer $E(X)$ "casi siempre", en el sentido de que la probabilidad de que su límite sea $E(X)$ es 1.
+> Suponed que tomamos una muestra aleatoria de $n$ sujetos de la población, medimos $X$ sobre ellos y calculamos la media aritmética de los $n$ valores obtenidos. Entonces, cuando el tamaño $n$ de la muestra tiende a $\infty$, esta media aritmética tiende a valer $E(X)$ "casi seguro" (en el sentido de que la probabilidad de que su límite sea $E(X)$ es 1).
+
+```{block2,type="rmdcaution"} 
+Aquí probabilidad 1 no significa "total y absolutamente seguro", porque este límite va a ser una variable aleatoria continua, donde, como veremos en la próxima lección, probabiilidad 0 no significa imposible. Por ejemplo, si repetís muchas veces el proceso de lanzar una moneda equilibrada 3 veces, por pura mala suerte puede pasar que en todas las ocasiones saquéis tres caras. Casi seguro que no pasa, pero no podemos estar 100% seguros de que no pase, no es imposible. Como decimos por aquí, *n'hi ha que neixen estrellats.*
+```
 
 
 Es decir: si midiéramos $X$ sobre **muchos** sujetos elegidos al azar, **de media casi seguro que obtendríamos un valor muy próximo a $E(X)$**.
@@ -362,7 +366,7 @@ E(X^2)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2^2\cdot \frac{3}{8}+3^2\cdot \fra
 $$
 
 ```{block2,type="rmdcaution"} 
-En los dos últimos ejemplos hemos visto que si $X$ es la variable aleatoria que cuenta el número de caras en 3 lanzamientos de una moneda equilibrada, $E(X^2)=3$ pero $E(X)^2=1.5^2=2.25$. Por lo tanto, puede pasar que $E(X^2) \neq E(X)^2$. (De hecho, solo se da la igualdad $E(X^2)= E(X)^2$ cuando $X$ puede tomar un único valor, pero no vamos a entrar en tanto detalle.)
+En los dos últimos ejemplos hemos visto que si $X$ es la variable aleatoria que cuenta el número de caras en 3 lanzamientos de una moneda equilibrada, $E(X^2)=3$ pero $E(X)^2=1.5^2=2.25$. Por lo tanto, puede pasar que $E(X^2) \neq E(X)^2$. De hecho, es lo más común.
 
 Más en general, dada una aplicación $g:\mathbb{R}\to  \mathbb{R}$, lo usual es que $E(g(X))\neq g(E(X))$.
 
@@ -389,7 +393,7 @@ La esperanza de las variables aleatorias discretas tiene las propiedades siguien
       E(a_1X_1+\cdots +a_nX_n+b)=a_1E(X_1)+\cdots +a_nE(X_n)+b
       $$
 
-* La esperanza es **monótona creciente**: Si $X\leqslant Y$ (en el sentido de que el valor de $X$ sobre un sujeto de la población $\Omega$ siempre es menor o igual que el valor de $Y$ sobre el mismo sujeto), entonces $E(X)\leqslant E(Y)$.
+* La esperanza es **monótona creciente**: Si $X\leqslant Y$ (en el sentido de que, para cada sujeto de la población $\Omega$, su valor de $X$ es menor o igual que su valor de $Y$), entonces $E(X)\leqslant E(Y)$.
 
      Si todos sacáis mejor nota de Anatomía que de Bioestadística, la nota media de Anatomía será mayor que la de Bioestadística, ¿no?
 
@@ -477,6 +481,9 @@ $$
 $$
 ```
 
+```{block2,type="rmdnote"}
+Sumar un valor constante $b$ a una variable aleatoria no modifica su dispersión: si en un examen a todos los estudiantes les sumamos 1 punto, la media va a subir 1 punto pero la dispersión de las notas alrededor de esta media va a ser la misma que antes de sumarlo. 
+```
 
 * $\sigma(aX+b)=|a|\cdot \sigma(X)$ (recordad que la desviación típica es positiva, y $+\sqrt{a^2}=|a|$).
 
@@ -501,17 +508,13 @@ $$
 
 ## Cuantiles
 
-Sea $p$ tal que $0<p<1$. El **cuantil de orden $p$** (o **$p$-cuantil**) de una variable aleatoria $X$ discreta es el valor $x_p\in D_X$ tal que $P(X\leqslant x_p)\geqslant p$ pero $P(X< x_p)<p$. Es decir, es el menor valor de su dominio $D_X$ tal que $P(X\leqslant x_p)\geqslant p$.
+Sea $p$ tal que $0<p<1$. El **cuantil de orden $p$** (o **$p$-cuantil**) de una variable aleatoria $X$ discreta es el  menor valor $x_p$ de su dominio $D_X$ tal que $P(X\leqslant x_p)\geqslant p$; es decir, es el valor $x_p\in D_X$ tal que $P(X\leqslant x_p)\geqslant p$ pero $P(X< x_p)<p$. 
 
 
-Por ejemplo, que el 0.25-cuantil de una variable aleatoria discreta $X$ sea, yo qué sé, 8, significa que al menos una cuarta parte de la población tiene un valor de $X$ menor o igual que 8, pero estrictamente menos de un 25% de la población tiene un valor de $X$ estrictamente menor que 8.
+Por ejemplo, que el 0.25-cuantil de una variable aleatoria discreta $X$ sea, pongamos, 8, significa que 8 es el menor valor del dominio de $X$ tal que su probabilidad acumulada llega a (o pasa de) 0.25. En otras palabras, que  al menos una cuarta parte de la población tiene un valor de $X$ menor o igual que 8, pero estrictamente menos de un 25% de la población tiene un valor de $X$ estrictamente menor que 8.
 
 ```{block2,type="rmdnote"}
-Si existe algún $x_p\in D_X$ tal que $F_X(x_p)(=P(X\leqslant x_p))=p$, entonces el $p$-cuantil es ese $x_p$, porque, para todo otro $x\in D_x$:
-  
-* Si $x<x_p$, $P(X\leqslant x)<P(X\leqslant x_p)=F_X(x_p)=p$ y por lo tanto $x$ no puede ser el $p$-cuantil de $X$.
-* Si $x>x_p$, $p=P(X\leqslant x_p)\leqslant P(X<x)$,  y por lo tanto $x$ tampoco puede ser el $p$-cuantil de $X$.
-  
+Si existe algún $x_p\in D_X$ tal que $F_X(x_p)(=P(X\leqslant x_p))=p$, entonces el $p$-cuantil es ese $x_p$, porque si $x<x_p$, $P(X\leqslant x)<P(X\leqslant x_p)=F_X(x_p)=p$ y por lo tanto es el menor elemento del dominio con probabilidad acumulada al menos (en este caso, exactamente) $p$.
 ```
 
 
@@ -577,7 +580,7 @@ Aunque usamos "media", "varianza", "cuantiles", etc. tanto para muestras como pa
 
 ```
 
-Cuando queramos destacar que una media, una varianza etc. son las de una variable aleatoria sobre toda una población, los calificaremos de  **poblacionales**.
+Cuando queramos destacar que una media, una varianza etc. son las de una variable aleatoria y por lo tanto refieren a toda una población, los calificaremos de  **poblacionales**.
 
 
 ## Familias importantes de variables aleatorias discretas
@@ -594,17 +597,15 @@ Cada una de estas familias tienen un tipo específico de función de densidad, q
 De estas familias de variables tenéis que saber:
 
 * Distinguirlas: saber cuando una variable aleatoria es de una de estas familias.
-* Sus propiedades básicas, como por ejemplo cuáles son sus parámetros, cuál es su valor esperado y si su densidad es simétrica o presenta una cola a algún lado.
+* Sus propiedades más básicas, como por ejemplo cuáles son sus parámetros, cuál es su valor esperado y si su densidad es simétrica o presenta una cola a algún lado.
 * Usar algún programa o alguna aplicación para calcular cosas con ellas cuando sea necesario.
 
 ### Variables aleatorias binomiales
 
-Un **experimento de Bernoulli** es una acción con solo dos posibles resultados, que identificamos con "Éxito" ($E$) y "Fracaso" ($F$), y de la que, en principio, no podemos predecir su resultado debido a la influencia del azar. Por ejemplo, lanzar un dado cúbico y mirar si ha salido un 6 ($E$: sacar un 6; $F$: cualquier otro resultado). 
-
-La **probabilidad de éxito** $p$ de un experimento de Bernoulli es la probabilidad de obtener $E$. Es decir, $P(E)=p$. Naturalmente, entonces, $P(F)=1-p$. En el ejemplo del dado, donde $E$ es sacar un 6, $p=1/6$. 
+Un **experimento de Bernoulli** es una acción con solo dos posibles resultados, que identificamos con "Éxito" ($E$) y "Fracaso" ($F$). Por ejemplo, lanzar un dado cúbico y mirar si ha salido un 6 ($E$: sacar un 6; $F$: cualquier otro resultado).  La **probabilidad de éxito** $p$ de un experimento de Bernoulli es la probabilidad de obtener $E$. Es decir, $P(E)=p$. Naturalmente, entonces, $P(F)=1-p$. En el ejemplo del dado, donde $E$ es sacar un 6, $p=1/6$. 
 
 
-Por ejemplo:
+Otros ejemplos de experimentos de Bernoulli:
 
 * Lanzar una moneda equilibrada y mirar si da cara:
 
@@ -640,12 +641,12 @@ Por ejemplo:
 
 * Lanzar una moneda equilibrada 10 veces y contar las caras es una variable binomial $B(10,0.5)$
 
-* Elegir 20 personas al azar, una tras otra, permitiendo repeticiones y de manera independiente las unas de las otras, realizar sobre ellas un test PCR y contar cuántos dan positivo, es una variable binomial $B(20,p)$ con $p$ la tasa de positividad del test.
+* Elegir 20 personas al azar, una tras otra, permitiendo repeticiones y de manera independiente las unas de las otras, realizar sobre ellas un test PCR de COVID-19 y contar cuántos dan positivo, es una variable binomial $B(20,p)$ con $p$ la tasa de positividad del test.
 
 El tipo más común de variables binomiales en medicina es este último:
 
 ```{block2,type="rmdimportant"}
-Tenemos un subconjunto $A$ de una población $\Omega$ (por ejemplo, las personas que dan positivo en la PCR). Sea $p$ la proporción poblacional de personas que pertenecen a $A$, es decir $p=P(A)$. Tomamos **muestras aleatorias simples** de tamaño $n$ de la población y contamos cuántos sujetos de la muestra son de $A$. Esta variable aleatoria es **binomial** $B(n,p)$.
+Tenemos un subconjunto $A$ de una población $\Omega$ (por ejemplo, las personas que dan positivo en la PCR). Sea $p$ la proporción poblacional de personas que pertenecen a $A$, es decir $p=P(A)$. Tomamos **muestras aleatorias simples** de tamaño $n$ de la población y contamos cuántos sujetos de la muestra son de $A$. Esto nos define una variable aleatoria que es **binomial** $B(n,p)$.
 ```
 
 Tenemos el resultado siguiente.
@@ -670,6 +671,7 @@ $$
   
 ```
 
+
 ```{block2,type="rmdimportant"}
 Recordad que:
 
@@ -683,10 +685,16 @@ y nos da el número de subconjuntos de $k$ elementos de $\{1,\ldots,n\}$.
 ```
 
 
+```{block2,type="rmdimportant"}
+Si lo pensáis, veréis que el valor de $E(X)$ es el "esperado". Si tomáis una muestra aleatoria de $n$ sujetos de una población en la que la proporción de sujetos $E$ es $p$, ¿cuántos sujetos $E$ "esperáis" obtener en vuestra muestra? Pues una proporción $p$ de la muestra, es decir $p\cdot n$, ¿no?
+```
+
+
+
 ```{block2,type="rmdcorbes"}
 Supongamos que efectuamos $n$ repeticiones consecutivas e independientes de un experimento de Bernoulli de probabilidad de éxito $p$ y contamos el número de éxitos $E$; llamaremos $X$ a la variable aleatoria resultante. Para seguir la demostración, si no os sentís muy cómodos con el razonamiento con $n$'s y $k$'s abstractos, vosotros id repitiéndolo tomando, por ejemplo, $n=4$.
 
-Los posibles resultados son todas las palabras posibles de $n$ letras formadas por $E$'s y $F$'s. Como los experimentos sucesivos son independientes, la probabilidad de cada una de estas palabras es el producto de las probabilidades de sus resultados individuales. Por lo tanto, si una palabra concreta tiene $k$ letras $E$ y $n-k$ letras $F$ (se han obtenido $k$ éxitos y $n-k$ fracasos), su probabilidad es $p^k(1-p)^{n-k}$, independientemente del orden en el que hayamos obtenido los resultados.
+Los posibles resultados son todas las secuencias posibles de $n$ letras formadas por $E$'s y $F$'s. Como los experimentos sucesivos son independientes, la probabilidad de cada una de estas palabras es el producto de las probabilidades de sus resultados individuales. Por lo tanto, si una palabra concreta tiene $k$ letras $E$ y $n-k$ letras $F$ (se han obtenido $k$ éxitos y $n-k$ fracasos), su probabilidad es $p^k(1-p)^{n-k}$, independientemente del orden en el que hayamos obtenido los resultados.
 
 Para calcular la probabilidad de obtener una secuencia con $k$ éxitos, sumaremos las probabilidades de obtener cada una de las secuencias de $n$ letras con $k$ $E$'s. Como todas tienen la misma probabilidad, el resultado será la probabilidad de una palabra con $k$ $E$'s y $n-k$ $F$'s, que hemos quedado que es $p^k(1-p)^{n-k}$,  multiplicada por el número total de palabras diferentes con $k$ $E$'s y $n-k$ $F$'s.
 
@@ -705,15 +713,17 @@ $$
 $$
 Os podéis fiar de nosotros, dan $np$ y $np(1-p)$, respectivamente.
 
-Si lo pensáis, veréis que el valor de $E(X)$ es el "esperado". Si tomáis una muestra aleatoria de $n$ sujetos de una población en la que la proporción de sujetos $E$ es $p$, ¿cuántos sujetos $E$ "esperáis" obtener en vuestra muestra? Pues una proporción $p$ de la muestra, es decir $p\cdot n$, ¿no?
-
 ```
 
 
 
 
 ```{block2,type="rmdimportant"}
-Es una tontería, pero, por si acaso, queremos hacer hincapié en que si $X$ es $B(n,p)$, $P(X=k)$ no solo depende de $k$ sino también de los parámetros $n$ y $p$. Esto será general. Todas las variables aleatorias de una misma familia tienen la función de densidad de la misma forma, y solo varían los valores de los parámetros.
+Es una tontería, pero, por si acaso, queremos hacer hincapié en que si $X$ es $B(n,p)$, $P(X=k)$ no solo depende de $k$ sino también de los parámetros $n$ y $p$. No tiene la misma probabilidad sacar 3 caras en 5 lanzamientos de una moneda equilibrada que en 500 lanzamientos, ni tiene la misma probabilidad sacar 3 caras en 5 lanzamientos de una moneda equilibrada que si la moneda está trucada a favor de cara.
+
+Esto será general. Todas las variables aleatorias de una misma familia tienen la función de densidad de la misma forma, y solo varían los valores de los parámetros.
+
+
 ```
 
 
@@ -810,12 +820,12 @@ par(mfrow=c(1,1))
 
 
 ```{block2,type="rmdexercici"}
-Para agilizar los tests de COVID-19, se ha propuesto la estrategia siguiente (llamada **pooled sample testing** o simplemente **pooling**). Unimos grupos de 10 muestras en una sola muestra y la analizamos. Si da negativo, será señal de que todas la muestras originales eran negativas. Declaramos entonces negativos los 10 sujetos de las muestras originales. Si da positivo, será porque al menos una de las muestras originales era positiva. En este caso, analizamos las 10 muestras por separado.
+Para agilizar los tests de COVID-19, se propuso la estrategia siguiente (llamada **pooled sample testing** o simplemente **pooling**). Se unen grupos de 10 muestras en una sola muestra y se analizan. Si da negativo, será señal de que todas la muestras originales eran negativas. Se declaran entonces negativos los 10 sujetos de las muestras originales. Si da positivo, será porque al menos una de las muestras originales era positiva. En este caso, se analizan las 10 muestras por separado.
 
 
-Supongamos que el test tiene una especificidad y una sensibilidad del 100%. Observad entonces que si los 10 sujetos están sanos, hacemos un solo test, mientras que si alguno está infectado, hacemos 11. Con el enfoque tradicional, un test por muestra, sin complicaciones, haríamos siempre 10 tests.
+Supongamos que el test tiene una especificidad y una sensibilidad del 100%. Observad entonces que si los 10 sujetos están sanos, se hace un solo test, mientras que si alguno está infectado, se hacen 11. Con el enfoque tradicional, un test por muestra, sin complicaciones, se harían siempre 10 tests.
 
-Sea $p$ la prevalencia de la COVID-19 en un momento y población dados. Dadas 10 muestras tomadas en ese momento en esa población, ¿cuál es el valor esperado de tests que tenemos que realizar? Para $p$ pequeña, del orden del 1% al 5%, ¿significaría el *pooling* un ahorro considerable de tests?
+Sea $p$ la prevalencia de la COVID-19 en un momento y población dados. Dadas 10 muestras tomadas en ese momento en esa población, ¿cuál es el valor esperado de tests que se tienen que realizar? Para $p$ pequeña, del orden del 1% al 5%, ¿significaría el *pooling* un ahorro considerable de tests?
 
 
 ```
@@ -832,96 +842,72 @@ Una posibilidad es usar una aplicación de móvil o tablet. Nuestra favorita es 
 include_graphics("INREMDN_files/figure-html/appprobdistr.png")
 ```
 
-Otra posibilidad es usar R. R conoce todas la distribuciones de variables aleatorias  importantes; por ejemplo, para R la binomial es `binom`. Entonces
+Otra posibilidad es usar R. Para las necesidades de este curso, lo más adecuado es usar algún interfaz gráfico como JAMOVI. Tras instalarlo, el módulo distrACTION  permite calcular probabilidades y cuantiles de todas las distribuciones que usaremos en este curso salvo una, la hipergeométrica. Ya hablaremos de ella en la próxima sección.
 
-* Añadiendo al nombre de la distribución  el prefijo `d`, tenemos su **función de densidad**: de la binomial será `dbinom`. 
 
-* Añadiendo al nombre de la distribución  el prefijo `p`, tenemos su **función de distribución**: de la binomial,  `pbinom`.
 
-* Añadiendo al nombre de la distribución  el prefijo `q`, tenemos sus **cuantiles**: para la binomial, `qbinom`.
+```{r jamovibinom0,echo=FALSE,out.width="100%", fig.cap="Distribuciones que permite usar distrACTION" }
+knitr::include_graphics("INREMDN_files/figure-html/jamovibinom0.png")
+```
+    
 
-* Añadiendo al nombre de la distribución  el prefijo `r`, tenemos una función que produce **muestra aleatorias** de números con esa distribución de probabilidad: para la binomial, `rbinom`.
 
-Estas funciones se aplican al argumento de la función y los parámetros de la variable aleatoria en su orden usual (todo entre paréntesis y separados por comas). Por ejemplo, para la binomial, se aplican a (argumento, $n$, $p$). Veamos algunos ejemplos.
+
+Por ejemplo:
+
 
 * Si lanzamos 20 veces un dado equilibrado (de 6 caras), ¿cuál es la probabilidad de sacar exactamente 5 unos? 
 
-    Si llamamos $X$ a la variable aleatoria que cuenta el número de unos en secuencias de 20 lanzamientos de un dado equilibrado, se trata de una variable binomial $B(20,1/6)$. Nos piden $P(X=5)$, y esta probabilidad nos la da la función de densidad de $X$. Es $f_X(5)$:
-```{r}
-dbinom(5,20,1/6)
-```
+    Si llamamos $X$ a la variable aleatoria que cuenta el número de unos en secuencias de 20 lanzamientos de un dado equilibrado, se trata de una variable binomial $B(20,1/6)=B(20,0.166667)$. Nos piden $P(X=5)$. Da `r round(dbinom(5,20,1/6),3)`:
+    
 
-```{block2,type="rmdrecordau"}
-Fijaos en el orden de los argumentos de la función entre los paréntesis. Para calcular $f_X(x)$, aplicamos `dbinom`  a $(x,n,p)$.
+
+```{r jamovibinom1,echo=FALSE,out.width="100%", fig.cap="Cálculo de P(X=5)" }
+knitr::include_graphics("INREMDN_files/figure-html/jamovibinom1.png")
 ```
+    
 
 
 * Si lanzamos 20 veces un dado equilibrado, ¿cuál es la probabilidad de sacar como máximo 5 unos? 
 
-     Con las notaciones anteriores, nos piden $P(X\leqslant 5)$, y esta probabilidad nos la da la función de distribución de $X$. Es $F_X(5)$:
-```{r}
-pbinom(5,20,1/6)
-```
+     Con las notaciones anteriores, nos piden $P(X\leqslant 5)$. Da `r round(pbinom(5,20,1/6),3)`:
 
+
+```{r jamovibinom2,echo=FALSE,out.width="100%", fig.cap="Cálculo de P(X⩽5)" }
+knitr::include_graphics("INREMDN_files/figure-html/jamovibinom2.png")
+```
+    
 * Si lanzamos 20 veces un dado equilibrado, ¿cuál es la probabilidad de sacar menos de 5 unos? 
 
-     Con las notaciones anteriores, nos piden $P(X< 5)$, es decir, $P(X\leqslant 4)=F_X(4)$:
-```{r}
-pbinom(4,20,1/6)
+     Con las notaciones anteriores, nos piden $P(X< 5)$, es decir, $P(X\leqslant 4)$. Da `r round(pbinom(4,20,1/6),3)`:
+
+
+```{r jamovibinom3,echo=FALSE,out.width="100%", fig.cap="Cálculo de P(X<5)" }
+knitr::include_graphics("INREMDN_files/figure-html/jamovibinom3.png")
 ```
-
-
-* Si lanzamos 20 veces un dado equilibrado, ¿cuál es la probabilidad de sacar 5 unos o más? 
-
-     Con las notaciones anteriores, nos piden $P(X\geqslant 5)$. Como lo contrario de sacar 5 unos o más es sacar 4 unos o menos, tenemos que $P(X\geqslant 5)=1-P(X\leqslant 4)=1-F_X(4)$:
-```{r}
-1-pbinom(4,20,1/6)
-```
+    
 
 
 * Si lanzamos 20 veces un dado equilibrado, ¿cuál es el menor número $N$ de unos para el que la probabilidad de sacar como máximo $N$ unos llega al 25%? 
 
-     Nos piden el menor valor $N$ tal que $P(X\leqslant N)\geqslant 0.25$, y esto por definición es el 0.25-cuantil de $X$:
-```{r}
-qbinom(0.25,20,1/6)
-```
+     Nos piden el menor valor $N$ tal que $P(X\leqslant N)\geqslant 0.25$, y esto por definición es el 0.25-cuantil de $X$. Da 2:
 
-Veamos que en efecto $N=2$ cumple lo pedido: la probabilidad de sacar como máximo 2 unos es 
-```{r}
-pbinom(2,20,1/6)
-```    
-y la probabilidad de sacar como máximo 1 uno es 
-```{r}
-pbinom(1,20,1/6)
-``` 
-Vemos por tanto que con 1 uno no llegamos al 25% de probabilidad y con 2 sí.
+```{r jamovibinom4,echo=FALSE,out.width="100%", fig.cap="Cálculo el primer cuartil de X" }
+knitr::include_graphics("INREMDN_files/figure-html/jamovibinom4.png")
+```
+ 
+Podéis comprobar que en efecto $N=2$ cumple lo pedido: si las calculáis, veréis que la probabilidad de sacar como máximo 2 unos es $P(X\leqslant 2)=`r round(pbinom(2,20,1/6),3)`$  y la probabilidad de sacar como máximo 1 uno es 
+ $P(X\leqslant 1)=`r round(pbinom(1,20,1/6),3)`$. Por lo tanto, con 1 uno no llegamos al 25% de probabilidad y con 2 sí.
     
-* Queremos simular 50 rondas de lanzar 20 veces un dado equilibrado y contar los unos, es decir, queremos una muestra aleatoria de tamaño 50 de nuestra variable $X$:
-```{r}
-rbinom(50,20,1/6)
-```
-
-Cada vez que repitamos esta instrucción seguramente obtendremos una muestra aleatoria nueva:
-```{r}
-rbinom(50,20,1/6)
-rbinom(50,20,1/6)
-rbinom(50,20,1/6)
-```
 
 
+### Variables aleatorias hipergeométricas 
 
+Recordad que el paradigma de variable aleatoria binomial es: tengo una población con una proporción $p$ de sujetos que satisfacen una condición $E$, tomo una muestra aleatoria simple de tamaño $n$ y cuento el número de sujetos $E$ en mi muestra. Si cambiamos "muestra aleatoria simple" por "muestra aleatoria sin reposición", la distribución de la variable aleatoria que obtenemos es otra: la **hipergeométrica**.
 
+Una variable aleatoria  **hipergeométrica** (o **tiene distribución hipergeométrica**) **de parámetros $N$, $M$ y $n$** (para abreviar, $H(N,M,n)$) es cualquier variable aleatoria $X$ que podáis identificar con el proceso siguiente: Tenemos una población formada por $N$ sujetos que satisfacen una condición $E$ y $M$ sujetos que no la satisfacen (por lo tanto, en total, $N+M$ sujetos en la población), tomamos una muestra aleatoria **sin reposición** de tamaño $n$ y contamos el número de sujetos $E$ en esta muestra.
 
-
-
-
-### Variables aleatorias hipergeométricas
-
-Recordad que el paradigma de variable aleatoria binomial es: tengo una población con una proporción $p$ de sujetos que satisfacen una condición $E$, tomo una muestra aleatoria simple de tamaño $n$ y Contamos el número de sujetos $E$ en mi muestra. Si cambiamos "muestra aleatoria simple" por "muestra aleatoria sin reposición", la distribución de la variable aleatoria que obtenemos es otra: la **hipergeométrica**.
-
-Una variable aleatoria es **hipergeométrica** (o **tiene distribución hipergeométrica**) **de parámetros $N$, $M$ y $n$** (para abreviar, $H(N,M,n)$) es cualquier variable aleatoria $X$ que podáis identificar con el proceso siguiente: Tenemos una población formada por $N$ sujetos que satisfacen una condición $E$ y $M$ sujetos que no la satisfacen (por lo tanto, en total, $N+M$ sujetos en la población), tomamos una muestra aleatoria **sin reposición** de tamaño $n$ y contamos el número de sujetos $E$ en esta muestra.
-
-Llamaremos a $N$ el **número poblacional de éxitos**, a $M$ el **número poblacional de fracasos** y a $n$ el **tamaño de las muestras**. Fijaos entonces que $N+M$ es el  **tamaño total de la población** y que $N/(N+M)$  es la **probabilidad poblacional de éxito** (la fracción de sujetos que satisfacen $E$ en el total de la población). Con R, igual que la distribución binomial era `binom`, la distribución hipergeométrica es `hyper`. 
+Llamaremos a $N$ el **número poblacional de éxitos**, a $M$ el **número poblacional de fracasos** y a $n$ el **tamaño de las muestras**. Fijaos entonces que $N+M$ es el  **tamaño total de la población** y que $N/(N+M)$  es la **probabilidad poblacional de éxito** (la fracción de sujetos que satisfacen $E$ en el total de la población). 
 
 ```{example}
 Recordad uno de los ejemplos de variables no binomiales de la sección anterior. En una aula hay 5 chicos y 45 chicas. Escogemos 10 estudiantes, uno tras otro y sin repetirlos, para hacerles una pregunta. Cada elección es independiente de las otras. Contamos cuántos chicos hemos interrogado. Se trata de una variable hipergeométrica $H(5,45,10)$.
@@ -949,7 +935,7 @@ $$
   
 ```
 
-Fijaos que si llamamos $p$ a la probabilidad poblacional de éxito, $p=N/(N+M)$, entonces
+Fijaos en que si llamamos $p$ a la probabilidad poblacional de éxito, $p=N/(N+M)$, entonces
 $$
 E(X)=np.
 $$
@@ -957,13 +943,13 @@ Es la misma fórmula que para las variables binomiales $B(n,p)$ (y si lo pensái
 $$
 \sigma(X)^2=n\cdot\dfrac{N}{N+M}\cdot\dfrac{M}{N+M}\cdot\frac{N+M-n}{N+M-1}=np(1-p)\cdot\dfrac{\mathbf{P}-n}{\mathbf{P}-1}
 $$
-que es la varianza de una variable $B(n,p)$ multiplicada por un factor de corrección debido a que ahora tomamos muestras sin repetición y la varianza es más pequeña que si las tomamos con repetición. A la raíz cuadrada de este factor,
+que es la varianza de una variable $B(n,p)$ multiplicada por un factor de corrección debido a que ahora tomamos muestras sin repeticiones, lo que hace que la dispersión de resultados sea más pequeña que si permitiéramos repeticiones (yendo a un caso extremo, de tamaño $N+M$  hay una sola muestra posible sin repetición, pero muchísimas si permitimos repeticiones). A la raíz cuadrada de este factor,
 $$
 \sqrt{\dfrac{\mathbf{P}-n}{\mathbf{P}-1}}
 $$ 
-se la llama **factor de población finita**. 
+se la llama **factor** (**corrector**) **de población finita**. 
 
-Fijaos en que si $\mathbf{P}$ es muchísimo más grande que $n$, tendremos que  $\mathbf{P}-n\approx \mathbf{P}-1$ y por lo tanto $(\mathbf{P}-n)/(\mathbf{P}-1)\approx 1$ y la varianza de la hipergeométrica será aproximadamente la de la binomial. Esto es consistente con lo que ya hemos comentado: si la población es mucho más grande que la muestra, tomar las muestras con o sin reposición no afecta demasiado a las muestra obtenidas, por lo que la distribución de probabilidad ha de ser muy parecida.
+Fijaos en que si $\mathbf{P}$ es muchísimo mayor que $n$, tendremos que  $\mathbf{P}-n\approx \mathbf{P}-1$ y por lo tanto $(\mathbf{P}-n)/(\mathbf{P}-1)\approx 1$ y la varianza de la hipergeométrica será aproximadamente la de la binomial. Esto es consistente con lo que ya hemos comentado varias veces: si la población es mucho mayor que la muestra, tomar las muestras con o sin reposición no afecta demasiado a las muestra obtenidas, por lo que la distribución de probabilidad ha de ser muy parecida.
 Recordad los ejemplos siguientes:
 
 * En España hay 46,700,000 personas, de las cuales un 11.7\% son diabéticos. Escogemos 100 españoles y contamos cuántos son diabéticos. 
@@ -972,7 +958,13 @@ Recordad los ejemplos siguientes:
 $$
 \frac{46700000-100}{46700000-1}=0.9999979
 $$
-    En cambio:
+
+```{block2,type="rmdnote"}
+Hay otro motivo para considerarla binomial en este ejemplo, y es que, en realidad, no sabemos los valores exactos de $N$ y $M$. Seguramente no es verdad que el tamaño de la población española sea exactamente de 46,700,000 personas, tan redondo, ni que los diabéticos representen exactamente un 11.7%, sin más cifras decimales. Así que ya puestos a aproximar, tomamos la aproximación binomial, que es más sencilla. 
+
+Pero cuidado: si la muestra fuera, pongamos, de 100,000 personas, entonces la aproximación binomial sería teóricamente incorrecta, aunque el factor corrector de población finita es de 0.99786: la probabilidad de algún sujeto repetido en una muestra aleatoria de 100,000 personas tomada de una población de 46,700,000 personas es prácticamente 1.
+
+```
 
 * En una aula hay 5 chicos y 45 chicas. Escogemos 10 estudiantes, uno tras otro y sin repetirlos, para hacerles una pregunta. Cada elección es independiente de las otras. Contamos cuántos chicos hemos interrogado. 
 
@@ -1007,6 +999,77 @@ par(mfrow=c(1,1))
 
 Podréis observar que, como en el caso binomial, si $p=N/(N+M)<0.5$, la distribución $H(N,M,p)$ presenta una cola a la derecha, y si $p>0.5$, la cola es a la izquierda. Si $p=0.5$, es simétrica.
 
+Hemos comentado en la sección anterior que el módulo distrACTION de JAMOVI no conoce la distribución hipergeométrica. Pero R sí, y podéis usar R en la ventana del editor de R de JAMOVI. 
+
+Para R la distribución hipergeométrica es `hyper` (la binomial es `binom`). Entonces, para cada distribución implementada en R:
+
+* Añadiendo al nombre de la distribución  el prefijo `d`, tenemos su **función de densidad**: de la binomial será `dbinom`, de la hipergeomètrica `dhyper`... 
+
+* Añadiendo al nombre de la distribución  el prefijo `p`, tenemos su **función de distribución**: de la binomial será `pbinom`, de la hipergeomètrica `phyper`... 
+
+* Añadiendo al nombre de la distribución  el prefijo `q`, tenemos sus **cuantiles**: para la binomial será `qbinom`, para la hipergeomètrica `qhyper`... 
+
+* Añadiendo al nombre de la distribución  el prefijo `r`, tenemos una función que produce **muestra aleatorias** de números con esa distribución de probabilidad: para la binomial será `rbinom`, para la hipergeomètrica `rhyper`... 
+
+Estas funciones se aplican al argumento de la función y los parámetros de la variable aleatoria (todo entre paréntesis y separados por comas). Para la hipergeométrica, y con las notaciones que hemos dado, se aplican a (argumento, $N$, $M$, $n$).  Veamos algunos ejemplos.
+
+
+
+* En una clase de 50 estudiantes, 5 son hombres (y 45 mujeres). Escogemos una muestra aleatoria sin reposiciòn de 10 estudiantes. ¿Cuál es la probabilidad de que exactamente dos de los estudiantes elegidos sean hombres? 
+
+    La variable $X$ que cuenta el número de hombres en estas muestras es hipergeométrica $H(5,45,10)$. Nos piden $P(X=2)$, y esta probabilidad nos la da la función de densidad de $X$. Es $f_X(2)$:
+    
+```{r}
+dhyper(2,5,45,10)
+```
+
+```{block2,type="rmdrecordau"}
+Fijaos en el orden de los argumentos de la función entre los paréntesis. Para calcular $f_X(x)$, aplicamos `dhyper`  a $(x,N,M,n)$.
+```
+
+
+
+```{r jamoviR2,echo=FALSE,out.width="100%", fig.cap="Cálculo de P(X=2)"}
+knitr::include_graphics("INREMDN_files/figure-html/jamoviR2.png")
+```
+
+
+
+
+* En la situación anterior, ¿cuál es la probabilidad de la muestra contenga como máximo 2 hombres? 
+
+     Con las notaciones anteriores, nos piden $P(X\leqslant 2)$, y esta probabilidad nos la da la función de distribución de $X$. Es $F_X(2)$:
+```{r}
+phyper(2,5,45,10)
+```
+
+* En la situación anterior, ¿cuál es la probabilidad de la muestra contenga al menos 2 hombres? 
+
+     Con las notaciones anteriores, nos piden $P(X\geqslant 2)$. Como lo contrario de elegir 2 hombres o más es elegir 1 hombre o menos, tenemos que $P(X\geqslant 2)=1-P(X\leqslant 1)=1-F_X(1)$:
+```{r}
+1-phyper(1,5,45,10)
+```
+
+
+
+    
+* Queremos simular 25 elecciones como la anterior y contar en cada una el número de hombres; es decir, queremos una muestra aleatoria de tamaño 50 de nuestra variable $X$:
+```{r}
+rhyper(25,5,45,10)
+```
+
+Cada vez que repitamos esta instrucción seguramente obtendremos una muestra aleatoria nueva:
+```{r}
+rhyper(25,5,45,10)
+rhyper(25,5,45,10)
+rhyper(25,5,45,10)
+```
+
+
+
+
+
+
 
 
 
@@ -1024,7 +1087,6 @@ e^{-\lambda}\cdot \dfrac{\lambda^k}{k!} &  \text{ si $k\in \mathbb{N}$}\\
 \end{array}\right.
 $$
 
-Para R, la distribución de Poisson es `pois`.
 
 ```{theorem}
 Si $X$ es una variable $Po(\lambda)$, entonces $E(X)= \sigma(X)^2= \lambda$.
@@ -1040,7 +1102,7 @@ Es decir, el "parámetro" $\lambda$ de una variable de Poisson es su valor esper
 
 La respuesta es que la familia de Poisson incluye un tipo de variables aleatorias muy común en epidemiología.
 
-Supongamos que tenemos un tipo de objetos que pueden darse  en una región continua de tiempo o espacio. Por ejemplo, defunciones de personas por una determinada enfermedad en el decurso del tiempo, casos de un tipo de cáncer  en diferentes zonas geográficas de un país, o números de bacterias en trozos de una superficie. Para simplificar el lenguaje, vamos a suponer que observamos apariciones de estos objetos en el tiempo.
+Supongamos que tenemos un tipo de objetos que pueden darse  en una región continua de tiempo o espacio. Por ejemplo, defunciones de personas por una determinada enfermedad en el decurso del tiempo, casos de un tipo de cáncer  en diferentes zonas geográficas de un país, o números de bacterias en una superficie. Para simplificar el lenguaje, vamos a suponer que observamos apariciones de estos objetos en el tiempo.
 
 
 
@@ -1073,7 +1135,7 @@ Observad la diferencia entre las dos variables siguientes:
 
 * Número semanal de defunciones por un tipo de cáncer en un país. El momento exacto de las defunciones se produce al azar, podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita, y las defunciones se producen de manera independiente. Es de Poisson.
 
-* Número semanal de defunciones en accidentes de tráfico en un país. De nuevo, el momento exacto de las defunciones se produce al azar y podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita. Pero las muertes en accidentes de tráfico no son independientes: en un mismo accidente mortal se pueden producir varias muertes casi simultáneas, las condiciones metereológicas o de alguna carretera pueden hacer que aumente durante un cierto período de tiempo la probabilidad de accidente mortal, etc. No es de Poisson.
+* Número semanal de defunciones en accidentes de tráfico en un país. De nuevo, el momento exacto de las defunciones se produce al azar y podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita. Pero las muertes en accidentes de tráfico no son independientes: en un mismo accidente mortal se pueden producir varias muertes casi simultáneas. No es buena idea modelarla mediante una distribución de Poisson. En cambio, el número de accidentes de tráfico sí.
 
 
 ```
@@ -1097,6 +1159,19 @@ plot(0:120,dpois(0:120,50),xlab="Número de observaciones",ylab="Probabilidad",t
 Como podéis ver, la densidad de una variable de Poisson es asimétrica, con un máximo alrededor de $\lambda$ y una cola a la derecha, pero a medida que $\lambda$ crece, la asimetría se va atenuando.
 
 
+```{block2,type="rmdexercici"}
+La incidencia  anual de un cierto accidente laboral sigue una distribución de Poisson. A lo largo del tiempo se ha observado que el 55% de los años no se produce ningún accidente. ¿Cuántos accidentes esperas que ocurran en un año? 
+
+```
+
+Sea $X$ la variable que cuenta estos accidentes laborales anuales. Nos dicen que es $Po(\lambda)$, donde $\lambda$ es su valor esperado, y por lo tanto lo que nos piden. Nos dicen también que $P(X=0)=0.55$. Por la fórmula de la densidad de una variable de Poisson:
+$$
+0.55=e^{-\lambda}\cdot \dfrac{\lambda^0}{0!}=e^{-\lambda}\Longrightarrow
+\lambda=-\ln(0.55)
+$$
+
+
+
 ## Test
 
 **(1)** Sea $X$ una variable aleatoria discreta de media $\mu$ y desviación típica $\sigma$. ¿Cuál o cuáles de las afirmaciones siguientes son siempre verdaderas?
@@ -1117,16 +1192,9 @@ Como podéis ver, la densidad de una variable de Poisson es asimétrica, con un 
 1. La probabilidad de obtener un valor menor o igual que $x$. 
 1. La probabilidad de obtener un valor estrictamente menor que $x$.
 
-**(3)** La incidencia  anual de un cierto accidente laboral sigue una distribución de Poisson. A lo largo del tiempo se ha observado que el 55% de los años no se produce ningún accidente. ¿Cuántos accidentes esperas que ocurran en un año? 
-
-1. 0.55
-1. $e^{-0.55}$
-1. $\ln(0.55)$ ($\ln$ denota el **logaritmo neperiano**, en base $e$)
-1. $-\ln(0.55)$ 
-1. Un valor que no es ninguno de los propuestos en las otras respuestas.
 
 
-**(4)** Un tratamiento T cura el 20% de los enfermos de una enfermedad X. Marca todas las afirmaciones verdaderas.
+**(3)** Un tratamiento T cura el 20% de los enfermos de una enfermedad X. Marca todas las afirmaciones verdaderas.
 
 1. La distribución del número de individuos que se curan con el tratamiento T en una muestra aleatoria simple de 100 enfermos de X es aproximadamente simétrica. 
 1. La distribución del número de individuos que se curan con el tratamiento T en una muestra aleatoria simple de 100 enfermos de X es más bien asimétrica a la izquierda. 
@@ -1136,10 +1204,10 @@ Como podéis ver, la densidad de una variable de Poisson es asimétrica, con un 
 1. Ninguna de las otras afirmaciones es verdadera.
 
 
-**(5)**  ¿Cuál o cuáles de las variables siguientes tienen una distribución binomial?
+**(4)**  ¿Cuál o cuáles de las variables siguientes tienen una distribución binomial?
 
 1. El peso de una persona elegida al azar. 
-1. Escogemos un número de lanzamientos al azar, lanzamos ese número de veces una moneda al aire, y contamos el número de caras. 
+1. Escogemos un número de lanzamientos al azar entre 5 y 10, lanzamos ese número de veces una moneda al aire, y contamos el número de caras. 
 1. El número de glóbulos rojos en 1 mm^3^ de sangre. 
 1. La proporción de hipertensos en una muestra aleatoria de 50 individuos. 
 1. Escogemos 10 estudiantes diferentes en una clase de 20, y contamos cuántas mujeres han salido. 
@@ -1147,7 +1215,7 @@ Como podéis ver, la densidad de una variable de Poisson es asimétrica, con un 
 
 
 
-**(6)**  ¿Cuál o cuáles de las variables siguientes tienen una distribución de Poisson?
+**(5)**  ¿Cuál o cuáles de las variables siguientes tienen una distribución de Poisson?
 
 1. El peso de una persona elegida al azar. 
 1. El número de casos diarios de COVID-19 en Mallorca. 
@@ -1156,7 +1224,7 @@ Como podéis ver, la densidad de una variable de Poisson es asimétrica, con un 
 1. Escogemos 10 estudiantes diferentes en una clase de 20, y contamos cuántas mujeres han salido. 
 1. Ninguna de ellas.
 
-**(7)** Sean $X$ e $Y$ dos variables aleatorias discretas. ¿Cuál o cuáles  de las afirmaciones siguientes son siempre verdaderas?
+**(6)** Sean $X$ e $Y$ dos variables aleatorias discretas. ¿Cuál o cuáles  de las afirmaciones siguientes son siempre verdaderas?
 
 1. Siempre es cierto que $E(2X+3Y)=2E(X)+3E(Y)$
 1. No siempre es cierto que $E(2X+3Y)=2E(X)+3E(Y)$, pero sí que es cierto si $X$ e $Y$ son independientes
@@ -1168,7 +1236,7 @@ Como podéis ver, la densidad de una variable de Poisson es asimétrica, con un 
 1. No siempre es cierto que $\sigma(2X+3Y)=2\sigma(X)+3\sigma(Y)$, pero sí que es cierto si $X$ e $Y$ son independientes
 1. Ninguna de las otras afirmaciones es siempre verdadera.
 
-**(8)** Tenéis una población con una proporción $0<p<1$ de individuos que tienen una determinada enfermedad. Tomáis muestras aleatorias de tamaño $n$ de la población y contáis cuántos individuos tienen esta enfermedad. ¿Cuál o cuáles de las afirmaciones siguientes son verdaderas?
+**(7)** Tenéis una población con una proporción $0<p<1$ de individuos que tienen una determinada enfermedad. Tomáis muestras aleatorias de tamaño $n$ de la población y contáis cuántos individuos tienen esta enfermedad. ¿Cuál o cuáles de las afirmaciones siguientes son verdaderas?
 
 1. Si tomáis las muestras sin permitir repeticiones, los resultados salen más variados que si las tomáis permitiendo repeticiones. 
 1. Si tomáis las muestras sin permitir repeticiones, los resultados salen menos variados que si las tomáis permitiendo repeticiones. 

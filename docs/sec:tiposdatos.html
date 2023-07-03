@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2023-06-12" />
+<meta name="date" content="2023-06-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -239,6 +239,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.11" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#gráficos-en-escala-logarítmica"><i class="fa fa-check"></i><b>9.11</b> Gráficos en escala logarítmica</a></li>
 <li class="chapter" data-level="9.12" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#test-7"><i class="fa fa-check"></i><b>9.12</b> Test</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>10</b> Variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>10.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="10.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>10.2</b> Esperanza</a></li>
+<li class="chapter" data-level="10.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>10.3</b> Varianza y desviación típica</a></li>
+<li class="chapter" data-level="10.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>10.4</b> Cuantiles</a></li>
+<li class="chapter" data-level="10.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>10.5</b> Familias importantes de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>10.5.1</b> Variables aleatorias binomiales</a></li>
+<li class="chapter" data-level="10.5.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>10.5.2</b> Variables aleatorias hipergeométricas</a></li>
+<li class="chapter" data-level="10.5.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-de-poisson"><i class="fa fa-check"></i><b>10.5.3</b> Variables aleatorias de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-8"><i class="fa fa-check"></i><b>10.6</b> Test</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -440,7 +454,7 @@ castaño
 </div>
 <p>Los tipos básicos de datos que consideramos en este curso son los siguientes:</p>
 <ul>
-<li><p>Datos <strong>cualitativos</strong>. Son los que expresan una cualidad del individuo, como por ejemplo el sexo anatómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual, <a href="https://twitter.com/GEldeanita/status/1297826424309649408">sestosexual</a>…), tipos de cáncer (de mama, de colon, de próstata…)…
+<li><p>Datos <strong>cualitativos</strong>. Son los que expresan una cualidad del individuo, como por ejemplo el sexo cromosómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual, <a href="https://twitter.com/GEldeanita/status/1297826424309649408">sestosexual</a>…), tipos de cáncer (de mama, de colon, de próstata…)…
 Si solo pueden tomar dos valores (“Sí” o “No”, “Macho” o “Hembra”…) los llamamos <strong>binarios</strong> o <strong>dicotómicos</strong> y si pueden tomar más de dos valores, <strong>politómicos</strong> o <strong>multicotómicos</strong>, dependiendo de lo que queramos complicar los adjetivose. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar <strong>niveles</strong>.</p>
 <p>Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación.</p></li>
 <li><p>Datos <strong>ordinales</strong>. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, …) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: por eso son datos cualitativos y no ordinales.</p>
@@ -452,7 +466,7 @@ Si solo pueden tomar dos valores (“Sí” o “No”, “Macho” o “Hembra�
 </ul></li>
 </ul>
 <div class="example">
-<p><span id="exm:unnamed-chunk-200" class="example"><strong>Ejemplo 6.1  </strong></span>En la Tabla <a href="sec:tiposdatos.html#tab:tabla1">6.1</a>:</p>
+<p><span id="exm:unnamed-chunk-201" class="example"><strong>Ejemplo 6.1  </strong></span>En la Tabla <a href="sec:tiposdatos.html#tab:tabla1">6.1</a>:</p>
 <ul>
 <li>La variable “Nombre” es cualitativa.</li>
 <li>La variable “Altura” es cuantitativa continua.</li>

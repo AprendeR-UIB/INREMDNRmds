@@ -17,7 +17,7 @@ Por ejemplo:
 
 * La probabilidad de que salga cara al lanzar una moneda equilibrada al aire es 1/2 (casos favorables, 1; casos posibles, 2; los dos resultados tienen la misma probabilidad por definición de moneda equilibrada).
 
-* Pero la probabilidad de que un hijo sea varón no es 1/2, aunque solo haya dos sexos anatómicos. Es la proporción de hijos varones en el total de todos los hijos, que se estima en alrededor del 51.22%.
+* Pero la probabilidad de que un hijo sea varón no es 1/2, aunque solo haya dos sexos cromosómicos Es la proporción de hijos varones en el total de todos los hijos, que se estima en alrededor del 51.22%.
 
 * O más exageradamente, la probabilidad de que una mujer de entre 17 y 27 años sea miope no es 1/2, aunque solo haya dos resultados posibles: ser miope y no serlo. Esta probabilidad es la proporción de miopes en la población formada por todas las mujeres de esa franja de edad, que, en España en 2018, se estimaba en un 65.4% según un [informe de la Asociación Visión y Vida](http://visionyvida.org/informe-prevalencia-de-la-miopia-en-los-jovenes-en-espana-2018/).
  
@@ -70,7 +70,7 @@ En este curso la disjunción "o" nunca es exclusiva, salvo cuando digamos explí
 ```{example}
 Consideremos la población $\Omega$ formada por los estudiantes de una clase, y sean $A$ el subconjunto formado por la mujeres de esa clase y $B$ el subconjunto formado por los estudiantes de esa clase que llevan gafas.
 
-````
+```
 
 Entonces:
 
@@ -388,11 +388,27 @@ $$
 $$
 Naturalmente, os va a costar calcular este número con una calculadora científica sencilla, pero para eso están los ordenadores. Da `r pbirthday(100,1150000)`.
 
+
 R dispone de dos funciones relacionadas con la probabilidad de que se dé alguna repetición en una muestra  aleatoria simple de un tamaño dado:
   
 * La instrucción `pbirthday(n,N)` nos da la probabilidad de que en una muestra aleatoria simple de tamaño n de una población de tamaño N haya algún elemento repetido.
 
 * La instrucción `qbirthday(p,N)` nos da el tamaño mínimo de una muestra aleatoria simple de una población de tamaño N para que la probabilidad de que haya algún elemento repetido sea $\geqslant p$.
+
+```{block2,type="rmdnote"}
+Podéis ejecutar las funciones de R que iremos dando en estas notas en la ventana del editor de R de JAMOVI. Para tener acceso a ella, tenéis que instalar el módulo Rj (pulsando en el signo + de la esquina superior derecha de la ventana de JAMOVI y navegando entre las diferentes oopciones).
+```
+
+
+
+
+
+
+```{r jamoviR1,echo=FALSE,out.width="100%", fig.cap="La ventana de edición de R" }
+knitr::include_graphics("INREMDN_files/figure-html/jamoviR1.png")
+```
+    
+
 
 El nombre `birthday` hace referencia a la **paradoja del cumpleaños**: el típico problema de calcular la probabilidad de que dos estudiantes de una clase celebren el cumpleaños el mismo día y asombrarse de que en una clase de 50 estudiantes haya más de un 95% de probabilidades de que haya algún cumpleaños repetido. 
 

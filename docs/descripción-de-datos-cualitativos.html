@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2023-06-12" />
+<meta name="date" content="2023-06-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -239,6 +239,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.11" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#gráficos-en-escala-logarítmica"><i class="fa fa-check"></i><b>9.11</b> Gráficos en escala logarítmica</a></li>
 <li class="chapter" data-level="9.12" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#test-7"><i class="fa fa-check"></i><b>9.12</b> Test</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>10</b> Variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>10.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="10.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>10.2</b> Esperanza</a></li>
+<li class="chapter" data-level="10.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>10.3</b> Varianza y desviación típica</a></li>
+<li class="chapter" data-level="10.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>10.4</b> Cuantiles</a></li>
+<li class="chapter" data-level="10.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>10.5</b> Familias importantes de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>10.5.1</b> Variables aleatorias binomiales</a></li>
+<li class="chapter" data-level="10.5.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>10.5.2</b> Variables aleatorias hipergeométricas</a></li>
+<li class="chapter" data-level="10.5.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-de-poisson"><i class="fa fa-check"></i><b>10.5.3</b> Variables aleatorias de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-8"><i class="fa fa-check"></i><b>10.6</b> Test</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -354,12 +368,12 @@ Total
 <div id="gráficos" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Gráficos<a href="descripción-de-datos-cualitativos.html#gráficos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Podemos representar una tabla de frecuencias como la de la sección anterior mediante un <strong>diagrama de barras</strong>, en el que para cada nivel dibujaremos una barra cuya altura represente su frecuencia (absoluta o relativa). Por ejemplo, el diagrama de barras de las frecuencias absolutas de la variable “Sexo” de la sección anterior es:</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-207-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>Su diagrama de barras de frecuencias relativas es:</p>
 <p><img src="INREMDN_files/figure-html/unnamed-chunk-208-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>Su diagrama de barras de frecuencias relativas es:</p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-209-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Observad que la única diferencia entre estos dos gráficos son las marcas del eje vertical que indican las alturas de las barras.</p>
 <p>Un tipo muy popular de representación gráfica de variables cualitativas son los <strong>diagramas circulares</strong>, donde se representan los niveles de una variable cualitativa como porciones circulares de un círculo, de manera que el ángulo de cada porción (o equivalentemente, su área) sea proporcional a la frecuencia del nivel al que corresponde. Así, el diagrama circular de la variable dicotómica “Sexo” sería el siguiente:</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-209-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-210-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Pese a su popularidad, es poco recomendable usar diagramas circulares cuando se manejan más de dos niveles, porque a veces es difícil, a simple vista, comprender las relaciones entre las frecuencias que representan. Para convencerse, basta comparar los diagramas de barras y los diagramas circulares de la figura siguiente, importada de la <a href="http://en.wikipedia.org/wiki/Pie_chart">entrada sobre diagramas circulares de la <em>Wikipedia</em></a>:</p>
 <p><img src="INREMDN_files/figure-html/wikipc.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Algunos programas ofrecen la posibilidad de dibujar diagramas circulares tridimensionales como el siguiente:</p>
@@ -371,7 +385,7 @@ Y por este motivo, por favor, <strong>nunca</strong> uséis diagramas circulares
 </div>
 <p>Un gráfico ha de servir más que mil palabras, y tiene que explicar de un vistazo las características más relevantes de los datos que representa. Luego ya se pueden añadir detalles que complementen esta primera comprensión básica. En el caso de un diagrama de barras, su objetivo ha de ser mostrar la relación entre las magnitudes de las frecuencias que representa; si nos interesan sus valores concretos, es mejor dar la tabla. Por ejemplo, en los diagramas de barras de la variable “Sexo” dados más arriba se ve a simple vista que hay aproximadamente el doble de mujeres que de hombres.</p>
 <p>Por ese motivo es un pecado modificar un gráfico para que el primer vistazo sea engañoso. En un diagrama de barras, la adulteración más usual, y ante la que hay que estar atentos, es <strong>truncarlo</strong> de manera que el eje de coordenadas que indique las frecuencias no arranque en el 0. Mirad, por ejemplo, el diagrama de barras siguiente:</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-213-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-214-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Este diagrama sigue indicando que en la muestra hay un 30% de hombres y un 70% de mujeres, pero si le dais un vistazo superficial, sin mirar las marcas del eje vertical, parece que la proporción de mujeres es cinco veces la de los hombres y no un poco más del doble.</p>
 <p>Es muy frecuente encontrar diagramas de barras (u otros tipos de gráficos) truncados en medios de comunicación. Por ejemplo mirad el gráfico siguiente, que representa las medias estatales de horas de trabajo de los empleados a tiempo completo en los países de la Unión Europea en 2013 según <em>Eurostat</em> y publicado por una empresa que fomenta la inversión en empresas alemanas (extraído en su momento del sitio web de <a href="https://www.gtai.de/GTAI/Navigation/EN/invest,t=motivated-and-dependable-employees,did=214428.html">German Trade &amp; Invest</a>; cada año lo ponen al día):</p>
 <p><img src="INREMDN_files/figure-html/german1.png" width="75%" style="display: block; margin: auto;" /></p>
@@ -1107,23 +1121,23 @@ A la hora de decidir qué variable asignamos a las filas y cuál a las columnas 
 <li><p><strong>De barras apiladas</strong>: Se escoge una variable (la llamaremos <strong>principal</strong>), se dibuja una barra para cada uno de sus niveles de altura la frecuencia total de dicho nivel, y cada una de estas barras se divide verticalmente en sectores que representan las frecuencias de los niveles de la otra variable dentro de ese nivel.</p>
 <p>Por ejemplo, el diagrama de barras apiladas de frecuencias absolutas de las variables “Sexo” y “Demencia senil” de la Tabla <a href="descripción-de-datos-cualitativos.html#tab:tablager2">7.1</a>, tomando la variable “Sexo” como principal:</p></li>
 </ul>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-229-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-230-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p><strong>De barras yuxtapuestas</strong>. Se escoge una variable <strong>principal</strong> y para cada uno de sus niveles se dibuja un diagrama de barras de las frecuencias de los niveles de la otra variable.</p>
 <p>Así, el diagrama de barras yuxtapuestas de frecuencias absolutas de las variables “Sexo” y “Demencia senil”, tomando la variable “Sexo” como principal es:</p></li>
 </ul>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-230-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-231-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Otros dos ejemplos:</p>
 <ul>
 <li>El diagrama de barras apiladas de frecuencias absolutas de las variables “Sexo” y “Demencia senil”, tomando la variable “Demencia senil” como principal es:</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-231-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-232-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>El diagrama de barras yuxtapuestas de frecuencias absolutas de las variables “Sexo” y “Demencia senil”, tomando la variable “Demencia senil” como principal:</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-232-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-233-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Los diagramas de barras tienen que mostrar la información de la manera más adecuada posible. Por ejemplo, si lo que nos interesa es la distribución de los tipos de demencia por sexo, la variable principal ha de ser el “Sexo”. Si nos interesan las frecuencias relativas globales, seguramente sea más conveniente dar un diagrama de barras tomando como niveles las combinaciones de niveles de ambas variables, como el siguiente diagrama de barras de frecuencias relativas globales de las variables “Sexo” y “Demencia senil”:</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-233-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-234-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>El usar barras apiladas o yuxtapuestas en un diagrama de barras bidimensional ya va más a gusto de cada uno. Como un diagrama de barras yuxtapuestas usa tantas barras como el producto de los números de niveles de las dos variables, si estos dos números son grandes puede necesitar mucho espacio horizontal para ser comprensible. Por otro lado, en los diagramas de barras apiladas es más fácil comparar las frecuencias de los niveles de la variable principal, mientras que en los diagramas de barras yuxtapuestas es más fácil comparar la distribución de los niveles de la variable secundaria dentro de cada nivel de la variable principal.</p>
 
 <div class="rmdexercici">
@@ -1137,7 +1151,7 @@ A la hora de decidir qué variable asignamos a las filas y cuál a las columnas 
 <div id="diagramas-de-mosaico" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">7.5</span> Diagramas de mosaico<a href="descripción-de-datos-cualitativos.html#diagramas-de-mosaico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Una tabla tridimensional se suele representar mediante un <strong>diagrama de mosaico</strong>. Estos gráficos se obtienen sustituyendo cada entrada de la tabla de frecuencias por una región rectangular de área proporcional a su valor. Por ejemplo, el diagrama de mosaico de la Tabla <a href="descripción-de-datos-cualitativos.html#tab:tablager2">7.1</a> es el siguiente (donde los “Sí” y “No” de la fila superior corresponden a la variable “Cáncer de mama”):</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-235-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-236-1.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="test-5" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> Test<a href="descripción-de-datos-cualitativos.html#test-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
