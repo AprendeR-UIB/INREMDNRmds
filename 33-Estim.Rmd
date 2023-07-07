@@ -23,7 +23,7 @@ Sí, ya sabemos que en la práctica casi nunca tomamos muestras aleatorias, sino
 
 * Si queremos estimar la altura media de los estudiantes de la UIB, tomaremos una muestra aleatoria de estudiantes de la UIB, mediremos sus alturas y calcularemos su **media aritmética**.
 
-* Si queremos estimar la proporción de estudiantes de la UIB que han pasado la COVID-19, tomaremos una muestra aleatoria de estudiantes de la UIB, les haremos un test de anticuerpos y calcularemos la **proporción muestral** de positivos en la muestra.
+* Si queremos estimar la proporción de estudiantes de la UIB que usan lentillas, tomaremos una muestra aleatoria de estudiantes de la UIB y calcularemos la **proporción** en esta muestra de los que las usan.
 
 * Si queremos estimar el riesgo relativo para un estudiante de la UIB de suspender alguna asignatura si es fumador, tomaremos una muestra aleatoria de estudiantes de la UIB, anotaremos si fuman o no y si han suspendido alguna asignatura o no, y calcularemos el **cociente entre las proporciones muestrales** de suspensos entre los fumadores y los   no fumadores de la muestra.
 
@@ -38,7 +38,7 @@ Cuando queremos estimar el valor medio de una variable sobre una población, tom
 Dada una variable aleatoria $X$, llamamos **media muestral de** (muestras de) **tamaño $n$** a la variable aleatoria $\overline{X}$ "Tomamos una *muestra aleatoria simple* de tamaño $n$ de $X$ y calculamos la media aritmética de sus valores".
 
 ```{block2,type="rmdcaution"}
-Fijaos en que definimos la media muestral solo para muestras aleatorias simples. Naturalmente, tiene sentido definirla para muestras cualesquiera, pero entonces su distribución no cumple las propiedades que damos en esta sección. La misma advertencia vale para los estimadores que definimos en las próximas secciones.
+Fijaos en que definimos la media muestral solo para muestras aleatorias simples. Naturalmente, tiene sentido definirla para otros tipos de muestras, pero entonces su distribución de probabilidad no cumple las propiedades que damos en esta sección. La misma advertencia vale para los estimadores que definimos en las próximas secciones.
 ```
 
 Veamos algunas propiedades de la distribución  de  $\overline{X}$:
@@ -111,7 +111,7 @@ sd(X)*sqrt((10^6-1)/10^6)
 ```
 
 ```{block2, type="rmdnote"}
-La función `sd` calcula la desviación típica muestral, con denominador $\sqrt{n-1}$. Para calcular la desviación típica de verdad, con denominador $\sqrt{n}$ hay que multiplicarla por $\sqrt{n-1}$ y dividirla por $\sqrt{n}$.
+La función `sd` (de *standard deviation*) calcula la desviación típica **muestral**, con denominador $\sqrt{n-1}$. Para calcular la desviación típica de verdad, con denominador $\sqrt{n}$ hay que multiplicarla por $\sqrt{n-1}$ y dividirla por $\sqrt{n}$.
 ```
 
 Ahora vamos a tomar 1000 medias muestrales de tamaño 100 de esta población, las organizaremos en un vector que llamaremos `Medias` y dibujaremos un histograma de este vector de medias.
@@ -235,7 +235,7 @@ es aproximadamente $N(0,1)$.
 
   
 ```{block2,type="rmdimportant"}
-En el caso de la proporción muestral, a veces vamos a permitir tomar **muestras aleatorias sin reposición**. En este caso, la variable $Y$ que cuenta el número de éxitos en una muestra aleatoria sin reposición de tamaño $n$ de la variable de Bernoulli $X$, y que verifica que que $\widehat{p}_X=Y/n$, es hipergeométrica. De aquí deducimos que seguimos teniendo que $E(\widehat{p}_X)=p_X$, pero ahora,
+En el caso de la proporción muestral, a veces vamos a permitir tomar **muestras aleatorias sin reposición**. En este caso, la variable $Y$ que cuenta el número de éxitos en una muestra aleatoria sin reposición de tamaño $n$ de la variable de Bernoulli $X$, y que verifica  que $\widehat{p}_X=Y/n$, es hipergeométrica. De aquí deducimos que seguimos teniendo que $E(\widehat{p}_X)=p_X$, pero ahora,
 si $N$ es el tamaño de la población, 
 $$
 \sigma({\widehat{p}_X})=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot
@@ -480,7 +480,7 @@ Fijaos en que el denominador $\sqrt{n}$ hace que, en general, los errores típic
 1. Tiene media 900. 
 1. Ninguna de las otras afirmaciones es correcta
 
-**(4)** Sobre una muestra de 100 mujeres  se obtuvo una concentración media de la hemoglobina de 10 con una desviación típica de 2. ¿Qué vale el error típico de la muestra (para la media muestral, se entiende)? 
+**(4)** Sobre una muestra de 100 mujeres  se obtuvo una concentración media de hemoglobina de 10 con una desviación típica de 2. ¿Qué vale el error típico de la muestra (para la media muestral, se entiende)? 
 
 1. 0.02
 1. 0.04

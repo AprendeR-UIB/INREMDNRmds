@@ -778,7 +778,7 @@ Dibujad su histograma usando 6 clases de amplitud 0.2, empezando en 2 horas, y s
 
 ## Asimetría y  curtosis
 
-Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, y por tanto conviene que conozcáis, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma, y no sirven para estimar la correspondiente propiedad de la variable poblacional. 
+Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, y por tanto conviene que conozcáis, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma, y no sirven para estimar la correspondiente propiedad de la variable poblacional (que en todo caso es la interesante). 
 
 Dada una muestra de datos numéricos $x_1,\ldots,x_n$, de media $\overline{x}$ y desviación típica $s_x$:
 
@@ -904,6 +904,13 @@ Por ejemplo, si recordáis el gráfico de la distribución de los salarios anual
 ```
 
 
+
+```{r, echo=FALSE,out.width="80%",fig.cap="Los tres tipos de asimetría (adaptado de *Statistics from A to Z*, de A. Jawlik (Wiley 2016))."}
+knitr::include_graphics("INREMDN_files/figure-html/colas.png")
+```
+
+
+
 ```{block2,type="rmdnote"}
 El 1.5 en la definición de los bigotes en los diagramas de caja es tal que, si la variable "se ajusta a una variable normal" (su histograma se parece a una campana de Gauss), se espere alrededor de un 0.35% de valores atípicos a cada lado de la caja.
 ```
@@ -933,7 +940,7 @@ knitr::include_graphics("INREMDN_files/figure-html/Lepto.png")
 knitr::include_graphics("INREMDN_files/figure-html/Plati.png")
 ```
 
-No vamos a insistir en este coeficiente ni en el apuntamiento de las variables.
+Un conjunto de datos platicúrtico tiene las colas más altas de lo que cabría esperar si se ajustara a una campana de Gauss, mientras que si es leptocúrtico sus colas son más bajas.
 
 ## Estadísticos sobre datos agrupados {#sec:estagrup}
 

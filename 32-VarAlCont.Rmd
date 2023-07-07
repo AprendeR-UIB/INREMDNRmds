@@ -18,7 +18,7 @@ es continua. Todas las variables aleatorias continuas que os puedan interesar en
 Por ejemplo, nuestras variables continuas verifican la propiedad siguientes: 
 
 ```{theorem}
-Si $X$ es una variable aleatoria continua, la probabilidad de que tome cada valor concreto es 0:
+Si $X$ es una variable aleatoria continua, la probabilidad de que tome un valor concreto siempre es 0:
 $$
 P(X=a)=0 \text{ para todo $a\in \mathbb{R}$}.
 $$
@@ -191,14 +191,10 @@ Unas  consideraciones finales:
 
 * Lo hemos dicho en la definición, y lo hemos usado implícitamente en toda la sección,  pero lo volvemos a repetir: $f_X(x)\geqslant 0$ para todo $x\in \mathbb{R}$.
 
-```{block2,type="rmdnote"}
-En realidad, que $f_X(x)$ sea $\geqslant 0$ para todo $x\in \mathbb{R}$ es consecuencia de que $F_X$ sea positiva y creciente (recordad que las funciones de distribución son siempre crecientes, porque si $x<y$, $F_X(x)=P(X\leqslant x)\leqslant P(X\leqslant y)=F_X(y)$) y coincida con $\int_{-\infty}^x f_X(x)\,dx$.
-```
-
-* $f_X(x)$ no es una probabilidad, y por lo tanto puede ser mayor que 1. Por ejemplo, el gráfico siguiente muestra la densidad de una variable normal $N(0,0.01)$ (véase la Sección \@ref(sec:normal)), que llega  a valer casi 40.
+* $f_X(x)$ no es una probabilidad, y por lo tanto puede ser mayor que 1. Por ejemplo, el gráfico siguiente muestra la densidad de una variable normal $N(0,0.01)$ (véase la Sección \@ref(sec:normal)), que llega  a valer casi 40. Pero el área bajo toda la curva densidad es 1: a partir de $\pm 0.06$ la densidad vale prácticamente 0.
 
 ```{r,echo=FALSE,out.width="60%",fig.asp=1,fig.width=5}
-curve(dnorm(x,0,0.01),xlim=c(-0.05,0.05),xlab="",ylab="",main="Densidad de N(0,0.01)")
+curve(dnorm(x,0,0.01),xlim=c(-0.06,0.06),xlab="",ylab="",main="Densidad de N(0,0.01)")
 ```
 
 * La función de densidad $f_X$ no tiene por qué ser continua, aunque la función de distribución $F_X$ lo sea.
@@ -206,7 +202,7 @@ curve(dnorm(x,0,0.01),xlim=c(-0.05,0.05),xlab="",ylab="",main="Densidad de N(0,0
 
 ## Esperanza, varianza, cuantiles...
 
-La esperanza y la varianza de una variable aleatoria continua $X$, con función de densidad $f_X$, se definen como en el caso discreto, substituyendo la suma $\sum_{x\in D_x}$ por una integral.
+La esperanza y la varianza de una variable aleatoria continua $X$, con función de densidad $f_X$, se definen como en el caso discreto, substituyendo la suma $\sum_{x\in D_x}$ por una integral $\int_{-\infty}^{\infty}$.
 
 
 
@@ -303,6 +299,14 @@ Fijaos en que como $F_X(x)$ tiende a 0 (la probabilidad del conjunto vacío) cua
 
 La **mediana** de $X$ es su 0.5-cuantil,  los **primer** y **tercer cuartiles** son su 0.25-cuantil y su 0.75-cuantil, etc.
 
+Los **coeficientes de asimetría** y de **curtosis** se definen de manera similar a los de una muestra:
+$$
+\begin{array}{l}
+\displaystyle \gamma_1=E\Big(\Big(\frac{X-\mu_X}{\sigma}\Big)^3\Big)\\
+\displaystyle \beta_2=E\Big(\Big(\frac{X-\mu_X}{\sigma}\Big)^4\Big)-3
+\end{array}
+$$
+Miden para la densidad de la variable lo que medían los de la muestra: el coeficiente de asimetría, si es simétrica o si tiene cola a algún lado; el coeficiente de curtosis, si es más apuntada o más plana que una campana de Gauss. 
 
 
 ## Variables aleatorias normales {#sec:normal}
@@ -335,7 +339,7 @@ Una variable aleatoria normal es **típica** (o **estándar**) cuando es $N(0,1)
 
 
 
-La gráfica de la densidad de una variable aleatoria normal es la famosa **campana de Gauss**:
+La gráfica de la densidad de una variable aleatoria normal es la famosa **campana de Gauss** de la que hemos hablado varias veces:
 
 ```{r,echo=FALSE}
 curve(dnorm(x),-5,5,col="blue",lwd=3,ylim=c(0,0.5),main="Densidad de N(0,1)",xlab="",ylab="")
@@ -381,7 +385,17 @@ Para calcular probabilidades de una $N(\mu,\sigma)$,  hay que calcular las integ
 knitr::include_graphics("INREMDN_files/figure-html/emorisa.png")
 ```
 
-O podéis usar R o alguna aplicación para móvil o tablet. Para R, la normal es `norm`. Así, por ejemplo, si $X$ es $N(1,2)$
+O podéis usar JAMOVI, R o alguna aplicación para móvil o tablet. 
+
+
+```{r, echo=FALSE,out.width="90%"}
+knitr::include_graphics("INREMDN_files/figure-html/jamovinorm.png")
+```
+
+
+
+
+Para R, la normal es `norm`. Así, por ejemplo, si $X$ es $N(1,2)$
 
 * $P(X\leqslant 1.5)$ es
 ```{r}
@@ -404,15 +418,7 @@ dnorm(1.5,1,2)
 ```
 
 Si la normal es estándar, no hace falta entrar la $\mu=0$ y la $\sigma=1$. Así, si
-$Z$ es $N(0,1)$
-
-* $P(Z\leqslant 1.5)$ es
-```{r}
-pnorm(1.5)
-pnorm(1.5,0,1)
-```
-
-* Su 0.95-cuantil es
+$Z$ es $N(0,1)$, su 0.95-cuantil es
 ```{r}
 qnorm(0.95)
 ```
@@ -421,7 +427,7 @@ qnorm(0.95)
 
 
 ```{example,exhiperhipo}
-La presión sistólica, medida en mm Hg, se distribuye como una variable normal con valor medio $\mu$ y  desviación típica $\sigma$ que dependen del sexo y la edad. Para la franja de edad 16-24 años, estos valores  son:
+La presión sistólica, medida en mm Hg, es una variable aleatoria aproximadamente normal con valor medio $\mu$ y  desviación típica $\sigma$ que dependen del sexo y la edad. Para la franja de edad 16-24 años, estos valores  son:
 
 * Para hombres, $\mu=124$ y $\sigma=13.7$
 * Para mujeres, $\mu=117$ y $\sigma=13.7$
@@ -442,27 +448,15 @@ Veamos:
 * El límite inferior del grupo de riesgo de hipertensión será el valor que deja a la izquierda un 90% de las tensiones: el 0.9-cuantil de la distribución.
 * El límite inferior del grupo de hipertensión será el valor que deja a la izquierda un 95% de las tensiones: el 0.95-cuantil de la distribución.
 
-En los hombres, la tensión sistólica es una variable aleatoria $N(124,13.7)$. Podemos usar R o una aplicación para calcular estos cuantiles. Con R:
+En los hombres, la tensión sistólica es una variable aleatoria $N(124,13.7)$. Si calculamos estos cuantiles, dan:
 
-* El 0.05-cuantil es
-```{r}
-qnorm(0.05,124,13.7)
-```
+* El 0.05-cuantil es `r round(qnorm(0.05,124,13.7),1)`
 
-* El 0.1-cuantil es
-```{r}
-qnorm(0.1,124,13.7)
-```
+* El 0.1-cuantil es `r round(qnorm(0.1,124,13.7),1)`
 
-* El 0.9-cuantil es
-```{r}
-qnorm(0.9,124,13.7)
-```
+* El 0.9-cuantil es `r round(qnorm(0.9,124,13.7),1)`
 
-* El 0.95-cuantil es
-```{r}
-qnorm(0.95,124,13.7)
-```
+* El 0.95-cuantil es `r round(qnorm(0.95,124,13.7),1)`
 
 En resumen, para los hombres de 16 a 24 años:
 $$
@@ -502,7 +496,7 @@ axis(1,at=c(0), labels=c(expression(mu)))
 ```
 
 ```{block2, type='rmdnote'}
-Recordad que no tiene sentido definir la moda de una variable continua $X$ como el valor $x_0$ tal que $P(X=x_0)$ sea máximo, porque $P(X=x)=0$ para todo $x\in \mathbb{R}$. Se define entonces la **moda** de una variable continua $X$ como el valor (o los valores) $x_0$ tal  que $f_X(x_0)$ es máximo. Por lo tanto, como  $f_X(x_0)$ mide la probabilidad de que $X$ valga aproximadamente $x_0$, tenemos que la moda de $X$ es el valor cerca del cual es más probable que caiga el valor de $X$.
+Recordad que no tiene sentido definir la moda de una variable continua $X$ como el valor $x_0$ tal que $P(X=x_0)$ sea máximo, porque $P(X=x)=0$ para todo $x\in \mathbb{R}$. Se define entonces la **moda** de una variable continua $X$ como el valor (o los valores) $x_0$ tal  que $f_X(x_0)$ es máximo. Así, como  $f_X(x_0)$ mide la probabilidad de que $X$ valga aproximadamente $x_0$, la moda de $X$ es el valor cerca del cual es más probable que caiga el valor de $X$.
 ```
 
 En particular, si $Z$ es $N(0,1)$, entonces $f_Z$ es simétrica alrededor de 0, es decir, $f_{Z}(-x)=f_{Z}(x)$, y la moda de $Z$ es $x=0$.
@@ -531,7 +525,7 @@ arrows(-0,0.1,-2.5,0.3,lwd=2)
 text(-2.5,0.32,expression(F[X](x)== P(X<=x) ) )
 ```
 
-Entonces, la simetría de $f_X$ hace que, para todo $x\geqslant 0$, las áreas a la izquierda de $\mu-x$ y a la derecha de $\mu+x$ sean iguales.
+Entonces, la simetría de $f_X$ alrededor de $\mu$ hace que, para todo $x\geqslant 0$, las áreas a la izquierda de $\mu-x$ y a la derecha de $\mu+x$ sean iguales.
 
 
 ```{r, echo=FALSE, out.width="80%", fig.width=8, fig.asp = 0.5}
@@ -763,6 +757,18 @@ par(mfrow=c(1,1))
 Si para cada $x$ dibujamos los puntos $(1-F_{X_S}(x),1-F_{X_E}(x))$, obtenemos la curva ROC de la derecha de dicha figura.
 
 
+```{block2,type="rmdexercici"}
+Del gráfico de las densidades de $X_E$ i $X_S$, ¿podéis deducir cuál tiene mayor desviación típica?
+```
+
+
+Tenemos también el resultado siguiente:
+
+```{theorem,simcurtnormals}
+Las variables normales tienen coeficientes de asimetría y de curtosis 0.
+```
+
+
 Una de las propiedades de la distribución normal que nos facilitan mucho la vida es que **toda combinación lineal de variables aleatorias normales independientes es normal**. En concreto, tenemos los resultados siguientes:
 
 ```{theorem,comblinnormals}
@@ -813,7 +819,7 @@ Esto sirve para deducir fórmulas, y vuestros padres lo usaban para calcular pro
 
 Un **intervalo de referencia** del $Q\%$ para una variable aleatoria $X$ es un intervalo $[a,b]$ tal que 
 $$
-P(a\leqslant X\leqslant b)=Q/100.
+P(a\leqslant X\leqslant b)=Q\%(=Q/100).
 $$
 Es decir, un intervalo de referencia del $Q\%$ para $X$ es un intervalo que contiene los valores de $X$ del $Q\%$ de los sujetos de la población.
 
@@ -830,9 +836,12 @@ knitr::include_graphics("INREMDN_files/figure-html/analit.png")
 ```
 
 ```{block2,type="rmdnote"}
-Cuando se habla de un **intervalo de referencia** sin dar la probabilidad, se sobreentiende siempre que es el intervalo de referencia del 95%. Un 5% de la población cae fuera del intervalo de referencia del 95%.
+Cuando se habla de un **intervalo de referencia** sin dar la probabilidad, se sobreentiende siempre que es el intervalo de referencia del 95%. 
 ```
 
+```{block2,type="rmdimportant"}
+Un 5% de la población está fuera del intervalo de referencia del 95%, por definición.
+```
 
 Cuando $X$ es $N(\mu,\sigma)$, estos intervalos de referencia se toman siempre **centrados en la media** $\mu$, es decir, de la forma $[\mu-\text{algo},\mu+\text{algo}]$. Para calcularlos se usa el resultado siguiente:
 
@@ -881,7 +890,7 @@ $$
 $$
 Esto dice, básicamente, que
 
-> si una población sigue una distribución normal $N(\mu,\sigma)$, un 95% de sus individuos tienen su valor de $X$ a distancia como máximo $2\sigma$ ("a dos sigmas") de $\mu$.
+> si una población sigue una distribución normal $N(\mu,\sigma)$, alrededor del 95% de sus individuos tienen su valor de $X$ a distancia como máximo $2\sigma$ ("a dos sigmas") de $\mu$. El 5% restante de distribuye a partes iguales a ambos lados del intervalo: un 2.5% por encima de su extremo superior y un 2.5% por debajo de su extremo inferior.
 
 
 ```{example}
@@ -890,12 +899,12 @@ Según la OMS, las alturas (en cm) de las mujeres europeas de 18 años siguen un
 
 ```   
     
-Fijaos en que, si llamamos $X$ a la variable aleatoria "Tomo una mujer europea de 18 años y mido su altura en cm", lo que queremos saber es el intervalo centrado en su media, 163.1, tal que la probabilidad de que la altura de una europea de 18 años escogida al azar pertenezca a este intervalo sea 0.5. Es decir, el intervalo de referencia del 50% para $X$.
+Fijaos en que, si llamamos $X$ a la variable aleatoria "Tomo una mujer europea de 18 años y mido su altura en cm", lo que queremos saber es el intervalo centrado en su media tal que la probabilidad de que la altura de una europea de 18 años escogida al azar pertenezca a este intervalo sea 0.5. Es decir, el intervalo de referencia del 50% para $X$.
 
-Nos dicen que $X$ es $N(163.1,18.53)$. Si $q=0.5$, entonces $(1+q)/2=0.75$ y podemos calcular con R o una aplicación el 0.75-cuantil de una normal estándar. Da $z_{0.75}=0.6745$.
+Nos dicen que $X$ es $N(163.1,18.53)$. Si $q=0.5$, entonces $(1+q)/2=0.75$ y si calculamos el 0.75-cuantil de una normal estándar, da $z_{0.75}=0.6745$.
 
 
-Por lo tanto, es el intervalo $163.1\pm 0.6745\cdot 18.53$. Redondeando a mm, $[150.6, 175.6]$. Esto nos dice que la mitad de las mujeres europeas de 18 años miden entre  150.6 y 175.6.
+Por lo tanto, es el intervalo $163.1\pm 0.6745\cdot 18.53$. Redondeando a mm, $[150.6, 175.6]$. Esto nos dice que la mitad de las mujeres europeas de 18 años miden entre  150.6 y 175.6 cm. De la otra mitad, la mitad (es decir un cuarto del total) miden menos de 150.6 cm y la otra más de 175.6 cm.
 
 
 El **z-score** (**z-valor**, **z-puntuación**, **z-puntaje**...) de un valor $x_0\in \mathbb{R}$ respecto de una distribución $N(\mu,\sigma)$ es
@@ -903,7 +912,7 @@ $$
 \frac{x_0-\mu}{\sigma}
 $$
 
-Es decir, el z-score de $x_0$ es el resultado de "tipificar" $x_0$ en el sentido del Teorema \@ref(thm:comblinnormals).2.
+Es decir, el z-score de $x_0$ es el resultado de "tipificar" $x_0$ en el sentido del Teorema \@ref(thm:comblinnormals).
 
 Si la variable poblacional es normal, cuanto mayor es el valor absoluto del z-score de $x_0$, más "raro" es $x_0$; el signo nos dice si es más grande o más pequeño que el valor esperado $\mu$.
 
@@ -917,7 +926,7 @@ $$
 \frac{191-163.1}{18.53}=1.5
 $$
 
-Esto se suele leer diciendo que la altura de esta jugadora está *1.5 sigmas por encima de la media*.
+Esto se suele leer diciendo que la altura de esta jugadora está *1.5 sigmas por encima de la media* (donde, recordad, "sigma" es una abreviatura de "desviación típica poblacional").
 
 
 
@@ -991,7 +1000,7 @@ $$
 
 
 
-**(8)** ¿Qué distribución es la más adecuada para modelar el número anual de fallecimientos entre enfermos de cáncer tratados con una determinada quimioterapia? Marca una única respuesta.
+**(8)** ¿Qué distribución es la más adecuada para modelar el número anual de fallecimientos entre enfermos de cáncer tratados con una determinada quimioterapia si estas se producen al azar? Marca una única respuesta.
 
 1. Normal
 1. Binomial
