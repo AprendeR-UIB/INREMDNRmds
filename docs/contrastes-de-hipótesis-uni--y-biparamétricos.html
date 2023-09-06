@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lección 11 Contrastes de hipótesis uni- y biparamétricos | Bioestadística (Medicina UIB)</title>
+  <title>Lección 15 Contrastes de hipótesis uni- y biparamétricos | Bioestadística (Medicina UIB)</title>
   <meta name="description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lección 11 Contrastes de hipótesis uni- y biparamétricos | Bioestadística (Medicina UIB)" />
+  <meta property="og:title" content="Lección 15 Contrastes de hipótesis uni- y biparamétricos | Bioestadística (Medicina UIB)" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
   <meta name="github-repo" content="AprendeR-UIB/INREMDN" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lección 11 Contrastes de hipótesis uni- y biparamétricos | Bioestadística (Medicina UIB)" />
+  <meta name="twitter:title" content="Lección 15 Contrastes de hipótesis uni- y biparamétricos | Bioestadística (Medicina UIB)" />
   
   <meta name="twitter:description" content="Apunts Bioestadística per a Medicina bookdown::gitbook." />
   
 
+<meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2021-12-12" />
+<meta name="date" content="2023-09-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="contrastes-de-hipótesis.html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +49,11 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -92,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -151,7 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="estudios-médicos.html"><a href="estudios-médicos.html#ensayos-clínicos"><i class="fa fa-check"></i><b>2.8</b> Ensayos clínicos</a></li>
 <li class="chapter" data-level="2.9" data-path="estudios-médicos.html"><a href="estudios-médicos.html#a-modo-de-resumen"><i class="fa fa-check"></i><b>2.9</b> A modo de resumen</a></li>
 <li class="chapter" data-level="2.10" data-path="estudios-médicos.html"><a href="estudios-médicos.html#revisiones-sistemáticas-y-metaanálisis"><i class="fa fa-check"></i><b>2.10</b> Revisiones sistemáticas y metaanálisis</a></li>
-<li class="chapter" data-level="2.11" data-path="estudios-médicos.html"><a href="estudios-médicos.html#bonus-track-unos-criterios-de-causalidad"><i class="fa fa-check"></i><b>2.11</b> (Bonus track) Unos criterios de causalidad</a></li>
+<li class="chapter" data-level="2.11" data-path="estudios-médicos.html"><a href="estudios-médicos.html#sec:causalidad"><i class="fa fa-check"></i><b>2.11</b> (Bonus track) Unos criterios de causalidad</a></li>
 <li class="chapter" data-level="2.12" data-path="estudios-médicos.html"><a href="estudios-médicos.html#bonus-track-preguntas-clínicas-en-formato-pico"><i class="fa fa-check"></i><b>2.12</b> (Bonus track) Preguntas clínicas en formato PICO</a></li>
 <li class="chapter" data-level="2.13" data-path="estudios-médicos.html"><a href="estudios-médicos.html#test"><i class="fa fa-check"></i><b>2.13</b> Test</a></li>
 </ul></li>
@@ -176,12 +182,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#álgebra-de-conjuntos"><i class="fa fa-check"></i><b>4.1</b> Álgebra de conjuntos</a></li>
 <li class="chapter" data-level="4.2" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#algunas-fórmulas-básicas"><i class="fa fa-check"></i><b>4.2</b> Algunas fórmulas básicas</a></li>
-<li class="chapter" data-level="4.3" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#odds"><i class="fa fa-check"></i><b>4.3</b> Odds</a></li>
+<li class="chapter" data-level="4.3" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#sec:odds"><i class="fa fa-check"></i><b>4.3</b> Odds</a></li>
 <li class="chapter" data-level="4.4" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>4.4</b> Probabilidad condicionada</a></li>
 <li class="chapter" data-level="4.5" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#sucesos-independientes"><i class="fa fa-check"></i><b>4.5</b> Sucesos independientes</a></li>
-<li class="chapter" data-level="4.6" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#probabilidad-total"><i class="fa fa-check"></i><b>4.6</b> Probabilidad total</a></li>
-<li class="chapter" data-level="4.7" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#fórmula-de-bayes"><i class="fa fa-check"></i><b>4.7</b> Fórmula de Bayes</a></li>
-<li class="chapter" data-level="4.8" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#test-2"><i class="fa fa-check"></i><b>4.8</b> Test</a></li>
+<li class="chapter" data-level="4.6" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#odds-condicionadas-y-odds-ratios-relativas"><i class="fa fa-check"></i><b>4.6</b> Odds condicionadas y odds ratios relativas</a></li>
+<li class="chapter" data-level="4.7" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#el-teorema-de-la-probabilidad-total"><i class="fa fa-check"></i><b>4.7</b> El teorema de la probabilidad total</a></li>
+<li class="chapter" data-level="4.8" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#la-fórmula-de-bayes"><i class="fa fa-check"></i><b>4.8</b> La fórmula de Bayes</a></li>
+<li class="chapter" data-level="4.9" data-path="probabilidades-elementales-las-mates.html"><a href="probabilidades-elementales-las-mates.html#test-2"><i class="fa fa-check"></i><b>4.9</b> Test</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html"><i class="fa fa-check"></i><b>5</b> Probabilidades elementales: Aplicaciones en medicina</a>
 <ul>
@@ -198,78 +205,108 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#tratamientos"><i class="fa fa-check"></i><b>5.3</b> Tratamientos</a></li>
 <li class="chapter" data-level="5.4" data-path="probabilidades-elementales-aplicaciones-en-medicina.html"><a href="probabilidades-elementales-aplicaciones-en-medicina.html#test-3"><i class="fa fa-check"></i><b>5.4</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>6</b> Variables aleatorias discretas</a>
+<li class="part"><span><b>Tema II: Estadística descriptiva</b></span></li>
+<li class="chapter" data-level="6" data-path="sec:tiposdatos.html"><a href="sec:tiposdatos.html"><i class="fa fa-check"></i><b>6</b> Tipos de datos</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>6.1</b> Densidad y distribución</a></li>
-<li class="chapter" data-level="6.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>6.2</b> Esperanza</a></li>
-<li class="chapter" data-level="6.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>6.3</b> Varianza y desviación típica</a></li>
-<li class="chapter" data-level="6.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>6.4</b> Cuantiles</a></li>
-<li class="chapter" data-level="6.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>6.5</b> Familias importantes de variables aleatorias discretas</a>
-<ul>
-<li class="chapter" data-level="6.5.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>6.5.1</b> Variables aleatorias binomiales</a></li>
-<li class="chapter" data-level="6.5.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>6.5.2</b> Variables aleatorias hipergeométricas</a></li>
-<li class="chapter" data-level="6.5.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-de-poisson"><i class="fa fa-check"></i><b>6.5.3</b> Variables aleatorias de Poisson</a></li>
+<li class="chapter" data-level="6.1" data-path="sec:tiposdatos.html"><a href="sec:tiposdatos.html#test-4"><i class="fa fa-check"></i><b>6.1</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-4"><i class="fa fa-check"></i><b>6.6</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>7</b> Variables aleatorias continuas</a>
+<li class="chapter" data-level="7" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html"><i class="fa fa-check"></i><b>7</b> Descripción de datos cualitativos</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#densidad-y-distribución-1"><i class="fa fa-check"></i><b>7.1</b> Densidad y distribución</a></li>
-<li class="chapter" data-level="7.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>7.2</b> Esperanza, varianza, cuantiles…</a></li>
-<li class="chapter" data-level="7.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#sec:normal"><i class="fa fa-check"></i><b>7.3</b> Variables aleatorias normales</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#propiedades-básicas"><i class="fa fa-check"></i><b>7.3.1</b> Propiedades básicas</a></li>
-<li class="chapter" data-level="7.3.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#intervalos-de-referencia"><i class="fa fa-check"></i><b>7.3.2</b> Intervalos de referencia</a></li>
+<li class="chapter" data-level="7.1" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#sec:frecs"><i class="fa fa-check"></i><b>7.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="7.2" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#gráficos"><i class="fa fa-check"></i><b>7.2</b> Gráficos</a></li>
+<li class="chapter" data-level="7.3" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#tablas-de-frecuencias-multidimensionales"><i class="fa fa-check"></i><b>7.3</b> Tablas de frecuencias multidimensionales</a></li>
+<li class="chapter" data-level="7.4" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#sec:barrasbidim"><i class="fa fa-check"></i><b>7.4</b> Diagramas de barras bidimensionales</a></li>
+<li class="chapter" data-level="7.5" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#diagramas-de-mosaico"><i class="fa fa-check"></i><b>7.5</b> Diagramas de mosaico</a></li>
+<li class="chapter" data-level="7.6" data-path="descripción-de-datos-cualitativos.html"><a href="descripción-de-datos-cualitativos.html#test-5"><i class="fa fa-check"></i><b>7.6</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#test-5"><i class="fa fa-check"></i><b>7.4</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="estimadores.html"><a href="estimadores.html"><i class="fa fa-check"></i><b>8</b> Estimadores</a>
+<li class="chapter" data-level="8" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html"><i class="fa fa-check"></i><b>8</b> Descripción de datos ordinales</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="estimadores.html"><a href="estimadores.html#la-media-muestral"><i class="fa fa-check"></i><b>8.1</b> La media muestral</a></li>
-<li class="chapter" data-level="8.2" data-path="estimadores.html"><a href="estimadores.html#la-proporción-muestral"><i class="fa fa-check"></i><b>8.2</b> La proporción muestral</a></li>
-<li class="chapter" data-level="8.3" data-path="estimadores.html"><a href="estimadores.html#la-varianza-muestral"><i class="fa fa-check"></i><b>8.3</b> La varianza muestral</a></li>
-<li class="chapter" data-level="8.4" data-path="estimadores.html"><a href="estimadores.html#la-distribución-t-de-student"><i class="fa fa-check"></i><b>8.4</b> La distribución t de Student</a></li>
-<li class="chapter" data-level="8.5" data-path="estimadores.html"><a href="estimadores.html#test-6"><i class="fa fa-check"></i><b>8.5</b> Test</a></li>
+<li class="chapter" data-level="8.1" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#frecuencias-y-diagramas-de-barras"><i class="fa fa-check"></i><b>8.1</b> Frecuencias y diagramas de barras</a></li>
+<li class="chapter" data-level="8.2" data-path="descripción-de-datos-ordinales.html"><a href="descripción-de-datos-ordinales.html#test-6"><i class="fa fa-check"></i><b>8.2</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html"><i class="fa fa-check"></i><b>9</b> Intervalos de confianza</a>
+<li class="chapter" data-level="9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html"><i class="fa fa-check"></i><b>9</b> Descripción de datos cuantitativos</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#definiciones-básicas"><i class="fa fa-check"></i><b>9.1</b> Definiciones básicas</a></li>
-<li class="chapter" data-level="9.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><i class="fa fa-check"></i><b>9.2</b> Un ejemplo: IC-95% para la media de una variable aleatoria normal</a></li>
-<li class="chapter" data-level="9.3" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><i class="fa fa-check"></i><b>9.3</b> Intervalo de confianza para la media basado en la t de Student</a></li>
-<li class="chapter" data-level="9.4" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-proporciones"><i class="fa fa-check"></i><b>9.4</b> Intervalos de confianza para proporciones</a></li>
-<li class="chapter" data-level="9.5" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#bonus-track-otros-intervalos-de-confianza"><i class="fa fa-check"></i><b>9.5</b> (Bonus track) Otros intervalos de confianza</a>
-<ul>
-<li class="chapter" data-level="9.5.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><i class="fa fa-check"></i><b>9.5.1</b> Un intervalo de confianza para la diferencia de proporciones</a></li>
-<li class="chapter" data-level="9.5.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>9.5.2</b> Intervalos de confianza para diferencias de medias</a></li>
+<li class="chapter" data-level="9.1" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#frecuencias"><i class="fa fa-check"></i><b>9.1</b> Frecuencias</a></li>
+<li class="chapter" data-level="9.2" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>9.2</b> Medidas de tendencia central</a></li>
+<li class="chapter" data-level="9.3" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-posición"><i class="fa fa-check"></i><b>9.3</b> Medidas de posición</a></li>
+<li class="chapter" data-level="9.4" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>9.4</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="9.5" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#diagramas-de-puntos-y-de-caja"><i class="fa fa-check"></i><b>9.5</b> Diagramas de puntos y de caja</a></li>
+<li class="chapter" data-level="9.6" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#histogramas"><i class="fa fa-check"></i><b>9.6</b> Histogramas</a></li>
+<li class="chapter" data-level="9.7" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#polígonos-de-frecuencias"><i class="fa fa-check"></i><b>9.7</b> Polígonos de frecuencias</a></li>
+<li class="chapter" data-level="9.8" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#asimetría-y-curtosis"><i class="fa fa-check"></i><b>9.8</b> Asimetría y curtosis</a></li>
+<li class="chapter" data-level="9.9" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#sec:estagrup"><i class="fa fa-check"></i><b>9.9</b> Estadísticos sobre datos agrupados</a></li>
+<li class="chapter" data-level="9.10" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#datos-cuantitativos-bivariantes"><i class="fa fa-check"></i><b>9.10</b> Datos cuantitativos bivariantes</a></li>
+<li class="chapter" data-level="9.11" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#gráficos-en-escala-logarítmica"><i class="fa fa-check"></i><b>9.11</b> Gráficos en escala logarítmica</a></li>
+<li class="chapter" data-level="9.12" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#test-7"><i class="fa fa-check"></i><b>9.12</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#test-7"><i class="fa fa-check"></i><b>9.6</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>10</b> Contrastes de hipótesis</a>
+<li class="chapter" data-level="10" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>10</b> Variables aleatorias discretas</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#hipótesis-nula-y-alternativa"><i class="fa fa-check"></i><b>10.1</b> Hipótesis nula y alternativa</a></li>
-<li class="chapter" data-level="10.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:moneda"><i class="fa fa-check"></i><b>10.2</b> Un ejemplo</a></li>
-<li class="chapter" data-level="10.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:pval"><i class="fa fa-check"></i><b>10.3</b> El p-valor</a></li>
-<li class="chapter" data-level="10.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#tipo-de-errores"><i class="fa fa-check"></i><b>10.4</b> Tipo de errores</a></li>
-<li class="chapter" data-level="10.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:exttest"><i class="fa fa-check"></i><b>10.5</b> Ejemplo: El test t</a></li>
-<li class="chapter" data-level="10.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#recapitulación"><i class="fa fa-check"></i><b>10.6</b> Recapitulación</a>
+<li class="chapter" data-level="10.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>10.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="10.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>10.2</b> Esperanza</a></li>
+<li class="chapter" data-level="10.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>10.3</b> Varianza y desviación típica</a></li>
+<li class="chapter" data-level="10.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>10.4</b> Cuantiles</a></li>
+<li class="chapter" data-level="10.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>10.5</b> Familias importantes de variables aleatorias discretas</a>
 <ul>
-<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#intervalo-de-confianza-de-un-contraste"><i class="fa fa-check"></i>Intervalo de confianza de un contraste</a></li>
-<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#la-potencia"><i class="fa fa-check"></i>La potencia</a></li>
-<li><a href="contrastes-de-hipótesis.html#resultados-estadísticamente-significativos-versus-resultados-clínicamente-significativos">Resultados estadísticamente significativos <em>versus</em> resultados clínicamente significativos</a></li>
-<li class="chapter" data-level="" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#bonus-track-el-riesgo-de-falso-positivo"><i class="fa fa-check"></i>(Bonus track) El riesgo de falso positivo</a></li>
+<li class="chapter" data-level="10.5.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>10.5.1</b> Variables aleatorias binomiales</a></li>
+<li class="chapter" data-level="10.5.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>10.5.2</b> Variables aleatorias hipergeométricas</a></li>
+<li class="chapter" data-level="10.5.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-de-poisson"><i class="fa fa-check"></i><b>10.5.3</b> Variables aleatorias de Poisson</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#test-8"><i class="fa fa-check"></i><b>10.7</b> Test</a></li>
+<li class="chapter" data-level="10.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-8"><i class="fa fa-check"></i><b>10.6</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html"><i class="fa fa-check"></i><b>11</b> Contrastes de hipótesis uni- y biparamétricos</a>
+<li class="chapter" data-level="11" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>11</b> Variables aleatorias continuas</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-para-medias"><i class="fa fa-check"></i><b>11.1</b> Contrastes para medias</a>
+<li class="chapter" data-level="11.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#densidad-y-distribución-1"><i class="fa fa-check"></i><b>11.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="11.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>11.2</b> Esperanza, varianza, cuantiles…</a></li>
+<li class="chapter" data-level="11.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#sec:normal"><i class="fa fa-check"></i><b>11.3</b> Variables aleatorias normales</a>
 <ul>
-<li class="chapter" data-level="11.1.1" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#test-t-para-una-media"><i class="fa fa-check"></i><b>11.1.1</b> Test t para una media</a></li>
-<li class="chapter" data-level="11.1.2" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#tests-t-para-dos-medias"><i class="fa fa-check"></i><b>11.1.2</b> Tests t para dos medias</a></li>
-<li class="chapter" data-level="11.1.3" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#tests-no-paramétricos"><i class="fa fa-check"></i><b>11.1.3</b> Tests no paramétricos</a></li>
-<li class="chapter" data-level="11.1.4" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#ejemplos"><i class="fa fa-check"></i><b>11.1.4</b> Ejemplos</a></li>
+<li class="chapter" data-level="11.3.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#propiedades-básicas"><i class="fa fa-check"></i><b>11.3.1</b> Propiedades básicas</a></li>
+<li class="chapter" data-level="11.3.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#intervalos-de-referencia"><i class="fa fa-check"></i><b>11.3.2</b> Intervalos de referencia</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-de-varianzas"><i class="fa fa-check"></i><b>11.2</b> Contrastes de varianzas</a></li>
+<li class="chapter" data-level="11.4" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#test-9"><i class="fa fa-check"></i><b>11.4</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimadores.html"><a href="estimadores.html"><i class="fa fa-check"></i><b>12</b> Estimadores</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="estimadores.html"><a href="estimadores.html#la-media-muestral"><i class="fa fa-check"></i><b>12.1</b> La media muestral</a></li>
+<li class="chapter" data-level="12.2" data-path="estimadores.html"><a href="estimadores.html#la-proporción-muestral"><i class="fa fa-check"></i><b>12.2</b> La proporción muestral</a></li>
+<li class="chapter" data-level="12.3" data-path="estimadores.html"><a href="estimadores.html#la-varianza-muestral"><i class="fa fa-check"></i><b>12.3</b> La varianza muestral</a></li>
+<li class="chapter" data-level="12.4" data-path="estimadores.html"><a href="estimadores.html#la-distribución-t-de-student"><i class="fa fa-check"></i><b>12.4</b> La distribución t de Student</a></li>
+<li class="chapter" data-level="12.5" data-path="estimadores.html"><a href="estimadores.html#test-10"><i class="fa fa-check"></i><b>12.5</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html"><i class="fa fa-check"></i><b>13</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#sec:IC"><i class="fa fa-check"></i><b>13.1</b> Definiciones básicas</a></li>
+<li class="chapter" data-level="13.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><i class="fa fa-check"></i><b>13.2</b> Un ejemplo: IC-95% para la media de una variable aleatoria normal</a></li>
+<li class="chapter" data-level="13.3" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><i class="fa fa-check"></i><b>13.3</b> Intervalo de confianza para la media basado en la t de Student</a></li>
+<li class="chapter" data-level="13.4" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-proporciones"><i class="fa fa-check"></i><b>13.4</b> Intervalos de confianza para proporciones</a></li>
+<li class="chapter" data-level="13.5" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#bonus-track-otros-intervalos-de-confianza"><i class="fa fa-check"></i><b>13.5</b> (Bonus track) Otros intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><i class="fa fa-check"></i><b>13.5.1</b> Un intervalo de confianza para la diferencia de proporciones</a></li>
+<li class="chapter" data-level="13.5.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>13.5.2</b> Intervalos de confianza para diferencias de medias</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#test-11"><i class="fa fa-check"></i><b>13.6</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>14</b> Contrastes de hipótesis</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#hipótesis-nula-y-alternativa"><i class="fa fa-check"></i><b>14.1</b> Hipótesis nula y alternativa</a></li>
+<li class="chapter" data-level="14.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:moneda"><i class="fa fa-check"></i><b>14.2</b> Un ejemplo</a></li>
+<li class="chapter" data-level="14.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:pval"><i class="fa fa-check"></i><b>14.3</b> El p-valor</a></li>
+<li class="chapter" data-level="14.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#tipo-de-errores"><i class="fa fa-check"></i><b>14.4</b> Tipo de errores</a></li>
+<li class="chapter" data-level="14.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:exttest"><i class="fa fa-check"></i><b>14.5</b> Ejemplo: El test t</a></li>
+<li class="chapter" data-level="14.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#la-potencia-de-un-contraste"><i class="fa fa-check"></i><b>14.6</b> La potencia de un contraste</a></li>
+<li class="chapter" data-level="14.7" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#intervalo-de-confianza-de-un-contraste"><i class="fa fa-check"></i><b>14.7</b> Intervalo de confianza de un contraste</a></li>
+<li class="chapter" data-level="14.8" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#resultados-estadísticamente-significativos-versus-resultados-clínicamente-significativos"><i class="fa fa-check"></i><b>14.8</b> Resultados estadísticamente significativos <em>versus</em> resultados clínicamente significativos</a></li>
+<li class="chapter" data-level="14.9" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#test-12"><i class="fa fa-check"></i><b>14.9</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html"><i class="fa fa-check"></i><b>15</b> Contrastes de hipótesis uni- y biparamétricos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-para-medias"><i class="fa fa-check"></i><b>15.1</b> Contrastes para medias</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#test-t-para-una-media"><i class="fa fa-check"></i><b>15.1.1</b> Test t para una media</a></li>
+<li class="chapter" data-level="15.1.2" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#tests-t-para-dos-medias"><i class="fa fa-check"></i><b>15.1.2</b> Tests t para dos medias</a></li>
+<li class="chapter" data-level="15.1.3" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#tests-no-paramétricos"><i class="fa fa-check"></i><b>15.1.3</b> Tests no paramétricos</a></li>
+<li class="chapter" data-level="15.1.4" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#ejemplos"><i class="fa fa-check"></i><b>15.1.4</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="contrastes-de-hipótesis-uni--y-biparamétricos.html"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-de-varianzas"><i class="fa fa-check"></i><b>15.2</b> Contrastes de varianzas</a></li>
 </ul></li>
 </ul>
 
@@ -288,22 +325,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="contrastes-de-hipótesis-uni--y-biparamétricos" class="section level1" number="11">
-<h1><span class="header-section-number">Lección 11</span> Contrastes de hipótesis uni- y biparamétricos</h1>
+<div id="contrastes-de-hipótesis-uni--y-biparamétricos" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Lección 15</span> Contrastes de hipótesis uni- y biparamétricos<a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-de-hipótesis-uni--y-biparamétricos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En esta lección simplemente vamos a comentar por encima los contrastes de hipótesis más importantes sobre:</p>
 <ul>
 <li><p>Una o dos medias</p></li>
 <li><p>Dos varianzas</p></li>
 <li><p>Una o dos proporciones</p></li>
 </ul>
-<div id="contrastes-para-medias" class="section level2" number="11.1">
-<h2><span class="header-section-number">11.1</span> Contrastes para medias</h2>
-<div id="test-t-para-una-media" class="section level3" number="11.1.1">
-<h3><span class="header-section-number">11.1.1</span> Test t para una media</h3>
+<div id="contrastes-para-medias" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Contrastes para medias<a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-para-medias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="test-t-para-una-media" class="section level3 hasAnchor" number="15.1.1">
+<h3><span class="header-section-number">15.1.1</span> Test t para una media<a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#test-t-para-una-media" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sea <span class="math inline">\(X\)</span> una variable aleatoria de media <span class="math inline">\(\mu\)</span>. Queremos realizar un contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
-H_{0}:\mu=\mu_0\\ 
+H_{0}:\mu=\mu_0\\
 H_{1}:\mu \neq\mu_0\text{ o }\mu &gt;\mu_0\text{ o }\mu&lt;\mu_0
 \end{array}
 \right.
@@ -320,12 +357,12 @@ T= \frac{\overline{X}-\mu_{0}}{{\widetilde{S}_X}/{\sqrt{n}}}
 \]</span>
 que, bajo las condiciones supuestas, sigue (aproximadamente, si <span class="math inline">\(X\)</span> no es normal pero la muestra es grande) una distribución t de Student con <span class="math inline">\(n-1\)</span> grados de libertad. Como ya hemos hecho varios ejemplos de este tipo de test en la lección anterior, aquí no nos vamos a entretener más con él.</p>
 </div>
-<div id="tests-t-para-dos-medias" class="section level3" number="11.1.2">
-<h3><span class="header-section-number">11.1.2</span> Tests t para dos medias</h3>
+<div id="tests-t-para-dos-medias" class="section level3 hasAnchor" number="15.1.2">
+<h3><span class="header-section-number">15.1.2</span> Tests t para dos medias<a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#tests-t-para-dos-medias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sean ahora <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> dos variables aleatorias de medias <span class="math inline">\(\mu_1\)</span> y <span class="math inline">\(\mu_2\)</span>, respectivamente. Queremos realizar un contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
-H_{0}:\mu_1=\mu_2\\ 
+H_{0}:\mu_1=\mu_2\\
 H_{1}:\mu_1 \neq\mu_2\text{ o }\mu_1 &gt;\mu_2\text{ o }\mu_1&lt;\mu_2
 \end{array}
 \right.
@@ -349,7 +386,7 @@ Para ello, medimos <span class="math inline">\(X_1\)</span> sobre una muestra al
 <p>Cuando las muestras son <strong>emparejadas</strong>, podemos entender que tenemos una sola muestra (formada por las parejas de sujetos) y consideramos los pares de valores <span class="math inline">\((X_1,X_2)\)</span> sobre dichas parejas. Entonces, podemos medir para cada pareja la diferencia <span class="math inline">\(D=X_1-X_2\)</span>, que tendrá media poblacional <span class="math inline">\(\mu_D=\mu_1-\mu_2\)</span>, y traducir el contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
-H_{0}:\mu_1=\mu_2\\ 
+H_{0}:\mu_1=\mu_2\\
 H_{1}:\mu_1 \neq\mu_2\text{ o }\mu_1 &gt;\mu_2\text{ o }\mu_1&lt;\mu_2
 \end{array}
 \right.
@@ -357,7 +394,7 @@ H_{1}:\mu_1 \neq\mu_2\text{ o }\mu_1 &gt;\mu_2\text{ o }\mu_1&lt;\mu_2
 en el contraste de una sola media
 <span class="math display">\[
 \left\{\begin{array}{l}
-H_{0}:\mu_1-\mu_2=0\\ 
+H_{0}:\mu_1-\mu_2=0\\
 H_{1}:\mu_D \neq 0\text{ o }\mu_D &gt;0\text{ o }\mu_D&lt;0
 \end{array}
 \right.
@@ -424,8 +461,8 @@ una muestra de <span class="math inline">\(X_1\)</span> y una muestra de <span c
 <li><p>El nivel de confianza <span class="math inline">\(1-\alpha\)</span>, que se especifica con el parámetro <code>conf.level</code>; si el nivel de significación es <span class="math inline">\(\alpha=0.05\)</span>, es decir, el nivel de confianza 0.95, no hace falta especificarlo (es su valor por defecto).</p></li>
 </ul>
 </div>
-<div id="tests-no-paramétricos" class="section level3" number="11.1.3">
-<h3><span class="header-section-number">11.1.3</span> Tests no paramétricos</h3>
+<div id="tests-no-paramétricos" class="section level3 hasAnchor" number="15.1.3">
+<h3><span class="header-section-number">15.1.3</span> Tests no paramétricos<a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#tests-no-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Si las variables aleatorias de interés no son (aproximadamente) normales y alguna muestra es pequeña, no podemos usar un test t. Entonces, hay que usar algún <strong>test no paramétrico</strong> que no presuponga nada sobre las distribuciones de las variables aleatorias.</p>
 <p>Para contrastes de medias, los recomendados son:</p>
 <ul>
@@ -456,11 +493,10 @@ una muestra de <span class="math inline">\(X_1\)</span> y una muestra de <span c
 </ul>
 </div>
 </div>
-<div id="ejemplos" class="section level3" number="11.1.4">
-<h3><span class="header-section-number">11.1.4</span> Ejemplos</h3>
-
+<div id="ejemplos" class="section level3 hasAnchor" number="15.1.4">
+<h3><span class="header-section-number">15.1.4</span> Ejemplos<a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#ejemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="example">
-<span id="exm:temp" class="example"><strong>Ejemplo 11.1  </strong></span>La temperatura media del cuerpo humano, ¿es el valor comúnmente aceptado de 37<sup>o</sup> C?
+<p><span id="exm:temp" class="example"><strong>Ejemplo 15.1  </strong></span>La temperatura media del cuerpo humano, ¿es el valor comúnmente aceptado de 37<sup>o</sup> C?</p>
 </div>
 <p>Primero de todo, traducimos esta pregunta en un contraste de hipótesis:</p>
 <ul>
@@ -473,19 +509,19 @@ H_{1}:\mu\neq 37
 \end{array}\right.
 \]</span></p></li>
 </ul>
-<p>Necesitamos una muestra de temperaturas. Vamos a usar las recogidas por P.A. Mackowiak, S. S. Wasserman y M.M. Levine que ya usamos en el Ejemplo <a href="intervalos-de-confianza.html#exm:tempsIC">9.9</a>, y que tenemos guardadas (en grados C) en la variable <strong>Temperatura</strong> de la tabla de datos <strong>Temperaturas.txt</strong>.</p>
+<p>Necesitamos una muestra de temperaturas. Vamos a usar las recogidas por P.A. Mackowiak, S. S. Wasserman y M.M. Levine que ya usamos en el Ejemplo <a href="intervalos-de-confianza.html#exm:tempsIC">13.9</a>, y que tenemos guardadas (en grados C) en la variable <strong>Temperatura</strong> de la tabla de datos <strong>Temperaturas.txt</strong>.</p>
 <p>El código siguiente define un vector llamado <code>Temps</code> con estas temperaturas y calcula su tamaño (la función <code>str(Temperaturas)</code> nos muestra la estructura de la tabla de datos <code>Temperaturas</code> que hemos definido al importar el fichero <strong>Temperaturas.txt</strong>):</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb95-1" aria-hidden="true" tabindex="-1"></a>Temperaturas<span class="ot">=</span><span class="fu">read.table</span>(<span class="st">&quot;Temperaturas.txt&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb95-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Temperaturas)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb80-1" tabindex="-1"></a>Temperaturas<span class="ot">=</span><span class="fu">read.table</span>(<span class="st">&quot;Temperaturas.txt&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb80-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb80-2" tabindex="-1"></a><span class="fu">str</span>(Temperaturas)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    230 obs. of  3 variables:
 ##  $ Sexo       : chr  &quot;M&quot; &quot;M&quot; &quot;M&quot; &quot;F&quot; ...
 ##  $ Pulsaciones: int  69 72 68 75 68 79 71 73 77 81 ...
 ##  $ Temperatura: num  36.1 37.1 35.7 36.6 37.1 38.5 36.6 36.3 37.3 37.3 ...</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb97-1" aria-hidden="true" tabindex="-1"></a>Temps<span class="ot">=</span>Temperaturas<span class="sc">$</span>Temperatura</span>
-<span id="cb97-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(Temps)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb82-1" tabindex="-1"></a>Temps<span class="ot">=</span>Temperaturas<span class="sc">$</span>Temperatura</span>
+<span id="cb82-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb82-2" tabindex="-1"></a><span class="fu">length</span>(Temps)</span></code></pre></div>
 <pre><code>## [1] 230</code></pre>
 <p>Como la muestra es muy grande, podemos usar un test t:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Temps, <span class="at">mu=</span><span class="dv">37</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb84-1" tabindex="-1"></a><span class="fu">t.test</span>(Temps, <span class="at">mu=</span><span class="dv">37</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -504,9 +540,8 @@ H_{1}:\mu\neq 37
 <li>La media muestral (<code>mean of x</code>): 36.82565</li>
 </ul>
 <p>Por tanto, hemos encontrado evidencia estadísticamente significativa de que la temperatura media del cuerpo humano no es de 37<sup>o</sup> C, y estimamos con un 95% de confianza que esta temperatura media está entre 36.8<sup>o</sup> C a 36.9<sup>o</sup> C, entre una y dos décimas por debajo del valor usual de 37<sup>o</sup> C. Si esto es clínicamente importante o no para definir “fiebre” ya no es un problema de estadística.</p>
-
 <div class="example">
-<span id="exm:tempHD" class="example"><strong>Ejemplo 11.2  </strong></span>La temperatura media de las hombres, ¿es menor que la de las mujeres?
+<p><span id="exm:tempHD" class="example"><strong>Ejemplo 15.2  </strong></span>La temperatura media de las hombres, ¿es menor que la de las mujeres?</p>
 </div>
 <p>Traducimos esta pregunta en un contraste de hipótesis:</p>
 <ul>
@@ -525,17 +560,17 @@ H_{1}:\mu_h&lt; \mu_m
 </ul>
 <p>Necesitamos una muestra de temperaturas de hombres y de mujeres. La tabla de datos <strong>Temperaturas.txt</strong> que hemos usado en el ejemplo anterior contiene una variable <strong>Sexo</strong> con el sexo de los sujetos: <strong>M</strong> para hombres y <strong>F</strong> para mujeres. La muestra fue trasnversal, así que las muestras de hombres y mujeres son independientes (las que salieron en la muestra global).</p>
 <p>El código siguiente define vectores <code>TempsH</code> y <code>TempsM</code> con las temperaturas de los hombres y las mujeres de esta tabla, y calcula sus tamaños:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb101-1" aria-hidden="true" tabindex="-1"></a>TempsH<span class="ot">=</span>Temperaturas[Temperaturas<span class="sc">$</span>Sexo<span class="sc">==</span><span class="st">&quot;M&quot;</span>,<span class="st">&quot;Temperatura&quot;</span>] <span class="co">#Temperaturas de hombres</span></span>
-<span id="cb101-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(TempsH)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb86-1" tabindex="-1"></a>TempsH<span class="ot">=</span>Temperaturas[Temperaturas<span class="sc">$</span>Sexo<span class="sc">==</span><span class="st">&quot;M&quot;</span>,<span class="st">&quot;Temperatura&quot;</span>] <span class="co">#Temperaturas de hombres</span></span>
+<span id="cb86-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb86-2" tabindex="-1"></a><span class="fu">length</span>(TempsH)</span></code></pre></div>
 <pre><code>## [1] 114</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb103-1" aria-hidden="true" tabindex="-1"></a>TempsM<span class="ot">=</span>Temperaturas[Temperaturas<span class="sc">$</span>Sexo<span class="sc">==</span><span class="st">&quot;F&quot;</span>,<span class="st">&quot;Temperatura&quot;</span>] <span class="co">#Temperaturas de mujeres</span></span>
-<span id="cb103-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(TempsM)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb88-1" tabindex="-1"></a>TempsM<span class="ot">=</span>Temperaturas[Temperaturas<span class="sc">$</span>Sexo<span class="sc">==</span><span class="st">&quot;F&quot;</span>,<span class="st">&quot;Temperatura&quot;</span>] <span class="co">#Temperaturas de mujeres</span></span>
+<span id="cb88-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb88-2" tabindex="-1"></a><span class="fu">length</span>(TempsM)</span></code></pre></div>
 <pre><code>## [1] 116</code></pre>
 <p>Las muestras de hombres y mujeres son grandes (116 y 114 sujetos, respectivamente), podemos usar un test t. Como estamos usando dos muestras independientes, necesitamos saber si <span class="math inline">\(X_h\)</span> y <span class="math inline">\(X_m\)</span> tienen la misma varianza. Lo que vamos a hacer es realizar el test bajo ambs supuestos y cruzar los dedos para que salga lo mismo.</p>
 <ul>
 <li>Suponiendo que las varianzas son iguales:</li>
 </ul>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(TempsH, TempsM, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">paired=</span><span class="cn">FALSE</span>, <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb90-1" tabindex="-1"></a><span class="fu">t.test</span>(TempsH, TempsM, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">paired=</span><span class="cn">FALSE</span>, <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
@@ -550,7 +585,7 @@ H_{1}:\mu_h&lt; \mu_m
 <ul>
 <li>Suponiendo que las varianzas son diferentes:</li>
 </ul>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(TempsH, TempsM, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">paired=</span><span class="cn">FALSE</span>, <span class="at">var.equal=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb92-1" tabindex="-1"></a><span class="fu">t.test</span>(TempsH, TempsM, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">paired=</span><span class="cn">FALSE</span>, <span class="at">var.equal=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -563,9 +598,8 @@ H_{1}:\mu_h&lt; \mu_m
 ## mean of x mean of y 
 ##  36.74737  36.90259</code></pre>
 <p>En ambos casos el p-valor (<code>p-value</code>) es del orden de 0.005, muy pequeño. Así, pues, hemos obtenido evidencia estadísticamente significativa que los hombres tienen una temperatura corporal media inferior a la de las mujeres. Además, ambos intervalos de confianza del 95% (<code>95 percent confidence interval</code>) van de <span class="math inline">\(-\infty\)</span> (<code>-Inf</code>) a alrededor de -0.055, por lo que tenemos un 95% de confianza de que la temperatura corporal media de los hombres es 0.06<sup>o</sup> C (6 centésimas de grado) menor que la de las mujeres. Las medias muestrales <span class="math inline">\(\overline{X}_h\)</span> y <span class="math inline">\(\overline{X}_h\)</span> (<code>mean of x</code> y <code>mean of y</code>; fijaos que hemos entrado en primer lugar las temperaturas de los hombres, por lo que <code>x</code> representa <code>TempsH</code> y <code>y</code> representa <code>TempsM</code>) han sido 36.75<sup>o</sup> C y 36.9<sup>o</sup> C, respectivamente, por lo que la media muestral de temperaturas de mujeres ha sido 0.15<sup>o</sup> C mayor que la de temperaturas de hombres.</p>
-
 <div class="example">
-<p><span id="exm:oatbran" class="example"><strong>Ejemplo 11.3  </strong></span>Desayunar salvado de avena en lugar de copos de maíz, ¿ayuda a reducir el nivel de colesterol?</p>
+<p><span id="exm:oatbran" class="example"><strong>Ejemplo 15.3  </strong></span>Desayunar salvado de avena en lugar de copos de maíz, ¿ayuda a reducir el nivel de colesterol?</p>
 </div>
 <p>Planteémoslo como un contraste de hipótesis.</p>
 <ul>
@@ -584,42 +618,42 @@ H_{1}:\mu_{ob}&lt; \mu_{cf}
 </ul>
 <p>Vamos a usar los datos obtenidos por J. Anderson <em>et al</em> en su estudio <a href="https://academic.oup.com/ajcn/article-abstract/52/3/495/4650821">“Oat-bran cereal lowers serum total and LDL cholesterol in hypercholesterolemic men</a> (<em>The American journal of clinical nutrition</em> 52 (1990), pp. 495-499). Se trata de un ensayo clínico cruzado sobre 14 individuos. A cada uno de ellos se le asignó uno de los dosdesayunos de manera aleatoria y lo tomaron durante 15 días. Al final de este periodo, se les midió el nivel de colesterol en sangre. Pasado un mes de descanso, cada participante desayunó durante 15 días el otro producto, y al final se los volvió a medir el nivel de colesterol en sangre. Tenemos los niveles de colesterol que obtuvieron en la tabla de datos <strong>oatbran.txt</strong>, donde están medidos en milimoles por litro (mmol/l), así que esta será la unidad que tomamos en las variables poblacionales.</p>
 <p>Cargamos la tabla de datos, consultamos su contenido y extraemos los vectores correspondientes a los niveles de colesterol para cada tipo de desayuno: <code>OAT</code> para <em>oatbran</em> y <code>CFL</code> para <em>cornflakes</em>.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb109-1" aria-hidden="true" tabindex="-1"></a>OBR<span class="ot">=</span><span class="fu">read.table</span>(<span class="st">&quot;oatbran.txt&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb109-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(OBR)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb94-1" tabindex="-1"></a>OBR<span class="ot">=</span><span class="fu">read.table</span>(<span class="st">&quot;oatbran.txt&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb94-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb94-2" tabindex="-1"></a><span class="fu">str</span>(OBR)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    14 obs. of  2 variables:
 ##  $ CORNFLK: num  4.61 6.42 5.4 4.54 3.98 3.82 5.01 4.34 3.8 4.56 ...
 ##  $ OATBRAN: num  3.94 5.57 5.85 4.8 3.68 2.96 4.41 3.72 3.49 3.94 ...</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb111-1" aria-hidden="true" tabindex="-1"></a>Oatbran<span class="ot">=</span>OBR<span class="sc">$</span>OATBRAN</span>
-<span id="cb111-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb111-2" aria-hidden="true" tabindex="-1"></a>Cornflake<span class="ot">=</span>OBR<span class="sc">$</span>CORNFLK</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb96-1" tabindex="-1"></a>Oatbran<span class="ot">=</span>OBR<span class="sc">$</span>OATBRAN</span>
+<span id="cb96-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb96-2" tabindex="-1"></a>Cornflake<span class="ot">=</span>OBR<span class="sc">$</span>CORNFLK</span></code></pre></div>
 <p>Como unas muestras de tamaño 14 son pequeñas, si queremos aplicar un test t necesitamos que provengan de variables normales. Para decidir si esto es verdad o no, se puede usar un <strong>contraste de bondad de ajuste</strong>, con hipótesis nula “Esta muestra proviene de una variable aleatoria con tal distribución” e hipótesis alternativa “No es verdad que esta muestra provenga de una variable aleatoria con tal distribución”. Pero aun no los hemos explicado, así que por ahora nos conformaremos con decidirlo a partir de un gráfico.</p>
 <p>Una posibilidad es dibujar un histograma de la muestra y añadir la densidad de una distribución normal con media y desviación típica las de la muestra, y mirar si parece que los datos siguen esta distribución normal. Pero con pocos datos esto es difícil de ver:</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-459-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-594-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>En este caso, una opción mejor es dibujar un <strong>q-q-plot</strong>. Un <strong>q-q-plot</strong> de una muestra y una distribución teórica es el gráfico de los llamados <strong>q-q-puntos</strong>: los puntos de la forma <em>(<span class="math inline">\(q\)</span>-cuantil de la distribución, <span class="math inline">\(q\)</span>-cuantil de la muestra)</em>, para varios valores de <span class="math inline">\(q\)</span>.</p>
 <p>Si la muestra proviene de la distribución usada para dibujar el q-q-plot, es de esperar que el q-cuantil de la muestra sea muy parecido al q-cuantil de la distribución y por lo tanto que estos q-q-puntos estén cerca de la diagonal principal <span class="math inline">\(y=x\)</span>.</p>
 <p>La función <code>qqPlot</code> del paquete <strong>car</strong> produce unos q-q-plots adecuados que además muestran una “región de confianza del 95%”, con el significado usual de nivel de confianza (para el 95% de las muestras de la distribución, los q-q-plot caen dentro de esta región; por lo tanto, si nuestro q-q-plot está completamente dentro de esta región, aceptamos con este nivel de confianza que proviene de la distribución usada).</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(car)</span>
-<span id="cb112-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(Oatbran, <span class="at">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="at">mean=</span><span class="fu">mean</span>(Oatbran), <span class="at">sd=</span><span class="fu">sd</span>(Oatbran),</span>
-<span id="cb112-3"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb112-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Cuantiles de OATBRAN&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Cuantiles de normal&quot;</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">id=</span><span class="cn">FALSE</span>)</span>
-<span id="cb112-4"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb112-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(Cornflake, <span class="at">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="at">mean=</span><span class="fu">mean</span>(Cornflake),<span class="at">sd=</span><span class="fu">sd</span>(Cornflake),</span>
-<span id="cb112-5"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb112-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&quot;Cuantiles de CORNFLK&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Cuantiles de normal&quot;</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">id=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-461-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb97-1" tabindex="-1"></a><span class="fu">require</span>(car)</span>
+<span id="cb97-2"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb97-2" tabindex="-1"></a><span class="fu">qqPlot</span>(Oatbran, <span class="at">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="at">mean=</span><span class="fu">mean</span>(Oatbran), <span class="at">sd=</span><span class="fu">sd</span>(Oatbran),</span>
+<span id="cb97-3"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb97-3" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Cuantiles de OATBRAN&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Cuantiles de normal&quot;</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">id=</span><span class="cn">FALSE</span>)</span>
+<span id="cb97-4"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb97-4" tabindex="-1"></a><span class="fu">qqPlot</span>(Cornflake, <span class="at">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="at">mean=</span><span class="fu">mean</span>(Cornflake),<span class="at">sd=</span><span class="fu">sd</span>(Cornflake),</span>
+<span id="cb97-5"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb97-5" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&quot;Cuantiles de CORNFLK&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Cuantiles de normal&quot;</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">id=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-596-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Aceptamos por lo tanto que nuestros datos provienen de dos distribuciones normales: podemos usar un test t de dos medias.</p>
 <p>En este caso, el test t es de muestras emparejadas (hemos medido las dos variable aleatorias sobre los mismos individuos), por lo que tenemos que especificar <code>paired=TRUE</code> y no tenemos que especificar el parámetro <code>var.equal</code>. Usaremos el parámetro <code>alternative="less"</code> para indicar que el test es unilateral: la hipótesis alternativa es que la media de la primera variable es más pequeña que la de la segunda.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Oatbran, Cornflake, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb98-1" tabindex="-1"></a><span class="fu">t.test</span>(Oatbran, Cornflake, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
 ## data:  Oatbran and Cornflake
 ## t = -3.3195, df = 13, p-value = 0.002768
-## alternative hypothesis: true difference in means is less than 0
+## alternative hypothesis: true mean difference is less than 0
 ## 95 percent confidence interval:
 ##        -Inf -0.1626132
 ## sample estimates:
-## mean of the differences 
-##              -0.3485714</code></pre>
+## mean difference 
+##      -0.3485714</code></pre>
 <p>Obtenemos un p-valor de 0.003. Por lo tanto, hemos encontrado evidencia estadísticamente significativa de que desayunar salvado reduce el nivel medio de colesterol respecto de desayunar copos de maíz. El intervalo de confianza del 95% para <span class="math inline">\(\mu_{ob}-\mu_{cf}\)</span> va de <span class="math inline">\(-\infty\)</span> a -0.163. Por lo tanto, tenemos un 95% de confianza en que desayunar salvado reduce en al menos 0.163 mmol/l el nivel medio de colesterol respecto de desayunar copos de maíz.</p>
 <p>¿Y si no quisiéramos, o no pudiéramos, suponer que las muestras provienen de distribuciones normales? Entonces usaríams un test de Wilcoxon:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Oatbran, Cornflake, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#cb100-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(Oatbran, Cornflake, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
 ## 
@@ -628,9 +662,11 @@ H_{1}:\mu_{ob}&lt; \mu_{cf}
 ## alternative hypothesis: true location shift is less than 0</code></pre>
 <p>El p-valor da 0.006, por lo que la conclusión es la misma, pero no nos da intervalo de confianza.</p>
 <!--
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:fototerapia"><strong>(\#exm:fototerapia) </strong></span>La fototerapia, ¿es más eficaz  como tratamiento del eccema atípico que un placebo?
+::: {.example #fototerapia}
+La fototerapia, ¿es más eficaz  como tratamiento del eccema atípico que un placebo?
   
-</div>\EndKnitrBlock{example}
+
+:::
 
 Para comprobar la eficacia de la fototerapia como tratamiento del eccema atípico, se tomaron 10 pacientes con un eccema de más de 9 meses y se los trató durante dos periodos de 3 semanas (ordenados aleatoriamente y separados por un periodo de recuperación) con un placebo y con fototerapia.
 
@@ -687,8 +723,8 @@ alternative hypothesis: true location shift is less than 0
 -->
 </div>
 </div>
-<div id="contrastes-de-varianzas" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> Contrastes de varianzas</h2>
+<div id="contrastes-de-varianzas" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> Contrastes de varianzas<a href="contrastes-de-hipótesis-uni--y-biparamétricos.html#contrastes-de-varianzas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sean <span class="math inline">\(X_1,X_2\)</span> dos variables aleatorias normales de desviaciones típicas <span class="math inline">\(\sigma_1\)</span>, <span class="math inline">\(\sigma_2\)</span></p>
 <p>Nos interesa el contraste
 <span class="math display">\[
@@ -725,7 +761,7 @@ En este caso se usa el <strong>F-test}, basado en el estadístico <span class="m
 <p>Queremos realizar un contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
-H_{0}:p=p_0\\ 
+H_{0}:p=p_0\\
 H_{1}:p\neq p_0\text{ o }p&gt; p_0\text{ o }p&lt; p_0
 \end{array}
 \right.
@@ -769,7 +805,7 @@ Volem realitzar un contrast
 $$
 {
 <span class="math display">\[\begin{array}{l}
-H_{0}:p_1=p_2\\ 
+H_{0}:p_1=p_2\\
 H_{1}:p_1
 eq p_2\text{ o }p_1&gt; p_2\text{ o }p_1&lt; p_2
 \end{array}\]</span>
@@ -780,15 +816,15 @@ $$</p>
 <p>Queremos realizar un contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
-H_{0}:p_1=p_2\\ 
+H_{0}:p_1=p_2\\
 H_{1}:p_1\neq p_2\text{ o }p_1&gt; p_2\text{ o }p_1&lt; p_2
 \end{array}
 \right.
 \]</span></p>
 Cuando las muestras son grandes, podemos usar el <strong>test <span class="math inline">\(\chi^2\)</span>}, implementado también en la función </strong>`prop.test}} de R (ya hablaremos de este test más adelante): se aplica a la tabla de frecuencias absolutas de las muestras
 <p>en forma de matriz o de tabla de contingencia</p>
-<p>Por otro lado,  podemos usar el <strong>test exacto de Fisher}, implementado en la función </strong>`fisher.test}}: de nuevo, se aplica a la tabla de frecuencias absolutas de las muestras</p>
-<p>**}: El test de Fisher en realidad no compara las proporciones <span class="math inline">\(p_1\)</span> y <span class="math inline">\(p_2\)</span>, sino sus 
+<p>Por otro lado, podemos usar el <strong>test exacto de Fisher}, implementado en la función </strong>`fisher.test}}: de nuevo, se aplica a la tabla de frecuencias absolutas de las muestras</p>
+<p>**}: El test de Fisher en realidad no compara las proporciones <span class="math inline">\(p_1\)</span> y <span class="math inline">\(p_2\)</span>, sino sus
 <span class="math display">\[
 \frac{p_1}{1-p_1}\mbox{ y }\frac{p_2}{1-p_2}
 \]</span>
@@ -814,12 +850,12 @@ H_{1}:p_1&gt;p_2
 <p>Queremos realizar un contraste
 <span class="math display">\[
 \left\{\begin{array}{l}
-H_{0}:p_1=p_2\\ 
+H_{0}:p_1=p_2\\
 H_{1}:p_1\neq p_2
 \end{array}
 \right.
 \]</span></p>
-Cuando <span class="math inline">\(n\)</span> es grande (<span class="math inline">\(\geq 100\)</span>) y el número de  (<span class="math inline">\(b+c\)</span> en la tabla inferior) es razonablemente grande (<span class="math inline">\(\geq 20\)</span>), podemos usar el , que usa el estadístico
+Cuando <span class="math inline">\(n\)</span> es grande (<span class="math inline">\(\geq 100\)</span>) y el número de (<span class="math inline">\(b+c\)</span> en la tabla inferior) es razonablemente grande (<span class="math inline">\(\geq 20\)</span>), podemos usar el , que usa el estadístico
 <span class="math display">\[
 Z^2=\frac{(b-c)^2}{b+c}\approx \chi^2_1
 \]</span>
@@ -840,12 +876,12 @@ H_{1}:p_1\neq p_2
 \]</span></p>
 [fragile]
 <p>La muestra es grande, y el número de casos discordantes supera (por poco) los 20, usaremos `macnemar.test}</p>
-<p>El  permite concluir que hay evidencia significativa de que hay diferencia en las tasas de supervivencia a los 5 años.</p>
+<p>El permite concluir que hay evidencia significativa de que hay diferencia en las tasas de supervivencia a los 5 años.</p>
 <p>Si no podéis usar el test de McNemar, siempre podéis usar el , que simplemente contrasta si las probabilidades poblacionales de los pares (Sí,No) y (No,Sí) son la misma, 0.5.</p>
 <p>Convenientemente implementado en la función **<code>mcnemar.exact}} del paquete</code>exact2x2}</p>
-<p><strong>}: El intervalo de confianza que calcula esta función es para una estimación de la  que además no es la que hemos explicado en clase. </strong>Mirad solo el p-valor}.</p>
+<p><strong>}: El intervalo de confianza que calcula esta función es para una estimación de la que además no es la que hemos explicado en clase. </strong>Mirad solo el p-valor}.</p>
 [fragile]
-<p>El  es <span class="math inline">\(0.017\)</span></p>
+<p>El es <span class="math inline">\(0.017\)</span></p>
 
 </div>
 </div>
@@ -922,7 +958,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

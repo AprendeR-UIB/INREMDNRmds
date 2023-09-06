@@ -1,18 +1,12 @@
-# Contrastes de hipótesis uni- y biparamétricos
+# Qué test usar?
 
-En esta lección simplemente vamos a comentar por encima los contrastes de hipótesis más importantes sobre:
-
-* Una o dos medias
-
-* Dos varianzas
-
-* Una o dos proporciones
+En esta lección estudiamos los contrastes de hipótesis más frecuentes sobre medias, varianzas, proporciones, etc. El objetivo principal es, para cada tipo de contraste, explicar qué tests se pueden usar según las condiciones en las que se quiere efectuar. Para la mayoría de estos tests no vamos a explicar las fórmulas de los estadísticos de contraste o intervalos de confianza, solo cómo realizar los tests con R. 
 
 ## Contrastes para medias
 
-### Test t para una media
+### Tests para una media
 
-Sea $X$ una variable aleatoria de media $\mu$.  Queremos realizar un contraste
+Sea $X$ una variable aleatoria de media $\mu$.  Queremos realizar un contraste sobre $\mu$, de la forma
 $$
 \left\{\begin{array}{l}
 H_{0}:\mu=\mu_0\\ 
@@ -22,22 +16,99 @@ H_{1}:\mu \neq\mu_0\text{ o }\mu >\mu_0\text{ o }\mu<\mu_0
 $$
 Para ello, medimos $X$ sobre una muestra aleatoria simple de tamaño $n$ de sujetos de la población.
 
+#### Test t
+
 Supongamos que estamos en una de las dos situaciones siguientes:
 
-* $X$ es normal
+* $X$ es normal; o
 
-* $X$ no es normal pero el tamaño $n$ de la muestra que tomamos es grande (digamos, para fijar ideas, que $n\geq 40$)
+* $X$ no es normal pero el tamaño $n$ de la muestra que tomamos es grande (digamos, para fijar ideas, que $n\geq 40$).
 
-En cualquiera de estas dos situaciones, podemos usar el **test t** que hemos explicado en la lección anterior para realizar el contraste. Recordad que este test se basa en el estadístico de contraste
+En cualquiera de estas dos situaciones, podemos usar el **test t** que hemos explicado en la lección anterior para realizar el contraste. Con R se efectua con la función `t.test`; JAMOVI lo incorpora en el módulo **Pruebas T** de su instalación básica.
+
+
+```{example,temp}
+La temperatura media del cuerpo humano, ¿es el valor comúnmente aceptado de 37^o^ C?
+```
+
+Primero de todo, traducimos esta pregunta a un contraste de hipótesis:
+
+* **Variable aleatoria poblacional**: $X$: temperatura del cuerpo humano en ^o^C, de media $\mu$
+
+* **Contraste**:
 $$
-T= \frac{\overline{X}-\mu_{0}}{{\widetilde{S}_X}/{\sqrt{n}}}
+\left\{\begin{array}{l}
+H_{0}:\mu=37\\
+H_{1}:\mu\neq 37
+\end{array}\right.
 $$
-que, bajo las condiciones supuestas, sigue (aproximadamente, si $X$ no es normal pero la muestra es grande) una distribución t de Student con $n-1$ grados de libertad. Como ya hemos hecho varios ejemplos de este tipo de test en la lección anterior, aquí no nos vamos a entretener más con él.
+
+Necesitamos una muestra de temperaturas. Vamos a usar las recogidas por P.A. Mackowiak, S. S. Wasserman y M.M. Levine que ya usamos en el Ejemplo \@ref(exm:tempsIC), y que tenemos guardadas (en grados C) en la variable **Temperatura** de la tabla de datos **Temperaturas.txt**.
+
+El código siguiente importa el fichero **Temperaturas.txt** a una tabla de datos que llamamos `Temperaturas` y nos muestra (con la función `str`) la estructura de esta última, para poder saber los nombres de sus variables.
+
+```{r}
+Temperaturas=read.table("Temperaturas.txt",header=TRUE)
+str(Temperaturas)
+```
+
+Las temperaturas forman la variable `Temperatura`. Definimos con ellas un vector llamado `Temps` y calculamos su tamaño con la función `length`:
+
+```{r}
+Temps=Temperaturas$Temperatura
+length(Temps)
+```
+
+En este caso en realidad no hacía falta usar `length` ya que `str` nos había dicho que la tabla contiene 230 observaciones, es decir, que la muestra es de tamaño 230.
+
+Como la muestra es muy grande, podemos usar un test t. Para ello, se aplica la función  `t.test`:
+
+* al vector que contiene la muestra;
+* al parámetro `mu` igualado al valor que contrastamos; 
+* con el paràmetro `alternative` indicamos el tipo de contraste, igualándolo a `"two.sided"` (para contrastes bilaterales, es decir, con $\neq$), `"less"` ($<$) o `"greater"` ($>$); no os olvidéis de las comillas en los valores de este parámetro;
+* con el parámetro `conf.level` indicamos el nivel de confianza (0.95, que corresponde a $\alpha=0.05$; como este es el valor por defecto de este parámetro, no era necesario especificarlo):
+
+```{r}
+t.test(Temps, mu=37, alternative="two.sided", conf.level=0.95)
+```
+
+El resultado contiene:
+
+* El p-valor (`p-value`) del contraste: 3.5·10^-8^, muy pequeño
+* El intervalo de confianza del 95% (`95 percent confidence interval`): va de 36.76549^o^ C a 36.88581^o^ C
+* La media muestral (`mean of x`): 36.82565
+
+Por tanto, hemos encontrado evidencia estadísticamente significativa de que la temperatura media del cuerpo humano no es de 37^o^ C, y estimamos con un 95% de confianza que esta temperatura media está entre 36.8^o^ C a 36.9^o^ C, entre una y dos décimas por debajo del valor usual de 37^o^ C. Si esto es clínicamente importante o no para definir "fiebre" ya no es un problema de estadística.
+
+Con JAMOVI, importaríamos el fichero  **Temperaturas.txt** en una tabla de datos (con **Importar especial**), marcaríamos **Prueba T en una muestra** en el deplegable del menú **Pruebas T**,  seleccionaríamos  como variable dependiente la `Temperatura` y marcando las casillas que se muestran en la figura que sigue obtendríamos una tabla con esta información, aunque menos detallada:
+
+```{r jamovit1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.t.1.png")
+```
+    
+#### Test no paramétrico
+
+Si la variables aleatoria  de interés no es (aproximadamente) normal y la muestra es pequeña, no podemos usar un test t. Entonces, hay que usar algún **test no paramétrico** que no presuponga nada sobre las distribuciones de las variables aleatorias. El recomendado en este caso es el **Test de Wilcoxon**, aunque conviene tener presente que, formalmente, este test en realidad compara medianas y no medias. Con R se efectua con la función `wilcox.test`, con la misma sintaxis que `t.test`. 
 
 
-### Tests t para dos medias
+```{example,tempw}
+Para usar el test de Wilcoxon en el contraste del test anterior, entraríamos (ya no añadimos el valor por defecto de `conf.level` y en cambio con `conf.int=TRUE` indicamos que queremos el intervalo de confianza para la temperatura mediana):
+```
 
-Sean ahora $X_1$ y $X_2$ dos variables aleatorias de medias $\mu_1$ y $\mu_2$, respectivamente. Queremos realizar un contraste
+```{r}
+wilcox.test(Temps, mu=37, alternative="two.sided", conf.int=TRUE)
+```
+
+Con JAMOVI:
+
+
+```{r jamovit2,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.t.2.png")
+```
+
+### Tests para dos medias
+
+Sean ahora $X_1$ y $X_2$ dos variables aleatorias de medias $\mu_1$ y $\mu_2$, respectivamente. Queremos compararlas, mediante un contraste de la forma
 $$
 \left\{\begin{array}{l}
 H_{0}:\mu_1=\mu_2\\ 
@@ -47,6 +118,8 @@ H_{1}:\mu_1 \neq\mu_2\text{ o }\mu_1 >\mu_2\text{ o }\mu_1<\mu_2
 $$
 Para ello, medimos $X_1$ sobre una muestra aleatoria simple de tamaño $n_1$, y $X_2$ sobre una muestra aleatoria simple de tamaño $n_2$.
 
+#### Tests t
+
 
 Supongamos que estamos en una de las dos situaciones siguientes:
 
@@ -54,18 +127,16 @@ Supongamos que estamos en una de las dos situaciones siguientes:
 
 * $X_1,X_2$ no son ambas normales pero los tamaños $n_1,n_2$ de las muestras  son **ambos** grandes (digamos, para fijar ideas, que $n_1,n_2\geq 40$)
 
-Si se cumple alguna de estas dos condiciones, podemos usar un **test t**, basado en un estadístico de contraste $T$ adecuado que sigue una ley t de Student (aproximadamente, si alguna variable poblacional no es normal pero las dos muestras son grandes). El estadístico de contraste concreto y los grados de libertad de su distribución t de Student dependen de las mismas condiciones que comentábamos al hablar de intervalos de confianza para la diferencia de dos medias:
+Si se cumple alguna de estas dos condiciones, podemos usar un **test t**, basado en un estadístico de contraste $T$ adecuado que sigue una ley t de Student (aproximadamente, si alguna variable poblacional no es normal pero las dos muestras son grandes). Los estadísticos de contraste concretos y los grados de libertad de su distribución t de Student son los que dimos al hablar de intervalos de confianza para la diferencia de dos medias, y dependen de las mismas condiciones que comentábamos:
 
 * De si las dos muestras son:
 
     * **independientes**: hemos medido $X_1$ y $X_2$ sobre dos muestras aleatorias simples obtenidas de manera independiente la una de la otra; o 
-    * **emparejadas**: hemos medido $X_1$ y $X_2$ sobre los individuos de una misma muestra aleatoria simple o hay un emparejamiento natural entre los sujetos de las dos muestras; en particular, en el caso emparejado ha de pasar que $n_1=n_2$.
-
-* Cuando las muestras son independientes, también dependen de si $X_1$ y $X_2$ tienen la **misma varianza** o no, que se ha de decidir con otro contraste.
-
-A continuación os damos las fórmulas, por si tenéis que realizar algún contraste de dos medias "a mano".
-
-Cuando las muestras son **emparejadas**, podemos entender que tenemos una sola muestra (formada por las parejas de sujetos) y consideramos los pares de valores $(X_1,X_2)$ sobre dichas parejas. Entonces, podemos medir para cada pareja la diferencia $D=X_1-X_2$, que tendrá media poblacional $\mu_D=\mu_1-\mu_2$, y traducir el contraste
+    
+    * **emparejadas**: hemos medido $X_1$ y $X_2$ sobre los individuos de una misma muestra aleatoria simple o hay un emparejamiento natural entre los sujetos de las dos muestras. 
+    
+```{block2, type="rmdnote"}
+En este caso emparejado, podemos entender que tenemos una sola muestra (formada por las parejas de sujetos) y consideramos los pares de valores $(X_1,X_2)$ sobre dichas parejas. Entonces, podemos medir para cada pareja la diferencia $D=X_1-X_2$, que tendrá media poblacional $\mu_D=\mu_1-\mu_2$, y traducir el contraste
 $$
 \left\{\begin{array}{l}
 H_{0}:\mu_1=\mu_2\\ 
@@ -81,163 +152,24 @@ H_{1}:\mu_D \neq 0\text{ o }\mu_D >0\text{ o }\mu_D<0
 \end{array}
 \right.
 $$
-Es decir, cuando las muestras son emparejadas, consideramos nuestro contraste de dos medias como un contraste de una sola media, usando como muestra las diferencias $X_1-X_2$ sobre nuestras parejas de sujetos. Por lo tanto, si llamamos $\overline{D}$ a la media muestral de $D$ y $\widetilde{S}_D$ a la desviación típica muestral de $D$ sobre nuestra muestra de parejas, y $n$ es el tamaño de la muestra de parejas, el estadístico de contraste es
-$$
-T=\frac{\overline{D}}{\widetilde{S}_D/\sqrt{n}}
-$$
-que, cuando $\mu_D=0$, tiene (aproximadamente, si $X_1,X_2$ no son normales pero la $n$ es grande) distribución $t_{n-1}$.
-
-
-Supongamos ahora que las dos muestras son **independientes**. Sean $\overline{X}_1$ y $\widetilde{S}^2_1$ la media muestral y la varianza muestral de la muestra de $X_1$ y $\overline{X}_2$ y $\widetilde{S}^2_2$ la media muestral y la varianza muestral de la muestra de $X_2$. Sean, además, $\sigma_1^2$ y $\sigma_2^2$ las varianzas (poblacionales) de $X_1$ y $X_2$. Entonces:
-
-
-* Si $\sigma_1^2=\sigma_2^2$, el estadístico de contraste es
-$$
-T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{(\frac{1}{n_1}+\frac{1}{n_2})\cdot \frac{(n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2}{n_1+n_2-2}}}
-$$
-que, cuando $\mu_1=\mu_2$, tiene distribución (aproximadamente, si $X_1,X_2$ no son normales pero $n_1$ y $n_2$ son ambas grandes) $t_{n_1+n_2-2}$.
-
-
-* Si $\sigma_1^2\neq \sigma_2^2$, el estadístico de contraste es
-$$
-T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}
-$$
-que, cuando $\mu_1=\mu_2$, tiene distribución (aproximadamente, si $X_1,X_2$ no son normales pero $n_1$ y $n_2$ son ambas grandes) $t_{\nu}$ con
-$$
-\nu=\frac{\displaystyle \left( \frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}
-\right)^2}{\displaystyle \frac{1}{n_1-1}\left(\frac{\widetilde{S}_1^2}{n_1}\right)^2+\frac{1}{n_2-1}\left(\frac{\widetilde{S}_2^2}{n_2}\right)^2}
-$$
-
-```{block2,type="rmdmercifulgod"}
-No hace falta que sepáis estas fórmulas para muestras independientes, pero sí que tenéis que recordar que el estadístico de contraste y su distribución dependen de si las varianzas poblacionales son iguales o diferentes.
+Es decir, cuando las muestras son emparejadas, consideramos nuestro contraste de dos medias como un contraste de una sola media, usando como muestra las diferencias $X_1-X_2$ sobre nuestras parejas de sujetos.
 ```
+    
+    
+* Cuando las muestras son independientes, también dependen de si $X_1$ y $X_2$ tienen la **misma varianza** o no, que en principio se ha de decidir con otro contraste.
 
 
+Todos estos tests t están implementados en la función `t.test` de R y en el módulo  **Pruebas T** de JAMOVI. En la función `t.test`, hay que entrar como argumentos:
 
-Los  grados de libertad de la distribución t de Student usada en un contraste sobre dos muestras de tamaño $n$:
+* Los vectores que contienen la muestra de $X_1$ y la muestra de $X_2$.
 
-* Si las muestras son independientes, es aproximadamente $2(n-1)$
-
-* Si las muestras están emparejadas, es $n-1$
-
-
-Esto hace que la probabilidad de error de tipo I de un contraste con muestras emparejadas de tamaño $n$ suela ser más pequeña que la de un contraste con dos muestras independientes de tamaño $n$.  Por ejemplo, supongamos que queremos realizar el contraste 
-$$
-\left\{
-\begin{array}{l}
-H_0: \mu_1=\mu_2\\
-H_1: \mu_1>\mu_2
-\end{array}\right.
-$$
-y que el estadístico del contraste $T$ sobre dos muestras de tamaños $n_1=n_2=20$ da 1.7. 
-
-* Si las muestras son independientes,
-$$
-\text{p-valor}=P(T>1.7)\approx `1-pt(1.7,38)}=0.0487
-$$
-
-* Si las muestras son emparejadas,
-$$
-\text{p-valor}=P(T>1.7)=`1-pt(1.7,19)}=0.0527
-$$
-
-Por lo tanto, con nivel de significación $\alpha=0.05$, rechazaríamos la hipótesis nula con las muestras independientes y la aceptaríamos con las muestras emparejadas.
-
-A consecuencia de la diferencia en los números de grados de libertad de la distribución del estadístico de contraste, en general **los contrastes con muestras emparejadas permiten usar menos sujetos**.
-
-
-Todos estos tests t están implementados en la función `t.test` de R. Su argumento es:
-
-* Una muestra de $X$ y el valor con el que queremos contrastar $\mu$, **o**  
-una muestra de $X_1$ y una muestra de $X_2$.
-
-* El tipo de contraste, que se especifica igualando el parámetro `alternative` a `"two.sided"` (para contrastes bilaterales, es decir, con $\neq$), `"less"` ($<$) o `"greater"` ($>$); no os olvidéis de las comillas en los valores de este parámetro.
+* El tipo de contraste, que se especifica con el parámetro `alternative` como en el caso de una sola media.
 
 * El tipo de muestras, que se especifica igualando el parámetro `paired` a `FALSE` si son independientes o a `TRUE` si son emparejadas.
 
-* En caso de muestras independientes, si las varianzas son iguales o diferentes, que se especifica igualando el parámetro `var.equal` a `TRUE`  o a `FALSE`.
+* En caso de muestras independientes, si las varianzas son iguales o diferentes, que se especifica igualando el parámetro `var.equal` a `TRUE`  o a `FALSE`, respectivamente.
 
-* El nivel de confianza $1-\alpha$, que se especifica con el parámetro `conf.level`; si el nivel de significación es $\alpha=0.05$, es decir, el nivel de confianza 0.95, no hace falta especificarlo (es su valor por defecto).
-
-
-### Tests no paramétricos
-
-Si las variables aleatorias  de interés no son (aproximadamente) normales y alguna muestra es pequeña, no podemos usar un test t. Entonces, hay que usar algún **test no paramétrico** que no presuponga nada sobre las distribuciones de las variables aleatorias.
-
-Para contrastes de medias, los recomendados son:
-
-* **Test de Wilcoxon** para una media o para dos medias usando muestras emparejadas (que, recordad, se traduce en un contraste sobre la media de las diferencias).
-
-* **Test de Mann-Whitney(-Wilcoxon)** para dos medias usando muestras independientes.
-
-Ambos se calculan con R con la función `wilcox.test`, con una sintaxis idéntica a la de `t.test` (excepto que no dispone del parámetro `var.equal` ya que ahora no nos interesa lo más mínimo saber si las variables tienen varianzas iguales o diferentes en el caso de contrastes de dos medias con muestras independientes).
-
-```{block2,type="rmdimportant"}
-Usad tests paramétricos siempre que podáis, pero solo cuando podáis:
-
-* Los mejores tests no paramétricos suelen tener potencia inferior a los mejores tests paramétricos.
-
-* Los tests no paramétricos no suelen producir intervalos de confianza, solo p-valores.
-
-* Pero usar, por ejemplo, un test t cuando no toca, porque alguna variable no sea normal y alguna muestra sea pequeña, puede llevar a conclusiones equivocadas.
-
-```
-
-
-```{block2,type="rmdexercici"}
-Típca pregunta de MIR (esta, de 2017):
-
-El grosor del pliegue subcutáneo de grasa a nivel del tríceps se utiliza a veces para evaluar la cantidad de grasa corporal. Esta variable no se distribuye normalmente en las poblaciones. Queremos comparar el valor medio de esta variable en dos poblaciones que suponemos presentan distinta condición nutricional. La prueba estadística más adecuada para contrastar la hipótesis es: 
-
-* La prueba de Mann-Whitney.  
-* La prueba t de Student.  
-* El cálculo del coeficiente de correlación de Pearson. 
-* La prueba F de Snedecor.
-
-```
-
-### Ejemplos
-
-```{example,temp}
-La temperatura media del cuerpo humano, ¿es el valor comúnmente aceptado de 37^o^ C?
-```
-
-Primero de todo, traducimos esta pregunta en un contraste de hipótesis:
-
-* **Variable aleatoria poblacional**: $X$: temperatura del cuerpo humano en ^o^C, de media $\mu$
-
-* **Contraste**:
-$$
-\left\{\begin{array}{l}
-H_{0}:\mu=37\\
-H_{1}:\mu\neq 37
-\end{array}\right.
-$$
-
-Necesitamos una muestra de temperaturas. Vamos a usar las recogidas por P.A. Mackowiak, S. S. Wasserman y M.M. Levine que ya usamos en el Ejemplo \@ref(exm:tempsIC), y que tenemos guardadas (en grados C) en la variable **Temperatura** de la tabla de datos **Temperaturas.txt**.
-
-El código siguiente define un vector llamado `Temps` con estas temperaturas y calcula su tamaño (la función `str(Temperaturas)` nos muestra la estructura de la tabla de datos `Temperaturas` que hemos definido al importar el fichero **Temperaturas.txt**):
-
-```{r}
-Temperaturas=read.table("Temperaturas.txt",header=TRUE)
-str(Temperaturas)
-Temps=Temperaturas$Temperatura
-length(Temps)
-```
-
-Como la muestra es muy grande, podemos usar un test t:
-
-```{r}
-t.test(Temps, mu=37, alternative="two.sided")
-```
-
-El resultado contiene:
-
-* El p-valor (`p-value`) del contraste: 3.5·10^-8^, muy pequeño
-* El intervalo de confianza del 95% (`95 percent confidence interval`): va de 36.76549^o^ C a 36.88581^o^ C
-* La media muestral (`mean of x`): 36.82565
-
-Por tanto, hemos encontrado evidencia estadísticamente significativa de que la temperatura media del cuerpo humano no es de 37^o^ C, y estimamos con un 95% de confianza que esta temperatura media está entre 36.8^o^ C a 36.9^o^ C, entre una y dos décimas por debajo del valor usual de 37^o^ C. Si esto es clínicamente importante o no para definir "fiebre" ya no es un problema de estadística.
+* El nivel de confianza, que se especifica con el parámetro `conf.level` como en el caso de una sola media.
 
 
 ```{example,tempHD}
@@ -261,7 +193,7 @@ H_{1}:\mu_h< \mu_m
 \end{array}\right.
 $$
 
-Necesitamos una muestra de temperaturas de hombres y de mujeres. La  tabla de datos **Temperaturas.txt** que hemos usado en el ejemplo anterior contiene una variable **Sexo** con el sexo de los sujetos: **M** para hombres y **F** para mujeres. La muestra fue trasnversal, así que las muestras de hombres y mujeres son independientes (las que salieron en la muestra global).
+Necesitamos una muestra de temperaturas de hombres y de mujeres. La  tabla de datos **Temperaturas.txt** que hemos usado en los ejemplos anteriores contiene una variable **Sexo** con el sexo de los sujetos: **M** para hombres y **F** para mujeres. La muestra fue transversal, así que las muestras de hombres y mujeres son independientes (las que salieron en la muestra global).
 
 El código siguiente define vectores `TempsH` y `TempsM` con las temperaturas de los hombres y las mujeres de esta tabla, y calcula sus tamaños:
 
@@ -272,7 +204,7 @@ TempsM=Temperaturas[Temperaturas$Sexo=="F","Temperatura"] #Temperaturas de mujer
 length(TempsM)
 ```
 
-Las muestras de hombres y  mujeres son grandes (116 y 114 sujetos, respectivamente), podemos usar un test t. Como estamos usando dos muestras independientes, necesitamos saber si $X_h$ y $X_m$ tienen la misma varianza. Lo que vamos a hacer es realizar el test bajo ambs supuestos y cruzar los dedos para que salga lo mismo.
+Las muestras de hombres y  mujeres son grandes (116 y 114 sujetos, respectivamente), podemos usar un test t. Como estamos usando dos muestras independientes, necesitamos saber si $X_h$ y $X_m$ tienen la misma varianza. Por ahora, lo que vamos a hacer es realizar el test bajo ambos supuestos y cruzar los dedos para que salga la misma conclusión.
 
 * Suponiendo que las varianzas son iguales:
 
@@ -286,7 +218,45 @@ t.test(TempsH, TempsM, alternative="less", paired=FALSE, var.equal=TRUE)
 t.test(TempsH, TempsM, alternative="less", paired=FALSE, var.equal=FALSE)
 ```
 
-En ambos casos el p-valor (`p-value`) es del orden de 0.005, muy pequeño. Así, pues, hemos obtenido evidencia estadísticamente significativa que los hombres tienen una temperatura corporal media inferior a la de las mujeres. Además, ambos intervalos de  confianza del 95% (`95 percent confidence interval`) van de $-\infty$ (`-Inf`) a alrededor de -0.055, por lo que tenemos un 95% de confianza de que la temperatura corporal media de los hombres es 0.06^o^ C (6 centésimas de grado) menor que la de las mujeres. Las medias muestrales $\overline{X}_h$ y $\overline{X}_h$ (`mean of x` y `mean of y`; fijaos que hemos entrado en primer lugar las temperaturas de los hombres, por lo que `x` representa `TempsH` y `y` representa `TempsM`) han sido 36.75^o^ C y  36.9^o^ C, respectivamente, por lo que la media  muestral de temperaturas de mujeres ha sido 0.15^o^ C mayor que la de temperaturas de hombres. 
+En ambos casos el p-valor (`p-value`) es del orden de 0.005, muy pequeño. Así, pues, hemos obtenido evidencia estadísticamente significativa de que los hombres tienen una temperatura corporal media inferior a la de las mujeres. Además, ambos intervalos de  confianza del 95% (`95 percent confidence interval`) van de $-\infty$ (`-Inf`) a alrededor de -0.055, por lo que tenemos un 95% de confianza de que la temperatura corporal media de los hombres es 0.06^o^ C (6 centésimas de grado) menor que la de las mujeres. Las medias muestrales $\overline{X}_h$ y $\overline{X}_h$ (`mean of x` y `mean of y`; fijaos que hemos entrado en primer lugar las temperaturas de los hombres, por lo que `x` representa `TempsH` e `y` representa `TempsM`) han sido 36.75^o^ C y  36.9^o^ C, respectivamente, por lo que la media  muestral de temperaturas de mujeres ha sido 0.15^o^ C mayor que la de temperaturas de hombres. 
+
+
+Con JAMOVI, tras importar el fichero  **Temperaturas.txt** en una tabla de datos, marcaríamos **Prueba T para muestras independientes** en el desplegable del menú **Pruebas T**, seleccionaríamos  como variable dependiente la `Temperatura` y como variable de agrupación el `Sexo`.  En este caso, la casilla "t de Student" corresponde al caso de varianzas poblacionales iguales y la casilla "t de Welch" al caso de varianzas diferentes:
+
+```{r jamovit3,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.t.3.png")
+```
+
+
+#### Tests no paramétricos
+
+Si las variables aleatorias  de interés no son (aproximadamente) normales y alguna muestra es pequeña, hay que usar algún **test no paramétrico**.
+Para contrastes de dos medias, los recomendados son:
+
+* **Test de Wilcoxon** para muestras emparejadas (que, recordad, se traduce en un contraste sobre la media de las diferencias).
+
+* **Test de Mann-Whitney** para muestras independientes.
+
+Ambos se calculan con R con la función `wilcox.test`, con una sintaxis idéntica a la de `t.test` (excepto que no dispone del parámetro `var.equal` ya que ahora no nos interesa lo más mínimo saber si las variables tienen varianzas iguales o diferentes en el caso de contrastes de dos medias con muestras independientes). En JAMOVI se marcan las casillas *rangos de Wilcoxon* o *U de Mann-Whitney*, según corresponda.
+
+```{block2,type="rmdimportant"}
+Usad tests paramétricos siempre que podáis, pero solo cuando podáis.
+Los mejores tests no paramétricos suelen tener potencia inferior a los mejores tests paramétricos. Pero usar, por ejemplo, un test t cuando no toca, porque alguna variable no sea normal y alguna muestra sea pequeña, puede llevar a conclusiones equivocadas.
+```
+
+
+```{block2,type="rmdexercici"}
+Típca pregunta de MIR (esta, de 2017):
+
+El grosor del pliegue subcutáneo de grasa a nivel del tríceps se utiliza a veces para evaluar la cantidad de grasa corporal. Esta variable no se distribuye normalmente en las poblaciones. Queremos comparar el valor medio de esta variable en dos poblaciones que suponemos presentan distinta condición nutricional. La prueba estadística más adecuada para contrastar la hipótesis es: 
+
+* La prueba de Mann-Whitney.  
+* La prueba t de Student.  
+* El cálculo del coeficiente de correlación de Pearson. 
+* La prueba F de Snedecor.
+
+```
+
 
 ```{example,oatbran}
 Desayunar salvado de avena en lugar de copos de maíz, ¿ayuda a reducir el nivel de colesterol?
@@ -310,7 +280,7 @@ H_{1}:\mu_{ob}< \mu_{cf}
 $$
 
 
-Vamos a usar los datos obtenidos por J. Anderson *et al* en su estudio ["Oat-bran cereal lowers serum total and LDL cholesterol in hypercholesterolemic men](https://academic.oup.com/ajcn/article-abstract/52/3/495/4650821) (*The American journal of clinical nutrition* 52 (1990), pp. 495-499). Se trata de un ensayo clínico cruzado sobre 14 individuos. A cada uno de ellos se le asignó uno de los dosdesayunos de manera aleatoria y lo tomaron durante 15 días. Al final de este periodo, se les midió el nivel de colesterol en sangre. Pasado un mes de descanso, cada participante desayunó durante 15 días el otro producto, y al final se los volvió a medir el nivel de colesterol en sangre. Tenemos los niveles de colesterol que obtuvieron en la tabla de datos **oatbran.txt**, donde están medidos en milimoles por litro (mmol/l), así que esta será la unidad que tomamos en las variables poblacionales. 
+Vamos a usar los datos obtenidos por J. Anderson *et al* en su estudio ["Oat-bran cereal lowers serum total and LDL cholesterol in hypercholesterolemic men](https://academic.oup.com/ajcn/article-abstract/52/3/495/4650821) (*The American journal of clinical nutrition* 52 (1990), pp. 495-499). Se trata de un ensayo clínico cruzado sobre 14 individuos. A cada uno de ellos se le asignó uno de los dos desayunos de manera aleatoria y lo tomaron durante 15 días. Al final de este periodo, se les midió el nivel de colesterol en sangre. Pasado un mes de descanso, cada participante desayunó durante 15 días el otro producto, y al final se los volvió a medir el nivel de colesterol en sangre. Tenemos los niveles de colesterol que obtuvieron en la tabla de datos **oatbran.txt**, donde están medidos en milimoles por litro (mmol/l), así que esta será la unidad que tomamos en las variables poblacionales. 
 
 Cargamos la tabla de datos, consultamos su contenido y extraemos los vectores correspondientes a los niveles de colesterol para cada tipo de desayuno: `OAT` para *oatbran* y `CFL` para *cornflakes*.
 
@@ -352,15 +322,15 @@ qqPlot(Cornflake, distribution="norm", mean=mean(Cornflake),sd=sd(Cornflake),
 par(mfrow=c(1,2))
 library(car)
 car::qqPlot(Oatbran, distribution="norm", mean=mean(Oatbran), sd=sd(Oatbran),
-        ylab="Quantils de OATBRAN", xlab="Quantils de normal", pch=20, id=FALSE)
+        ylab="Quantils de OATBRAN", xlab="Cuantiles de normal", pch=20, id=FALSE)
 car::qqPlot(Cornflake, distribution="norm", mean=mean(Cornflake),sd=sd(Cornflake),
-       ylab="Quantils de CORNFLK", xlab="Quantils de normal", pch=20, id=FALSE)
+       ylab="Quantils de CORNFLK", xlab="Cuantiles de normal", pch=20, id=FALSE)
 par(mfrow=c(1,1))
 ```
 
 Aceptamos por lo tanto que nuestros datos provienen de dos distribuciones normales: podemos usar un test t de dos medias.
 
-En este caso, el test t es de muestras emparejadas (hemos medido las dos variable aleatorias sobre los mismos individuos), por lo que tenemos que especificar `paired=TRUE` y no tenemos que especificar el parámetro `var.equal`. Usaremos el parámetro `alternative="less"` para indicar que el test es unilateral: la hipótesis alternativa es que la media de la primera variable es más pequeña que la de la segunda.
+En este caso, el test t es de muestras emparejadas (hemos medido las dos variables aleatorias sobre los mismos individuos), por lo que tenemos que especificar `paired=TRUE` y no tenemos que especificar el parámetro `var.equal`. Usaremos el parámetro `alternative="less"` para indicar que el test es unilateral: la hipótesis alternativa es que la media de la primera variable es más pequeña que la de la segunda.
 
 
 ```{r}
@@ -378,66 +348,8 @@ wilcox.test(Oatbran, Cornflake, alternative="less", paired=TRUE)
 
 El p-valor da 0.006, por lo que la conclusión es la misma, pero no nos da intervalo de confianza.
 
-<!--
-```{example,fototerapia}
-La fototerapia, ¿es más eficaz  como tratamiento del eccema atípico que un placebo?
-  
-
-```
-
-Para comprobar la eficacia de la fototerapia como tratamiento del eccema atípico, se tomaron 10 pacientes con un eccema de más de 9 meses y se los trató durante dos periodos de 3 semanas (ordenados aleatoriamente y separados por un periodo de recuperación) con un placebo y con fototerapia.
-
-Después de cada periodo de tratamiento, se evaluó en cada paciente  la importancia del eccema en una escala de 0 (no eccema) a 10 (máximo eccema). Resultados:
-\begin{center}
-\begin{tabular}{l|cccccccccc}
-Placebo&6&8&3&8&5&6&5&6&4&5\\\hline
-Fototerapia&5&6&4&5&3&5&6&2&2&6
-\end{tabular}
-\end{center}
 
 
-\frametitle{Ejemplo 4}
-
-**Variables aleatorias de interés}:
-\begin{itemize}
-* $X_1$: Importancia del eccema tras la fototerapia, de media $\mu_1$
-* $X_2$: Importancia del eccema tras el placebo, de media $\mu_2$
-\end{itemize}
-
-**Contraste}:
-$$
-\left\{\begin{array}{l}
-H_{0}:\mu_1=\mu_2\\
-H_{1}:\mu_1< \mu_2
-\end{array}\right.
-$$
-
-**Datos}: La tabla anterior. Observad que es un contraste con muestras emparejadas.
-
-Como la muestra es pequeña y no sabemos si $X_1$ y $X_2$ son normales (en realidad, son ordinales), usaremos el test de Wilcoxon
-
-
-
-
-[fragile]
-\frametitle{Ejemplo 4}
-
-\begin{lstlisting}
-> X.fot=c(5,6,4,5,3,5,6,2,2,6)
-> X.pl=c(6,8,3,8,5,6,5,6,4,5)
-> wilcox.test(X.fot, X.pl, 
-   alternative="less",paired=TRUE)
-	Wilcoxon signed rank test with continuity correction
-
-data:  X.fot and X.pl
-V = 9, p-value = 0.03116
-alternative hypothesis: true location shift is less than 0
-\end{lstlisting}
-
-
-
-**Conclusión}: Como el \blue{p-valor $=0.03<0.005$}, concluimos a este nivel de significación que la fototerapia es, de media, más efectiva que el placebo
--->
 
 
 ## Contrastes de varianzas

@@ -1,0 +1,1116 @@
+# Contrastes de hipótesis uni- y biparamétricos
+
+En esta lección simplemente vamos a comentar por encima los contrastes de hipótesis más importantes sobre:
+
+* Una o dos medias
+
+* Dos varianzas
+
+* Una o dos proporciones
+
+## Contrastes para medias
+
+### Test t para una media
+
+Sea $X$ una variable aleatoria de media $\mu$.  Queremos realizar un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_0\\ 
+H_{1}:\mu \neq\mu_0\text{ o }\mu >\mu_0\text{ o }\mu<\mu_0
+\end{array}
+\right.
+$$
+Para ello, medimos $X$ sobre una muestra aleatoria simple de tamaño $n$ de sujetos de la población.
+
+Supongamos que estamos en una de las dos situaciones siguientes:
+
+* $X$ es normal
+
+* $X$ no es normal pero el tamaño $n$ de la muestra que tomamos es grande (digamos, para fijar ideas, que $n\geq 40$)
+
+En cualquiera de estas dos situaciones, podemos usar el **test t** que hemos explicado en la lección anterior para realizar el contraste. Recordad que este test se basa en el estadístico de contraste
+$$
+T= \frac{\overline{X}-\mu_{0}}{{\widetilde{S}_X}/{\sqrt{n}}}
+$$
+que, bajo las condiciones supuestas, sigue (aproximadamente, si $X$ no es normal pero la muestra es grande) una distribución t de Student con $n-1$ grados de libertad. Como ya hemos hecho varios ejemplos de este tipo de test en la lección anterior, aquí no nos vamos a entretener más con él.
+
+
+### Tests t para dos medias
+
+Sean ahora $X_1$ y $X_2$ dos variables aleatorias de medias $\mu_1$ y $\mu_2$, respectivamente. Queremos realizar un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_1=\mu_2\\ 
+H_{1}:\mu_1 \neq\mu_2\text{ o }\mu_1 >\mu_2\text{ o }\mu_1<\mu_2
+\end{array}
+\right.
+$$
+Para ello, medimos $X_1$ sobre una muestra aleatoria simple de tamaño $n_1$, y $X_2$ sobre una muestra aleatoria simple de tamaño $n_2$.
+
+
+Supongamos que estamos en una de las dos situaciones siguientes:
+
+* $X_1,X_2$ son  ambas normales 
+
+* $X_1,X_2$ no son ambas normales pero los tamaños $n_1,n_2$ de las muestras  son **ambos** grandes (digamos, para fijar ideas, que $n_1,n_2\geq 40$)
+
+Si se cumple alguna de estas dos condiciones, podemos usar un **test t**, basado en un estadístico de contraste $T$ adecuado que sigue una ley t de Student (aproximadamente, si alguna variable poblacional no es normal pero las dos muestras son grandes). El estadístico de contraste concreto y los grados de libertad de su distribución t de Student dependen de las mismas condiciones que comentábamos al hablar de intervalos de confianza para la diferencia de dos medias:
+
+* De si las dos muestras son:
+
+    * **independientes**: hemos medido $X_1$ y $X_2$ sobre dos muestras aleatorias simples obtenidas de manera independiente la una de la otra; o 
+    * **emparejadas**: hemos medido $X_1$ y $X_2$ sobre los individuos de una misma muestra aleatoria simple o hay un emparejamiento natural entre los sujetos de las dos muestras; en particular, en el caso emparejado ha de pasar que $n_1=n_2$.
+
+* Cuando las muestras son independientes, también dependen de si $X_1$ y $X_2$ tienen la **misma varianza** o no, que se ha de decidir con otro contraste.
+
+A continuación os damos las fórmulas, por si tenéis que realizar algún contraste de dos medias "a mano".
+
+Cuando las muestras son **emparejadas**, podemos entender que tenemos una sola muestra (formada por las parejas de sujetos) y consideramos los pares de valores $(X_1,X_2)$ sobre dichas parejas. Entonces, podemos medir para cada pareja la diferencia $D=X_1-X_2$, que tendrá media poblacional $\mu_D=\mu_1-\mu_2$, y traducir el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_1=\mu_2\\ 
+H_{1}:\mu_1 \neq\mu_2\text{ o }\mu_1 >\mu_2\text{ o }\mu_1<\mu_2
+\end{array}
+\right.
+$$
+en el contraste de una sola media
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_1-\mu_2=0\\ 
+H_{1}:\mu_D \neq 0\text{ o }\mu_D >0\text{ o }\mu_D<0
+\end{array}
+\right.
+$$
+Es decir, cuando las muestras son emparejadas, consideramos nuestro contraste de dos medias como un contraste de una sola media, usando como muestra las diferencias $X_1-X_2$ sobre nuestras parejas de sujetos. Por lo tanto, si llamamos $\overline{D}$ a la media muestral de $D$ y $\widetilde{S}_D$ a la desviación típica muestral de $D$ sobre nuestra muestra de parejas, y $n$ es el tamaño de la muestra de parejas, el estadístico de contraste es
+$$
+T=\frac{\overline{D}}{\widetilde{S}_D/\sqrt{n}}
+$$
+que, cuando $\mu_D=0$, tiene (aproximadamente, si $X_1,X_2$ no son normales pero la $n$ es grande) distribución $t_{n-1}$.
+
+
+Supongamos ahora que las dos muestras son **independientes**. Sean $\overline{X}_1$ y $\widetilde{S}^2_1$ la media muestral y la varianza muestral de la muestra de $X_1$ y $\overline{X}_2$ y $\widetilde{S}^2_2$ la media muestral y la varianza muestral de la muestra de $X_2$. Sean, además, $\sigma_1^2$ y $\sigma_2^2$ las varianzas (poblacionales) de $X_1$ y $X_2$. Entonces:
+
+
+* Si $\sigma_1^2=\sigma_2^2$, el estadístico de contraste es
+$$
+T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{(\frac{1}{n_1}+\frac{1}{n_2})\cdot \frac{(n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2}{n_1+n_2-2}}}
+$$
+que, cuando $\mu_1=\mu_2$, tiene distribución (aproximadamente, si $X_1,X_2$ no son normales pero $n_1$ y $n_2$ son ambas grandes) $t_{n_1+n_2-2}$.
+
+
+* Si $\sigma_1^2\neq \sigma_2^2$, el estadístico de contraste es
+$$
+T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}
+$$
+que, cuando $\mu_1=\mu_2$, tiene distribución (aproximadamente, si $X_1,X_2$ no son normales pero $n_1$ y $n_2$ son ambas grandes) $t_{\nu}$ con
+$$
+\nu=\frac{\displaystyle \left( \frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}
+\right)^2}{\displaystyle \frac{1}{n_1-1}\left(\frac{\widetilde{S}_1^2}{n_1}\right)^2+\frac{1}{n_2-1}\left(\frac{\widetilde{S}_2^2}{n_2}\right)^2}
+$$
+
+```{block2,type="rmdmercifulgod"}
+No hace falta que sepáis estas fórmulas para muestras independientes, pero sí que tenéis que recordar que el estadístico de contraste y su distribución dependen de si las varianzas poblacionales son iguales o diferentes.
+```
+
+
+
+Los  grados de libertad de la distribución t de Student usada en un contraste sobre dos muestras de tamaño $n$:
+
+* Si las muestras son independientes, es aproximadamente $2(n-1)$
+
+* Si las muestras están emparejadas, es $n-1$
+
+
+Esto hace que la probabilidad de error de tipo I de un contraste con muestras emparejadas de tamaño $n$ suela ser más pequeña que la de un contraste con dos muestras independientes de tamaño $n$.  Por ejemplo, supongamos que queremos realizar el contraste 
+$$
+\left\{
+\begin{array}{l}
+H_0: \mu_1=\mu_2\\
+H_1: \mu_1>\mu_2
+\end{array}\right.
+$$
+y que el estadístico del contraste $T$ sobre dos muestras de tamaños $n_1=n_2=20$ da 1.7. 
+
+* Si las muestras son independientes,
+$$
+\text{p-valor}=P(T>1.7)\approx `1-pt(1.7,38)}=0.0487
+$$
+
+* Si las muestras son emparejadas,
+$$
+\text{p-valor}=P(T>1.7)=`1-pt(1.7,19)}=0.0527
+$$
+
+Por lo tanto, con nivel de significación $\alpha=0.05$, rechazaríamos la hipótesis nula con las muestras independientes y la aceptaríamos con las muestras emparejadas.
+
+A consecuencia de la diferencia en los números de grados de libertad de la distribución del estadístico de contraste, en general **los contrastes con muestras emparejadas permiten usar menos sujetos**.
+
+
+Todos estos tests t están implementados en la función `t.test` de R. Su argumento es:
+
+* Una muestra de $X$ y el valor con el que queremos contrastar $\mu$, **o**  
+una muestra de $X_1$ y una muestra de $X_2$.
+
+* El tipo de contraste, que se especifica igualando el parámetro `alternative` a `"two.sided"` (para contrastes bilaterales, es decir, con $\neq$), `"less"` ($<$) o `"greater"` ($>$); no os olvidéis de las comillas en los valores de este parámetro.
+
+* El tipo de muestras, que se especifica igualando el parámetro `paired` a `FALSE` si son independientes o a `TRUE` si son emparejadas.
+
+* En caso de muestras independientes, si las varianzas son iguales o diferentes, que se especifica igualando el parámetro `var.equal` a `TRUE`  o a `FALSE`.
+
+* El nivel de confianza $1-\alpha$, que se especifica con el parámetro `conf.level`; si el nivel de significación es $\alpha=0.05$, es decir, el nivel de confianza 0.95, no hace falta especificarlo (es su valor por defecto).
+
+
+### Tests no paramétricos
+
+Si las variables aleatorias  de interés no son (aproximadamente) normales y alguna muestra es pequeña, no podemos usar un test t. Entonces, hay que usar algún **test no paramétrico** que no presuponga nada sobre las distribuciones de las variables aleatorias.
+
+Para contrastes de medias, los recomendados son:
+
+* **Test de Wilcoxon** para una media o para dos medias usando muestras emparejadas (que, recordad, se traduce en un contraste sobre la media de las diferencias).
+
+* **Test de Mann-Whitney(-Wilcoxon)** para dos medias usando muestras independientes.
+
+Ambos se calculan con R con la función `wilcox.test`, con una sintaxis idéntica a la de `t.test` (excepto que no dispone del parámetro `var.equal` ya que ahora no nos interesa lo más mínimo saber si las variables tienen varianzas iguales o diferentes en el caso de contrastes de dos medias con muestras independientes).
+
+```{block2,type="rmdimportant"}
+Usad tests paramétricos siempre que podáis, pero solo cuando podáis:
+
+* Los mejores tests no paramétricos suelen tener potencia inferior a los mejores tests paramétricos.
+
+* Los tests no paramétricos no suelen producir intervalos de confianza, solo p-valores.
+
+* Pero usar, por ejemplo, un test t cuando no toca, porque alguna variable no sea normal y alguna muestra sea pequeña, puede llevar a conclusiones equivocadas.
+
+```
+
+
+```{block2,type="rmdexercici"}
+Típca pregunta de MIR (esta, de 2017):
+
+El grosor del pliegue subcutáneo de grasa a nivel del tríceps se utiliza a veces para evaluar la cantidad de grasa corporal. Esta variable no se distribuye normalmente en las poblaciones. Queremos comparar el valor medio de esta variable en dos poblaciones que suponemos presentan distinta condición nutricional. La prueba estadística más adecuada para contrastar la hipótesis es: 
+
+* La prueba de Mann-Whitney.  
+* La prueba t de Student.  
+* El cálculo del coeficiente de correlación de Pearson. 
+* La prueba F de Snedecor.
+
+```
+
+### Ejemplos
+
+```{example,temp}
+La temperatura media del cuerpo humano, ¿es el valor comúnmente aceptado de 37^o^ C?
+```
+
+Primero de todo, traducimos esta pregunta en un contraste de hipótesis:
+
+* **Variable aleatoria poblacional**: $X$: temperatura del cuerpo humano en ^o^C, de media $\mu$
+
+* **Contraste**:
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=37\\
+H_{1}:\mu\neq 37
+\end{array}\right.
+$$
+
+Necesitamos una muestra de temperaturas. Vamos a usar las recogidas por P.A. Mackowiak, S. S. Wasserman y M.M. Levine que ya usamos en el Ejemplo \@ref(exm:tempsIC), y que tenemos guardadas (en grados C) en la variable **Temperatura** de la tabla de datos **Temperaturas.txt**.
+
+El código siguiente define un vector llamado `Temps` con estas temperaturas y calcula su tamaño (la función `str(Temperaturas)` nos muestra la estructura de la tabla de datos `Temperaturas` que hemos definido al importar el fichero **Temperaturas.txt**):
+
+```{r}
+Temperaturas=read.table("Temperaturas.txt",header=TRUE)
+str(Temperaturas)
+Temps=Temperaturas$Temperatura
+length(Temps)
+```
+
+Como la muestra es muy grande, podemos usar un test t:
+
+```{r}
+t.test(Temps, mu=37, alternative="two.sided")
+```
+
+El resultado contiene:
+
+* El p-valor (`p-value`) del contraste: 3.5·10^-8^, muy pequeño
+* El intervalo de confianza del 95% (`95 percent confidence interval`): va de 36.76549^o^ C a 36.88581^o^ C
+* La media muestral (`mean of x`): 36.82565
+
+Por tanto, hemos encontrado evidencia estadísticamente significativa de que la temperatura media del cuerpo humano no es de 37^o^ C, y estimamos con un 95% de confianza que esta temperatura media está entre 36.8^o^ C a 36.9^o^ C, entre una y dos décimas por debajo del valor usual de 37^o^ C. Si esto es clínicamente importante o no para definir "fiebre" ya no es un problema de estadística.
+
+
+```{example,tempHD}
+La temperatura media de las hombres, ¿es menor que la de las mujeres?
+```
+
+Traducimos esta pregunta en un contraste de hipótesis:
+
+
+* **Variables aleatorias poblacionales**:
+ 
+    * $X_h$: temperatura de un hombre en ^o^C, de media $\mu_h$
+    * $X_m$: temperatura de una mujer en ^o^C, de media $\mu_m$
+
+
+* **Contraste**:
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_h=\mu_m\\
+H_{1}:\mu_h< \mu_m
+\end{array}\right.
+$$
+
+Necesitamos una muestra de temperaturas de hombres y de mujeres. La  tabla de datos **Temperaturas.txt** que hemos usado en el ejemplo anterior contiene una variable **Sexo** con el sexo de los sujetos: **M** para hombres y **F** para mujeres. La muestra fue trasnversal, así que las muestras de hombres y mujeres son independientes (las que salieron en la muestra global).
+
+El código siguiente define vectores `TempsH` y `TempsM` con las temperaturas de los hombres y las mujeres de esta tabla, y calcula sus tamaños:
+
+```{r}
+TempsH=Temperaturas[Temperaturas$Sexo=="M","Temperatura"] #Temperaturas de hombres
+length(TempsH)
+TempsM=Temperaturas[Temperaturas$Sexo=="F","Temperatura"] #Temperaturas de mujeres
+length(TempsM)
+```
+
+Las muestras de hombres y  mujeres son grandes (116 y 114 sujetos, respectivamente), podemos usar un test t. Como estamos usando dos muestras independientes, necesitamos saber si $X_h$ y $X_m$ tienen la misma varianza. Lo que vamos a hacer es realizar el test bajo ambs supuestos y cruzar los dedos para que salga lo mismo.
+
+* Suponiendo que las varianzas son iguales:
+
+```{r}
+t.test(TempsH, TempsM, alternative="less", paired=FALSE, var.equal=TRUE)
+```
+
+* Suponiendo que las varianzas son diferentes:
+
+```{r}
+t.test(TempsH, TempsM, alternative="less", paired=FALSE, var.equal=FALSE)
+```
+
+En ambos casos el p-valor (`p-value`) es del orden de 0.005, muy pequeño. Así, pues, hemos obtenido evidencia estadísticamente significativa que los hombres tienen una temperatura corporal media inferior a la de las mujeres. Además, ambos intervalos de  confianza del 95% (`95 percent confidence interval`) van de $-\infty$ (`-Inf`) a alrededor de -0.055, por lo que tenemos un 95% de confianza de que la temperatura corporal media de los hombres es 0.06^o^ C (6 centésimas de grado) menor que la de las mujeres. Las medias muestrales $\overline{X}_h$ y $\overline{X}_h$ (`mean of x` y `mean of y`; fijaos que hemos entrado en primer lugar las temperaturas de los hombres, por lo que `x` representa `TempsH` y `y` representa `TempsM`) han sido 36.75^o^ C y  36.9^o^ C, respectivamente, por lo que la media  muestral de temperaturas de mujeres ha sido 0.15^o^ C mayor que la de temperaturas de hombres. 
+
+```{example,oatbran}
+Desayunar salvado de avena en lugar de copos de maíz, ¿ayuda a reducir el nivel de colesterol?
+  
+  
+```
+
+Planteémoslo como un contraste de hipótesis.
+
+* **Variables aleatorias poblacionales**:
+
+    * $X_{ob}$: nivel de colesterol al consumir salvado de avena (*oat bran*), de media $\mu_{ob}$
+    * $X_{cf}$: nivel de colesterol al consumir copos de maíz (*corn flakes*), de media $\mu_{cf}$
+
+* **Contraste**:
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_{ob}=\mu_{cf}\\
+H_{1}:\mu_{ob}< \mu_{cf}
+\end{array}\right.
+$$
+
+
+Vamos a usar los datos obtenidos por J. Anderson *et al* en su estudio ["Oat-bran cereal lowers serum total and LDL cholesterol in hypercholesterolemic men](https://academic.oup.com/ajcn/article-abstract/52/3/495/4650821) (*The American journal of clinical nutrition* 52 (1990), pp. 495-499). Se trata de un ensayo clínico cruzado sobre 14 individuos. A cada uno de ellos se le asignó uno de los dosdesayunos de manera aleatoria y lo tomaron durante 15 días. Al final de este periodo, se les midió el nivel de colesterol en sangre. Pasado un mes de descanso, cada participante desayunó durante 15 días el otro producto, y al final se los volvió a medir el nivel de colesterol en sangre. Tenemos los niveles de colesterol que obtuvieron en la tabla de datos **oatbran.txt**, donde están medidos en milimoles por litro (mmol/l), así que esta será la unidad que tomamos en las variables poblacionales. 
+
+Cargamos la tabla de datos, consultamos su contenido y extraemos los vectores correspondientes a los niveles de colesterol para cada tipo de desayuno: `OAT` para *oatbran* y `CFL` para *cornflakes*.
+
+```{r}
+OBR=read.table("oatbran.txt",header=TRUE)
+str(OBR)
+Oatbran=OBR$OATBRAN
+Cornflake=OBR$CORNFLK
+```
+
+Como unas muestras de tamaño 14 son pequeñas, si queremos aplicar un test t necesitamos que provengan de variables normales. Para decidir si esto es verdad o no, se puede usar un **contraste de bondad de ajuste**, con hipótesis nula "Esta muestra proviene de una variable aleatoria con tal distribución" e hipótesis alternativa "No es verdad que esta muestra provenga de una variable aleatoria con tal distribución". Pero aun no los hemos explicado, así que por ahora nos conformaremos con decidirlo a partir de un gráfico.
+
+Una posibilidad es dibujar un histograma de la muestra y añadir la densidad de una distribución normal con media y desviación típica las de la muestra, y mirar si parece que los datos siguen esta distribución normal. Pero con pocos datos esto es difícil de ver:
+
+```{r,echo=FALSE,fig.width=10,out.width="90%",fig.asp=0.5}
+par(mfrow=c(1,2))
+hist(Oatbran,freq=FALSE, breaks=4,col="light blue",xlab="Colesterol",ylab="Densidad", main="Histograma de OATBRAN",ylim=c(0,max(density(Oatbran)$y)))
+curve(dnorm(x,mean(Oatbran),sd(Oatbran)),col="red",lwd=2,add=TRUE)
+hist(Cornflake,freq=FALSE, breaks=4,col="light blue",xlab="Colesterol",ylab="Densidad", main="Histograma de CORNFLK",ylim=c(0,max(density(Cornflake)$y)))
+curve(dnorm(x,mean(Cornflake),sd(Cornflake)),col="red",lwd=2,add=TRUE)
+```
+
+
+En este caso, una opción mejor es dibujar un **q-q-plot**. Un **q-q-plot** de una muestra y una distribución teórica es el gráfico de los llamados **q-q-puntos**: los puntos de la forma *($q$-cuantil de la distribución, $q$-cuantil de la muestra)*, para varios valores de $q$.
+
+Si la muestra proviene de la distribución usada para dibujar el q-q-plot, es de esperar que el q-cuantil de la muestra sea muy parecido al q-cuantil de la distribución y por lo tanto que estos q-q-puntos estén cerca de la diagonal principal $y=x$.
+
+La función `qqPlot` del paquete **car** produce unos q-q-plots adecuados que además muestran una "región de confianza del 95%", con el significado usual de nivel de confianza (para el 95% de las muestras de la distribución, los q-q-plot caen dentro de esta región; por lo tanto, si nuestro q-q-plot está completamente dentro de esta región, aceptamos con este nivel de confianza que proviene de la distribución usada). 
+
+```{r,eval=FALSE}
+require(car)
+qqPlot(Oatbran, distribution="norm", mean=mean(Oatbran), sd=sd(Oatbran),
+        ylab="Cuantiles de OATBRAN", xlab="Cuantiles de normal", pch=20, id=FALSE)
+qqPlot(Cornflake, distribution="norm", mean=mean(Cornflake),sd=sd(Cornflake),
+       ylab="Cuantiles de CORNFLK", xlab="Cuantiles de normal", pch=20, id=FALSE)
+```
+
+```{r,echo=FALSE,fig.width=10,out.width="90%",fig.asp=0.5}
+par(mfrow=c(1,2))
+library(car)
+car::qqPlot(Oatbran, distribution="norm", mean=mean(Oatbran), sd=sd(Oatbran),
+        ylab="Quantils de OATBRAN", xlab="Quantils de normal", pch=20, id=FALSE)
+car::qqPlot(Cornflake, distribution="norm", mean=mean(Cornflake),sd=sd(Cornflake),
+       ylab="Quantils de CORNFLK", xlab="Quantils de normal", pch=20, id=FALSE)
+par(mfrow=c(1,1))
+```
+
+Aceptamos por lo tanto que nuestros datos provienen de dos distribuciones normales: podemos usar un test t de dos medias.
+
+En este caso, el test t es de muestras emparejadas (hemos medido las dos variable aleatorias sobre los mismos individuos), por lo que tenemos que especificar `paired=TRUE` y no tenemos que especificar el parámetro `var.equal`. Usaremos el parámetro `alternative="less"` para indicar que el test es unilateral: la hipótesis alternativa es que la media de la primera variable es más pequeña que la de la segunda.
+
+
+```{r}
+t.test(Oatbran, Cornflake, alternative="less", paired=TRUE)
+```
+
+Obtenemos un p-valor de 0.003. Por lo tanto, hemos encontrado evidencia estadísticamente significativa de que desayunar salvado reduce el nivel medio de colesterol respecto de desayunar  copos de maíz. El intervalo de confianza del 95% para $\mu_{ob}-\mu_{cf}$ va de $-\infty$ a -0.163. Por lo tanto, tenemos un 95% de confianza en que desayunar salvado reduce en al menos 0.163 mmol/l el nivel medio de colesterol respecto de desayunar  copos de maíz.
+
+¿Y si no quisiéramos, o no pudiéramos, suponer que las muestras provienen de distribuciones normales? Entonces usaríams un test de Wilcoxon:
+
+
+```{r,message=FALSE}
+wilcox.test(Oatbran, Cornflake, alternative="less", paired=TRUE)
+```
+
+El p-valor da 0.006, por lo que la conclusión es la misma, pero no nos da intervalo de confianza.
+
+<!--
+```{example,fototerapia}
+La fototerapia, ¿es más eficaz  como tratamiento del eccema atípico que un placebo?
+  
+
+```
+
+Para comprobar la eficacia de la fototerapia como tratamiento del eccema atípico, se tomaron 10 pacientes con un eccema de más de 9 meses y se los trató durante dos periodos de 3 semanas (ordenados aleatoriamente y separados por un periodo de recuperación) con un placebo y con fototerapia.
+
+Después de cada periodo de tratamiento, se evaluó en cada paciente  la importancia del eccema en una escala de 0 (no eccema) a 10 (máximo eccema). Resultados:
+\begin{center}
+\begin{tabular}{l|cccccccccc}
+Placebo&6&8&3&8&5&6&5&6&4&5\\\hline
+Fototerapia&5&6&4&5&3&5&6&2&2&6
+\end{tabular}
+\end{center}
+
+
+\frametitle{Ejemplo 4}
+
+**Variables aleatorias de interés}:
+\begin{itemize}
+* $X_1$: Importancia del eccema tras la fototerapia, de media $\mu_1$
+* $X_2$: Importancia del eccema tras el placebo, de media $\mu_2$
+\end{itemize}
+
+**Contraste}:
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_1=\mu_2\\
+H_{1}:\mu_1< \mu_2
+\end{array}\right.
+$$
+
+**Datos}: La tabla anterior. Observad que es un contraste con muestras emparejadas.
+
+Como la muestra es pequeña y no sabemos si $X_1$ y $X_2$ son normales (en realidad, son ordinales), usaremos el test de Wilcoxon
+
+
+
+
+[fragile]
+\frametitle{Ejemplo 4}
+
+\begin{lstlisting}
+> X.fot=c(5,6,4,5,3,5,6,2,2,6)
+> X.pl=c(6,8,3,8,5,6,5,6,4,5)
+> wilcox.test(X.fot, X.pl, 
+   alternative="less",paired=TRUE)
+	Wilcoxon signed rank test with continuity correction
+
+data:  X.fot and X.pl
+V = 9, p-value = 0.03116
+alternative hypothesis: true location shift is less than 0
+\end{lstlisting}
+
+
+
+**Conclusión}: Como el \blue{p-valor $=0.03<0.005$}, concluimos a este nivel de significación que la fototerapia es, de media, más efectiva que el placebo
+-->
+
+
+## Contrastes de varianzas
+
+
+
+\frametitle{F-test para varianzas}
+
+Sean $X_1,X_2$ dos variables aleatorias  normales de desviaciones típicas $\sigma_1$, $\sigma_2$
+
+
+Nos interesa el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\sigma_1=\sigma_2\\
+H_{1}:\sigma_1\neq \sigma_2
+\end{array}
+\right.
+\mbox{ o, equivalentemente, }
+\left\{\begin{array}{l}
+H_{0}:\sigma_1^2=\sigma_2^2\\
+H_{1}:\sigma_1^2\neq \sigma_2^2
+\end{array}
+\right.$$
+En este caso se usa el **F-test}, basado en el estadístico $\widetilde{S}^2_{X_1}/\widetilde{S}^2_{X_2}$ que (si $H_0$ es cierta) tiene una distribución conocida (la **F de Fisher-Snedecor}, `f} con R)
+
+Implementado en la función **`var.test}} de R: se aplica a las dos muestras, con sintaxis similar a `t.test}
+
+
+
+
+\frametitle{Tests no paramétricos}
+
+El test F-test no sirve a poco que las variables difieran de normales
+
+En este caso, es necesario usar un test no paramétrico
+
+Os recomendamos usar el **test de Fligner-Killeen}, implementado en R en la función **`fligner.test}},  que en la práctica ha mostrado  ser más exacto (mayor suma de especificidad y sensibilidad) para variables aleatorias  muy diferentes de normales
+
+
+
+
+[fragile]
+\frametitle{Ejemplo 4}\vspace*{-1ex}
+
+\blue{Las variables $X_h$ y $X_m$ del Ejemplo 2, ¿tienen la misma varianza?}
+Vamos a suponer que ambas son normales (los temperaturas lo suelen ser)
+
+\begin{lstlisting}
+> var.test(X_h, X_m)
+
+	F test to compare two variances
+
+data:  X_h and X_m
+F = 1.2016, num df = 113, denom df = 115, p-value = 0.3278
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.8311002 1.7384230
+sample estimates:
+ratio of variances 
+          1.201637 
+\end{lstlisting}
+
+
+
+
+ 
+\frametitle{Ejemplo 4} 
+
+**Conclusión}: 
+\begin{itemize}
+* Como \blue{p-valor $=0.33>0.1$}, no podemos rechazar que $X_h$ y $X_m$ tengan la misma varianza: aceptaremos que tienen igual varianza
+
+* El \blue{IC 95\%} **para el cociente de las varianzas} \blue{va de 0.83 a 1.74}: como contiene el 1, concluimos de nuevo, con este nivel de confianza, que no podemos rechazar que $X_h$ y $X_m$ tengan la misma varianza (aunque también podría ser que $\sigma^2_{X_h}$ fuera un 70\% mayor que $\sigma^2_{X_m}$)
+\end{itemize}
+
+Por lo tanto, si los tests t con `var.equal=TRUE} y  `var.equal=FALSE} hubieran dado conclusiones diferentes, tomaríamos la correspondiente a varianzas iguales
+
+
+
+
+
+ 
+\frametitle{Ejemplo 4}\vspace*{-1ex}
+
+\blue{Las variables $X_m$ y $X_f$ del Ejemplo 2, ¿tienen la misma varianza?}
+
+¿Era adecuado suponer que provienen de distribuciones normales?\vspace*{-2ex}
+
+\begin{center}
+\hspace*{-0.5cm}
+\includegraphics[width=0.5\linewidth]{histTM}\
+\includegraphics[width=0.5\linewidth]{histTF}
+\end{center} 
+
+
+
+ 
+\frametitle{Ejemplo 4}\vspace*{-1ex}
+
+\blue{Las variables $X_m$ y $X_f$ del Ejemplo 2, ¿tienen la misma varianza?}
+
+¿Era adecuado suponer que provienen de distribuciones normales?\vspace*{-2ex}
+
+\begin{center}
+\hspace*{-0.5cm}
+\includegraphics[width=0.5\linewidth]{qqplotTM}\
+\includegraphics[width=0.5\linewidth]{qqplotTF}
+\end{center}\vspace*{-3ex}
+
+Mejor usar un test no paramétrico, para mayor seguridad
+
+
+
+
+[fragile]
+\frametitle{Ejemplo 4}\vspace*{-1ex}
+
+\begin{lstlisting}
+> fligner.test(list(X_h,X_m))
+
+	Fligner-Killeen test of homogeneity of variances
+
+data:  list(X_h, X_m)
+Fligner-Killeen:med chi-squared = 1.7736, 
+    df = 1, p-value = 0.1829
+\end{lstlisting}
+Aceptamos que $X_h$ y $X_m$ tienen la misma varianza
+
+
+
+
+
+
+\subsection{Tests para proporciones}
+
+
+
+\frametitle{Test exacto para una proporción}
+
+Sea $X$ una variable aleatoria Bernoulli de parámetro $p$
+
+Queremos realizar un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:p=p_0\\ 
+H_{1}:p\neq p_0\text{ o }p> p_0\text{ o }p< p_0
+\end{array}
+\right.
+$$
+
+Podemos usar el **test binomial exacto}, que contrasta si el número de éxitos en una muestra de tamaño $n$ tiene distribución $B(n,p_0)$
+
+Está implementado en la función **`binom.test}} de R: se aplica al número de éxitos, el tamaño de la muestra, el valor a contrastar $p_0$ y el nivel de confianza (por defecto, 0.95)
+
+
+
+
+
+
+
+
+\frametitle{Test aproximado para una proporción}
+
+En la situación anterior, si el tamaño $n$ de la muestra es grande  ($\geq 30$ o mejor **$\geq 40$}), podemos usar el **test aproximado}, que usa que, si $H_0$ es verdadera y $n$ grande,
+$$
+\frac{\widehat{p}_X-p_0}{\sqrt{\frac{\widehat{p}_X(1-\widehat{p}_X)}{n}}}\approx N(0,1)
+$$
+
+Está implementado en la función **`prop.test}} de R con la misma sintaxis que  `binom.test}
+
+
+Es más popular 
+
+
+
+
+
+
+
+
+
+
+\frametitle{Ejemplo 5}
+
+\blue{La proporción de estudiantes zurdos en la UIB, ¿es diferente de la del estado español?}
+
+El porcentaje estimado de zurdos en España es del 10\%. 
+
+De 30 estudiantes de la UIB encuestados al azar, 1 ha sido zurdo.
+
+Sea $p$ la proporción de estudiantes zurdos en la UIB.
+
+**Contraste:}
+$$
+\left\{
+\begin{array}{l}
+H_0:p=0.1\\
+H_1:p\neq 0.1
+\end{array}
+\right.
+$$
+
+**Datos}: Nuestra muestra
+
+
+[fragile]
+\frametitle{Ejemplo 5}\vspace*{-1ex}
+
+Como  la muestra es relativamente grande ($n=30$) vamos a usar de entrada `prop.test}.
+\begin{lstlisting}
+> prop.test(1,30,p=0.1,alternative="two.sided")
+
+	1-sample proportions test with continuity correction
+
+data:  1 out of 30, null probability 0.1
+X-squared = 0.83333, df = 1, p-value = 0.3613
+alternative hypothesis: true p is not equal to 0.1
+95 percent confidence interval:
+ 0.001742467 0.190530216
+sample estimates:
+         p 
+0.03333333 
+\end{lstlisting}
+
+
+
+
+
+\frametitle{Ejemplo 5}
+
+**Conclusión}: 
+\begin{itemize}
+* Como \blue{p-valor $=0.36$}, no podemos rechazar que la proporción de zurdos en la UIB sea del 10\%
+
+
+* Hemos obtenido un \blue{IC 95\%} para la proporción de zurdos en la UIB \blue{de 0.002 a 0.19}, que contiene el 0.1 
+
+
+* La proporción estimada de zurdos en la UIB es del 3\%. Aunque no sea significativamente diferente del 10\% desde un punto de vista estadístico, la diferencia parece importante. Posiblemente el test tenga poca potencia (**\sl underpowered}).
+\end{itemize}
+
+
+
+
+[fragile]
+\frametitle{Ejemplo 5}
+
+Potencia?
+
+\begin{lstlisting}
+> library(pwr)
+> ES.h(0.1,0.03)  #El tamaño del efecto observado
+[1] 0.2953351
+> cohen.ES(test="p",size="small") #Para determinarlo a priori
+
+...
+    effect.size = 0.2
+
+> pwr.p.test(h=0.3, n=30, sig.level=0.05, 
+   alternative="two.sided")
+
+...
+          power = 0.3758563
+\end{lstlisting}
+
+
+
+
+
+
+
+
+[fragile]
+\frametitle{Ejemplo 5}\vspace*{-1ex}
+
+¿Qué hubiera pasado con una muestra de 150 estudiantes, 5 de ellos zurdos?
+\begin{lstlisting}
+> prop.test(5,150,p=0.1,alternative="two.sided")
+
+	1-sample proportions test with continuity correction
+
+data:  5 out of 150, null probability 0.1
+X-squared = 6.6852, df = 1, p-value = 0.009722
+alternative hypothesis: true p is not equal to 0.1
+95 percent confidence interval:
+ 0.01233588 0.08010876
+sample estimates:
+         p 
+0.03333333 
+\end{lstlisting}
+
+
+
+
+
+
+
+[fragile]
+\frametitle{Ejemplo 5}\vspace*{-1ex}
+
+¿Qué hubiera pasado con una muestra de 150 estudiantes, 5 de ellos zurdos?
+\begin{lstlisting}
+> pwr.p.test(h=0.3,n=150,sig.level=0.05,alternative="two.sided")
+
+     proportion power calculation for binomial distribution (arcsine transformation) 
+
+              h = 0.3
+              n = 150
+      sig.level = 0.05
+          power = 0.9567605
+    alternative = two.sided
+\end{lstlisting}
+
+
+
+
+
+
+[fragile]
+\frametitle{Ejemplo 5}\vspace*{-1ex}
+
+¿Cuál hubiera sido la conclusión usando el test binomial?
+\begin{lstlisting}
+> binom.test(1, 30,p=0.1,alternative="two.sided")
+	
+       Exact binomial test
+
+data:  1 and 30
+number of successes = 1, number of trials = 30, p-value = 0.3592
+alternative hypothesis: true probability of success is not equal to 0.1
+95 percent confidence interval:
+ 0.0008435709 0.1721694556
+sample estimates:
+probability of success 
+            0.03333333 
+\end{lstlisting}
+
+p-valor $=0.36$, IC 95\% de 0.0008 a 0.17; misma conclusión
+
+
+
+
+
+
+\frametitle{Tests per a 2 proporcions independents}
+
+Siguin $X_1$ i $X_2$ dues variables aleatorias Bernoulli de paràmetres $p_1$ i $p_2$
+
+
+Les mesurem sobre dues mostres independents
+
+Volem realitzar un contrast
+$$
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\ 
+H_{1}:p_1
+eq p_2\text{ o }p_1> p_2\text{ o }p_1< p_2
+\end{array}
+
+ight.
+$$
+
+
+
+
+
+
+\frametitle{Tests para dos proporciones independientes}
+
+Sean $X_1$ y $X_2$ dos variables aleatorias Bernoulli de parámetros $p_1$ y $p_2$
+
+
+Las medimos sobre dos muestras independientes
+
+Queremos realizar un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\ 
+H_{1}:p_1\neq p_2\text{ o }p_1> p_2\text{ o }p_1< p_2
+\end{array}
+\right.
+$$
+
+
+
+
+
+
+\frametitle{Tests para dos proporciones independientes}
+
+Cuando las muestras son grandes, podemos usar el **test $\chi^2$}, implementado también en la función **`prop.test}} de R (ya hablaremos de este test más adelante): se aplica a la tabla de frecuencias absolutas de las muestras
+\begin{center}
+\begin{tabular}{l|c|c|}
+&  $X_1$  & $X_2$ \\ \hline
+Éxitos  & $a$ &     $b$ \\\hline
+Fracasos & $c$ &  $d$\\  \hline
+\end{tabular}
+\end{center}
+en forma de matriz o de tabla de contingencia
+
+
+
+
+
+\frametitle{Tests para dos proporciones independientes}
+
+Por otro lado, \blue{\bf siempre} podemos usar el **test exacto de Fisher}, implementado en la función **`fisher.test}}: de nuevo, se aplica a la tabla de frecuencias absolutas de las muestras
+
+
+**\bf Pero cuidado}: El test de Fisher en realidad no compara las proporciones $p_1$ y $p_2$, sino sus \blue{odds}
+$$
+\frac{p_1}{1-p_1}\mbox{ y }\frac{p_2}{1-p_2}
+$$
+y el intervalo de confianza que da es para el cociente de estas odds: para su  \blue{odds ratio}
+
+
+
+\frametitle{Ejemplo 6}
+
+\blue{¿Hay asociación positiva entre bronquitis en la infancia y tos en la adolescencia?}
+
+En un estudio transversal, se tomaron 1319 niños de 14 años, se miró si en ese momento tenían tos crónica y si a los 5 años habían tenido bronquitis. El resultado fue la tabla siguiente:
+\begin{center}
+\begin{tabular}{l|l|c|c|}
+\multicolumn{2}{c}{\ } &  \multicolumn{2}{c}{Bronquitis a los 5 años}\\ \cline{3-4}
+\multicolumn{2}{c|}{\ }  & \hspace*{0.75cm}Sí\hspace*{0.75cm} & \hspace*{0.75cm}No\hspace*{0.75cm} \\ \cline{2-4}
+Tos a los   & Sí  & 26 &     44 \\\cline{2-4}
+14 años & No & 247 &            1002\\ \cline{2-4}
+\end{tabular}
+\end{center}
+
+
+
+
+\frametitle{Ejemplo 6}
+
+**Variables aleatorias de interés}:
+\begin{itemize}
+* $X_1$: Que un niño que tuvo bronquitis a los 5 años, tenga tos a los 14, de proporción poblacional $p_1$
+* $X_2$:  Que un niño que no tuvo bronquitis a los 5 años, tenga tos a los 14, de proporción poblacional $p_2$
+\end{itemize}
+
+**Contraste}:
+$$
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\
+H_{1}:p_1>p_2
+\end{array}\right.
+$$
+
+**Datos}: La tabla anterior
+
+
+
+[fragile]
+\frametitle{Ejemplo 6}\vspace*{-1ex}
+
+Las muestras son grandes, usaremos `prop.test}
+
+\begin{lstlisting}
+> Datos=matrix(c(26,44,247,1002),nrow=2,byrow=TRUE)
+> Datos
+     [,1] [,2]
+[1,]   26   44
+[2,]  247 1002
+> prop.test(Datos,alternative="greater")
+ ...
+ X-squared = 11.145, df = 1, p-value = 0.0004212
+alternative hypothesis: greater
+95 percent confidence interval:
+ 0.06934186 1.00000000
+sample estimates:
+   prop 1    prop 2 
+0.3714286 0.1977582 
+\end{lstlisting}
+
+
+
+
+
+\frametitle{Ejemplo 6}
+
+**Conclusión}: 
+\begin{itemize}
+* El \blue{p-valor $0.0004$} permite concluir que hay evidencia significativa de que  la tos a los 14 años es más prevalente entre los niños que tuvieron bronquitis a los 5 años que entre los que no
+
+* El \blue{IC 95\%} para la diferencia de proporciones \blue{va de 0.07 a 1}, de lo que podemos concluir, a este nivel de confianza, que  $p_1-p_2>0.07$, es decir, que el riesgo de tos a los 14 años atribuible a tener bronquitis a los 5 es de como mínimo 7 puntos porcentuales 
+
+* El riesgo estimado de tos a los 14 años atribuible a tener bronquitis a los 5 ha sido 
+$0.37-0.20=0.17$: 17 puntos porcentuales
+\end{itemize}
+
+
+
+[fragile]
+\frametitle{Ejemplo 6}\vspace*{-1ex}
+
+Veamos con el test de Fisher
+
+\begin{lstlisting}
+> fisher.test(Datos, alternative="greater")
+
+        Fisher's Exact Test for Count Data
+
+data:  Datos
+p-value = 0.0008325
+alternative hypothesis: true odds ratio is greater than 1
+95 percent confidence interval:
+ 1.509463      Inf
+sample estimates:
+odds ratio 
+   2.39519 
+\end{lstlisting}
+
+
+
+
+
+\frametitle{Ejemplo 6}
+
+**Conclusión}: 
+\begin{itemize}
+* El \blue{p-valor $0.0008$} permite concluir que hay evidencia significativa de que las odds (y por tanto, la probabilidad) de  tos a los 14 años son mayores entre los niños que tuvieron bronquitis a los 5 años que entre los que no
+
+* El \blue{IC 95\%} **para la odds ratio} \blue{va de 1.5 a $\infty$}, de lo que  podemos concluir, a este nivel de confianza, que las odds de tos a los 14 años entre los niños que tuvieron bronquitis a los 5 años son como mínimo un 50\% mayores que entre los que no 
+
+* La odds ratio estimada de tos a los 14 años para los niños que tuvieron bronquitis a los 5 ha sido de 2.4
+\end{itemize}
+
+
+
+
+
+\frametitle{Tests para dos proporciones emparejadas}
+
+Sean $X_1$ y $X_2$ dos variables aleatorias Bernoulli de parámetros $p_1$ y $p_2$
+
+
+Las medimos sobre los sujetos de una misma muestra de tamaño $n$, o sobre los sujetos de dos muestras del mismo tamaño $n$ con un emparejamiento definido entre los mismos (e.g., gemelos)
+
+Queremos realizar un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\ 
+H_{1}:p_1\neq p_2
+\end{array}
+\right.
+$$
+
+
+
+
+
+\frametitle{Tests para dos proporciones emparejadas}
+
+Cuando $n$ es grande ($\geq 100$) y el número de \emph{casos discordantes} ($b+c$ en la tabla inferior) es razonablemente grande ($\geq 20$), podemos usar el  \emph{test de McNemar}, que usa el estadístico
+$$
+Z^2=\frac{(b-c)^2}{b+c}\approx \chi^2_1
+$$
+Está implementado en la función **`mcnemar.test}}: se aplica a la tabla de frecuencias absolutas siguiente:
+\begin{center}
+\begin{tabular}{l|l|c|c|}
+\multicolumn{2}{c}{\ } &  \multicolumn{2}{c}{Variable $X_1$}\\ \cline{3-4}
+\multicolumn{2}{c|}{\ }  & \hspace*{0.25cm}Sí\hspace*{0.25cm} & \hspace*{0.25cm}No\hspace*{0.25cm} \\ \cline{2-4}
+Variable & Sí  & $a$ &     $b$ \\\cline{2-4}
+$X_2$ & No & $c$ &     $d$\\ \cline{2-4}
+\end{tabular}
+\end{center}
+
+
+
+
+\frametitle{Ejemplo 7}\vspace*{-2ex}
+
+
+\blue{Si en el tratamiento del cáncer de mama, a la quimioterapia perioperatoria y la  mastectomía le añadimos quimioterapia postoperatoria durante 6 meses, ¿hay diferencia en la tasa de supervivencia 5 años?}
+
+**Variables aleatorias de interés}:
+\begin{itemize}
+* $X_1$: Que una paciente tratada con mastectomía y quimioterapia perioperatoria sobreviva 5 años, de proporción poblacional $p_1$
+* $X_2$:   Que una paciente tratada con mastectomía, quimioterapia perioperatoria y postoperatoria sobreviva 5 años, de proporción poblacional $p_2$
+\end{itemize}
+
+**Contraste}:
+$$
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\
+H_{1}:p_1\neq p_2
+\end{array}\right.
+$$
+
+
+
+
+
+
+
+
+\frametitle{Ejemplo 7}\vspace*{-1ex}
+
+**Datos}: En un ensayo clínico, se trató un grupo de 1244 pacientes, emparejadas según diferentes características.  En cada pareja se repartieron los dos tratamientos al azar:  quimioterapia perioperatoria y mastectomía o quimioterapia perioperatoria y mastectomía y quimioterapia postoperatoria durante 6 meses. 
+
+Supervivencia a los 5 años de las parejas de pacientes:\vspace*{-1ex}
+
+\begin{center}
+\begin{tabular}{l|l|c|c|}
+\multicolumn{2}{c}{\ } &  \multicolumn{2}{c}{No quimio postperatoria}\\ \cline{3-4}
+\multicolumn{2}{c|}{\ }  & \hspace*{0.75cm}Sí\hspace*{0.75cm} & \hspace*{0.75cm}No\hspace*{0.75cm} \\ \cline{2-4}
+Quimio & Sí  & 510 &     17 \\\cline{2-4}
+postoperatoria & No & 5 &       90\\ \cline{2-4}
+\end{tabular}
+\end{center}
+$$
+\widehat{p}_1=\frac{515}{622}=0.828\quad
+\widehat{p}_2=\frac{527}{622}=0.847
+$$
+
+
+
+[fragile]
+\frametitle{Ejemplo 7}\vspace*{-1ex}
+
+La muestra es grande, y el número de casos discordantes supera (por poco) los 20, usaremos `macnemar.test}
+
+\begin{lstlisting}
+> Datos.C=matrix(c(510,17,5,90),nrow=2,byrow=TRUE)
+> mcnemar.test(Datos.C)
+
+        McNemar's Chi-squared test with 
+        continuity correction
+
+data:  Datos.C
+McNemar's chi-squared = 5.5, df = 1, p-value = 0.01902
+\end{lstlisting}
+
+El \blue{p-valor $0.02$} permite concluir que hay evidencia significativa de que hay diferencia en las tasas de supervivencia a los 5 años.
+
+
+
+
+\frametitle{Abrir en caso de desesperación}
+
+Si no podéis usar el test de McNemar, siempre podéis usar el \emph{test binomial exacto}, que simplemente contrasta si las probabilidades poblacionales de los pares (Sí,No) y (No,Sí) son la misma, 0.5.
+
+Convenientemente implementado en la función  **`mcnemar.exact}} del paquete `exact2x2}
+
+**\bf Cuidado}: El intervalo de confianza que calcula esta función es para una estimación de la  \blue{odds ratio} que además no es la que hemos explicado en clase. **Mirad solo el p-valor}.
+
+
+
+
+[fragile]
+\frametitle{Ejemplo 7}\vspace*{-1ex}
+
+\begin{lstlisting}
+> #Instalamos y cargamos el paquete exact2x2
+...
+> mcnemar.exact(Datos.C)
+
+         Exact McNemar test (with central 
+         confidence intervals)
+
+data:  Datos.C
+b = 17, c = 5, p-value = 0.0169
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+  1.204082 11.786700
+sample estimates:
+odds ratio 
+       3.4 
+\end{lstlisting}
+
+El \blue{p-valor} es  $0.017$
+
+
