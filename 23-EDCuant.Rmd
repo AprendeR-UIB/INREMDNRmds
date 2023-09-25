@@ -942,6 +942,38 @@ knitr::include_graphics("INREMDN_files/figure-html/Plati.png")
 
 Un conjunto de datos platicúrtico tiene las colas más altas de lo que cabría esperar si se ajustara a una campana de Gauss, mientras que si es leptocúrtico sus colas son más bajas.
 
+
+## Estadísticos y gráficos con JAMOVI
+
+En la ventana **Descriptivas** podéis calcular la mayoría de los estadísticos y gráficos explicados hasta ahora. Por ejemplo, los estadísticos que podéis calcular del vector de alturas usado en secciones anteriores son:
+
+```{r jamoviedc1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.1.png")
+```
+
+La varianza y la desviación típica que calcula son las muestrales y el *RIC* es el rango intercuartílico.
+
+Por lo que refiere a gráficos, podéis dibujar, entre otros, histogramas de frecuencias relativas, boxplots y diagramas de puntos. Por el momento no es posible dibujar un polígono de frecuencias si no es usando funciones adecuadas en el editor.
+
+* Histograma:
+
+```{r jamoviedc2,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.2.png")
+```
+
+* Boxplot:
+
+```{r jamoviedc3,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.3.png")
+```
+
+* Diagrama de puntos:
+
+```{r jamoviedc4,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.4.png")
+```
+
+
 ## Estadísticos sobre datos agrupados {#sec:estagrup}
 
 En nuestro lenguaje cotidiano, solemos **agrupar** datos cuantitativos sin que seamos conscientes de ello. Cuando decimos, por ejemplo, que la edad de alguien es de 18 años, no queremos decir que nació justo hoy hace 18 años, sino que ya ha cumplido los 18 años, pero aún no ha cumplido los 19; es decir, que agrupamos todas las edades que caen dentro del intervalo [18,19) en una misma clase, que llamamos "18 años". Del mismo modo, que alguien mida 1.72 no significa que esta sea su altura exacta, con la precisión del grueso de un cabello, sino que su altura pertenece a un intervalo de valores en torno a 1.72 metros que identificamos con "1.72". Bajo  la calificación de "aprobado" agrupamos todas las notas mayores o iguales que 5 y menores que 7. Y estamos seguros de que se os ocurren otros ejemplos. 
@@ -1250,6 +1282,23 @@ plot(Tensión,Colesterol,pch=20)
 abline(lm(Colesterol~Tensión),lwd=1.5,col="red")
 ```
 
+
+Con JAMOVI podéis calcular la correlación de Pearson y dibujar un gráfico de dispersión con la recta de regresión en **Regresión/Matriz de correlaciones**:
+
+
+
+```{r jamoviedc5,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.5.png")
+```
+
+Por el momento JAMOVI no ofrece la posibilidad de calcular covarianzas si no es a través del editor. La función que calcula la covarianza muestral es `cov` y se aplica a los dos vectores.
+
+
+```{r jamoviedc6,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.6.png")
+```
+
+
 ```{block2,type="rmdimportant"}
 El valor de la correlación de Pearson no siempre es suficiente para valorar el ajuste de los puntos a una recta. Es siempre conveniente dibujar los puntos y la recta de regresión lineal y darles un vistazo.
 ```
@@ -1368,7 +1417,7 @@ kable(data.frame(Individuo,x,Posición,Rango))%>%
   kable_styling(full_width = F)
 ```
 
-
+La correlación de Spearman se calcula con JAMOVI marcando *Spearman* en vez de *Pearson* en **Regresión/Matriz de correlaciones**.
 
 ## Gráficos en escala logarítmica 
 

@@ -1,0 +1,22 @@
+\frametitle{Comparacions posteriors per parelles}
+
+Les comparacions posteriors per parelles de les mitjanes de les combinacions de nivells les podeu fer amb \texttt{pairwise.t.test}
+
+\begin{lstlisting}
+> pairwise.t.test(Moscards$Percent,
+  Moscards$Esquer:Moscards$Color, paired=FALSE)
+
+...
+     MT:G    MT:R    MR:G    MR:R    A:G
+MT:R 1.00000 -       -       -       -
+MR:G 0.06665 0.04706 -       -       -
+MR:R 1.00000 1.00000 0.17930 -       -
+A:G  0.88126 1.00000 0.00294 0.37892 -
+A:R  0.17930 0.23273 0.00031 0.06665 1.00000
+
+P value adjustment method: holm
+\end{lstlisting}
+\pause
+
+ \blue{La resta, ho deixarem córrer}
+

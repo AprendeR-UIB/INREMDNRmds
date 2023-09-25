@@ -1,0 +1,1973 @@
+\documentclass[12pt,t]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath,amsthm, wasysym}
+\usepackage{listings}
+\usepackage[T1]{fontenc}        
+\usepackage{pgf}
+\usepackage{epsdice}
+\usepackage{pgfpages}
+\usepackage{tikz}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{navigation symbols}{}
+
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+\renewcommand{\emph}[1]{{\color{red}#1}}
+
+\setbeamertemplate{frametitle}
+{\begin{centering}
+\smallskip
+\color{blue}
+\textbf{\insertframetitle}
+\end{centering}
+}
+\usecolortheme{rose}
+\usecolortheme{dolphin}
+\mode<presentation>
+
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\MM}{\mathcal{M}}
+%\newcommand{\dbinom}{\displaystyle\binom}
+
+\newcommand{\limn}{{\displaystyle \lim_{n\to\infty}}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\def\tendeix{{\displaystyle\mathop{\longrightarrow}_{\scriptscriptstyle
+n\to\infty}}}
+
+\newcommand{\matriu}[1]{\left(\begin{matrix} #1 \end{matrix}\right)}
+
+% \newcommand{\qed}{\hbox{}\nobreak\hfill\vrule width 1.4mm height 1.4mm depth 0mm
+%     \par \goodbreak \smallskip}
+%
+% %
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposició}
+\newtheorem{cor}{Coro\l.lari}
+\theoremstyle{definition}
+\newtheorem{exemple}{Exemple}
+\newtheorem{defin}{Definició}
+\newtheorem{obs}{Observació}
+
+\newcounter{seccions}
+\newcommand{\seccio}[1]{\addtocounter{seccions}{1}
+\medskip\par\noindent\emph{\theseccions.
+#1}\smallskip\par }
+
+\newcommand{\EM}{\Omega}
+\newcommand{\PP}{\mathcal{P}}
+
+\usepackage{listings}
+
+\lstset{
+language=R, %
+aboveskip=1 ex, %
+belowskip=-4ex, %
+linewidth=\textwidth,
+%xleftmargin=0.5cm,
+%xrightmargin=0.5cm,
+basicstyle={\footnotesize\ttfamily}, %
+commentstyle=\ttfamily\color{red}, %
+numbers=none, %
+%morecomment=[l]{E},
+numberstyle=\ttfamily\color{gray}\footnotesize,
+stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{gray!15},%15
+showspaces=false,
+%showstringspaces=false,
+showtabs=false,
+frame=single, %????
+framerule=0pt,
+keepspaces=true,
+tabsize=2,
+captionpos=b, %
+breaklines=true, %
+breakatwhitespace=false,  %
+showstringspaces=false,
+title=\lstname,
+literate={{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1 {¡}{{\textexclamdown}}1 {¿}{{\textquestiondown}}1 {!}{{!}}1
+  {·}{{\textperiodcentered}}1}
+ }
+ 
+\lstdefinestyle{warning}{basicstyle={\footnotesize\ttfamily\color{red}}}
+
+
+
+\title[\red{Matemàtiques II}]{}
+\author[]{}
+\date{}
+
+
+
+\begin{document}
+\beamertemplatedotitem
+
+
+\begin{frame}
+\vfill
+\begin{center}
+\gray{\LARGE\bf ANOVA de blocs}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+En un estudi es volgué determinar quina varietat de mongeta (d'entre 6 varietats) era la més adient per  cultivar en una granja, atès el seu tipus de terra. \medskip
+
+Per evitar que els llocs on se sembrassin les diferents mongeteres poguessin afectar els resultats, en prengueren 4 quadrats (\red{blocs}) de terreny de la granja, cada un es quadriculà en 6 parts i a cada bloc se li assignà de manera aleatòria  a cada quadrat un tipus diferent de mongetera.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+Les produccions per quadrat (en kg)
+\begin{center}
+\begin{tabular}{r|cccccc}
+\multicolumn{1}{c}{} &  \multicolumn{6}{c}{Varietat de mongeta}\\
+Bloc & 1 & 2 & 3 & 4 & 5 & 6\\ \hline
+1 &  15.9  &  15.5  &  13.0  &  10.3  &  10.0  &   6.4\\
+2 &   16.9  &  18.1  &  12.3  &  13.6   & 10.1  &  10.0\\
+3 &   15.0  &  16.8   &  9.0   & 11.2   &  8.2    & 6.5\\
+4 &   13.9  &  13.0  &  11.3  &  11.4 &    8.6   &  8.7\\
+\end{tabular}
+\end{center}\medskip
+
+\blue{La producció mitjana de les diferents varietats de mongeta en aquest tipus de terra és la mateixa?}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\red{Variable poblacional global}: 
+\begin{itemize}
+\item $X$: Prenc un quadrat sembrat de mongeteres (de les característiques dels quadrats emprats en aquest experiment) i mesur la seva producció (en kg de mongetes)\medskip
+\end{itemize}
+
+\red{Subpoblacions}: 
+\begin{itemize}
+\item Les 6 varietats de mongeta (1,\ldots,6)\medskip
+\end{itemize}
+
+\red{Variables d'interès}: 
+\begin{itemize}
+\item $X_i$: Prenc un quadrat sembrat amb mongeteres de varietat $i$ i mesur la seva producció ($i=1,\ldots,6$)
+\end{itemize}
+
+\red{Contrast}: 
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_1=\mu_{2}=\cdots=\mu_{6} \\
+H_1 : \mbox{Hi ha  }i,j\mbox{ tals que }  \mu_i \not=\mu_j
+\end{array}
+\right.
+$$
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{ANOVA de blocs}
+
+En un experiment amb \emph{disseny d'ANOVA de blocs}:
+
+\begin{itemize}
+\item Empram els nivells (\red{tractaments}) d'\red{un únic factor} per classificar la població en $k\geq 3$ subpoblacions
+\begin{itemize}
+\item \blue{El tipus de mongetera, amb $k=6$ nivells}
+\end{itemize}
+
+
+\item Prenem una mostra aleatòria de $b$ \emph{blocs}: conjunts de $k$ subjectes aparellats
+\begin{itemize}
+\item \blue{Els $b=4$ terrenys que quadriculam  en $k=6$ quadrats}
+\end{itemize}
+
+
+\item Dins cada bloc, assignam aleatòriament a cada subjecte un tractament, de manera que cada tractament s'empri exactament un cop dins  cada bloc (\red{complet aleatori})
+\begin{itemize}
+\item \blue{Dins cada bloc, assignam aleatòriament a cada quadrat un tractament diferent}
+\end{itemize}
+\end{itemize}
+
+L'\red{ANOVA de blocs} generalitza el contrast de 2 mitjanes  amb mostres aparellades a $k$ mitjanes  amb mostres aparellades
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Situació general}
+
+Mesuram una variable $X$ sobre $k$ subpoblacions (\red{tractaments})\smallskip
+
+\begin{itemize}
+\item \red{$\mu$}: mitjana poblacional  de $X$ en tota la població
+\smallskip
+
+\item \red{$X_i$}: Prenc un individu del nivell $i$-èsim i hi mesur la $X$, $i=1,\ldots,k$; la seva mitjana és 
+\red{$\mu_i$}\smallskip
+
+\item \red{$X_{\bullet j}$}: Prenc un individu del bloc $j$-èsim i hi mesur la $X$, $j=1,\ldots,b$; la seva mitjana és  \red{$\mu_{\bullet j}$}
+\smallskip
+
+\item \red{$X_{ij}$}: Prenc l'individu del nivell $i$-èsim del bloc $j$-èssim i hi mesur la $X$; la seva mitjana és 
+ \red{$\mu_{ij}$}
+\end{itemize}\pause
+
+\red{Contrast}:
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_1=\mu_{2}=\cdots=\mu_{k}\ \only<3>{\red{ =\mu}} \\
+H_1 : \mbox{Hi ha  }i,j\mbox{ tals que }  \mu_i \not=\mu_j
+\end{array}
+\right.
+$$
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Situació general}
+
+Les dades es presenten en una taula:
+\begin{center}
+\begin{tabular}{c|cccc}
+\multicolumn{5}{c}{\hphantom{Blocs} Tractaments}
+\\  Bloc & Tract.  1 &Tract.
+ 2 & \ldots &Tract.  k \\\hline
+ 1 &$X_{11}$&$X_{21}$&$\ldots$&$X_{k1}$\\
+2&$X_{12}$&$X_{22}$&$\ldots$&$X_{k2}$\\
+$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$\\
+$b$&$X_{1b}$&$X_{2b}$&$\ldots$&$X_{kb}$\\\hline
+\end{tabular}
+\end{center}
+\medskip
+
+\red{$X_{ij}$}: 
+\begin{itemize}
+\item La $i$ representa la columna: el tractament
+\item La $j$ representa la filera: el bloc
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Situació general}
+
+\begin{itemize}
+
+\item $\red{\overline{X}_{i}}$: mitjana mostral del tractament $i$-èsim 
+$$
+\overline{X}_{i}=\dfrac{\sum_{j=1}^b X_{ij}}{b}
+$$
+
+\item $\red{\overline{X}_{\bullet j}}$: mitjana mostral del bloc $j$-èsim 
+$$
+\overline{X}_{\bullet j}=\dfrac{\sum_{i=1}^k X_{ij}}{k}
+$$
+
+\item $\red{\overline{X}}$: mitjana mostral global 
+$$
+\overline{X}=\dfrac{\sum_{i=1}^k\sum_{j=1}^b X_{ij}}{k\cdot b}
+$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Situació general}
+
+\begin{center}
+\begin{tabular}{c|cccc|c}
+\multicolumn{6}{c}{Tractaments}
+\\  Bloc & Tract.  1 &Tract.
+ 2 & \ldots &Tract.  k & $\overline{X}_{\bullet j}$ \\\hline
+ 1 &$X_{11}$&$X_{21}$&$\ldots$&$X_{k1}$& $\vphantom{\int^A}\overline{X}_{\bullet 1}$\\
+2&$X_{12}$&$X_{22}$&$\ldots$&$X_{k2}$ & $\overline{X}_{\bullet 2}$\\
+$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$\\
+$b$&$X_{1b}$&$X_{2b}$&$\ldots$&$X_{kb}$ & $\overline{X}_{\bullet b}$\\\hline
+$\vphantom{\int^A}\overline{X}_i$ & $\overline{X}_1$ & $\overline{X}_2$ &  $\ldots$ & $\overline{X}_k$\\[-2ex]
+\multicolumn{6}{c}{$\underbrace{\hphantom{\overline{X}_{11}+\overline{X}_{11}+\overline{X}_{11}+\overline{X}_{11}+\overline{X}_{11}}}_{\displaystyle \overline{X}}$}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+Emmagatzemam les dades en  un \textsl{dataframe} amb tres variables:
+\begin{itemize}
+\item \texttt{Prod}: la producció
+\item \texttt{Mong}: la varietat de mongetera (un \red{factor})
+\item \texttt{Bloc}: el bloc (un \red{factor})
+\end{itemize}
+
+
+\begin{center}
+\begin{tabular}{r|cccccc}
+\multicolumn{1}{c}{} &  \multicolumn{6}{c}{Var. mongetes}\\
+Bloc & 1 & 2 & 3 & 4 & 5 & 6\\ \hline
+1 &  15.9  &  15.5  &  13.0  &  10.3  &  10.0  &   6.4\\
+2 &   16.9  &  18.1  &  12.3  &  13.6   & 10.1  &  10.0\\
+3 &   15.0  &  16.8   &  9.0   & 11.2   &  8.2    & 6.5\\
+4 &   13.9  &  13.0  &  11.3  &  11.4 &    8.6   &  8.7\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+
+
+\begin{lstlisting}
+> Prod=c(15.9,15.5,13.0,10.3,10.0,6.4,
+     16.9,18.1,12.3,13.6,10.1,10.0,
+     15.0,16.8,9.0,11.2,8.2,6.5,
+     13.9,13.0,11.3,11.4,8.6,8.7)
+> Mong=as.factor(rep(1:6,times=4))
+> Mong
+ [1] 1 2 3 4 5 6 1 2 3 4 5 6 1 2 3 4 5 6 1 2 3 4 5 6
+Levels: 1 2 3 4 5 6
+> Bloc=as.factor(rep(1:4,each=6))
+> Bloc
+ [1] 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4
+Levels: 1 2 3 4
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+
+
+\begin{lstlisting}
+> Dades=data.frame(Prod,Mong,Bloc)
+> str(Dades)
+'data.frame':	24 obs. of  3 variables:
+ $ Prod: num  15.9 15.5 13 10.3 10 6.4 16.9 18.1 12.3 13.6 ...
+ $ Mong: Factor w/ 6 levels "1","2","3","4",..: 1 2 3 4 5 6 1 2 3 4 ...
+ $ Bloc: Factor w/ 4 levels "1","2","3","4": 1 1 1 1 1 1 2 2 2 2 ...
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}\vspace*{-2ex}
+
+
+\begin{lstlisting}
+> Xb.i=aggregate(Prod~Mong,data=Dades,mean)
+> Xb.i
+  Mong   Prod
+1    1 15.425
+2    2 15.850
+3    3 11.400
+4    4 11.625
+5    5  9.225
+6    6  7.900
+> Xb.bj=aggregate(Prod~Bloc,data=Dades,mean)
+> Xb.bj
+  Bloc     Prod
+1    1 11.85000
+2    2 13.50000
+3    3 11.11667
+4    4 11.15000
+> Xb=mean(Prod)
+> Xb
+[1] 11.90417
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple}
+
+\begin{itemize}
+\item Mitjanes mostrals dels tractaments:\smallskip
+
+\begin{center}
+\begin{tabular}{cccccc}
+${\overline{X}_{1}}$ & ${\overline{X}_{2}}$ & ${\overline{X}_{3}}$ & ${\overline{X}_{4}}$ & ${\overline{X}_{5}}$ & ${\overline{X}_{6}}$  \\\hline
+15.425 & 15.85 & 11.4 & 11.625&  9.225&  7.9  
+\end{tabular}
+\end{center}
+\smallskip
+
+
+\item Mitjanes mostrals  dels blocs:
+
+\begin{center}
+\begin{tabular}{cccc}
+${\overline{X}_{\bullet1}}$ & ${\overline{X}_{\bullet2}}$ & ${\overline{X}_{\bullet3}}$ & ${\overline{X}_{\bullet4}}$   \\\hline
+11.85 & 13.5 & 11.12 & 11.15
+\end{tabular}
+\end{center}
+\smallskip
+
+
+\item Mitjana mostral global: $\overline{X}=11.9$
+
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Condicions necessàries}
+
+Per poder fer una ANOVA de blocs, cal que:\medskip
+
+\begin{itemize}
+
+\item Les $k\cdot b$ observacions constitueixen mostres aleatòries, cadascuna de mida $1$, de les $k\cdot b$ variables $X_{ij}$
+\smallskip
+
+\item Les variables $X_{ij}$ són totes normals amb la mateixa variància $\sigma^2$
+\smallskip
+
+\item L'efecte dels blocs i els tractaments és \emph{additiu}: no hi ha \emph{interacció} entre els blocs i els tractaments:\vspace*{1ex}
+
+\begin{quote} 
+\blue{Per a cada parell de nivells $i_1,i_2$ i per a cada parell de blocs $j_1,j_2$ \vspace*{-1ex}
+$$
+\mu_{i_1j_1}-\mu_{i_2j_1}=\mu_{i_1j_2}-\mu_{i_2j_2}
+$$}
+\end{quote} 
+\end{itemize}\vspace*{-5ex}
+
+Cap d'elles no es pot contrastar, per tant l'experimentador decideix si se satisfan o no segons la seva experiència
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Interacció?}
+
+
+Mesuram l'efecte d'un analgèsic A (en disminució del grau de dolor) en homes i dones 
+\begin{itemize}
+\item $\mu_B$: grau mitjà de dolor abans de prendre A 
+
+\item $\mu_{BD}$: grau mitjà de dolor de les dones abans de prendre A 
+
+
+\item $\mu_{BH}$: grau mitjà de dolor dels homes abans de prendre A 
+
+\item $\mu_A$: grau mitjà de dolor després  de prendre A 
+
+\item $\mu_{AD}$: grau mitjà de dolor de les dones després de prendre A 
+
+
+\item $\mu_{AH}$: grau mitjà de dolor dels homes després  de prendre A
+\end{itemize}\pause
+\begin{itemize}
+\item \emph{No interacció:} $\mu_{BD}-\mu_{AD}=\mu_{BH}-\mu_{AH}\pause =\mu_{B}-\mu_A$\pause\smallskip
+
+\item \emph{Sí interacció:} $\mu_{BD}-\mu_{AD}\neq \mu_{BH}-\mu_{AH}$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Interacció?}
+
+
+\blue{Exercici}: En un contrast obteniu un p-valor 0.0001. Amb $\alpha=0.05$:
+
+\begin{enumerate}
+\item \textbf{(1 punt)} Acceptau o rebutjau $H_0$?  \only<2,3,4>{\red{Rebutjau}}
+\item \textbf{(1 punt)} Quin tipus d'error pot ser que cometeu? \only<2,3,4>{\red{Tipus I}}
+\end{enumerate}\medskip
+
+\only<3>{\red{No interacció}:
+\begin{itemize}
+\item Si teniu bé les dues, 2 punts
+\item Si en teniu una bé i una malament, 1 punt 
+\item Si teniu malament les dues, 0 punts
+\end{itemize}}
+
+\only<4>{\red{Interacció}
+\begin{itemize}
+\item Si teniu bé les dues, 2 punts
+\item Si teniu bé la 1a i malament la 2a, 1 punt
+\item Si en teniu bé la 2a i malament la 1a,  0 punts (respostes inconsistents)
+\item Si teniu malament les dues, 1 punt (respostes consistents)
+\end{itemize}}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{{Model}}\vspace*{-5ex}
+
+$$
+\hspace*{-1ex} X_{ij}- \mu= (\mu_{i}-\mu) +(\mu_{\bullet j}-\mu) + E_{ij}, \ \mbox{\footnotesize $i=1,\ldots,k,\ j=1,\ldots,b$}
+$$
+on:
+\begin{itemize}
+\item  \red{$\mu_{i}-\mu$}: \red{Efecte del tractament $i$-èsim}
+\medskip
+
+\item  \red{$\mu_{\bullet j}-\mu$}:  \red{Efecte del bloc $j$-èsim}
+\medskip
+
+\item \red{$E_{ij}$} ($=X_{ij}-\mu_{i}-\mu_{\bullet j}+\mu$): \red{Residu}, \red{Error aleatori}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Identitat de les sumes de quadrats}\vspace*{-3ex} 
+
+\begin{teorema}
+$SS_{Total}=SS_{Tr}+SS_{Blocs}+SS_E$
+\end{teorema}
+\vspace*{-2ex}
+
+\begin{itemize}
+\item $\red{SS_{Total}} = \sum\limits_{i=1}^k\sum\limits_{j=1}^b (X_{ij}-
+\overline{X})^2$, és la \red{Suma de Total de Quadrats}: \blue{variabilitat global de la mostra} 
+
+\item $\red{SS_{Tr}}=b\sum\limits_{i=1}^k
+(\overline{X}_{i}-\overline{X})^2$, és la \red{Suma de Quadrats dels Tractaments}: \blue{variabilitat 
+de les mitjanes dels tractaments} 
+
+\item $\red{SS_{Blocs}}=k\sum\limits_{j=1}^b (\overline{X}_{\bullet
+j}-\overline{X})^2$, és la \red{Suma de Quadrats dels Blocs}: \blue{variabilitat 
+de les mitjanes dels blocs} 
+
+\item $\red{SS_E}= \sum\limits_{i=1}^k\sum\limits_{j=1}^b (X_{ij} - \overline{X}_{i}-
+\overline{X}_{\bullet j}+\overline{X})^2$, és la \red{Suma de Quadrats dels Residus} o \red{dels Errors}: \blue{variabilitat  deguda a factors aleatoris}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}\vspace*{-1ex} 
+
+
+\begin{lstlisting}
+> k=6; b=4
+> SS.Tot=sum((Prod-Xb)^2)
+> SS.Tot
+[1] 252.2496
+> SS.Tr=b*sum((Xb.i[,2]-Xb)^2)
+> SS.Tr
+[1] 206.0371
+> SS.Bl=k*sum((Xb.bj[,2]-Xb)^2)
+> SS.Bl
+[1] 22.43125
+> SSE=sum((Prod-Xb.i[,2]-rep(Xb.bj[,2],each=k)+Xb)^2)
+> SSE
+[1] 23.78125
+\end{lstlisting}\medskip
+
+Identitat de les sumes de quadrats?
+
+
+\begin{lstlisting}
+> SS.Tr+SS.Bl+SSE
+[1] 252.2496
+\end{lstlisting}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Contrast}\vspace*{-1ex} 
+
+\begin{itemize}
+\item \red{Quadrat mitjà dels tractaments}: 
+$$
+\red{MS_{Tr}}=\dfrac{SS_{Tr}}{k-1}
+$$
+
+
+\item \red{Quadrat mitjà dels errors}: 
+$$
+\red{MS_E} = \dfrac{SS_E}{(b-1) (k-1)}
+$$
+
+
+\item (A més, R calcula) \red{Quadrat mitjà dels blocs}:
+$$
+\red{MS_{Blocs}}=\dfrac{SS_{Blocs}}{b-1}
+$$
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Contrast}
+
+Si se satisfan les condicions necessàries per fer una ANOVA de blocs:
+$$
+\begin{array}{l}
+\displaystyle E(MS_{Tr})=\sigma^2 + \dfrac{b}{k-1}\sum_{i=1}^k (\mu_{i}-\mu)^2 \\
+E(MS_E)=\sigma^2
+\end{array}
+$$
+
+
+En particular, \red{$MS_E$ estima la variància comuna $\sigma^2$}
+\medskip
+
+Si $H_0:\mu_{1}=\cdots =\mu_{k}(=\mu)$ és certa,
+$$
+\dfrac{b}{k-1}\sum\limits_{i=1}^k (\mu_{i}-\mu)^2 = 0,
+$$
+i si $H_0$ no és certa, aquesta quantitat és $>0$
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Contrast}
+
+Prenem com a \emph{estadístic de contrast} 
+$$
+\red{F=\frac{MS_{Tr}}{MS_E}}
+$$
+
+Si $H_0$ és certa:
+\medskip
+
+\begin{itemize}
+\item la seva distribució és $F_{k-1,(b-1)(k-1)}$ (F de Fisher-Snedecor 
+amb $k-1$ i $(b-1)(k-1)$ graus de llibertat)
+\medskip
+
+\item el seu valor serà proper a $1$
+\end{itemize}
+\medskip
+
+A més, si $k=2$, $F$ és igual al quadrat de l'estadístic del test t de 2 mostres aparellades\medskip
+
+\red{Rebutjarem la hipòtesi nu\l.la si $F$ és molt gran}:
+$$
+\text{p-valor}=P(F_{k-1,(b-1)(k-1)}\geq F)
+$$
+
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Contrast}
+
+\begin{enumerate}
+\item Calculam 
+$$
+SS_{Tr},\ SS_E
+$$
+
+\item Calculam 
+$$
+\hspace*{-5ex} MS_{Tr}=\frac{SS_{Tr}}{k-1},\
+MS_E=\frac{SS_E}{(b-1)(k-1)}
+$$
+
+\item Calculam 
+$$
+F=\frac{MS_{Tr}}{MS_E}
+$$
+
+\item Calculam el p-valor
+$$
+P(F_{k-1,(b-1)(k-1)}\geq F)
+$$
+
+\item Si el p-valor és més petit que el nivell de significació $\alpha$,  rebutjam $H_0$ i concloem que no totes les mitjanes són iguals. En cas contrari, acceptam $H_0$.
+\end{enumerate}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\begin{center}
+\begin{tabular}{cccccc}
+k & b & $SS_{Total}$ & $SS_{Tr}$ & $SS_{Blocs}$ & $SS_E$\\ \hline
+6 & 4 & 252.24  & 206.04 & 22.43  & 23.78
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item $MS_{Tr}=\dfrac{SS_{Tr}}{k-1}=\dfrac{206.04}{5}=41.21    $
+\medskip
+
+\item $MS_E = \dfrac{SS_E}{(b-1) (k-1)}=\dfrac{23.78}{3\cdot 5}=1.59$
+\medskip
+
+\item $MS_{Blocs}=\dfrac{SS_{Blocs}}{b-1}=\dfrac{23.78}{3}=7.48$
+\medskip
+
+\item $F=\dfrac{MS_{Tr}}{MS_E}=26$
+\medskip
+
+\item p-valor: $P(F_{5,15}\geq 26)=\texttt{1-pf(26,5,15)}=7\cdot 10^{-7}$
+\medskip
+
+\item Conclusió: Hem obtingut evidència estadística que les produccions mitjanes per als diferents tipus de mongetera no són totes iguals (ANOVA de blocs, p-valor)
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Taula ANOVA}
+
+Una ANOVA de blocs es resumeix en una \red{taula ANOVA}:
+\begin{center}
+\small \begin{tabular}{llllll}
+\hline
+Origen&Graus de&Suma de&Quadrats&Estadístic & p-valor\\
+variació&llibertat&quadrats&mitjans& & \\\hline
+Tracts.&$k-1$ & $SS_{Tr}$&$MS_{Tr}$&$F$ & p-valor\\[2ex]
+Blocs &$b-1$&$SS_{Blocs}$&$MS_{Blocs}$& &\\[2ex]
+Errors&$(b-1)(k-1)$&$SS_{E}$&$MS_E$& &\\
+\hline
+\end{tabular}
+\end{center}
+\pause\medskip
+
+\blue{Exemple}:
+
+\begin{center}
+\small 
+\small \begin{tabular}{llllll}
+\hline
+Origen&Graus de&Suma de&Quadrats&Estadístic & p-valor\\
+variació&llibertat&quadrats&mitjans& & \\\hline
+Tracts.& 5 & $206.04$&$41.21$& 25.99 &  $7\cdot 10^{-7}$\\[2ex]
+Blocs& 3 &$22.43$&$7.48$& &\\[2ex]
+Errors& 15 &$23.78$&$1.59$& &\\
+\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Amb R}
+
+S'aplica \red{\texttt{summary(aov(\ ))}} a la fórmula que separa la variable numèrica per la \blue{suma (+) dels tractaments i els blocs}\medskip
+
+ 
+\begin{lstlisting}
+> summary(aov(Prod~Mong+Bloc, data=Dades))
+          Df Sum Sq Mean Sq F value   Pr(>F)    
+Mong       5 206.04   41.21  25.992 6.89e-07 ***
+Bloc       3  22.43    7.48   4.716   0.0164 *  
+Residuals 15  23.78    1.59                     
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+\end{lstlisting}
+
+El p-valor de la filera \texttt{Bloc} contrasta si hi ha diferències entre les mitjanes dels blocs.
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Comparacions posteriors per parelles}
+
+Si rebutjam $H_0$, podem demanar-nos quins tractaments donen mitjanes diferents
+\medskip
+
+Podem emprar un test t, fent cada comparació \emph{per a mostres aparellades} i emprant un ajust del p-valor (Bonferroni, Holm, \ldots)\medskip
+
+Amb R es fa amb \texttt{pairwise.t.test} indicant-hi que \texttt{paired=TRUE}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}\vspace*{-1ex}
+
+\begin{lstlisting}
+> pairwise.t.test(Dades$Prod, Dades$Mong,
+  paired=TRUE, p.adjust.method="bonferroni")
+
+	Pairwise comparisons using paired t tests 
+
+data:  Dades$Prod and Dades$Mong 
+
+  1      2      3      4      5     
+2 1.0000 -      -      -      -     
+3 0.2208 0.7870 -      -      -     
+4 0.1542 0.2775 1.0000 -      -     
+5 0.0068 0.1052 0.3139 0.6583 -     
+6 0.0614 0.1310 0.6459 0.0432 1.0000
+
+P value adjustment method: bonferroni 
+\end{lstlisting}
+
+Només trobam evidència que $\mu_1\neq \mu_5$ i $\mu_4\neq \mu_6$
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Contrast no paramètric}
+
+Si no podem  aplicar ANOVA de blocs perquè sospitem que no se satisfan les
+condicions necessàries, \red{cal emprar un test no paramètric}\medskip
+
+El més popular és el \red{test de Friedman} (generalitza el test de Wilcoxon amb mostres aparellades a més de 2 mostres), implementat a la funció \red{\texttt{friedman.test}} (\blue{cal substituir $+$ per $|$ a la fórmula})\medskip
+
+\begin{lstlisting}
+> friedman.test(Prod~Mong|Bloc, data=Dades)
+
+	Friedman rank sum test
+
+data:  Prod and Mong and Bloc
+Friedman chi-squared = 18.571, df = 5, 
+  p-value = 0.002309
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}
+\vfill
+\begin{center}
+\gray{\LARGE\bf ANOVA de 2 vies}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ANOVA de 2 vies}
+
+Ens pot interessar comparar les mitjanes d'una variable sobre subpoblacions definides per més d'un factor a partir de mostres d'aquestes subpoblacions:  se'n diu un \emph{experiment factorial}\
+\bigskip
+
+Aquí considerarem només el  cas més senzill: el disseny d'\emph{ANOVA de 2 vies} (\emph{completament aleatori}):\medskip
+
+\begin{itemize}
+\item Empram els nivells (\red{tractaments}) de \red{dos factors} (\emph{2 vies})
+ per classificar \medskip
+
+\item Prenem mostres aleatòries independents \blue{de la mateixa mida} de cada combinació de nivells dels dos factors (\emph{completament aleatori})
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+En un experiment per determinar l'atracció de moscards per colors i tipus de mel, s'han emprat 2 colors (vermell i verd) i 3 esquers (mel de taronger, mel de romaní i aigua), s'han oferit pots amb l'esquer tenyit del color a  grups  de moscards i s'ha mesurat el percentatge de moscards que s'han vist atrets pel pot. S'ha repetit 4 vegades per combinació (esquer, color) amb grups independents de moscards. Resultats:\vspace*{-2ex}
+
+\begin{center}
+\begin{tabular}{c|cc|cc|cc|}
+\multicolumn{1}{c}{ }&\multicolumn{6}{c}{Esquer}\\\cline{2-7}
+Color & \multicolumn{2}{|c|}{Taronger}& \multicolumn{2}{|c|}{Romaní} & \multicolumn{2}{|c|}{Aigua}\\\hline
+Verd &65 &42 & 67 & 73 & 35 & 37  \\
+& 53 &37 & 67  &70& 43 & 43\\\hline
+ Vemell & 57 & 38  &60& 42& 35 & 33 \\
+ &45 & 51 & 41& 68& 41 & 21 \\\hline
+\end{tabular}
+\end{center}
+
+\blue{El color i el tipus de mel, afecten el percentatge mitjà de moscards atrets?}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+
+\red{Variable poblacional global}: \medskip
+
+\begin{itemize}
+\item $X$: Prenc un esbart de moscards i mir quin percentatge és atret per un pot contenint un esquer colorejat\medskip
+\end{itemize}
+
+\red{Subpoblacions}: Definides per les combinacions de \medskip
+
+\begin{itemize}
+\item Els dos colors (G: Verd, R: Vermell)\medskip
+
+\item Els tres esquers (MT: Mel de taronger, MR: Mel de romaní, A: Aigua)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\red{Variables d'interès}: \medskip
+
+\begin{itemize}
+\item $X_{G},X_{R}$: Prenc un esbart de moscards i mir quin percentatge és atret per un pot contenint un esquer colorejat de verd (G) o de vermell (R)\medskip
+
+\item $X_{MT},X_{MR},X_A$: Prenc un esbart de moscards i mir quin percentatge és atret per un pot contenint mel de taronger (MT),  mel de romaní (MR) o aigua (A)\medskip
+
+\item $X_{MT,G},X_{MR,G},X_{A,G},X_{MT,R},X_{MR,R},X_{A,R}$: Prenc un esbart de moscards i mir quin percentatge és atret per un pot contenint l'esquer corresponent tenyit del color corresponent
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}\vspace*{-1ex}
+
+\begin{itemize}
+\item \red{Hi ha diferència segons el color?}
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_G=\mu_{R} \\
+H_1 : \mu_G\neq \mu_{R}
+\end{array}
+\right.
+$$\pause
+
+\item \red{Hi ha diferència segons l'esquer?}
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_{MT}=\mu_{MR}=\mu_A \\
+H_1 : \text{ No és veritat que \ldots}
+\end{array}
+\right.
+$$\pause
+
+\item \red{Hi ha diferència segons la combinació d'esquer i color?}
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_{E,C}=\mu_{E'C'}\text{ per a tots esquers $E,E'$ i colors $C,C'$} \\
+H_1 : \text{ No és veritat que \ldots}
+\end{array}
+\right.
+$$\pause
+
+\item \red{Hi ha interacció entre colors i esquers?}
+$$
+\left\{
+\begin{array}{l}
+H_0 : \text{No hi ha interacció entre els esquers i els colors} \\
+H_1 : \text{Hi ha interacció entre alguns esquers i alguns colors}
+\end{array}
+\right.
+$$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Situació general} 
+
+Tenim una v.a. $X$ definida sobre una població\medskip
+
+Classificam la població en subpoblacions segons dos factors, A i B.  El factor A té \red{$a$} nivells i el factor B, \red{$b$} nivells.
+\medskip
+
+\blue{Al nostre exemple}:
+\begin{itemize}
+\item \red{Factor A}: Esquer, $a=3$
+\item \red{Factor B}: Color, $b=2$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Situació general} 
+
+\begin{itemize}
+\item \red{$\mu$}: mitjana poblacional de $X$ global\medskip
+
+\item \red{$X_{i\bullet}$}: Prenc un individu del  nivell $i$-èsim del factor A i hi mesur $X$,  $i=1,\ldots,a$; la seva mitjana  és \red{$\mu_{i\bullet}$}\medskip
+
+\item \red{$X_{\bullet j}$}: Prenc un individu del  nivell $j$-èsim del factor B i hi mesur $X$, $j=1,\ldots,b$; la seva mitjana  és  \red{$\mu_{\bullet j}$}\medskip
+
+\item  \red{$X_{ij}$}: Prenc un individu del  nivell $i$-èsim del factor A i el  nivell $j$-èsim del factor B i hi mesur $X$, de mitjana  \red{$\mu_{ij}$}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Situació general} 
+
+
+Prenem mostres de mida $n$ de cada $X_{ij}$
+\begin{center}
+\footnotesize
+\begin{tabular}{ccccc}
+\hline
+&\multicolumn{4}{c}{Factor A}\\\hline
+Factor B&$1$&$2$&$\cdots$&$a$\\\hline
+$1$&$X_{111}$&$X_{211}$&$\cdots$&$X_{a11}$\\
+&$\cdots$&$\cdots$&$\cdots$&$\cdots$\\
+&$X_{11n}$&$X_{21n}$&$\cdots$&$X_{a1n}$\\\hline
+$2$&$X_{121}$&$X_{221}$&$\cdots$&$X_{a21}$\\
+&$\cdots$&$\cdots$&$\cdots$&$\cdots$\\
+&$X_{12n}$&$X_{22n}$&$\cdots$&$X_{a2n}$\\\hline
+$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$\\\hline
+$b$&$X_{1b1}$&$X_{2b1}$&$\cdots$&$X_{ab1}$\\
+&$\cdots$&$\cdots$&$\cdots$&$\cdots$\\
+&$X_{1bn}$&$X_{2bn}$&$\cdots$&$X_{abn}$\\\hline
+\end{tabular}
+\end{center}
+\begin{itemize}
+\item Les mostres de cada $X_{i\bullet}$ tenen mida $bn$
+\item Les mostres de cada $X_{\bullet j}$ tenen mida $an$
+\item  El nombre total d'observacions és $n\cdot a\cdot b$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple} 
+
+\begin{center}
+\begin{tabular}{cccc}\hline
+\multicolumn{1}{c}{ }&\multicolumn{3}{c}{Esquer}\\\hline
+\multicolumn{1}{c}{Color} & \multicolumn{1}{c}{MT}&  \multicolumn{1}{c}{MR} & \multicolumn{1}{c}{A}  \\\hline
+G &65 &  67 &  35   \\
+&42& 73& 37 \\
+& 53  & 67 &  43 \\
+&37&  70&   43 \\\hline
+R & 57  & 60& 35  \\
+ & 38& 42& 33\\
+ &45 & 41& 41 \\
+ & 51& 68&  21 \\\hline
+ \end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Situació general} 
+
+\begin{itemize}
+
+\item $\red{\overline{X}_{i\bullet}}$: mitjana mostral del nivell $i$-èsim d'A 
+$$
+\overline{X}_{i}=\dfrac{\sum_{j=1}^b X_{ij}}{b\cdot n}
+$$
+
+\item $\red{\overline{X}_{\bullet j}}$: mitjana mostral del nivell $j$-èsim  de  B 
+$$
+\overline{X}_{\bullet j}=\dfrac{\sum_{i=1}^k X_{ij}}{a\cdot n}
+$$
+
+\item $\red{\overline{X}_{i j}}$: mitjana mostral de la combinació del nivell $i$-èsim del factor A i el nivell $j$-èsim  del factor B 
+$$
+\overline{X}_{i j}=\dfrac{\sum_{i=1}^k X_{ij}}{n}
+$$
+
+
+\item $\red{\overline{X}}$: mitjana mostral global 
+$$
+\overline{X}=\dfrac{\sum_{i=1}^k\sum_{j=1}^b X_{ij}}{a\cdot b\cdot n}
+$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple} 
+
+\begin{center}
+\begin{tabular}{c|cc|cc|cc|c}
+\multicolumn{1}{c}{ }&\multicolumn{6}{c}{Esquer}\\\cline{2-7}
+Color &\multicolumn{2}{|c|}{Taronger}& \multicolumn{2}{|c|}{Romaní} & \multicolumn{2}{|c|}{Aigua} & \\\hline
+Verd &65 & & 67 & & 35 &  \\
+&42& &73& &37& \\
+& 53  && 67 & & 43& \\
+&37&  \hspace*{-0.5cm} $\overline{X}_{11}$& 70&  \hspace*{-0.5cm} $\overline{X}_{21}$& 43&  \hspace*{-0.7cm} $\overline{X}_{31}$ & $\overline{X}_{\bullet 1}$\\\hline
+Vemell & 57  & &60&& 35 & \\
+ & 38&& 42&& 33&\\
+ &45 && 41&& 41 &\\
+ & 51&  \hspace*{-0.5cm} $\overline{X}_{12}$& 68&  \hspace*{-0.5cm} $\overline{X}_{22}$& 21&  \hspace*{-0.7cm} $\overline{X}_{32}$& $\overline{X}_{\bullet2}$ \\\hline
+\vphantom{$\Big($} & $\overline{X}_{1\bullet}$ & & $\overline{X}_{2\bullet}$ & & $\overline{X}_{3\bullet}$ & \\
+ \multicolumn{1}{c}{}& \multicolumn{6}{c}{$\underbrace{\hphantom{\overline{X}_{11}+\overline{X}_{11}+\overline{X}_{11}+\overline{X}_{11}+\overline{X}_{11}}}_{\displaystyle \overline{X}}$} & \multicolumn{1}{c}{}
+ \end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple} 
+
+Organitzarem les dades del nostre exemple en un dataframe  amb 3 variables:
+\medskip
+
+\begin{itemize}
+\item \blue{{\tt Percent}}, quantitativa, el percentatge de moscards atrets\medskip
+
+\item \blue{{\tt Esquer}}, un factor que  contendrà el valor del nivell  del  factor
+A (esquer) per a cada grup de moscards: MT, MR, A
+\medskip
+
+\item \blue{{\tt Color}}, un factor que   contendrà el valor del nivell del  factor
+B (color) per a cada grup de moscards: G, R
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple} 
+
+\begin{center}
+\begin{tabular}{cccc}\hline
+\multicolumn{1}{c}{ }&\multicolumn{3}{c}{Esquer}\\\hline
+\multicolumn{1}{c}{Color} & \multicolumn{1}{c}{MT}&  \multicolumn{1}{c}{MR} & \multicolumn{1}{c}{A}  \\\hline
+G &65 &  67 &  35   \\
+&42& 73& 37 \\
+& 53  & 67 &  43 \\
+&37&  70&   43 \\\hline
+R & 57  & 60& 35  \\
+ & 38& 42& 33\\
+ &45 & 41& 41 \\
+ & 51& 68&  21 \\\hline
+ \end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple} 
+
+\begin{lstlisting}
+> Percent=c(65,67,35,42,73,37,
+   53,67,43,37,70,43,57,60,35,
+   38,42,33,45,41,41,51,68,21)
+> Esquer=factor(rep(c("MT","MR","A"),times=8),
+               levels=c("MT","MR","A"))
+> Esquer
+ [1] MT MR A  MT MR A  MT MR A  MT MR
+[12] A  MT MR A  MT MR A  MT MR A  MT
+[23] MR A 
+Levels: MT MR A
+> Color=factor(rep(c("G","R"),each=12),
+              levels=c("G","R"))
+> Color
+ [1] G G G G G G G G G G G G R R R R
+[17] R R R R R R R R
+Levels: G R
+\end{lstlisting}
+
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple} 
+
+
+\begin{lstlisting}
+> str(Moscards)
+'data.frame':	24 obs. of  3 variables:
+ $ Percent: num  65 67 35 42 73 37 53 67 43 37 ...
+ $ Esquer : Factor w/ 3 levels "MT","MR","A": 1 2 3 1 2 3 1 2 3 1 ...
+ $ Color  : Factor w/ 2 levels "G","R": 1 1 1 1 1 1 1 1 1 1 ...
+\end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple} 
+
+\begin{lstlisting}
+> Xb.i.b=aggregate(Percent~Esquer,data=Moscards,mean)
+> Xb.i.b
+  Esquer Percent
+  Esquer Percent
+1     MT    48.5
+2     MR    61.0
+3      A    36.0
+> Xb.b.j=aggregate(Percent~Color,data=Moscards,mean)
+> Xb.b.j
+  Color  Percent
+1     G 52.66667
+2     R 44.33333
+> Xb=mean(Percent); Xb
+[1] 48.5
+\end{lstlisting}\vspace*{-1ex}
+
+$$
+\begin{array}{cccccccc}
+\overline{X}_{MT} & \overline{X}_{MR} & \overline{X}_A & \hspace*{0.5cm} & \overline{X}_G & \overline{X}_R& \hspace*{0.5cm} & \overline{X}\\ \hline
+48.5 & 61 & 36 & & 52.67 & 44.33 & & 48.5
+\end{array}
+$$
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple} 
+
+\begin{lstlisting}
+> Xb.i.j=aggregate(Percent~Esquer+Color,
+   data=Moscards,mean)
+> Xb.i.j
+  Esquer Color Percent
+1     MT     G   49.25
+2     MR     G   69.25
+3      A     G   39.50
+4     MT     R   47.75
+5     MR     R   52.75
+6      A     R   32.50
+\end{lstlisting}
+
+\begin{center}
+\begin{tabular}{c|ccc}
+$\overline{X}_{ij}$ & MT & MR & A\\ \hline
+G & 49.25 & 69.25 & 39.50\\
+R &  47.75 & 52.75 &  32.50
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Condicions necessàries} 
+
+Per poder fer una ANOVA de 2 vies, cal que:\medskip
+
+\begin{itemize}
+\item Les observacions per a cada combinació de nivells $(i,j)$ constitueixin
+m.a.s. independents de les variables $X_{ij}$, totes de la mateixa  mida $n$
+\medskip 
+
+\item Les variables $X_{ij}$ siguin totes normals 
+\medskip 
+
+\item \red{Homocedasticitat}: Les variables $X_{ij}$ tenguin totes la mateixa variància,
+$\sigma^2$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Model}\vspace*{-3ex}
+
+
+$$
+X_{ij} = \mu + (\mu_{i\bullet}-\mu) +(\mu_{\bullet j}-\mu) + (\alpha\beta)_{ij}+E_{ij}
+$$
+on
+\begin{itemize}
+\item \red{$\mu_{i\bullet}-\mu$}: \red{Efecte del factor A}\medskip
+
+\item \red{$\mu_{\bullet j}-\mu$}: \red{Efecte del factor B}\medskip
+
+\item $\red{(\alpha\beta)_{ij}}$ ($=\mu_{ij}-\mu_{i\bullet}-\mu_{\bullet j}+\mu$): \red{Efecte de la interacció entre el  nivell $i$-èsim del factor A i el  nivell  $j$-èsim del factor B}
+\medskip
+
+\item $\red{E_{ij}}$ ($=X_{ij}-\mu_{ij}$): \red{Residu},  \red{Error aleatori}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Identitats de les sumes de quadrats}\vspace*{-2ex} 
+
+\begin{teorema}
+$SS_{Total} = SS_{Tr}+SS_E$\\[1ex]
+$SS_{Tr} = SS_A+SS_B+SS_{AB}$
+\end{teorema}
+
+\begin{itemize}
+\item $\red{SS_{Total}} =
+\sum\limits_{i=1}^a\sum\limits_{j=1}^b\sum\limits_{k=1}^n
+(X_{ijk}-\overline{X}_{\bullet\bullet})^2$: \red{Suma de Total de Quadrats}, representa la \blue{variabilitat global de la mostra} 
+
+
+\item $\red{SS_{Tr}}=n\sum\limits_{i=1}^a\sum\limits_{j=1}^b
+(\overline{X}_{ij}-\overline{X}_{\bullet\bullet})^2$: \red{Suma de Quadrats dels Tractaments}, representa la \blue{variabilitat 
+de les mitjanes de les combinacions de tractaments d'A i B}
+
+
+
+
+\item $\red{SS_E} =
+\sum\limits_{i=1}^a\sum\limits_{j=1}^b\sum\limits_{k=1}^n
+(X_{ijk}-\overline{X}_{ij})^2$: \red{Suma de Quadrats dels  Errors}, representa la \blue{variabilitat  deguda a factors aleatoris}
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Identitats de les sumes de quadrats}\vspace*{-2ex} 
+
+\begin{teorema}
+$SS_{Total} = SS_{Tr}+SS_E$\\[1ex]
+$SS_{Tr} = SS_A+SS_B+SS_{AB}$
+\end{teorema}
+
+\begin{itemize}
+
+\item  $\red{SS_A} =b n\sum\limits_{i=1}^a
+(\overline{X}_{i\bullet}-\overline{X}_{\bullet\bullet})^2$: \red{Suma de Quadrats del factor A}, representa la \blue{variabilitat 
+de les mitjanes dels nivells d'A}
+
+
+\item  $\red{SS_B}\! =\!a n\!\sum\limits_{j=1}^b (\overline{X}_{\bullet
+j}-\overline{X}_{\bullet\bullet})^2$: \red{Suma de Quadrats del factor~B}, representa la \blue{variabilitat 
+de les mitjanes dels nivells de~B}
+
+\item $\red{SS_{AB}}=n \sum\limits_{i=1}^a\sum\limits_{j=1}^b
+(\overline{X}_{ij}-\overline{X}_{i\bullet}-\overline{X}_{\bullet
+j}+\overline{X}_{\bullet\bullet})^2$: \red{Suma de Quadrats de la Interacció}, representa la \blue{variabilitat 
+deguda a la interacció dels nivells d'A i B}
+
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Identitats de les sumes de quadrats}\vspace*{-2ex} 
+
+$$
+\begin{array}{l}
+\blue{SS_{Total} = SS_{Tr}+SS_E}\\[1ex]
+\blue{SS_{Tr} = SS_A+SS_B+SS_{AB}}
+\end{array}
+$$
+Per tant
+$$
+\red{SS_{Total} = SS_A+SS_B+SS_{AB}+SS_E}
+ $$
+\end{frame}
+
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}\vspace*{-2ex} 
+
+\begin{lstlisting}
+> n=4; a=3; b=2
+> SS.Tot=sum((Percent-Xb)^2); SS.Tot
+[1] 4636
+> SS.A=n*b*sum((Xb.i.b[,2]-Xb)^2); SS.A
+[1] 2500
+> SS.B=n*a*sum((Xb.b.j[,2]-Xb)^2); SS.B
+[1] 416.6667
+> SS.Tr=n*sum((Xb.i.j[,3]-Xb)^2); SS.Tr
+[1] 3147
+> SS.AB=n*sum((Xb.i.j[,3]-Xb.i.b[,2]
+   -rep(Xb.b.j[,2],each=a)+Xb)^2)
+> SS.AB
+[1] 230.3333
+> SS.E=sum((Percent-c(rep(Xb.i.j[1:a,3],n),
+   rep(Xb.i.j[(a+1):(2*a),3],n)))^2)
+> SS.E
+[1] 1489
+\end{lstlisting}
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+
+\begin{center}
+\begin{tabular}{cccccc}
+$SS_{Total}$ & $SS_A$ & $SS_B$ &   $SS_{AB}$ &$SS_{Tr}$ &  $SS_E$\\ \hline
+4636 & 2500  & 416.67  &   230.33  & 3147  &  1489
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+> SS.A+SS.B+SS.AB
+[1] 3147
+> SS.Tr+SS.E
+[1] 4636
+\end{lstlisting}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Quadrats mitjans}
+
+\begin{itemize}
+\item  \red{Quadrat mitjà del factor A}: 
+$\red{MS_A} =\dfrac{SS_A}{a-1}$\bigskip
+
+\item  \red{Quadrat mitjà del factor B}: 
+$\red{MS_B} =\dfrac{SS_B}{b-1}$\bigskip
+
+
+\item  \red{Quadrat mitjà dels tractaments}: 
+$\red{MS_{Tr}}=\dfrac{SS_{Tr}}{ab-1}$\bigskip
+
+
+\item  \red{Quadrat mitjà de la interacció}: 
+$\red{MS_{AB}}=\dfrac{SS_{AB}}{(a-1)(b-1)}$\bigskip
+
+
+\item  \red{Quadrat mitjà dels errors}: 
+$\red{MS_E}=\dfrac{SS_E}{ab (n-1)}$
+
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+
+$n=4$, $a=3$, $b=2$
+\medskip
+
+\begin{center}
+\begin{tabular}{cccccc}
+$SS_{Total}$ & $SS_A$ & $SS_B$ &   $SS_{AB}$ &$SS_{Tr}$ &  $SS_E$\\ \hline
+4636 & 2500  & 416.67  &   230.33  & 3147  &  1489
+\end{tabular}
+\bigskip
+
+\begin{tabular}{ccccc}
+$MS_A$ & $MS_B$ & $MS_{AB}$ & $MS_{Tr}$ & $MS_E$\\ \hline
+1250 &  416.67 &  115.17 & 629.4 &   82.72
+\end{tabular}
+\end{center}
+\begin{lstlisting}
+> MS.B=SS.B/(b-1)
+> MS.AB=SS.AB/((a-1)*(b-1))
+> MS.Tr=SS.Tr/(a*b-1)
+> MS.E=SS.E/(a*b*(n-1))
+> round(c(MS.A,MS.B,MS.AB,MS.Tr,MS.E),2)
+[1] 1250.00  416.67  115.17  629.40  82.72
+\end{lstlisting}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Contrast de mitjanes del factor A}
+
+ Contrastam si  hi ha diferències entre les mitjanes dels nivells del factor A:
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_{1\bullet}=\mu_{2\bullet}=\cdots
+=\mu_{a\bullet} \\
+H_1 :  \mbox{Hi ha } i,i'\mbox{ tals que }  \mu_{i\bullet}
+\not = \mu_{i'\bullet}
+\end{array}
+\right.
+$$
+\medskip
+
+L'estadístic de contrast és
+$$
+\red{F_A=\frac{MS_A}{MS_E}},
+$$
+Si $H_0$ és certa, té
+distribució $F$ de Fisher amb $a-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Contrast de mitjanes del factor B}
+ Contrastam si  hi ha diferències entre les mitjanes dels nivells del factor  B:
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_{\bullet 1}=\mu_{\bullet 2}=\cdots =\mu_{ \bullet
+b} \\
+H_1 :  \mbox{Hi ha } j,j'\mbox{ tals que }  \mu_{\bullet j}
+\not = \mu_{\bullet j'}
+\end{array}
+\right.
+$$
+\medskip
+
+L'estadístic de contrast és
+$$
+\red{F_B=\frac{MS_B}{MS_E}},
+$$
+Si $H_0$ és certa, té
+distribució $F$ de Fisher amb $b-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Contrast dels tractaments}
+
+ Contrastam si  hi ha diferències entre les mitjanes de  les parelles (nivell de  A, nivell de  B):
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mbox{Per a tots }i,j,i',j',\ \mu_{ij}=\mu_{i'j'} \\
+H_1 :  \mbox{Hi ha } i,j,i',j'\mbox{ tals que } \mu_{ij}\neq \mu_{i'j'}
+\end{array}
+\right.
+$$
+\medskip
+
+L'estadístic de contrast és
+$$
+\red{F_{Tr}=\frac{MS_{Tr}}{MS_E}},
+$$
+Si $H_0$ és certa, té
+distribució $F$ de Fisher amb $ab-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Contrast de no interacció}
+
+ Contrastam si  hi ha interacció entre
+els factors A i B:
+$$
+\left\{
+\begin{array}{l}
+H_0 :  \mbox{Per a tots } i,j, (\alpha\beta)_{ij} =0 \\
+H_1 :  \mbox{Hi ha } i,j\mbox{ tals que } (\alpha\beta)_{ij}
+\not = 0
+\end{array}
+\right.
+$$
+\medskip
+
+L'estadístic de contrast és
+$$
+\red{F_{AB} = \frac{MS_{AB}}{MS_E}},
+$$
+Si $H_0$ és certa, té
+distribució $F$ de Fisher amb $(a-1)(b-1)$ i $ab(n-1)$ graus de
+llibertat  i valor proper a 1
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Contrastos}
+
+En els quatre casos, el p-valor és
+$$
+P(F_{x,y}\geq \mbox{valor de l'estadístic})
+$$
+on $F_{x,y}$ representa la distribució $F$ de Fisher amb els graus de llibertat que pertoquin.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Taula  ANOVA}
+
+Els contrastos anteriors es resumeixen en la taula  ANOVA:
+
+{\small \begin{center}
+\begin{tabular}{cccccc}
+\hline
+ Font de& Graus de& Suma de& Quadrats& $F$ & p- \\
+variació&llibertat&quadrats&mitjans& &\\\hline
+Tract.&$ab-1$&$SS_{Tr}$&$MS_{Tr}$& $F_{Tr}$ & p-valor \\[1ex]
+A&$a-1$&$SS_A$&$MS_{A}$& $F_{A}$&  p-valor\\[1ex]
+B&$b-1$&$SS_B$&$MS_{B}$& $F_{B}$&  p-valor\\[1ex]
+$AB$& {$(a-1)(b-1)$} &$SS_{AB}$&$MS_{AB}$& $F_{AB}$&  p-valor\\[1ex]
+Error&$ab(n-1)$&$SS_E$&$MS_{E}$&& \\\hline
+\end{tabular}
+\end{center}
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+$n=4$, $a=3$, $b=2$
+\medskip
+
+\begin{center}
+\begin{tabular}{ccccc}
+$MS_A$ & $MS_B$ & $MS_{AB}$ & $MS_{Tr}$ & $MS_E$\\ \hline
+1250 &  416.67 &  115.17 & 629.4 &   82.72
+\end{tabular}
+\end{center}
+
+$\dfrac{MS_{A}}{MS_E}=\dfrac{1250}{82.72}=15.11$\medskip 
+
+p-valor$=P(F_{2,18}\geq 15.11)=\texttt{1-pf(15.11,2,18)}=10^{-4}$
+\bigskip
+
+Hem trobat evidència estadística que els percentatges mitjans d'esbarts moscards que són atrets pels diferents tipus d'esquer no són tots iguals (ANOVA de 2 vies, p-valor $10^{-4}$)
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+$n=4$, $a=3$, $b=2$
+\medskip
+
+\begin{center}
+\begin{tabular}{ccccc}
+$MS_A$ & $MS_B$ & $MS_{AB}$ & $MS_{Tr}$ & $MS_E$\\ \hline
+1250 &  416.67 &  115.17 & 629.4 &   82.72
+\end{tabular}
+\end{center}
+
+$\dfrac{MS_{B}}{MS_E}=\dfrac{416.67}{82.72}=5.04$\medskip 
+
+p-valor$=P(F_{1,18}\geq 5.04)=\texttt{1-pf(5.04,1,18)}=0.038$
+\bigskip
+
+Hem trobat evidència estadística que els percentatges mitjans d'esbarts moscards que són atrets pels  colors verd i vemell són diferents (ANOVA de 2 vies, p-valor 0.038)
+
+\end{frame}
+
+\begin{frame}\frametitle{Exemple}
+
+$n=4$, $a=3$, $b=2$
+\medskip
+
+\begin{center}
+\begin{tabular}{ccccc}
+$MS_A$ & $MS_B$ & $MS_{AB}$ & $MS_{Tr}$ & $MS_E$\\ \hline
+1250 &  416.67 &  115.17 & 629.4 &   82.72
+\end{tabular}
+\end{center}
+
+$\dfrac{MS_{Tr}}{MS_E}=\dfrac{629.4}{82.72}=7.61$\medskip 
+
+p-valor$=P(F_{5,18}\geq 7.61)=\texttt{1-pf(7.61,5,18)}=5\cdot 10^{-4}$
+\bigskip
+
+Hem trobat evidència estadística que els percentatges mitjans d'esbarts moscards que són atrets per les diferents combinacions d'esquer i color no són tots iguals (ANOVA de 2 vies, p-valor $5\cdot 10^{-4}$)
+
+\end{frame}
+
+\begin{frame}\frametitle{Exemple}
+
+$n=4$, $a=3$, $b=2$
+\medskip
+
+\begin{center}
+\begin{tabular}{ccccc}
+$MS_A$ & $MS_B$ & $MS_{AB}$ & $MS_{Tr}$ & $MS_E$\\ \hline
+1250 &  416.67 &  115.17 & 629.4 &   82.72
+\end{tabular}
+\end{center}
+
+$\dfrac{MS_{AB}}{MS_E}=\dfrac{115.17}{82.72}=1.39$\medskip 
+
+p-valor$=P(F_{2,18}\geq 1.39)=\texttt{1-pf(1.39,2,18)}=0.274$
+\bigskip
+
+No hem trobat evidència estadística d'interacció entre els tipus d'esquer i els colors (ANOVA de 2 vies, p-valor 0.274)
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\begin{center}\small
+\begin{tabular}{cccccc}
+\hline
+ Font de& Graus de& Suma de& Quadrats& $F$ & p- \\
+variació&llibertat&quadrats&mitjans& &\\\hline
+Combs.&$5$& 3147&629.4& 7.61 & $5\cdot 10^{-4}$ \\[1ex]
+Esquer &2& 2500 &1250& 15.11&  $10^{-4}$ \\[1ex]
+Color &1&416.67&416.67& 5.04&  0.038\\[1ex]
+Interacció & 2 &230.33&115.17& 1.39 &  0.274\\[1ex]
+Error&30&1489&82.72 && \\\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Amb R}
+
+ \begin{lstlisting}
+> summary(aov(Percent~Esquer*Color, 
+  data=Moscards))
+             Df Sum Sq Mean Sq F value   Pr(>F)    
+Esquer        2 2500.0  1250.0  15.111 0.000141 ***
+Color         1  416.7   416.7   5.037 0.037622 *  
+Esquer:Color  2  230.3   115.2   1.392 0.274038    
+Residuals    18 1489.0    82.7                     
+\end{lstlisting}\pause
+
+\begin{lstlisting}
+> summary(aov(Percent~Esquer:Color, 
+  data=Moscards))
+             Df Sum Sq Mean Sq F value   Pr(>F)    
+Esquer:Color  5   3147   629.4   7.609 0.000538 ***
+Residuals    18   1489    82.7   
+\end{lstlisting}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Podíem emprar una ANOVA?}\vspace*{-2ex}
+
+\begin{enumerate}
+\item La variable d'interès sobre cada combinació de nivells és normal?
+\end{enumerate}
+
+\begin{lstlisting}
+> es.normal=function(x){shapiro.test(x)$p.value}
+> aggregate(Percent~Esquer+Color, data=Moscards, es.normal)
+  Esquer Color   Percent
+1     MT     G 0.7506899
+2     MR     G 0.2724532
+3      A     G 0.1612393
+4     MT     R 0.9772990
+5     MR     R 0.2674892
+6      A     R 0.6499652
+\end{lstlisting}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Podíem emprar una ANOVA?}\vspace*{-2ex}
+
+\begin{enumerate}\setcounter{enumi}{1}
+\item I totes amb la mateixa variància?
+\end{enumerate}
+
+\begin{lstlisting}
+> bartlett.test(Percent~interaction(Esquer,Color),data=Moscards)
+
+	Bartlett test of homogeneity of variances
+
+data:  Percent by interaction(Esquer, Color)
+Bartlett's K-squared = 7.6201, df = 5, 
+p-value = 0.1785
+\end{lstlisting}
+
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Alerta} 
+
+Les condicions sobre les combinacions de nivells no impliquen les condicions sobre cada nivell per separat\medskip
+
+
+\begin{lstlisting}
+> set.seed(100)
+> mostra.X.1=rnorm(10,0,1)
+> mostra.X.2=rnorm(10,5,1)
+> mostra.Y.1=rnorm(10,0,1)
+> mostra.Y.2=rnorm(10,10,1)
+> x=c(mostra.X.1,mostra.X.2)
+> y=c(mostra.Y.1,mostra.Y.2)
+> shapiro.test(x)$p.value
+[1] 0.003534705
+> shapiro.test(y)$p.value
+[1] 0.0001874323
+> fligner.test(list(x,y))$p.value
+[1] 1.245335e-06
+\end{lstlisting}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{Comparacions posteriors per parelles} 
+
+Les comparacions posteriors per parelles de les mitjanes de les combinacions de nivells les podeu fer amb \texttt{pairwise.t.test}
+
+\begin{lstlisting}
+> pairwise.t.test(Moscards$Percent,   
+  Moscards$Esquer:Moscards$Color, paired=FALSE)
+
+...
+     MT:G    MT:R    MR:G    MR:R    A:G    
+MT:R 1.00000 -       -       -       -      
+MR:G 0.06665 0.04706 -       -       -      
+MR:R 1.00000 1.00000 0.17930 -       -      
+A:G  0.88126 1.00000 0.00294 0.37892 -      
+A:R  0.17930 0.23273 0.00031 0.06665 1.00000
+
+P value adjustment method: holm 
+\end{lstlisting}
+\pause
+ 
+ \blue{La resta, ho deixarem córrer}
+
+\end{frame}
+
+
+\end{document}
+
+
+
+\begin{frame}[fragile]
+\red{Si no hi ha interacció}, també podeu fer les comparacions posteriors per parelles de les mitjanes dels tractaments de cada factor amb \texttt{pairwise.t.test}
+\begin{lstlisting}
+> pairwise.t.test(Moscards$Percent, Moscards$Esquer,
+  paired=FALSE, p.adjust.method="none")
+
+	Pairwise comparisons using t tests with pooled SD 
+
+data:  Moscards$Percent and Moscards$Esquer 
+
+   MT    MR     
+MR 0.022 -      
+A  0.022 6.6e-05
+
+P value adjustment method: none 
+> t.test(Percent~Color, data=Moscards,
+  paired=FALSE, var.equal=TRUE)$p.value
+[1] 0.1546603
+\end{lstlisting}
+\end{frame}
+
+
+
+
+\end{document}
+
+\subsection{No paramètric}
+
+\begin{frame} 
+\frametitle{Contrast no paramètric}\vspace*{-2ex}
+
+Si en un experiment  de 2 vies no podem realitzar una ANOVA perquè no se satisfan les condicions necessàries, \red{cal emprar  un test no paramètric}\medskip
+
+No hi ha cap opció  senzilla si hi ha interacció \medskip
+
+Si sospitau que no hi ha interacció, us recomanam:\smallskip
+\begin{itemize}
+\item Per  al contrast de Tractaments, emprar el test de Kruskal-Wallis per a la combinació de factors (definida a la fórmula que hi entrau amb \texttt{interaction})\medskip
+
+\item Per al  contrast de mitjanes de cada factor,  calcular les mitjanes mostrals per combinacions de nivells i llavors emprar el test de Friedman com si aquestes mitjanes provinguessin de blocs (però tendrà poca potència)
+\end{itemize}
+
+
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple 4}
+
+Contrast de tractaments:\medskip
+
+\begin{lstlisting}
+> kruskal.test(GSI~interaction(llum,temp),data=peixos)
+
+	Kruskal-Wallis rank sum test
+
+data:  GSI by interaction(llum, temp)
+Kruskal-Wallis chi-squared = 15.594, df = 3, p-value = 0.001373
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple 4}
+
+Ja havíem calculat les mitjanes mostrals per combinacions de nivells\medskip
+
+\begin{lstlisting}
+> Xb.i.j.bullet=aggregate(GSI~llum+temp,
+   data=peixos, FUN=mean)
+\end{lstlisting}
+   
+Contrast de les mitjanes del factor \texttt{llum}:\medskip
+
+\begin{lstlisting}
+> friedman.test(GSI~llum|temp, data=Xb.i.j.bullet)
+
+	Friedman rank sum test
+
+data:  GSI and llum and temp
+Friedman chi-squared = 2, df = 1, p-value = 0.1573
+\end{lstlisting}\medskip
+
+
+\end{frame}
+
+
+
+\end{document}
