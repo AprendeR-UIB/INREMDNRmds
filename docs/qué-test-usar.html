@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2023-09-25" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -428,11 +428,11 @@ para varios valores de <span class="math inline">\(q\)</span>. Si la muestra pro
 <p>JAMOVI dibuja un q-q-plot marcando la casilla <em>Gráfica Q-Q</em> en cualquier prueba t o en <strong>Exploración/Descriptivas</strong>.</p>
 <p><img src="INREMDN_files/figure-html/JAMOVI.N.2.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>La función <code>qqPlot</code> del paquete <strong>car</strong> de <code>R</code>produce unos q-q-plots más adecuados, que además muestran una “región de confianza del 95%”, con el significado usual de nivel de confianza (para el 95% de las muestras de la distribución, los q-q-plot caen dentro de esta región; por lo tanto, si nuestro q-q-plot sale fuera de esta región, tenemos evidencia de que la muestra no proviene de la distribución teórica). La sintaxis para usarla es la que sigue (cambiad <code>Temps</code> por la muestra de la que queráis dibujar el q-q-plot)</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="qué-test-usar.html#cb80-1" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb80-2"><a href="qué-test-usar.html#cb80-2" tabindex="-1"></a><span class="fu">qqPlot</span>(Temps, <span class="at">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="at">mean=</span><span class="fu">mean</span>(Temps), <span class="at">sd=</span><span class="fu">sd</span>(Temps),</span>
-<span id="cb80-3"><a href="qué-test-usar.html#cb80-3" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&quot;Cuantiles de la muestra&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Cuantiles de normal&quot;</span>, </span>
-<span id="cb80-4"><a href="qué-test-usar.html#cb80-4" tabindex="-1"></a>       <span class="at">pch=</span><span class="dv">20</span>, <span class="at">id=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-586-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="qué-test-usar.html#cb78-1" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb78-2"><a href="qué-test-usar.html#cb78-2" tabindex="-1"></a><span class="fu">qqPlot</span>(Temps, <span class="at">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="at">mean=</span><span class="fu">mean</span>(Temps), <span class="at">sd=</span><span class="fu">sd</span>(Temps),</span>
+<span id="cb78-3"><a href="qué-test-usar.html#cb78-3" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&quot;Cuantiles de la muestra&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Cuantiles de normal&quot;</span>, </span>
+<span id="cb78-4"><a href="qué-test-usar.html#cb78-4" tabindex="-1"></a>       <span class="at">pch=</span><span class="dv">20</span>, <span class="at">id=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-585-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>La existencia de muchos q-q-puntos fuera de la franja de confianza nos vuelve a aportar evidencia de que la muestra de temperaturas no se ajusta a una distribución normal.</p>
 </div>
 <div id="contrastes-para-dos-medias" class="section level3 hasAnchor" number="15.1.3">
@@ -647,7 +647,7 @@ H_1 : \mbox{Hay algún par de sonrisas }i,j\mbox{ tales que }  \mu_i \neq \mu_j
 </ul>
 <p>Entonces podemos usar un test ANOVA. JAMOVI ofrece el ANOVA de 1 vía en <strong>ANOVA/ANOVA de Un Factor</strong>.</p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-592" class="example"><strong>Ejemplo 15.5  </strong></span>Sigamos con el Ejemplo <a href="qué-test-usar.html#exm:somriures">15.4</a>. Ya hemos cargado la tabla. Efectuamos los tests de Shapiro-Wilks (separando la variable <code>benevolencia</code> según el factor <code>sonrisa</code>) y obtenemos los 4 p-valores por encima de 0.05, así que vamos a aceptar que para los cuatro tipos de sonrisas los índices de benevolencia se ajustan a distribuciones normales.</p>
+<p><span id="exm:unnamed-chunk-591" class="example"><strong>Ejemplo 15.5  </strong></span>Sigamos con el Ejemplo <a href="qué-test-usar.html#exm:somriures">15.4</a>. Ya hemos cargado la tabla. Efectuamos los tests de Shapiro-Wilks (separando la variable <code>benevolencia</code> según el factor <code>sonrisa</code>) y obtenemos los 4 p-valores por encima de 0.05, así que vamos a aceptar que para los cuatro tipos de sonrisas los índices de benevolencia se ajustan a distribuciones normales.</p>
 </div>
 <p><img src="INREMDN_files/figure-html/somriuresJ2.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Abriendo entonces <strong>ANOVA/ANOVA de Un Factor</strong>, separamos de nuevo la variable dependiente <code>benevolencia</code> según el factor <code>sonrisa</code>, marcamos la <em>Prueba de homogeneidad</em> para saber si podemos aceptar o no que las varianzas poblacionales son todas iguales, y como el p-valor de ambos tests es grande, marcamos la casilla <em>Asumir iguales (Fisher)</em>, que efectua el test ANOVA.</p>
@@ -680,7 +680,7 @@ H_1 &amp;: \mu_i \neq \mu_j
 usando un test t adecuado (si las muestras se ajustan a normalidad o son lo bastante grandes) o un test de Mann-Whitney (si no se puede usar un test t para todos los pares de medias). En caso de homogeneidad de varianzas, el test t no es exactamene el que hemos explicado para pares de medias y varianzas iguales porque usa todas las muestras, y no solo las dos involucradas, para estimar el error típico.</p>
 <p>Pero hay que ir con cuidado con el nivel de significación global. Como vimos en el tema anterior, si efectuamos muchos contrastes de pares de medias, la probabilidad de cometer un error de tipo I <em>en alguno</em> aumenta, por lo que hay que reducir el nivel de significación con el que los efectuamos o, equivalentemente, ajustar los p-valores. En <strong>ANOVA/ANOVA de Un Factor</strong> JAMOVI efectua un ajuste por defecto que es más que suficiente para nuestros propósitos. Si queréis usar otros ajustes, por ejemplo el de Bonferroni que mencionábamos en el tema anterior (multiplicar los p-valores por el número de tests), los encontraréis en <strong>ANOVA/ANOVA/Pruebas Post Hoc</strong>. Normalmente no habrá grandes diferencias en las conclusiones de los tests según el método de ajuste usado.</p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-594" class="example"><strong>Ejemplo 15.6  </strong></span>Seguimos con nuestro ejemplo sobre la benevolencia que suscitan los diferentes tipos de sonrisa. Con un ANOVA de 1 factor hemos obtenido evidencia seignificativa de que hay al menos un par de sonrisas con índices de benevolencia medios diferentes. Vamos a investigar cuáles.</p>
+<p><span id="exm:unnamed-chunk-593" class="example"><strong>Ejemplo 15.6  </strong></span>Seguimos con nuestro ejemplo sobre la benevolencia que suscitan los diferentes tipos de sonrisa. Con un ANOVA de 1 factor hemos obtenido evidencia seignificativa de que hay al menos un par de sonrisas con índices de benevolencia medios diferentes. Vamos a investigar cuáles.</p>
 </div>
 <p>Antes de nada, un gráfico: en <strong>ANOVA/ANOVA de Un Factor</strong> pedimos que añada “Gráficas Descriptivas”:</p>
 <p><img src="INREMDN_files/figure-html/somriuresJ6.png" width="100%" style="display: block; margin: auto;" /></p>

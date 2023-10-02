@@ -844,11 +844,11 @@ Una posibilidad es usar una aplicación de móvil o tablet. Nuestra favorita es 
 include_graphics("INREMDN_files/figure-html/appprobdistr.png")
 ```
 
-Otra posibilidad es usar R. Para las necesidades de este curso, lo más adecuado es usar algún interfaz gráfico como JAMOVI. Tras instalarlo, el módulo distrACTION  permite calcular probabilidades y cuantiles de todas las distribuciones que usaremos en este curso salvo una, la hipergeométrica. Ya hablaremos de ella en la próxima sección.
+Otra posibilidad es usar JAMOVI. El módulo **distrACTION**  permite calcular probabilidades y cuantiles de todas las distribuciones que usaremos en este curso salvo una, la hipergeométrica. Ya hablaremos de ella en la próxima sección.
 
 
 
-```{r jamovibinom0,echo=FALSE,out.width="100%", fig.cap="Distribuciones que permite usar distrACTION" }
+```{r jamovibinom0,echo=FALSE,out.width="100%", fig.cap="Distribuciones que permite usar **distrACTION**" }
 knitr::include_graphics("INREMDN_files/figure-html/jamovibinom0.png")
 ```
     
@@ -1001,9 +1001,9 @@ par(mfrow=c(1,1))
 
 Podréis observar que, como en el caso binomial, si $p=N/(N+M)<0.5$, la distribución $H(N,M,p)$ presenta una cola a la derecha, y si $p>0.5$, la cola es a la izquierda. Si $p=0.5$, es simétrica.
 
-Hemos comentado en la sección anterior que el módulo distrACTION de JAMOVI no conoce la distribución hipergeométrica. Pero R sí, y podéis usar R en la ventana del editor de R de JAMOVI. 
+Hemos comentado en la sección anterior que el módulo **distrACTION** de JAMOVI no conoce la distribución hipergeométrica. Pero `R` sí, y podéis usarlo en la ventana del editor de `R`. 
 
-Para R la distribución hipergeométrica es `hyper` (la binomial es `binom`). Entonces, para cada distribución implementada en R:
+Para `R` la distribución hipergeométrica es `hyper` (la binomial es `binom`). Para cada distribución implementada en `R`:
 
 * Añadiendo al nombre de la distribución  el prefijo `d`, tenemos su **función de densidad**: de la binomial será `dbinom`, de la hipergeomètrica `dhyper`... 
 

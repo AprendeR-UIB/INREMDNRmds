@@ -402,9 +402,19 @@ Para R, la normal es `norm`. Así, por ejemplo, si $X$ es $N(1,2)$
 pnorm(1.5,1,2)
 ```
 
+
+```{r jamovinorm1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.norm.1.png")
+```
+
 * El 0.4-cuantil de $X$, es decir, el valor $q$ tal que $P(X\leqslant q)=0.4$ es
 ```{r}
 qnorm(0.4,1,2)
+```
+
+
+```{r jamovinorm2,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.norm.2.png")
 ```
 
 * $P(X=1.5)$ es 
@@ -415,12 +425,6 @@ dnorm(1.5,1,2)
 
 ```{block2,type="rmderror"}
 ¡No! Como $X$ es continua, $P(X=1.5)=0$. Lo que os da `dnorm(1.5,1,2)` es el valor de la función de densidad de $X$ en 1.5.
-```
-
-Si la normal es estándar, no hace falta entrar la $\mu=0$ y la $\sigma=1$. Así, si
-$Z$ es $N(0,1)$, su 0.95-cuantil es
-```{r}
-qnorm(0.95)
 ```
 
 

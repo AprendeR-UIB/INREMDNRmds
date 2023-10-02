@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2023-09-25" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -983,11 +983,11 @@ Recordad que, cuando discutíamos sobre muestras aleatorias, decíamos que si to
 Figura 10.4: La app <em>Probability Distributions</em>.
 </p>
 </div>
-<p>Otra posibilidad es usar R. Para las necesidades de este curso, lo más adecuado es usar algún interfaz gráfico como JAMOVI. Tras instalarlo, el módulo distrACTION permite calcular probabilidades y cuantiles de todas las distribuciones que usaremos en este curso salvo una, la hipergeométrica. Ya hablaremos de ella en la próxima sección.</p>
+<p>Otra posibilidad es usar JAMOVI. El módulo <strong>distrACTION</strong> permite calcular probabilidades y cuantiles de todas las distribuciones que usaremos en este curso salvo una, la hipergeométrica. Ya hablaremos de ella en la próxima sección.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:jamovibinom0"></span>
-<img src="INREMDN_files/figure-html/jamovibinom0.png" alt="Distribuciones que permite usar distrACTION" width="100%" />
+<img src="INREMDN_files/figure-html/jamovibinom0.png" alt="Distribuciones que permite usar **distrACTION**" width="100%" />
 <p class="caption">
-Figura 10.5: Distribuciones que permite usar distrACTION
+Figura 10.5: Distribuciones que permite usar <strong>distrACTION</strong>
 </p>
 </div>
 <p>Por ejemplo:</p>
@@ -1098,8 +1098,8 @@ No es correcto aproximarla por una binomial <span class="math inline">\(B(10,0.1
 <p>Veamos algunos gráficos de la función densidad de variables aleatorias hipergeométricas. Fijemos el tamaño de la población en <span class="math inline">\(N+M=100\)</span>, y tomaremos <span class="math inline">\(n=10\)</span> y diferentes valores de <span class="math inline">\(N\)</span>.</p>
 <p><img src="INREMDN_files/figure-html/unnamed-chunk-370-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Podréis observar que, como en el caso binomial, si <span class="math inline">\(p=N/(N+M)&lt;0.5\)</span>, la distribución <span class="math inline">\(H(N,M,p)\)</span> presenta una cola a la derecha, y si <span class="math inline">\(p&gt;0.5\)</span>, la cola es a la izquierda. Si <span class="math inline">\(p=0.5\)</span>, es simétrica.</p>
-<p>Hemos comentado en la sección anterior que el módulo distrACTION de JAMOVI no conoce la distribución hipergeométrica. Pero R sí, y podéis usar R en la ventana del editor de R de JAMOVI.</p>
-<p>Para R la distribución hipergeométrica es <code>hyper</code> (la binomial es <code>binom</code>). Entonces, para cada distribución implementada en R:</p>
+<p>Hemos comentado en la sección anterior que el módulo <strong>distrACTION</strong> de JAMOVI no conoce la distribución hipergeométrica. Pero <code>R</code> sí, y podéis usarlo en la ventana del editor de <code>R</code>.</p>
+<p>Para <code>R</code> la distribución hipergeométrica es <code>hyper</code> (la binomial es <code>binom</code>). Para cada distribución implementada en <code>R</code>:</p>
 <ul>
 <li><p>Añadiendo al nombre de la distribución el prefijo <code>d</code>, tenemos su <strong>función de densidad</strong>: de la binomial será <code>dbinom</code>, de la hipergeomètrica <code>dhyper</code>…</p></li>
 <li><p>Añadiendo al nombre de la distribución el prefijo <code>p</code>, tenemos su <strong>función de distribución</strong>: de la binomial será <code>pbinom</code>, de la hipergeomètrica <code>phyper</code>…</p></li>

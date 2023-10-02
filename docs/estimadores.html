@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2023-09-25" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -412,22 +412,22 @@ porque, de nuevo, como <span class="math inline">\(X_1,\ldots,X_n\)</span> son c
 <div class="example">
 <p><span id="exm:simulacion1" class="example"><strong>Ejemplo 12.1  </strong></span>Vamos a realizar un experimento. Vamos a tomar una población de 10<sup>6</sup> sujetos y una variable aleatoria <span class="math inline">\(X\)</span> que sobre cada sujeto toma un valor real entre 0 y 1, todos estos valores con la misma probabilidad. Llamaremos <code>X</code> al vector con los 10<sup>6</sup> valores de esta variable aleatoria, y dibujaremos un histograma de este vector de números para que veáis que los valores salen muy dispersos. Mostramos el código de R para que podáis repetir el experimento por vuestra cuenta; como es una simulación, cada vez que lo ejecutéis dará resultados diferentes, pero el mismo efecto global.</p>
 </div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="estimadores.html#cb43-1" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">runif</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span>
-<span id="cb43-2"><a href="estimadores.html#cb43-2" tabindex="-1"></a><span class="fu">hist</span>(X,<span class="at">freq=</span><span class="cn">FALSE</span>,<span class="at">main=</span><span class="st">&quot;Histograma de X&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Densidad&quot;</span>,<span class="at">col=</span><span class="st">&quot;light blue&quot;</span>)</span></code></pre></div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-440-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="estimadores.html#cb41-1" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">runif</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span>
+<span id="cb41-2"><a href="estimadores.html#cb41-2" tabindex="-1"></a><span class="fu">hist</span>(X,<span class="at">freq=</span><span class="cn">FALSE</span>,<span class="at">main=</span><span class="st">&quot;Histograma de X&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Densidad&quot;</span>,<span class="at">col=</span><span class="st">&quot;light blue&quot;</span>)</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-439-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>La desviación típica <span class="math inline">\(\sigma_X\)</span> de la variable <span class="math inline">\(X\)</span> sobre nuestra población es</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estimadores.html#cb44-1" tabindex="-1"></a><span class="fu">sd</span>(X)<span class="sc">*</span><span class="fu">sqrt</span>((<span class="dv">10</span><span class="sc">^</span><span class="dv">6-1</span>)<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="estimadores.html#cb42-1" tabindex="-1"></a><span class="fu">sd</span>(X)<span class="sc">*</span><span class="fu">sqrt</span>((<span class="dv">10</span><span class="sc">^</span><span class="dv">6-1</span>)<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2884943</code></pre>
 
 <div class="rmdnote">
 La función <code>sd</code> (de <em>standard deviation</em>) calcula la desviación típica <strong>muestral</strong>, con denominador <span class="math inline">\(\sqrt{n-1}\)</span>. Para calcular la desviación típica de verdad, con denominador <span class="math inline">\(\sqrt{n}\)</span> hay que multiplicarla por <span class="math inline">\(\sqrt{n-1}\)</span> y dividirla por <span class="math inline">\(\sqrt{n}\)</span>.
 </div>
 <p>Ahora vamos a tomar 1000 medias muestrales de tamaño 100 de esta población, las organizaremos en un vector que llamaremos <code>Medias</code> y dibujaremos un histograma de este vector de medias.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="estimadores.html#cb46-1" tabindex="-1"></a>Medias<span class="ot">=</span><span class="fu">replicate</span>(<span class="dv">1000</span>,<span class="fu">mean</span>(<span class="fu">sample</span>(X,<span class="dv">100</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)))</span>
-<span id="cb46-2"><a href="estimadores.html#cb46-2" tabindex="-1"></a><span class="fu">hist</span>(Medias, <span class="at">breaks=</span><span class="dv">15</span>,<span class="at">freq=</span><span class="cn">FALSE</span>,<span class="at">main=</span><span class="st">&quot;Histograma de las medias muestrales&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Densidad&quot;</span>,<span class="at">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">0.4</span>,<span class="fl">0.6</span>))</span></code></pre></div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-443-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estimadores.html#cb44-1" tabindex="-1"></a>Medias<span class="ot">=</span><span class="fu">replicate</span>(<span class="dv">1000</span>,<span class="fu">mean</span>(<span class="fu">sample</span>(X,<span class="dv">100</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)))</span>
+<span id="cb44-2"><a href="estimadores.html#cb44-2" tabindex="-1"></a><span class="fu">hist</span>(Medias, <span class="at">breaks=</span><span class="dv">15</span>,<span class="at">freq=</span><span class="cn">FALSE</span>,<span class="at">main=</span><span class="st">&quot;Histograma de las medias muestrales&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Densidad&quot;</span>,<span class="at">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">0.4</span>,<span class="fl">0.6</span>))</span></code></pre></div>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-442-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Podéis observar cómo los valores de estas medias se concentran alrededor de 0.5. Veamos su desviación típica:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="estimadores.html#cb47-1" tabindex="-1"></a><span class="fu">sd</span>(Medias)<span class="sc">*</span><span class="fu">sqrt</span>((<span class="dv">1000-1</span>)<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="estimadores.html#cb45-1" tabindex="-1"></a><span class="fu">sd</span>(Medias)<span class="sc">*</span><span class="fu">sqrt</span>((<span class="dv">1000-1</span>)<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## [1] 0.02921408</code></pre>
 <p>Fijaos cómo se acerca mucho al valor <span class="math inline">\(\sigma_X/\sqrt{100}=0.0288494\)</span> predicho por el teorema anterior. No coinciden exactamente, porque <span class="math inline">\(\sigma_X/\sqrt{100}\)</span> es el valor de la desviación típica <strong>poblacional</strong> de <span class="math inline">\(\overline{X}\)</span>, es decir, para toda la “población” de medias muestrales de muestras aleatorias simples de tamaño 100 de nuestra población de partida, y nosotros hemos tomado una muestra de “solo” 1000 medias de estas.</p>
 <p>La media muestral <span class="math inline">\(\overline{X}\)</span> de tamaño <span class="math inline">\(n\)</span> de una variable aleatoria <span class="math inline">\(X\)</span> se interpreta formalmente como la variable aleatoria obtenida tomando <span class="math inline">\(n\)</span> copias independientes <span class="math inline">\(X_1,\ldots,X_n\)</span> de <span class="math inline">\(X\)</span> y calculando
@@ -437,11 +437,11 @@ La función <code>sd</code> (de <em>standard deviation</em>) calcula la desviaci
 <p>Por lo tanto, es una combinación lineal de <span class="math inline">\(n\)</span> copias independientes de <span class="math inline">\(X\)</span>.
 Recordando que una combinación de variables aleatorias normales independientes es normal, tenemos el resultado siguiente:</p>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-445" class="theorem"><strong>Teorema 12.2  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>, entonces <span class="math inline">\(\overline{X}\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X/\sqrt{n})\)</span>.</p>
+<p><span id="thm:unnamed-chunk-444" class="theorem"><strong>Teorema 12.2  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>, entonces <span class="math inline">\(\overline{X}\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X/\sqrt{n})\)</span>.</p>
 </div>
 <p>Si <span class="math inline">\(X\)</span> no es normal, la tesis del teorema anterior sigue siendo cierta “aproximadamente” siempre y cuando <span class="math inline">\(n\)</span> sea grande. Este resultado, llamado el <strong>Teorema Central del Límite</strong> es, como su nombre indica, uno de los más importantes en estadística y el motivo de la importancia de la distribución normal.</p>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-446" class="theorem"><strong>Teorema 12.3  </strong></span>Sea <span class="math inline">\(X\)</span> una variable aleatoria <strong>cualquiera</strong> de esperanza <span class="math inline">\(\mu_X\)</span> y desviación típica <span class="math inline">\(\sigma_X\)</span>. Si <span class="math inline">\(n\)</span> es <strong>muy grande</strong>,
+<p><span id="thm:unnamed-chunk-445" class="theorem"><strong>Teorema 12.3  </strong></span>Sea <span class="math inline">\(X\)</span> una variable aleatoria <strong>cualquiera</strong> de esperanza <span class="math inline">\(\mu_X\)</span> y desviación típica <span class="math inline">\(\sigma_X\)</span>. Si <span class="math inline">\(n\)</span> es <strong>muy grande</strong>,
 <span class="math inline">\(\overline{X}\)</span> es <strong>aproximadamente</strong> <span class="math inline">\(N(\mu_X, {\sigma_X}/{\sqrt{n}})\)</span>.</p>
 </div>
 <p>Dos observaciones:</p>
@@ -453,7 +453,7 @@ Recordando que una combinación de variables aleatorias normales independientes 
 <div class="rmdnote">
 Si miráis el histograma de las 1000 medias muestrales del Ejemplo <a href="estimadores.html#exm:simulacion1">12.1</a>, veréis que se parece al de una muestra de una variable normal. Es que <span class="math inline">\(\overline{X}\)</span> es aproximadamente normal, por el Teorema Central del Límite, aunque la variable <span class="math inline">\(X\)</span> sea muy diferente de una normal. Para verlo, en la figura que sigue superponemos al histograma de las medias la gráfica de la densidad de una variable normal de media y desviación típica las predichas por el Teorema Central del Límite.
 </div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-448-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-447-1.png" width="50%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdrecordau">
 <p>En resumen:</p>
@@ -473,7 +473,7 @@ Las afirmaciones del bloque anterior son verdaderas para medias muestrales de mu
 <p>Dada una variable aleatoria <span class="math inline">\(X\)</span> de Bernoulli <span class="math inline">\(Be(p_X)\)</span>, la <strong>proporción muestral de</strong> (muestras de) <strong>tamaño <span class="math inline">\(n\)</span></strong>, <span class="math inline">\(\widehat{p}_X\)</span>, es la variable aleatoria consistente en tomar una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calcular la proporción de éxitos en la muestra: es decir, contar el número total de éxitos y dividir el resultado por <span class="math inline">\(n\)</span>.</p>
 <p>Fijaos en que <span class="math inline">\(\widehat{p}_X\)</span> es un caso particular de media muestral <span class="math inline">\(\overline{X}\)</span>: estamos calculando medias muestrales de muestras aleatorias simples de la variable de Bernoulli <span class="math inline">\(X\)</span>. Por lo tanto, todo lo que hemos dicho para medias muestrales vale también para proporciones muestrales:</p>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-451" class="theorem"><strong>Teorema 12.4  </strong></span>Si <span class="math inline">\(X\)</span> es una variable aleatoria de Bernoulli con probabilidad poblacional de éxito <span class="math inline">\(p_X\)</span> y <span class="math inline">\(\widehat{p}_X\)</span> es la proporción muestral de tamaño <span class="math inline">\(n\)</span>:</p>
+<p><span id="thm:unnamed-chunk-450" class="theorem"><strong>Teorema 12.4  </strong></span>Si <span class="math inline">\(X\)</span> es una variable aleatoria de Bernoulli con probabilidad poblacional de éxito <span class="math inline">\(p_X\)</span> y <span class="math inline">\(\widehat{p}_X\)</span> es la proporción muestral de tamaño <span class="math inline">\(n\)</span>:</p>
 <ul>
 <li><p><span class="math inline">\(E(\widehat{p}_X)=p_X\)</span></p></li>
 <li><p><span class="math inline">\(\sigma({\widehat{p}_X})=\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span></p></li>
@@ -496,7 +496,7 @@ Las afirmaciones del bloque anterior son verdaderas para medias muestrales de mu
 </ul>
 <p>Y como la proporción muestral es un caso particular de media muestral, por el Teorema Central del Límite tenemos el resultado siguiente:</p>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-453" class="theorem"><strong>Teorema 12.5  </strong></span>Si <span class="math inline">\(n\)</span> es grande y las muestras aleatorias son simples,
+<p><span id="thm:unnamed-chunk-452" class="theorem"><strong>Teorema 12.5  </strong></span>Si <span class="math inline">\(n\)</span> es grande y las muestras aleatorias son simples,
 <span class="math inline">\(\widehat{p}_X\)</span> es aproximadamente <span class="math inline">\(N\big (p_X,\sqrt{{p_X(1-p_X)}/{n}}\big)\)</span>
 y por lo tanto
 <span class="math display">\[
@@ -537,7 +537,7 @@ Y recordad que si el tamaño de la población <span class="math inline">\(N\)</s
 \]</span></p>
 <p>Tenemos los dos resultados siguientes. El primero nos dice que <span class="math inline">\(\widetilde{S}_{X}^2\)</span> es un estimador insesgado de la varianza poblacional <span class="math inline">\(\sigma_{X}^2\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-456" class="theorem"><strong>Teorema 12.6  </strong></span><span class="math inline">\(E(\widetilde{S}_{X}^2)=\sigma_{X}^2\)</span>.</p>
+<p><span id="thm:unnamed-chunk-455" class="theorem"><strong>Teorema 12.6  </strong></span><span class="math inline">\(E(\widetilde{S}_{X}^2)=\sigma_{X}^2\)</span>.</p>
 </div>
 <p>Por lo tanto, <strong>esperamos</strong> que la varianza muestral de una muestra aleatoria simple de <span class="math inline">\(X\)</span> valga <span class="math inline">\(\sigma_{X}^2\)</span>, en el sentido usual de que si tomamos muestras aleatorias simples de <span class="math inline">\(X\)</span> de tamaño <span class="math inline">\(n\)</span> grande y calculamos sus varianzas muestrales, muy probablemente obtengamos de media un valor muy cercano a <span class="math inline">\(\sigma_{X}^2\)</span>.</p>
 
@@ -556,7 +556,7 @@ tiene una distribución conocida, llamada <strong>ji cuadrado con <span class="m
 <div class="rmdrecordau">
 La letra griega <span class="math inline">\(\chi\)</span> en castellano se lee <strong>ji</strong>; en catalán, <strong>khi</strong>; en inglés, <strong>chi</strong>, pronunciado “xai”.
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-459"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-458"></span>
 <img src="INREMDN_files/figure-html/chihogar.png" alt="Chi es un gatito, la distribución és ji." width="40%" />
 <p class="caption">
 Figura 12.1: Chi es un gatito, la distribución és ji.
@@ -568,9 +568,9 @@ Figura 12.1: Chi es un gatito, la distribución és ji.
 <li><p>Su función de distribución es estrictamente creciente.</p></li>
 <li><p>Su densidad es asimétrica a la derecha, como muestra el gráfico siguiente:</p></li>
 </ul>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-460-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-459-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>A medida que el número de grados de libertad <span class="math inline">\(\nu\)</span> crece, esta asimetría tiende a desaparecer y, por el Teorema Central del Límite, si <span class="math inline">\(\nu\)</span> es lo bastante grande, la distribución <span class="math inline">\(\chi_\nu^2\)</span> se aproxima a la de una variable normal <span class="math inline">\(N(\nu,\sqrt{2\nu})\)</span>.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-461-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-460-1.png" width="50%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdcaution">
 <p>Tened cuidado:</p>
@@ -596,7 +596,7 @@ E(S_X^2)=\frac{n-1}{n}E(\widetilde{S}_{X}^2)=\frac{n-1}{n}\sigma^2_{X}
 \]</span>
 es normal estándar. Esto no nos sirve de mucho para calcular la probabilidad de que <span class="math inline">\(\overline{X}\)</span> se aleje mucho de <span class="math inline">\(\mu_X\)</span>, porque casi nunca sabemos la desviación típica poblacional <span class="math inline">\(\sigma_{X}\)</span>. ¿Qué pasa si la estimamos por medio de <span class="math inline">\(\widetilde{S}_{X}\)</span> con la misma muestra con la que calculamos <span class="math inline">\(\overline{X}\)</span>? Pues que el resultado siguiente nos salva el día, porque la variable que resulta tiene distribución conocida y por lo tanto podemos calcular probabilidades con ella.</p>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-463" class="theorem"><strong>Teorema 12.8  </strong></span>Sea <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>. Si tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, la variable aleatoria
+<p><span id="thm:unnamed-chunk-462" class="theorem"><strong>Teorema 12.8  </strong></span>Sea <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>. Si tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, la variable aleatoria
 <span class="math display">\[
 T=\frac{\overline{X}-\mu_X}{\widetilde{S}_{X}/\sqrt{n}}
 \]</span>
@@ -617,8 +617,8 @@ P(T_\nu\leqslant -x)=P(T_\nu\geqslant x)=1-P(T_\nu\leqslant x)
 \]</span></p></li>
 <li><p>Si <span class="math inline">\(\nu\)</span> es grande (digamos, de nuevo, <span class="math inline">\(\nu\geqslant 40\)</span>), <span class="math inline">\(T_\nu\)</span> es aproximadamente una <span class="math inline">\(N(0,1)\)</span> (pero con un poco más de varianza, porque <span class="math inline">\(\nu/(\nu-2)&gt;1\)</span>, y por consiguiente un poco más achatada).</p></li>
 </ul>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-464-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p><img src="INREMDN_files/figure-html/unnamed-chunk-465-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-466-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Denotaremos por <span class="math inline">\(t_{\nu,q}\)</span> el <span class="math inline">\(q\)</span>-cuantil de una variable aleatoria <span class="math inline">\(T_{\nu}\)</span> con distribución <span class="math inline">\(t_\nu\)</span>. Es decir, <span class="math inline">\(t_{\nu,q}\)</span> es el valor tal que
 <span class="math display">\[
 P(T_{\nu}\leqslant t_{\nu,q})=q

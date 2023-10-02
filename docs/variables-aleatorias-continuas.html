@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2023-09-25" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -593,11 +593,13 @@ En los próximos temas utilizaremos a menudo que una variable <span class="math 
 </ul>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="variables-aleatorias-continuas.html#cb35-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.5987063</code></pre>
+<p><img src="INREMDN_files/figure-html/JAMOVI.norm.1.png" width="100%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>El 0.4-cuantil de <span class="math inline">\(X\)</span>, es decir, el valor <span class="math inline">\(q\)</span> tal que <span class="math inline">\(P(X\leqslant q)=0.4\)</span> es</li>
 </ul>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="variables-aleatorias-continuas.html#cb37-1" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.4</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4933058</code></pre>
+<p><img src="INREMDN_files/figure-html/JAMOVI.norm.2.png" width="100%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><span class="math inline">\(P(X=1.5)\)</span> es</li>
 </ul>
@@ -607,10 +609,6 @@ En los próximos temas utilizaremos a menudo que una variable <span class="math 
 <div class="rmderror">
 ¡No! Como <span class="math inline">\(X\)</span> es continua, <span class="math inline">\(P(X=1.5)=0\)</span>. Lo que os da <code>dnorm(1.5,1,2)</code> es el valor de la función de densidad de <span class="math inline">\(X\)</span> en 1.5.
 </div>
-<p>Si la normal es estándar, no hace falta entrar la <span class="math inline">\(\mu=0\)</span> y la <span class="math inline">\(\sigma=1\)</span>. Así, si
-<span class="math inline">\(Z\)</span> es <span class="math inline">\(N(0,1)\)</span>, su 0.95-cuantil es</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="variables-aleatorias-continuas.html#cb41-1" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code></pre></div>
-<pre><code>## [1] 1.644854</code></pre>
 <div class="example">
 <p><span id="exm:exhiperhipo" class="example"><strong>Ejemplo 11.2  </strong></span>La presión sistólica, medida en mm Hg, es una variable aleatoria aproximadamente normal con valor medio <span class="math inline">\(\mu\)</span> y desviación típica <span class="math inline">\(\sigma\)</span> que dependen del sexo y la edad. Para la franja de edad 16-24 años, estos valores son:</p>
 <ul>
@@ -666,7 +664,7 @@ f_{X}(\mu-x)=f_{X}(\mu+x),
 \]</span>
 y tiene el máximo en <span class="math inline">\(x=\mu\)</span>. Decimos entonces que <span class="math inline">\(\mu\)</span> es la <strong>moda</strong> de <span class="math inline">\(X\)</span>.
 </div>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-411-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-410-1.png" width="80%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdnote">
 Recordad que no tiene sentido definir la moda de una variable continua <span class="math inline">\(X\)</span> como el valor <span class="math inline">\(x_0\)</span> tal que <span class="math inline">\(P(X=x_0)\)</span> sea máximo, porque <span class="math inline">\(P(X=x)=0\)</span> para todo <span class="math inline">\(x\in \mathbb{R}\)</span>. Se define entonces la <strong>moda</strong> de una variable continua <span class="math inline">\(X\)</span> como el valor (o los valores) <span class="math inline">\(x_0\)</span> tal que <span class="math inline">\(f_X(x_0)\)</span> es máximo. Así, como <span class="math inline">\(f_X(x_0)\)</span> mide la probabilidad de que <span class="math inline">\(X\)</span> valga aproximadamente <span class="math inline">\(x_0\)</span>, la moda de <span class="math inline">\(X\)</span> es el valor cerca del cual es más probable que caiga el valor de <span class="math inline">\(X\)</span>.
@@ -677,9 +675,9 @@ Recordad que no tiene sentido definir la moda de una variable continua <span cla
 F_X(x)=P(X\leqslant x)
 \]</span>
 es el área comprendida entre la densidad <span class="math inline">\(y=f_X(x)\)</span> y el eje de abscisas a la izquierda de <span class="math inline">\(x\)</span>.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-413-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-412-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Entonces, la simetría de <span class="math inline">\(f_X\)</span> alrededor de <span class="math inline">\(\mu\)</span> hace que, para todo <span class="math inline">\(x\geqslant 0\)</span>, las áreas a la izquierda de <span class="math inline">\(\mu-x\)</span> y a la derecha de <span class="math inline">\(\mu+x\)</span> sean iguales.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-414-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-413-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Es decir,
 <span class="math display">\[
 P(X\leqslant \mu-x)=P(X\geqslant \mu+x)=1-P(X\leqslant \mu+x)
@@ -698,7 +696,7 @@ Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\
 P(Z\leqslant -z)=P(Z\geqslant z)=1-P(Z\leqslant z)
 \]</span>
 y la mediana de <span class="math inline">\(Z\)</span> es 0.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-416-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-415-1.png" width="80%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdnote">
 <p>Ahora que sabemos más cosas de la normal, en el Ejemplo <a href="variables-aleatorias-continuas.html#exm:exhiperhipo">11.2</a> nos hubiéramos podido ahorrar la mitad del trabajo. Llamemos <span class="math inline">\(X\)</span> a la variable aleatoria que nos da la presión arterial, en mm Hg, de un hombre de entre 16 y 24 años. Nos dicen que <span class="math inline">\(X\)</span> es <span class="math inline">\(N(124,13.7)\)</span>.</p>
@@ -710,18 +708,18 @@ y la mediana de <span class="math inline">\(Z\)</span> es 0.</p>
 <div class="rmdrecordau">
 El argumento que hemos desarrollado en la nota anterior muestra en general que si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span> y su <span class="math inline">\(q\)</span>-cuantil es <span class="math inline">\(\mu-x\)</span>, entonces su <span class="math inline">\((1-q)\)</span>-cuantil es <span class="math inline">\(\mu+x\)</span>.
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-419"></span>
-<img src="INREMDN_files/figure-html/unnamed-chunk-419-1.png" alt="Quantils gratis!" width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-418"></span>
+<img src="INREMDN_files/figure-html/unnamed-chunk-418-1.png" alt="Quantils gratis!" width="80%" />
 <p class="caption">
 Figura 11.3: Quantils gratis!
 </p>
 </div>
 <p>Si <span class="math inline">\(\mu\)</span> crece, desplaza a la derecha el máximo de la densidad, y con él toda la curva.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-420-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-419-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Si <span class="math inline">\(\sigma\)</span> crece, la curva se aplana: al aumentar la desviación típica, los valores se dispersan y se alejan más del valor medio.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-421-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-420-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>El gráfico siguiente muestra el efecto combinado:</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-422-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-421-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Denotaremos por <span class="math inline">\(z_q\)</span> el <strong><span class="math inline">\(q\)</span>-cuantil</strong> de una variable normal estándar <span class="math inline">\(Z\)</span>. Es decir, <span class="math inline">\(z_q\)</span> es el valor tal que <span class="math inline">\(P(Z\leqslant z_q)=q\)</span>.</p>
 <p>Aparte de que <span class="math inline">\(z_{0.5}=0\)</span> (la mediana de <span class="math inline">\(Z\)</span> es 0), hay dos cuantiles más de la normal estándar <span class="math inline">\(Z\)</span> que os conviene recordar:</p>
 <ul>
@@ -739,7 +737,7 @@ P(-1.96\leqslant Z\leqslant 1.96)=0.95.
 Muy a menudo el valor 1.96 de <span class="math inline">\(z_{0.975}\)</span> se aproxima por 2. Tenéis permiso para hacerlo cuando no dispongáis de medios (R, aplis de móvil) para calcular cuantiles o cuando tengáis que hacer algún cálculo “a ojo” que involucre este cuantil.
 </div>
 <div class="example">
-<p><span id="exm:unnamed-chunk-424" class="example"><strong>Ejemplo 11.3  </strong></span>Supongamos que la concentración de un cierto metabolito es una variable aleatoria de distribución normal, pero cuyos parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> dependen de si la medimos en personas sanas o en personas con una cierta enfermedad. Sean:</p>
+<p><span id="exm:unnamed-chunk-423" class="example"><strong>Ejemplo 11.3  </strong></span>Supongamos que la concentración de un cierto metabolito es una variable aleatoria de distribución normal, pero cuyos parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> dependen de si la medimos en personas sanas o en personas con una cierta enfermedad. Sean:</p>
 </div>
 <ul>
 <li><p><span class="math inline">\(X_E\)</span> la variable aleatoria “Tomo una persona enferma y mido su concentración de este metabolito”, y supongamos que es <span class="math inline">\(N(\mu_E, \sigma_E)\)</span>.</p></li>
@@ -768,7 +766,7 @@ P(+|S)=P(X_S\geqslant  x_0)=1-F_{X_S}(x_0)
 </ul>
 <p>Al variar <span class="math inline">\(x_0\)</span>, tenemos valores diferentes de la sensibilidad y la tasa de falsos positivos. Entonces, podemos dibujar su curva ROC y escoger el umbral con algún criterio o valorar su capacidad diagnóstica global con su AUC.</p>
 <p>Por ejemplo, imaginad que la densidad de <span class="math inline">\(X_E\)</span> es la línea discontinua del gráfico de la izquierda de la figura siguiente y la de <span class="math inline">\(X_S\)</span> la línea continua. Ambas son normales y <span class="math inline">\(\mu_E&gt;\mu_S\)</span>, porque el pico de la densidad de <span class="math inline">\(X_E\)</span> está a la derecha del de <span class="math inline">\(X_S\)</span>.</p>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-425-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-424-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Si para cada <span class="math inline">\(x\)</span> dibujamos los puntos <span class="math inline">\((1-F_{X_S}(x),1-F_{X_E}(x))\)</span>, obtenemos la curva ROC de la derecha de dicha figura.</p>
 
 <div class="rmdexercici">
@@ -835,7 +833,7 @@ Un 5% de la población está fuera del intervalo de referencia del 95%, por defi
 </div>
 <p>Cuando <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, estos intervalos de referencia se toman siempre <strong>centrados en la media</strong> <span class="math inline">\(\mu\)</span>, es decir, de la forma <span class="math inline">\([\mu-\text{algo},\mu+\text{algo}]\)</span>. Para calcularlos se usa el resultado siguiente:</p>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-431" class="theorem"><strong>Teorema 11.5  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, un intervalo de referencia del <span class="math inline">\(Q\%\)</span> para <span class="math inline">\(X\)</span> es
+<p><span id="thm:unnamed-chunk-430" class="theorem"><strong>Teorema 11.5  </strong></span>Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu,\sigma)\)</span>, un intervalo de referencia del <span class="math inline">\(Q\%\)</span> para <span class="math inline">\(X\)</span> es
 <span class="math display">\[
 [\mu- z_{(1+q)/2}\cdot \sigma, \mu+ z_{(1+q)/2}\cdot \sigma]
 \]</span>
@@ -877,7 +875,7 @@ Esto dice, básicamente, que</p>
 <p>si una población sigue una distribución normal <span class="math inline">\(N(\mu,\sigma)\)</span>, alrededor del 95% de sus individuos tienen su valor de <span class="math inline">\(X\)</span> a distancia como máximo <span class="math inline">\(2\sigma\)</span> (“a dos sigmas”) de <span class="math inline">\(\mu\)</span>. El 5% restante de distribuye a partes iguales a ambos lados del intervalo: un 2.5% por encima de su extremo superior y un 2.5% por debajo de su extremo inferior.</p>
 </blockquote>
 <div class="example">
-<p><span id="exm:unnamed-chunk-433" class="example"><strong>Ejemplo 11.4  </strong></span>Según la OMS, las alturas (en cm) de las mujeres europeas de 18 años siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál es el intervalo de alturas centrado en la media que contiene a la mitad las europeas de 18 años?</p>
+<p><span id="exm:unnamed-chunk-432" class="example"><strong>Ejemplo 11.4  </strong></span>Según la OMS, las alturas (en cm) de las mujeres europeas de 18 años siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál es el intervalo de alturas centrado en la media que contiene a la mitad las europeas de 18 años?</p>
 </div>
 <p>Fijaos en que, si llamamos <span class="math inline">\(X\)</span> a la variable aleatoria “Tomo una mujer europea de 18 años y mido su altura en cm”, lo que queremos saber es el intervalo centrado en su media tal que la probabilidad de que la altura de una europea de 18 años escogida al azar pertenezca a este intervalo sea 0.5. Es decir, el intervalo de referencia del 50% para <span class="math inline">\(X\)</span>.</p>
 <p>Nos dicen que <span class="math inline">\(X\)</span> es <span class="math inline">\(N(163.1,18.53)\)</span>. Si <span class="math inline">\(q=0.5\)</span>, entonces <span class="math inline">\((1+q)/2=0.75\)</span> y si calculamos el 0.75-cuantil de una normal estándar, da <span class="math inline">\(z_{0.75}=0.6745\)</span>.</p>
@@ -889,7 +887,7 @@ Esto dice, básicamente, que</p>
 <p>Es decir, el z-score de <span class="math inline">\(x_0\)</span> es el resultado de “tipificar” <span class="math inline">\(x_0\)</span> en el sentido del Teorema <a href="variables-aleatorias-continuas.html#thm:comblinnormals">11.3</a>.</p>
 <p>Si la variable poblacional es normal, cuanto mayor es el valor absoluto del z-score de <span class="math inline">\(x_0\)</span>, más “raro” es <span class="math inline">\(x_0\)</span>; el signo nos dice si es más grande o más pequeño que el valor esperado <span class="math inline">\(\mu\)</span>.</p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-434" class="example"><strong>Ejemplo 11.5  </strong></span>Recordad que, según la OMS, las alturas de las mujeres europeas de 18 años siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál sería el z-score de una jugadora de baloncesto de 18 años que midiera 191 cm?</p>
+<p><span id="exm:unnamed-chunk-433" class="example"><strong>Ejemplo 11.5  </strong></span>Recordad que, según la OMS, las alturas de las mujeres europeas de 18 años siguen una ley <span class="math inline">\(N(163.1,18.53)\)</span>. ¿Cuál sería el z-score de una jugadora de baloncesto de 18 años que midiera 191 cm?</p>
 </div>
 <p>Sería
 <span class="math display">\[
