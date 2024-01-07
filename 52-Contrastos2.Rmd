@@ -548,8 +548,260 @@ knitr::include_graphics("INREMDN_files/figure-html/somriuresJ5.png")
 
 Hemos marcado también la columna de p-valores sin ajustar ("p") y la del ajuste de Tukey para que veáis que el ajuste de Bonferroni consiste en tomar el mínimo de 1 y el resultado de multiplicar el p-valor por 6 (el número total de contrastes de pares de medias) y podáis comparar los valores ajustados de Bonferroni con los de Tukey. La conclusión con los dos tipos de ajuste es la misma.
 
+#### Diseño ANOVA de bloques
 
-##### Continuará
+
+Así como el diseño de ANOVA de una vía generaliza a más de dos medias el contraste de igualdad de dos medias con muestras independientes, el ANOVA de bloques generaliza a más de dos medias el contraste de igualdad de dos medias *con muestras emparejadas*.
+
+```{example}
+Hemos querido comparar los efectos de dos analgésicos y un placebo en el tratamiento de la cefalea. Para ello, hemos reclutado 10 enfermos de cefalea y a cada uno le hemos aplicado los tres tratamientos en diferentes episodios de cefalea. El orden de los tratamientos ha sido aleatorio. El efecto de los tratamientos lo cuantificamos mediante el tiempo (en minutos) que tarda en desaparecer una cefalea con el tratamiento.
+```
+
+Los resultados han sido los siguientes:
+$$
+\begin{array}{c|ccc}
+\text{Sujeto} & \text{Placebo} & \text{Analgésico A}&\text{Analgésico B}\\\hline
+        1 & 35 & 20 & 22\\
+        2 & 40 & 35 & 42\\
+        3 & 60 & 50 & 30\\
+        4 & 50 & 40 & 35\\
+        5 & 50 & 30 & 22 \\
+        6 & 52 & 30 & 25\\
+        7 & 37 & 22 & 18\\
+        8 & 45 & 30 & 28\\
+        9 & 40 & 45 & 35\\
+        10 & 47 & 40 & 37
+\end{array}
+$$
+       
+Si llamamos   
+
+* $\mu_P$: Tiempo medio tomando el placebo
+
+* $\mu_A$: Tiempo medio tomando el analgésico A
+
+* $\mu_1$: Tiempo medio tomando el analgésico B
+
+queremos realizar el contraste:
+$$
+  \left\{
+    \begin{array}{l}
+    H_0 : \mu_1 =\mu_2 =\mu_3 \\
+    H_1 : \mu_1\neq \mu_2\mbox{ o }\mu_1\neq \mu_3\mbox{ o }\mu_2\neq \mu_3
+    \end{array}
+    \right.
+$$
+      
+Aunque hemos usado un factor para clasificar la población (el tipo de tratamiento), no se trata de un diseño de ANOVA de 1 vía, porque  las muestras de cada nivel no son independientes, sino emparejadas. Se trata de un **diseño de ANOVA de bloques**.
+    
+En un experimento con diseño de ANOVA de bloques    
+    
+* Tenemos $k$ tratamientos que queremos comparar.
+    
+* Escogemos $b$ \emph{bloques}: conjuntos de $k$ sujetos emparejados (por ejemplo, $k$ copias del mismo sujeto).
+    
+* Dentro de cada bloque, asignamos aleatoriamente a cada sujeto un tratamiento, de manera que cada tratamiento se use exactamente una vez dentro de cada bloque.
+
+    Por ejemplo, si cada bloque corresponde a un único sujeto, le asignamos  los tratamientos en diferentes momentos de tiempo en un orden aleatorio, como hemos hecho en nuestro ejemplo.
+    
+El contraste que se quiere realizar es
+$$
+      \left\{
+        \begin{array}{l}
+        H_0 : \mu_{1} =\mu_{2} =\cdots =\mu_{k} \\
+        H_1 : \mbox{Hay $i,j$ tales que } \mu_{i}  \neq \mu_{j}
+        \end{array}
+        \right.
+$$
+donde cada $\mu_{i}$ es la media del tratamiento $i$-ésimo
+        
+La filosofía del contraste ANOVA es similar al de un factor: la variabilidad de los datos  se descompone en la suma de
+        
+* la variabilidad de las medias muestrales de los tratamientos
+        
+* la variabilidad de las medias de los bloques
+        
+* la variabilidad residual debida al azar al escoger las muestras
+        
+y se compara la variabilidad de las medias muestrales con la variabilidad residual
+       
+Para que las conclusiones de un ANOVA de bloques  tengan sentido, ha de pasar que
+          
+a. Las $k\cdot b$ observaciones sean muestras aleatorias  (de tamaño 1) e independientes de las $k\cdot b$ poblaciones definidas por las medidas que se tomarían para cada combinación de sujeto y tratamiento
+        
+a. Estas $k\cdot b$ poblaciones son  normales y con la misma varianza
+        
+a. No hay **interacción** entre los bloques y los tratamientos: Para cada par de tratamientos $i,j$ y para cada par de bloques $s,t$, la diferencia entre las medias poblacionales de las mediciones para el tratamiento $i$ y el tratamiento $j$ en el bloque $s$ es la misma que en el bloque $t$.
+ 
+Ninguna de estas condiciones se puede contrastar, por lo tanto el experimentador ha de decidir si se cumplen o no según su experiencia.
+Si no se cree que se cumpla (b), puede ser conveniente efectuar un test no paramétrico.  Si se cree que puede haber interacción entre los bloques y los tratamientos, es más recomendable usar un ANOVA de 2 factores (véase la siguiente sección).
+       
+Podemos efectuar un ANOVA de bloques con JAMOVI en la pestaña **ANOVA/ANOVA de Medidas Repetidas**. Para ello,  tenemos que tener  la tabla  con los resultados de las mediciones en una tabla de datos con filas los bloques y columnas los tratamientos. Para el ejemplo anterior, la tenemos en el fichero *Analgesicos.csv*.  Tras importarla, comprobad (o especificad) que las variables de los tratamientos son numéricas.
+
+
+```{r ANOVA.b.1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/ANOVA.b.1.png")
+```
+
+A continuación, en la ventana "Factores de Medidas Repetidas" de **ANOVA/ANOVA de Medidas Repetidas* tenemos que indicar cuántos tratamientos usamos. Como en nuestro ejemplo usamos tres tratamientos, hemos de añadir un "Nivel 3" a los dos que se especifican por defecto. Es una buena idea poner nombres tanto al factor que usamos para clasificar los tratamientos como a sus niveles (clicando encima y reescribiendo)
+
+
+```{r ANOVA.b.2,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/ANOVA.b.2.png")
+```
+
+
+A continuación, arrastramos las variables de cada tratamiento a su nivel correspondiende en la ventana "Celdas de Medidas Repetidas":
+
+
+```{r ANOVA.b.3,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/ANOVA.b.3.png")
+```
+   
+
+El p-valor <0.001 nos indica que hay evidencia estadística de diferencia en las eficacias medias de al menos dos tratamientos. Los contrastes *post hoc* por parejas se efectuan más abajo en la misma pestaña, seleccionando el factor. Se puede también elegir el método de corrección de p-valores.
+
+
+
+```{r ANOVA.b.4,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/ANOVA.b.4.png")
+```
+Obtenemos evidencia significativa de diferencia entre ambos tratamientos y el placebo, pero no de diferencia entre los dos tratamientos.
+
+
+
+El test no paramétrico que generaliza al diseño ANOVA de bloques el test de Wilcoxon es el test de Friedman que se encuentra en la pestaña **ANOVA/No Paramétrico/ANOVA de Medidas Repetidas (Friedman)**. En él solo hay que seleccionar las variables que contienen las mediciones de tratamientos. También se pueden efectuar los tests **post hoc** por parejas (y no os burléis del "no paramédico" por "no paramétrico" de la versión actual en español, ya lo arreglarán).
+
+
+
+
+```{r ANOVA.b.5,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/ANOVA.b.5.png")
+```
+
+
+
+
+#### Diseño ANOVA multifactorial
+
+
+En un experimento de diseño de **ANOVA factorial** se usan las combinaciones de niveles de dos o más factores para definir las subpoblaciones para las que comparamos las medias de una variable aleatoria.  El caso más sencillo, que es el único que trataremos aquí es el diseño de  **ANOVA de 2 vías** o **de 2 factores**:
+
+*  Usamos las combinaciones de niveles de dos factores para definir las subpoblaciones
+
+* Para cada pareja de niveles, uno de cada factor,  tomamos una muestra aleatoria simple de la subpoblación definida por la combinación de ambos niveles. Estas muestras han de ser independientes las unas de las otras y todas del mismo tamaño $n\geq 2$.
+
+```{example}
+Para contrastar si el nivel de colesterol depende del sexo o la complexión de las personas, se midió el nivel de colesterol (en mg/dL) de 30 personas de cada combinación de sexo (*male* o *female*) y complexión (*small*, *medium* o*large*). Tenemos los datos guardados en el tabla de datos `colesterol.csv`, con variables *chol* (el nivel de colesterol), *sex* (el sexo) y *frame* (la complexión). 
+```
+
+```{r ANOVA2w.1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/ANOVA2w.1.png")
+```
+
+Como en los otros ANOVA, de nuevo se comparan variabilidades.
+
+En un estudio como el de este ejemplo, en realidad nos podemos plantear cuatro preguntas:
+
+*  ¿Hay diferencia en el nivel medio de colesterol según el sexo, teniendo en cuenta la posible influencia de la complexión en el nivel del colesterol?
+
+*  ¿Hay diferencia en el nivel medio de colesterol según la complexión, teniendo en cuenta la posible influencia del sexo en el nivel del colesterol?
+
+*  ¿Hay diferencia en el nivel medio de colesterol según la combinación sexo-complexión?
+
+*  ¿Hay interacción en el nivel medio de colesterol entre el sexo y la complexión (en el sentido de que el efecto de los niveles de un factor se magnifiquen en los del otro factor: por ejemplo, que la diferencia en el nivel medio de colesterol entre hombres y mujeres de complexión grande sea diferente que entre hombres y mujeres de complexión pequeña)?
+
+Formalmente, usamos dos factores $A$ y $B$ para clasificar la población sobre la que medimos una variable $X$. El factor $A$ tiene $k$ niveles: $a_1,\ldots,a_k$. El factor $B$ tiene $l$ niveles: $b_1,\ldots,b_l$. Tomamos para cada par $(a_i,b_j)$ una muestra aleatoria simple de tamaño $n$, independientes las unas de las otras. Por lo tanto, el número total de observaciones es $n\cdot k\cdot l$.
+
+Llamemos:
+
+*  $\mu_{i\bullet}$: media poblacional de $X$ para los sujetos del nivel $a_i$ de $A$
+
+*  $\mu_{\bullet j}$: media poblacional de $X$ para los sujetos del nivel $b_j$ de $B$
+
+*  $\mu_{ij}$: media poblacional de $X$ para los sujetos que son simultáneamente del nivel $a_i$ de $A$ y del nivel $b_j$ de $B$
+
+Planteamos los cuatro contrastes siguientes:
+
+* **Contraste de medias del factor $A$**: Contrastamos si hay diferencias entre los niveles del factor $A$:
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_{1\bullet}=\mu_{2\bullet}=\cdots
+=\mu_{k\bullet} \\
+H_1 : \mbox{Hay $i,i'$ tales que  $\mu_{i\bullet}\neq \mu_{i'\bullet}$}
+\end{array}
+\right.
+$$
+
+
+* **Contraste de medias del factor $B$**: Contrastamos si hay diferencias entre los niveles del factor $B$:
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mu_{\bullet 1}=\mu_{\bullet 2}=\cdots =\mu_{\bullet l} \\
+H_1 : \mbox{Hay $j,j''$ tales que  $\mu_{\bullet j}\neq \mu_{\bullet j'}$}
+\end{array}
+\right.
+$$
+
+* **Contraste de medias de la combinación $A$-$B$**: Contrastamos si hay diferencias entre las parejas (nivel de $A$, nivel de $B$):
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mbox{Para todos $i,j,i',j'$,  $\mu_{ij}=\mu_{i'j'}$} \\
+H_1 : \mbox{Hay $i,j,i',j'$ tales que  $\mu_{ij}\neq \mu_{i'j'}$}
+\end{array}
+\right.
+$$
+
+
+* **Contraste de interacción**: Contrastamos si hay interacción entre los niveles de $A$ y $B$
+$$
+\left\{
+\begin{array}{l}
+H_0 : \mbox{No hay interacción entre ningún par de niveles} \\
+H_1 : \mbox{Hay interacción entre algún par de niveles}
+\end{array}
+\right.
+$$
+
+Para que las conclusiones del ANOVA de 2 vías tengan sentido, es necesario que:
+
+*  Las observaciones para cada combinación de niveles constituyan
+muestras aleatorias simples independientes, cada una de tamaño $n$, de  las $k\cdot l$
+subpoblaciones definidas por las combinaciones de un nivel de $A$ y un nivel de $B$
+ 
+
+*  La restricción de $X$ a cada una de estas $k\cdot l$ poblaciones es normal y todas tienen la misma varianza
+
+En JAMOVI, los ANOVA factoriales, y en particular el de 2 vías, se pueden efectuar en la pestaña **ANOVA/ANOVA**, seleccionando la variable que contiene los valores como "Variable dependiente" y las variables correspondientes a los factores como "Factores Fijos", y marcando la casilla "Modelo Global":
+
+
+```{r ANOVA2w.2,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/ANOVA2w.2.png")
+```
+
+En esta tabla:
+
+* La fila "frame" corresponde al contraste de medias del factor *frame*: como el p-valor es 0.066, con nivel de significación 0.05 no tenemos evidencia estadística de que el nivel medio de colesterol varíe con la complexión
+
+* La fila "sex" corresponde al contraste de medias del factor *sex*: como el p-valor es 0.332, no tenemos evidencia estadística de que el nivel medio de colesterol varíe con el sexo
+
+* La fila "Modelo Global" corresponde al contraste de medias de la combinación *sex*-*frame*:  como el p-valor es 0.26, no tenemos evidencia estadística de que el nivel medio de colesterol varíe con la combinación de sexo y complexión
+
+* La fila "frame*sex" corresponde al contraste de interacción: como el p-valor es 0.958, no tenemos evidencia estadística de que haya interaccón entre la influencia del sexo y la complexión en el nivel medio de colesterol.
+
+
+Si hubiéramos encontrado evidencia de diferencias entre medias para algún factor, podríamos efectuar los contrastes post-hoc por parejas en la sección "Pruebas post-hoc". 
+
+
+```{r ANOVA2w.3,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/ANOVA2w.3.png")
+```
+
+
+
 
 ## Contrastes para varianzas
 
@@ -922,5 +1174,900 @@ knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.p.8.2.png")
 Obtenemos un p-valor 0.008. Por lo tanto, con un nivel de significación del 5% concluimos que la probabilidad de supervivencia a 5 años con quimioterapia postoperatoria es mayor que sin quimioterapia postoperatoria. 
 
 
-### Contrastes para más de dos proporciones y contrastes de independencia
+### Contrastes para más de dos proporciones
+
+El contraste de igualdad o no de más dos o más proporciones es un caso particular de contraste de igualdad de dos o más distribuciones que estudiaremos en una próxima sección. Lo dejamos para entonces.
+
+
+## Contrastes para distribuciones
+
+### Contrastes de bondad de ajuste de una muestra a una distribución
+
+
+A menudo queremos contrastar si una muestra proviene o no de una distribución concreta. Por ejemplo:
+
+* Lanzamos una moneda al aire varias veces, apuntamos los resultados, y de estos resultados queremos deducir si la moneda está equilibrada o trucada: es decir, si las caras siguen o no una distribución de Bernoulli con probabilidad de éxito 0.5.
+
+* Anotamos los casos diarios de ingresos por una enfermedad concreta en un hospital, y deseamos saber si se ajustan a una distribución de Poisson.
+
+* Hemos usado unas muestras pequeñas en un test t para comparar dos medias; para que nos podamos fiar del resultado del contraste, estas muestras tendrían que provenir de distribuciones aproximadamente normales.
+
+En todos estos casos, nos interesa un contraste cuya hipótesis nula es que la muestra sigue una cierta distribución: técnicamente, se dice que la muestra **se ajusta** a esa distribución. La hipótesis alternativa es que la muestra no sigue dicha distribución, es decir, que **no se ajusta** a la misma. Genéricamente, llamamos a este tipo de contrastes **de bondad de ajuste**.
+
+
+$$
+\left\{
+\begin{array}{l}
+H_0: \text{ la muestra se ajusta a una determinada distribución}\\
+H_1: \text{ la muestra NO se ajusta a esa distribución}
+\end{array}
+\right.
+$$
+
+Como siempre, si obtenemos evidencia que nos permita rechazar la hipótesis nula, concluiremos que la muestra que la muestra no se ajusta a esa distribución la distribución que contrastamos. Esta evidencia se obtiene comparando de manera adecuada nuestra muestra con la "esperada" para la distribución que contrastamos: si son muy diferentes, lo tomamos como evidencia de que nuestra muestra no sigue dicha distribución, porque sería muy "rara" si la siguiera. Si nuestra muestra no es lo bastante diferente de la esperada como para hacernos dudar de que siga dicha distribución, no obtenemos evidencia que nos permita rechazar la hipótesis nula  y aceptamos que la muestra se ajusta a la distribución que contrastamos.
+
+
+
+#### Test $\chi^2$ de bondad de ajuste para distribuciones discretas
+
+El test más popular para contrastar si una muestra de una variable aleatoria cualitativa, ordinal o cuantitativa discreta se ajusta a una distribución dada es el **test $\chi^2$ de Pearson**. Este test compara las frecuencias de los posibles valores de la variable en la *muestra observada* con las esperadas en una muestra de la distribución contrastada del mismo tamaño mediante un estadístico que mide esta diferencia. Si el estadítsico toma un valor muy grande, es señal de que las *frecuencias observadas* son muy diferentes de las *frecuencias esperadas* y nos hace dudar de que la hipótesis nula sea verdadera. 
+
+Veamos un ejemplo que igual os es útil.
+
+
+```{example, loteria1}
+La tabla que sigue muestra las frecuencias de aparición de las últimas cifras del Gordo de Navidad entre 1812 y 2023. En total, 213 sorteos contando la repetición de un sorteo durante la Guerra Civil.
+```
+
+
+
+$$
+\begin{array}{l|cccccccccc}
+\hline
+\text{cifra} & 0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\ \hline 
+\text{frecuencia} & 23 &  8 & 13 & 21 & 26 & 31 & 27 & 23 & 25 & 16 \\
+\hline
+\end{array}
+$$
+Si estas últimas cifras tuvieran todas la misma probabilidad de salir, esta probabilidad sería 1/10. Entonces, esperaríamos de media unas 213/10=21.3 ocurrencias de cada cifra. El diagrama de barras inferior muestra que hay algunas desviaciones notables respecto de esta media, marcada con la línea roja discontinua. Las diferencias que observamos respecto de los valores esperados, ¿son los bastante grandes como para hacernos dudar de que todas las cifras salgan con la misma probabilidad, sin ningún tipo de sesgo? O, por el contrario, ¿son razonables dentro de lo que se puede achacar al azar?
+
+
+```{r,echo=FALSE,out.width="75%"}
+loteria=data.frame(read.csv("loteria.csv"))
+barplot(table(loteria$ultimacifra),col="light blue",xlab="Cifra",ylab="Frecuencia",main="Frecuencias de las últimas cifras del Gordo de Navidad")
+abline(h=21.3,col="red",lty=2)
+```
+
+
+Este ejemplo ilustra la situación general siguiente:
+
+* Tenemos una muestra aleatoria simple de *n* observaciones que queremos contrastar si se ajusta o no a una **distribución totalmente determinada**. El contraste que queremos realizar es
+$$
+\left\{\begin{array}{l}
+H_{0}: \mbox{ La muestra se ajusta a esta distribución}\\
+H_{1}: \mbox{ La población no se ajusta a esta distribución}
+\end{array}
+\right.
+$$
+
+    
+    En el ejemplo anterior, queremos contrastar si las últimas cifras del Gordo se ajustan a una **distribución uniforme**: si todas tienen la misma probabilidad.
+
+* Agrupamos todos los elementos del dominio de la distribución teórica que contrastamos en un número finito *k* de **clases** que denotaremos por $C_1,\ldots,C_k$. Cada clase puede corresponder a un solo elemento del dominio o a más de uno, pero todo elemento del dominio ha de pertenecer a una, y solo una, clase. Queremos recalcar que el número de clases ha de ser finito.
+
+    
+    En nuestro ejemplo, hemos tomado 10 clases, una para cada  elemento del dominio: la clase formada solo por el 0, la clase formada solo por el 1, etc. 
+
+    El hecho de que la distribución que queremos contrastar esté totalmente determinada nos ha de permitir calcular la probabilidad de cada clase.
+
+* Para cada clase $C_i$, sean
+
+    * $obs_i$: la frecuencia absoluta *observada* de esta clase en la muestra. 
+    
+        En nuestro ejemplo, son las frecuencias de cada última cifra que hemos dado en la tabla.
+
+    * $p_i$: la probabilidad *teórica* de esta clase para la distribución de probabilidades que estamos contrastando.
+    
+        En nuestro ejemplo, cada $p_i$ vale 1/10.
+
+    * $esp_i$: la frecuencia absoluta *esperada* de esta clase si se hubiera obtenido con la distribución que estamos contrastando: $esp_i=p_i\cdot n$.
+    
+        En nuestro ejemplo, cada $esp_i$ vale 21.3.
+
+* Se calcula entonces el estadístico de contraste
+$$
+\chi^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
+$$
+
+    
+    Fijaos en que $\chi^2$ mide, de una manera concreta, la diferencia entre las $obs_i$ y las $esp_i$.
+    
+Lo que necesitamos ahora es saber a partir de qué valor esta $\chi^2$ es tan grande que sería muy improbable si la muestra proviniera de la distribución contrastada, lo que nos permitiría concluir que es inverosímil que provenga de dicha distribución.
+
+
+```{theorem}
+Si
+
+* $n$ es grande (digamos que $n\geqslant  30$)
+
+* Las $k$ clases elegidas forman una partición del dominio: $p_1+\cdots+p_k=n$ 
+
+* Las clases cumplen la **regla de Cochran**:  $esp_i\geqslant 5$ para todo $i=1,\ldots,k$
+
+entonces el estadístico $\chi^2$ tiene distribución aproximadamente $\chi_{k-1}^2$ ($\chi^2$ con número de grados de libertad **el número de clases menos 1**).
+```
+
+
+Por lo tanto, si llamamos $\chi_0$ a lo que ha valido $\chi^2$ en nuestra muestra, el **p-valor** del contraste, que nos permite decidir si aceptamos o rechazamos la hipótesis nula de que la muestra proviene de la distribución contrastada, es
+$$
+P(\chi_{k-1}^2\geqslant \chi_0).
+$$
+
+Siguiendo con nuestro ejemplo del Gordo de Navidad, si calculamos el valor de $\chi^2$, da
+$$
+\frac{(23-21.3)^2}{21.3}+\frac{(8-21.3)^2}{21.3}+\frac{(13-21.3)^2}{21.3}+\cdots+\frac{(16-21.3)^2}{21.3}=20.756
+$$
+Como $k=10$, el p-valor será $P(\chi_9^2\geqslant 20.756)=0.014$.
+
+
+```{r, echo=FALSE,out.width="50%"}
+knitr::include_graphics("INREMDN_files/figure-html/estorat.png")
+```
+
+
+Naturalmente, puede ser un error de tipo I. Pero por si acaso, no juguéis a números que terminen en 1 o 2...
+
+
+En JAMOVI, este test $\chi^2$ se encuentra disponible en la pestaña **Recuento/N Resultados ($\chi^2$ de bondad de ajuste)**. Se puede aplicar directamente a una muestra o a las frecuencias observadas. 
+
+```{example}
+Seguimos con el ejemplo de las terminaciones de los Gordos de Navidad. Tenemos estas terminaciones en la variable *ultimacifra* de la tabla de datos *loteria.csv*. Si, tras cargar la tabla de datos, en **Recuento/N Resultados ($\chi^2$ de bondad de ajuste)** elegimos esta variable, por defecto realiza el contraste de bondad de ajuste a la distribución uniforme, en la que todos los resultados presentes en dicha variable tienen la misma probabilidad y que es el que queremos efectuar en este ejemplo.
+```
+
+Hemos marcado además la casilla de "Frecuencias esperadas" para que nos dé las frecuencias esperadas de cada clase y así comprobar que se satisface la regla de Cochran:
+
+```{r JAMOVI.ji2.1, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2.1.png")
+```
+
+Obtenemos al final el valor del estadístico $\chi^2$, el número *gl* de grados de libertad que ha usado para calcular el p-valor, y el valor *p* de este último.
+
+Supongamos ahora que no disponemos de los datos originales, sino solo de las frecuencias observadas de las clases. Entonces, primero tenemos que definir una variable con las diferentes clases (en nuestro ejemplo las cifras de 0 a 9) y una variable con sus frecuencias observadas.
+
+
+```{r JAMOVI.ji2.2, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2.2.png")
+```
+
+A continuación, en **Recuento/N Resultados ($\chi^2$ de bondad de ajuste)** elegimos como "Variable" la que especifica las clases y como "Frecuencias (opcional)" la columna con las frecuencias:
+
+
+```{r JAMOVI.ji2.3, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2.3.png")
+```
+
+El resultado es el mismo que antes.
+
+En ambos casos, si en vez de contrastar si todas las últimas cifras aparecen con la misma probabilidad quisiéramos contrastar alguna otra hipótesis sobre los valores de estas probabilidades, las especificaríamos en la columna "Razón" de la tabla de "Proporciones esperadas".
+
+```{example}
+La distribución por edades de la población española es la siguiente:
+```
+
+$$
+\begin{array}{c|ccccccccc}
+\text{edad} & 0\!-\!9 & 10\!-\!19 & 20\!-\!29 & 30\!-\!39 & 40\!-\!49 & 50\!-\!59 & 60\!-\!69 & 70\!-\!79 & 80\text{ o más}\\\hline
+\text{%} & 9.3 & 10& 10&13.2& 17& 14.9& 11& 8.4& 6.2
+\end{array}
+$$
+
+En una muestra de 65 españoles diagnosticados de COVID-19 durante la primera ola pandémica, se obtuvieron las frecuencias de edades siguientes:
+$$
+\begin{array}{c|ccccccccc}
+\text{edad} & 0\!-\!9 & 10\!-\!19 & 20\!-\!29 & 30\!-\!39 & 40\!-\!49 & 50\!-\!59 & 60\!-\!69 & 70\!-\!79 & 80\text{ o más}\\\hline
+\text{frecuencia} & 1 & 1& 5&8& 11& 10& 11& 11& 7
+\end{array}
+$$
+
+Nos preguntamos si esta muestra aporta evidencia de que la distribución por edades de los españoles con COVID-19 durante la primera ola es diferente a la de la población española en general y por lo tanto de que la COVID-19 afectó de manera diferente unas franjas de edad que otras. Es un ejemplo típico de contraste de bondad de ajuste.  La hipótesis nula del contraste es que nuestra muestra de edades se ajusta a la distribución de probabilidad dada por la distribución por edades de la población española, y la hipótesis alternativa es que esto no es verdad.
+
+Tomamos como clases las 9 franjas de edad dadas. Sus probabilidades teóricas $p_i$ son las definidas por la población española, y sus frecuencias esperadas $esp_i$ serán las probabilidades teóricas multiplicadas por el tamaño de la muestra, 65.
+
+$$
+\begin{array}{c|ccccccccc}
+C_i & 0\!-\!9 & 10\!-\!19 & 20\!-\!29 & 30\!-\!39 & 40\!-\!49 & 50\!-\!59 & 60\!-\!69 & 70\!-\!79 & 80\text{ o más}\\\hline
+obs_i & 1 & 1& 5&8& 11& 10& 11& 11& 7\\
+p_i & 0.093 & 0.100& 0.100& 0.132& 0.170& 0.149& 0.110& 0.084& 0.062\\
+esp_i & 6.045 &  6.500 &  6.500  & 8.580 & 11.050 &  9.685  & 7.150  & 5.460  & 4.030
+\end{array}
+$$
+
+El estadístico de contraste vale
+$$
+\chi^2=\frac{(1-6.045)^2}{6.045}+\frac{(1-6.5)^2}{6.5}+\cdots+\frac{(7-4.03)^2}{4.03}=19.14
+$$
+y el p-valor vale $P(\chi_8^2\geqslant 19.14)=0.014$. En JAMOVI se hace como antes, solo que ahora en  la columna "Razón" de la tabla de "Proporciones esperadas" entramos las probabilidades teóricas.
+
+
+
+```{r JAMOVI.ji2.MC1, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2.MC1.png")
+```
+
+Con un p-valor de 0.014, tenemos evidencia estadística de que la distribución por edades de los españoles con COVID-19 durante la primera ola fue diferente de la de la población española en general.
+
+¿Seguro?
+
+
+```{block2,type="rmderror"}
+**¿Y la regla de Cochran?**
+```
+
+
+En este ejemplo no podemos usar tal cual el test $\chi^2$, porque no se cumplen las condiciones teóricas que nos garantizan que sus conclusiones sean significativas: tenemos una clase con frecuencia esperada <5. Por lo tanto, lo que hemos hecho no es correcto y no nos podemos fiar de la conclusión. ¿Qué podemos hacer en este caso?
+
+Una opción es unir clases: si unimos las dos últimas clases en una única clase "70 o más" su frecuencia esperada será la suma de las frecuencias esperadas de las clases agrupadas, 9.49, y habremos solventado el problema. Os dejamos como ejercicio que terminéis el cálculo de esta manera.
+
+Otra opción, si queréis mantener como clases las definidas al principio, es usar la versión **MonteCarlo** del test $\chi^2$, basada en simulaciones. Este test consiste en:
+
+1. Se genera un conjunto muy grande de muestras aleatorias simples (nosotros tomaremos 5000) con la distribución contrastada, todas del mismo tamaño que  nuestra muestra.
+
+1. Se calcula el estadístico de contraste $\chi^2$ para cada muestra.
+
+1. Se estima el p-valor como la fracción de muestras que han dado un valor de $\chi^2$ mayor que el de nuestra muestra.
+
+JAMOVI no tiene implementado por ahora este test MonteCarlo, y es una pena porque es el que os recomendamos usar. Se puede efectuar con las funciones adecuadas en su ventana del editor de `R`:
+
+* Definimos un vector `Obs` con las frecuencias observadas:
+```{r}
+Obs=c(1, 1, 5, 8, 11, 10, 11, 11, 7)
+```
+
+* Definimos un vector `Probs` con las probabilidades teóricas
+```{r}
+Probs=c(0.093, 0.100, 0.100, 0.132, 0.170, 0.149, 0.110, 0.084, 0.062)
+```
+
+* Ejecutamos la función siguiente (donde el valor de `B` es el número de simulaciones que queremos)
+```{r,eval=FALSE}
+chisq.test(Obs, p=Probs, simulate.p.value=TRUE, B=5000)
+```
+
+
+
+```{r JAMOVI.ji2.MC2, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2.MC2.png")
+```
+
+Obtenemos el p-valor (`p-value`) 0.01. Esto significa que *solo un 1% de las muestras de 65 personas cuyas edades siguen la distribución española en general, han dado un valor de $\chi^2$ mayor que el de nuestra muestra original*. Esto nos tiene que hacer concluir que nuestra muestra sería muy rara si se hubiera obtenido con la distribución de franjas de edad española en general. Así que, ahora sí de manera fiable, hemos obtenido evidencia estadística de que la distribución por edades de los españoles con COVID-19 durante la primera ola fue diferente a la de la población española en general.
+
+```{block2,type="rmdnote"}
+El test de MonteCarlo se basa en simulaciones aleatorias, por lo que ejecuciones diferentes con los mismos datos pueden dar p-valores diferentes. Pero si el número de simulaciones es lo bastante grande, es muy robusto y las conclusiones no difieren.
+```
+
+
+Veamos ahora un ejemplo detallado de la aplicación de un test $\chi^2$ a un contraste de bondad de ajuste a una familia de distribuciones, no a una distribución completamente determinada.
+
+```{example,GoFPoisson}
+Si la concepción fuera un acontecimiento aleatorio en mujeres en edad fértil, los números de hijos de mujeres en edad fértil seguirían una distribución de Poisson.  La tabla siguiente da los números de hijos de 125 mujeres entre 20 y 45 años (elegidas al azar entre las pacientes del servicio de ginecología de un hospital concreto).
+```
+
+$$
+\begin{array}{l|ccccccc}
+\hline
+\text{hijos} & 0 & 1 & 2 & 3 & 4 & 5 & \geqslant 6 \\ \hline
+\text{frecuencia} & 59 & 44 & 14 & 3 & 4 &1 & 0\\
+\hline
+\end{array}
+$$
+
+Queremos contrastar si podemos aceptar que estos números de hijos provienen de una distribución de Poisson. Es decir, queremos realizar el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}: \mbox{La muestra se ajusta a una distribución de Poisson}\\
+H_{1}: \mbox{La muestra no se ajusta a una distribución de Poisson}
+\end{array}
+\right.
+$$
+Fijaos antes de empezar en que *no* estamos en la situación general para poder efectuar un test $\chi^2$: "una distribución de Poisson" no es una distribución completamente determinada, para la que podamos calcular probabilidades. Necesitamos saber su $\lambda$ para poder calcular probabilidades.
+
+Como $\lambda$ es la esperanza de la variable aleatoria, la podemos estimar con la media muestral de nuestra muestra:
+$$
+\lambda=
+\frac{59\cdot 0+ 44\cdot 1+  14\cdot 2+ 3\cdot 3+ 4\cdot 4+1\cdot 5}{125}=0.816
+$$
+
+Pero **¡ATENCIÓN!** Cuando hay que estimar algún parámetro de la distribución con la muestra, se tiene que tener en cuenta la regla siguiente:
+
+
+```{block2,type="rmdimportant"}
+Si para determinar completamente la distribución hemos tenido que estimar algún parámetro ($\mu$, $\sigma$, $\lambda$, ...) con nuestra muestra, para calcular el p-valor *se ha de restar a los grados de libertad el número de parámetros estimados*. Es decir, si se han estimado $m$ parámetros, el p-valor es 
+$$
+P(\chi_{k-1-m}^2\geqslant \chi_0).
+$$
+
+```
+
+Tendremos que recordarlo al final, en el momento de calcular el p-valor. Por ahora seguimos con el proceso.
+
+* Hay que partir el dominio de la distribución teórica en un número finito de clases. El dominio de una variable de Poisson en todo el conjunto de los números naturales, por lo que no podremos usar como clases sus elementos uno a uno. Lo que haremos por ahora será tomar las clases que nos dan en la tabla de frecuencias. Es decir, tomamos como clases $C_1=\{0\}$, $C_2=\{1\}$, $C_3=\{2\}$, $C_4=\{3\}$, $C_5=\{4\}$, $C_6=\{5\}$ y $C_7=\{6,7,8,\ldots\}$.
+$$
+\begin{array}{l|ccccccc}
+\hline
+C_i & 0 & 1 & 2 & 3 & 4 & 5 &  \geqslant 6 \\ \hline
+obs_i & 59 & 44 & 14 & 3 & 4 &1 & 0 \\
+\hline
+\end{array}
+$$
+
+```{block2,type="rmdimportant"}
+Las clases han de cubrir todo el dominio de la distribución teórica que contrastamos, no solo los valores de la muestra. Si el dominio es todo $\mathbb{N}$, las clases tienen que cubrir todo $\mathbb{N}$. 
+```
+
+* Calculamos la probabilidad $p_i$ de cada clase para una variable $X$ con distribución de Poisson con $\lambda=0.816$ y su frecuencia esperada $esp_i=p_i\cdot 125$:
+$$
+\begin{array}{l|cccccc}
+\hline
+C_i & 0 & 1 & 2 & 3 & 4 & 5 & \geqslant 6 \\ \hline
+obs_i & 59 & 44 & 14 & 3 & 4 &1 & 0 \\\hline
+p_i & 0.442 & 0.361 & 0.147 & 0.040 & 0.008 & 0.001 & 0.001\\
+\hline
+esp_i& 55.250 & 45.125 & 18.375  & 5.000  & 1.000   &0.125 &  0.125\\
+\hline
+\end{array}
+$$
+
+Nuestra muestra es de tamaño mayor que 30 y las clases cubren todo el dominio de la variable teórica con la que comparamos nuestra muestra. Pero hay clases con frecuencia esperada menor que 5, por lo que tal cual no podemos usar el test $\chi^2$. 
+
+Cuando hemos tenido que estimar parámetros, como en este ejemplo,  no es adecuado usar la versión MonteCarlo del test $\chi^2$, porque la conclusión sería sobre si la muestra se ajusta o no a la distribución de Poisson concreta usada en las simulaciones, no sobre si se ajusta o no a *una* distribución de Poisson.
+
+Lo adecuado entonces es agrupar el mínimo número de clases consecutivas para conseguir que todas las frecuencias esperadas sean $\geqslant 5$. En nuestro caso, agruparemos las clases $C_4=\{3\}$, $C_5=\{4\}$, $C_6=\{5\}$ y $C_7=\{6,7,8,\ldots\}$ en una sola.
+$$
+\begin{array}{l|cccc}
+\hline
+C_i & 0 & 1 & 2 &  \geqslant 3  \\ \hline
+obs_i & 59 & 44 & 14 & 8 &  \\\hline
+p_i & 0.442 & 0.361 & 0.147 & 0.05\\
+\hline
+esp_i& 55.250 & 45.125 & 18.375  & 6.250 \\
+\hline
+\end{array}
+$$
+Ya estamos en las condiciones de efectuar el test $\chi^2$: entramos en JAMOVI una variable con los valores 0, 1, 2, 3 (este último representará toda la clase $\geqslant 3$), una variable con sus frecuencias observadas 59, 44, 14, 8, y en "Proporciones esperadas" de 
+**Recuento/N Resultados ($\chi^2$ de bondad de ajuste)** entramos las probabilidades teóricas:
+
+
+```{r JAMOVI.ji2.4, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2.4.png")
+```
+
+El p-valor 0.612 indica que podemos aceptar que los números de hijos se ajustan a una distribución de Poisson.
+
+```{block2,type="rmderrorpetit"}
+**¡No!** Para calcular el p-valor, hay que restar el número de parámetros estimados al número de grados de libertad.
+```
+
+```{r , echo=FALSE,out.width="50%"}
+knitr::include_graphics("INREMDN_files/figure-html/batman.png")
+```
+
+Como `R` no sabe que hemos estimado la $\lambda$ con nuestra muestra, ha usado 3 grados de libertad (*gl* en la tabla inferior), pero en realidad el p-valor ha de ser $P(\chi^2_2\geqslant 1.81)$. Tenemos que calcularlo nosotros al final.
+
+
+
+```{r JAMOVI.ji2.5, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2.5.png")
+```
+
+El p-valor correcto es 0.405. Por lo tanto, ahora sí, podemos aceptar que nuestra muestra de números de hijos sigue una distribución de Poisson.
+
+
+#### Contrastes de normalidad
+
+Que una o varias muestras provengan de una distribución normal es una hipótesis en muchos teoremas. Por ejemplo, para efectuar un test t con muestras pequeñas, es necesario que las poblacionales sean normales, o lo que es lo mismo, que las muestras provengan de variables normales. En realidad, lo que miramos en estos casos es si cada  muestra se ajusta a una variable normal. Si lo podemos rechazar, entonces podemos rechazar que provenga de una variable con distribución normal. Si no lo podemos rechazar, entonces no podemos rechazar que provenga de una variable con distribución normal y aceptamos que lo cumple.
+
+Hay muchos tests de normalidad diferentes. Ya hemos cómo efectuar algunos en un Inciso en la sección de contrastes de una media, así que no lo repetiremos aquí, aunque convendría que, ahora que tenéis una nueva luz sobre  contrastes de bondad de ajuste, revisitarais ese Inciso.
+
+
+
+
+### Contrastes de igualdad de dos o más distribuciones
+
+Supongamos que tenemos $m$ variables aleatorias $X_1,\ldots,X_m$, todas ellas con el mismo dominio finito $\{x_1,\ldots,x_k\}$. Usualmente, se tratará de la restricción de una  variable aleatoria $X$ a diferentes subpoblaciones de la población en la que está definida.  
+
+Queremos contrastar si es verdad o no que todas estas variables aleatorias tienen la misma distribución de probabilidad. Es decir, si se cumple que
+$$
+P(X_i=x_l)=P(X_j=x_l)\text{ para todos $i,j=1,\ldots,m$ y $l=1,\ldots,k$}
+$$
+o si, por el contrario, al menos dos variables $X_{i_0}$ y $X_{j_0}$ tienen diferentes probabilidades de tomar algún mismo valor.
+
+Por lo tanto, el contraste que nos interesa es
+$$
+\left\{\begin{array}{l}
+H_0:\text{ $X_1,\ldots,X_m$ tienen todas la misma distribución de probabilidad}\\
+H_1:\text{ No es verdad que $X_1,\ldots,X_m$ tengan todas la misma distribución de probabilidad}
+\end{array}\right.
+$$
+
+
+Un caso particular de este contraste es el de **igualdad de varias proporciones**: si $X_1,\ldots,X_m$ son de Bernoulli, contrastar si tienen o no la misma distribución es exactamente lo mismo que contrastar si tienen o no la misma probabilidad de éxito. 
+
+Otro caso particular son los **contrastes de independencia** en los que tenemos dos variables aleatorias con dominio finito, llamémoslas $A$ con dominio $\{a_1,\ldots,a_m\}$ y $B$  con dominio $\{b_1,\ldots,b_k\}$, y nos preguntamos si son independientes o no: es decir, si
+es verdad que para todos $i,j=1,\ldots,m$ y $l=1,\ldots,k$
+$$
+P(B=b_l|A=a_i)=P(B=b_l|A=a_j)
+$$
+
+Si llamamos $B_i$ a la variable $B$ restringida a los sujetos de la población en los que $A$ vale $a_i$, tenemos que la independencia de $A$ y $B$ es equivalente a que las variables $B_1,\ldots,B_m$ tengan todas la misma distribución.
+
+Volvamos a la situación inicial: $m$ variables aleatorias $X_1,\ldots,X_m$ con dominio $\{x_1,\ldots,x_k\}$. Para contrastar la igualdad de sus distribuciones, tomamos una muestra aleatoria simple de cada una de ellas, independientes las unas de las otras. Estas muestras se pueden tomar de manera estratificada, escogiendo una muestra de tamaño prefijado de cada una, o de manera transversal, si se trataba de la misma variable definida sobre diferentes subpoblaciones y hemos elegido una muestra transversal de la población global. 
+
+Sea como sea, obtendremos una tabla de frecuencias como la siguiente:
+$$
+\begin{array}{c|cccc}
+& X_1 & X_2 & \ldots & X_m\\ \hline
+x_1 & n_{1,1} & n_{1,2} & \ldots & n_{1,m}\\
+x_2 & n_{2,1} & n_{2,2} & \ldots & n_{2,m}\\
+\vdots & \vdots &\vdots &\ddots & \vdots \\
+x_k & n_{k,1} & n_{k,2} & \ldots & n_{k,m}\\
+\end{array}
+$$
+
+
+```{example}
+Queremos contrastar si el tipo de parto de una gestante que haya tenido COVID-19 durante el embarazo depende de la sintomatología de la enfermedad. Para ello, hemos tomado una muestra de 1000 gestantes españolas que dieron positivo en COVID-19 durante su embarazo y hemos anotado el nivel de gravedad de la infección (clasificado en asintomático, leve o grave) y el tipo de parto que tuvieron (eutócico, instrumental, cesárea programada o cesárea urgente). Hemos obtenido la tabla de frecuencias siguiente:
+```
+
+$$
+\begin{array}{c}
+\qquad\qquad\qquad\qquad\qquad\qquad      \textbf{Síntomas}\\[-2ex]
+\begin{array}{lr|ccc|c}
+& & \text{Asintomática} & \text{Leve} & \text{Grave} & \text{Total}\\ \hline
+&  \text{Eutócico}       &             305 &  234   &  95 & 634\\
+\textbf{Tipo de} &  \text{Instrumental} &                  48 &  46 &   13 & 107\\
+\textbf{parto} &  \text{Cesárea programada} &           28 &  43  &  30 & 101\\
+& \text{Cesárea urgente}    &         72  & 58 &   28 & 158\\ \hline
+& \text{Total} & 453   &       381   &       166 & 1000
+\end{array}
+\end{array}
+$$
+
+En este ejemplo, queremos contrastar si las variables aleatorias
+
+* $X_a$: Tomamos una gestante que tuvo COVID-19 asintomático durante el embarazo y anotamos su tipo de parto
+
+* $X_l$ y $X_g$: Lo mismo, para COVID-19 leve y grave, respectivamente
+
+tienen la misma distribución de probabilidad:
+
+$$
+\left\{
+\begin{array}{l}
+H_0: \text{ $X_a$, $X_l$ y $X_g$ tienen la misma distribución de probabilidad}\\
+H_0: \text{ No es verdad que $X_a$, $X_l$ y $X_g$ tengan la misma distribución de probabilidad}
+\end{array}
+\right.
+$$
+
+En este ejemplo, la muestra aleatoria de cada variable proviene de una muestra transversal de gestantes con COVID-19, asignando cada gestante a su grupo sintomático y anotando su tipo de parto. 
+
+
+Volvamos a la situación general. Para cada $i=1,\ldots,m$, sea $n_{\bullet,i}$ la suma de la columna $i$-ésima de la tabla de frecuencias, es decir, el tamaño de la muestra de la variable $X_i$, y para cada $l=1,\ldots,k$ sea $n_{l,\bullet}$ la suma de la fila $l$-ésima de la tabla de frecuencias, es decir, el número total de apariciones de $x_l$ en la muestra global. Finalmente, sea $n$ el tamaño de la muestra total.
+
+$$
+\begin{array}{c|cccc|c}
+& X_1 & X_2 & \ldots & X_m & \text{Total}\\ \hline
+x_1 & n_{1,1} & n_{1,2} & \ldots & n_{1,m} & n_{1,\bullet}\\
+x_2 & n_{2,1} & n_{2,2} & \ldots & n_{2,m}& n_{2,\bullet}\\
+\vdots & \vdots &\vdots &\ddots & \vdots & \vdots \\
+x_k & n_{k,1} & n_{k,2} & \ldots & n_{k,m} & n_{k,\bullet}\\\hline
+\text{Total} & n_{\bullet,1} &  n_{\bullet,2} &\ldots &  n_{\bullet,m} & n
+\end{array}
+$$
+
+Resulta que el contraste de igualdad de varias distribuciones se puede efectuar como contraste de bondad de ajuste. La manera más sencilla de entenderlo es suponer que, como en nuestro ejemplo, las variables $X_1,\ldots,X_m$ que comparamos son la restricción de una cierta variable aleatoria $X$ a diferentes poblaciones que forman una partición de la población donde $X$ está definida. Es el caso de nuestro ejemplo, donde esta variable $X$ es la que toma una embarazada con COVID-19 y anota su tipo de parto, y las variables $X_a,X_l,X_g$ se obtienen partiendo el conjunto de embarazadas en tres grupos sintomáticos y restringiendo la $X$ a cada uno de ellos.
+
+
+
+En este caso, que las variables $X_1,\ldots,X_m$ tengan todas exactamente la misma distribución de probabilidad es equivalente a que todas tengan la misma distribución de probabilidad que $X$. En efecto, para cada $l=1,\ldots,k$, si
+$$
+P(X_1=x_l)=P(X_2=x_l)=\cdots=P(X_m=x_l)
+$$
+entonces
+$$
+P(X_1=x_l)=P(X_2=x_l)=\cdots=P(X_m=x_l)=P(X=x_l)
+$$
+
+Si la hipótesis nula es cierta, podemos estimar $P(X=x_l)$ a partir de la muestra global como $n_{l,\bullet}/n$. Por lo tanto, si la hipótesis nula fuera cierta, para cada $i=1,\ldots,m$, la frecuencia esperada del valor $x_l$ en la muestra de $X_i$ sería 
+$$
+P(X_i=x_l)\cdot n_{\bullet,i}=P(X=x_l)\cdot n_{\bullet,i}=\frac{n_{l,\bullet}\cdot n_{\bullet,i}}{n}
+$$
+
+Y resulta que podemos comparar las frecuencias que hemos observado, $n_{i,l}$, con estas frecuencias esperadas si la hipótesis nula fuera cierta usando un estadístico $\chi^2$ como el de los contrastes de bondad de ajuste:
+
+```{theorem}
+Con las notaciones anteriores, si
+
+* $n$ es grande (digamos que $n\geqslant  30$)
+
+* **Regla de Cochran**: cada frecuencia esperada $(n_{l,\bullet}\cdot n_{\bullet,i})/n$ es  $\geqslant 5$
+  
+entonces 
+$$
+\chi^2=\sum_{i=1}^m\sum\limits_{l=1}^k \frac{ \left( n_{ij}- \frac{n_{l,\bullet}\cdot n_{\bullet,i}}{n}\right)^2 } {\frac{n_{l,\bullet}\cdot n_{\bullet,i}}{n}}
+$$
+tiene distribución aproximadamente $\chi_{(m-1)(k-1))}^2$.
+```
+
+```{block2,type="rmdimportant"}
+Mirad el número de grados de libertad: número de filas menos 1 por número de columnas menos 1. 
+```
+
+
+Volvemos a nuestro ejemplo. Las probabilidades estimadas de la variable $X$ definida por el tipo de parto son:
+$$
+\begin{array}{r|cc}
+\textbf{Tipo} & \textbf{Prob. estimada}\\ \hline
+\text{Eutócico}       &  634/1000=0.634\\
+\text{Instrumental} &  107/1000=0.107\\
+\text{Cesárea programada} &  101/1000=0.101\\
+\text{Cesárea urgente}    &  158/1000=0.158
+\end{array}
+$$
+y la tabla de frecuencias esperadas será
+
+$$
+\begin{array}{c}
+\begin{array}{r|ccc}
+& \text{Asintomática} & \text{Leve} & \text{Grave} \\ \hline
+\text{Eutócico}       &  \frac{453\cdot 634}{1000} &   \frac{381\cdot 634}{1000}   &       \frac{166\cdot 634}{1000} \\
+ \text{Instrumental} &   \frac{453\cdot 107}{1000}   &       \frac{381\cdot 107}{1000}    &       \frac{166\cdot 107}{1000} \\
+\text{Cesárea programada} &   \frac{453\cdot 101}{1000}    &       \frac{381\cdot 101}{1000}   &       \frac{166\cdot 101}{1000}\\
+\text{Cesárea urgente}    &  \frac{453\cdot 158}{1000}   &       \frac{381\cdot 158}{1000}   &       \frac{166\cdot 158}{1000}
+\end{array}\\
+\downarrow\\
+\begin{array}{r|ccc}
+& \text{Asintomática} & \text{Leve} & \text{Grave} \\ \hline
+\text{Eutócico}       &  287.202   & 241.554   & 105.244 \\
+ \text{Instrumental} &   48.471   &  40.767    & 17.762 \\
+\text{Cesárea programada} &  45.753   &  38.481   &  16.766\\
+\text{Cesárea urgente}    & 71.574   &  60.198    & 26.228
+\end{array}
+\end{array}
+$$
+
+El valor del estadístico de contraste es
+$$
+\begin{array}{rl}
+\chi^2 &\displaystyle =\frac{(305-287.202)^2}{287.202}+\frac{(234-241.554)^2}{241.554}+\frac{(95-105.224)^2}{105.224}+\frac{(48-48.471)^2}{48.471}+\cdots\\ &
+=22.357
+\end{array}
+$$
+El número de grados de libertad de la $\chi^2$ con la que tenemos que calcular el p-valor es $(4-1)\cdot (3-1)=6$. Por lo tanto el p-valor es $P(\chi^2_6\geqslant 22.357)=0.001$.
+
+Hemos obtenido evidencia estadística de que las distribuciones de tipos de parto en los tres grupos sintomáticos de COVID-19 en embarazadas no son la misma. Esto se suele abreviar diciendo que hemos encontrado evidencia estadística **de asociación** entre el tipo de parto y el grupo sintomático de la embarazada.
+
+
+En JAMOVI este test está implementado en la pestaña **Frecuencias/Muestras independientes (Prueba de asociación de $\chi^2$)**. Se puede aplicar a una tabla de datos con los datos originales o a unas variables en las que hayamos entrado las frecuencias observadas. Vamos a hacerlo de esta última manera. En primer lugar, definimos tres variables: `Tipo`, con los tipos de parto, `Síntomas`, con el grupo sintomático, y `Frecuencias`, con las frecuencias observadas. Las dos primeras variables tienen que estar definidas de manera que formen cada par (Tipo,Grupo sintomático) y la tercera tiene que valer la frecuencia observada de dicho par.
+
+
+```{r JAMOVI.ji2ind.1, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2ind.1.png")
+```
+
+A continuación, en **Frecuencias/Muestras independientes (Prueba de asociación de $\chi^2$)** seleccionamos como "Filas" y "Columnas" las variables `Tipo` y `Síntomas` y como "Frecuencias" la variable `Frecuencias`. Si además marcamos en **Celdas** la casilla de "Frecuencias esperadas" obtendremos las frecuencias esperadas y en particular podremos comprobar si se cumple la regla de Cochran y por lo tanto tiene sentido usar el test $\chi^2$.
+
+
+
+```{r JAMOVI.ji2ind.2, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2ind.2.png")
+```
+
+```{block2,type="rmdnote"}
+Por la fórmula que las calcula, la frecuencia esperada más pequeña va a ser la correspondiente a la fila de suma mínima y la columna de suma mínima, e igual al producto de estas dos sumas dividido por el tamaño total de la muestra. Si esta frecuencia esperada mínima es $\geqslant 5$, el resto también lo serán y se cumplirá la regla de Cochran.
+
+En nuestro ejemplo, la fila de suma mínima es la de las cesáreas programadas y la columna de suma mínima es la de las infectadas graves: la frecuencia esperada mínima es 166·101/1000=16.766, mayor que 5.
+
+
+```
+
+
+
+Veamos otro ejemplo, en este caso de comparación de proporciones.
+
+```{example}
+Para estudiar si hay asociación en los niños entre el hábito tabáquico y la tos nocturna, se tomó una muestra de  2847 niños de 12 años y se obtuvo la siguiente información:
+```
+
+$$
+\begin{array}{c}
+\qquad\qquad\qquad\qquad\textbf{Hábito tabáquico}\\
+\begin{array}{lc|ccc|c}
+ & & \text{No fumador} &  \text{Ocasional} &  \text{Regular} &  \text{Total} \\\hline
+\textbf{Tos} &\text{Sí} & 266 & 395 & 80 & 741\\
+\textbf{nocturna} &\text{No}& 1037 & 977 & 92 & 2106\\\hline
+&\text{Total} &1303 & 1372 & 172 & 2847\\
+\end{array}
+\end{array}
+$$
+
+Llamemos $p_n$, $p_o$ y $p_r$ a las probabilidades de que tenga tos nocturna un niño no fumador, un niño fumador ocasional y un niño fumador regular, respectivamente. Queremos realizar el contraste
+$$
+\left\{\begin{array}{ll}
+H_0:\ p_n=p_o=p_r\\
+H_1:\text{ No es cierto que $p_n=p_o=p_r$}
+\end{array}
+\right.
+$$
+
+Si llamamos $X_n$ a la variable aleatoria de Bernoulli que toma un niño no fumador y da 1 si tiene tos nocturna y 0 si no, y $X_o,X_r$ a las variables aleatorias similares para niños fumadores ocasionales y regulares, respectivamente, el contraste planteado es equivalente a
+$$
+\left\{\begin{array}{ll}
+H_0:\text{ $X_n,X_o,X_r$ tienen la misma distribución de probabilidad}\\
+H_1:\text{ No es cierto que $X_n,X_o,X_r$ tengan la misma distribución de probabilidad}
+\end{array}
+\right.
+$$
+
+La muestra es muy grande, pero para poder usar un test $\chi^2$ tenemos que confirmar que la frecuencia esperada mínima es $\geqslant 5$. La frecuencia esperada mínima será el producte de la suma mínima de una fila por la suma mínima de una columna, dividido por el tamaño de la muestra: 172·741/2847=44.767. Por lo tanto todas las frecuencias esperadas serán mayores que esta, y en particular mayores que 5. 
+
+Entramos la tabla de frecuencias observadas en JAMOVI:
+
+
+
+```{r JAMOVI.ji2ind.3, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2ind.3.png")
+```
+
+y efectuamos el test:
+
+
+```{r JAMOVI.ji2ind.4, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2ind.4.png")
+```
+
+Como el p-valor es menor que 0.001, hemos obtenido evidencia estadística  de asociación  entre la tos nocturna y el hápito tabáquico en niños.
+
+De nuevo, si el tamaño de la muestra no es lo bastante grande o si no se cumple la regla de Cochran, se puede usar la versión MonteCarlo. Por ejemplo, imaginad que la muestra de niños del ejemplo anterior hubiera sido 10 veces más pequeña, de tamaño 285, y las frecuencias hubieran sido las originales divididas por 10:
+
+$$
+\begin{array}{c}
+\qquad\qquad\qquad\qquad\textbf{Hábito tabáquico}\\[-1ex]
+\begin{array}{lc|ccc|c}
+ & & \text{No fumador} &  \text{Ocasional} &  \text{Regular} &  \text{Total} \\\hline
+\textbf{Tos} &\text{Sí} & 27 & 39 & 8 & 74\\
+\textbf{nocturna} &\text{No}& 104 & 98 & 9 & 211\\\hline
+&\text{Total} &131 & 137 & 17 & 285\\
+\end{array}
+\end{array}
+$$
+
+Si las probabilidades de tos nocturna en los tres grupos de hábito tabáquico  fueran las mismas, la menor frecuencia esperada sería 17·74/285=4.41, y no se podría usar el test $\chi^2$ tal cual.
+Para usar el test MonteCarlo:
+
+1. Definimos una matriz con la tabla de frecuencias (la función `r`bind` define una matriz con filas las que le entramos)
+
+```{r}
+Obs=rbind(c(27, 39, 8), c(104, 98, 9))
+```
+
+2. Ejecutamos la función siguiente:
+
+```{r,eval=FALSE}
+chisq.test(Obs, simulate.p.value=TRUE, B=5000)
+```
+
+```{r JAMOVI.ji2ind.MCF, echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.ji2ind.MCF.png")
+```
+
+Como el p-valor es 0.04, volvemos a obtener evidencia estadística  de asociación  entre la tos nocturna y el hápito tabáquico en niños.
+
+
+## Contrastes de correlación
+
+Imaginad que queremos estudiar si el consumo de  frutos secos se asocia a una disminución del nivel de colesterol. Una posibilidad es plantear la pregunta *¿Consumir habitualmente frutos secos reduce el nivel medio de colesterol?*. Para responder esta pregunta, tomaríamos una muestra grande de individuos y de cada uno de ellos anotaríamos su nivel de colesterol y si come frutos secos habitualmente o no.  Entonces, con estos datos, podríamos efectuar un contraste de dos medias con muestras independientes.
+
+Pero también podríamos plantear la pregunta  *¿Cuanto más frutos secos se comen, menos colesterol se tiene?*. Tomaríamos una muestra grande de individuos y de cada uno de ellos anotaríamos su nivel de colesterol y la cantidad de frutos secos que come en una semana.  ¿Y ahora qué?
+
+Recordad de la lección de Estadística descriptiva de datos continuos que dados los valores de dos variables medidas sobre una misma muestra de sujetos, podíamos medir la tendencia a crecer, o decrecer, conjuntamente de estos dos conjuntos de valores mediante su **correlación**, bien de Pearson o de Spearman. Resulta que la correlación de Pearson de los valores de dos variables medidas sobre una misma muestra de sujetos estima la **correlación poblacional** de estas variables, y que el signo de esta correlación sirve para determinar si, a nivel poblacional, las dos variables tienden a crecer o a decrecer conjuntamente (y su valor absoluto mide la tendencia a hacerlo de manera lineal). En particular, podremos usar la correlación dos muestras emparejadas para contrastar si las variables poblacionales tienen tendencia a  crecer o decrecer conjuntamente o si, por el contrario, el comportamiento de una no tienen nada que ver con el de la otra.
+
+Hay que introducir algunos conceptos para poder fijar exactamente de qué estamos hablando. 
+Sean $X,Y$ dos variables aleatorias, de medias $\mu_X,\mu_Y$ y desviaciones típicas $\sigma_X,\sigma_Y$, definidas sobre una misma población.
+
+La **covarianza** de $X$ y $Y$ es
+$$
+\sigma_{X,Y}=E((X-\mu_X)\cdot ( Y-\mu_Y)) = E(X\cdot Y) -\mu_X\cdot \mu_Y
+$$
+Si $X,Y$ son discretas,
+$$
+\sigma_{X,Y}=\sum_{x,y} x\cdot y\cdot P(X=x,Y=y) -\Big(\sum_{x} x\cdot P(X=x)\Big)\Big(\sum_{y} y\cdot P(Y=y)\Big)
+$$
+
+```{example}
+Sea $X$ la variable que cuenta el número de caras al lanzar 2 veces una moneda equilibrada e 
+$Y$ la variable de Bernoulli que vale 1 si al lanzar 2 veces una moneda equilibrada dan el mismo resultado, y 0 si no.
+```
+
+$$
+\begin{array}{c|c|c}
+\text{Resultado} & X & Y\\ \hline
+\text{Cara-Cara} & 2 & 1\\
+\text{Cara-Cruz} & 1& 0\\
+\text{Cruz-Cara} & 1& 0\\
+\text{Cruz-Cruz} & 0& 1
+\end{array}
+$$
+Calculemos las probabilidades involucradas en el cálculo de $\sigma_{X,Y}$:
+
+* $P(X=0)=0.25$, $P(X=1)=0.5$, $P(X=2)=0.25$
+
+* $P(Y=0)=0.5$, $P(Y=1)=0.5$
+
+* $P(X=2,Y=1)=0.25$, $P(X=1,Y=0)=0.5$, $P(X=0,Y=1)=0.25$, $P(X=2,Y=0)=P(X=1,Y=1)=P(X=0,Y=0)=0$
+
+Entonces
+* $\mu_X=\sum_{x} x\cdot P(X=x)=0\cdot 0.25+1\cdot 0.5+2\cdot 0.25=1$
+
+* $\mu_Y=\sum_{y} y\cdot P(Y=y)=0\cdot 0.5+1\cdot 0.5=0.5$
+
+* $E(X\cdot Y)=\sum_{x,y} x\cdot y\cdot P(X=x,Y=y)=2\cdot 1\cdot 0.25+1\cdot 0\cdot 0.5+0\cdot 1\cdot 0.25=0.5$
+
+y finalmente
+$$
+\sigma_{X,Y}=E(X\cdot Y) -\mu_X\cdot \mu_Y=0.5-1\cdot 0.5=0
+$$
+
+
+La covarianza de $X$ y $Y$ tiene las mismas propiedades para toda la población que la covarianza de dos muestras.  
+
+1. $\sigma_{X,Y}$ mide la *tendencia al crecimiento conjunto* de $X,Y$
+
+    * $\sigma_{X,Y}>0$ significa que
+
+        * Cuando $X$ es más *grande* en individuo 1 que en individuo 2, $Y$ tiende a ser más *grande* en individuo 1 que en individuo 2
+
+        * Cuando $X$ es más *pequeño* en individuo 1 que en individuo 2, $Y$ tiende a ser más *pequeño* en individuo 1 que en individuo 2 
+
+    * $\sigma_{X,Y}<0$ significa que
+
+        * Cuando $X$ es más *grande* en individuo 1 que en individuo 2, $Y$ tiende a ser más*pequeño* en individuo 1 que en individuo 2
+
+        * Cuando $X$ es más *pequeño* en individuo 1 que en individuo 2, $Y$ tiende a ser más *grande* en individuo 1 que en individuo 2 
+
+    *  $\sigma_{X,Y}=0$ significa que no hay ninguna tendencia en este sentido
+
+* Las unidades son las de $X$ por las de $Y$
+
+* La covarianza es simétrica: $\sigma_{X,Y}=\sigma_{Y,X}$
+
+* La covarianza de una variable consigo misma es si varianza: $\sigma_{X,X}=\sigma^2_X$
+
+* Si $X$ y $Y$ son independientes, $\sigma_{X,Y}=0$
+
+* Pero $\sigma_{X,Y}=0$ no implica que $X$ y $Y$ sean independientes.
+
+     Por ejemplo, las variables $X,Y$ del ejemplo anterior tienen $\sigma_{X,Y}=0$ pero no son independientes porque
+$$
+P(X=1,Y=1)=0,\ P(X=1)\cdot P(Y=1)=0.5\cdot 0.5=0.25
+$$
+
+$\sigma_{X,Y}$ mide la "tendencia al crecimiento conjunto" de $X,Y$, y el signo es fácil de interpretar, pero el valor absoluto no
+
+La **correlación** (o **coeficiente de correlación lineal de Pearson**) de $X,Y$ es
+$$
+\rho_{X,Y}=\frac{\sigma_{X,Y}}{\sigma_{X}\cdot \sigma_{Y}}
+$$
+
+De nuevo, sus propiedades son las de la correlación de Pearson de muestras, pero ahora para toda la población:
+
+* $\rho_{X,Y}$ no tiene unidades 
+
+* $\rho_{X,Y}=\rho_{Y,X}$ 
+
+* $\rho_{X,X}=1$
+
+* $\rho_{X,Y}=0 \Longleftrightarrow \sigma_{X,Y}=0$
+
+    Por lo tanto
+    
+    * Si $X$ y $Y$ son independientes, $\rho_{X,Y}=0$
+    * Pero $\rho_{X,Y}=0$ no implica que $X$ y $Y$ sean independientes
+    
+    Se dice que dos variables $X,Y$ son **incorreladas** cuando $\rho_{X,Y}=0$
+
+* $-1\leq \rho_{X,Y}\leq 1$
+
+* $\rho_{X,Y}=\pm 1$ si, y solo si, $Y=a X+b$. La pendiente $a$ de esta recta tiene el mismo signo que $\rho_{X,Y}$. 
+
+
+* Cuanto más se acerca $|\rho_{X,Y}|$ a 1, más se acerca $Y$ a ser función lineal de $X$
+
+    * Si $\rho_{X,Y}>0$, la dependencia lineal es creciente
+    * Si $\rho_{X,Y}<0$, la dependencia lineal es decreciente
+
+
+
+```{block2,type="rmdimportant"}
+La  correlación de Pearson mide la tendencia de dos variables a variar conjuntamente de manera lineal. **No** mide
+que el aumento de una variable implique o sea la causa del crecimiento o decrecimiento de la otra.
+```
+
+Un ejemplo, que además es importante tener siempre en cuenta:
+
+```{theorem}
+Si $X_1,X_2$ son dos copias independientes de una misma variable aleatoria $X$,
+$$
+\rho_{X_1,X_2-X_1}=-\frac{1}{\sqrt{2}}\approx -0.71
+$$
+```
+
+Por lo tanto, $X_2-X_1$ decrece "bastante" linealmente en $X_1$. Por ejemplo, suponed que un día hacéis un test (su nota es $X_1$) y que al día siguiente  hacéis otro test  (su nota será $X_2$) de dificultad similar y sin haber estudiado más.
+
+* Si sacáis una nota baja en $X_1$, lo más probable es que $X_2-X_1$ sea grande (positivo) y por lo tanto $X_2$ sea más alta
+
+* Si sacáis una nota alta en $X_1$, lo más probable es que $X_2-X_1$ sea pequeño (negativo) y por lo tanto $X_2$ sea más baja
+
+```{example}
+Sea $X$ el resultado de lanzar un dado de 4 caras, y sean $X_1,X_2$ dos copias independientes de $X$, es decir, los resultados de lanzar dos veces consecutivas el dado.
+```
+
+$$
+\begin{array}{c|cccc}
+X_1\backslash X_2& 1 & 2 & 3 & 4\\\hline
+1 & X_1=1 & X_1=1 & X_1=1 & X_1=1\\
+& X_2\!-\!X_1=0& X_2\!-\!X_1=1& X_2\!-\!X_1=2& X_2\!-\!X_1=3\\\hline
+2 & X_1=2& X_1=2& X_1=2& X_1=2\\
+& X_2\!-\!X_1=\!-\!1& X_2\!-\!X_1=0& X_2\!-\!X_1=1& X_2\!-\!X_1=2\\\hline
+3 & X_1=3& X_1=3& X_1=3& X_1=3\\
+& X_2\!-\!X_1=\!-\!2& X_2\!-\!X_1=\!-\!1& X_2\!-\!X_1=0& X_2\!-\!X_1=1\\\hline
+4& X_1=4& X_1=4& X_1=4& X_1=4\\
+& X_2\!-\!X_1=\!-\!3& X_2\!-\!X_1=\!-\!2& X_2\!-\!X_1=\!-\!1& X_2\!-\!X_1=0\\\hline
+\end{array}
+$$
+
+**Dibuixar´ho RplotCorDaus
+
+```{block2,type="rmdcorbes"}
+Por si alguien necesita la demostración del teorema anterior, aquí va. Es pura manipulación algebraica recordando que la covarianza de dos variables independientes es 0. Por definición,
+$$
+\rho_{X_1,X_2-X_1}=\dfrac{\sigma_{X_1,X_2-X_1}}{\sigma_{X_1}\sigma_{X_2-X_1}}
+$$
+donde
+$$
+\begin{array}{l}
+\sigma_{X_2-X_1}=\sqrt{\sigma^2_{X_2-X_1}}\\[2ex]
+\quad =\sqrt{\sigma^2_{X_2}+\sigma^2_{X_1}}\ \text{(porque son independientes)}\\[2ex]
+\quad =\sqrt{\sigma^2_{X}+\sigma^2_{X}}\ \text{(porque $X_1,X_2$ son copias de $X$)}\\[2ex]
+\quad =\sqrt{2\sigma^2_{X}}=\sigma_{X}\sqrt{2}
+\end{array}
+$$
+y
+$$
+\begin{array}{l}
+\sigma_{X_1,X_2-X_1}=E(X_1(X_2-X_1))-E(X_1)E(X_2-X_1)\\[1ex]
+\quad =E(X_1X_2-X_1^2)-E(X_1)(E(X_2)-E(X_1))\\[1ex]
+\quad =E(X_1X_2)-E(X_1^2)-E(X_1)E(X_2)+E(X_1)E(X_1)\\[1ex]
+\quad =E(X_1)E(X_2)-E(X_1^2)-E(X_1)E(X_2)+E(X_1)E(X_1)\\[1ex]
+\quad \text{(porque son independientes)}\\[1ex]
+\quad =-E(X_1^2)+E(X_1)E(X_1)=-\sigma^2_{X_1}=-\sigma^2_{X}
+\end{array}
+$$
+de donde
+$$
+\rho_{X_1,X_2-X_1}=\dfrac{\sigma_{X_1,X_2-X_1}}{\sigma_{X_1}\sigma_{X_2-X_1}}=\dfrac{-\sigma^2_{X}}{\sigma_{X}\cdot \sigma_{X}\sqrt{2}} =-\frac{1}{\sqrt{2}}
+$$
+```
+Un **contraste de correlación** de dos variables aleatorias $X,Y$ es un contraste de la forma
+$$
+\left\{
+\begin{array}{ll}
+H_0: & \rho_{X,Y}=0\\
+H_1: & \rho_{X,Y}> 0\text{ o }\rho_{X,Y}< 0\text{ o }\rho_{X,Y}\neq 0
+\end{array}
+\right.
+$$
+Si rechazamos $H_0$, en particular rechazamos que $X$ e $Y$ sean independientes
+
+**Ejemplo**
 
