@@ -37,7 +37,7 @@ lo que significa es que
 
 > "Si tomamos la población formada por todos los posibles lanzamientos de todas las posibles monedas equilibradas, en la mitad de estos lanzamientos el resultado es Cara."
 
-Los sujetos de esta población son todos los "posibles" lanzamientos de monedas equilibradas, los que se han realizado a lo largo de la historia, los que se realizarán en el futuro, y los que se podrían haber realizado o se podrían realizar en el futuro pero en realidad no han tenido lugar ni se efectuarán.
+Los sujetos de esta población son todos los "posibles" lanzamientos de monedas equilibradas, los que se han realizado a lo largo de la historia, los que se realizarán en el futuro, y los que se podrían haber realizado o se podrían realizar en el futuro pero en realidad no han tenido lugar ni lo tendrán.
 
 
 Otro ejemplo. Imaginad que comparamos las notas que (vosotros, estudiantes de primer curso del grado de Medicina de la UIB de este año académico) sacáis en dos cuestionarios diferentes sobre un mismo tema, uno sobre conceptos y el otro de cálculos, y que en el primero obtenéis una nota media mucho mayor que en el segundo. Usamos este dato para inferir que los estudiantes de primer curso de Medicina sacan de media mejor nota en tests de conceptos que en tests calculísticos. ¿Quiénes son estos "estudiantes de primer curso de Medicina"?  ¿Sobre qué población "inferimos" información a partir de este resultado? 
@@ -68,7 +68,7 @@ Una serie de 10 lanzamientos de una moneda equilibrada concreta es una muestra d
 
 * Sois una población cuando lo que nos interesa es saber algo sobre **vosotros** y solo sobre vosotros. 
 
-* Sois una muestra si a partir de información sobre vosotros miramos de inferir información sobre **un grupo más grande de sujetos**:
+* Sois una muestra si a partir de información sobre vosotros queremos inferir información sobre **un grupo más grande de sujetos**:
   
     * Sobre los estudiantes de primer curso de Medicina en España
     * Sobre los estudiantes de la UIB de este curso
@@ -82,7 +82,7 @@ Una serie de 10 lanzamientos de una moneda equilibrada concreta es una muestra d
 
 
 ```{block2,type="rmdrecordau"}
-Procurad tener siempre presente que, por mucho cuidado que pongamos en obtener una muestra de una población, nunca será nada más que una aproximación imperfecta de esta.
+Procurad tener siempre presente que, por mucho cuidado que pongamos en obtener una muestra de una población, nunca será nada más que una aproximación imperfecta de ella.
 ```
 
 
@@ -107,7 +107,7 @@ A la hora de determinar la validez de un estudio, es muy importante comparar la 
 knitr::include_graphics("INREMDN_files/figure-html/muestra.png")
 ```
 
-En la mayoría de las ocasiones, la población muestreada será un subconjunto de la población objetivo definido por una serie de restricciones, pero puede no serlo: pensad, por ejemplo, en los estudios ecológicos, donde la población objetivo son individuos y la población muestreada son grupos de individuos.
+En la mayoría de las ocasiones, la población muestreada será un subconjunto de la población objetivo definido por una serie de restricciones, pero puede no serlo: pensad de nuevo en los estudios ecológicos, donde la población objetivo son individuos y la población muestreada son grupos de individuos.
 
 ```{example,tuberculosisrusia}
 Dad un vistazo al artículo ["Risk factors for pulmonary tuberculosis in Russia: case-control study"](https://www.bmj.com/content/332/7533/85.short)
@@ -135,9 +135,9 @@ Para conocer la opinión de sus lectores sobre la familia real española, una co
 * La **población muestreada** es la formada por los lectores  de esta revista con acceso a Internet el año en que se realizó la encuesta. 
 * La **muestra** es el grupo de personas concretas que voluntariamente respondieron la encuesta.
 
-En el Ejemplo \@ref(exm:tuberculosisrusia), puede que la población muestreada no fuera representativa de **toda** Rusia. Los habitantes de Samara, una de las ciudades más pobladas de Rusia, a unos 1500 km al sudeste de Moscú, ¿son representativos de los habitantes de una aldea perdida en mitad de la nada siberiana? Pues no lo sabemos, pero creemos que no. Además, la muestra de casos tampoco representa el colectivo de tuberculosos de Samara, puesto que solo se reclutaron los que reunían las condiciones para un tratamiento concreto (los tuberculosos con frotis bucal negativo a veces no se incluyen en un programa DOTS).
+En el Ejemplo \@ref(exm:tuberculosisrusia), puede que la población muestreada no fuera representativa de **toda** Rusia. Los habitantes de Samara, una de las ciudades más pobladas de Rusia, a unos 1500 km al sudeste de Moscú, ¿son representativos de los habitantes de una aldea perdida en mitad de la nada siberiana? Pues no lo sabemos, pero creemos que no. Además, la muestra de casos tampoco representa el colectivo de tuberculosos de Samara, puesto que solo se reclutaron los que reunían las condiciones para un tratamiento concreto (no se suele incluir los tuberculosos con frotis bucal negativo  en programas DOTS).
 
-En el Ejemplo \@ref(exm:Hola) está más claro que la población muestreada no es representativa de la población objetivo: seguramente excluye, por ejemplo, los lectores ancianos o los de zonas rurales con acceso difícil a Internet. Además, la muestra es aún más restrictiva, ya que los participantes fueron voluntarios, y sus características pueden ser diferentes de las de los lectores que prefirieron no opinar sobre este tema (nunca se sabe si el CNI vigila...)  o de las de los lectores que nunca responden encuestas.
+En el Ejemplo \@ref(exm:Hola) está más claro que la población muestreada no es representativa de la población objetivo: seguramente excluye, por ejemplo, los lectores ancianos o los de zonas rurales con acceso difícil a Internet. Además, la muestra es aún más restrictiva, ya que los participantes fueron voluntarios, y sus características pueden ser diferentes de las de los lectores que prefirieron no opinar sobre este tema (nunca se sabe si el CNI vigila...)  o de los lectores que nunca responden encuestas.
 
 
 Si la población muestreada no es representativa de la población objetivo, los resultados del estudio no tienen por qué poderse generalizar a esta última: diremos entonces  que se ha dado un **sesgo de falta de  representatividad**. Hablaremos sobre sesgos en la Sección \@ref(sec:sesgos).
@@ -189,7 +189,7 @@ Pero al menos hemos hecho "lo que todo el mundo considera que es lo que hay que 
 knitr::include_graphics("INREMDN_files/figure-html/randomgen.png")
 ```
 
-* Se pueden usar técnicas estadísticas que  permiten acotar errores en la estimación y su probabilidad; por ejemplo, que permite calcular la probabilidad de que nuestra muestra sea súper rara en algún sentido concreto.
+* Se pueden usar técnicas estadísticas que  permiten acotar errores en la estimación y su probabilidad; por ejemplo, podremos calcular la probabilidad de que nuestra muestra sea súper rara en algún sentido concreto.
 
 ```{example}
 Para probar el guiso, antes de tomar una cucharada lo removemos bien. De este modo esperamos que las moléculas del caldo se organicen de manera aleatoria dentro de la olla y que la cucharada que tomemos sea representativa del guiso.
@@ -238,7 +238,7 @@ Ya daremos el detalle de cómo se calculan todas estas probabilidades en el tema
 
 Esto nos permite considerar que, cuando la población es mucho más grande que la muestra,  los muestreos aleatorios con y sin reposición son **equivalentes** en el sentido siguiente: puesto que si la población es muy, muy grande, una muestra aleatoria con reposición tendría casi seguro  todos los elementos diferentes, podemos tomar directamente la muestra sin reposición y aceptar que permitíamos repeticiones, pero que no se han dado y que por tanto la muestra es simple. 
 
-* Una muestra aleatoria de 100 individuos diferentes de las Baleares, o de 10 estudiantes diferentes de la UIB, puede pasar perfectamente por una muestra simple, porque aunque  permitiéramos repeticiones, sería muy raro que las hubiera.
+* Una muestra aleatoria de 100 individuos diferentes de las Baleares, o de 10 estudiantes diferentes de la UIB, puede pasar perfectamente por una muestra aleatoria simple, porque aunque  permitiéramos repeticiones, sería muy raro que las hubiera.
 
 * Pero en cambio ya es difícil de creer que una muestra aleatoria de 100 estudiantes diferentes de la UIB haya sido tomada permitiendo repeticiones, porque de media en una de cada tres muestras tomadas permitiendo repeticiones nos saldría alguna repetición.
 
@@ -260,18 +260,28 @@ donde:
 
 * el parámetro `replace` puede igualarse a `TRUE`, y será una muestra aleatoria con reposición, es decir, simple, o a `FALSE`, y será una muestra aleatoria sin reposición. Si no se especifica este parámetro, R entiende que ha de tomar la muestra sin reposición.
 
-Así, por ejemplo, para obtener una muestra aleatoria simple de 15 números elegidos entre 1 y 100, podemos entrar:
+```{block2,type="rmdnote"}
+Podéis ejecutar las funciones de R que iremos dando en estas notas en la ventana del editor de R de JAMOVI. Para tener acceso a ella, tenéis que instalar el módulo **Rj** (pulsando en el signo + de la esquina superior derecha de la ventana de JAMOVI y navegando entre las diferentes opciones).
+```
+
+
+
+```{r jamoviR1,echo=FALSE,out.width="100%", fig.cap="La ventana de edición de R" }
+knitr::include_graphics("INREMDN_files/figure-html/jamoviR1.png")
+```
+    
+
+Así, por ejemplo, para obtener una muestra aleatoria simple de 15 números elegidos entre 1 y 100, podemos entrar:^[Cuando damos código de R en el texto y su resultado, este va precedido de `##`; si hubiéramos ejecutado la instrucción de R en la ventana del editor de R de JAMOVI, el resultado aparecería en la ventana de resultados a la derecha. Cuando el resultado es un vector, como en este caso, R comienza cada línea del resultado con un número entre corchetes [ ]. No lo tengáis en cuenta. Este número indica la posición de la primera entrada de esa línea dentro del vector que forma el resultado. Así, la primera fila siempre empieza con [1].]
 
 ```{r} 
 sample(100,15,replace=TRUE)
 ```
 
-Naturalmente, cada ejecución de `sample` con los mismos parámetros puede dar (y seguramente dé) lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer:
+Naturalmente, cada ejecución de `sample` con los mismos parámetros puede dar (y seguramente dé) lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer. Aquí tenéis tres ejecuciones consecutivas de la instrucción anterior en la ventana del editor de R de JAMOVI:
 
-```{r} 
-sample(100,15,replace=TRUE)
-sample(100,15,replace=TRUE)
-sample(100,15,replace=TRUE)
+
+```{r jamovisample1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.sample.1.png")
 ```
 
 
@@ -311,7 +321,7 @@ knitr::include_graphics("INREMDN_files/figure-html/sistv.png")
 Cuando no disponemos de una lista de toda la población pero sí que tenemos una manera de acceder de manera ordenada a sujetos de la misma (por ejemplo, enfermos que acuden a un hospital), podemos realizar un muestreo sistemático tomando los sujetos a intervalos constantes a medida que los encontramos y hasta completar el tamaño deseado de la muestra. Por ejemplo, para escoger una muestra de 10 pacientes que hayan acudido a Urgencias por traumatismos en la cabeza, podríamos escoger pacientes a intervalos regulares de entre los que acudieran a Urgencias por este motivo  hasta llegar a los 10.
 
 ```{block2,type="rmdnote"}
-Si la lista de la población está ordenada al azar, o si los sujetos que vamos tomando a intervalos regulares nos aparecen al azar, el resultado del muestreo sistemático es equivalente a una muestra aleatoria sin reposición.
+Si la lista de la población está ordenada al azar y la población es muy grande (tanto que con el muestreo sistemático no llegamos al final de la lista para tener que volver a empezar), o si los sujetos que vamos tomando a intervalos regulares nos aparecen al azar, el resultado del muestreo sistemático es equivalente a una muestra aleatoria sin reposición.
 ```
 
    
@@ -337,7 +347,7 @@ Por ejemplo, los estratos podrían ser grupos de edad y podríamos tomar la mues
 
 
 ```{block2,type="rmdnote"}
-Cuando en un estudio de casos y controles escogemos un grupo de casos y uno de controles de tamaños prefijados, o  cuando en un estudio de cohorte escogemos un grupo de expuestos y uno de no expuestos de tamaños prefijados, se trata de una muestra estratificada, aunque no siempre será aleatoria.
+Cuando en un estudio de casos y controles escogemos un grupo de casos y uno de controles de tamaños prefijados, o  cuando en un estudio de cohorte escogemos un grupo de expuestos y uno de no expuestos de tamaños prefijados, se trata de una muestra estratificada.
 ```
 
 Para continuar con nuestra urna de 100 bolas, supongamos que contiene 40 bolas de un color y 60 de otro color según muestra la Figura \@ref(fig:estratprevi).
@@ -412,7 +422,7 @@ knitr::include_graphics("INREMDN_files/figure-html/cluster.png")
 
 A menudo una vez elegidos los clústers no se toman todos los sujetos de los mismos, sino una muestra aleatoria de cada uno. Esto ya sería un ejemplo de muestreo **polietápico** (Sección \@ref(sec:poli)).
 
-El muestreo por conglomerados se suele elegir por ser rápido de realizar, pero puede tener un inconveniente: puede que los sujetos de cada clúster  tiendan a parecerse los unos a los otros,  lo que puede sesgar la muestra. Cuando este método de muestreo es más efectivo es cuando se espera que los clústers sean heterogéneos en este sentido. En nuestro ejemplo de los niños de primaria de las Baleares, es más creíble que las clases sean heterogéneas por lo que refiere a la miopía que en lo referente a comportamientos en los que influya la pertenencia a un grupo, por ejemplo la series de TV preferidas.
+El muestreo por conglomerados se suele elegir por ser rápido de realizar, pero puede tener un inconveniente: puede que los sujetos de cada clúster  tiendan a parecerse los unos a los otros,  lo que puede sesgar la muestra. Este método de muestreo es más efectivo cuando los clústers sean heterogéneos en este sentido. En nuestro ejemplo de los niños de primaria de las Baleares, es más creíble que las clases sean heterogéneas por lo que refiere a la miopía que en lo referente a comportamientos en los que influya la pertenencia a un grupo social, por ejemplo la series de TV preferidas.
 
 
 ```{block2,type="rmdimportant"}
@@ -515,6 +525,10 @@ Si en un estudio transversal sobre hipertensión usamos un esfigmomanómetro que
 
 Los errores que pueden dar lugar a sesgos no se han de confundir con el error aleatorio inherente a las mediciones. Por ejemplo, no son sesgos los errores de medición debidos a la imprecisión del esfigmomanómetro, que mide la tensión redondeando a mm Hg, o a la variación natural de la presión arterial en un individuo a lo largo del día. La estadística nos proporciona herramientas para tratar el error aleatorio, pero las fuentes de sesgo se han de eliminar al diseñar el estudio o   detectarlas al leer un estudio para valorar la validez de sus conclusiones.
 
+```{block2,type="rmdnote"}
+Un sesgo es un error sistemático *que afecta las conclusiones*. Si no las afecta, no hay sesgo. Por ejemplo, supongamos que tenemos un esfigmomanómetro que sistemáticamente da un valor 2 mm Hg más alto que el real. Si lo usamos para comparar las tensiones medias de los estudiantes de Medicina y de los estudiantes de Informática, la conclusión va a ser la misma que si usamos un esfigmomanómetro bien calibrado. En efecto, el error de medida va a afectar los dos grupos por igual y al compararlos (por ejemplo, restándolos) se va a compensar.
+```
+
 Muchos autores han producido [listas larguísimas de tipos de sesgos](https://catalogofbias.org/biases/) que muestran la creatividad de los humanos a la hora de fastidiarla y de poner  nombres a las diferentes maneras de fastidiarla.  Aquí solo vamos a introducir algunos de los más comunes. [En este *url*](https://www.scientific-european-federation-osteopaths.org/los-sesgos/) encontraréis una lista algo más larga, aunque tampoco es exhaustiva.
 
 1. **Sesgo de selección**: Se produce cuando la muestra seleccionada no es representativa de la población objetivo. Por poner un ejemplo exagerado, sería el caso si quisiéramos saber la incidencia del cáncer de ovario en una comunidad y para ello tomáramos una muestra de solo hombres. 
@@ -525,7 +539,7 @@ Muchos autores han producido [listas larguísimas de tipos de sesgos](https://ca
      
          Por ejemplo, una muestra de hombres para estimar la incidencia del cáncer de ovario; o  una muestra de voluntarios que se ofrezcan para que les hagan unas pruebas dolorosas a cambio de una compensación económica.
          
-         Un ejemplo frecuente en medicina y con nombre propio (**sesgo de Berkson**) se produce cuando para estudiar la influencia de algunos factores de riesgo en una enfermedad, se toman tanto los casos como los controles entre pacientes hospitalizados.  Los pacientes hospitalizados tendrán unas patologías más severas que la población en general, y puede que ello se deba a que su exposición a factores de riesgo sea mayor que la de la población en general.
+         Un ejemplo frecuente en medicina y con nombre propio (**sesgo de Berkson**) se produce cuando para estudiar la influencia de algunos factores de riesgo en una enfermedad, se toman como controles pacientes hospitalizados.  Los pacientes hospitalizados tendrán unas patologías más severas que la población en general, y puede que ello se deba a que su exposición a factores de riesgo sea mayor que la de la población en general.
 
      b. **Sesgo de selección diferencial**: Cuando el sesgo de selección se da en unos grupos sí y en otros no, o cuando se da de manera diferente en los diferentes grupos. 
      
@@ -547,7 +561,7 @@ include_graphics2("http://es.xkcd.com/site_media/strips/survivorship_bias.png")
 
      a. **Sesgo de recuerdo**: En estudios en los que recojamos la información sobre exposición por medio de entrevistas o encuestas, existe la posibilidad de que algunos encuestados hayan olvidado información, o simplemente de que mientan en temas delicados. 
 
-     a. **Sesgo de recuerdo diferencial**: Es un caso particular del anterior. En estudios de casos y controles en los que recojamos la información sobre exposición por medio de entrevistas o encuestas, los casos tienen mayor tendencia a recordar su exposición a circunstancias que ellos asocien a la enfermedad que los controles. 
+     a. **Sesgo de recuerdo diferencial**: Es un caso particular del anterior, y se da cuando diferentes grupos de sujetos tienen diferente probabilidad de cometer errores en sus recuerdos (o de mentir). Por ejemplo, en estudios de casos y controles en los que se recoge la información sobre exposición por medio de entrevistas o encuestas, los casos tienen mayor tendencia a recordar su exposición a circunstancias que ellos asocien a la enfermedad que los controles. 
 
 
      c. **Sesgo de procedimiento**: Cuando el clínico analiza de manera diferente un grupo que otro. Se daría, por ejemplo, en un ensayo clínico si se llevara a cabo un seguimiento  más frecuente a los que toman un nuevo tratamiento que a los controles, por si presentan efectos secundarios inesperados.
@@ -556,9 +570,11 @@ include_graphics2("http://es.xkcd.com/site_media/strips/survivorship_bias.png")
      
          A modo de ejemplo, se daría un sesgo de detección si para saber si los sujetos de una muestra han tomado un medicamento, a algunos se les pasa una encuesta y a otros se les consulta el historial clínico. Sería diferencial si, además, por ejemplo, los primeros fueran los participantes sanos y los segundos los enfermos.
 
-     d. **Sesgo de atención**: Cuando los participantes en un estudio alteran su comportamiento porque saben que participan en un estudio (a veces se lo denomina [**efecto Hawthorne**](https://es.wikipedia.org/wiki/Efecto_Hawthorne)). 
+     d. **Sesgo de atención**: Cuando los participantes en un estudio alteran su comportamiento porque se saben observados o porque participan en el estudio (a veces se lo denomina [**efecto Hawthorne**](https://es.wikipedia.org/wiki/Efecto_Hawthorne)). 
      
-          Se podría dar, por ejemplo, en un estudio sobre el efecto del ejercicio físico en la salud si los sujetos del grupo de intervención (a los que se ha asignado el hacer ejercicio físico) deciden tomar otros nuevos hábitos saludables porque saben que se les ha asignado al grupo "saludable".  El "efecto Hawthorne" refiere al nombre de una fábrica en el que se realizó un estudio sobre qué condiciones aumentaban la productividad, y todos los grupos aumentaron su productividad durante el seguimiento. Este aumento se debió al efecto "motivador" de ser observados, porque cuando terminó el estudio volvieron todos a su productividad normal. 
+          Se podría dar, por ejemplo, en un estudio sobre el efecto del ejercicio físico en la salud si los sujetos del grupo de intervención (a los que se ha asignado el hacer ejercicio físico) deciden tomar otros nuevos hábitos saludables porque saben que se les ha asignado al grupo "saludable". Entonces puede que el efecto que se observe en este grupo no se deba al ejercicio físico sino al cambio en otros comportamientos.  
+          
+          El "efecto Hawthorne" refiere al nombre de una fábrica en el que se realizó un estudio sobre qué condiciones aumentaban la productividad, y todos los grupos aumentaron su productividad durante el seguimiento. Este aumento se debió al efecto "motivador" de ser observados, porque cuando terminó el estudio volvieron todos a su productividad normal. 
           
 
     e. **Sesgo de error instrumental**: Cuando los instrumentos usados para medir alguna característica son defectuosos.  Sería el caso, por ejemplo, del esfigmomanómetro del primer párrafo de esta sección.

@@ -31,11 +31,11 @@ En el artículo ["Incidencia, prevalencia y mortalidad del cáncer renal en Espa
 
 En todos los casos se trata de estimaciones de  probabilidades. Se estima que:
 
-* La probabilidad de que un hombre sano enfermara de cáncer de riñón en 1998 fue de 11.92/100000=0.0001192 y en 2022 iba a ser de 0.000157.
+* La probabilidad de que un hombre español sano enfermara de cáncer de riñón en 1998 fue de 11.92/100000=0.0001192 y en 2022 iba a ser de 0.000157.
 
-* La probabilidad de que un hombre tuviera cáncer de riñón en 1998 fue de  0.00072842  y  en 2022 iba a ser   de 0.0009447.
+* La probabilidad de que un hombre español tuviera cáncer de riñón en 1998 fue de  0.00072842  y  en 2022 iba a ser   de 0.0009447.
 
-* La probabilidad de que un hombre muriera de cáncer de riñón en 1998 fue de  0.0000577  y  en 2022 iba a ser   de 0.0000729.
+* La probabilidad de que un hombre español muriera de cáncer de riñón en 1998 fue de  0.0000577  y  en 2022 iba a ser   de 0.0000729.
     
 ```{block2,type="rmdexercici"}
 Leído en el [MallorcaDiario.com](https://www.mallorcadiario.com/mortalidad-coronavirus-baleares-tasa): "La tasa de mortalidad a causa del COVID-19 en Baleares fue del 1.06 por ciento frente al 2.17 por ciento a nivel nacional [...]. En el caso de personas mayores de 74, la tasa de mortalidad de Baleares (12.74 por ciento) está casi diez puntos porcentuales por debajo que la media nacional de personas de la misma edad, que llegó hasta el 22.34 por ciento."
@@ -49,7 +49,7 @@ Leído en el [MallorcaDiario.com](https://www.mallorcadiario.com/mortalidad-coro
 ## Pruebas diagnósticas
 
 
-Una **prueba diagnóstica** es cualquier proceso que se use para detectar en un individuo la presencia de una cierta condición, usualmente una patología. Por ejemplo, un test de embarazo, una determinación del nivel de un marcador tumoral, una prueba para detectar la presencia de un virus o una bacteria en el organismo, seleccionar unas cartas del tarot, etc.
+Una **prueba diagnóstica** es cualquier proceso que se use para detectar en un individuo la presencia de una determinada condición, usualmente una patología. Por ejemplo, un test de embarazo, una determinación del nivel de un marcador tumoral, una prueba para detectar la presencia de un virus o una bacteria en el organismo, seleccionar unas cartas del tarot, etc.
 
 En la práctica, se suelen distinguir dos tipos de pruebas diagnósticas, de las que se esperan capacidades diagnósticas diferentes:
 
@@ -399,11 +399,21 @@ Vamos a añadir algunos términos más sobre probabilidades relacionados con una
 $$
 P(+)=P(+|E)\cdot P(E)+P(+|S)\cdot P(S)
 $$
-y por lo tanto depende de la prevalencia de la enfermedad.  
+y por lo tanto depende de la prevalencia de la enfermedad.  En efecto, sustituyendo $P(S)=1-P(E)$ tenemos que
+$$
+P(+)=(P(+|E)-P(+|S))\cdot P(E)+P(+|S)
+$$
+y si la prueba diagnóstica sirve para algo, tendremos que $P(+|E)>P(+|S)$. En este caso, $P(+)$ crece si la prevalencia crece.
+
 
 * Su **exactitud** (**global**) es la probabilidad de acertar el diagnóstico, es decir, la proporción de sujetos de la población total en los que el diagnóstico acierta: $P(E\cap +)+P(S\cap -)$.
 
-    Fijaos en que esta exactitud es igual a $P(+|E)\cdot P(E)+P(-|S)\cdot P(S)$ y por lo tanto también depende de la prevalencia de la enfermedad.  
+    Fijaos en que esta exactitud es igual a $P(+|E)\cdot P(E)+P(-|S)\cdot P(S)$ y por lo tanto también depende de la prevalencia de la enfermedad. Si sustituimos $P(S)=1-P(E)$ tenemos que la exactitud es 
+$$
+(P(+|E)-P(-|S))\cdot P(E)+P(+|S)
+$$ 
+y por lo tanto es creciente en $P(E)$ si la prueba diagnóstica es más sensible que específica y decreciente en $P(E)$ en caso contrario.
+   
     
 ```{block2,type="rmdcaution"}
 La exactitud **no es** $P(+|E)+P(-|S)$ ni $P(E|+)+P(S|-)$. Estas sumas no son la proporción de nada.
@@ -568,8 +578,8 @@ La eficacia diagnóstica global de esta prueba diagnóstica se representa gráfi
 
     * $+_{v}$: el suceso "Dar positivo en este test" (dar en la prueba un valor $\geqslant v$).
     * $-_{v}$: el suceso "Dar negativo en este test" (dar en la prueba un valor $< v$).
-    * Especificidad${}_{v} = P(-_{v}|S)$: la especificidad de este test, es decir, la probabilidad de que un individuo sano dé un valor $< v$.
     * Sensibilidad${}_{v} = P(+_{v}|E)$: la sensibilidad de este test, es decir, la probabilidad de que un individuo enfermo dé un valor $\geqslant  v$.
+    * Especificidad${}_{v} = P(-_{v}|S)$: la especificidad de este test, es decir, la probabilidad de que un individuo sano dé un valor $< v$.
 
 * Para cada test asociado a un valor de corte $v$, definimos el punto del plano real de abscisa su tasa de falsos positivos y ordenada su sensibilidad:
 $$
@@ -591,11 +601,11 @@ Una curva ROC siempre es creciente.
 
 
 Veámoslo en la situación que estábamos considerando en la que definimos positivo cuando el valor obtenido es **mayor** que un umbral. En este caso, si $a<b$ entonces el test con umbral $b$ da menos positivos que el test con umbral $a$. En efecto, si $a<b$, todos los que dan positivo con valor de corte $b$ también dan positivo con valor de corte $a$, pero un individuo puede dar un resultado entre $a$ e $b$, que será positivo con valor de corte $a$ y negativo con valor de corte $b$.
-Por lo tanto, si $a<b$, se tiene que como sucesos,
+Por lo tanto, si $a<b$, se tiene que, como sucesos,
 $$
 +_b\subseteq +_a
 $$
-(de hecho, en general, $+_b\subsetneq +_a$) y por consiguiente
+y por consiguiente
 $$
 P(+_b|S)\leqslant P(+_a|S),\quad P(+_b|E)\leqslant P(+_a|E)
 $$
@@ -773,7 +783,112 @@ La Figura \@ref(fig:rocnavarra) muestra las curvas ROC de ambos tests, con sus v
 knitr::include_graphics("INREMDN_files/figure-html/rocnavarra.png")
 ```
 
+```{block2,type="rmdexercici"}
+En los gráficos de la figura anterior hay un error. ¿Lo veis?
+```
 
+
+### Con JAMOVI
+
+El módulo **meddecide** de JAMOVI (que podéis instalar, como el resto de módulos, accediendo a la *Biblioteca jamovi* pulsando en el signo + de la esquina superior derecha de la ventana de JAMOVI) permite, entre otras cosas, calcular los diferentes estadísticos asociados a una prueba estadística, bien sea a partir de una tabla de frecuencias como las dadas hasta ahora o a partir de una tabla de datos con el estatus (enfermo/sano) y el resultado de la prueba (positivo/negativo) de todos los sujetos de una muestra.
+
+Por ejemplo, considerad de nuevo la  prueba AAE para el diagnóstico de la enfermedad celíaca en niños, para la que teníamos la tabla
+$$
+\begin{array}{r|cc}
+& E & S  \\ \hline
++ & 47 & 1   \\  
+- & 3 & 14 
+\end{array}
+$$
+Vamos a la sección **Medical Decision Calculator** del módulo **meddecide** en **Análisis** (o, para abreviar, **meddecide/Medical Decision Calculator**), y entramos los valores de la tabla en las casillas correspondientes, teniendo en cuenta el significado de cada casilla, y obtenemos automáticamente en la ventana la derecha la información siguiente:
+
+
+```{r jamovi.meddecide.1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.1.png")
+```
+
+La primera tabla vuelve a ser la entrada, pero con la filas y la columna totales ("Gold positive" significa que ha dado positivo con la prueba de referencia, lo que nosotros consideramos enfermo, y "Gold negative" significa que ha dado negativo con la prueba de referencia, lo que nosotros consideramos sano). La segunda tabla es un resumen de los Totales de la primera, incluyendo las sumas de las diagonales (tests acertados y tests equivocados). Finalmente, la tercera nos da los valores de la sensibilidad, la especificidad, la exactitud (*accuracy*), el VPP, el VPN, la LR(+) y la  LR(-) estimados a partir de la muestra. 
+
+Fijaos que da dos veces los valores del VPP y el VPN: como "Positive Predictive Value" y "Negative Predictive Value" y como
+"Post-test Disease Probability" y "Post-test Health Probability". Y los dos están mal. Bueno, no mal: son los estimados a partir de la muestra, que en este ejemplo no sirven para nada, porque la muestra tenía números artificiales de niños celíacos y no celíacos. 
+
+Para obtener los VPP y VPN correctos para una prevalencia dada, hay que marcar la casilla *Prior Probability (prevalence)* y entrar su valor. Veamos qué pasa si entramos la prevalencia de la enfermedad celíaca infantil en Uruguay, 1/64=0.0156:
+
+
+```{r jamovi.meddecide.2,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.2.png")
+```
+
+Los "Positive Predictive Value" y "Negative Predictive Value" son los mismos que antes, los estimados con la muestra, pero ahora los "Post-test Disease Probability" y "Post-test Health Probability" son los VPP y VPN correctos para la prevalencia entrada. Comprobémoslo con la prevalencia en España, que hemos quedado en que era 1/71=0.0141:
+
+
+```{r jamovi.meddecide.3,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.3.png")
+```
+
+Marcando la casilla *Show Footnote* os recuerda el significado de todas las entradas de las dos últimas tablas. Probadlo.
+
+
+Si en vez de los números de falsos positivos, falsos negativos etc. tenemos una tabla de datos donde para cada sujeto se ha anotado si está sano o enfermo y si ha dado positivo o negativo, en vez de **meddecide/Medical Decision Calculator** tenemos que usar **meddecide/Medical Decision**.
+
+
+```{example, A1C}
+En la tabla de datos  tabla **A1CvsDM.csv**, que podéis descargar de https://raw.githubusercontent.com/AprendeR-UIB/INREMDN/master/Dades/A1CvsDM.csv, tenemos, para una muestra de 1030 sujetos, su nivel de hemoglobina glicosilada A1C y si sufren o no de diabetes mellitus (DM). En general, los diabéticos tienen un nivel de A1C superior a las personas sanas, y se diagnostica prediabetes cuando este nivel está entre 5.7 y 6.4999, y diabetes cuando el nivel  de A1C es mayor  o igual que 6.5. Vamos a usar esta tabla para evaluar la capacidad diagnóstica de esta prueba.
+```
+
+En primer lugar, descargamos este fichero y lo importamos abriéndolo con *Importar especial*. Cuando importamos una tabla de datos, sus columnas siempre se copian tras tres columnas en blanco llamadas A, B, C con las que por defecto se inicializa JAMOVI. Si os molestan, las podéis borrar en **Variables**, seleccionándolas y pulsando *Eliminar*. Nosotros las borraremos.
+
+Ahora tenemos que añadir una columna con los positivos y negativos de la prueba A1C. Para ello, en **Datos** clicamos en *Agregar/Variable Calculada/Insertar* o *Añadir*:
+
+
+```{r jamovi.meddecide.TD.1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.TD.1.png")
+```
+
+A continuación ponemos nombre a la variable (¿qué tal "Positivo A1C"?) y en el recuadro que define la fórmula escribimos, tras el igual, *A1C>=6.5*. Esto añadirá una nueva variable con *true* en los sujetos con A1C≥6.5 y *false* en los sujetos con A1C<6.5. 
+
+
+```{r jamovi.meddecide.TD.2,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.TD.2.png")
+```
+
+Finalmente, vamos a **meddecide/Medical Decision**. En *Golden Standard* elegimos la variable "DM" y como *Positive level* el 1 y en *New test* elegimos la nueva variable "Positivo A1C" y como *Positive level* el true. En la ventana de la derecha nos aparecen las tres tablas que nos aparecían con **meddecide/Medical Decision Calculator**, y su mismo significado. 
+
+
+```{r jamovi.meddecide.TD.3,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.TD.3.png")
+```
+
+En particular, con esta muestra estimamos que la sensibilidad de esta prueba A1C es del 58.6% y su especificidad del 99.6%.
+
+
+Para dibujar curvas ROC con JAMOVI, necesitamos la tabla de datos que describa, para cada sujeto de una muestra, su nivel de la prueba diagnóstica y su clasificación como enfermos y sanos. 
+
+Como ejemplo, vamos a usar la tabla **A1CvsDM.csv** para dibujar la curva ROC para el diagnóstico de la DM mediante el nivel de A1C. 
+En **Análisis**, abrimos **Regresión/Regresión logística/2 Resultados (Binomial)**. Seleccionamos "DM" como Variable Dependiente y "A1C" como covariable. En *Niveles de Referencia* seleccionamos 0 (no tener diabetes):
+
+
+
+```{r jamovi.meddecide.4,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.4.png")
+```
+
+y en *Predicción* marcamos *Curva ROC* y *AUC*. Entonces, en la ventana de la derecha obtenemos la curva ROC y el AUC:
+
+
+
+```{r jamovi.meddecide.5,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.5.png")
+```
+
+El módulo **PsychoPDA** también dibuja curvas ROC y además calcula los índices de Youden de los diferentes valores de corte para que podáis determinar el umbral óptimo. En nuestro ejemplo, tras instalarlo, seleccionaríamos **PPDA/TestROC**, especificaríamos A1C como "Variable dependiente" y DM como "Variable de clases" y 1 como "Clase positiva". Marcando la casilla *ROC Curve* obtenemos:
+
+
+```{r jamovi.meddecide.55,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.meddecide.55.png")
+```
+
+En la tabla superior aparecen los índices de Youden de los mejores valores de corte presentes en la tabla de datos: vemos que el máximo se da en 5.976 y que el valor estándar 6.5 no está entre los mejores.
 
 
 ## Riesgos {#sec:probaplic2}
@@ -800,7 +915,7 @@ R^c & \text{No expuestos} & \text{No expuestos} \\[-0.5ex]
 $$
 
 ```{block2,type="rmdnote"}
-Fijaos en que incluso las pruebas diagnósticas se podrían interpretar en términos de exposición y desenlace: el factor de riesgo sería estar enfermo, el desenlace dar positivo en el test. Pero el lenguaje sobre riesgos va a ser muy diferente del de las pruebas diagnósticas, y además es muy lioso que la enfermedad sea la exposición. Así que preferimos no mezclar y vamos a considerar las pruebas diagnósticas y los estudios de asociación entre una exposición y un desenlace como situaciones completamente diferentes.
+Fijaos en que incluso las pruebas diagnósticas se podrían interpretar en términos de exposición y desenlace: el factor de riesgo sería estar enfermo, el desenlace dar positivo en el test. Pero el lenguaje sobre riesgos va a ser muy diferente del de las pruebas diagnósticas, y además es muy lioso que la enfermedad sea la exposición. Así que preferimos no mezclar y vamos a considerar las pruebas diagnósticas y los estudios de asociación entre una exposición y un desenlace como situaciones diferentes.
 ```
 
 Vamos a llamar:
@@ -828,7 +943,7 @@ Vamos a suponer en esta sección que queremos estudiar la asociación entre la e
 
 ¿Cómo se comparan dos números? Los podemos restar o los podemos dividir. Más  vocabulario:
 
-* **Riesgo absoluto**, **RA**: Es la diferencia entre la tasa de riesgo de la enfermedad en expuestos y en no expuestos.  
+* **Riesgo absoluto atribuible**, **RA** (también llamada en los últimos años **Diferencia de Riesgos**, **DR**, por motivos obvios; aquí usaremos RA): Es la diferencia entre la tasa de riesgo de la enfermedad en expuestos y en no expuestos.  
 $$
 RA=P(E|R)-P(E|R^c).
 $$
@@ -881,7 +996,7 @@ No es lo mismo.
 
 
 ```{block2,type="rmdimportant"}
-¡Cuidado con cómo os expresáis! El riesgo de EPOC entre los no fumadores es del 6.4% y entre los fumadores es del 17.8%. Por lo tanto, el riesgo entre los fumadores es **11.4 puntos porcentuales mayor** que entre los no fumadores. Los RA se expresan en puntos porcentuales.
+¡Cuidado con cómo os expresáis! El riesgo de EPOC entre los no fumadores es del 6.4% y entre los fumadores es del 17.8%. Por lo tanto, el riesgo entre los fumadores es **11.4 puntos porcentuales mayor** que entre los no fumadores. Cuando comparan porcentajes, los RA se expresan en puntos porcentuales.
 
 
 ```
@@ -906,6 +1021,11 @@ De media, por cada 8.8 personas no fumadoras que empiezan a fumar, hay un caso e
 Recordad que cuando estimamos estos riesgos en un estudio observacional, solo se trata de asociaciones, de ninguna manera podemos inferir que la exposición **cause** tal o cual incremento en la probabilidad de enfermar. Aunque a veces lo digamos para simplificar el lenguaje. 
 ```
 
+También nos podríamos haber planteado la pregunta al revés: ¿Cuántos fumadores  tendríamos que haber evitado que empezaran a fumar para evitar 1 caso de EPOC?
+
+Repetimos el argumento usado para calcular el NND. Estimamos que, de media, de cada 1000 personas no fumadoras, 64 contraen EPOC, y de cada 1000 personas fumadoras, lo contraen 178. Por lo tanto, si tomáramos 1000 fumadores, viajáramos al pasado y les impidiéramos fumar, el número esperado de casos de EPOC bajaría de 178 a 64, es decir, bajaría en 114. Entonces, el número de fumadores que no tendrían que haber fumado nunca para evitar un caso de EPOC se obtiene con la misma proporción que antes y da lo mismo:  de media, por cada 8.8 fumadores que no lo hubieran sido, se evita un caso de EPOC.
+ 
+Naturalmente, era de esperar: el número de personas que hay que exponer al riesgo para aumentar en 1 el número de desenlaces negativos ha de ser forzosamente el mismo que el número de personas que hay que evitar que se expongan al riesgo para disminuir en 1 el número de desenlaces negativos. Por eso no se define como un número diferente del NND.
 
 
 
@@ -1031,7 +1151,7 @@ Parece que, en el cómputo global, la terapia de reemplazo hormonal previene los
 Según los [*Cancer Stat Facts*](https://seer.cancer.gov/statfacts/) del Instituto Nacional del Cáncer (de los EEUU), la incidencia del cáncer colorectal en mujeres es de 4 por cada 10,000 anuales. Por lo tanto, de 4 casos por cada 1000 mujeres cada 10 años. La reducción en un 50% significa que baja a 2 por cada 1000. En resumen, por cada 1000 mujeres y 10 años,  la terapia de reemplazo hormonal reduce en 2 el número estimado de casos de cáncer colorectal y aumenta en 8 el número  estimado de casos de cáncer de mama. Por tanto,  por cada 1000 mujeres y 10 años, aumenta en 6 el número  esperado de casos de cáncer.
 
 ```{block2,type="rmdexercici"}
-Los 50% y 0.8% que aparecen en el ejemplo anterior, ¿qué son: riesgos absolutos o riesgos relativos? ¿Cuántas mujeres hemos de empezar a tratar  con terapia de reemplazo hormonal para tener 1 caso adicional de cáncer en 10 años?
+¿Cuántas mujeres hemos de empezar a tratar con terapia de reemplazo hormonal para tener 1 caso adicional de cáncer en 10 años?
 ```        
 
 
@@ -1040,17 +1160,17 @@ Insistimos.
 ```{example}
 Según la *National Cancer Institute's Breast Cancer tool* de 1998, 
 
-* "Las mujeres que toman tamoxiflen tienen un 49% menos de diagnósticos de cáncer invasivo de mama"
+* Las mujeres que toman tamoxiflen tienen un 49% menos de diagnósticos de cáncer invasivo de mama.
 
-*  "La tasa anual de cáncer uterino entre las mujeres que toman tamoxiflen es de 30 por cada 10,000, comparado con los 8 a 10 por cada 10,000 anuales en la población femenina general"
+*  La tasa anual de cáncer uterino entre las mujeres que toman tamoxiflen es de 30 por cada 10,000. En la población femenina general, esta tasa está entre 8 y 10 por cada 10,000.
 
 ```
 
 Pero la incidencia anual del cáncer invasivo de mama era de 18 por cada 10,000 mujeres, por lo tanto
 
 * El tamoxiflen reduce del 0.18% a 0.09% el  riesgo de cáncer invasivo de mama
-* Y aumenta el riesgo  de cáncer uterino de 0.08% a 0.3%.
-* Por lo tanto, en términos absolutos, aumenta del 0.26% al 0.39% el riesgo de alguno de los dos cánceres: en algo más de 1 por cada 1000 mujeres
+* Y aumenta el riesgo  de cáncer uterino de 0.09% (la media de 8 y 10 por cada 10,000) a 0.3%.
+* Por lo tanto, en términos absolutos, aumenta del 0.27% al 0.39% el riesgo de alguno de los dos cánceres: en algo más de 1 por cada 1000 mujeres
 
 
 Un último ejemplo.
@@ -1061,7 +1181,7 @@ Un último ejemplo.
 ```{example,pindolatr}
 En octubre de 1995, se publicó en la prensa británica y en circulares a médicos que los anticonceptivos de 3^a^ generación multiplicaban por 2 el riesgo de trombosis venosa (TV). Esta afirmación se basaba en varios estudios publicados o anunciados ese año, como por ejemplo el del grupo *World Health Organization Collaborative Study of Cardiovascular Disease and Steroid Hormone Contraception*: ["Venous thromboembolic disease and combined oral contraceptives: results of international multicentre case-control study"](https://resourcelibrary.stfm.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=01b7b448-119e-c8ac-d90a-800aaf096608&forceDialog=0) (*The Lancet* 346 (1996), pp. 1575-1582).
 
-El resultado del "susto de la píldora del 95" fue una reducción en el consumo de la píldora anticonceptiva en el Reino Unido, como muestra la tabla de la Figura \@ref(fig:tableIV), y como consecuencia que en 1996 hubiera unos 13,600 abortos  más y unos 12,400 nacimientos más que en 1995.    Encontraréis más detalles de esta historia y su coste social y sanitario en ["Social consequences. The public health implications of the 1995 `pill scare'"](https://academic.oup.com/humupd/article/5/6/621/745751) (A. Furedi, *Human Reproduction Update*, 5 (1999), pp. 621-626).
+El resultado del "susto de la píldora del 1995" fue una reducción en el consumo de la píldora anticonceptiva en el Reino Unido, como muestra la tabla de la Figura \@ref(fig:tableIV), y como consecuencia que en 1996 hubiera unos 13,600 abortos  más y unos 12,400 nacimientos más que en 1995.    Encontraréis más detalles de esta historia y su coste social y sanitario en ["Social consequences. The public health implications of the 1995 `pill scare'"](https://academic.oup.com/humupd/article/5/6/621/745751) (A. Furedi, *Human Reproduction Update*, 5 (1999), pp. 621-626).
 
 
 ```
@@ -1077,7 +1197,7 @@ Vamos a analizar la afirmación de que "los anticonceptivos de 3^a^ generación 
 
 * Tomar anticonceptivos de 2^a^ generación multiplica por 3.5 este riesgo (es decir, su RR es 3.5): 26.25/100,000 mujeres anuales 
 
-* Tomar anticonceptivos de 3^a^ generación multiplica por 2 este último riesgo: 52.5/100,000 mujeres anuales 
+Entonces, tomar anticonceptivos de 3^a^ generación multiplica por 2 este último riesgo: da 52.5/100,000 mujeres anuales 
 
 Por tanto, si bien el RR de los anticonceptivos de 3^a^ generación respecto de los de 2^a^ generación es 2, en términos absolutos solo representa un aumento esperado de 26 casos de TV por cada 100,000 mujeres que pasen de anticonceptivos de 2^a^ a 3^a^ generación.
 
@@ -1095,7 +1215,7 @@ Por lo tanto, el aumento de embarazos y abortos por miedo al riesgo de TV si se 
 
 ### *Odds ratios*  {#sec:riesgosCyC}
 
-En los estudios de cohorte, en los que tomamos un grupo de expuestos y uno de no expuestos y observamos en ellos la aparición de la enfermedad, siempre tiene sentido calcular los riesgos en el sentido que nos interesa:  $P(E|R)$ y $P(E|R^c)$. Pero en un estudio de casos y controles en los que se tomen  números "artificiales" de casos y controles, no tiene ningún sentido estimar los riesgos $P(E|R)$ y $P(E|R^c)$, y solo tiene sentido estimar las probabilidades $P(R|E)$ y $P(R|E^c)$, y sus complementarias $P(R^c|E)$ y $P(R^c|E^c)$. Si además tenemos una estimación de $P(E)$, podemos girar las probabilidades condicionadas usando la fórmula de Bayes y estimar $P(E|R)$ y $P(E|R^c)$. Pero, ¿y si no? ¿Qué podemos hacer entonces?
+En los estudios de cohorte, en los que tomamos un grupo de expuestos y uno de no expuestos y observamos en ellos la aparición de la enfermedad, siempre tiene sentido calcular los riesgos en el sentido que nos interesa:  $P(E|R)$ y $P(E|R^c)$. Pero en un estudio de casos y controles partiendo de una muestra estratificada no tiene ningún sentido estimar los riesgos $P(E|R)$ y $P(E|R^c)$, y solo tiene sentido estimar las probabilidades $P(R|E)$ y $P(R|E^c)$, y sus complementarias $P(R^c|E)$ y $P(R^c|E^c)$. Si además tenemos una estimación de $P(E)$, podemos girar las probabilidades condicionadas usando la fórmula de Bayes y estimar $P(E|R)$ y $P(E|R^c)$. Pero, ¿y si no? ¿Qué podemos hacer entonces?
 
 
 
@@ -1113,10 +1233,11 @@ Este valor tiene sentido estimarlo con los datos obtenidos en un estudio de caso
 En primer lugar, por el Teorema \@ref(thm:ORrelativa):
 
 ```{block2,type="rmdimportant"}
-La *odds ratio* $OR(R|E)$ de la exposición respecto de la enfermedad coincide con la *odds ratio* de la enfermedad respecto de la exposición $OR(E|R)$: el cociente de las *odds* de enfermar entre los expuestos y las *odds* de enfermar entre los no expuestos.
+La *odds ratio* $OR(R|E)$ de la exposición respecto de la enfermedad coincide con la *odds ratio* de la enfermedad respecto de la exposición, es decir, con el cociente de las *odds* de enfermar entre los expuestos y las *odds* de enfermar entre los no expuestos:
 $$
-OR(E|R)=\frac{\mathrm{Odds}(E|R)}{\mathrm{Odds}(E|R^c)}=\frac{P(E|R)/P(E^c|R)}{P(E|R^c)/P(E^c|R^c)}
+OR(E|R)=\frac{\mathrm{Odds}(E|R)}{\mathrm{Odds}(E|R^c)}
 $$
+
 
 ```
 
@@ -1126,12 +1247,12 @@ Por lo tanto, la estimación de la *odds ratio* de la exposición respecto de la
 Como $OR(E|R)=OR(R|E)$, a partir de ahora la denotaremos simplemente por $OR$.
 ```
 
-A nosotros nos gustaría tener esta información en términos de riesgos relativos: cuántas veces mayor es la probabilidad de contraer la enfermedad si se está expuesto que si no se está expuesto. Bueno, la vida es dura, en un estudio de casos y controles este cociente no siempre se puede estimar, pero en cambio sí que siempre se puede estimar el "incremento de riesgo" en términos de "incremento de *odds*", mediante la *odds ratio*.
+A nosotros nos gustaría tener esta información en términos de riesgos relativos: cuántas veces mayor es la probabilidad de contraer la enfermedad si se está expuesto que si no se está expuesto. Bueno, la vida es dura, en un estudio de casos y controles este cociente no siempre se puede estimar, pero en cambio sí que siempre se puede estimar el "incremento relativo del riesgo" en términos de "incremento relativo de las *odds*", mediante la *odds ratio*.
 
 En segundo lugar:
 
 ```{block2,type="rmdimportant"}
-Si la enfermedad es **rara** en el sentido de muy poco prevalente, es decir, si $P(E)$ es muy pequeña, entonces la OR es aproximadamente igual al RR.
+Si la enfermedad es **muy rara** en el sentido de muy poco prevalente, es decir, si $P(E)$ es muy pequeña, entonces la OR es aproximadamente igual al RR.
 ```
 
 ```{block2,type="rmdcorbes"}
@@ -1160,7 +1281,7 @@ En resumen, en un estudio de casos y controles en el que los números de casos y
   
 En todo caso, recordad    que si la muestra de sujetos usados en un estudio de casos y controles es representativa de la población, por ejemplo porque hemos tomado una muestra transversal y considerado como casos los enfermos que hemos encontrado y como controles los sanos, entonces no hace falta que nos compliquemos tanto la vida. Basándonos en esta muestra  podemos estimar  $P(E|R)$ y $P(E|R^c)$ y con ellas los RA y RR. 
 
-Dado que siempre es más sencillo entender un riesgo relativo que una *odds ratio*, **lo adecuado es calcular el RR siempre que se pueda, y solo calcular la OR cuando no haya más remedio.** Pero en los artículos científicos podéis encontrar de todo.
+Dado que siempre es más sencillo entender un riesgo relativo que una *odds ratio*, **lo adecuado es calcular el RR siempre que se pueda, y solo calcular la OR cuando no haya más remedio.** Pero en los artículos científicos encontraréis de todo.
 
 Antes de pasar a algunos ejemplos, veamos una fórmula sencilla para calcular la $OR$ dada una tabla de frecuencias.
 
@@ -1206,7 +1327,7 @@ $$
  \end{array}
 $$
 
-El grupo de casos y controles se tomó con una composición específica, tres controles por caso, por lo que no podemos estimar riesgos de la enfermedad (resistencia de la  *P. aeruginosa*) en función de la exposición. No hay más remedio que calcular *odds ratios*. Para ello tenemos que extraer una tabla de frecuencias de expuestos y no expuestos entre sanos y controles. Lo haremos para la nutrición parenteral, dejamos como **ejercicio** calcularla para  el meropenem.
+El grupo de casos y controles se tomó con una composición específica, tres controles por caso, por lo que no podemos estimar riesgos de la "enfermedad" (resistencia de la  *P. aeruginosa*) en función de la exposición. No hay más remedio que calcular *odds ratios*. Para ello tenemos que extraer una tabla de frecuencias de expuestos y no expuestos entre sanos y controles. Lo haremos para la nutrición parenteral, dejamos como **ejercicio** calcularla para  el meropenem.
 
 
 La tabla de frecuencias para la nutrición parenteral es
@@ -1256,6 +1377,8 @@ De esta manera vemos que los autores del artículo han cometido varios errores q
 1. Los autores calculan la OR y dicen que se trata del RR
 2. La sepsis tardía entre neonatos a los que se administran antibióticos no es rara, por lo que es incorrecto aproximar el RR por medio de la OR
 3. Con los datos que tenían, podían estimar perfectamente el RR, si era lo que querían.
+
+
 
 
 ## Tratamientos
@@ -1312,7 +1435,7 @@ RAR\!\!\!\! & =P(E^c|T)-P(E^c|T^c)\\
 & =P(E|T^c)-P(E|T)
 \end{array}
 $$
-    Fijaos en el cambio de nombre respecto a la sección anterior: en el contexto de exposición y enfermedad, a esta resta la hemos llamado "riesgo absoluto", RA, y aquí "reducción absoluta del riesgo", RAR.
+    Fijaos en el cambio de nombre respecto a la sección anterior: en el contexto de exposición y enfermedad, a esta resta la hemos llamado "riesgo absoluto atribuible", RA, y aquí "reducción absoluta del riesgo", RAR.
 
 En el contexto de los tratamientos a veces se usa el cociente siguiente como alternativa al RR:
 
@@ -1323,7 +1446,7 @@ $$
 
 Además en el contexto de los tratamientos se usa, en vez del NND, el número siguiente:
 
-* **Número necesario para tratar** (**NNT**): El número de pacientes que deberían empezar a recibir el tratamiento $T$ (en lugar del control $T^c$) para que, de media, un paciente **adicional** recibiera el beneficio (pasara de $E$ a $E^c$).
+* **Número necesario que tratar** (**NNT**): El número de pacientes que deberían empezar a recibir el tratamiento $T$ (en lugar del control $T^c$) para que, de media, un paciente **adicional** recibiera el beneficio (pasara de $E$ a $E^c$).
 
 Veamos un ejemplo concreto de NNT, para ayudar a entenderlo.
 
@@ -1405,7 +1528,7 @@ En el estudio ["Completeness of reporting trial results: effect on physicians' w
 
 * Ningún médico respondió lo mismo a los cuatro tratamientos.
 
-Como podéis ver, la manera como se presentan los resultados de un estudio sobre un tratamiento influye en nuestra percepción de la bondad del tratamiento.
+Como podéis ver, la manera cómo se presentan los resultados de un estudio sobre un tratamiento influye en nuestra percepción de la bondad del tratamiento.
 
 Este tipo de estudio se ha ido repitiendo a lo largo del tiempo, para ver si los nuevos facultativos entrenados en  medicina basada en la evidencia eran tan fáciles de engañar como los de 1994. Algo ha mejorado, pero no completamente. Por ejemplo, en ["Effects of presenting risk information in different formats to cardiologists. A Latin American survey"](http://www.archivoscardiologia.com/previos/(2015)%20ACM%20Vol%2085.%201%20ENERO-MARZO/ACMX_2015_85_1_003-008.pdf)
 (R. Borracci *et al*, *Archivos de Cardiología de México* 85 (2015), pp. 3-8) se pasó un cuestionario que contenía resultados de ensayos clínicos expresados en términos de RR, RAR o NNT a 406 cardiólogos. Cuando la misma información se presentaba en términos de RR, los cardiólogos eran más fáciles de convencer de la bondad del tratamiento que si se presentaba como NNT o RAR. En cambio, no hubo diferencias significativas entre estos dos últimos (que, recordemos, son equivalentes). 
@@ -1418,13 +1541,13 @@ Este tipo de estudio se ha ido repitiendo a lo largo del tiempo, para ver si los
 
 
 
-**(1)** Una prueba diagnóstica muy específica nos asegura:
+**(1)** Una nueva prueba diagnóstica es más específica que la usada hasta el momento. Esta nueva prueba nos asegura:
 
-1. Pocos errores en general.
-1. Pocos falsos positivos.
-1. Pocos falsos negativos.
-1. Pocos diagnósticos positivos.
-1. Pocos diagnósticos negativos.
+1. Menos errores en general.
+1. Menos falsos positivos.
+1. Menos falsos negativos.
+1. Menos diagnósticos positivos.
+1. Menos diagnósticos negativos.
 
 **(2)** Estáis  comparando el diagnóstico clínico de úlcera gastroduodenal y su hallazgo en la autopsia en una serie de 10,000 pacientes. Al comenzar a analizar los datos se construye la siguiente tabla:
 $$
@@ -1556,13 +1679,13 @@ gastrointestinales graves relativa al consumo de AINEs?:
 **(9)** ¿En qué circunstancias la odds ratio (OR) se aproxima al valor de
 riesgo relativo (RR)? (marca todas las respuestas correctas):
 
-1.  Cuando la exposición al factor de riesgo es poco frecuente.
+1.  Cuando la exposición al factor de riesgo es muy poco frecuente.
 1.  Cuando la exposición al factor de riesgo es muy frecuente.
-1.  Cuando se trata de una enfermedad poco frecuente
+1.  Cuando se trata de una enfermedad muy poco frecuente
 1. Cuando se trata de una enfermedad crónica.
 1.  Cuando el diseño del estudio es de cohorte.
 1.  Cuando el diseño del estudio es de casos y controles.
-1. Nunca.
+1.  Nunca.
 
 **(10)** De 143 pacientes que murieron  por endocarditis bacteriana, un 2% tenían menos de 10 años de edad. Los autores del estudio concluyen que la endocarditis bacteriana es rara en la infancia. Esta conclusión es falsa o equivocada debido a (marca todas las respuestas correctas):
 

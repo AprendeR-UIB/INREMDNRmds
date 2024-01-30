@@ -200,7 +200,7 @@ knitr::include_graphics("INREMDN_files/figure-html/A-B2.png")
 
 7. Si $A\subseteq B$, entonces $P(A)\leqslant P(B)$. 
 
-    Si $A$ está contenido en $B$, la  fracción de los sujetos que  pertenecen a $A$ menor o igual que la  de los que  pertenecen a $B$.
+    Si $A$ está contenido en $B$, la  fracción de los sujetos que  pertenecen a $A$ es menor o igual que la  de los que  pertenecen a $B$.
 
 
 8. $P(A\cup B)=P(A)+P(B)-P(A \cap B)$.
@@ -275,7 +275,7 @@ Otra manera de calcular estas probabilidades sin necesidad de recordar fórmulas
 
 * Calcular en esta población cuántos individuos pertenecen a $A\cap B$ (dan positivo en ambos tests), cuántos a $A-B$ (positivos en VIH pero no en VHS), cuántos a $B-A$ (positivos en VHS pero no en VIH) y cuántos a $A^c\cap B^c$ (negativo en ambos tests) y a partir de ahí calcular todo lo que queramos.
 
-A este método se le suele llamar **método de frecuencias naturales** ("la cuenta de la vieja" no suena lo suficientemente científico), y así lo llamaremos nosotros. Pongámoslo en práctica en nuestro caso:
+A este método se le suele llamar **método de frecuencias naturales** ("la cuenta de la vieja" no suena lo bastante científico), y así lo llamaremos nosotros. Pongámoslo en práctica en nuestro caso:
 
 1. Vamos a tomar una población de referencia de 10,000 donantes 
 
@@ -284,6 +284,16 @@ A este método se le suele llamar **método de frecuencias naturales** ("la cuen
 1. Los sujetos de $A$ son el 0.1% de la población: 10
 1. Los sujetos de $B$ son el 1% de la población: 100
 1. Los sujetos de $A\cap B$ son el 0.05% de la población: 5
+
+    En resumen:
+$$
+\begin{array}{r|c|c|c}
+& A\ (\text{VIH}+) & A^c \ (\text{VIH}-)  & \text{Total} \\ \hline
+B\ (\text{VHS}+) &  5  &     &   100 \\ \hline
+B^c\ (\text{VHS}-) &     &      &   9900 \\ \hline 
+\text{Total} & 10& 9990 & 10000  \\ 
+\end{array}
+$$
 1. Entonces, los sujetos de $A-B$ serán los de $A$ menos los de $A\cap B$: 5
 1. Y los sujetos de $B-A$ serán los de $B$ menos los de $A\cap B$: 95
 1. Por ahora ya tenemos: 5 sujetos positivos en VIH y en VHS; 5 positivos en VIH y negativos en VHS; y 95 positivos en VHS y negativos en VIH. En total, 105 sujetos. El resto serán negativos tanto en VIH como en VHS.
@@ -395,19 +405,7 @@ R dispone de dos funciones relacionadas con la probabilidad de que se dé alguna
 
 * La instrucción `qbirthday(p,N)` nos da el tamaño mínimo de una muestra aleatoria simple de una población de tamaño N para que la probabilidad de que haya algún elemento repetido sea $\geqslant p$.
 
-```{block2,type="rmdnote"}
-Podéis ejecutar las funciones de R que iremos dando en estas notas en la ventana del editor de R de JAMOVI. Para tener acceso a ella, tenéis que instalar el módulo Rj (pulsando en el signo + de la esquina superior derecha de la ventana de JAMOVI y navegando entre las diferentes oopciones).
-```
 
-
-
-
-
-
-```{r jamoviR1,echo=FALSE,out.width="100%", fig.cap="La ventana de edición de R" }
-knitr::include_graphics("INREMDN_files/figure-html/jamoviR1.png")
-```
-    
 
 
 El nombre `birthday` hace referencia a la **paradoja del cumpleaños**: el típico problema de calcular la probabilidad de que dos estudiantes de una clase celebren el cumpleaños el mismo día y asombrarse de que en una clase de 50 estudiantes haya más de un 95% de probabilidades de que haya algún cumpleaños repetido. 
@@ -441,7 +439,9 @@ Comprobad que las otras probabilidades de repeticiones anunciadas en la lección
 
 ## Odds {#sec:odds}
 
-En algunos contextos, las probabilidades se presentan en forma de **odds**  (la traducción más común en castellano es [**momios**](https://es.wikipedia.org/wiki/Apuesta_deportiva#Momios_o_Cuotas_Deportivas), pero se usan otras: posibilidades, oportunidades, ocasiones...). Las **odds** de un suceso $A$ son
+En algunos contextos, las probabilidades se presentan en forma de *odds*. La traducción más común en castellano es [**momios**](https://es.wikipedia.org/wiki/Apuesta_deportiva#Momios_o_Cuotas_Deportivas), pero se usan otras: posibilidades, oportunidades, ocasiones... Aquí usaremos *odds*.  
+
+Las **odds** de un suceso $A$ son
 $$
 \text{Odds}(A)=\frac{P(A)}{P(A^c)}=\frac{P(A)}{1-P(A)}
 $$
@@ -511,7 +511,10 @@ Como esta es la función que transforma $\text{Odds}(A)$ en $P(A)$, deducimos qu
 $$
 \text{Odds}(A)>\text{Odds}(B)\Longleftrightarrow P(A)>P(B)
 $$
-Es decir, $A$ es más probable que $B$ si, y solo si, las *odds* de $A$ son mayores que las de $B$.
+
+> $A$ es más probable que $B$ si, y solo si, las *odds* de $A$ son mayores que las de $B$.
+
+
 
 Como veremos en la Sección \@ref(sec:riesgosCyC), la manera correcta de presentar los resultados en los estudios de casos y controles es en forma de *odds ratios*. La  **odds ratio** (**razón de momios**, de oportunidades...) de dos sucesos $A$ y $B$ es el cociente de sus *odds*:
 $$
@@ -533,6 +536,15 @@ $$
 2\cdot P(B)
 $$
 
+De hecho, el gráfico siguiente muestra qué vale $P(A)$ en función de $P(B)$ cuando $OR(A,B)=2$ (curva negra) y la línea para la cual $P(A)$ valdría $2P(B)$ (línea roja discontinua):
+
+```{r,echo=FALSE}
+curve(2*x/(1+x),xlab="P(B)",ylab="P(A)",main="P(A) en función de P(B) cuando OR(A,B)=2")
+curve(2*x,col="red",lty="dashed",add=TRUE)
+```
+
+Como veis, $P(A)=2P(B)$ solo cuando $P(B)=0$.
+
 ```{block2,type="rmdcorbes"}
 En general, si $\text{OR}(A,B)=q$, es decir,  $\text{Odds}(A)=q\cdot\text{Odds}(B)$, entonces
 $$
@@ -544,6 +556,9 @@ P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}=\dfrac{q\cdot\text{Odds}(B)}{1+q\c
 $$
 y por lo tanto la relación entre $P(A)$ y $P(B)$ es complicada.
 ```
+
+
+
 
 ```{example}
 En un [estudio de casos y controles](https://www.gastrojournal.org/article/S0016-5085(20)30490-X/fulltext) (Y. Nobel *et al*, *Gastroenterology* 159 (2020), pp. 373-375) se afirma que
@@ -581,7 +596,7 @@ La *odds ratio* es, entonces 1.54/1.03=1.495.
 ¿Pero no habíamos dicho que la *odds ratio* les había salido 1.7? 
 ```
 
-Bueno, sí, hemos mentido. Lo que les da 1.7 es la "odds ratio ajustada", que no hemos definido y de la que hablaremos a final de curso.
+Bueno, sí, lo que les da 1.7 es la *odds ratio ajustada*, ORa, una *odds ratio* que se obtiene al descontar la influencia de confundidores en el desenlace. Explicaremos cómo se calcula más adelante, en el tema de regresión logística.
 
 ```{block2,type="rmdexercici"}
 1. ¿Qué valen las *odds* de sacar 3 caras en 3 lanzamientos de una moneda equilibrada?
@@ -612,7 +627,11 @@ Supongamos que en una población $\Omega$ de $N$ individuos hay $M_A$ que perten
 $$
 \frac{M_{\textit{AB}}}{M_A}=\frac{M_{\textit{AB}}/N}{M_A/N}.
 $$
-En la fracción de la derecha, el numerador $M_{\textit{AB}}/N$ es la proporción de sujetos de $\Omega$ que pertenecen a $A\cap B$, es decir,  $P(A\cap B)$, y el denominador $M_A/N$  es la proporción de sujetos de $\Omega$ que pertenecen a $A$, es decir $P(A)$. 
+En la fracción de la derecha, el numerador $M_{\textit{AB}}/N$ es la proporción de sujetos de $\Omega$ que pertenecen a $A\cap B$, es decir,  $P(A\cap B)$, y el denominador $M_A/N$  es la proporción de sujetos de $\Omega$ que pertenecen a $A$, es decir $P(A)$. Por lo tanto, la fracción de la derecha es $P(A\cap B)/P(A)$.
+
+Esto muestra que, efectivamente, $P(B|A)$ representa la fracción  de los sujetos de $A$ que pertenecen a  $B$
+  
+  
 ```
 
 
@@ -766,20 +785,20 @@ En la primera pregunta nos piden la probabilidad  de $A$ condicionada a $B$:
 $$
 P(A|B)=\frac{P(A\cap B)}{P(B)}=\dfrac{0.09}{0.25}=0.36
 $$
-Si un adulto cree ser hipertenso, su probabilidad de que lo sea es del 36%.
+Si un adulto cree ser hipertenso, tiene una probabilidad del 36% de serlo.
 
 
 En la segunda pregunta nos piden la probabilidad  de $B$ condicionada a $A$:
 $$
 P(B|A) =\frac{P(A\cap B)}{P(A)}=\frac{0.09}{0.15}=0.6
 $$
-Si un adulto es hipertenso, su probabilidad de que crea que lo es es del 60%.
+Si un adulto es hipertenso, tiene una probabilidad del 60% de creer que lo es.
 
 Y en la tercera pregunta nos piden la probabilidad de $A$ condicionada a $B^c$:
 $$
 P(A|B^c) =\frac{P(A\cap B^c)}{P(B^c)}=\frac{P(A)-P(A\cap B)}{1-P(B)}=\frac{0.06}{0.75}=0.08
 $$
-Si un adulto no cree ser hipertenso, su probabilidad de que sí serlo es del 8%.
+Si un adulto no cree ser hipertenso, tiene una probabilidad del 8% de ser hipertenso.
 
 ```{block2,type="rmdnote"}
 Fijaos en que $P(A|B^c)\neq 1-P(A|B)$, como anunciábamos que en general sucede.
@@ -949,7 +968,7 @@ $$
 lo que demuestra (a) $\Leftrightarrow$ (d). La  equivalencia (a) $\Leftrightarrow$ (e) se demuestra intercambiando los papeles de $A$ y $B$ en la equivalencia (a) $\Leftrightarrow$ (d).
 ```
 
-Es decir,  las  afirmaciones siguientes son equivalentes entre si, y corresponden a lo que definimos como que $A$ y $B$ sean **independientes**:
+Es decir,  las  afirmaciones siguientes son equivalentes entre si, y definen la **independencia** de $A$ y $B$:
 
 * La proporción de sujetos de $B$ dentro de $A$ es la misma que dentro del total de la población.
 
@@ -1018,7 +1037,7 @@ Consideremos los sucesos:
 
 * $B$: Que un estadounidense adulto sea hipertenso; $P(B)=0.33$
 
-Queremos saber si $P(A\cap B)=P(A)P(B)$. Para ello tenemos que calcular $P(A\cap B)$ a partir de los datos que tenemos:
+Queremos saber si es verdad que $P(A\cap B)=P(A)P(B)$. Para ello tenemos que calcular $P(A\cap B)$ a partir de los datos que tenemos:
 $$
 P(A \cap B)  =P(A)+P(B)-P(A\cup B)=0.365+0.33-0.495=0.2
 $$
@@ -1038,14 +1057,14 @@ Consideremos los sucesos:
 * $A_1$: El primer test da positivo sobre un individuo sano
 * $A_2$: El segundo test da positivo sobre un individuo sano
 
-Sabemos que $P(A_1)=P(A_2)=0.1$ y que, como las dos repeticiones del test son independientes, los sucesos $A_1$ y $A_2$ son independientes.
+Sabemos que $P(A_1)=P(A_2)=0.1$ y que, como las dos repeticiones del test son independientes, los sucesos $A_1$ y $A_2$ son independientes. Entonces:
 
-La probabilidad que los dos den positivo es
+* La probabilidad que los dos den positivo es
 $$
 P(A_1\cap A_2) =P(A_1)\cdot P(A_2)  =0.1\cdot 0.1=0.01
 $$
 
-La probabilidad que alguno dé positivo es
+* La probabilidad que alguno dé positivo es
 $$
 \begin{array}{rl}
 P(A_1\cup A_2)\!\!\!\! & =P(A_1)+P(A_2)-P(A_1\cap A_2)\\
@@ -1134,6 +1153,15 @@ $$
 
    Las *odds* de tener depresión entre los que tienen estrés son 0.74 veces las de tener depresión entre los que no tienen estrés, es decir, de nuevo un 26% menores. 
    
+```{block2,type="rmdimportant"}
+Las *odds* de tener estrés entre los que tienen depresión son 0.74 veces las de tener estrés entre los que no tienen depresión y las *odds* de tener depresión entre los que tienen estrés son 0.74 veces las de tener depresión entre los que no tienen estrés. **Pero no es verdad** que la probabilidad de tener estrés entre los que tienen depresión sea 0.74 veces las de tener estrés entre los que no tienen depresión ni que la probabilidad de tener depresión entre los que tienen estrés sea 0.74 veces las de tener depresión entre los que no tienen estrés.    Estos cocientes son
+$$
+\frac{P(E|D)}{P(E|D^c)}=\frac{0.475}{0.55}=0.864,\quad \frac{P(D|E)}{P(D|E^c)}=\frac{0.6334}{0.7}=0.905
+$$
+
+```
+   
+   
 ```{block2,type="rmdromans"}
 La *odds ratio* de tener estrés relativa a tener depresión ha dado lo mismo que la *odds ratio* de tener depresión relativa a tener estrés. ¿Casualidad? No.
 ```
@@ -1185,9 +1213,9 @@ knitr::include_graphics("INREMDN_files/figure-html/TPT.png")
 
 Esta pregunta la podemos resolver fácilmente mediante el método de  frecuencias naturales. Supongamos que nuestra población de referencia es de 1000 individuos. Entonces:
 
-* 200 serán de la subpoblación A, de los cuales la mitad, 100 tendrán la característica X y los otros 100 no.
+* 200 serán de la subpoblación A, de los cuales la mitad, 100, tendrán la característica X y los otros 100 no.
 
-* 800 serán de la subpoblación B, de los cuales el 5%, 40 tendrán la característica X y los otros 760 no. 
+* 800 serán de la subpoblación B, de los cuales el 5%, 40, tendrán la característica X y los otros 760 no. 
 
 Obtenemos la tabla de frecuencias siguiente:
 $$
@@ -1352,7 +1380,14 @@ Por lo tanto, la prevalencia de la enfermedad es 12222.22/100000=0.1222: un 12.2
 
 
 ```{block2,type="rmdexercici"}
-En el estudio de Rotterdam del Ejemplo \@ref(exm:EPCOCoh), un 21.7% de la cohorte inicial eran fumadores, un 43% habían sido fumadores  pero ya no lo eran, y un 35.3% nunca habían fumado. En el primer grupo, un 26% desarrolló EPOC durante el seguimiento; entre el segundo grupo,  un 13.6%, y en el tercero, un 6.4%. Vamos a llamar "fumador" a un sujeto de la cohorte que o fumaba al principio del estudio, o había fumado anteriormente pero lo había dejado. ¿Qué fracción de estos fumadores desarrolló EPOC?
+En el estudio de Rotterdam del Ejemplo \@ref(exm:EPCOCoh), un 21.7% de la cohorte inicial eran fumadores, un 43% habían sido fumadores  pero ya no lo eran, y un 35.3% nunca habían fumado. En el primer grupo, un 26% desarrolló EPOC durante el seguimiento; entre el segundo grupo,  un 13.6%, y en el tercero, un 6.4%. 
+
+1. ¿Qué porcentaje de la cohorte desarrolló EPOC durante el seguimiento?
+
+2. Vamos a llamar "fumador" a un sujeto de la cohorte que o fumaba al principio del estudio, o había fumado anteriormente pero lo había dejado. ¿Qué porcentaje de estos fumadores desarrolló EPOC  durante el seguimiento?
+  
+  
+  
 ```
 
 
@@ -1528,9 +1563,6 @@ P(B)=P(A)\cdot P(B|A)+P(A^c)\cdot P(B|A^c).
 $$
 
 
-```{block2,type="rmdcaution"}
-Hasta donde sabemos, la fórmula de Bayes es la única fórmula "abstracta" que de vez en cuando aparece en alguna pregunta del MIR.
-```
 
 ```{example, cancerpitpres4}
 Con los números del Ejemplo \@ref(exm:cancerpitpres3), si llamamos $C$ al suceso "Tener cáncer de mama" y $M$ al suceso "Dar positivo en la mamografía", tenemos que $P(C)=0.01$, $P(M|C)=0.9$ y $P(M|C^c)=0.1$, y por lo tanto
@@ -1600,7 +1632,7 @@ a. El dar positivo en el test y el tener la enfermedad, ¿son sucesos independie
 
 ## Test 
 
-**(1)** Sean $A$ el suceso "Ser alérgico a los gatos" y $B$ el suceso "Ser asmático". La probabilidad de que un alérgico a los gatos sea asmático es del 63%. ¿Cuál de las expresiones matemáticas siguientes expresa esta afirmación?
+**(1)** Sean $A$ el suceso "Ser alérgico a los gatos" y $B$ el suceso "Ser asmático". La probabilidad de que un alérgico a los gatos sea asmático es del 63%. ¿Cuál de las expresiones matemáticas siguientes representa esta afirmación?
 
 1. $P(A|B)=0.63$
 1. $P(B|A)=0.63$
