@@ -122,7 +122,7 @@ Y por este motivo, por favor, **nunca** uséis diagramas circulares para más de
 
 Un gráfico ha de servir más que mil palabras, y tiene que explicar de un vistazo las características más relevantes de los datos que representa. Luego ya se pueden añadir detalles que complementen esta primera comprensión básica. En el caso de un diagrama de barras, su objetivo ha de ser mostrar la relación entre las magnitudes de las frecuencias que representa; si nos interesan sus valores concretos, es mejor dar la tabla. Por ejemplo, en los diagramas de barras de la variable "Sexo" dados más arriba se ve a simple vista que hay aproximadamente el doble de mujeres que de hombres. 
 
-Por ese motivo es un pecado modificar un gráfico para que el primer vistazo sea engañoso. En un diagrama de barras, la adulteración más usual, y ante la que hay que estar atentos, es **truncarlo** de manera que el eje de coordenadas que indique las frecuencias no arranque en el 0. Mirad, por  ejemplo, el diagrama de barras siguiente:
+Por ese motivo es un pecado mortal modificar un gráfico para que el primer vistazo sea engañoso. En un diagrama de barras, la adulteración más usual, y ante la que hay que estar atentos, es **truncarlo** de manera que el eje de coordenadas que indique las frecuencias no arranque en el 0. Mirad, por  ejemplo, el diagrama de barras siguiente:
 
 ```{r,echo=FALSE}
 Sexo_Trunc=rep(c("Mujer","Hombre"),c(10,2))
@@ -132,21 +132,19 @@ axis(2,at=0.1666*(0:5),labels=0.2+0.1*(0:5))
 
 Este diagrama sigue indicando que en la muestra hay un 30% de hombres y un 70% de mujeres, pero si le dais un vistazo superficial, sin mirar las marcas del eje vertical, parece que la proporción de mujeres es cinco veces la de los hombres y no un poco más del doble.
 
-Es muy frecuente encontrar diagramas de barras (u otros tipos de gráficos) truncados en medios de comunicación. Por ejemplo mirad el gráfico siguiente, que representa las medias estatales de horas de trabajo de los empleados a tiempo completo en los países de la Unión Europea en 2013 según *Eurostat* y publicado por una empresa que fomenta la inversión en empresas alemanas (extraído en su momento del sitio web de  [German Trade & Invest](https://www.gtai.de/GTAI/Navigation/EN/invest,t=motivated-and-dependable-employees,did=214428.html); cada año lo ponen al día):
+Es muy frecuente encontrar diagramas de barras (u otros tipos de gráficos) truncados en medios de comunicación. Por ejemplo mirad el gráfico siguiente, que representa la evolución del uso del catalán en las pruebas de Selectividad en la UIB desde 1992 a 2010:
 
 
-```{r,echo=FALSE, out.width="75%"}
-knitr::include_graphics("INREMDN_files/figure-html/german1.png")
+```{r,echo=FALSE, out.width="85%"}
+knitr::include_graphics("INREMDN_files/figure-html/grafUIB.png")
 ```
 
-A simple vista, sin mirar los números, parece que en Alemania (barra amarilla) se trabaja de media bastantes más horas semanales que la media europea (barra gris oscura), justamente el mensaje que quiere hacernos llegar una organización cuyo objetivo es el fomento de la inversión en Alemania. Pero si luego miráis los números del eje horizontal, la diferencia es de 40.4 horas en Alemania contra 39.5 de media europea, menos de 1 hora sobre unas 40. El diagrama de barras sin truncar sería el siguiente:
+El incremento en la realidad fue menos pronunciado:
 
-
-```{r,echo=FALSE, out.width="75%"}
-knitr::include_graphics("INREMDN_files/figure-html/german2.png")
+```{r,echo=FALSE, out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/grafUIBbo.png")
 ```
 
-Pero claro, este ya no incita tanto a la inversión en la trabajadora Alemania. 
 
 ```{block2,type="rmdromans"}
 No podemos dejar este asunto sin la siguiente obra maestra de los diagramas de barra truncados:
@@ -288,7 +286,7 @@ knitr::include_graphics("INREMDN_files/figure-html/elpais.png")
 A la hora de decidir qué variable asignamos a las filas y cuál a las columnas en una tabla de contingencia bidimensional, es conveniente recordar que, en los paises occidentales, solemos leer las tablas por filas y  de izquierda a derecha. Por ello, si tenemos interés en la distribución de los niveles de una variable dentro de los niveles de una segunda variable, puede facilitar la lectura de la tabla  que esta segunda variable defina las filas. 
 ```
 
-Las tablas de contingencia bidimensionales con frecuencias relativas marginales se obtienen con JAMOVI en la ventana **Frecuencias/Muestras independientes**. Por ejemplo, si declaramos la variable "Sexo" como la de las filas y la variable "Demencia" como la de las columnas y marcamos *Frecuencias observadas* en la pestaña *Celdas*, entonces  podemos pedir en las casillas de la columna *Porcentajes* que se calculen las frecuencias relativas por filas, por columnas o en el total. Por ejemplo, por filas:
+Las tablas de contingencia bidimensionales con frecuencias relativas marginales se obtienen con JAMOVI en la sección **Frecuencias/Muestras independientes**. Por ejemplo, si declaramos la variable "Sexo" como la de las filas y la variable "Demencia" como la de las columnas y marcamos *Frecuencias observadas* en la pestaña *Celdas*, entonces  podemos pedir en las casillas de la columna *Porcentajes* que se calculen las frecuencias relativas por filas, por columnas o en el total. Por ejemplo, por filas:
 
 
 ```{r jamoviedn4,echo=FALSE,out.width="100%"}

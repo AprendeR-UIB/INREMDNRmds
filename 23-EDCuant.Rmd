@@ -260,7 +260,7 @@ Algunos cuantiles con nombre propio:
 
 * La **mediana** es el cuantil $Q_{0.5}$.
 
-* Los **cuartiles** son los cuantiles $Q_{0.25}$, $Q_{0.5}$ y $Q_{0.75}$, y reciben, respectivamente, los nombres de **primer cuartil**, **segundo cuartil** (o mediana) y **tercer cuartil**. $Q_{0.25}$ será, pues, el menor valor que es mayor o igual que  un  cuarto de los datos, y $Q_{0.75}$, el menor valor que es mayor o igual que   tres cuartos de los datos.
+* Los **cuartiles** son los cuantiles $Q_{0.25}$, $Q_{0.5}$ y $Q_{0.75}$, y reciben, respectivamente, los nombres de **primer cuartil**, **segundo cuartil** (o mediana) y **tercer cuartil**. $Q_{0.25}$ será, pues, el menor valor que es mayor o igual que  una cuarta parte de los datos, y $Q_{0.75}$, el menor valor que es mayor o igual que   tres cuartas partes de los datos.
 
 * Los **deciles** son los cuantiles $Q_{p}$ con $p$ un múltiplo entero de 0.1: el **primer decil** es $Q_{0.1}$, el  **segundo decil** es $Q_{0.2}$, y así sucesivamente.
 
@@ -271,6 +271,10 @@ Se llama **intervalo intercuartílico**, $\mathit{IQI}$, al intervalo cerrado $[
 
 ```{example}
 Seguimos con la variable "Hijos" de la Tabla \@ref(tab:tablager4). Su primer cuartil será su quinto dato tras ordenarlos de menor a mayor; como hay cuatro ceros y cuatro unos, será 1. Su tercer cuartil ya lo hemos calculado antes, es 4. Por lo tanto su intervalo intercuartílico es [1,4].  Este intervalo contiene 14 elementos de la muestra, bastante más de la mitad, porque la muestra contiene muchas repeticiones del 1 y el 4.
+```
+
+```{block2,type="rmdnote"}
+Las medidas de posición también se pueden, y se suelen, usar en la descripción de datos ordinales. En este caso, la mediana se define como el primer valor de la muestra mayor o igual que (al menos) la mitad de la muestra. El resto de cuantiles se definen como los hemos definido aquí.
 ```
 
 
@@ -551,6 +555,8 @@ points(rep(1.02,3),c(63,65,66),col="red",pch=20)
 points(c(1.04,1.06),c(66,66),col="red",pch=20)
 ```
 
+
+
 ```{block2,type="rmdexercici"}
 Dibujad el diagrama de puntos de la variable "Hijos" y superponedle su diagrama de caja. El resultado debería ser:
 ```
@@ -571,6 +577,13 @@ En los gráficos anteriores hemos superpuesto el diagrama de puntos al diagrama 
 ```{block2,type="rmdcaution"}
 Hay paquetes estadísticos que producen diagramas de caja cuyas partes tienen un  significado diferente del que hemos explicado. Por ejemplo, en los que la línea central corresponde a la mediana y la caja central representa el intervalo media $\pm$ desviación típica. Por otro lado, como los lados de la caja son cuartiles, diferentes programas pueden dar diagramas de caja ligeramente diferentes, según la definición de cuantil que calculen por defecto.
 ```
+
+
+
+```{block2,type="rmdnote"}
+Los bigotes y los valores atípicos son siempre elementos de la muestra. La mediana no siempre (puede obtenerse como la media de dos valores de la muestra y no pertenecer a la muestra), y con nuestra definición los cuartiles pertenecen a la muestra, pero con otras definiciones no tienen por qué.
+```
+
 
 
 ## Histogramas
@@ -621,6 +634,12 @@ hist(alturas,breaks=1.55+0.05*(0:6),right=FALSE,main="",xlab="Altura",ylab="Frec
 
 
 La distribución de estas alturas es mucho más fácil de entender mediante este gráfico que con el primero.
+
+```{block2,type="rmdimportant"}
+Por sistema, en nuestros histogramas **las clases serán siempre cerradas a la izquierda y abiertas a la derecha**: es decir, el extremo izquierdo de una barra pertenece a su clase, pero el extremo derecho no. Lo hacemos para que sean consistentes con las distribuciones de variables aleatorias que definiremos en los próximos temas. Pero fuera de estas notas, cada paquete estadístico hace lo que consideraron oportuno sus creadores, y puede que el convenio de sus histogramas sea que el extremo izquierdo de una barra **no** pertenezca a la clase y el extremo derecho sí. Por ejemplo, así es como los produce JAMOVI por defecto. 
+```
+
+
 
 Hemos dicho que si las clases tienen la misma amplitud, las alturas de las barras han de ser las frecuencias de las clases. Pero si las clases tienen diferente amplitud, las alturas de las barras han de ser tales que **las áreas de las barras** sean iguales a las frecuencias de las clases. Veamos un ejemplo
 
@@ -725,7 +744,7 @@ knitr::include_graphics("INREMDN_files/figure-html/tensio5.png")
 Recordad  que, en un histograma correcto, si las clases tienen amplitud diferente, las alturas de las barras han de ser las que den como áreas de las barras las frecuencias (absolutas o relativas) de las clases.
 
 ```{example}
-El gráfico siguiente, extraído ["Iodine status of UK schoolgirls: a cross-sectional survey"](https://www.sciencedirect.com/science/article/abs/pii/S0140673611606934) (M. Vanderpump *et al*, *The Lancet* 377 (2011), pp. 2007–2012),  representa las proporciones de colegialas británicas en una muestra que tuvieron diferentes concentraciones de yodo en la orina. Es un diagrama de barras, no un histograma.
+El gráfico siguiente, extraído de ["Iodine status of UK schoolgirls: a cross-sectional survey"](https://www.sciencedirect.com/science/article/abs/pii/S0140673611606934) (M. Vanderpump *et al*, *The Lancet* 377 (2011), pp. 2007–2012),  representa las proporciones de colegialas británicas en una muestra que tuvieron diferentes concentraciones de yodo en la orina. Es un diagrama de barras, no un histograma.
 
 ```
 
@@ -778,7 +797,7 @@ Dibujad su histograma usando 6 clases de amplitud 0.2, empezando en 2 horas, y s
 
 ## Asimetría y  curtosis
 
-Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, y por tanto conviene que conozcáis, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma, y no sirven para estimar la correspondiente propiedad de la variable poblacional (que en todo caso es la interesante). 
+Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, y por tanto conviene que conozcáis, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma o un diagrama de barras, y no sirven para estimar la correspondiente propiedad de la variable poblacional (que en todo caso es la interesante). 
 
 Dada una muestra de datos numéricos $x_1,\ldots,x_n$, de media $\overline{x}$ y desviación típica $s_x$:
 
@@ -792,7 +811,7 @@ $$
 \beta_2=\frac{1}{s_x^4}\cdot \frac{\sum_{i=1}^n (x_i-\overline{x})^4}{n}-3
 $$
 
-Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la **asimetría** de la variable. Para definir esta característica, lo más práctico es dibujar un histograma de la variable y considerar el eje vertical pasando por la *mediana*, que divide la muestra en dos partes del mismo tamaño. Llamaremos **colas** a los trozos del histograma a ambos lados de este eje. Entonces:
+Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la **asimetría** de la variable. Para definir esta característica, lo más práctico es dibujar un histograma o un diagrama de barras de la variable y considerar el eje vertical pasando por la *mediana*, que divide la muestra en dos partes del mismo tamaño. Llamaremos **colas** a los trozos del histograma a ambos lados de este eje. Entonces:
 
 * La variable es **simétrica** si ambas colas son similares, como en los dos gráficos siguientes:
 ```{r histssim,echo=FALSE,fig.width=6,out.width="60%"}
@@ -919,28 +938,27 @@ El 1.5 en la definición de los bigotes en los diagramas de caja es tal que, si 
 En un examen, un 60% de los estudiantes han sacado una nota superior a la media. ¿Cómo esperáis que sea la muestra de notas: simètrica, con cola a la izquierda, con cola a la derecha?
 ```
 
-No nos hemos olvidado del **coeficiente de curtosis**, $\beta_2$. Este estadístico mide el grado de "apuntamiento" de la distribución de la variable.
+No nos hemos olvidado del **coeficiente de curtosis**, $\beta_2$. Este estadístico compara la longitud de las colas de la muestra con las que esperaríamos si su histograma se pareciera al de una campana de Gauss.
 
-* Cuando el histograma se parece al de una campana de Gauss (diremos que la variable es **mesocúrtica**), $\beta_2\approx 0$.
+* Cuando el histograma se parece al de una campana de Gauss, $\beta_2\approx 0$: se dice que la variable es **mesocúrtica**.
 
 
 ```{r Meso,echo=FALSE,fig.width=6,out.width="60%"}
 knitr::include_graphics("INREMDN_files/figure-html/Meso.png")
 ```
 
-* Cuando el histograma es más puntiagudo que una campana de Gauss (diremos que la variable es **leptocúrtica**), $\beta_2> 0$.
+* Cuando el histograma tiene colas más largas, y en particular más valores atípicos, de lo esperado   si tuviera la forma de una campana de Gauss, $\beta_2> 0$; se dice que la variable es **leptocúrtica**.
 
 ```{r Lepto,echo=FALSE,fig.width=6,out.width="60%"}
 knitr::include_graphics("INREMDN_files/figure-html/Lepto.png")
 ```
 
-* Cuando el histograma es más achatado que una campana de Gauss (diremos que la variable es **platicúrtica**), $\beta_2< 0$.
+* Cuando el histograma tiene colas más cortas, y en particular menos valores atípicos,  de lo esperado  si tuviera la forma de una campana de Gauss, $\beta_2< 0$; se dice que la variable es **platicúrtica**.
 
 ```{r Plati,echo=FALSE,fig.width=6,out.width="60%"}
 knitr::include_graphics("INREMDN_files/figure-html/Plati.png")
 ```
 
-Un conjunto de datos platicúrtico tiene las colas más altas de lo que cabría esperar si se ajustara a una campana de Gauss, mientras que si es leptocúrtico sus colas son más bajas.
 
 
 ## Estadísticos y gráficos con JAMOVI
@@ -951,24 +969,25 @@ En la ventana **Descriptivas** podéis calcular la mayoría de los estadísticos
 knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.1.png")
 ```
 
-La varianza y la desviación típica que calcula son las muestrales y el *RIC* es el rango intercuartílico.
+La varianza y la desviación típica que calcula son las muestrales y el *RIC* en la tabla en castellano es el rango intercuartílico, nuestro IQR.   Aunque en este caso hayan dado lo mismo, los cuantiles los calcula con una definición diferente de la nuestra. Comprobadlo calculando, como **Ejercicio**, a mano y con JAMOVI los cuartiles de 1,2,3,...,9,10.
+
 
 Por lo que refiere a gráficos, podéis dibujar, entre otros, histogramas de frecuencias relativas, boxplots y diagramas de puntos. Por el momento no es posible dibujar un polígono de frecuencias si no es usando funciones adecuadas en el editor.
 
 * Histograma:
-
 ```{r jamoviedc2,echo=FALSE,out.width="100%"}
 knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.2.png")
 ```
+Como ya hemos comentado, en este histograma las clases son cerradas a la derecha.
 
 * Boxplot:
-
 ```{r jamoviedc3,echo=FALSE,out.width="100%"}
 knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.3.png")
 ```
+Los cuartiles los calcula con una definición diferente de la nuestra.
+
 
 * Diagrama de puntos:
-
 ```{r jamoviedc4,echo=FALSE,out.width="100%"}
 knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.4.png")
 ```
@@ -1022,25 +1041,35 @@ kable(DF)%>%
 ```
 
 
-En primer lugar buscamos en qué clase cae la mediana, es decir, qué clase contiene el valor que separa las dos mitades de la muestra: la llamaremos el  **intervalo crítico para la mediana**. En nuestro ejemplo, será la primera clase cuya frecuencia relativa acumulada sea mayor o igual que 0.5. Se trata del intervalo [120,130).
+En primer lugar buscamos en qué clase cae la mediana, es decir, qué clase contiene el valor que separa las dos mitades de la muestra: la llamaremos el  **intervalo crítico para la mediana**. En nuestro ejemplo, será la primera clase cuya frecuencia relativa acumulada sea mayor o igual que 0.5. Se trata del intervalo [120,130). La mediana sería la media de los valores en las posiciones 60 y 61 tras ordenarlos. Como hasta justo antes de 120 hay 55 valores, es la media de los valores quinto y sexto de la clase [120,130), en la que hay 23. 
 
-Sean  $[L_c, L_{c+1})$ este intervalo crítico, $N_{c-1}$, la frecuencia absoluta acumulada del intervalo anterior al crítico (si el intervalo crítico es el primero, tomamos $N_{c-1}=0$), y $N_c$, la frecuencia absoluta acumulada del intervalo crítico. Entonces, lo que hacemos es unir con una recta los puntos $(L_c,N_{c-1})$ y $(L_{c+1},N_c)$ y aproximar  la mediana por medio de la abscisa $M$ del punto sobre esta recta cuya ordenada es $n/2$ (véase la Figura \@ref(fig:medianagrup)). La fórmula concreta  para $M$, por si no os acordáis de la ecuación de la recta determinada por dos puntos, es
+Lo que haremos será suponer que estos 23 valores están igualmente distribuidos empezando por 120 y sin llegar a 130 (porque nuestras clases son cerradas por la izquierda y abiertas a la derecha). Por lo tanto suponemos que son 
 $$
-M=L_{c}+\frac{L_{c+1}-L_{c}}{N_c-N_{c-1}}\cdot \Big(\frac{n}{2}- N_{c-1}\Big).
+120, 120+\frac{1}{23}\cdot 10, 120+\frac{2}{23}\cdot 10, 120+\frac{3}{23}\cdot 10,\ldots, 120+\frac{21}{23}\cdot 10, 120+\frac{22}{23}\cdot 10
 $$
 
+Los valores quinto y sexto son $120+40/23=121.74$ y $120+50/23=122.17$ y su media 121.96. Esta es nuestra aproximación de la mediana.
 
-
-```{r medianagrup, out.width="60%", echo=FALSE, fig.cap='Aproximación lineal de la mediana a partir de las frecuencias de los datos agrupados.'}
-knitr::include_graphics("INREMDN_files/figure-html/medianagrup.png")
+```{block2,type="rmdnote"}
+Si  las clases fueran cerradas a la derecha, tomaríamos los valores
+$$
+120+\frac{1}{23}\cdot 10, 120+\frac{2}{23}\cdot 10, 120+\frac{3}{23}\cdot 10,\ldots, 120+\frac{21}{23}\cdot 10, 120+\frac{22}{23}\cdot 10, 130
+$$
+Y si  supusiéramos que los extremos no pueden pertenecer a las clases, entonces tomaríamos los valores
+$$
+120+\frac{1}{24}\cdot 10, 120+\frac{2}{24}\cdot 10, 120+\frac{3}{24}\cdot 10,\ldots,  120+\frac{22}{24}\cdot 10, 120+\frac{23}{24}\cdot 10
+$$
+En cada caso, luego tomaríamos la media del quinto y el sexto.
 ```
 
-En nuestro ejemplo, $L_c=120$, $L_{c+1}=130$, $N_{c-1}=55$, $N_c=78$ y por lo tanto estimamos que
-$$
-M=120+\frac{130-120}{78-55}\cdot (60- 55)=122.17
-$$
 
-Un procedimiento similar se puede usar  para aproximar cualquier cuantil $Q_{p}$ de orden $p$: buscamos su intervalo crítico $[L_c,L_{c+1})$ y usamos la fórmula anterior cambiando $n/2$ por $p\cdot n$.
+Un procedimiento similar se puede usar  para aproximar cualquier cuantil $Q_{p}$ de orden $p$. Por ejemplo, busquemos el primer cuartil. Es el trigésimo valor de la muestra ordenada, y por lo tanto el octavo de la clase [110,120), que contiene 33 valores. Tomamos estos 33 valores igualmente distribuidos y empezando con 110:
+$$
+110, 110+\frac{1}{33}\cdot 10, 110+\frac{2}{33}\cdot 10, 110+\frac{3}{33}\cdot 10,\ldots, 110+\frac{31}{33}\cdot 10, 110+\frac{32}{33}\cdot 10
+$$
+El octavo es $110+70/33=112.12$. Esta es nuestra aproximación del segundo cuartil.
+
+
 
 ```{block2,type="rmdexercici"}
 Considerad el agrupamiento  en 15 clases de la muestra de tensiones arteriales medias de 120 adultos del Ejemplo \@ref(exm:tensioagrup). A partir de este agrupamiento, estimad los valores de la media, la varianza y la mediana de la muestra, y comparadlos con los obtenidos a partir de 9 clases. ¿Cuáles creéis que estiman mejor los estadísticos de la muestra original?
@@ -1203,24 +1232,26 @@ $$
 Como esta covarianza es positiva, deducimos que los valores de la tensión media y el nivel de colesterol en esta muestra tienden a crecer juntos, como ya observamos en el diagrama de dispersión del Ejemplo \@ref(exm:tensionscatter).
 
 
-Ahora bien, el valor de la covarianza es difícil de interpretar más allá de su signo. Por ejemplo, si la covarianza de las variables Tensión y Colesterol en otra muestra de individuos fuera mayor que la que hemos obtenido en la muestra anterior, eso no tendría por qué significar que la tendencia al crecimiento conjunto de estas dos variables en la nueva muestra fuera más acentuada que en la nuestra. Por ello, a menudo se usa una versión normalizada de la covarianza, la correlación de Pearson, cuyo valor tiene una interpretación sencilla (aunque no siempre corresponde con lo que queremos saber de nuestra muestra).
+En general, la magnitud de la covarianza mide cuánto varían conjuntamente las variables. Por ejemplo, una covarianza positiva y muy grande no solo indica que cuando la $x$ crece, la $y$ tiende a crecer, sino que también nos indica que cuando la $x$ es mucho más grande que la media, la $y$ tiende a ser mucho más grande que la media. Esto hace que, por ejemplo, la covarianza dependa de las unidades de medida. Si por ejemplo hubiéramos medido los niveles de colesterol del ejemplo anterior en mg/cl, de manera que sus valores se dividieran por 10, la covarianza resultante quedaría dividida por 10.
+
+Por ello a menudo se usa una versión normalizada de la covarianza, la correlación de Pearson, cuyo valor no depende de cambios de escala y tiene una interpretación sencilla (aunque no siempre corresponde con lo que queremos saber de nuestra muestra).
 
 La **correlación de Pearson** de dos vectores de datos $x$ e $y$ de la misma longitud se define como su covarianza dividida por el producto de sus desviaciones típicas:
 $$
 r_{x,y}=\frac{s_{x,y}}{s_xs_y}
 $$
 
-Como el signo de $r_{x,y}$ es el mismo que el de $s_{x,y}$, el signo de la 
-correlación de Pearson tiene el mismo significado que el de la covarianza:
+Como el signo de $r_{x,y}$ es el mismo que el de $s_{x,y}$ y es 0 exactamente cuando $s_{x,y}=0$, el signo de la  correlación de Pearson tiene el mismo significado que el de la covarianza:
 
 * $r_{x,y}>0$ cuando $y$ tiende a crecer si $x$ crece
 * $r_{x,y}<0$ cuando $y$ tiende a decrecer si $x$ crece
-* $r_{x,y}\approx 0$ cuando no hay ninguna tendencia  en este sentido; decimos entonces que $x$ e $y$ están *incorreladas*. 
+* $r_{x,y}\approx 0$ cuando no hay ninguna tendencia  en este sentido; decimos entonces que $x$ e $y$ están *incorreladas*
+* En particular, si $x$ e $y$ son independientes, $r_{x,y}=0$
 
 Pero la correlación de Pearson lleva más información que la covarianza, porque 
 **mide la relación lineal entre los dos vectores**, en el sentido de las propiedades siguientes:
 
-* Se tiene que $-1\leqslant r_{x,y}\leqslant 1$.
+* $r_{x,y}$ está siempre entre -1 y 1.
 
 * Cuanto más cerca está $r_{x,y}$ de -1 o 1, más se aproximan los puntos $(x_i,y_i)$ a estar sobre una recta, que será creciente si $r_{x,y}>0$ y decreciente si $r_{x,y}<0$.
 
@@ -1240,14 +1271,14 @@ por lo que su correlación de Pearson es
 $$
 r_{\text{Tensión},\text{Colesterol}}=\frac{110.9164}{8.616\cdot 18.84}=0.683
 $$
-Los pares de valores de tensión arterial media y el nivel de colesterol de los individuos de la muestra presentan una tendencia acusada a estar sobre una recta.
+Los pares de valores de tensión arterial media y el nivel de colesterol de los individuos de la muestra presentan una tendencia acusada a crecer conjuntamente siguiendo una recta.
 
 ```
 
 ```{block2,type="rmdnote"}
-Si una de las dos variables tiene desviación típica 0, en la fórmula de la correlación aparece un 0 en el denominador y no la podemos calcular. En este caso, se toma $r_{x,y}=0$. El motivo es el siguiente. Supongamos que $s_X=0$. Como ya hemos visto, esto quiere decir que todos los valores de $x$ son iguales, y por lo tanto iguales al valor medio $\overline{x}$. Pero entonces $s_{x,y}=0$: el numerador de $r_{x,y}$ también es 0.
+Si una de las dos variables tiene desviación típica 0, en la fórmula de la correlación aparece un 0 en el denominador y no la podemos calcular. En este caso, se toma $r_{x,y}=0$. El motivo es el siguiente. Supongamos que $s_x=0$. Como ya hemos visto, esto quiere decir que todos los valores de $x$ son iguales, y por lo tanto iguales al valor medio $\overline{x}$. Pero entonces $s_{x,y}=0$: el numerador de $r_{x,y}$ también es 0. 
 
-Por lo tanto, si los puntos están sobre una recta horizontal o una recta vertical, la correlación es 0.
+Por lo tanto, si los puntos están sobre una recta horizontal o una recta vertical, la correlación es 0, por mucho que estén sobre una recta. Esto es consistente con el propiedad de que independencia implica correlación nula: si una de las variables es constante, los valores que toma son claramente independientes de los que toma la otra.
 ```
 
 Gráficamente podemos visualizar la tendencia de los puntos de una tabla bivariante a estar sobre una recta añadiendo a su gráfico de dispersión su **recta de regresión** (para ser precisos, **de regresión lineal por mínimos cuadrados**, pero normalmente omitiremos esta apostilla). Se trata de la recta que más se aproxima a los puntos $(x_i,y_i)$ en el sentido siguiente. 
@@ -1298,6 +1329,12 @@ Por el momento JAMOVI no ofrece la posibilidad de calcular covarianzas si no es 
 knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.EDC.6.png")
 ```
 
+En el módulo **Demonstration** de JAMOVI tenéis la opción de generar muestras aleatorias de pares de valores y  correlación (aproximadamente) la deseada, para haceros una idea de qué representan los diferentes valores de la correlación. Por ejemplo, un conjunto de 100 pares de valores con correlación aproximadamente 0.5:
+
+
+```{r jamovidemons1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.DEMONS.1.png")
+```
 
 ```{block2,type="rmdimportant"}
 El valor de la correlación de Pearson no siempre es suficiente para valorar el ajuste de los puntos a una recta. Es siempre conveniente dibujar los puntos y la recta de regresión lineal y darles un vistazo.
@@ -1320,7 +1357,7 @@ abline(lm(y4~x4,data=anscombe),col="red",lwd=1.5)
 
 
 ```{block2,type="rmdnote"}
-Ser incorrelados no es sinónimo de que no haya ninguna dependencia entre las dos variables. Por ejemplo, los conjuntos de puntos de la Figura \@ref(fig:datasaurus) tienen correlación casi 0 (en concreto 0.004), y es claro que en cada caso hay una fuerte dependencia entre los valores de $x$ y de $y$. Lo que significa que la covarianza, o la correlación, sea 0  es que no hay relación entre el crecimiento de una variable y el de la otra.
+Ser incorrelados no es sinónimo de que no haya ninguna dependencia entre las dos variables. Por ejemplo, los conjuntos de puntos de la Figura \@ref(fig:datasaurus) tienen correlación casi 0 (en concreto -0.004), y es claro que en cada caso hay una fuerte dependencia entre los valores de $x$ y de $y$. Lo que significa que la covarianza, o la correlación, sea 0  es que no hay relación entre el crecimiento de una variable y el de la otra.
 ```
 
 
@@ -1501,15 +1538,15 @@ El gráfico semilogarítmico permite apreciar mejor el descenso en la mortalidad
 
 *(3)* Si en un conjunto de datos cuantitativos la media aritmética es estrictamente menor que la mediana (marca todas las respuestas correctas):
 
-1.  La muestra seguramente sea asimétrica  a la izquierda. 
-1.  La muestra seguramente sea asimétrica  a la derecha.
+1.  Esperamos que la muestra  sea asimétrica  a la izquierda. 
+1.  Esperamos que la muestra  sea asimétrica  a la derecha.
 1.  No tenemos ninguna indicación sobre el tipo de simetría o asimetría de la muestra
 1.  Más del 50% de los valores son menores que la media.
 1. Más del 50% de los valores son mayores que la media. 
 1. Ninguna de las respuestas anteriores es correcta.
 
 
-*(4)* Un profesor calculó algunas medidas de tendencia central de los resultados de un examen.  ¿Cuál de las afirmaciones siguientes no aporta ninguna información nueva sobre los resultados del examen?
+*(4)* Un profesor calculó algunas medidas de tendencia central de los resultados de un examen.  ¿Cuál de las afirmaciones siguientes no aporta ninguna información específica sobre los resultados de este examen (que no cumplan los resultados de todos los exámenes)?
 
 
 1. Aproximadamente la mitad de los estudiantes tuvieron una nota por encima de la moda.
@@ -1588,4 +1625,11 @@ El gráfico semilogarítmico permite apreciar mejor el descenso en la mortalidad
 1. Solamente los valores 0, -1 y 1
 1. Ninguna de las respuestas anteriores es correcta.
 
+*(13)* ¿De qué manera se ven afectadas la media y la varianza de una muestra, si a todos los valores de la muestra se les resta 4? Marca una sola respuesta. 
+
+1. La media disminuye y la varianza no varía
+1. La media y la varianza disminuyen
+1. La media y la varianza no varían
+1. La media no varía y la varianza disminuye
+1. Ninguna de las afirmaciones anteriores es siempre verdadera, porque depende de la muestra
 

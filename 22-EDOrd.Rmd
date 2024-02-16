@@ -78,7 +78,7 @@ knitr::kable(DF,
 ```
 
 ```{example,sexoger3}
-Todos los ancianos recogidos en la tabla de datos del Ejemplo \@ref(exm:sexoger2) fueron diagnosticados con COVID-19 entre marzo y mayo de 2020.  Vamos a ampliar dicha tabla de datos con información sobre la gravedad de su enfermedad, clasificada en cuatro niveles: Asintomática, Leve, Hospitalización (si requirió hospitalización pero no en UCI) y UCI. Consideraremos esta variable como ordinal, con sus niveles ordenados de esta manera.
+Todos los ancianos recogidos en la tabla de datos del Ejemplo \@ref(exm:sexoger2) fueron diagnosticados con COVID-19 entre marzo y mayo de 2020.  Vamos a ampliar dicha tabla de datos con información sobre la gravedad de su enfermedad, clasificada en cuatro niveles: Asintomática, Leve, Hospitalización (si requirió hospitalización pero no en UCI) y UCI. Consideraremos esta variable como ordinal, con sus niveles ordenados en orden creciente de gravedad.
 
 ```
 
@@ -168,7 +168,7 @@ Tabla=apply(prop.table(table(DFGer[,c(2,4)]),margin=1), MARGIN=1, FUN=cumsum)
 barplot(Tabla, beside=TRUE, legend=TRUE,args.legend=list(x="topleft",cex=0.5))
 ```
 
-Como vimos en el tema anterior, JAMOVI  da las frecuencias acumuladas (si hemos especificado correctamente el orden de los niveles) al calcular tablas de contigencia en **Exploración/Descriptivas**. En las tablas multidimensionales la acumulación se lleva a cabo en el total, lo que no siempre es conveniente. Para calcular bien tablas bidimensionales acumulando frecuencias por filas o columnas hay que usar `R`  en la ventana de edición. Por ejemplo, para obtener la tabla de frecuencias relativas acumuladas que hemos dado hace un momento de niveles de gravedad de la COVID dentro de cada nivel de demencia senil podemos usar:
+Como vimos en el tema anterior, JAMOVI  da las frecuencias acumuladas (si hemos especificado correctamente el orden de los niveles) al calcular tablas de contigencia en **Exploración/Descriptivas**. En las tablas multidimensionales la acumulación se lleva a cabo en el total, lo que no siempre es conveniente. Para calcular bien tablas bidimensionales acumulando frecuencias por filas o columnas hay que usar R  en la ventana de edición **R**. Por ejemplo, para obtener la tabla de frecuencias relativas acumuladas que hemos dado hace un momento de niveles de gravedad de la COVID dentro de cada nivel de demencia senil podemos usar:
 
 
 
@@ -182,7 +182,7 @@ Fijaos en la lógica de la sintaxis de esta instrucción. De dentro a fuera:
 
 * `prop.table(..., margin=1)` calcula la tabla de frecuencias relativas (de proporciones) por filas (`margin=1`) de la tabla de frecuencias absolutas a la que se aplica en los puntos suspensivos.
 
-* `apply(..., MARGIN=1, FUN=cumsum)` aplica la función `cumsum`, que calcula sumas acumuladas, por filas a la tabla entrada en los puntos suspensivos.
+* `apply(..., MARGIN=1, FUN=cumsum)` aplica la función `cumsum`, que calcula las sumas acumuladas, por filas (`MARGIN=1`) a la tabla entrada en los puntos suspensivos.
 
 Esta última función transpone nuestra tabla (siempre da el resultado de manera que la dimensión en la que se acumulan las frecuencias sea la de las columnas); si quisiérais mantener los tipos de demencia en la filas, se aplicaría `t(...)` al resultado del `apply`.
 
