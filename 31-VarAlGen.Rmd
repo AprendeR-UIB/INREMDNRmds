@@ -197,14 +197,14 @@ Si $X$ es una variable aleatoria discreta, $P(X\in A)=0$ para cualquier subconju
     * Si $1\leqslant x<2$,  los únicos valores $\leqslant x$ que puede tomar $X$ son 0 y 1 y por lo tanto 
     $$
     \begin{array}{rl}
-    F_X(x) & =P(X\leqslant x)=P(X=0\text{ o }X=1)\\ & =f_X(0)+f_X(1)=4/8=1/2
+    F_X(x)\!\!\!\!\! & =P(X\leqslant x)=P(X=0\text{ o }X=1)\\ & =f_X(0)+f_X(1)=4/8=1/2
     \end{array}
     $$
 
     * Si $2\leqslant x<3$, los únicos valores $\leqslant x$ que puede tomar $X$ son 0, 1 y 2  y por lo tanto 
        $$
         \begin{array}{rl}
-F_X(x) & =P(X\leqslant x)=P(X=0\text{ o }X=1\text{ o }X=2)\\ &  =f_X(0)+f_X(1)+f_X(2)=7/8
+F_X(x)\!\!\!\!\! & =P(X\leqslant x)=P(X=0\text{ o }X=1\text{ o }X=2)\\ &  =f_X(0)+f_X(1)+f_X(2)=7/8
         \end{array}
         $$
 
@@ -228,11 +228,11 @@ $$
 knitr::include_graphics("INREMDN_files/figure-html/distrcares.png")
 ```
 
-Observad en este gráfico que esta función de distribución $F_X$ es creciente y escalonada. Esto es general. Si $X$ es una variable aleatoria discreta:
+Observad en este gráfico que esta función de distribución $F_X$ es creciente y escalonada, y el valor en los puntos de escalón es el superior. Esto es general. Si $X$ es una variable aleatoria discreta:
 
 * $F_X$ es una función **escalonada**, con saltos en los valores de $D_X$, que son los únicos con probabilidad estrictamente mayor que 0 y por lo tanto los únicos que "suman" probabilidad. 
 
-* $F_X$ es **creciente**, porque si $x\leqslant y$, todos los sujetos con $X\leqslant x$ también tienen $X\leqslant y$, y por lo tanto
+* $F_X$ es **creciente**, porque si $x\leqslant y$, todos los sujetos tales que $X\leqslant x$ también cumplen que $X\leqslant y$, y por lo tanto
 $$
   P(X\leqslant x)\leqslant P(X\leqslant y).
 $$
@@ -264,15 +264,21 @@ La **moda** de una variable aleatoria discreta $X$ es el valor (o los valores) $
 Hay un aspecto de las variables aleatorias discretas sobre el que queremos llamar la atención, sobre todo por comparación con las variables continuas:
   
 ```{block2,type="rmdcaution"}
-Los valores de $P(X\leqslant x)$ y $P(X<x)$ pueden ser diferentes.
+Los valores de $P(X\leqslant x)$ y $P(X<x)$ pueden ser diferentes. 
 ```
+
+De hecho, como 
+$$
+P(X\leqslant x)=P(X<x)+P(X=x),
+$$
+se tiene que $P(X< x)\neq P(X\leqslant x)$ exactamente cuando $x\in D_X$.
 
 Por ejemplo, con la variable $X$ "Lanzamos una moneda equilibrada 3 veces y contamos las caras":
 
 * La probabilidad de sacar 2 caras o menos  ya la hemos calculado, y es
 $P(X\leqslant 2)=7/8$
 
-* Pero la probabilidad de sacar **menos de 2 caras**,  $P(X<2)$, es la sacar  1 cara o menos, por lo tanto $P(X<2)=P(X\leqslant 1)=4/8$.
+* Pero la probabilidad de sacar **menos de 2 caras**,  $P(X<2)$, es la de sacar  1 cara o menos, por lo tanto $P(X<2)=P(X\leqslant 1)=4/8$.
 
 
 ```{block2,type="rmdexercici"}
@@ -329,7 +335,7 @@ Aparte de su interpretación como "el promedio de $X$ en el total de la poblaci�
 > Suponed que tomamos una muestra aleatoria de $n$ sujetos de la población, medimos $X$ sobre ellos y calculamos la media aritmética de los $n$ valores obtenidos. Entonces, cuando el tamaño $n$ de la muestra tiende a $\infty$, esta media aritmética tiende a valer $E(X)$ "casi seguro" (en el sentido de que la probabilidad de que su límite sea $E(X)$ es 1).
 
 ```{block2,type="rmdcaution"} 
-Aquí probabilidad 1 no significa "total y absolutamente seguro", porque este límite va a ser una variable aleatoria continua, donde, como veremos en la próxima lección, probabiilidad 0 no significa imposible. Por ejemplo, si repetís muchas veces el proceso de lanzar una moneda equilibrada 3 veces, por pura mala suerte puede pasar que en todas las ocasiones saquéis tres caras. Casi seguro que no pasa, pero no podemos estar 100% seguros de que no pase, no es imposible. Como decimos por aquí, *n'hi ha que neixen estrellats.*
+Aquí probabilidad 1 no significa "total y absolutamente seguro", porque este límite va a ser una variable aleatoria continua, donde, como veremos en la próxima lección, probabiilidad 0 no significa imposible ni probabilidad 1 significa 100% seguro. Por ejemplo, si repetís muchas veces el proceso de lanzar una moneda equilibrada 3 veces, por pura mala suerte puede pasar que en todas las ocasiones saquéis tres caras. Casi seguro que no pasa, pero no podemos estar 100% seguros de que no pase, no es imposible. Como decimos por aquí, *n'hi ha que neixen estrellats.*
 ```
 
 
@@ -350,9 +356,9 @@ Esto nos dice que:
 
 * El **valor esperado** de $X$ es 1.5: Si repitiésemos muchas veces el experimento de lanzar la moneda 3 veces y contar las caras, la media de los resultados obtenidos daría, muy probablemente, un valor muy cercano a 1.5. Abreviamos esto diciendo que **si lanzamos la moneda 3 veces, de media esperamos sacar 1.5 caras**.
 
-Más en general, si $g:\mathbb{R}\to  \mathbb{R}$ es una aplicación,
+Más en general, si $g:\mathbb{R}\to  \mathbb{R}$ es una aplicación, el valor esperado de la composición $\Omega \stackrel{X}{\longrightarrow} \mathbb{R}\stackrel{g}{\longrightarrow}\mathbb{R}$ es 
 $$
-E(g(X))=\sum_{x\in D_X} g(x)\cdot f_X(x)
+E(g(X))=\sum_{x\in D_X} g(x)\cdot f_X(x)  
 $$
 De nuevo, su interpretación natural es que es el promedio de $g(X)$ sobre la población en la que medimos $X$, y también es el valor "esperado" de $g(X)$ en el sentido anterior.
 
@@ -429,6 +435,12 @@ $$
 ```
 
 
+```{block2,type="rmdnote"}
+En particular, si $X$ no es una variable constante, $\sigma(X)^2$ es una suma de cuadrados, algunos de los cuales va a ser diferente de 0 y por lo tanto estrictamente positivo, en cuyo caso $E(X^2)-\mu_X^2=\sigma(X)^2>0$: el valor esperado de $X^2$ es mayor que el cuadrado del valor esperado de $X$.
+```
+
+
+
 La **desviación típica** (o **desviación estándar**) de una variable aleatoria discreta $X$  es la raíz cuadrada positiva de su varianza:
 $$
 \sigma(X)=+\sqrt{\sigma(X)^2}
@@ -463,9 +475,11 @@ $$
 
 Veamos algunas propiedades de la varianza y la desviación típica:
 
-* Si  $b$ es una variable aleatoria constante que sobre todos los individuos de la población toma el valor $b\in \mathbb{R}$, entonces $\sigma(b)^2=\sigma(b)=0$.
+* Si  $b$ es una variable aleatoria constante que sobre todos los individuos de la población toma el valor $b\in \mathbb{R}$, es decir, tal que $D_b=\{b\}$, entonces $\mu_b=b$ y $\sigma(b)^2=(b-b)f_b(b)=0$..
 
     Una variable aleatoria constante tiene cero dispersión, ¿no?
+    
+    El recíproco también es cierto: si $0=\sigma(X)^2=\sum_{x\in D_X} (x-\mu_X)^2\cdot f_X(x)$, entonces todos los sumandos son 0, y como $f_X(x)\neq 0$ si $x\in D_X$, concluimos que, para todo $x\in D_X$, $x=\mu_X$: es decir, que el dominio está formado por un solo número y la variable aleatoria es constante.
 
 * $\sigma(aX+b)^2=a^2\cdot \sigma(X)^2$.
 
@@ -487,7 +501,7 @@ $$
 Sumar un valor constante $b$ a una variable aleatoria no modifica su dispersión: si en un examen a todos los estudiantes les sumamos 1 punto, la media va a subir 1 punto pero la dispersión de las notas alrededor de esta media va a ser la misma que antes de sumarlo. 
 ```
 
-* $\sigma(aX+b)=|a|\cdot \sigma(X)$ (recordad que la desviación típica es positiva, y $+\sqrt{a^2}=|a|$).
+* $\sigma(aX+b)=|a|\cdot \sigma(X)$ (recordad que la desviación típica es positiva y que $+\sqrt{a^2}=|a|$).
 
 * Si $X,Y$ son variables aleatorias **independientes**,
 $$
@@ -688,7 +702,7 @@ y nos da el número de subconjuntos de $k$ elementos de $\{1,\ldots,n\}$.
 
 
 ```{block2,type="rmdimportant"}
-Si lo pensáis, veréis que el valor de $E(X)$ es el "esperado". Si tomáis una muestra aleatoria de $n$ sujetos de una población en la que la proporción de sujetos $E$ es $p$, ¿cuántos sujetos $E$ "esperáis" obtener en vuestra muestra? Pues una proporción $p$ de la muestra, es decir $p\cdot n$, ¿no?
+Si lo pensáis, veréis que el valor de $E(X)$ es el "esperado". Si tomáis una muestra aleatoria de $n$ sujetos de una población en la que la proporción de sujetos $E$ es $p$, ¿cuántos sujetos $E$ "esperáis" obtener en vuestra muestra? Pues una fracción $p$ de la muestra, es decir $p\cdot n$, ¿no?
 ```
 
 
@@ -729,7 +743,7 @@ Esto será general. Todas las variables aleatorias de una misma familia tienen l
 ```
 
 
-El tipo de teorema anterior es el que hace que nos interese conocer algunas familias distinguidas frecuentes de variables aleatorias. Si, por ejemplo, reconocemos que una variable aleatoria es binomial y conocemos sus valores de $n$ y $p$ y  sabemos el teorema anterior, automáticamente sabemos su función de densidad, y con ella su función de distribución, su valor esperado, su varianza etc., sin necesidad de deducir   toda esta información cada vez que encontremos una variable de estas.
+El tipo de teorema anterior es el que hace que nos interese conocer algunas familias distinguidas frecuentes de variables aleatorias. Si, por ejemplo, reconocemos que una variable aleatoria es binomial y conocemos sus valores de $n$ y $p$ y  sabemos el teorema anterior (o sabemos dónde consultarlo), automáticamente sabemos su función de densidad, y con ella su función de distribución, su valor esperado, su varianza etc., sin necesidad de deducir   toda esta información cada vez que encontremos una variable de estas.
 
 ```{block2,type="rmdrecordau"}
 El conocimiento ahorra tiempo.
@@ -824,11 +838,19 @@ par(mfrow=c(1,1))
 ```{block2,type="rmdexercici"}
 Para agilizar los tests de COVID-19, se propuso la estrategia siguiente (llamada **pooled sample testing** o simplemente **pooling**). Se unen grupos de 10 muestras en una sola muestra y se analizan. Si da negativo, será señal de que todas la muestras originales eran negativas. Se declaran entonces negativos los 10 sujetos de las muestras originales. Si da positivo, será porque al menos una de las muestras originales era positiva. En este caso, se analizan las 10 muestras por separado.
 
-
 Supongamos que el test tiene una especificidad y una sensibilidad del 100%. Observad entonces que si los 10 sujetos están sanos, se hace un solo test, mientras que si alguno está infectado, se hacen 11. Con el enfoque tradicional, un test por muestra, sin complicaciones, se harían siempre 10 tests.
 
-Sea $p$ la prevalencia de la COVID-19 en un momento y población dados. Dadas 10 muestras tomadas en ese momento en esa población, ¿cuál es el valor esperado de tests que se tienen que realizar? Para $p$ pequeña, del orden del 1% al 5%, ¿significaría el *pooling* un ahorro considerable de tests?
+Sea $p$ la prevalencia de la COVID-19 en un momento y población dados. Sea p la prevalencia de la COVID-19 en un momento y población dados. Dadas 10 muestras tomadas en ese momento en esa población, ¿cuál es el valor esperado de tests que se tienen que realizar? Para p pequeña, del orden del 5%, ¿significaría el pooling un ahorro considerable de tests?
 
+**Plan**: Considerad la variable aleatoria que cuenta, para cada conjunto de 10 muestras, cuántos tests se realizan. 
+
+a. ¿Cuál es su dominio? 
+
+b. ¿Qué vale la probabilidad de cada elemento del dominio? (es  decir, la densidad de la variable aleatoria)
+
+c. ¿Cuál es su valor esperado?
+
+d. ¿Qué vale este valor esperado cuando p es 5%?
 
 ```
 
@@ -909,7 +931,7 @@ Recordad que el paradigma de variable aleatoria binomial es: tengo una població
 
 Una variable aleatoria  **hipergeométrica** (o **tiene distribución hipergeométrica**) **de parámetros $N$, $M$ y $n$** (para abreviar, $H(N,M,n)$) es cualquier variable aleatoria $X$ que podáis identificar con el proceso siguiente: Tenemos una población formada por $N$ sujetos que satisfacen una condición $E$ y $M$ sujetos que no la satisfacen (por lo tanto, en total, $N+M$ sujetos en la población), tomamos una muestra aleatoria **sin reposición** de tamaño $n$ y contamos el número de sujetos $E$ en esta muestra.
 
-Llamaremos a $N$ el **número poblacional de éxitos**, a $M$ el **número poblacional de fracasos** y a $n$ el **tamaño de las muestras**. Fijaos entonces que $N+M$ es el  **tamaño total de la población** y que $N/(N+M)$  es la **probabilidad poblacional de éxito** (la fracción de sujetos que satisfacen $E$ en el total de la población). 
+Llamaremos a $N$ el **número poblacional de éxitos**, a $M$ el **número poblacional de fracasos** y a $n$ el **tamaño de las muestras**. Fijaos entonces que $N+M$ es el  **tamaño total de la población** y que $N/(N+M)$  es la **probabilidad poblacional de éxito** (la fracción de sujetos que satisfacen $E$ en el total de la población), que llamaremos $p$. 
 
 ```{example}
 Recordad uno de los ejemplos de variables no binomiales de la sección anterior. En una aula hay 5 chicos y 45 chicas. Escogemos 10 estudiantes, uno tras otro y sin repetirlos, para hacerles una pregunta. Cada elección es independiente de las otras. Contamos cuántos chicos hemos interrogado. Se trata de una variable hipergeométrica $H(5,45,10)$.
@@ -960,12 +982,24 @@ Recordad los ejemplos siguientes:
 $$
 \frac{46700000-100}{46700000-1}=0.9999979
 $$
+    De hecho, la probabilidad de alguna repetición en una muestra aleatoria simple de 100 españoles es 0.0001, es  decir, de media solo se da alguna repetición en una de cada 10000 muestras de estas, como muestra la aplicación siguiente de la función `pbirthday`:
+    
+
+```{r}
+pbirthday(100,46700000)
+```
+
 
 ```{block2,type="rmdnote"}
-Hay otro motivo para considerarla binomial en este ejemplo, y es que, en realidad, no sabemos los valores exactos de $N$ y $M$. Seguramente no es verdad que el tamaño de la población española sea exactamente de 46,700,000 personas, tan redondo, ni que los diabéticos representen exactamente un 11.7%, sin más cifras decimales. Así que ya puestos a aproximar, tomamos la aproximación binomial, que es más sencilla. 
+Hay otro motivo para considerarla binomial en este ejemplo, y es que, en realidad, no sabemos los valores exactos de $N$ y $M$. Estoy seguro de que no es verdad que el tamaño de la población española sea exactamente de 46,700,000 personas, tan redondo, ni que los diabéticos representen exactamente un 11.7%, sin más cifras decimales. Así que ya puestos a aproximar, tomamos la aproximación binomial, que es más sencilla. 
 
-Pero cuidado: si la muestra fuera, pongamos, de 100,000 personas, entonces la aproximación binomial sería teóricamente incorrecta, aunque el factor corrector de población finita es de 0.99786: la probabilidad de algún sujeto repetido en una muestra aleatoria de 100,000 personas tomada de una población de 46,700,000 personas es prácticamente 1.
+Pero cuidado: si la muestra fuera, pongamos, de 10,000 personas, entonces la aproximación binomial sería teóricamente incorrecta, aunque el factor corrector de población finita es de 0.999786: de media, un poco menos de 2 de cada 3 muestras aleatorias simples de 10,000 personas tomadas de una población de 46,700,000 personas contienes alguna repetición, como muestra el cálculo siguiente. 
 
+
+```
+
+```{r}
+pbirthday(10000,46700000)
 ```
 
 * En una aula hay 5 chicos y 45 chicas. Escogemos 10 estudiantes, uno tras otro y sin repetirlos, para hacerles una pregunta. Cada elección es independiente de las otras. Contamos cuántos chicos hemos interrogado. 
@@ -1060,7 +1094,7 @@ phyper(2,5,45,10)
 rhyper(25,5,45,10)
 ```
 
-Cada vez que repitamos esta instrucción seguramente obtendremos una muestra aleatoria nueva:
+Cada vez que repitamos esta instrucción seguramente obtendremos una muestra aleatoria diferente:
 ```{r}
 rhyper(25,5,45,10)
 rhyper(25,5,45,10)
@@ -1079,7 +1113,7 @@ rhyper(25,5,45,10)
 
 Una variable aleatoria $X$ es **de Poisson** (o tiene **distribución de Poisson**) **con parámetro $\lambda>0$** (para abreviar, $Po(\lambda)$) cuando: 
 
-* Su **dominio** es $D_X=\mathbb{N}$, el conjunto de todos los números naturales (es decir, teóricamente puede tomar como valor cualquier número natural).
+* Su **dominio** es $D_X=\mathbb{N}$, el conjunto de todos los números naturales (es decir, *teóricamente* puede tomar como valor cualquier número natural).
 
 * Su **función de densidad** es
 $$
@@ -1104,19 +1138,17 @@ Es decir, el "parámetro" $\lambda$ de una variable de Poisson es su valor esper
 
 La respuesta es que la familia de Poisson incluye un tipo de variables aleatorias muy común en epidemiología.
 
-Supongamos que tenemos un tipo de objetos que pueden darse  en una región continua de tiempo o espacio. Por ejemplo, defunciones de personas por una determinada enfermedad en el decurso del tiempo, casos de un tipo de cáncer  en diferentes zonas geográficas de un país, o números de bacterias en una superficie. Para simplificar el lenguaje, vamos a suponer que observamos apariciones de estos objetos en el tiempo.
+Supongamos que tenemos un tipo de objetos o acontecimientos que pueden darse  en una región continua de tiempo o espacio. Por ejemplo, defunciones de personas por una determinada enfermedad en el decurso del tiempo, casos de un tipo de cáncer  en diferentes zonas geográficas de un país, o bacterias en una superficie. Para simplificar el lenguaje, vamos a suponer que observamos apariciones de  objetos en el tiempo.
 
+Si las apariciones de estos objetos satisfacen las propiedades siguientes:
 
+* Las apariciones de los objetos son **aleatorias**: en cada instante, un objeto se da, o no, al azar, con una probabilidad fija y constante
 
-Supongamos además que las apariciones de estos objetos satisfacen las propiedades siguientes:
+* Las apariciones de los objetos son  **independientes**: que se dé un objeto en  un instante concreto, no depende para nada de que se haya dado o no un objeto en otro instante
 
-* Las apariciones de los objetos son **aleatorias**: en cada instante, un objeto se da, o no, al azar, con una probabilidad fija y constante. 
+* Las apariciones de los objetos **no son simultáneas**: es prácticamente imposible que dos objetos de estos se den en el mismo instante exacto, medido con precisión infinita
 
-* Las apariciones de los objetos son  **independientes**: que se dé un objeto en  un instante concreto, no depende para nada de que se haya dado o no un objeto en otro instante.
-
-* Las apariciones de los objetos **no son simultáneas**: es prácticamente imposible que dos objetos de estos se den en el mismo instante exacto, medido con precisión infinita.
-
-En esta situación, la variable $X_t$ que toma un intervalo de tiempo de duración $t$ y cuenta el número de objetos que se dan en él  es de **Poisson**: $Po(\lambda_t)$, con $\lambda_t$ el número esperado de objetos en este intervalo de tiempo (es decir, el número medio de objetos en intervalos de tiempo de este tamaño). 
+entonces, la variable $X_t$ que toma un intervalo de tiempo de duración $t$ y cuenta el número de objetos que se dan en él  es de **Poisson**: $Po(\lambda_t)$, con $\lambda_t$ el número esperado de objetos en este intervalo de tiempo (es decir, el número medio de objetos en intervalos de tiempo de este tamaño). 
 
 Por ejemplo, cuando lo que cuentan ocurre al azar, son variables de Poisson:
 
@@ -1126,9 +1158,22 @@ Por ejemplo, cuando lo que cuentan ocurre al azar, son variables de Poisson:
 
 * El número de bacterias en un cuadrado de 1 cm de lado (o de 1 m de lado...)
 
-Fijaos en que este tipo de conocimiento nos sirve para dos cosas:
 
-* Si sabemos que estas variables son de Poisson, conocemos su densidad y por lo tanto podemos calcular lo que queramos para ellas.
+```{block2,type="rmdnote"}
+Más en concreto, si $X$ es una variable binomial $B(n,p)$ con $n$ MUY grande y $p$ MUY pequeño, entonces $X$ es aproximadamente $Po(\lambda)$ con $\lambda=p\cdot n$. Aquí $n$ es, para entendernos, el número de instantes en un día, o el número de puntos del cuadrado de 1 cm de lado: MUY grande.
+
+Para que os hagáis una idea, la instrucción siguiente calcula el máximo (`max`) de los valores absolutos (`abs`) de las diferencias entre la densidad de una $B(10^6,10^{-5})$ y una $Po(10)$: esta diferencia máxima es del orden de 0.0000006.
+```
+
+
+```{r}
+max(abs(dbinom(0:10^6,10^6,10^-5)-dpois(0:10^6,10)))
+```
+
+
+Podemos aplicar esta información de dos maneras:
+
+* Si sabemos que una variable es (aproximadamente) de Poisson, conocemos su densidad y por lo tanto podemos calcular lo que queramos para ella.
 
 * Si los datos que observamos tocarían seguir una distribución de Poisson pero parece que no (por ejemplo, porque su varianza sea muy diferente de su media, tan diferente que sea difícil de creer que la media y la varianza poblacionales sean iguales), entonces es señal de que algo "raro" está pasando en realidad. 
 
@@ -1209,7 +1254,7 @@ $$
 **(4)**  ¿Cuál o cuáles de las variables siguientes tienen una distribución binomial?
 
 1. El peso de una persona elegida al azar. 
-1. Escogemos un número de lanzamientos al azar entre 5 y 10, lanzamos ese número de veces una moneda al aire, y contamos el número de caras. 
+1. Lanzamos un dado cúbico; si sale un resultado par, lanzamos una moneda equilibrada 5 veces y contamos el número de caras, y si sale un resultado impar,  lanzamos la moneda  equilibrada 10 veces  y contamos el número de caras. 
 1. El número de glóbulos rojos en 1 mm^3^ de sangre. 
 1. La proporción de hipertensos en una muestra aleatoria de 50 individuos. 
 1. Escogemos 10 estudiantes diferentes en una clase de 20, y contamos cuántas mujeres han salido. 
@@ -1220,13 +1265,13 @@ $$
 **(5)**  ¿Cuál o cuáles de las variables siguientes tienen una distribución de Poisson?
 
 1. El peso de una persona elegida al azar. 
-1. El número de casos diarios de COVID-19 en Mallorca. 
+1. El número de casos diarios de gripe en Mallorca. 
 1. El número de glóbulos rojos en 1 mm^3^ de sangre. 
 1. La proporción de hipertensos en una muestra aleatoria de 50 individuos. 
 1. Escogemos 10 estudiantes diferentes en una clase de 20, y contamos cuántas mujeres han salido. 
 1. Ninguna de ellas.
 
-**(6)** Sean $X$ e $Y$ dos variables aleatorias discretas. ¿Cuál o cuáles  de las afirmaciones siguientes son siempre verdaderas?
+**(6)** Sean $X$ e $Y$ dos variables aleatorias discretas cualesquiera. ¿Cuál o cuáles  de las afirmaciones siguientes son verdaderas?
 
 1. Siempre es cierto que $E(2X+3Y)=2E(X)+3E(Y)$
 1. No siempre es cierto que $E(2X+3Y)=2E(X)+3E(Y)$, pero sí que es cierto si $X$ e $Y$ son independientes

@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2024-02-16" />
+<meta name="date" content="2024-02-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="descripción-de-datos-ordinales.html"/>
-
+<link rel="next" href="variables-aleatorias-discretas.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -242,6 +242,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.11" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#datos-cuantitativos-bivariantes"><i class="fa fa-check"></i><b>9.11</b> Datos cuantitativos bivariantes</a></li>
 <li class="chapter" data-level="9.12" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#gráficos-en-escala-logarítmica"><i class="fa fa-check"></i><b>9.12</b> Gráficos en escala logarítmica</a></li>
 <li class="chapter" data-level="9.13" data-path="descripción-de-datos-cuantitativos.html"><a href="descripción-de-datos-cuantitativos.html#test-7"><i class="fa fa-check"></i><b>9.13</b> Test</a></li>
+</ul></li>
+<li class="part"><span><b>Tema IV: Variables aleatorias</b></span></li>
+<li class="chapter" data-level="10" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>10</b> Variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#densidad-y-distribución"><i class="fa fa-check"></i><b>10.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="10.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#esperanza"><i class="fa fa-check"></i><b>10.2</b> Esperanza</a></li>
+<li class="chapter" data-level="10.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#varianza-y-desviación-típica"><i class="fa fa-check"></i><b>10.3</b> Varianza y desviación típica</a></li>
+<li class="chapter" data-level="10.4" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#cuantiles"><i class="fa fa-check"></i><b>10.4</b> Cuantiles</a></li>
+<li class="chapter" data-level="10.5" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#familias-importantes-de-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>10.5</b> Familias importantes de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-binomiales"><i class="fa fa-check"></i><b>10.5.1</b> Variables aleatorias binomiales</a></li>
+<li class="chapter" data-level="10.5.2" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-hipergeométricas"><i class="fa fa-check"></i><b>10.5.2</b> Variables aleatorias hipergeométricas</a></li>
+<li class="chapter" data-level="10.5.3" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#variables-aleatorias-de-poisson"><i class="fa fa-check"></i><b>10.5.3</b> Variables aleatorias de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-8"><i class="fa fa-check"></i><b>10.6</b> Test</a></li>
 </ul></li>
 </ul>
 
@@ -2702,11 +2717,11 @@ Y si supusiéramos que los extremos no pueden pertenecer a las clases, entonces 
 \]</span>
 En cada caso, luego tomaríamos la media del quinto y el sexto.
 </div>
-<p>Un procedimiento similar se puede usar para aproximar cualquier cuantil <span class="math inline">\(Q_{p}\)</span> de orden <span class="math inline">\(p\)</span>. Por ejemplo, busquemos el primer cuartil. Es el trigésimo, y por lo tanto el octavo de la clase [110,120), que contiene 33 valores. Tomamos estos 3 valores igualmente distribuidos y empezando con 110:
+<p>Un procedimiento similar se puede usar para aproximar cualquier cuantil <span class="math inline">\(Q_{p}\)</span> de orden <span class="math inline">\(p\)</span>. Por ejemplo, busquemos el primer cuartil. Es el trigésimo valor de la muestra ordenada, y por lo tanto el octavo de la clase [110,120), que contiene 33 valores. Tomamos estos 33 valores igualmente distribuidos y empezando con 110:
 <span class="math display">\[
 110, 110+\frac{1}{33}\cdot 10, 110+\frac{2}{33}\cdot 10, 110+\frac{3}{33}\cdot 10,\ldots, 110+\frac{31}{33}\cdot 10, 110+\frac{32}{33}\cdot 10
 \]</span>
-El octavo es <span class="math inline">\(110+\frac{7}{33}\cdot 10=112.12\)</span>. Esta es nuestra aproximación del segundo cuartil.</p>
+El octavo es <span class="math inline">\(110+70/33=112.12\)</span>. Esta es nuestra aproximación del segundo cuartil.</p>
 
 <div class="rmdexercici">
 Considerad el agrupamiento en 15 clases de la muestra de tensiones arteriales medias de 120 adultos del Ejemplo <a href="descripción-de-datos-cuantitativos.html#exm:tensioagrup">9.13</a>. A partir de este agrupamiento, estimad los valores de la media, la varianza y la mediana de la muestra, y comparadlos con los obtenidos a partir de 9 clases. ¿Cuáles creéis que estiman mejor los estadísticos de la muestra original?
@@ -3133,7 +3148,7 @@ Los pares de valores de tensión arterial media y el nivel de colesterol de los 
 
 <div class="rmdnote">
 <p>Si una de las dos variables tiene desviación típica 0, en la fórmula de la correlación aparece un 0 en el denominador y no la podemos calcular. En este caso, se toma <span class="math inline">\(r_{x,y}=0\)</span>. El motivo es el siguiente. Supongamos que <span class="math inline">\(s_x=0\)</span>. Como ya hemos visto, esto quiere decir que todos los valores de <span class="math inline">\(x\)</span> son iguales, y por lo tanto iguales al valor medio <span class="math inline">\(\overline{x}\)</span>. Pero entonces <span class="math inline">\(s_{x,y}=0\)</span>: el numerador de <span class="math inline">\(r_{x,y}\)</span> también es 0.</p>
-Por lo tanto, si los puntos están sobre una recta horizontal o una recta vertical, la correlación es 0. Esto es consistente con el propiedad de que independencia implica correlación nula: si una de las variables es constante, los valores que toma son claramente independientes de los que toma la otra.
+Por lo tanto, si los puntos están sobre una recta horizontal o una recta vertical, la correlación es 0, por mucho que estén sobre una recta. Esto es consistente con el propiedad de que independencia implica correlación nula: si una de las variables es constante, los valores que toma son claramente independientes de los que toma la otra.
 </div>
 <p>Gráficamente podemos visualizar la tendencia de los puntos de una tabla bivariante a estar sobre una recta añadiendo a su gráfico de dispersión su <strong>recta de regresión</strong> (para ser precisos, <strong>de regresión lineal por mínimos cuadrados</strong>, pero normalmente omitiremos esta apostilla). Se trata de la recta que más se aproxima a los puntos <span class="math inline">\((x_i,y_i)\)</span> en el sentido siguiente.</p>
 <p>Dada una recta <span class="math inline">\(y=ax+b\)</span>, el <strong>error</strong> que se comete al estimar con esta recta el valor <span class="math inline">\(y_i\)</span> sobre el sujeto correspondiente al par <span class="math inline">\((x_i,y_i)\)</span> es <span class="math inline">\(y_i-(ax_i+b)\)</span>.
@@ -3161,7 +3176,7 @@ b=  \overline{\text{Colesterol}}-a\cdot \overline{\text{Tensión}}=201.48-1.494\
 <p><img src="INREMDN_files/figure-html/JAMOVI.EDC.5.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Por el momento JAMOVI no ofrece la posibilidad de calcular covarianzas si no es a través del editor. La función que calcula la covarianza muestral es <code>cov</code> y se aplica a los dos vectores.</p>
 <p><img src="INREMDN_files/figure-html/JAMOVI.EDC.6.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>En el módulo <strong>Demonstration</strong> de JAMOVI tenéis la opción de generar muestras aleatorias de puntos del tamaño deseado y la correlación (aproximadamente) la deseada, para haceros una idea de qué representan los diferentes valores de la correlación. Por ejemplo, un conjunto de 100 puntos con correlación aproximadamente 0.5:</p>
+<p>En el módulo <strong>Demonstration</strong> de JAMOVI tenéis la opción de generar muestras aleatorias de pares de valores y correlación (aproximadamente) la deseada, para haceros una idea de qué representan los diferentes valores de la correlación. Por ejemplo, un conjunto de 100 pares de valores con correlación aproximadamente 0.5:</p>
 <p><img src="INREMDN_files/figure-html/JAMOVI.DEMONS.1.png" width="100%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdimportant">
@@ -3882,17 +3897,13 @@ Figura 9.14: Gráfico en escala doble logarítmica
 
 
 
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="descripción-de-datos-ordinales.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="descripción-de-datos-ordinales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="variables-aleatorias-discretas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
