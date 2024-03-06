@@ -1590,17 +1590,16 @@ En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad 
 Si llamamos $A$ al suceso "Estar infectado por VIH"  y $B$ al suceso "Dar positivo en el test", entonces:
 
 * La probabilidad de que un individuo que dé positivo en el test esté infectado es 
-
 $$
 \begin{array}{rl}
 P(A|B)\!\!\!\! & =\dfrac{P(B|A)\cdot P(A)}{P(B|A)\cdot P(A)+P(B|A^c)\cdot P(A^c)}\\
-&=\dfrac{0.99\cdot 0.005}{0.005\cdot 0.99+0.995\cdot 0.05}=0.09
+&=\dfrac{0.99\cdot 0.005}{0.99\cdot 0.005+0.05\cdot 0.995}=0.09
 \end{array}
 $$
-
+    
+     Solo un 9% de los positivos están realmente infectados.
 
 * La probabilidad de que un individuo que dé negativo en el test no esté infectado es 
-
 $$
 \begin{array}{rl} 
 P(A^c|B^c)\!\!\!\!& =\dfrac{P(B^c|A^c)\cdot P(A^c)}{P(B^c|A)\cdot P(A)+P(B^c|A^c)\cdot P(A^c)}\\
@@ -1608,7 +1607,28 @@ P(A^c|B^c)\!\!\!\!& =\dfrac{P(B^c|A^c)\cdot P(A^c)}{P(B^c|A)\cdot P(A)+P(B^c|A^c
 \end{array}
 $$
 
+    Un 99.995% de los negativos no están infectados.
+    
+```{example,VIH995bis}
+Seguimos con el test para el VIH en una población con el 0.5% de infectados por VIH del ejemplo anterior. Supongamos ahora que a un individuo que da positivo le repetimos el test y vuelve a dar positivo. Si los resultados de las dos repeticiones del test son independientes ¿cuál es la probabilidad de que este individuo esté infectado?
+```    
 
+Sea $A$ al suceso "Estar infectado por VIH"  y llamemos ahora $B_2$ al suceso "Dar positivo en dos repeticiones independientes del test". Si la probabilidad de que un infectado dé positivo en un test es 0.99, la probabilidad de que dé positivo en dos tests independientes será 0.99·0.99=0.9801 (el producto de la probabilidad de dar positivo en el primero por la probabilidad de dar positivo en el segundo). Y si la probabilidad de que un no infectado dé positivo en un test es 0.05, la probabilidad de que dé positivo en dos tests independientes será 0.05·0.05=0.0025. 
+
+Es decir, $P(B_2|A)=0.9801$ y $P(B_2|A^c)=0.0025$. Apliquemos de nuevo la fórmula de Bayes:
+
+$$
+\begin{array}{rl}
+P(A|B_2)\!\!\!\! & =\dfrac{P(B_2|A)\cdot P(A)}{P(B_2|A)\cdot P(A)+P(B_2|A^c)\cdot P(A^c)}\\
+&=\dfrac{0.9801\cdot 0.005}{0.9801\cdot 0.005+0.0025\cdot 0.995}=0.6633
+\end{array}
+$$
+    Con el segundo positivo, la probabilidad de infección ha subido del 9% al 66.33%.
+    
+```{block2,type="rmdcaution"}
+En la vida real, esta segunda probabilidad seguramente sea menor, porque algunos pacientes libres de VIH tienen moléculas en la sangre similares a los anticuerpos del VIH que detecta el test y que dan lugar a falsos positivos; por ejemplo, personas con enfermedades autoinmunes como el lupus.  En estos pacientes la repeticiones de los tests no se pueden considerar independientes.
+```
+   
 
 
 ```{block2,type="rmdexercici"}

@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2024-02-19" />
+<meta name="date" content="2024-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,8 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -258,6 +256,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="variables-aleatorias-discretas.html"><a href="variables-aleatorias-discretas.html#test-8"><i class="fa fa-check"></i><b>10.6</b> Test</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>11</b> Variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#densidad-y-distribución-1"><i class="fa fa-check"></i><b>11.1</b> Densidad y distribución</a></li>
+<li class="chapter" data-level="11.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#esperanza-varianza-cuantiles"><i class="fa fa-check"></i><b>11.2</b> Esperanza, varianza, cuantiles…</a></li>
+<li class="chapter" data-level="11.3" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#sec:normal"><i class="fa fa-check"></i><b>11.3</b> Variables aleatorias normales</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#propiedades-básicas"><i class="fa fa-check"></i><b>11.3.1</b> Propiedades básicas</a></li>
+<li class="chapter" data-level="11.3.2" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#intervalos-de-referencia"><i class="fa fa-check"></i><b>11.3.2</b> Intervalos de referencia</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="variables-aleatorias-continuas.html"><a href="variables-aleatorias-continuas.html#test-9"><i class="fa fa-check"></i><b>11.4</b> Test</a></li>
+</ul></li>
+<li class="part"><span><b>Tema V: Estadística inferencial</b></span></li>
+<li class="chapter" data-level="12" data-path="estimadores.html"><a href="estimadores.html"><i class="fa fa-check"></i><b>12</b> Estimadores</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="estimadores.html"><a href="estimadores.html#la-media-muestral"><i class="fa fa-check"></i><b>12.1</b> La media muestral</a></li>
+<li class="chapter" data-level="12.2" data-path="estimadores.html"><a href="estimadores.html#la-proporción-muestral"><i class="fa fa-check"></i><b>12.2</b> La proporción muestral</a></li>
+<li class="chapter" data-level="12.3" data-path="estimadores.html"><a href="estimadores.html#la-varianza-muestral"><i class="fa fa-check"></i><b>12.3</b> La varianza muestral</a></li>
+<li class="chapter" data-level="12.4" data-path="estimadores.html"><a href="estimadores.html#la-distribución-t-de-student"><i class="fa fa-check"></i><b>12.4</b> La distribución t de Student</a></li>
+<li class="chapter" data-level="12.5" data-path="estimadores.html"><a href="estimadores.html#test-10"><i class="fa fa-check"></i><b>12.5</b> Test</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -288,55 +306,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <table>
 <thead>
-<tr>
-<th style="text-align:right;">
-Nivel
-</th>
-<th style="text-align:left;">
-Significado
-</th>
+<tr class="header">
+<th align="right">Nivel</th>
+<th align="left">Significado</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-Muy en desacuerdo
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Muy en desacuerdo</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-En desacuerdo
-</td>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">En desacuerdo</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-Neutral
-</td>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Neutral</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-De acuerdo
-</td>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">De acuerdo</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-Muy de acuerdo
-</td>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Muy de acuerdo</td>
 </tr>
 </tbody>
 </table>
@@ -353,7 +347,7 @@ Muy de acuerdo
 <div class="example">
 <p><span id="exm:ex1701bis" class="example"><strong>Ejemplo 8.2  </strong></span>Tenemos una muestra de 20 estudiantes de quienes sabemos la calificación que han sacado en un examen. Clasificamos estas calificaciones en Suspenso (<em>S</em>), Aprobado (<em>A</em>), Notable (<em>N</em>) y Sobresaliente (<em>E</em>) y consideramos su orden natural <em>S</em> &lt; <em>A</em> &lt; <em>N</em> &lt; <em>E</em>. Las calificaciones que han obtenido son las siguientes:</p>
 </div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="descripción-de-datos-ordinales.html#cb13-1" tabindex="-1"></a>N, A, A, S, S, A, N, E, A, A, S, S, S, A, E, N, N, E, S, A</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="descripción-de-datos-ordinales.html#cb16-1" tabindex="-1"></a>N, A, A, S, S, A, N, E, A, A, S, S, S, A, E, N, N, E, S, A</span></code></pre></div>
 <p>En esta lista hay 6 <em>S</em>, 7 <em>A</em>, 4 <em>N</em> y 3 <em>E</em>: éstas serían las frecuencias absolutas de las calificaciones en esta muestra de estudiantes. Por lo que se refiere a sus <strong>frecuencias absolutas acumuladas</strong>:</p>
 <ul>
 <li>Hay 6 estudiantes que han obtenido <em>S</em> o menos: la frecuencia acumulada de <em>S</em> es 6.</li>
@@ -370,123 +364,63 @@ Muy de acuerdo
 <li>Frecuencia relativa acumulada de <em>E</em>: 20/20=1.</li>
 </ul>
 <p>Resumimos todos estos valores en la tabla siguiente:</p>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col width="9%" />
+<col width="13%" />
+<col width="13%" />
+<col width="7%" />
+<col width="20%" />
+<col width="20%" />
+<col width="14%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-Frecuencia absoluta
-</th>
-<th style="text-align:right;">
-Frecuencia relativa
-</th>
-<th style="text-align:left;">
-Porcentaje
-</th>
-<th style="text-align:right;">
-Frecuencia absoluta acumulada
-</th>
-<th style="text-align:right;">
-Frecuencia relativa acumulada
-</th>
-<th style="text-align:left;">
-Porcentaje acumulado
-</th>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Frecuencia absoluta</th>
+<th align="right">Frecuencia relativa</th>
+<th align="left">Porcentaje</th>
+<th align="right">Frecuencia absoluta acumulada</th>
+<th align="right">Frecuencia relativa acumulada</th>
+<th align="left">Porcentaje acumulado</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Suspenso
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.30
-</td>
-<td style="text-align:left;">
-30%
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.30
-</td>
-<td style="text-align:left;">
-30%
-</td>
+<tr class="odd">
+<td align="left">Suspenso</td>
+<td align="right">6</td>
+<td align="right">0.30</td>
+<td align="left">30%</td>
+<td align="right">6</td>
+<td align="right">0.30</td>
+<td align="left">30%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Aprobado
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-0.35
-</td>
-<td style="text-align:left;">
-35%
-</td>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-0.65
-</td>
-<td style="text-align:left;">
-65%
-</td>
+<tr class="even">
+<td align="left">Aprobado</td>
+<td align="right">7</td>
+<td align="right">0.35</td>
+<td align="left">35%</td>
+<td align="right">13</td>
+<td align="right">0.65</td>
+<td align="left">65%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Notable
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.20
-</td>
-<td style="text-align:left;">
-20%
-</td>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-0.85
-</td>
-<td style="text-align:left;">
-85%
-</td>
+<tr class="odd">
+<td align="left">Notable</td>
+<td align="right">4</td>
+<td align="right">0.20</td>
+<td align="left">20%</td>
+<td align="right">17</td>
+<td align="right">0.85</td>
+<td align="left">85%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sobresaliente
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.15
-</td>
-<td style="text-align:left;">
-15%
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-1.00
-</td>
-<td style="text-align:left;">
-100%
-</td>
+<tr class="even">
+<td align="left">Sobresaliente</td>
+<td align="right">3</td>
+<td align="right">0.15</td>
+<td align="left">15%</td>
+<td align="right">20</td>
+<td align="right">1.00</td>
+<td align="left">100%</td>
 </tr>
 </tbody>
 </table>
@@ -496,7 +430,7 @@ Sobresaliente
 <p>La tabla de datos ampliada es la siguiente:</p>
 <table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:tablager3">Tabla 8.1: </span>Tabla de datos de pacientes de residencias geriátricas
+<span id="tab:tablager3">Tabla 8.1: </span><span id="tab:tablager3">Tabla 8.2: </span>Tabla de datos de pacientes de residencias geriátricas
 </caption>
 <thead>
 <tr>
@@ -1051,84 +985,45 @@ UCI
 </table></li>
 <li>Su diagrama de barras de frecuencias absolutas acumuladas:</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-243-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-244-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Su diagrama de barras de frecuencias relativas acumuladas:</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-244-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-245-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>La tabla bidimensional de frecuencias absolutas de las variables Demencia Senil y COVID-19:</li>
 </ul>
 <table>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-Asintomática
-</th>
-<th style="text-align:right;">
-Leve
-</th>
-<th style="text-align:right;">
-Hospitalización
-</th>
-<th style="text-align:right;">
-UCI
-</th>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Asintomática</th>
+<th align="right">Leve</th>
+<th align="right">Hospitalización</th>
+<th align="right">UCI</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Alzheimer
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="left">Alzheimer</td>
+<td align="right">0</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Otros
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="even">
+<td align="left">Otros</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-No
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="left">No</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
@@ -1137,81 +1032,42 @@ No
 </ul>
 <table>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-Asintomática
-</th>
-<th style="text-align:right;">
-Leve
-</th>
-<th style="text-align:right;">
-Hospitalización
-</th>
-<th style="text-align:right;">
-UCI
-</th>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Asintomática</th>
+<th align="right">Leve</th>
+<th align="right">Hospitalización</th>
+<th align="right">UCI</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Alzheimer
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-0.625
-</td>
-<td style="text-align:right;">
-0.875
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="left">Alzheimer</td>
+<td align="right">0.00</td>
+<td align="right">0.625</td>
+<td align="right">0.875</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Otros
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.750
-</td>
-<td style="text-align:right;">
-1.000
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="even">
+<td align="left">Otros</td>
+<td align="right">0.25</td>
+<td align="right">0.750</td>
+<td align="right">1.000</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-No
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.750
-</td>
-<td style="text-align:right;">
-0.875
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="left">No</td>
+<td align="right">0.25</td>
+<td align="right">0.750</td>
+<td align="right">0.875</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li>El diagrama de barras yuxtapuestas de esta última tabla:</li>
 </ul>
-<p><img src="INREMDN_files/figure-html/unnamed-chunk-247-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="INREMDN_files/figure-html/unnamed-chunk-248-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Como vimos en el tema anterior, JAMOVI da las frecuencias acumuladas (si hemos especificado correctamente el orden de los niveles) al calcular tablas de contigencia en <strong>Exploración/Descriptivas</strong>. En las tablas multidimensionales la acumulación se lleva a cabo en el total, lo que no siempre es conveniente. Para calcular bien tablas bidimensionales acumulando frecuencias por filas o columnas hay que usar R en la ventana de edición <strong>R</strong>. Por ejemplo, para obtener la tabla de frecuencias relativas acumuladas que hemos dado hace un momento de niveles de gravedad de la COVID dentro de cada nivel de demencia senil podemos usar:</p>
 <p><img src="INREMDN_files/figure-html/JAMOVI.EDO.1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Fijaos en la lógica de la sintaxis de esta instrucción. De dentro a fuera:</p>

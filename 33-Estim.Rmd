@@ -95,7 +95,7 @@ A $\sigma_X/\sqrt{n}$ se le llama el **error típico de la media muestral** (par
 
 
 ```{example,simulacion1}
-Vamos a realizar un experimento. Vamos a tomar una población de 10^6^ sujetos y una variable aleatoria $X$ que sobre cada sujeto toma un valor real entre 0 y 1, todos estos valores con la misma probabilidad. Llamaremos `X` al vector con los 10^6^ valores de esta variable aleatoria, y dibujaremos un histograma de este vector de números para que veáis que los valores salen muy dispersos. Mostramos el código de R para que podáis repetir el experimento por vuestra cuenta; como es una simulación, cada vez que lo ejecutéis dará resultados diferentes, pero el mismo efecto global.
+Vamos a realizar un experimento. Vamos a tomar una población de 10^6^ sujetos y una variable aleatoria uniforme $X$ que sobre cada sujeto toma un valor real entre 0 y 1, todos estos valores con la misma probabilidad. Llamaremos `X` al vector con los 10^6^ valores de esta variable aleatoria, y dibujaremos un histograma de este vector de números para que veáis que los valores salen muy dispersos. Mostramos el código de R para que podáis repetir el experimento por vuestra cuenta; como es una simulación, cada vez que lo ejecutéis dará resultados diferentes, pero el mismo efecto global.
 
 ```
 
@@ -132,6 +132,15 @@ sd(Medias)*sqrt((1000-1)/1000)
 ```
 
 Fijaos cómo se acerca mucho al valor $\sigma_X/\sqrt{100}=`r sd(X)*sqrt((10^6-1)/10^6)/10`$ predicho por el teorema anterior. No coinciden exactamente, porque $\sigma_X/\sqrt{100}$ es el valor de la desviación típica **poblacional** de $\overline{X}$, es decir, para toda la "población" de medias muestrales de muestras aleatorias simples de tamaño 100 de nuestra población de partida, y nosotros hemos tomado una muestra de "solo" 1000 medias de estas.
+
+
+```{block2,type="rmdnote"}
+La pestaña **Teorema Central del Límite** del módulo **Demonstration** de JAMOVI os permite experimentar cómo muestras de diferentes tamaños de medias muestrales de diferentes tamaños y de diferentes distribuciones poblacionales se aproximan más o menos a una distribución normal. Por ejemplo, para 1000 medias de muestras de tamaño 40 de una binomial:
+```
+
+```{r, echo=FALSE,out.width="90%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVIdem1.png")
+```
 
 La media muestral $\overline{X}$ de tamaño $n$ de una variable aleatoria $X$ se  interpreta formalmente como la variable aleatoria obtenida tomando $n$ copias independientes $X_1,\ldots,X_n$ de $X$ y calculando
 $$
@@ -202,12 +211,12 @@ Si $X$ es una variable aleatoria de Bernoulli con probabilidad poblacional de é
 ```    
 
 ```{block2,type="rmdnote"}
-No hace falta invocar que la proporción muestral sea un caso particular de media muestral para obtener el resultado anterior. Si llamamos $Y$ a la variable que cuenta el número de éxitos en una muestra aleatoria simple de tamaño $n$ de la variable de Bernoulli $X$, entonces, por un lado, tenemos que $\widehat{p}_X=Y/n$ y, por otro, que $Y$ es $B(n,p_X)$. Entonces:
+No hace falta invocar que la proporción muestral sea un caso particular de media muestral para obtener el resultado anterior. Si llamamos $S_n$ a la variable que cuenta el número de éxitos en una muestra aleatoria simple de tamaño $n$ de la variable de Bernoulli $X$, entonces, por un lado, tenemos que $\widehat{p}_X=S_n/n$ y, por otro, que $S_n$ es $B(n,p_X)$. Entonces:
 
     
-* $E(\widehat{p}_X)=E\Big(\dfrac{1}{n}Y\Big)=\dfrac{1}{n}\cdot E(Y)=\dfrac{1}{n}\cdot np_X=p_X$
+* $E(\widehat{p}_X)=E\Big(\dfrac{1}{n}S_n\Big)=\dfrac{1}{n}\cdot E(S_n)=\dfrac{1}{n}\cdot np_X=p_X$
 
-*  $\sigma({\widehat{p}_X})=\sigma\Big(\dfrac{1}{n}Y\Big)=\dfrac{1}{n}\cdot \sigma(Y)=\dfrac{1}{n} \sqrt{np_X(1-p_X)}=\sqrt{\dfrac{p_X(1-p_X)}{n}}$
+*  $\sigma({\widehat{p}_X})=\sigma\Big(\dfrac{1}{n}S_n\Big)=\dfrac{1}{n}\cdot \sigma(S_n)=\dfrac{1}{n} \sqrt{np_X(1-p_X)}=\sqrt{\dfrac{p_X(1-p_X)}{n}}$
   
 
 ```
@@ -239,7 +248,7 @@ es aproximadamente $N(0,1)$.
 
   
 ```{block2,type="rmdimportant"}
-En el caso de la proporción muestral, a veces vamos a permitir tomar **muestras aleatorias sin reposición**. En este caso, la variable $Y$ que cuenta el número de éxitos en una muestra aleatoria sin reposición de tamaño $n$ de la variable de Bernoulli $X$, y que verifica  que $\widehat{p}_X=Y/n$, es hipergeométrica. De aquí deducimos que seguimos teniendo que $E(\widehat{p}_X)=p_X$, pero ahora,
+En el caso de la proporción muestral, a veces vamos a permitir tomar **muestras aleatorias sin reposición**. En este caso, la variable $S_n$ que cuenta el número de éxitos en una muestra aleatoria sin reposición de tamaño $n$ de la variable de Bernoulli $X$, y que verifica  que $\widehat{p}_X=S_n/n$, es hipergeométrica. De aquí deducimos que seguimos teniendo que $E(\widehat{p}_X)=p_X$, pero ahora,
 si $N$ es el tamaño de la población, 
 $$
 \sigma({\widehat{p}_X})=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot
@@ -286,14 +295,14 @@ $E(\widetilde{S}_{X}^2)=\sigma_{X}^2$.
 Por lo tanto, **esperamos** que la varianza muestral de una muestra aleatoria simple de $X$ valga $\sigma_{X}^2$, en el sentido usual de que si tomamos muestras aleatorias simples de $X$ de tamaño $n$ grande y calculamos sus varianzas muestrales, muy probablemente obtengamos de media un valor muy cercano a $\sigma_{X}^2$.
 
 ```{block2,type="rmdcaution"}
-Y por lo tanto **no esperamos** que la varianza "a secas" de una muestra aleatoria simple valga $\sigma_{X}^2$, porque la varianza muestral y la varianza "a secas" dan valores diferentes (tienen el mismo numerador y denominadores diferentes).
+Y por consiguiente **NO esperamos** que la varianza "a secas" de una muestra aleatoria simple valga $\sigma_{X}^2$, porque la varianza muestral y la varianza "a secas" dan valores diferentes (tienen el mismo numerador y denominadores diferentes).
 ```
 
 El segundo resultado nos dice que si la variable $X$ es **normal**, un  múltiplo adecuado de $\widetilde{S}_{X}^2$ tiene  distribución  conocida, lo que nos permitirá calcular probabilidades de sucesos relativos a  $\widetilde{S}_{X}^2$.
 
 
 ```{theorem,khi2}
-Si $X$ es $N(\mu_X,\sigma_X)$ y tomamos muestras de tamaño $n$, la variable aleatoria 
+Si $X$ es $N(\mu_X,\sigma_X)$ y tomamos muestras aleatorias simples de tamaño $n$, la variable aleatoria 
 $$
 \chi^2=  \dfrac{(n-1)\widetilde{S}_{X}^2}{\sigma_{X}^2}
 $$ 
@@ -303,7 +312,7 @@ tiene una distribución conocida, llamada **ji cuadrado con $n-1$ grados de libe
 ```
 
 ```{block2,type="rmdrecordau"}
-La letra griega $\chi$  en castellano se lee **ji**; en catalán, **khi**;  en inglés, **chi**, pronunciado "xai".
+La letra griega $\chi$  en castellano se lee **ji**; en catalán, **khi**;  en inglés, **chi**, pronunciado "chai".
 ```
 
 
@@ -312,7 +321,16 @@ La letra griega $\chi$  en castellano se lee **ji**; en catalán, **khi**;  en i
 knitr::include_graphics("INREMDN_files/figure-html/chihogar.png")
 ```
 
-La distribución $\chi_\nu^2$, donde $\nu$ es un parámetro llamado sus **grados de libertad**, es la distribución de probabilidad de la suma de los cuadrados de $\nu$ copias independientes de una variable normal estándar. Para R es `chisq`. Os puede interesar recordar que una variable $\chi_\nu^2$ de tipo ji cuadrado con $\nu$ grados de libertad:
+La distribución $\chi_\nu^2$, donde $\nu$ es un parámetro llamado sus **grados de libertad**, es la distribución de probabilidad de la suma de los cuadrados de $\nu$ copias independientes de una variable normal estándar. Para R es `chisq`. La tenéis también en el módulo **distrACTION**.
+
+
+```{r, echo=FALSE,out.width="90%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVIdem2.png")
+```
+
+
+
+Os puede interesar recordar que una variable $\chi_\nu^2$ de tipo ji cuadrado con $\nu$ grados de libertad:
 
 * Tiene valor esperado $E(\chi_\nu^2)=\nu$ y  varianza  $\sigma(\chi_\nu^2)^2=2 \nu$.
 
@@ -347,11 +365,11 @@ Tened cuidado:
 
 * Aunque $X$ sea normal, $E(\widetilde{S}_{X})\neq \sigma_{X}$. La desviación típica muestral es un estimador **sesgado** de $\sigma_{X}$ (pero tiene otras buenas propiedades que hacen que la usemos igualmente).
 
-* Ya lo hemos comentado antes. Si $S^2_{X}$ es la varianza "a secas" (dividiendo por $n$ en vez de por $n-1$), $E(S^2_{X})\neq \sigma^2_{X}$. Esto lo podéis comprobar fácilmente, porque $S_X^2$ se obtiene a partir de $\widetilde{S}_{X}^2$ cambiando el denominador,
+* Ya lo hemos comentado antes. Si $S^2_{X}$ es la varianza "a secas" (dividiendo por $n$ en vez de por $n-1$), $E(S^2_{X})\neq \sigma^2_{X}$. De hecho, como $S_X^2$ se obtiene a partir de $\widetilde{S}_{X}^2$ cambiando el denominador,
 $$
   S_X^2=\frac{n-1}{n} \widetilde{S}_{X}^2
 $$
-y por lo tanto
+tenemos que
 $$
 E(S_X^2)=\frac{n-1}{n}E(\widetilde{S}_{X}^2)=\frac{n-1}{n}\sigma^2_{X}
 $$
@@ -366,7 +384,7 @@ Recordad que si la variable poblacional $X$ es $N(\mu_X,\sigma_X)$  y tomamos mu
 $$
 \frac{\overline{X}-\mu_X}{\sigma_{X}/\sqrt{n}}
 $$
-es normal estándar. Esto no nos sirve de mucho para calcular la probabilidad de que $\overline{X}$ se aleje mucho de $\mu_X$, porque casi nunca sabemos la desviación típica poblacional $\sigma_{X}$. ¿Qué pasa si la estimamos por medio de $\widetilde{S}_{X}$ con la misma muestra con la que calculamos $\overline{X}$? Pues que el resultado siguiente nos salva el día, porque la variable que resulta tiene distribución conocida y por lo tanto podemos calcular probabilidades con ella.
+es normal estándar. Esto no nos sirve de nada para calcular la probabilidad de que $\overline{X}$ se aleje mucho de $\mu_X$ si no sabemos la desviación típica poblacional $\sigma_{X}$, que será lo habitual. ¿Qué pasa si la estimamos por medio de $\widetilde{S}_{X}$ con la misma muestra con la que calculamos $\overline{X}$? Pues que el resultado siguiente nos salva el día, porque la variable que resulta tiene distribución conocida y por lo tanto podemos calcular probabilidades con ella.
 
 
 ```{theorem}
@@ -380,11 +398,29 @@ tiene una distribución conocida, llamada **t de Student con $n-1$ grados de lib
 
 Al denominador $\widetilde{S}_{X}/\sqrt{n}$ de la $T$ del teorema anterior se le llama el **error típico** de la muestra, y estima el error típico $\sigma_X/\sqrt{n}$ de la media muestral $\overline{X}$.
 
-```{block2,type="rmdimportant"}
-Fijaos en que el teorema anterior es solo para variables poblacionales $X$ **normales**. Si $X$ no es normal, es necesario que $n$ sea muy grande para que, por el Teorema Central del Límite, $T$ sea aproximadanente $t_{n-1}$.
+Fijaos en que el teorema anterior es solo para variables poblacionales $X$ **normales**. Si $X$ no es normal, tenemos el resultado siguiente.
+
+```{theorem}
+Sea $X$ una variable de media $\mu_X$. Si tomamos muestras aleatorias simples de tamaño $n$ *muy grande*, la variable aleatoria
+$$
+T=\frac{\overline{X}-\mu_X}{\widetilde{S}_{X}/\sqrt{n}}
+$$
+tiene  distribución *aproximadamente* $t_{n-1}$.
+  
 ```
 
-Para R, la distribución t de Student es `t`, a secas. Algunas propiedades que conviene que recordéis de las variables $T_\nu$ que tienen distribución $t$ de Student con $\nu$ grados de libertad, $t_\nu$:
+
+Para R, la distribución t de Student es `t`, a secas. La tenéis también en el módulo **distrACTION**.
+
+
+```{r, echo=FALSE,out.width="90%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVIdem3.png")
+```
+
+
+
+
+Algunas propiedades que conviene que recordéis de las variables $T_\nu$ que tienen distribución $t$ de Student con $\nu$ grados de libertad, $t_\nu$:
 
 
 * Su valor esperado es $E(T_\nu)=0$  y su varianza es $\sigma(T_\nu)=\dfrac{\nu}{\nu-2}$ (en realidad esto solo es verdad si $\nu\geqslant 3$, pero no hace falta recordarlo).
@@ -525,5 +561,38 @@ Fijaos en que el denominador $\sqrt{n}$ hace que, en general, los errores típic
 1. $(n-1)\widetilde{S}_X/\sigma$ sigue una distribución ji cuadrado con $n-1$ grados de libertad. 
 1. Todas las otras respuestas son falsas.
 
+**(8)** El 0.75-cuantil de una variable t de Student con 49 grados de libertad $T$ vale 0.68. ¿Cuál de las afirmaciones siguientes es verdadera? 
+
+1. $P(T\leqslant 0.75)= 0.68$
+1. $P(T\geqslant 0.75)= 0.68$
+1. $P(T\leqslant 0.68)= 0.75$ 
+1. $P(T\geqslant 0.68)= 0.75$
+1. $P(T= 0.68)= 0.75$
+1. $P(T= 0.75)= 0.68$
+1. Ninguna de las otras respuestas es correcta.
+
+**(9)** Sabemos que una determinada variable poblacional $X$ sigue una distribución normal de media 2. ¿Cuál de las afirmaciones siguientes es verdadera? 
+
+1. El porcentaje de individuos de la población en los que la $X$ vale 2 es del 50%
+1. El porcentaje de individuos de la población en los que la $X$ vale menos de 1 es del 70%
+1. Si el 0.95-cuantil de $X$ es 3, el 0.05-cuantil de $X$ es 1 
+1. Si el 0.95-cuantil de $X$ es 3, el 0.05-cuantil de $X$ es -3
+1. Todas las otras afirmaciones son falsas
+
+**(10)** ¿Qué es el error típico de la proporción muestral?  
+
+1. La varianza de la distribución de las proporciones muestrales.
+1. La diferencia entre su valor sobre una muestra aleatoria simple y el valor real de la probabilidad poblacional de éxito.
+1. La desviación típica de la distribución de las proporciones muestrales. 
+1. La probabilidad que su valor sobre una muestra aleatoria simple sea diferente de la probabilidad poblacional de éxito.
+1. La diferencia entre su valor esperado y el valor real de la probabilidad poblacional de éxito.
+
+**(11)** ¿Cuál de las afirmaciones siguientes es FALSA?  
+
+1. La media muestral es un estimador insesgado de la media poblacional
+1. La proporción muestral es un estimador insesgado de la proporción poblacional
+1. La varianza muestral es un estimador insesgado de la varianza poblacional
+1. La desviación típica muestral es un estimador insesgado de la desviación típica poblacional
+1. Alguna de las afirmaciones anteriores es falsa.
 
 

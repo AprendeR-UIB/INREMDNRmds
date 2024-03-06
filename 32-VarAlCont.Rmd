@@ -6,14 +6,14 @@ Recordad que una variable aleatoria **continua** toma valores continuos. Por eje
 * Nivel de colesterol en sangre 
 * Diámetro de un tumor
 
-En este curso vamos a restringirnos a variables aleatorias continuas $X: \Omega\to \mathbb{R}$ que satisfacen la siguiente propiedad extra: su **función de distribución**
+En este curso vamos a restringirnos a variables aleatorias continuas $X: \Omega\to \mathbb{R}$ que cumplen la siguiente propiedad extra: su **función de distribución**
 $$
 \begin{array}{rcl}
 F_X: \mathbb{R} & \to & [0,1]\\
 x &\mapsto &P(X\leqslant x)
 \end{array}
 $$ 
-es continua. Todas las variables aleatorias continuas que os puedan interesar en algún momento van a cumplir esta propiedad, así que no perdemos nada imponiéndola. ¿Y qué ganamos? Pues que podemos usar todas las técnicas matemáticas aplicables a funciones continuas para estudiar $F_X$. 
+es continua. Todas las variables aleatorias continuas que os puedan interesar en algún momento van a tener esta propiedad, así que no perdemos nada imponiéndola. ¿Y qué ganamos? Pues que podemos usar todas las técnicas matemáticas aplicables a funciones continuas para estudiar $F_X$. 
 
 Por ejemplo, nuestras variables continuas verifican la propiedad siguientes: 
 
@@ -42,7 +42,7 @@ En particular, para una variable aleatoria continua:
 
 Cada valor de $X$ tiene probabilidad 0, pero cuando tomamos un sujeto, tendrá algún valor de $X$, ¿no?. Por lo tanto, su valor de $X$ es posible, aunque tenga probabilidad 0.
 
-De $P(X=a)=0$ se deduce que la probabilidad de un suceso definido con una desigualdad es exactamente la misma que la del suceso correspondiente definido con una desigualdad estricta. En particular, contrariamente a lo que pasaba en las variables aleatorias discretas, para una variable aleatoria continua siempre tenemos que 
+De $P(X=a)=0$ se deduce que la probabilidad de un suceso definido con una desigualdad es la misma que la del suceso correspondiente definido con una desigualdad estricta. Por ejemplo, y contrariamente a lo que pasaba en las variables aleatorias discretas, para una variable aleatoria continua siempre tenemos que 
 $$
 P(X\leqslant a)=P(X<a)
 $$
@@ -61,6 +61,10 @@ De manera similar:
 Sea $X$ una variable aleatoria continua. Como ya hemos dicho, su **función de distribución** $F_X$ se sigue definiendo como
 $$
 x\mapsto F_X(x)=P(X\leqslant x)
+$$
+recordando además que, ahora, también
+$$
+F_X(x)=P(X< x)
 $$
 
 Pero puesto que tenemos que $P(X=x)=0$, ahora no podemos definir la función de densidad de $X$ como $f_X(x)=P(X=x)$. ¿Qué podemos hacer?
@@ -87,7 +91,14 @@ $$
 es igual al área de la región a la izquierda de la recta vertical $x=a$ comprendida entre la curva $y=f(x)$ y el eje de abscisas $y=0$. Por lo tanto, la función de densidad $f_X$ de $X$ es la función positiva tal que para todo $a\in \mathbb{R}$, $F_X(a)$ es igual al **área bajo la curva** $y=f_X(x)$ (entre esta curva y el eje de abscisas) a la izquierda de $x=a$.  
 
 
-```{r echo=FALSE, out.width="60%"}
+```{r,echo=FALSE}
+knitr::include_graphics("INREMDN_files/figure-html/arearosa.png")
+```
+
+
+
+
+```{r echo=FALSE, eval=FALSE}
 x <- seq(-4,-3,.01)
 
 plot(x,100*dnorm(x)+0.1,type="n",xlab="",ylab="",xaxt="n",yaxt="n",bty="n",
@@ -113,7 +124,7 @@ Recordad que, en un histograma de frecuencias relativas:
 
 * La frecuencia relativa (ahora, la **probabilidad**) de cada clase es el área de su barra, es decir, el ancho de la clase por la altura de la barra. 
 * Llamamos a la altura de una barra la **densidad** de la clase. 
-* Si $a$ es un extremo de una clase, la frecuencia relativa acumulada hasta $a$ (la **probabilidad** de que $X\leqslant a$) es la suma de las áreas de las barras a la izquierda de $a$.
+* Si $a$ es un extremo de una clase, la frecuencia relativa acumulada (la **probabilidad**) de que $X<a$ es la suma de las áreas de las barras a la izquierda de $a$.
 
 Si dibujamos los histogramas de $X$ tomando clases cada vez más estrechas, sus polígonos de frecuencias (en rojo) tienden a dibujar una curva:
 
@@ -143,7 +154,7 @@ H5=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densidad",main="", breaks=seq(0
 polygon(c(0,H5$mids),c(0,H5$density),col="skyblue",lwd=1.5,xlab="",ylab="Densitat")
 ```
 
-En el límite, la probabilidad de que $X\leqslant a$ será el límite de las sumas de las áreas de las barras a la izquierda de $a$, y por tanto el área a la izquierda de $a$ bajo esta curva límite. Esto nos dice que esta curva es precisamente la función de densidad $y=f_X(x)$. 
+En el límite, la probabilidad de que $X< a$ (o sea, de que $X\leqslant a$) será el límite de las sumas de las áreas de las barras a la izquierda de $a$, y por tanto el área a la izquierda de $a$ bajo esta curva límite. Esto nos dice que esta curva es precisamente la función de densidad $y=f_X(x)$. 
 
 ```{block2,type="rmdimportant"}
 La **función de densidad** $f_X$ de una variable aleatoria continua $X$ es la función límite de los polígonos de frecuencias de histogramas de $X$ cuando el ancho de las clases tiende a 0.
@@ -199,6 +210,54 @@ curve(dnorm(x,0,0.01),xlim=c(-0.06,0.06),xlab="",ylab="",main="Densidad de N(0,0
 
 * La función de densidad $f_X$ no tiene por qué ser continua, aunque la función de distribución $F_X$ lo sea.
 
+```{example,unif}
+Sea $X$ una variable aleatoria continua con función de distribución
+$$
+F_X(x)=P(X\leqslant x)=\left\{
+\begin{array}{ll}
+0 & \text{ si $x\leqslant 0$}\\
+x &  \text{ si $x\in [0,1]$}\\
+1 &  \text{ si $x\geqslant 1$}
+\end{array}\right.
+$$
+```
+
+```{r,echo=FALSE}
+plot(c(-1,0,1,2),c(0,0,1,1),type="l",lwd=1.5,xlab="",ylab="",main="Distribución de X",xaxp=c(-0.5,1.5,4))
+```
+
+
+Su función de densidad es
+$$
+f_X(x)\left\{
+\begin{array}{ll}
+0 & \text{ si $x< 0$}\\
+1 &  \text{ si $x\in [0,1]$}\\
+0 &  \text{ si $x> 1$}
+\end{array}\right.
+$$
+porque la integral de $-\infty$ hasta $a$ de esta función es (calculadlo como áreas si os cuesta recordar cómo calcular integrales definidas)
+$$
+\int_{-\infty}^a  f_X(x)\,dx=\left\{
+  \begin{array}{ll}
+\int_{-\infty}^a  0\,dx =0 & \text{ si $a< 0$}\\
+\int_{-\infty}^0  0\,dx+ \int_{0}^a  1\,dx=0 + a=a &  \text{ si $a\in [0,1]$}\\
+\int_{-\infty}^0  0\,dx+ \int_{0}^1  1\,dx+ \int_{1}^a  0\,dx=0 + 1+0=1 &  \text{ si $x> 1$}
+\end{array}\right.
+$$
+
+```{r,echo=FALSE}
+plot(c(-1,0),c(0,0),type="l",lwd=1.5,xlab="",
+     ylab="",main="Densidad de X",xlim=c(-1,2),xaxp=c(-0.5,1.5,4),ylim=c(0,1))
+points(c(0,1),c(1,1),type="l",lwd=1.5)
+points(c(1,2),c(0,0),type="l",lwd=1.5)
+```
+
+Observad que $f_X(x)$ es discontinua, con saltos en 0 y 1. Esta densidad representa que $X$ solo puede tomar valores entre 0 y 1 y que entre estos dos valores los toma todos "con la misma probabilidad". Diremos que $X$ tiene **distribución uniforme** entre 0 y 1.
+
+```{block2,type="rmdexercici"}
+Más en general, una variable con distribución uniforme entre $a$ y $b$ (con $a<b$) solo puede tomar valores entre $a$ y $b$ y  entre estos dos valores los toma todos "con la misma probabilidad". ¿Cuál sería su densidad? ¿Cuál sería su distribución? Comprobad que el área bajo la curva de la densidad que hayáis dado es la distribución que hayáis dado.
+```
 
 ## Esperanza, varianza, cuantiles...
 
@@ -210,8 +269,7 @@ La **media**, o **esperanza** (**valor medio**, **valor esperado**...), de $X$ e
 $$
 E(X)=\int_{-\infty}^{\infty}x \cdot f_{X}(x)\, dx
 $$
-Es decir, es el área comprendida entre el eje de abscisas y la curva $y=xf_X(x)$.
-Como en el caso discreto, también la denotaremos a veces por $\mu_X$. 
+Es decir, es el área comprendida entre el eje de abscisas y la curva $y=xf_X(x)$. Como en el caso discreto, también la denotaremos a veces por $\mu_X$. 
 
 Este valor tiene la misma interpretación que en el caso discreto: 
 
@@ -219,10 +277,22 @@ Este valor tiene la misma interpretación que en el caso discreto:
 
 * Es (con probabilidad 1) el límite de la media aritmética de los valores de $X$ sobre muestras aleatorias simples de tamaño $n$, cuando $n\to \infty$.
 
-Si $g:\mathbb{R}\to \mathbb{R}$ es una función continua,
-la **esperanza** de $g(X)$ es
+```{example}
+Volvamos a la variable aleatoria $X$ con distribución uniforme entre 0 y 1 del Ejemplo \@ref(exm:unif), que toma todos los valores entre 0 y 1 con la misma probabilidad. ¿Cuál tendría que ser su valor medio? El valor medio del intervalo, 1/2, ¿no?. Veamos: como $f_X(x)=1$ entre 0 y 1 y $f_X(x)=0$ fuera de este intervalo,
 $$
-E(g(X))=\int_{-\infty}^{+\infty} g(x) f_X(x)dx
+\int_{-\infty}^{\infty}x \cdot f_{X}(x)\, dx  =\int_{0}^1 x\,dx=\left[\frac{x^2}{2}\right]^1_0=\frac{1}{2}-0=\frac{1}{2}
+$$
+Nuestra intuición era correcta.
+```
+
+```{block2, type="rmdnote"}
+Si os da pereza calcular la integral del ejemplo anterior, fijaos en que el área bajo la curva $y=x$ entre 0 y 1 es la del triángulo de base (0,0)-(1,0) y altura (1,0)-(1,1), que es la mitad del cuadrado unidad y por lo tanto su área es 1/2
+```
+
+Si $g:\mathbb{R}\to \mathbb{R}$ es una función continua,
+la **esperanza** de la composición $\Omega \stackrel{X}{\longrightarrow} \mathbb{R}\stackrel{g}{\longrightarrow}\mathbb{R}$ es
+$$
+E(g(X))=\int_{-\infty}^{+\infty} g(x) \cdot f_X(x)dx
 $$
 
 La **varianza** de $X$ es
@@ -294,7 +364,7 @@ F_X(x_p)=P(X\leqslant x_p)=p
 $$
 
 ```{block2,type="rmdcorbes"}
-Fijaos en que como $F_X(x)$ tiende a 0 (la probabilidad del conjunto vacío) cuando $x\to -\infty$ y tiende a 1 (la probabilidad de todo $\mathbb{R}$) cuando $x\to +\infty$ y  es continua, por el Teorema del Valor medio de las funciones continuas (que dice, básicamente, que las funciones continuas no dan saltos) toma todos los valores entre 0 y 1 y por lo tanto dado cualquier $p$ entre 0 y 1 existe algún $x$ tal que $F_X(x)=p$.
+Fijaos en que como $F_X(x)$ tiende a 0 (la probabilidad del conjunto vacío) cuando $x\to -\infty$ y tiende a 1 (la probabilidad de todo $\Omega$) cuando $x\to +\infty$ y  es continua, por el Teorema del Valor Medio de las funciones continuas (que dice, básicamente, que las funciones continuas no dan saltos) toma todos los valores entre 0 y 1 y por lo tanto dado cualquier $p$ entre 0 y 1 existe algún $x$ tal que $F_X(x)=p$.
 ```
 
 La **mediana** de $X$ es su 0.5-cuantil,  los **primer** y **tercer cuartiles** son su 0.25-cuantil y su 0.75-cuantil, etc.
@@ -306,7 +376,7 @@ $$
 \displaystyle \beta_2=E\Big(\Big(\frac{X-\mu_X}{\sigma}\Big)^4\Big)-3
 \end{array}
 $$
-Miden para la densidad de la variable lo que medían los de la muestra: el coeficiente de asimetría, si es simétrica o si tiene cola a algún lado; el coeficiente de curtosis, si es más apuntada o más plana que una campana de Gauss. 
+Miden para la densidad de la variable lo que medían los de la muestra: el coeficiente de asimetría, si es simétrica o si tiene cola a algún lado; el coeficiente de curtosis, si sus colas son más largas o más cortas que las de una campana de Gauss. 
 
 
 ## Variables aleatorias normales {#sec:normal}
@@ -335,11 +405,11 @@ Pero sí que tenéis que saber que:
 
 * Si $X$ es normal, su función de distribución $F_X$ es **inyectiva y creciente**: si $x<y$, $F_X(x)<F_X(y)$.
 
-Una variable aleatoria normal es **típica** (o **estándar**) cuando es $N(0,1)$. Usaremos normalmente $Z$ para denotar una variable normal estándar.  Si $Z$ es una normal estándar, $E(Z)=0$ y $\sigma(Z)=1$.
+Una variable aleatoria normal es **típica** (o **estándar**) cuando es $N(0,1)$. Usaremos normalmente $Z$ para denotar una variable normal estándar. Por lo tanto, si $Z$ es una normal estándar, $E(Z)=0$ y $\sigma(Z)=1$.
 
 
 
-La gráfica de la densidad de una variable aleatoria normal es la famosa **campana de Gauss** de la que hemos hablado varias veces:
+La gráfica de la densidad de una variable aleatoria normal es la famosa **campana de Gauss** de la que ya hemos hablado varias veces:
 
 ```{r,echo=FALSE}
 curve(dnorm(x),-5,5,col="blue",lwd=3,ylim=c(0,0.5),main="Densidad de N(0,1)",xlab="",ylab="")
@@ -483,7 +553,7 @@ Calculad estos límites para las mujeres de 16 a 24 años.
 
 ### Propiedades básicas
 
-Una de las propiedades clave de la distribución normal es su simetría:
+Una de las propiedades clave de la distribución normal es la simetría de la campana de Gauss:
 
 ```{block2, type='rmdimportant'}
 Si $X$ es $N(\mu,\sigma)$, su densidad $f_X$ es simétrica respecto de $\mu$, es decir,
@@ -969,7 +1039,7 @@ $$
 1. Todas las otras respuestas son falsas 
 
 
-**(4)** En una variable aleatoria discreta, su función de densidad  (marca una única respuesta):
+**(4)** En una variable aleatoria continua, su función de densidad  (marca una única respuesta):
 
 1. Es tal que su integral desde $-\infty$ es la función de distribución.
 1. Mide lo denso que es su dominio.
@@ -1029,5 +1099,29 @@ $$
 1. Si la muestra es muy grande, entonces sí.
 1. Si la variable tiene distribución normal y la muestra es muy grande, entonces sí. 
 
+**(11)** En un estudio clínico, se midió el nivel de glucosa en sangre en un grupo muy grande de personas de una determinada población y a partir del mismo se estimó el intervalo de referencia del 95% para este nivel de glucosa en esta población. ¿Cuál es la interpretación correcta de este intervalo?
+
+1. Es un intervalo que contiene el 95% de los valores medios del nivel de glucosa en muestras de sujetos de esta población del mismo tamaño que la usada
+
+1. Es un intervalo que tiene una probabilidad del 95% de contener el nivel de glucosa en sangre del 95% de esta población
+
+1. Es un intervalo que contiene el nivel de glucosa en sangre del 95% de las personas de esta población
+
+1. Es un intervalo que, para cada persona  de esta población, contiene su nivel de glucosa en sangre en el 95% de las ocasiones que se lo medimos 
+
+1.  Ninguna de las otras respuestas es correcta
+
+
+**(12)** El 0.975-cuantil de la altura de las niñas recién nacidas es 0.53 metros. ¿Qué significa esto? 
+
+1.  Que un 97.5% de las niñas recién nacidas miden exactamente 0.53 metros
+
+1. Que un 97.5% de las niñas recién nacidas miden alrededor de 0.53 metros
+
+1. Que un 97.5% de las niñas recién nacidas miden 0.53 metros o menos
+
+1. Que un 97.5% de las niñas recién nacidas miden 0.53 metros o más
+
+1. Ninguna de las otras respuestas es correcta
 
 
