@@ -25,7 +25,7 @@ De lo que se trata es de dar un intervalo **lo más estrecho posible** donde est
 
 ## Definiciones básicas {#sec:IC}
 
-Un **intervalo de confianza del Q%** (para abreviar, un **IC-Q%**) de un parámetro poblacional es un intervalo obtenido aplicando a una muestra aleatoria simple de tamaño $n$ una fórmula que satisface la propiedad siguiente: 
+Un **intervalo de confianza del Q%** (para abreviar, un **IC-Q%**) de un parámetro poblacional (una media, una desviación típica, uno proporción poblacional...) es un intervalo obtenido aplicando a una muestra aleatoria simple de tamaño $n$ una fórmula, o, más en general, un procedimiento, que satisface la propiedad siguiente: 
 
 > El intervalo obtenido contiene el valor del parámetro poblacional **el Q% de las veces** que aplicamos la fórmula a muestras aleatorias simples de tamaño $n$ tomadas al azar.
 
@@ -33,15 +33,18 @@ Un **intervalo de confianza del Q%** (para abreviar, un **IC-Q%**) de un paráme
 Tener una **confianza del Q%** significa pues que lo calculamos con una fórmula que **acierta el Q% de las veces que la aplicamos**. 
 
 ```{block2,type="rmdimportant"}
-El Q% de los intervalos de confianza del Q% contienen el valor real del parámetro que quieren estimar.
+Formalmente: La probabilidad de éxito de la variable aleatoria de Bernoulli (definida sobre la "población" formada por todas las muestras con posibles repeticiones de un tamaño $n$ determinado de la población de interés) "Tomamos una muestra aleatoria simple de tamaño $n$ de la población, calculamos a partir de ella un IC-Q% para una cierto parámetro de la población, y consideramos como Éxito que este intervalo contenga dicho parámetro poblacional" es del Q%.
+
+Informalmente: El Q% de los IC-Q% contienen el valor real del parámetro que quieren estimar.
 ```
+
 
 
 Pero asumimos que en un (100-Q)% de las veces da un intervalo que no contiene el valor del parámetro poblacional, **y no sabemos cuándo sí y cuándo no**. De manera que solo podemos tener una cierta confianza, fruto del optimismo, de que esta fórmula acierta con nuestra muestra. 
 
 
 ```{example}
-En un experimento  medimos el porcentaje de aumento de alcohol en sangre a 40 personas después de tomar 4 cañas de cerveza. En el Ejemplo \@ref(exm:alcohol1) calcularemos con los datos obtenidos en este experimento un IC-95% para el porcentaje de aumento medio de alcohol en sangre de una persona después de beber 4 cañas de cerveza. Obtendremos el intervalo [40.53, 41.87].
+En un experimento  se midió el porcentaje de aumento de alcohol en sangre a 40 personas después de tomar 4 cañas de cerveza. En el Ejemplo \@ref(exm:alcohol1) calcularemos con los datos obtenidos en este experimento un IC-95% para el porcentaje de aumento medio de alcohol en sangre de una persona después de beber 4 cañas de cerveza. Obtendremos el intervalo [40.53, 41.87].
 
 
 ```
@@ -59,6 +62,34 @@ Pero hay que entender lo que dice esta frase:
 * [40.53, 41.87] es **un** intervalo de confianza del 95% para el aumento medio de alcohol etc., obtenido a partir de una muestra aleatoria.
 
 * Entonces, [40.53, 41.87] tiene una probabilidad del 95% de contener el valor real del aumento medio de alcohol etc. en el mismo sentido que si un 95% de las personas tienen una determinada característica, y cojo una persona al azar, esta persona tiene un 95% de probabilidad de tener esa característica.
+
+
+```{block2,type="rmdcaution"}
+A menudo calcularéis un intervalo de confianza del Q% para un cierto parámetro $\theta$ de una población, os dará $[a,b]$, y con el poco rigor con el que a veces os expresáis, os será igual decir 
+
+> "el valor real de $\theta$ tiene una probabilidad del Q% de pertenecer a $[a,b]$"
+
+que
+
+> "$[a,b]$ tiene una probabilidad del Q% de contener el valor real de $\theta$"
+
+Pero estas dos frases no dicen exactamente lo mismo, y de hecho la primera es falsa. Fijaos en que, en la primera frase hablamos de la probabilidad de que a $\theta$ le pase algo, y en la segunda de que a $[a,b]$ le pase algo.
+
+La primera frase dice que $\theta$ varía y un Q% de sus valores pertenecen a $[a,b]$. Esto es falso. "El valor real de $\theta$" es un número que no varía.  Para nuestra población vale algo concreto, desconocido pero concreto, que pertenecerá o no al intervalo $[a,b]$.
+
+La segunda frase en cambio se puede entender de la manera siguiente. El intervalo $[a,b]$ forma parte de todo el conjunto de IC-Q% para $\theta$ calculados a partir de todas las muestras aleatorias simples de nuestra población. La probabilidad de que uno de estos intervalos contenga el valor real de $\theta$ es del Q%. Por lo tanto, podemos decir que nuestro intervalo $[a,b]$ tiene una probabilidad del Q% de contener el valor real de $\theta$. Esta interpretación es correcta.
+
+```
+
+
+
+```{r, echo=FALSE, out.width="50%", fig.cap="Un intervalo de confianza es como el juego de las anillas: el palo (el parámetro) es fijo, y intentas acertar con la anilla (el intervalo)."}
+knitr::include_graphics("INREMDN_files/figure-html/tirdanella.png")
+```
+
+
+
+
 
 ```{block2, type='rmdcaution'}
 No confundáis: 
@@ -93,45 +124,29 @@ Por ejemplo:
 
 
 
-```{block2,type="rmdcaution"}
-A menudo calcularéis un intervalo de confianza del Q% para un cierto parámetro $\theta$ de una población, os dará $[a,b]$, y con el poco rigor con el que a veces os expresáis, os será igual decir 
-
-> "el valor real de $\theta$ tiene una probabilidad del Q% de pertenecer a $[a,b]$"
-
-que
-
-> "$[a,b]$ tiene una probabilidad del Q% de contener el valor real de $\theta$"
-
-Pero estas dos frases no dicen exactamente lo mismo, y de hecho la primera es falsa. Fijaos en que, en la primera frase hablamos de la probabilidad de que a $\theta$ le pase algo, y en la segunda de que a $[a,b]$ le pase algo.
-
-La primera frase dice que $\theta$ varía y un Q% de sus valores pertenece a $[a,b]$. Esto es falso. "El valor real de $\theta$" es un número que no varía.  Para nuestra población vale algo concreto, desconocido pero concreto, que pertenecerá o no al intervalo $[a,b]$.
-
-La segunda frase en cambio se puede entender de la manera siguiente. El intervalo $[a,b]$ forma parte de toda la población de intervalos de confianza del Q% para $\theta$ calculados a partir de muestras aleatorias simples de nuestra población. Un Q% de estos intervalos contiene el valor real de $\theta$. Por lo tanto, podemos decir que nuestro intervalo $[a,b]$ tiene una probabilidad del Q% de contener el valor real de $\theta$. Esta interpretación es correcta.
-
-```
-
-
-
-```{r, echo=FALSE, out.width="50%", fig.cap="Un intervalo de confianza es como el juego de las anillas: el palo (el parámetro) es fijo, y intentas acertar con la anilla (el intervalo)."}
-knitr::include_graphics("INREMDN_files/figure-html/tirdanella.png")
-```
-
-
 
 
 Que un IC-Q% para un parámetro $\theta$ sea $[a,b]$ sirve:
 
-* Para estimar $\theta$ con este margen de confianza: Estamos bastante seguros de que el valor poblacional de $\theta$ está entre $a$ y $b$  (porque la fórmula usada acierta a menudo).
+* Para estimar $\theta$ con este margen de confianza: Estamos muy seguros de que el valor poblacional de $\theta$ está entre $a$ y $b$  (porque la fórmula usada acierta a menudo).
 
-* Para descartar, con este margen de confianza,  que $\theta$ valga cualquier valor concreto fuera de $[a,b]$: Como estamos bastante seguros de que el valor real de $\theta$ está entre $a$ y $b$, también estamos bastante seguros de que es diferente de cualquier valor que nos den menor que $a$ o mayor que $b$.
+* Para descartar, con este margen de confianza,  que $\theta$ valga cualquier valor concreto fuera de $[a,b]$: Como estamos muy seguros de que el valor real de $\theta$ está entre $a$ y $b$, también estamos muy seguros de que es diferente de cualquier valor que sea menor que $a$ o mayor que $b$.
 
 Por ejemplo: si un IC-95% para la prevalencia $p$ de una determinada enfermedad en una población  va de 0.025 a 0.047:
 
-* Estamos muy ("un 95%") seguros de que $p$ está entre 0.025 y 0.047 (porque un 95% de los IC-95% para $p$ contienen el valor real de $p$).
+* Estamos muy ("un 95%") seguros de que $p$ está entre 0.025 y 0.047 (porque la probabilidad de que un IC-95% para $p$ contenga el valor real de $p$ es del 95%).
 
-* Estamos muy  ("un 95%") seguros de que $p$ no vale 0.05 (porque 0.05 no pertenece al intervalo donde estamos muy seguros de que cae el valor real de $p$).
+* Estamos muy  ("un 95%") seguros de que $p$ no vale 0.05 (porque 0.05 no pertenece al intervalo al que estamos muy seguros de que pertenece el valor real de $p$).
 
 * Pero no estamos muy seguros de que $p$ sea 0.03, por mucho que $0.03\in [0.025,0.047]$: estamos muy seguros de que $p$ está entre 0.025 y 0.047, pero solo eso.
+
+```{example}
+Supongamos que estimamos el RR de una cierta enfermedad relativo a una determinada exposición y nos da 2, con un IC-95% de 1.2 a 4.5. Entonces, estamos muy seguros de que el RR "poblacional" no es 1 (porque 1 no pertenece a [1.2,3.5]), y en realidad podemos estar muy seguros de que este RR es mayor que 1 (porque todos los valores del intervalo [1.2,3.5] son >1). Por lo tanto,  concluimos (con un 95% de confianza) que la probabilidad de la enfermedad entre los expuestos es mayor que entre los no expuestos. Ahora bien, **no tenemos un 95% de confianza en** ni **estamos muy seguros de** que el RR poblacional sea 2. Solo estamos muy seguros de que está entre 1.2 y 4.5.
+
+En cambio, si al estimar dicho RR nos da 2 pero con un IC-95% de 0.7 a 5.5, entonces no podemos concluir nada sobre el RR poblacional: con este nivel de confianza, podría ser menor que 1, mayor que 1 o incluso exactamente 1, en cuyo caso la enfermedad sería independiente de la exposición.
+
+
+```
 
 
 Hay dos tipos de métodos básicos de cálculo de intervalos de confianza a partir de una muestra aleatoria:
@@ -164,7 +179,7 @@ knitr::include_graphics("INREMDN_files/figure-html/bootstrap.png")
 Una de las fórmulas más conocidas para intervalos de confianza  es la siguiente:
 
 ```{block2, type="rmdimportant"}
-Si $X$ es $N(\mu,\sigma)$ y tenemos una muestra aleatoria simple de tamaño $n$, media muestral $\overline{X}$ y desviación típica muestral $\widetilde{S}_X$, un IC-95% para $\mu$ es
+Si $X$ es normal de media $\mu$ y tenemos una muestra aleatoria simple de tamaño $n$, media muestral $\overline{X}$ y desviación típica muestral $\widetilde{S}_X$, un IC-95% para $\mu$ es
 $$
 \Bigg[\overline{X}-t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}+t_{n-1,0.975}\cdot\frac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
 $$
@@ -179,14 +194,14 @@ para recalcar que estamos estimando $\mu$ por medio de $\overline{X}$ más o men
 
 
 ```{block2,type="rmdcaution"}
-A algunos de vosotros os habrán explicado en Bachillerato, o encontraréis en libros que consultéis, una fórmula para el IC-95% para $\mu$ similar a esta, pero cambiando la $\widetilde{S}_X$ por $\sigma$ y el $t_{n-1,0.975}$ por $z_{0.975}$, el 0.975-cuantil de la normal estándar. Esta otra fórmula solo se puede usar si se conoce la desviación típica poblacional $\sigma$, lo que, en la práctica, nunca pasará. Por lo tanto, por favor, olvidadla.
+A algunos de vosotros os habrán explicado en Bachillerato, o encontraréis en libros que consultéis, una fórmula para el IC-95% para $\mu$ similar a esta, pero cambiando la $\widetilde{S}_X$ por la desviación típica de $X$, $\sigma$,  y el $t_{n-1,0.975}$ por $z_{0.975}$, el 0.975-cuantil de la normal estándar. Esta otra fórmula solo se puede usar si se conoce la desviación típica poblacional $\sigma$, lo que, en la práctica, nunca pasará. Por lo tanto, por favor, olvidadla.
 ```
 
-¿Cómo podemos estar seguros de que un 95% de las veces que apliquemos esta fórmula a una muestra aleatoria simple el intervalo que obtengamos contendrá el valor real de la media? 
+¿Cómo podemos estar seguros de que en un 95% de las aplicaciones de esta fórmula a una muestra aleatoria simple el intervalo que obtengamos contendrá el valor real de la media? 
 
 Vamos a explicar de dónde sale esta fórmula, puesto que es un paradigma de cómo se obtienen la mayoría de las fórmulas paramétricas para intervalos de confianza. Quien se la quiera tomar como dogma de fe, que salte directamente al Ejemplo \@ref(exm:experimentot).
 
-Supongamos pues que $X$ es $N(\mu,\sigma)$ y que tenemos una muestra aleatoria simple de tamaño $n$, media muestral $\overline{X}$ y desviación típica muestral $\widetilde{S}_X$. En esta situación, sabemos que 
+Supongamos pues que normal de media $\mu$ y que tenemos una muestra aleatoria simple de tamaño $n$, media muestral $\overline{X}$ y desviación típica muestral $\widetilde{S}_X$. En esta situación, sabemos que 
 $$
 T=\frac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}
 $$
@@ -282,10 +297,17 @@ $$
 
 
 ```{example,experimentot}
-El ítem "Testing hypothesis" del módulo **Demonstration** de JAMOVI permite, entre otras cosas, realizar experimentos con la fórmula anterior para estudiar su frecuencia de "aciertos", en el sentido de que el intervalo que produce al aplicarla a una muestra contiene la $\mu$. Aquí vamos a llevar a cabo explícitamente un experimento en el mismo sentido.  En el bloque de código de `R` siguiente, que podéis ejecutar en el editor de `R` de JAMOVI: 
+El ítem "Testing hypothesis" del módulo **Demonstration** de JAMOVI permite, entre otras cosas, realizar experimentos con la fórmula anterior para estudiar su frecuencia de "aciertos", o sea, cuántas veces el intervalo que produce al aplicarla a una muestra contiene la $\mu$. 
+```
+
+
+```{r JAMOVI_IC_TCL,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVI_IC_TCL.png")
+```
+
+Aquí vamos a llevar a cabo explícitamente un experimento en el mismo sentido.  En el bloque de código de `R` siguiente, que podéis ejecutar en el editor de `R` de JAMOVI: 
   
 
-```
   
 * Generamos al azar una `Población` de 10^7^ "individuos" que siguen una ley normal estándar y calculamos la media `mu` de esta población.
 
@@ -348,7 +370,7 @@ plot(1-dbinom(0,0:100,0.05),pch=20,xlab="n",ylab="Probabilitat",
 Esto es un problema grave en artículos científicos donde se calculen intervalos de confianza para muchos parámetros. De media, uno de cada veinte IC-95% que se calculan no contiene el valor real del parámetro que se pretende estimar. Y no se puede hacer nada al respecto, forma parte de la definición. Si queréis bajar este porcentaje de errores, hay que aumentar el nivel de confianza y los intervalos serán más anchos y por lo tanto menos útiles.
 
 ```{example, alcohol1}
-Volvamos al experimento en el que medimos el porcentaje de aumento de alcohol en sangre a 40 personas después de tomar 4 cañas de cerveza. La media y la desviación típica muestral de estos porcentajes de incremento fueron
+Volvamos al experimento en el que se midió el porcentaje de aumento de alcohol en sangre a 40 personas después de tomar 4 cañas de cerveza. La media y la desviación típica muestral de estos porcentajes de incremento fueron
 $$
 \overline{x}=41.2,\quad \widetilde{s}=2.1.
 $$
@@ -373,9 +395,9 @@ Para calcular el intervalo anterior hemos supuesto que la variable poblacional "
 
 También hemos supuesto que era una muestra aleatoria simple. ¿Y si no lo es?
 
-* Si es aleatoria, como la población sobre la que tenemos definida nuestra variable aleatoria, las personas que pueden tomar 4 cañas de cerveza, es muy grande, a efectos prácticos la podemos considerar simple.
+* Si es aleatoria sin reposición, como la población sobre la que tenemos definida nuestra variable aleatoria, las personas que pueden tomar 4 cañas de cerveza, es muy grande, a efectos prácticos la podemos considerar simple.
 
-* Pero seguro que no es aleatoria, sino oportunista. En este caso, no hemos sacado 40 personas por sorteo de la lista de toda la población mundial, ni siquiera de la de Mallorca, sino que hemos buscado voluntarios. Entonces, no podemos hacer nada para salvar la fórmula, y su validez depende de si la muestra de personas usada puede pasar por aleatoria o no. 
+* Pero seguro que no es aleatoria, sino oportunista. En este caso, no se eligieron 40 personas por sorteo de la lista de toda la población mundial, ni siquiera de la de Mallorca, sino que se reclutaron voluntarios. Entonces, no podemos hacer nada para salvar la fórmula, y su validez depende de si la muestra de personas usada puede pasar por aleatoria o no. 
 
 
 
@@ -388,7 +410,7 @@ A partir de ahora, para evitar ambigüedades, en las fórmulas expresaremos el n
 El mismo argumento de la sección anterior, cambiando 0.95 por $q$, da:
 
 ```{theorem}
-Si $X$ es $N(\mu,\sigma)$ y tomamos una muestra aleatoria simple de tamaño $n$, media muestral $\overline{X}$ y desviación típica muestral $\widetilde{S}_X$, un IC-$q$ para $\mu$ es
+Si $X$ es normal de media $\mu$ y tomamos una muestra aleatoria simple de tamaño $n$, media muestral $\overline{X}$ y desviación típica muestral $\widetilde{S}_X$, un IC-$q$ para $\mu$ es
 $$
 \overline{X}\pm t_{n-1,(1+q)/2}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
 $$
@@ -749,7 +771,11 @@ Llamaremos **margen de error** (o **error**, **precisión**...) de un intervalo 
 $$
 M= z_{(q+1)/2} \sqrt{\frac{\widehat{p}_{X} (1-\widehat{p}_{X})}{n}}
 $$
-Fijaos en que el intervalo de confianza de Laplace es $\widehat{p}_X\pm M$ y por lo tanto, si contiene el valor real de $p_X$, el error $|\widehat{p}_X-p_X|$ que cometemos cuando decimos que el valor de $p_X$ es $\widehat{p}_X$ es como máximo este $M$.
+Fijaos en que el intervalo de confianza de Laplace es $\widehat{p}_X\pm M$ y por lo tanto, si contiene el valor real de $p_X$, el error $|\widehat{p}_X-p_X|$ que cometemos cuando decimos que el valor de $p_X$ es $\widehat{p}_X$ es como máximo este "margen de error" $M$.
+
+```{block2,type="rmdromans"}
+Id con cuidado si llamáis precisión a la mitad de la amplitud del intervalo de confianza. ¿Qué será entonces un intervalo "más preciso"? ¿Uno con mayor precisión, es decir, más ancho? ¿O todo lo contrario? Nosotros lo evitaremos.
+```
 
 
 Una pregunta que hay que hacerse al diseñar un estudio es ¿de qué tamaño he de tomar la muestra para garantizar que el margen de error en la estimación sea como máximo un valor dado $M_{max}$?
@@ -803,13 +829,13 @@ el margen de error del intervalo de Laplace calculado con una muestra de tamaño
 ```
 
 ```{example}
-¿Cuál es el menor tamaño de una muestra que garantiza un margen de error de como máximo 0.05 al estimar una proporción $p_X$ usando un intervalo de confianza de Laplace del 95%?
+¿Cuál es el menor tamaño de una muestra que garantiza un margen de error de como máximo 5 puntos porcentuales al estimar una proporción $p_X$ usando un intervalo de confianza de Laplace del 95%?
 
 ```
 
-Por el teorema anterior, para garantizar un margen de error de 0.05 al calcular un IC-95% para una proporción $p_X$ usando la fórmula de Laplace, tenemos que usar una muestra de tamaño $n$ tal que
+Por el teorema anterior, para garantizar un margen de error máximo $M_{max}= 0.05$ al calcular un IC-95% para una proporción $p_X$ usando la fórmula de Laplace, tenemos que usar una muestra de tamaño $n$ tal que
 $$
-n\geqslant \Bigg(\frac{z_{(1+q)/2}}{2M_{max}}\Bigg)^2=\Bigg(\frac{1.96}{0.1}\Bigg)^2=384.16
+n\geqslant \Bigg(\frac{z_{(1+q)/2}}{2M_{max}}\Bigg)^2=\Bigg(\frac{1.96}{2\cdot 0.05}\Bigg)^2=384.16
 $$
 
 El menor tamaño  que satisface esta condición es $n=385$.
@@ -820,7 +846,7 @@ La respuesta correcta no es 384, por mucho que 384.16 se redondee a 384. Fijaos 
 
 Observad tres cosas:
 
-* El valor de $n$ solo depende del margen de error deseado  y del nivel de confianza, no de la naturaleza del estudio.
+* El valor de $n$ solo depende del margen de error deseado  y del nivel de confianza, no de la naturaleza del estudio ni de la población. Para garantizar un margen de error de como máximo 5 puntos porcentuales, es suficiente tomar una muestra aleatoria simple de 385 sujetos, tanto si queremos estimar la prevalencia de la diabetes en la India (1400 millones de habitantes) como la proporción de personas tatuadas en Mallorca (menos de 1 millón de habitantes).
 
 * Tal y como hemos encontrado la $n$, estamos seguros de que si tomamos una muestra como mínimo de este tamaño, el margen de error del intervalo de confianza de Laplace será como máximo $M_{max}$, sea cual sea la muestra. ¡Es de las pocas veces que podemos estar seguros de algo en estadística!
 
@@ -854,7 +880,7 @@ $$
 \widehat{p}_{X}\pm z_{(q+1)/2}\sqrt{\frac{\widehat{p}_{X}
 (1-\widehat{p}_{X})}{n}}\sqrt{\frac{\vphantom{(}N-n}{N-1}}
 $$
-donde $\widehat{p}_{X}=557/727=`r round(557/727,3)`$, $z_{(q+1)/2}=1.96$, $n=727$ y $N=12000$: da
+donde $\widehat{p}_{X}=557/727=`r round(557/727,3)`$, $z_{(q+1)/2}=1.96$, $n=727$ y $N=11797$: da
 $$
 0.766\pm 1.96\sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}11797-727}{11797-1}}\Rightarrow [0.736, 0.796]
 $$
@@ -901,7 +927,7 @@ Las variables de interés son:
 
 * $X_2$: Tomamos un paciente  de edad avanzada con COVID-19 leve o moderada, lo tratamos con hidroxicloroquina y miramos si tiene un desenlace negativo; es Bernoulli $Be(p_2)$.
 
-Hemos tomado una muestra de $X_1$ de tamaño $n_1=123$ y ha tenido 8 éxitos, de manera que su proporción muestral ha sido $\widehat{p}_1=8/123=0.06504$, y hemos tomado una muestra de $X_2$ de tamaño $n_2=124$ y ha tenido 9 éxitos, de manera que su proporción muestral ha sido $\widehat{p}_2=9/124=0.07258$. El número total de éxitos (es decir, de desenlaces negativos) ha sido $8+9=17$ y el de fracasos $247-17=230$. Las dos muestras son independientes, ya que hemos asignado al azar los sujetos a uno u otro grupo.
+Se tomó una muestra de $X_1$ de tamaño $n_1=123$ y hubo 8 éxitos, de manera que su proporción muestral de éxitos fue $\widehat{p}_1=8/123=0.06504$, y una muestra de $X_2$ de tamaño $n_2=124$, donde hubo 9 éxitos y por lo tanto su proporción muestral de éxitos fue $\widehat{p}_2=9/124=0.07258$. El número total de éxitos (es decir, de desenlaces negativos) fue $8+9=17$ y el de fracasos $247-17=230$. Las dos muestras son independientes, ya que  los sujetos se asignaron al azar a uno u otro grupo.
 
 Suponiendo que las muestras puedan pasar por aleatorias, estamos en condiciones de aplicar la fórmula anterior. Obtenemos
 $$
@@ -949,7 +975,7 @@ Por un lado, de que las muestras sean **independientes** (hemos medido $X_1$ y $
 
 Y si las muestras son independientes, la fórmula a usar depende de si las varianzas de $X_1$ y $X_2$ son iguales o diferentes. (¿Y cómo podemos saber si son iguales o diferentes? Ya os podéis imaginar que, con un 100% de seguridad, no podremos; pero sí que podemos determinar si son iguales o no con un cierto margen de confianza, es decir, aceptando una pequeña probabilidad de equivocarnos. No os perdáis las próximas lecciones.)
 
-Os damos las fórmulas por si algún día tenéis que calcular uno a mano. No hace falta saberlas, pero sí recordar que la fórmula concreta a usar depende de estas condiciones. Supongamos, pues, que  $X_1$ y $X_2$ son aproximadamente normales o  que $n_1,n_2\geqslant 40$. Entonces:
+Os damos las fórmulas. No hace falta saberlas, pero sí recordar que la fórmula concreta a usar depende de estas condiciones. Supongamos, pues, que  $X_1$ y $X_2$ son aproximadamente normales o  que $n_1,n_2\geqslant 40$. Entonces:
 
 * Si las muestras son emparejadas y $n_1=n_2=n$, un IC-$q$ para $\mu_1-\mu_2$ es
 $$
@@ -1002,7 +1028,7 @@ Tenemos pues los datos siguientes:
 
 * Para la muestra de $X_M$, su tamaño es $n_M=114$, su media muestral es $\overline{X}_M=36.75$ y su varianza muestral es $\widetilde{S}_M^2=0.228$.
 
-Para calcular el IC-95%, necesitamos saber si $\sigma_M^2=\sigma_F^2$ o $\sigma_M^2\neq \sigma_F^2$. Vamos a suponer que $\sigma_M^2=\sigma_F^2$, es decir, que las temperaturas de las mujeres son "igual de variadas" que las de los hombres, básicamente porque no vemos ningún motivo para que no sea así (bueno, y porque en una próxima lección veremos cómo decidir, con una cierta probabilidad de equivocarnos, si dos varianzas poblacionales son iguales o diferentes, y en concreto concluiremos que, en este caso, podemos aceptar que $\sigma_M^2=\sigma_F^2$).
+Para calcular el IC-95%, necesitamos saber si $\sigma_M^2=\sigma_F^2$ o $\sigma_M^2\neq \sigma_F^2$. Vamos a suponer que $\sigma_M^2=\sigma_F^2$, es decir, que las temperaturas de las mujeres son "igual de variadas" que las de los hombres, básicamente porque no vemos ningún motivo para que no sea así (bueno, y porque en una próxima lección veremos cómo decidir, con una cierta probabilidad de equivocarnos, si dos varianzas poblacionales son iguales o diferentes, y en concreto concluiremos que, en este caso, podemos aceptar que $\sigma_M^2=\sigma_F^2$: mirad el *spoiler* al final de esta sección).
 
 Así que hemos de usar la fórmula para muestras independientes y varianzas iguales:
 $$
@@ -1022,22 +1048,38 @@ $$
 $$
 Estimamos con un 95% de confianza que la temperatura media de las mujeres es entre una y dos décimas de grado C más alta que la de los hombres.
 
-Con JAMOVI,  podemos calcular estos intervalos de confianza a partir de una tabla de datos en **T-Tests/Prueba T para muestras independientes** (si las muestras son independientes) o **T-Tests/Prueba T para muestras apareadas** (si las muestras son emparejadas). En el primer caso, a parte de *Diferencia de medias* e *Intervalo de confiaza*, hay que marcar *t de Student*  si suponemos que las varianzas poblacionales son iguales y *t de Welch*  si suponemos que las varianzas poblacionales son diferentes.
+Con JAMOVI,  podemos calcular estos intervalos de confianza a partir de una tabla de datos en **T-Tests/Prueba T para muestras independientes** (si las muestras son independientes) o **T-Tests/Prueba T para muestras apareadas** (si las muestras son emparejadas). En el primer caso, a parte de *Diferencia de medias* e *Intervalo de confianza*, hay que marcar *t de Student*  si suponemos que las varianzas poblacionales son iguales y *t de Welch*  si suponemos que las varianzas poblacionales son diferentes.
 
-Por ejemplo, para calcular el intervalo de confianza anterior suponiendo que las varianzas de las temperaturas de hombres son iguales:
+Por ejemplo, para calcular el intervalo de confianza anterior suponiendo que las varianzas poblacionales de las temperaturas de hombres y mujeres son iguales:
 
 
 ```{r jamoviIC8,echo=FALSE,out.width="100%"}
 knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.IC8.png")
 ```
 
-(no da exactamente igual a nuestro intervalo por errores de redondeo) y suponiendo que las varianzas de las temperaturas de hombres son diferentes:
+(no da exactamente igual a nuestro intervalo por errores de redondeo) y suponiendo que las varianzas poblacionales de las temperaturas de hombres  y mujeres son diferentes:
 
 
 ```{r jamoviIC9,echo=FALSE,out.width="100%"}
 knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.IC9.png")
 ```
 
+No hay apenas diferencia entre los dos intervalos: [0.0363,0.274] contra [0.0362,0.274]. 
+
+
+```{block2,type="rmdnote"}
+Un pequeño *spoiler* para introducir el próximo tema. Para decidir, con un cierto nivel de seguridad, si las dos varianzas poblacionales son iguales o diferentes basta marcar en la ventana **T-Tests/Prueba T para muestras independientes** la casilla *Prueba de homogeneidad*: en este contexto, *homogeneidad* significa "igualdad de varianzas poblacionales".  Hay que mirar entonces el resultado *p* de la tabla "Prueba de Levene para homogeneidad de varianzas" (con el módulo **moretests** instalado, esta tabla tiene más filas). 
+
+Esta *p* es lo que llamaremos el **p-valor** en el próximo tema. Avanzando acontecimientos, es la probabilidad de obtener varianzas *muestrales* tan diferentes como las de nuestras muestras si las varianzas *poblacionales* fueran iguales. Un p-valor pequeño nos permite dudar de que las varianzas *poblacionales* sean diferentes (porque si fueran iguales sería mucha casualidad obtener varianzas muestrales tan diferentes como las nuestras), mientras que un p-valor grande no aporta evidencia de que sean diferentes y nos hace concluir que son iguales. Como regla general, p-valores por encima de 0.1 se consideran grandes. Así que en este caso, con un p-valor 0.266, podemos aceptar que las varianzas poblacionales de las temperaturas de hombres y mujeres son iguales.
+
+
+```
+
+
+
+```{r JAMOVIMorestests,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/JAMOVIMorestests.png")
+```
 
 
 ## Test
@@ -1099,7 +1141,7 @@ knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.IC9.png")
 
 
 
-**(7)** Tomamos una muestra aleatoria de 200 residentes de Santa Margalida (población, 12000 habitantes) para calcular un intervalo de confianza para la proporción de los *margalidans* que presentan una determinada condición. ¿Cuál o cuáles  de las afirmaciones siguientes son verdaderas? 
+**(7)** Tomamos una muestra aleatoria de 200 residentes de Santa Margalida (con una población de unos 12000 habitantes) para calcular un intervalo de confianza para la proporción de los *margalidans* que presentan una determinada condición. ¿Cuál o cuáles  de las afirmaciones siguientes son verdaderas? 
 
 1. Si la muestra es simple, no hay que tener en cuenta el factor de población finita. 
 1. Aunque la muestra sea simple, hay que tener en cuenta el factor de población finita.
@@ -1157,7 +1199,7 @@ knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.IC9.png")
 1. Estimar la desviación típica de la proporción de consumidores de bebidas energéticas.
 1. Conocer la proporción de consumidores de bebidas energéticas en el total de la población de la zona de interés. 
 1. Estimar la proporción de estudiantes consumidores de bebidas energéticas con una pequeña prueba piloto. 
-1. Como  quiere calcular el intervalo de confianza en el caso más desfavorable, ya no le hace falta ningún otra dato. 
+1. Como  quiere calcular el intervalo de confianza en el caso más desfavorable, ya no le hace falta ningún otro dato. 
 
 
 **(13)** En España hay aproximadamente 43,000 estudiantes universitarios de Medicina. Imaginad que se pasó una encuesta a una muestra aleatoria simple de 200 de ellos y que 198 respondieron que la materia que menos les había gustado había sido la Estadística. Si quisiera calcular un intervalo de confianza para la proporción de estudiantes de Medicina para los que la materia menos favorita es la Estadística a partir de estos datos, ¿qué métodos podría usar? 
@@ -1193,11 +1235,11 @@ knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.IC9.png")
 1. Más ancho que el anterior. 
 1. No podemos saber si el nuevo IC será más ancho, más estrecho o igual de ancho que el anterior. 
 
-**(17)** Un artículo de una revista científica informa de que el intervalo de confianza del 95% del nivel medio de colesterolemia en los adultos atendidos en un Centro de Salud es 192-208. Se aceptó que la variable tenía una distribución normal y el número de pacientes estudiados fue de 100. ¿Cuáles de las siguientes afirmaciones son verdaderas?
+**(17)** Un artículo de una revista científica informa de que el intervalo de confianza del 95% del nivel medio de colesterol en sangre en los adultos atendidos en un Centro de Salud es 192-208 mg/dl. Se aceptó que la variable tenía una distribución normal y el número de pacientes estudiados fue de 100. ¿Cuáles de las siguientes afirmaciones son verdaderas?
 
-1. Es muy probable que el nivel medio poblacional esté comprendido entre 192 y 208. 
-1. Si se repitiera el estudio muchas veces, en un 95% de ellas se obtendría una media muestral comprendida entre 192 y 208. 
-1. El 95% de los adultos de la población tiene un nivel de colesterolemia comprendido entre 192 y 208. 
+1. Es muy probable que el nivel medio poblacional esté comprendido entre 192 y 208 mg/dl. 
+1. Si se repitiera el estudio muchas veces, en un 95% de ellas se obtendría una media muestral comprendida entre 192 y 208 mg/dl. 
+1. El 95% de los adultos de la población tiene un nivel de colesterol  comprendido entre 192 y 208 mg/dl. 
 1. La media muestral encontrada en el estudio es de 200.
 1. La desviación típica muestral encontrada en el estudio ha sido aproximadamente 40 o 41. 
 1. Ninguna de las anteriores respuestas es correcta.
