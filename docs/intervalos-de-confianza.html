@@ -23,7 +23,7 @@
 <meta name="author" content="Irene García, Francesc Rosselló" />
 
 
-<meta name="date" content="2024-03-25" />
+<meta name="date" content="2024-04-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="estimadores.html"/>
-
+<link rel="next" href="contrastes-de-hipótesis.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -288,6 +288,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#intervalos-de-confianza-para-diferencias-de-medias"><i class="fa fa-check"></i><b>13.5.2</b> Intervalos de confianza para diferencias de medias</a></li>
 </ul></li>
 <li class="chapter" data-level="13.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#test-11"><i class="fa fa-check"></i><b>13.6</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>14</b> Contrastes de hipótesis</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#hipótesis-nula-y-alternativa"><i class="fa fa-check"></i><b>14.1</b> Hipótesis nula y alternativa</a></li>
+<li class="chapter" data-level="14.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:moneda"><i class="fa fa-check"></i><b>14.2</b> Un ejemplo</a></li>
+<li class="chapter" data-level="14.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:pval"><i class="fa fa-check"></i><b>14.3</b> El p-valor</a></li>
+<li class="chapter" data-level="14.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#tipo-de-errores"><i class="fa fa-check"></i><b>14.4</b> Tipo de errores</a></li>
+<li class="chapter" data-level="14.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#sec:exttest"><i class="fa fa-check"></i><b>14.5</b> Ejemplo: El test t</a></li>
+<li class="chapter" data-level="14.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#la-potencia-de-un-contraste"><i class="fa fa-check"></i><b>14.6</b> La potencia de un contraste</a></li>
+<li class="chapter" data-level="14.7" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#intervalo-de-confianza-de-un-contraste"><i class="fa fa-check"></i><b>14.7</b> Intervalo de confianza de un contraste</a></li>
+<li class="chapter" data-level="14.8" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#ajuste-de-p-valores"><i class="fa fa-check"></i><b>14.8</b> Ajuste de p-valores</a></li>
+<li class="chapter" data-level="14.9" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#resultados-estadísticamente-significativos-versus-resultados-clínicamente-significativos"><i class="fa fa-check"></i><b>14.9</b> Resultados estadísticamente significativos <em>versus</em> resultados clínicamente significativos</a></li>
 </ul></li>
 </ul>
 
@@ -1036,7 +1048,7 @@ Estimamos con un 95% de confianza que la temperatura media de las mujeres es ent
 
 <div class="rmdnote">
 <p>Un pequeño <em>spoiler</em> para introducir el próximo tema. Para decidir, con un cierto nivel de seguridad, si las dos varianzas poblacionales son iguales o diferentes basta marcar en la ventana <strong>T-Tests/Prueba T para muestras independientes</strong> la casilla <em>Prueba de homogeneidad</em>: en este contexto, <em>homogeneidad</em> significa “igualdad de varianzas poblacionales”. Hay que mirar entonces el resultado <em>p</em> de la tabla “Prueba de Levene para homogeneidad de varianzas” (con el módulo <strong>moretests</strong> instalado, esta tabla tiene más filas).</p>
-<p>Esta <em>p</em> es lo que llamaremos el <strong>p-valor</strong> en el próximo tema. Avanzando acontecimientos, es la probabilidad de obtener varianzas <em>muestrales</em> tan diferentes como las de nuestras muestras si las varianzas <em>poblacionales</em> fueran iguales. Un p-valor pequeño nos permite dudar de que las varianzas <em>poblacionales</em> sean diferentes (porque si fueran iguales sería mucha casualidad obtener varianzas muestrales tan diferentes como las nuestras), un p-valor grande no aporta evidencia de que sean diferentes y nos hace concluir que son iguales. Como regla general, p-valores por encima de 0.1 se consideran grandes. Así que en este caso, con un p-valor 0.266, podemos aceptar que las varianzas poblacionales de las temperaturas de hombres y mujeres son iguales.</p>
+<p>Esta <em>p</em> es lo que llamaremos el <strong>p-valor</strong> en el próximo tema. Avanzando acontecimientos, es la probabilidad de obtener varianzas <em>muestrales</em> tan diferentes como las de nuestras muestras si las varianzas <em>poblacionales</em> fueran iguales. Un p-valor pequeño nos permite dudar de que las varianzas <em>poblacionales</em> sean diferentes (porque si fueran iguales sería mucha casualidad obtener varianzas muestrales tan diferentes como las nuestras), mientras que un p-valor grande no aporta evidencia de que sean diferentes y nos hace concluir que son iguales. Como regla general, p-valores por encima de 0.1 se consideran grandes. Así que en este caso, con un p-valor 0.266, podemos aceptar que las varianzas poblacionales de las temperaturas de hombres y mujeres son iguales.</p>
 </div>
 <p><img src="INREMDN_files/figure-html/JAMOVIMorestests.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
@@ -1196,20 +1208,13 @@ ocasiones que la apliquemos a muestras.<br />
 
 </div>
 </div>
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="estimadores.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="estimadores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="contrastes-de-hipótesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
