@@ -1106,7 +1106,7 @@ i. ¿Qué estimáis que vale la media?
 
 
 
-## Datos cuantitativos bivariantes
+## Datos cuantitativos bivariantes {#sec:edbivar}
 
 Si tenemos observaciones de dos variables cuantitativas medidas sobre una misma muestra de $n$ individuos, las recogemos en una tabla de datos **bivariante**,  con las filas representando los individuos y las columnas representando las dos variables:
 
@@ -1294,6 +1294,8 @@ Resulta que los coeficientes de esta recta de regresión son
 $$
 a=\frac{s_{x,y}}{s_x^2},\quad b = \overline{y}-a\cdot \overline{x}.
 $$
+Estudiaremos con más detalles esta recta de regresión en la Sección \@ref(sec:rls).
+
 
 ```{example}
 Siguiendo con nuestro ejemplo de tensiones y niveles de colesterol, la recta de regresión del nivel de colesterol en función de la tensión media tiene pendiente
@@ -1341,8 +1343,9 @@ knitr::include_graphics("INREMDN_files/figure-html/JAMOVI.DEMONS.1.png")
 El valor de la correlación de Pearson no siempre es suficiente para valorar el ajuste de los puntos a una recta. Es siempre conveniente dibujar los puntos y la recta de regresión lineal y darles un vistazo.
 ```
 
-
-Por ejemplo, F. Anscombe produjo los cuatro conjuntos de puntos descritos en la Figura \@ref(fig:anscombe). Como podéis, ver, tienen ajustes muy diferentes a una recta, y en cambio resulta que tienen el mismo valor de $r$: 0.816. Para más detalles, consultad la [correspondiente entrada de la Wikipedia](https://es.wikipedia.org/wiki/Cuarteto_de_Anscombe)
+```{example, Anscombe} 
+F. Anscombe produjo los cuatro conjuntos de puntos descritos en la Figura \@ref(fig:anscombe). Como podéis, ver, tienen ajustes muy diferentes a una recta, y en cambio resulta que tienen el mismo valor de $r$: 0.816regres. Para más detalles, consultad la [correspondiente entrada de la Wikipedia](https://es.wikipedia.org/wiki/Cuarteto_de_Anscombe).
+```
 
 ```{r anscombe,echo=FALSE,fig.cap="El cuarteto de Anscombe",fig.width=10,out.width="90%"}
 par(mfrow=c(2,2))
