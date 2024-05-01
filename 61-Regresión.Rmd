@@ -2,11 +2,11 @@
 
 Terminábamos el tema anterior con los contrastes de correlación. Recordad que en un contraste de correlación bilateral buscamos evidencia estadística de que la correlación entre dos variables continuas definidas sobre una misma población es no nula y por lo tanto de que dependen linealmente la una de la otra. En este tema iremos un paso más allá y estimaremos esta dependencia lineal, que representaremos expresando una de las variables, la variable **dependiente**, como una función lineal de la otra, la variable **independiente**. 
 
-En estadística descriptiva, la estimación de esta fórmula lineal nos permite añadir al gráfico de dispersión de una muestra de ambas variables "la recta que más se aproxima a los puntos del gráfico". Ya hablamos de esta recta en la Sección \@ref(sec:edbivar), donde la llamamos **recta de regresión**. Ahora, en estadística inferencial,  esta recta de regresión nos permite, por ejemplo,  predecir el valor de la variable dependiente sobre un individuo del que sepamos el valor de la variable independiente. Naturalmente, esta predicción conllevará una cierta incertidumbre que dependerá de la "confianza" que queramos tener en el valor predicho. 
+En estadística descriptiva, la estimación de esta fórmula lineal nos permitía añadir al gráfico de dispersión de una muestra de ambas variables "la recta que más se aproxima a los puntos del gráfico". Ya hablamos de esta recta en la Sección \@ref(sec:edbivar), donde la llamamos **recta de regresión**. Ahora, en estadística inferencial,  esta recta de regresión nos permitirá, por ejemplo,  predecir el valor de la variable dependiente sobre un individuo del que sepamos el valor de la variable independiente. Naturalmente, esta predicción conllevará una cierta incertidumbre que dependerá de la "confianza" que queramos tener en el valor predicho. 
 
 En los párrafos anteriores hablábamos solo de estudiar la dependencia lineal de una variable continua respecto de otra variable continua. Este es el contexto de la **regresión lineal simple**. Pero, naturalmente, podemos estar interesados en otras situaciones: por ejemplo, puede que nos interese estudiar la dependencia lineal de una variable continua respecto de varias variables continuas, y no solo de una sola, en la **regresión lineal múltiple**, o de una variable aleatoria discreta respecto de una o varias variables continuas o discretas, para lo que usaríamos  **regresión lineal generalizada**. 
 
-Aunque la regresión lineal simple es un caso particular de la regresión lineal múltiple, empezaremos tratando en detalle la primera ya que es la más sencilla. Por otro lado, de la regresión lineal generalizada solo explicaremos el tipo más útil en medicina: una variable binaria como función lineal de una o varias variables también binarias, los que nos permitirá calcular **odds ratios ajustadas**: la OR de la variable dependiente relativa a cada una de las variables independientes *tras descontar el efecto de las otras variables independientes.*
+Aunque la regresión lineal simple es un caso particular de la regresión lineal múltiple, empezaremos tratando en detalle la primera ya que es la más sencilla. Por otro lado, de la regresión lineal generalizada solo explicaremos uno de los tipos más usados en medicina: una variable binaria como función lineal de varias variables también binarias, los que nos permitirá calcular **odds ratios ajustadas**: la OR de la variable dependiente relativa a cada una de las variables independientes *tras descontar el efecto de las otras variables independientes.*
 
 ## Regresión lineal simple {#sec:rls}
 
@@ -24,7 +24,7 @@ VEF=data.frame(readr::read_delim("VEF.csv",
 plot(VEF,ylab="VEF1",xlab="Altura",cex=0.8,pch=20)
 ```
 
-En la Sección \@ref(sec:edbivar) añadíamos a este gráfico la *recta de regresión* que "más se aproxima" a los puntos:
+En la Sección \@ref(sec:edbivar) añadíamos a un gráfico como este la *recta de regresión* que "más se aproxima" a los puntos:
 
 
 ```{r,echo=FALSE}
@@ -42,7 +42,7 @@ knitr::include_graphics("INREMDN_files/figure-html/jamoviRLS0.png")
 
 La correlación de Pearson entre las alturas y los VEF1 de la muestra vale 0.581, y en el contraste de hipótesis $\rho_{\text{Altura, VEF1}}=0$ contra $\rho_{\text{Altura, VEF1}}>0$ obtenemos un p-valor de 0.004 y un intervalo de confianza del 95% para $\rho_{\text{Altura, VEF1}}$ entre 0.259 y 1. Marcando todas las casillas de "Gráficas" hemos obtenido el gráfico de dispersión de la muestra con la recta de regresión y además las gráficas de las densidades estimadas de las alturas y los VEF1. La franja gris alrededor de la recta de regresión indica, para cada altura, el intervalo de confianza del 95% para el VEF1 esperado en los jóvenes sanos de esa altura.  
 
-Nuestro objetivo en este tema es estimar la dependencia lineal del VEF1 en función de la altura en el total de la población de los varones jóvenes sanos, de cuya existencia  hemos obtenido evidencia, y usarla, por ejemplo, para estimar el VEF1 esperado de un joven a partir de su altura.  Este tipo de problemas forman el ámbito de la **regresión lineal simple**, donde *simple* indica que usamos una sola variable independiente (por oposición a la regresión lineal **múltiple**, en la que usamos más de una variable independiente).
+Nuestro objetivo en este tema es estimar la dependencia lineal del VEF1 en función de la altura en el total de la población de los varones jóvenes sanos, de cuya existencia  hemos obtenido evidencia, y usarla, por ejemplo, para estimar el VEF1 esperado de un joven a partir de su altura.  Este tipo de problemas forman el ámbito de la **regresión lineal simple**, donde *simple* indica que usamos una sola variable independiente (por oposición a la regresión lineal **múltiple**, en la que podemos usar más de una variable independiente).
 
 ### La recta de regresión lineal por mínimos cuadrados
 
@@ -71,22 +71,22 @@ Los coeficientes $\beta_0$ (el **término constante** o **independiente** de la 
 
 * $\beta_0$ es el valor esperado de $Y$ en los individuos en los que $X=0$
 
-* $\beta_1$ es el incremento esperado del valor de $Y$ cuando el valor de $X$ aumenta en 1 unidad
+* $\beta_1$ es la variación esperada del valor de $Y$ cuando el valor de $X$ aumenta en 1 unidad
 
-Tomamos una muestra $(x_i,y_i)_{i=1,\ldots,n}$ de $n$ valores de $(X,Y)$ y con ella obtenemos estimaciones $b_0,b_1$ de  $\beta_0$ y $\beta_1$. Estas estimaciones definen la **recta de regresión** de $Y$ en función de $X$
+Tomamos una muestra $(x_i,y_i)_{i=1,\ldots,n}$ de $n$ valores del par de variables $(X,Y)$ y con ella obtenemos estimaciones $b_0,b_1$ de  $\beta_0$ y $\beta_1$. Estas estimaciones definen la **recta de regresión** de $Y$ en función de $X$
 $$
 y=b_0+b_1 x
 $$
 
 
-Esta recta sirve, por ejemplo, para, dado un valor $x_0$ de $X$, estimar el valor esperado de $Y$ en los individuos en los que $X$ valga $x_0$. Denotaremos por $\widehat{y}$ el valor **estimado** de $Y$ en un sujeto cuyo valor de $X$ sea  $x$ usando la recta de regresión:
+Esta recta sirve, por ejemplo, para, dado un valor $x_0$ de $X$, estimar qué vale $Y$ en los individuos en los que $X$ vale $x_0$. Denotaremos por $\widehat{y}$ el valor **estimado** de $Y$ en un sujeto cuyo valor de $X$ sea  $x$ usando la recta de regresión:
 $$
 \widehat{y}=b_0+b_1 x
 $$ 
 
-Hay varias técnicas para estimar los coeficientes $\beta_0,\beta_1$. Aquí vamos a explicar la más popular: la **regresión lineal por mínimos cuadrados**. La idea es que tomamos como $y=b_0+b_1 x$  la recta que minimiza su suma de distancias verticales desde los puntos de la muestra.
+Hay varias técnicas para estimar los coeficientes $\beta_0,\beta_1$. Aquí vamos a explicar la más popular: la **regresión lineal por mínimos cuadrados**. La idea es que tomamos como $y=b_0+b_1 x$  la recta que minimiza su suma de cuadrados de distancias verticales desde los puntos de la muestra.
 
-En concreto, dados $b_0,b_1$, llamamos el  **error** del modelo $\widehat{y}=b_0+b_1 x$ en el punto $i$-ésimo de la muestra $(x_i,y_i)$ a la diferencia $e_i$ entre el valor  $y_i$ de $Y$ en este punto y su valor  estimado $\widehat{y}_i$ de $Y$:
+En concreto, dados $b_0,b_1$, llamamos el  **error** del modelo $\widehat{y}=b_0+b_1 x$ en el punto $i$-ésimo de la muestra $(x_i,y_i)$ a la diferencia $e_i$ entre el valor  $y_i$ de $Y$ en este punto y su valor  estimado $\widehat{y}_i$:
 $$
 e_i=y_i-\widehat{y}_i=y_i-b_0-b_1 x_i
 $$
@@ -130,7 +130,7 @@ y=-9.1904+0.0744x
 $$
 Es decir, estimamos que en la población de los jóvenes varones sanos se cumple la relación
 $$
-\mbox{VEF1}=-9.1904+  0.0744\cdot \mbox{Altura}
+\mu_{\text{VEF1}|\text{Altura}}=-9.1904+  0.0744\cdot \text{Altura}
 $$
 
 De este modelo deducimos que si un joven sano mide 1 cm más que otro, esperamos que su VEF1 sea 7.44 centilitros mayor. 
@@ -138,7 +138,7 @@ De este modelo deducimos que si un joven sano mide 1 cm más que otro, esperamos
 ```{block2,type="rmdromans"}
 También deducimos que el VEF1 esperado de un joven de 0 cm es de -9.1904 litros, pero esto, naturalmente, no tiene ningún sentido.
 
-Para evitar hablar de  VEF1 negativos en jóvenes que no pueden existir, una posible estrategia es, en vez de tomar como variable independiente la altura, tomar la diferencia entre la altura y un cierto valor base razonable, de manera que el 0 corresponda a ese valor base. Por ejemplo, tomar como variable independiente la diferencia entre la altura y 140 cm.
+Para evitar hablar de  VEF1 negativos en jóvenes que no pueden existir, lo que haríamos sería, en vez de tomar como variable independiente la altura, tomar la diferencia entre la altura y un cierto valor base razonable, de manera que el 0 corresponda a ese valor base. Por ejemplo, tomar como variable independiente la diferencia entre la altura y 140 cm.
 ```
 
 
@@ -146,7 +146,7 @@ Para evitar hablar de  VEF1 negativos en jóvenes que no pueden existir, una pos
 ¿Qué VEF1 esperamos en un estudiante varón sano de 165 cm?
 ```
 
-Según el modelo lineal obtenido, el valor esperado de VEF1 cuando $\mbox{Altura}=175$ es $-9.1904+0.0744\cdot 165=3.086$. Aunque naturalmente, a estas altura hemos de tener claro que hemos de acompañar esta estimación puntual con un intervalo de confianza. Los estudiaremos en la Sección \@ref(sec:confintrls).
+Según el modelo lineal obtenido, el valor esperado de VEF1 cuando $\text{Altura}=175$ es $-9.1904+0.0744\cdot 165=3.086$. Aunque naturalmente, a estas alturas hemos de tener claro que hay que acompañar esta estimación puntual con un intervalo de confianza. Los estudiaremos en la Sección \@ref(sec:confintrls).
  
 
 La recta de regresión por mínimos cuadrados tiene las dos propiedades siguientes:
@@ -165,7 +165,7 @@ $$
 
 ### El coeficiente de determinación
 
-En principio,  la adecuación de la recta de regresión lineal obtenida para modelar $Y$ como función lineal de $X$ se mide por medio del valor absoluto $|r_{x,y}|$ de la correlación de Pearson de $x=(x_1,\ldots,x_n)$ e $y=(y_1,\ldots,y_n)$. Recordemos que $r_{x,y}$ estima la correlación de Pearson $\rho_{X,Y}$ de las variables $X,Y$, y que cuanto mayor es el valor absoluto de $\rho_{X,Y}$, más se aproxima $Y$ a ser una función lineal de $X$.
+En principio,  la adecuación de la recta de regresión para modelar $Y$ como función lineal de $X$ se mide por medio del valor absoluto $|r_{x,y}|$ de la correlación de Pearson de $x=(x_1,\ldots,x_n)$ e $y=(y_1,\ldots,y_n)$. Recordemos que $r_{x,y}$ estima la correlación de Pearson $\rho_{X,Y}$ de las variables $X,Y$, y que cuanto mayor es el valor absoluto de $\rho_{X,Y}$, más se aproxima $Y$ a ser una función lineal de $X$.
 
 Ahora bien, por motivos que explicamos un poco más abajo, en la práctica en vez de usar este valor absoluto $|r_{x,y}|$ se usa el cuadrado de la regresión, $r_{x,y}^2$: cuánto mayor sea este cuadrado, mayor será $|r_{x,y}|$ y por lo tanto más se aproxima $Y$ a ser una función lineal de $X$. En el contexto de la regresión lineal por mínimos cuadrado, a  $r_{x,y}^2$ se le llama el **coeficiente de determinación** y se lo denota por $R^2$. Como $r_{x,y}$ toma valores entre -1 y 1, $R^2$ toma valores entre 0 y 1. 
 
@@ -174,7 +174,7 @@ JAMOVI da el $R^2$ en la tabla  "Medidas de ajuste del modelo" al calcular la re
 
 
 ```{block2, type="rmdcorbes"}
-El motivo por el que se usa $R^2$ y no $|r_{x,y}|$ es que, calculando un poco, se obtiene que el coeficiente de determinación es igual a *la varianza de los valores estimados* de $Y$ sobre la muestra usada dividida por *la varianza de los valores observados* de $Y$ en la muestra:
+El motivo por el que se usa $R^2$ y no $|r_{x,y}|$ es que, calculando un poco, se obtiene que, en la regresión por mínimos cuadrados, el coeficiente de determinación es igual a *la varianza de los valores estimados* de $Y$ sobre la muestra usada dividida por *la varianza de los valores observados* de $Y$ en la muestra:
 $$
 r_{x,y}^2=\frac{s_{\widehat{y}}^2}{s_y^2}.
 $$
@@ -209,27 +209,29 @@ abline(lm(y4~x4,data=anscombe),col="red",lwd=1.5)
 
 Bien, ya sabemos calcular la recta de regresión por mínimos cuadrados a partir de una muestra. Pero hay que recordar que  sus coeficientes $b_0,b_1$ son *estimaciones* de los coeficientes "verdaderos" de la relación $\mu_{Y|x}=\beta_0+\beta_1 x$. Cuando estimamos algo a partir de una muestra, es conveniente controlar el error de la estimación mediante intervalos de confianza, que en este caso nos dirán, para un nivel de confianza dado, entre qué valores creemos que se mueven los valores reales de $\beta_0$ y $\beta_1$. Y claro, la incertidumbre en la estimación de $\beta_0$ y $\beta_1$ forzosamente se traducirá en una incertidumbre en las predicciones realizadas usando la recta de regresión, que también describiremos mediante intervalos de confianza.
 
-Como siempre, para poder usar fórmulas paramétricas para calcular intervalos de confianza necesitamos que se verifiquen algunas condiciones sobre las variables involucradas. En este caso, las condiciones que vamos a suponer que se cumplen son:
+Como siempre, para poder usar fórmulas paramétricas para calcular intervalos de confianza necesitamos que se verifiquen algunas condiciones sobre las variables involucradas. En este caso, las condiciones que vamos a suponer que se cumplen son las siguientes. Para cada $i=1,\ldots,n$, sea $E_i=Y|x_i-\beta_0-\beta_1 x_i$, a la que llamaremos la  **variable aleatoria error $i$-ésima**: esta variable toma un sujeto en el que $X$ valga $x_i$ y calcula la diferencia entre su valor de $Y$ y su valor esperado de $Y$ (que, recordemos, vale $\beta_0+\beta_1 x_i$). Supongamos que estas variables error satisfacen las condiciones siguientes:
 
-> Las variables aleatorias error $E_i=Y|x_i-\beta_0-\beta_1 x_i$ tienen todas la misma distribución normal de media 0, y son incorreladas dos a dos ($\sigma_{E_i,E_j}=0$ si $i\neq j$).
+* Todas son normales de media 0
+* Todas tienen la misma varianza: $\sigma_{E_i}=\sigma_{E_j}$ para todos $i\neq j$.
+* Son incorreladas dos a dos: $\sigma_{E_i,E_j}=0$ para todos $i\neq j$
 
 Si estas condiciones se satisfacen, entonces:
 
 *  El valor esperado de $b_0$ es $\beta_0$ y el valor esperado de $b_1$ es $\beta_1$: $b_0$ y $b_1$ son estimadores **insesgados** de $\beta_0$ y $\beta_1$.
 
-*  Entre todos los estimadores insesgados de $\beta_0$ y $\beta_1$, $b_0$ y $b_1$ son los que tienen menor error típico (son los más **precisos**)
+*  Entre todos los estimadores insesgados de $\beta_0$ y $\beta_1$, $b_0$ y $b_1$ son los que tienen menor error típico: son los estimadores insesgados **más precisos**
 
-*  Unos  estadísticos relacionados con $b_0$ y $b_1$ (y que no vamos a dar, tranquilos) tienen distribuciones t de Student conocidas, lo que permite calcular intervalos de confianza para $\beta_0$, $\beta_1$ y $\mu_{Y|x_0}$ centrados en las estimaciones.
+*  Unos  estadísticos relacionados con $b_0$ y $b_1$ (y que no vamos a dar, tranquilos) tienen distribuciones t de Student conocidas, lo que permite calcular intervalos de confianza para $\beta_0$, $\beta_1$ y $\mu_{Y|x_0}$ centrados en sus estimaciones $b_0$, $b_1$ e $\widehat{y}$
 
 
-Con JAMOVI podéis comprobar si se puede aceptar si las variables error $E_i$ cumplen las suposiciones que hemos hecho para que el cálculo de intervalos de confianza tenga sentido en  **Regresión/Regresión lineal/Comprobaciones de supuestos**. En la regresión lineal simple nos interesan la "Prueba de normalidad" y la "Prueba de autocorrelación":
+Con JAMOVI podéis comprobar si se puede aceptar que las variables error $E_i$ cumplen las suposiciones que hemos hecho para que el cálculo de intervalos de confianza tenga sentido en  **Regresión/Regresión lineal/Comprobaciones de supuestos**. En la regresión lineal simple nos interesan la "Prueba de normalidad" y la "Prueba de autocorrelación":
 
 
 ```{r jamoviRLS2,echo=FALSE,out.width="100%"}
 knitr::include_graphics("INREMDN_files/figure-html/jamoviRLS2.png")
 ```
 
-Los p-valores del test de normalidad y del test de autocorrelación son grandes, por lo que podemos aceptar que todas la variables $E_i$ tienen la misma distribución normal de media 0 y que están incorreladas. La conclusión sobre la normalidad de los residuos la hemos ilustrado con su q-q-plot.
+Los p-valores del test de normalidad y del test de autocorrelación son grandes, por lo que podemos aceptar que todas la variables $E_i$ tienen la misma distribución normal de media 0 y que están incorreladas. La conclusión sobre la normalidad de los residuos la hemos ilustrado con un q-q-plot de los errores $e_i$.
 
 Para calcular con JAMOVI los intervalos de confianza para $\beta_0$ y $\beta_1$ tenéis que ir a **Regresión/Regresión lineal/Coeficientes del modelo** y marcar "Intervalo de confianza" y especificar el nivel de confianza:
 
@@ -239,7 +241,7 @@ knitr::include_graphics("INREMDN_files/figure-html/jamoviRLS3.png")
 
 Concluimos con un 95% de confianza que $\beta_0$ está entre -18.238 y -0.143 y que $\beta_1$ está entre 0.023 y 0.126. En la última columna, "p", de la  tabla "Coeficientes del modelo" se da el p-valor de los contrastes bilaterales $\beta_i=0$ contra $\beta_i\neq 0$. 
 
-Aquí es el momento de preguntarnos, más allá del contraste de correlación, si realmente el modelo lineal era adecuado o no. Si no podemos rechazar que $\beta_1=0$, no podemos concluir que el modelo de regresión lineal tenga sentido: $\beta_1=0$ significaría que $\mu_{Y|x}=\beta_0$ para todo $x$, es decir, que el valor esperado de $Y$ en un individuo no depende del valor de $X$. En nuestro ejemplo, el p-valor del contraste $\beta_1=0$ contra $\beta_1\neq 0$ es 0.007, por lo que tenemos evidencia estadísticamente significativa de que $\beta_1\neq 0$ y por lo tanto de que el valor de VEF1 de una persona depende linealmente de su altura. 
+Ahora es un buen momento para preguntarnos, más allá del contraste de correlación, si realmente el modelo lineal era adecuado o no. Si no podemos rechazar que $\beta_1=0$, no podemos concluir que el modelo de regresión lineal tenga sentido: $\beta_1=0$ significaría que $\mu_{Y|x}=\beta_0$ para todo $x$, es decir, que el valor esperado de $Y$ en un individuo no depende del valor de $X$. En nuestro ejemplo, el p-valor del contraste $\beta_1=0$ contra $\beta_1\neq 0$ es 0.007, por lo que tenemos evidencia estadísticamente significativa de que $\beta_1\neq 0$ y por lo tanto de que el valor de VEF1 de una persona depende linealmente de su altura. 
 
 
 
@@ -255,7 +257,7 @@ Pasemos a los intervalos de confianza para la predicción del valor de $Y$ dado 
 
 Las estimaciones puntuales que responden a ambas preguntas valen lo mismo: $\widehat{y}=b_0+b_1x$. Pero si lo pensamos un poco nos daremos cuenta de que, para un mismo nivel de confianza, el intervalo de confianza del valor esperado de $Y$ será más estrecho que el intervalo de confianza del valor de $Y$ en un sujeto: hay más incertidumbre en la estimación de $Y$ en *un sujeto concreto* con $X=x_0$ que en la estimación del valor medio de $Y$ en *todos los sujetos* con $X=x_0$.
 
-A día de hoy, JAMOVI responde parcialmente a la primera pregunta, para un nivel de confianza dado. Si en **Regresión/Regresión lineal/Medias Marginales Estimadas** arrastramos la variable Altura a la columna "Medias marginales" y marcamos las  casillas "Intervalo de confianza" (por ejemplo, del 95%), "Gráfica de medias marginales" y "Tabla de medias marginales", obtenemos el resultado siguiente:
+A día de hoy, JAMOVI responde parcialmente a la primera pregunta. Si en **Regresión/Regresión lineal/Medias Marginales Estimadas** arrastramos la variable Altura a la columna "Medias marginales" y marcamos las  casillas "Intervalo de confianza" (por ejemplo, del 95%), "Gráfica de medias marginales" y "Tabla de medias marginales", obtenemos el resultado siguiente:
 
 
 
@@ -263,7 +265,7 @@ A día de hoy, JAMOVI responde parcialmente a la primera pregunta, para un nivel
 knitr::include_graphics("INREMDN_files/figure-html/jamoviRLS4.png")
 ```
 
-En el gráfico,  la región gris  marca para cada altura el intervalo de confianza del 95% del VEF1 esperado  en las personas de esa altura. Observad cómo este intervalo de confianza se ensancha a medida que la altura se aleja de la media de la muestra. Por otro lado,  en la tabla se obtienen los intervalos de confianza del VEF1 esperado para las personas cuya altura es, respectivamente, la media de las alturas de la muestra menos su desviación típica, la altura media y  la media de las alturas de la muestra más su desviación típica.
+En el gráfico,  la región gris  marca para cada altura el intervalo de confianza del 95% del VEF1 esperado  en las personas de esa altura. Observad cómo este intervalo de confianza se ensancha a medida que la altura se aleja de la media de la muestra. Por otro lado,  en la tabla se obtienen los intervalos de confianza del VEF1 esperado para las personas cuya altura sea, respectivamente, la media de las alturas de la muestra menos su desviación típica, la altura media de la muestra, y  la media de las alturas de la muestra más su desviación típica.
 
 Si queremos calculr el IC-95% para el VEF1 medio de las personas de otra altura concreta, hay que usar las funciones adecuadas de R en la ventana **R/Rj**. A modo de ejemplo, supongamos que queremos calcular el IC-95% para el VEF1 esperado de una persona que mida 165 cm. Los pasos a seguir son los siguientes.
 
@@ -276,7 +278,7 @@ Y=data$VEF1
 ```
 
 
-* Definir una tabla de datos con el valor de la variable independiente `X` para el que queramos calcular el intervalo de confianza del valor esperado de la variable dependiente. La llamaremos `X.nuevas`.
+* Definir una tabla de datos con el valor (o los valores) de la variable independiente `X` para el que queramos calcular el intervalo de confianza del valor esperado de la variable dependiente. La llamaremos `X.nuevas`.
 
     En nuestro caso, entraríamos 
 ```{r,eval=FALSE}
@@ -300,7 +302,7 @@ knitr::include_graphics("INREMDN_files/figure-html/jamoviRLS5.png")
 ```
 
 
-En este resultado, `fit` es el VEF1 medio estimado cuando Altura=165 (no coincide con nuestra predicción en el Ejemplo \@ref(exm:VEF1-165) porque nosotros hemos tomado los coeficientes redondeados a 4 cifras decimales), y `lwr` y `upr` son los extremos inferior y superior para el intervalo de confianza del 95% para el VEF1 medio de las personas de 165 cm. Asi pues, estimamos con un 95% de confianza que el VEF1 medio de los jóvenes sanos de 1.65 m está entre 2.48 y 3.69 litros.
+En este resultado, `fit` es el VEF1 medio estimado cuando Altura=165 (no coincide con nuestra predicción en el Ejemplo \@ref(exm:VEF1-165) porque nosotros hemos tomado los coeficientes redondeados a 4 cifras decimales), y `lwr` y `upr` son los extremos inferior y superior para el intervalo de confianza del 95% para el VEF1 medio de las personas de 165 cm. Asi pues, estimamos con un 95% de confianza que el VEF1 esperado en un joven sano de 1.65 m está entre 2.48 y 3.69 litros.
 
 
 
@@ -323,14 +325,14 @@ En resumen, si Pep fuera un joven sano de 1.65 m:
 
 * Estimaría con un 95% de confianza que el VEF1 medio de los jóvenes sanos de su altura está entre 2.48 y 3.69 litros.
 
-Como veis, la predicción del VEF1 de Pep es mucho más incierta que la de su VEF1 "esperado": es más difícil acertar el VEF1 de una persona que el valor medio del VEF1 de un grupo de personas.
+Como veis, la predicción del VEF1 de Pep es mucho más incierta que la de su VEF1 "esperado": es más difícil acertar el VEF1 de un joven concreto que el valor medio del VEF1 de los jóvenes de su altura.
 
 
 
 ## Regresión lineal múltiple
 
 En el modelo de regresión lineal simple modelábamos una variable dependiente $Y$ en función de una única variable independiente $X$. Pero normalmente habrá más de una variables que influyan, o que al menos puedan influir, en el comportamiento de $Y$.
-La regresión lineal múltiple trata el problema de estudiar la expresión de una variable dependiente como función lineal de varias variables independientes. El planteamiento es exactamente el mismo que en el caso simple, solo que con más variables independientes.
+La **regresión lineal múltiple** trata el problema de estudiar la expresión de una variable dependiente como función lineal de varias variables independientes. El planteamiento es exactamente el mismo que en el caso simple, solo que con más variables independientes.
 
 ### La función de regresión lineal múltiple
 
@@ -346,17 +348,18 @@ $$
   \mu_{Y|x_1,\ldots,x_k}= \beta_0+\beta_1 x_1+\cdots+\beta_k x_k
 $$
 
-Como en el caso simple:
+Cuando $k=1$, estamos ante un modelo de regresión lineal simple, así que en realidad la regresión simple es un caso particular de regresión múltiple.
+Y, como en el caso simple:
 
 * $\beta_0$ es el valor esperado de $Y$  en los individuos en los que $X_1=\cdots=X_k=0$
 
-* Cada $\beta_i$, $i=1,\ldots,k$, es el incremento esperado del valor de $Y$  cuando el valor de  $X_i$ aumenta en 1 unidad y el resto de las variables independientes permanecen constantes.
+* Cada $\beta_i$, $i=1,\ldots,k$, es la variación esperada del valor de $Y$  cuando el valor de  $X_i$ aumenta en 1 unidad y el resto de las variables independientes permanecen constantes.
 
 Queremos estimar estos coeficientes $\beta_0,\beta_1,\ldots,\beta_k$ a partir de los valores
 $$
   (x_{i,1},x_{i,2},\ldots,x_{i,k},y_i)_{i=1,\ldots,n}
 $$
-de $(X_1,\ldots,X_k,Y)$ sobre una muestra de la población.  Usaremos la notación $\underline{x}_i=: (x_{i,1},x_{i,2},\ldots,x_{i,k})$, para cada $i=1,\ldots,n$.
+de $(X_1,\ldots,X_k,Y)$ sobre una muestra de la población.  Para simplificar  la notación, a veces denotaremos el vector de valores de las variables independientes en el sujeto $i$-ésimo de la muestra, $(x_{i,1},x_{i,2},\ldots,x_{i,k})$, por $\underline{x}_i$.
 
 Sean $b_0,b_1,\ldots,b_k$ las estimaciones obtenidas de  $\beta_0,\beta_1,\ldots,\beta_k$. Estas estimaciones definen la **función lineal de regresión** 
 $$
@@ -369,7 +372,7 @@ $$
 $$
 
 
-De nuevo vamos a usar la técnica de **regresión lineal por mínimos cuadrados** para estimar estos coeficientes.  Dados $b_0,b_1,\ldots,b_k$, llamamos el  **error** $e_i$ del modelo $y=b_0+b_1 x_1+\cdots+b_kx_k$ en el punto $i$-ésimo de la muestra $(x_{i,1},x_{i,2},\ldots,x_{i,k},y_i)$ a la diferencia entre el valor $y_i$ de $Y$ en este punto y su valor estimado $\widehat{y}_i=b_0+b_1 x_{i,1}+\cdots+b_kx_{i,k}$:
+De nuevo vamos a usar la técnica de **regresión lineal por mínimos cuadrados** para estimar estos coeficientes.  Dados $b_0,b_1,\ldots,b_k$, llamamos el  **error** $e_i$ del modelo $y=b_0+b_1 x_1+\cdots+b_kx_k$ en el punto $i$-ésimo de la muestra $(x_{i,1},x_{i,2},\ldots,x_{i,k},y_i)$ a la diferencia entre el valor $y_i$ de $Y$ en este punto y su valor estimado $\widehat{y}_i$:
 $$
 e_i=y_i-\widehat{y}_i=y_i-(b_0+b_1 x_{i,1}+\cdots+b_kx_{i,k})
 $$
@@ -400,25 +403,25 @@ knitr::include_graphics("INREMDN_files/figure-html/jamoviRLM1.png")
 
 
 
-La columna "Estimador" de la tabla que resulta contiene los coeficientes estimados de la función de regresión lineal:
+La columna "Estimador" de la tabla que resulta contiene los coeficientes estimados de la función de regresión lineal. Da:
 $$
 y=-5417.14+11.18x_1+5.37x_2-1.68x_3+8.69x_4+166.07x_5
 $$
 es decir,
 $$
 \begin{array}{rl}
-\text{Peso.neonato}\ =\!\!\!\!\! & -5417.14+11.18\cdot \text{Edad.madre}+5.37\cdot \text{Peso.madre}\\
-&\quad -1.68\cdot\text{Tensión.sistólica}+8.69\cdot\text{Nivel.colesterol}\\
-&\quad +166.07\cdot\text{Edad.gestacional}
+\text{Peso esperado}\ =\!\!\!\!\! & -5417.14+11.18\cdot \text{Edad.madre}\\
+&\quad+5.37\cdot \text{Peso.madre} -1.68\cdot\text{Tensión.sistólica}\\
+&\quad +8.69\cdot\text{Nivel.colesterol} +166.07\cdot\text{Edad.gestacional}
 \end{array}
 $$
 
-A partir de este modelo podemos predecir el aumento esperado del peso del neonato asociado al aumento en una unidad de cada variable independiente si las otras variables permanecen constantes. Por ejemplo, a igualdad de los valores del resto de variables independientes, el aumento de 1 mg/dl en el nivel de colesterol basal está asociado a un aumento esperado de 8.7 gramos del neonato. 
+A partir de este modelo podemos predecir el aumento esperado del peso  neonatal asociado al aumento en una unidad de cada variable independiente si las otras variables permanecen constantes. Por ejemplo, a igualdad de los valores del resto de variables independientes, el aumento de 1 mg/dl en el nivel de colesterol basal está asociado a un aumento esperado de 8.7 gramos del neonato. 
 
 
 La función de regresión lineal por mínimos cuadrados tiene las dos propiedades siguientes, que extienden a más de una variable independiente las propiedades de la recta de regresión por mínimos cuadrados:
 
-*  El hiperplano de regresión pasa por el vector de medias muestrales  $(\overline{x}_1,\overline{x}_2,\ldots,\overline{x}_k,\overline{y})$:
+*  La función lineal de regresión pasa por el vector de medias muestrales  $(\overline{x}_1,\overline{x}_2,\ldots,\overline{x}_k,\overline{y})$:
 $$
     \overline{y}=b_0+b_1 \overline{x}_1+\cdots+b_1 \overline{x}_k
 $$
@@ -459,19 +462,38 @@ knitr::include_graphics("INREMDN_files/figure-html/jamoviRLM3.png")
 ```
 
 Si no tenemos en cuenta la edad de la madre, el $R^2_{\textit{adj}}$ baja de 0.431 a 0.421, por lo que el modelo empeora.
+
+<!--
+Por cierto, con JAMOVI podemos efectuar simultáneamente varias regresiones lineales de la misma variable dependiente, para facilitar la comparación de los resultados y sus medidas de ajuste del modelo. Para ello hay que ir a **Constructor del Modelo** y usar "Añadir nuevo bloque" para definir nuevos subconjuntos de variables independientes:
   
-   
+
+
+```{r jamoviRLM3.1,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/jamoviRLM3.png")
+```
+
+
+
+```{r jamoviRLM3.2,echo=FALSE,out.width="100%"}
+knitr::include_graphics("INREMDN_files/figure-html/jamoviRLM3.png")
+```
+  
+-->
+
+
 ### Intervalos de confianza
 
-Supongamos ahora que:
-
-> Las variables aleatoria **error** 
+Como en el caso simple, para cada $i=1,\ldots,n$, la  **variable aleatoria error $i$-ésima** $E_i$ es la que toma un sujeto en el que $(X_1,\ldots,X_k)$ vale $\underline{x}_i$ y mide la diferencia entre su valor de $Y$ y su valor esperado de $Y$:
 $$
-E_{i}=(Y|\underline{x}_{i})-(\beta_0+\beta_1 x_{i,1}+\cdots+\beta_k x_{i,k})
+E_{i}=Y|\underline{x}_{i}-(\beta_0+\beta_1 x_{i,1}+\cdots+\beta_k x_{i,k})
 $$
-tienen todas la misma distribución normal de media 0, y son incorreladas dos a dos.
+Si, como en la regresión simple, estas variables error satisfacen las condiciones siguientes:
 
-En esta caso, como en la regresión simple,     
+* Todas son normales de media 0
+* Todas tienen la misma varianza: $\sigma_{E_i}=\sigma_{E_j}$ para todos $i\neq j$.
+* Son incorreladas dos a dos: $\sigma_{E_i,E_j}=0$ para todos $i\neq j$
+
+entonces:      
     
 * Para cada $i=0,\ldots,k$, $b_i$ es un estimador  insesgado del correspondiente $\beta_i$
 
@@ -497,7 +519,7 @@ knitr::include_graphics("INREMDN_files/figure-html/jamoviRLM5.png")
 
 Para cada  coeficiente obtenemos su intervalo de confianza y el p-valor del contraste bilateral que lo compara con 0. Así, en nuestro ejemplo estimamos con un 95% de confianza que el coeficiente $\beta_1$ de la edad de la madre está entre 1.03 y 21.34, y en particular que no es 0. En cambio, no podemos rechazar que el coeficiente de la Tensión sistólica media de la madre sea 0.
 
-Por lo que refiere a los intervalos de confianza para las predicciones de la variable dependiente en función de las independientes, se pueden calcular con la función `predict` en la ventana del editor de R como en el caso simple. Por ejemplo, supongamos que queremos predecir el peso del bebé de una parturienta de 31 años que pesa 72 kg, con nivel de colesterol inicial 182 mg/dl y tendisón sistólica media durante el embarazo 120 si la duración del parto ha sido exactamente 36 semanas.
+Por lo que refiere a los intervalos de confianza para las predicciones de la variable dependiente en función de las independientes, se pueden calcular con la función `predict` en la ventana del editor de R como en el caso simple. Por ejemplo, supongamos que queremos predecir el peso del bebé de una parturienta de 31 años que pesa 72 kg, con nivel de colesterol inicial 182 mg/dl y tensión sistólica media durante el embarazo 120 si la edad gestacional en el momento del parto es exactamente de 36 semanas.
 
 
 * Extraemos vectores con las variables independientes y dependiente de la muestra.
@@ -543,16 +565,19 @@ Hemos obtenido que:
 
 Los p-valores de los contrastes bilaterales $\beta_i=0$ contra $\beta_i\neq 0$ nos permiten estudiar qué coeficientes de la función de regresión podemos rechazar que sean 0. Por ejemplo, en nuestro estudio con un nivel de significación del 5% podemos rechazar que todos los coeficientes de variables independientes (y el término constante) sean 0 salvo el de la Tensión sistólica media de la madre.
 
-Por otro lado, podemos usar las "estadísticas de colinealidad" que obtenemos marcando la casilla correspondiente en **Regresión/Regresión lineal/Comprobaciones de Supuestos** para valorar si alguna variable independiente es función lineal de las otras o no. En concreto, el valor de VIF (*Variance Inflation Factor*) de una variable es
+Por otro lado, podemos usar las "estadísticas de colinealidad" que obtenemos marcando la casilla correspondiente en **Regresión/Regresión lineal/Comprobaciones de Supuestos** para valorar si alguna variable independiente es función lineal de las otras o no. En el caso de serlo, esa variable es redundante en el modelo lineal.
+
+En concreto, el valor de VIF (*Variance Inflation Factor*) de la variable $X_i$ es
 $$
-\frac{1}{1-R^2_{\text{la variable}}}
+\frac{1}{1-R^2_{i}}
 $$
-donde $R^2_{\text{la variable}}$ indica el $R^2$ de la regresión lineal de esa variable, tomándola como dependiente, respecto de las otras variables independientes. Un valor del VIF muy cercano a 1 indica un $R^2_{\text{la variable}}$ muy cercano a 0 y por lo tanto que esa variable no se aproxima a una combinación lineal del resto. Es el caso de nuestro ejemplo. En cambio, un valor muy grande del VIF significaría un valor muy grandedel $R^2_{\text{la variable}}$ y por lo tanto que esa variable es combinación lineal del resto. En este caso podríamos eliminarla de la regresión, ya que no aporta información nueva en la estimación de la $Y$. 
+donde $R^2_{i}$ indica el $R^2$ de la regresión lineal de esa variable $X_i$, tomándola como dependiente, respecto de las otras variables independientes. Un valor del VIF muy cercano a 1 indica un $R^2_{i}$ muy cercano a 0 y por lo tanto que esa variable no se aproxima a una combinación lineal de las otras variables independientes. Es el caso de nuestro ejemplo. En cambio, un valor muy grande del VIF significaría un valor del $R^2_{i}$ muy cercano a 1 y por lo tanto que esa variable es aproximadamente combinación lineal del resto de variables independientes. En este caso podríamos eliminarla de la regresión, ya que sería redundante y no aportaría información nueva en la estimación de la $Y$. 
   
-Volviendo a los p-valores de los contrastes $\beta_i=0$ contra $\beta_i\neq 0$, si no podemos  rechazar que algún $\beta_i$, con $i=1,\ldots,k$, sea 0, no podemos concluir que el modelo de regresión lineal tenga sentido:  $\beta_1=\cdots=\beta_k=0$ 
+Volviendo a los p-valores de los contrastes $\beta_i=0$ contra $\beta_i\neq 0$, si no
+hay ningún $\beta_i$, con $i=1,\ldots,k$, que podamos rechazar que  sea 0, el modelo de regresión lineal no tiene sentido:  $\beta_1=\cdots=\beta_k=0$ 
 significaría que  el valor esperado de $Y$ en un sujeto no depende de sus valores de $X_1,\ldots,X_k$.
 
-Pero claro, eso son $k$ contrastes, y ya sabemos que la probabilidad de cometer en alguno un error de tipo I crece con $k$. Además los contrastes no són independientes, ya que los realizamos todos con la misma muestra, así que ajustar los p-valores no es tan sencillo como multiplicarlos por $k$.
+Pero claro, eso son $k$ contrastes, y ya sabemos que la probabilidad de cometer en alguno un error de tipo I crece con $k$. Además los contrastes no son independientes, ya que los realizamos todos con la misma muestra, así que ajustar los p-valores no es tan sencillo como multiplicarlos por $k$.
  
 Una manera de solventar este problema es usar un ANOVA. Si $\beta_1=\beta_2=\cdots=\beta_k=0$, entonces 
 $$
@@ -562,11 +587,11 @@ Por lo tanto, si en el contraste de $k$ medias
 $$
 \left\{\begin{array}{l}
 H_0:\mu_{Y|\underline{x}_1}=\cdots=\mu_{Y|\underline{x}_k}\\
-H_1:\mbox{no es verdad que } \mu_{Y|\underline{x}_1}=\cdots=\mu_{Y|\underline{x}_k}
+H_1:\text{no es verdad que } \mu_{Y|\underline{x}_1}=\cdots=\mu_{Y|\underline{x}_k}
 \end{array}
 \right.
 $$
-podemos rechazar la hipótesis nula, obtenemos evidencia de que no es verdad que $\beta_1=\beta_2=\cdots=\beta_k=0$ y por lo tanto de que el modelo lineal tiene sentido.
+podemos rechazar la hipótesis nula, obtenemos evidencia de que no es verdad que $\beta_1=\beta_2=\cdots=\beta_k=0$ y por lo tanto obtenemos evidencia de que el modelo lineal tiene sentido.
 
 JAMOVI lleva a cabo el ANOVA que resuelve este contraste marcando "Prueba F" en **Regresión/Regresión lineal/Ajuste del Modelo**:
 
@@ -576,8 +601,6 @@ knitr::include_graphics("INREMDN_files/figure-html/jamoviRLM7.png")
 ```
 
 El resultado se añade a la tabla "Medidas de ajuste del modelo". El p-valor del ANOVA da <0.001, por lo que tenemos evidencia de que los pesos esperados dependen de las variables independientes. 
-
-**AIC y BIC comparando modelos?**
 
 
 ## Regresión logística
